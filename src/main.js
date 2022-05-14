@@ -55,8 +55,9 @@ const updatePlayer = () => {
 }
 
 const nextFrame = () => {
-  framCount++;
   updatePlayer();
+  framCount++;
+  // Display stats.
   const now = performance.now();
   elapsedTimeDiv.innerHTML = `elapsed: ${now}ms`;
   framCounterDiv.innerHTML = `frames: ${framCount}`;
