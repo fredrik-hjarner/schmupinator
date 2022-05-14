@@ -1,22 +1,14 @@
-import { millisPerFrame, playerSpeedPerFrame, resolutionHeight, resolutionWidth } from './consts.js';
-import { initElapsedTimeDiv } from './elapsedTimeDiv.js';
-import { initFpsDiv } from './fpsDiv.js';
-import { initFrameCounterDiv } from './frameCounterDiv.js';
+import { playerSpeedPerFrame } from './consts.js';
 import { initGameDiv } from './gameDiv.js';
+import { GameLoop } from './gameLoop.js';
 import { Input } from './input.js';
-import { px } from './utils.js';
 
 /**
  * Variables
  */
 const input = new Input();
 let player = { position: { x: 100, y: 100 }, radius: 20 };
-let framCount = 0;
-const gameDiv = initGameDiv();
-const framCounterDiv = initFrameCounterDiv();
-const elapsedTimeDiv = initElapsedTimeDiv();
-const fpsDiv = initFpsDiv();
-let nextFrameMillis = null;
+initGameDiv();
 
 /**
  * Functions
@@ -37,16 +29,16 @@ const playerDiv = initPlayerDiv()
 const updatePlayer = () => {
   const speed = playerSpeedPerFrame[0];
 
-  if(input.buttonsPressed.left) {
+  if (input.buttonsPressed.left) {
     player.position.x -= speed;
   }
-  if(input.buttonsPressed.right) {
+  if (input.buttonsPressed.right) {
     player.position.x += speed;
   }
-  if(input.buttonsPressed.up) {
+  if (input.buttonsPressed.up) {
     player.position.y -= speed;
   }
-  if(input.buttonsPressed.down) {
+  if (input.buttonsPressed.down) {
     player.position.y += speed;
   }
 
@@ -54,30 +46,17 @@ const updatePlayer = () => {
   playerDiv.style.left = `${player.position.x}px`;
 }
 
-const nextFrame = () => {
-  updatePlayer();
-  framCount++;
-  // Display stats.
-  const now = performance.now();
-  elapsedTimeDiv.innerHTML = `elapsed: ${now}ms`;
-  framCounterDiv.innerHTML = `frames: ${framCount}`;
-  fpsDiv.innerHTML = `frames: ${Math.round(framCount/(now/1000))}`;
-}
-
-/**
- * This may not actually progress the game one frame.
- * Idea is to run these as fast as possible and to only progress a frame
- * when one frame has passed.
- */
-const oneGameLoop = () => {
-  while(performance.now() >= nextFrameMillis) {
-    nextFrameMillis += millisPerFrame;
-    nextFrame();
-  }
-}
-
 window.onload = () => {
+  const application = (() => {
+    // app contains all initialized shit.
+    const app = {};
+    app.input = input;
+    app.gameLoop = new GameLoop(app);
+    return app;
+  })();
+
+  application.gameLoop.SubscribeToNextFrame("updatePlayer", updatePlayer);
+
   console.log("Start");
-  nextFrameMillis = performance.now();
-  setInterval(oneGameLoop, 0);
+  application.gameLoop.Start();
 };
