@@ -1,5 +1,5 @@
-import { resolutionHeight } from "./consts.js";
-import { px } from "./utils.js";
+import { resolutionHeight } from "../consts.js";
+import { px } from "../utils.js";
 
 export const initFrameCounterDiv = () => {
   const frameCounter = window.document.querySelector("#frameCounter")

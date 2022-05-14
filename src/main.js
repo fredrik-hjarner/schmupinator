@@ -1,6 +1,6 @@
 import { initGameDiv } from './gameDiv.js';
-import { GameLoop } from './gameLoop.js';
-import { Input } from './input.js';
+import { GameLoop } from './gameLoop/gameLoop.js';
+import { Input } from './input/input.js';
 import { Player } from './player/player.js';
 
 initGameDiv();

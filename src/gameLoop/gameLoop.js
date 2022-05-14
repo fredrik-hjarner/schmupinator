@@ -1,4 +1,4 @@
-import { millisPerFrame } from "./consts.js";
+import { millisPerFrame } from "../consts.js";
 import { initElapsedTimeDiv } from "./elapsedTimeDiv.js";
 import { initFpsDiv } from "./fpsDiv.js";
 import { initFrameCounterDiv } from "./frameCounterDiv.js";
