@@ -1,0 +1,14 @@
+{
+  "name": "truxinator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "serve": "serve src"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^13.0.2"
+  }
+}
