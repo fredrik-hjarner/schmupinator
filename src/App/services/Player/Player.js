@@ -1,10 +1,10 @@
 import type { App } from "../../App.js";
+import type { PotentialShot } from "../Shots/PotentialShot";
 
 import {
   framesBewteenPlayerShots, playerShotSpeed, playerSpeedPerFrame, resolutionHeight, resolutionWidth
 } from "../../../consts.js";
 import { Circle } from "../../../Circle.js";
-import { Shot } from "../Shots/Shot.js";
 
 export class Player {
   app: App;
@@ -72,9 +72,12 @@ export class Player {
        */
       if(frame - this.lastShotFrame >= framesBewteenPlayerShots) {
         const spdY = -playerShotSpeed;
-        new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: 0, spdY });
-        new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: 0.9, spdY });
-        new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: -0.9, spdY });
+        const potentialShots: PotentialShot[] = [
+          { x: this.circle.X, y: this.circle.Y-this.circle.Radius, spdX: 0, spdY },
+          { x: this.circle.X, y: this.circle.Y-this.circle.Radius, spdX: 1.5, spdY },
+          { x: this.circle.X, y: this.circle.Y-this.circle.Radius, spdX: -1.5, spdY },
+        ];
+        this.app.shots.TryShoot(potentialShots);
         this.lastShotFrame = this.app.gameLoop.FrameCount;
       }
     }

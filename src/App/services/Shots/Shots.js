@@ -1,5 +1,9 @@
-import type { App } from "../../App";
-import type { Shot } from "./Shot";
+import type { App } from "../../App.js";
+import type { PotentialShot } from "./PotentialShot.js";
+
+import { resolutionWidth } from "../../../consts.js";
+
+import { Shot } from "./Shot.js";
 
 export class Shots {
   app: App;
@@ -10,11 +14,14 @@ export class Shots {
   /**
    * Public
    */
-  constructor(app: App,{ name, maxShots = 1000 }: { name: string, maxShots: number }) {
+  constructor(app: App,{ name, maxShots }: { name: string, maxShots: number }) {
     this.app = app;
     this.name = name;
     this.maxShots = maxShots;
-    this.shots = [];
+    // Create all shots
+    this.shots = Array(maxShots).fill(0).map((_, i) =>
+      new Shot({x: resolutionWidth + 10 + 3, y: 10 + 3 + i*6, spdX: 0, spdY: 0, active: false})
+    );
   }
   
   /**
@@ -27,20 +34,30 @@ export class Shots {
     this.app.gameLoop.SubscribeToNextFrame(this.name, this.update);
   };
 
-  AddShotToShots = (shot: Shot) => {
-    // Shot's constructor links itself to Shots.
-    this.shots.push(shot);
-  };
-
-  RemoveShotFromShots = (shot: Shot) => {
-    // Shot.destroy unlinks itself from Shots.
-    this.shots.filter(s => s !== shot); // reference equality.
+  TryShoot = (newShots: PotentialShot[]): boolean => {
+    const nrActiveShots = this.shots.filter(s => s.active).length;
+    const nr = newShots.length;
+    if(nrActiveShots + nr > this.maxShots) {
+      return false;
+    }
+    const inactiveShots = this.shots.filter(s => !s.active);
+    // Turn inactive shots into active shots.
+    newShots.forEach((newShot, i) => { // TODO: should be specific function.
+      inactiveShots[i].circle.X = newShot.x;
+      inactiveShots[i].circle.Y = newShot.y;
+      inactiveShots[i].spdX = newShot.spdX;
+      inactiveShots[i].spdY = newShot.spdY;
+      inactiveShots[i].active = true;
+    });
+    return true;
   };
 
   /**
    * Private
    */
   update = () => {
-    this.shots.forEach(shot => { shot.Update(); });
+    this.shots.forEach(shot => {
+      shot.Update();
+    });
   };
 }

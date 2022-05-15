@@ -1,5 +1,3 @@
-import type { App } from "../../App.js";
-
 import { resolutionHeight, resolutionWidth } from "../../../consts.js";
 import { Circle } from "../../../Circle.js";
 
@@ -7,16 +5,22 @@ export class Shot {
   /**
    * Public
    */
-  constructor(app: App, { x, y, spdX, spdY }: {x: number, y: number, spdX: number, spdY: number}) {
-    this.app = app;
+  constructor(
+    { x, y, spdX, spdY, active }:
+    {x: number, y: number, spdX: number, spdY: number, active: boolean}
+  ) {
+    this.origX = x;
+    this.origY = y;
     this.circle = new Circle(x, y, 6);
     this.spdX = spdX;
     this.spdY = spdY;
-
-    this.app.shots.AddShotToShots(this);
+    this.active = active;
   }
   
   Update = () => {
+    if(!this.active) {
+      return;
+    }
     this.circle.X += this.spdX;
     this.circle.Y += this.spdY;
     this.bound();
@@ -26,9 +30,10 @@ export class Shot {
    * Private
    */
   destroy = () => {
-    // this.dying = true // I dont know myabe would be safe to have.
-    this.app.shots.RemoveShotFromShots(this);
-    this.circle.div.remove(); // TODO: Ought to be on Circle!
+    // Inactivate and set back at resting place.
+    this.active = false;
+    this.circle.X = this.origX;
+    this.circle.Y = this.origY;
   };
 
   bound = () => {
