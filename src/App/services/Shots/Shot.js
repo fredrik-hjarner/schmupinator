@@ -6,12 +6,12 @@ export class Shot {
    * Public
    */
   constructor(
-    { x, y, spdX, spdY, active }:
-    {x: number, y: number, spdX: number, spdY: number, active: boolean}
+    { x, y, spdX, spdY, active, color }:
+    {x: number, y: number, spdX: number, spdY: number, active: boolean, color: string}
   ) {
     this.origX = x;
     this.origY = y;
-    this.circle = new Circle(x, y, 6);
+    this.circle = new Circle(x, y, 6, color);
     this.spdX = spdX;
     this.spdY = spdY;
     this.active = active;

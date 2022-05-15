@@ -16,7 +16,7 @@ export class Player {
    */
   constructor(app: App) {
     this.app = app;
-    this.circle = new Circle(100, 100, 20);
+    this.circle = new Circle(100, 100, 20, 'aqua');
     this.lastShotFrame = 0;
   }
 

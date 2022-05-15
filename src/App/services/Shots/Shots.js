@@ -20,7 +20,14 @@ export class Shots {
     this.maxShots = maxShots;
     // Create all shots
     this.shots = Array(maxShots).fill(0).map((_, i) =>
-      new Shot({x: resolutionWidth + 10 + 3, y: 10 + 3 + i*6, spdX: 0, spdY: 0, active: false})
+      new Shot({
+        x: resolutionWidth + 10 + 3,
+        y: 10 + 3 + i*6,
+        spdX: 0,
+        spdY: 0,
+        active: false,
+        color: 'aqua'
+      })
     );
   }
   
