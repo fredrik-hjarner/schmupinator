@@ -1,7 +1,7 @@
-import type { App } from "../App/App.js";
+import type { App } from "../../App.js";
 
-import { resolutionHeight, resolutionWidth } from "../consts.js";
-import { Circle } from "../Circle.js";
+import { resolutionHeight, resolutionWidth } from "../../../consts.js";
+import { Circle } from "../../../Circle.js";
 
 export class Shot {
   /**
