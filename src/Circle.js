@@ -11,16 +11,17 @@ export class Circle {
     this.Diameter = diameter;
     this.Radius = diameter/2;
     this.color = color;
+    this.UUID = `${uuid()}`;
 
     this.div = (() => {
       const div = document.createElement("div");
 
-      div.id = `${uuid()}`;
+      div.id = this.UUID;
       div.style.position = "fixed";
       div.style.boxSizing = "border-box";
       div.style.borderColor = color;
       div.style.borderStyle = "solid";
-      div.style.borderWidth = "2px";
+      div.style.borderWidth = "1px";
       div.style.width = `${diameter}px`;
       div.style.height = `${diameter}px`;
       div.style.top = `${this.Top}px`;
