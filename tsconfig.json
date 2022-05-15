@@ -1,0 +1,15 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true,
+    "checkJs": true,
+    "target": "ES2022",
+    "lib": [
+      "ES2021",
+      "DOM",
+    ]
+  },
+}

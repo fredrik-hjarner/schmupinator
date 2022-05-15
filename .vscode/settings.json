@@ -1,7 +1,16 @@
 {
-  "javascript.validate.enable": true,
-  "typescript.validate.enable": true,
+  "javascript.validate.enable": false,
+  "typescript.validate.enable": false,
   "javascript.updateImportsOnFileMove.enabled": "prompt",
   "typescript.updateImportsOnFileMove.enabled": "prompt",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false, // I think this disables default formatter only.
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }
 }

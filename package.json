@@ -4,11 +4,27 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "serve": "serve src"
+    "start": "run-s lint clean build copy-index serve",
+    "lint": "eslint --fix src",
+    "clean": "trash dist/*",
+    "build": "babel src -d dist",
+    "copy-index": "cpy --flat src/index.html dist",
+    "serve": "serve dist"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "serve": "^13.0.2"
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-transform-typescript": "^7.16.8",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "cpy-cli": "^4.1.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-import": "^2.26.0",
+    "npm-run-all": "^4.1.5",
+    "serve": "^13.0.2",
+    "trash-cli": "^5.0.0",
+    "typescript": "^4.6.4"
   }
 }

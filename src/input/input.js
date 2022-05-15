@@ -1,6 +1,14 @@
+type ButtonsPressed = {
+  space: boolean
+  left: boolean
+  right: boolean
+  up: boolean
+  down: boolean
+}
 
 export class Input {
-  buttonsPressed = {
+  buttonsPressed: ButtonsPressed = {
+    space: false,
     left: false,
     right: false,
     up: false,
@@ -14,6 +22,7 @@ export class Input {
 
   reset() {
     this.buttonsPressed = {
+      space: false,
       left: false,
       right: false,
       up: false,
@@ -21,12 +30,12 @@ export class Input {
     };
   }
 
-  onKey = (e, value) => {
+  onKey = (e: KeyboardEvent, value: boolean) => {
     switch (e.keyCode) {
-      // case 32:
-      //   // Space
-      //   this.buttonsPressed[Button.TURN_AROUND] = value;
-      //   break;
+      case 32:
+        // Space
+        this.buttonsPressed.space = value;
+        break;
       case 37:
         // Left
         this.buttonsPressed.left = value;
@@ -51,11 +60,11 @@ export class Input {
     }
   };
 
-  onKeyDown = (e) => {
+  onKeyDown = (e: KeyboardEvent) => {
     this.onKey(e, true);
   };
 
-  onKeyUp = (e) => {
+  onKeyUp = (e: KeyboardEvent) => {
     this.onKey(e, false);
   };
 }

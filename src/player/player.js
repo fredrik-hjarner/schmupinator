@@ -1,17 +1,19 @@
+import type { App } from "../App.js";
+
 import { playerSpeedPerFrame } from "../consts.js";
 
 export class Player {
   /**
    * Public
    */
-  constructor(app) {
+  constructor(app: App) {
     this.app = app;
-    this.position = { x: 100, y: 100 }
+    this.position = { x: 100, y: 100 };
     this.radius = 20;
 
     // TODO: Move this shit, maybe
     const initPlayerDiv = () => {
-      const playerDiv = window.document.querySelector("#player")
+      const playerDiv: HTMLDivElement = window.document.querySelector("#player");
       playerDiv.style.position = "fixed";
       playerDiv.style.backgroundColor = "blue";
       playerDiv.style.width = `${this.radius}px`;
@@ -20,8 +22,8 @@ export class Player {
       playerDiv.style.left = `${this.position.x}px`;
       playerDiv.style.borderRadius = "5000px";
       return playerDiv;
-    }
-    this.playerDiv = initPlayerDiv()
+    };
+    this.playerDiv = initPlayerDiv();
   }
 
   /**
@@ -32,7 +34,7 @@ export class Player {
    */
   Init = () => {
     this.app.gameLoop.SubscribeToNextFrame("updatePlayer", this.updatePlayer);
-  }
+  };
 
   /**
    * Private
@@ -57,5 +59,5 @@ export class Player {
 
     this.playerDiv.style.top = `${this.position.y}px`;
     this.playerDiv.style.left = `${this.position.x}px`;
-  }
+  };
 }

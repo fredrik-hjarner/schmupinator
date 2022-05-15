@@ -1,14 +1,22 @@
+import type  { App } from "../App.js";
+
 import { millisPerFrame } from "../consts.js";
 import { initElapsedTimeDiv } from "./elapsedTimeDiv.js";
 import { initFpsDiv } from "./fpsDiv.js";
 import { initFrameCounterDiv } from "./frameCounterDiv.js";
 
+type Listeners = {
+  [key: string]: () => void
+}
+
 export class GameLoop {
+  listeners: Listeners;
+
   /**
    * Public
    */
-  constructor(app) {
-    app = this.app;
+  constructor(app: App) {
+    this.app = app;
 
     this.framCount = 0;
     this.framCounterDiv = initFrameCounterDiv();
@@ -21,15 +29,15 @@ export class GameLoop {
   Start = () => {
     this.nextFrameMillis = performance.now();
     setInterval(this.oneGameLoop, 0);
-  }
+  };
 
-  SubscribeToNextFrame = (key, callback) => {
+  SubscribeToNextFrame = (key: string, callback: () => void) => {
     this.listeners[key] = callback;
-  }
+  };
 
-  UnsubscribeToNextFrame = (key) => {
+  UnsubscribeToNextFrame = (key: string) => {
     delete this.listeners[key];
-  }
+  };
 
   /**
    * Private
@@ -38,13 +46,13 @@ export class GameLoop {
     this.framCount++;
     Object.values(this.listeners).forEach(callback => {
       callback();
-    })
+    });
     // Display stats.
     const now = performance.now();
     this.elapsedTimeDiv.innerHTML = `elapsed: ${now}ms`;
     this.framCounterDiv.innerHTML = `frames: ${this.framCount}`;
     this.fpsDiv.innerHTML = `frames: ${Math.round(this.framCount / (now / 1000))}`;
-  }
+  };
 
   /**
    * This may not actually progress the game one frame.
@@ -56,5 +64,5 @@ export class GameLoop {
       this.nextFrameMillis += millisPerFrame;
       this.nextFrame();
     }
-  }
+  };
 }
