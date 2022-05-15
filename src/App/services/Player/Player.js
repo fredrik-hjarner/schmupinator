@@ -1,8 +1,8 @@
-import type { App } from "../App/App.js";
+import type { App } from "../../App.js";
 
-import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../consts.js";
-import { Circle } from "../Circle.js";
-import { Shot } from "../App/services/Shots/Shot.js";
+import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../consts.js";
+import { Circle } from "../../../Circle.js";
+import { Shot } from "../Shots/Shot.js";
 
 export class Player {
   /**

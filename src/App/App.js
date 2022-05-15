@@ -1,6 +1,6 @@
-import { GameLoop } from '../GameLoop/GameLoop.js';
-import { Input } from '../input/input.js';
-import { Player } from '../player/player.js';
+import { GameLoop } from './services/GameLoop/GameLoop.js';
+import { Input } from './services/Input/Input.js';
+import { Player } from './services/Player/Player.js';
 import { Shots } from './services/Shots/Shots.js';
 
 export class App {

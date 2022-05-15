@@ -1,7 +1,7 @@
-import type  { App } from "../App/App.js";
+import type  { App } from "../../App.js";
 
-import { millisPerFrame } from "../consts.js";
-import { round } from "../utils/round.js";
+import { millisPerFrame } from "../../../consts.js";
+import { round } from "../../../utils/round.js";
 import { initElapsedTimeDiv } from "./elapsedTimeDiv.js";
 import { initFpsDiv } from "./fpsDiv.js";
 import { initFrameCounterDiv } from "./frameCounterDiv.js";
