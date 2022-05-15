@@ -5,8 +5,13 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],
   },
+  env: {
+    "browser": true,
+    "node": false
+  },
   extends: [
-     "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   plugins: [
@@ -29,6 +34,7 @@ module.exports = {
     "no-var": "warn",
     "prefer-const": "warn",
     "semi": "warn",
+    "no-undef": "error",
     /**
      * Import
      */
@@ -70,7 +76,7 @@ module.exports = {
     "import/no-duplicates": "error",
     "import/no-namespace": "error",
     "import/extensions": ["error", "always"],
-    "import/no-default-export": "error",
+    "import/no-default-export": "error"
     /**
      * Typescript
      */
