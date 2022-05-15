@@ -3,13 +3,17 @@ import type { Shot } from "./Shot";
 
 export class Shots {
   app: App;
+  name: string;
+  maxShots: number;
   shots: Shot[];
 
   /**
    * Public
    */
-  constructor(app: App) {
+  constructor(app: App,{ name, maxShots = 1000 }: { name: string, maxShots: number }) {
     this.app = app;
+    this.name = name;
+    this.maxShots = maxShots;
     this.shots = [];
   }
   
@@ -20,7 +24,7 @@ export class Shots {
    * that case.
    */
   Init = () => {
-    this.app.gameLoop.SubscribeToNextFrame("Shots", this.update);
+    this.app.gameLoop.SubscribeToNextFrame(this.name, this.update);
   };
 
   AddShotToShots = (shot: Shot) => {

@@ -13,6 +13,6 @@ export class App {
     this.input = new Input(this);
     this.gameLoop = new GameLoop(this);
     this.player = new Player(this);
-    this.shots = new Shots(this);
+    this.shots = new Shots(this, { name: "playerShots", maxShots: 3*3 });
   }
 }
