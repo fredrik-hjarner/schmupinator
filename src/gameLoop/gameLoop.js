@@ -1,6 +1,7 @@
 import type  { App } from "../App.js";
 
 import { millisPerFrame } from "../consts.js";
+import { round } from "../utils/round.js";
 import { initElapsedTimeDiv } from "./elapsedTimeDiv.js";
 import { initFpsDiv } from "./fpsDiv.js";
 import { initFrameCounterDiv } from "./frameCounterDiv.js";
@@ -49,9 +50,9 @@ export class GameLoop {
     });
     // Display stats.
     const now = performance.now();
-    this.elapsedTimeDiv.innerHTML = `elapsed: ${now}ms`;
+    this.elapsedTimeDiv.innerHTML = `elapsed: ${round(now/1000)}s`;
     this.framCounterDiv.innerHTML = `frames: ${this.framCount}`;
-    this.fpsDiv.innerHTML = `frames: ${Math.round(this.framCount / (now / 1000))}`;
+    this.fpsDiv.innerHTML = `fps: ${Math.round(this.framCount / (now / 1000))}`;
   };
 
   /**

@@ -2,6 +2,7 @@ import type { App } from "../App.js";
 
 import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../consts.js";
 import { Circle } from "../Circle.js";
+import { Shot } from "../Shots/Shot.js";
 
 export class Player {
   /**
@@ -54,6 +55,14 @@ export class Player {
     }
     if (input.buttonsPressed.down) {
       this.circle.Y += speed;
+    }
+    if(input.buttonsPressed.space) {
+      /**
+       * TODO: I should limit this.
+       * Prolly use frame to limit it,
+       * to count by frame always so that you can advance/go-back one frame maunally.
+       */
+      new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: 0, spdY: -1 });
     }
 
     this.bound();

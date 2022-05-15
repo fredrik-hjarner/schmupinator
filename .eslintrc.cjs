@@ -76,10 +76,11 @@ module.exports = {
     "import/no-duplicates": "error",
     "import/no-namespace": "error",
     "import/extensions": ["error", "always"],
-    "import/no-default-export": "error"
+    "import/no-default-export": "error",
     /**
      * Typescript
      */
+    "@typescript-eslint/no-unused-vars": "error"
 
     /************
      * Disables *

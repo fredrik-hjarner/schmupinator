@@ -9,21 +9,17 @@ export class Shot {
    */
   constructor(app: App, { x, y, spdX, spdY }: {x: number, y: number, spdX: number, spdY: number}) {
     this.app = app;
-    this.circle = new Circle(x, y, 20);
+    this.circle = new Circle(x, y, 10);
     this.spdX = spdX;
     this.spdY = spdY;
-    // TODO: This might be slow, maybe.
-    this.app.gameLoop.SubscribeToNextFrame(this.circle.UUID, this.update);
-  }
 
-  /**
-   * Init runs after bootstrap.
-   * If it needs to use things on app dont do that in the constructor
-   * since the order on they are added to app makes a difference in
-   * that case.
-   */
-  Init = () => {
-    // noop
+    this.app.shots.AddShotToShots(this);
+  }
+  
+  Update = () => {
+    this.circle.X += this.spdX;
+    this.circle.Y += this.spdY;
+    this.bound();
   };
 
   /**
@@ -31,7 +27,7 @@ export class Shot {
    */
   destroy = () => {
     // this.dying = true // I dont know myabe would be safe to have.
-    this.app.gameLoop.UnsubscribeToNextFrame(this.circle.UUID);
+    this.app.shots.RemoveShotFromShots(this);
     this.circle.div.remove(); // TODO: Ought to be on Circle!
   };
 
@@ -46,11 +42,5 @@ export class Shot {
     } else if (this.circle.Bottom > resolutionHeight) {
       this.destroy();
     }
-  };
-
-  update = () => {
-    this.circle.X += this.spdX;
-    this.circle.Y += this.spdY;
-    this.bound();
   };
 }
