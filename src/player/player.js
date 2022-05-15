@@ -1,4 +1,4 @@
-import type { App } from "../App.js";
+import type { App } from "../App/App.js";
 
 import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../consts.js";
 import { Circle } from "../Circle.js";

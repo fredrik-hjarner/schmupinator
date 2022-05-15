@@ -1,4 +1,4 @@
-import { App } from './App.js';
+import { App } from './App/App.js';
 import { initGameDiv } from './gameDiv.js';
 
 initGameDiv();

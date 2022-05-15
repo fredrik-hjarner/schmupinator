@@ -1,4 +1,4 @@
-import type  { App } from "../App.js";
+import type  { App } from "../App/App.js";
 
 import { millisPerFrame } from "../consts.js";
 import { round } from "../utils/round.js";

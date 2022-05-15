@@ -1,4 +1,4 @@
-import type { App } from "../App";
+import type { App } from "../App/App";
 import type { Shot } from "./Shot";
 
 export class Shots {
