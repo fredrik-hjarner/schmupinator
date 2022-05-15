@@ -1,16 +1,23 @@
 import type { App } from "../../App.js";
 
-import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../consts.js";
+import {
+  framesBewteenPlayerShots, playerShotSpeed, playerSpeedPerFrame, resolutionHeight, resolutionWidth
+} from "../../../consts.js";
 import { Circle } from "../../../Circle.js";
 import { Shot } from "../Shots/Shot.js";
 
 export class Player {
+  app: App;
+  circle: Circle;
+  lastShotFrame: number;
+
   /**
    * Public
    */
   constructor(app: App) {
     this.app = app;
     this.circle = new Circle(100, 100, 20);
+    this.lastShotFrame = 0;
   }
 
   /**
@@ -57,12 +64,19 @@ export class Player {
       this.circle.Y += speed;
     }
     if(input.buttonsPressed.space) {
+      const frame = this.app.gameLoop.FrameCount;
       /**
-       * TODO: I should limit this.
-       * Prolly use frame to limit it,
-       * to count by frame always so that you can advance/go-back one frame maunally.
+       * Limit frequency of shots.
+       * TODO: Should probably limit nr of shots as well,
+       * perhaps by tagging shots with a string.
        */
-      new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: 0, spdY: -1 });
+      if(frame - this.lastShotFrame >= framesBewteenPlayerShots) {
+        const spdY = -playerShotSpeed;
+        new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: 0, spdY });
+        new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: 0.9, spdY });
+        new Shot(this.app, { x: this.circle.X, y: this.circle.Y, spdX: -0.9, spdY });
+        this.lastShotFrame = this.app.gameLoop.FrameCount;
+      }
     }
 
     this.bound();

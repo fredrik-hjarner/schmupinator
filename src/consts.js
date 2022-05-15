@@ -15,3 +15,6 @@ export const playerSpeedPerFrame = [
   // zero upgrades
   2.35 // confirmed correct!
 ]; 
+
+export const framesBewteenPlayerShots = 10;
+export const playerShotSpeed = 6;

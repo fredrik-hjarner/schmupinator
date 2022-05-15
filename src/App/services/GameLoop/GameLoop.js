@@ -11,6 +11,12 @@ type Listeners = {
 }
 
 export class GameLoop {
+  app: App;
+  FrameCount: number;
+  framCounterDiv: HTMLDivElement;
+  elapsedTimeDiv: HTMLDivElement;
+  fpsDiv: HTMLDivElement;
+  nextFrameMillis: number;
   listeners: Listeners;
 
   /**
@@ -19,7 +25,7 @@ export class GameLoop {
   constructor(app: App) {
     this.app = app;
 
-    this.framCount = 0;
+    this.FrameCount = 0;
     this.framCounterDiv = initFrameCounterDiv();
     this.elapsedTimeDiv = initElapsedTimeDiv();
     this.fpsDiv = initFpsDiv();
@@ -44,15 +50,15 @@ export class GameLoop {
    * Private
    */
   nextFrame = () => {
-    this.framCount++;
+    this.FrameCount++;
     Object.values(this.listeners).forEach(callback => {
       callback();
     });
     // Display stats.
     const now = performance.now();
     this.elapsedTimeDiv.innerHTML = `elapsed: ${round(now/1000)}s`;
-    this.framCounterDiv.innerHTML = `frames: ${this.framCount}`;
-    this.fpsDiv.innerHTML = `fps: ${Math.round(this.framCount / (now / 1000))}`;
+    this.framCounterDiv.innerHTML = `frames: ${this.FrameCount}`;
+    this.fpsDiv.innerHTML = `fps: ${Math.round(this.FrameCount / (now / 1000))}`;
   };
 
   /**

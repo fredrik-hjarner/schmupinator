@@ -9,7 +9,7 @@ export class Shot {
    */
   constructor(app: App, { x, y, spdX, spdY }: {x: number, y: number, spdX: number, spdY: number}) {
     this.app = app;
-    this.circle = new Circle(x, y, 10);
+    this.circle = new Circle(x, y, 6);
     this.spdX = spdX;
     this.spdY = spdY;
 

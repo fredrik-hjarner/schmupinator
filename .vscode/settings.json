@@ -12,5 +12,6 @@
   "eslint.format.enable": true,
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "gitlens.codeLens.enabled": false
 }

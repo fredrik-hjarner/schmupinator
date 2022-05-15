@@ -55,6 +55,10 @@ module.exports = {
      * Errors *
      **********/
     /**
+     * Default
+     */
+    "max-len": ["error", 100],
+    /**
      * Import
      */
     "import/no-unresolved": "error",
