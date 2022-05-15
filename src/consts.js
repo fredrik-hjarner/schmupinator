@@ -19,4 +19,4 @@ export const playerSpeedPerFrame = [
 export const framesBewteenPlayerShots = 8;
 export const playerShotSpeed = 9;
 
-export const enemyShotSpeed = 3.5;
+export const enemyShotSpeed = 3;

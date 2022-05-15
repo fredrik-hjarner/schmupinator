@@ -1,6 +1,36 @@
 import type { App } from "../../App.js";
+import type { ShootAction } from "./Enemy.js";
 
+import { enemyShotSpeed } from "../../../consts.js";
 import { Enemy } from "./Enemy.js";
+
+// TODO: Move to a better place.
+const firstMiniBoss: ShootAction[] = [
+  // beam
+  { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },
+  { type: 'wait', frames: 3 },
+  { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },
+  { type: 'wait', frames: 3 },
+  { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },
+  { type: 'wait', frames: 64 - 3 - 3 },
+  // triplet
+  { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },
+  { type: 'shoot_direction', dirX: -enemyShotSpeed/Math.SQRT2, dirY: enemyShotSpeed/Math.SQRT2 },
+  { type: 'shoot_direction', dirX: enemyShotSpeed/Math.SQRT2, dirY: enemyShotSpeed/Math.SQRT2 },
+  { type: 'wait', frames: 64 },
+  // triplet
+  { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },
+  { type: 'shoot_direction', dirX: -enemyShotSpeed/Math.SQRT2, dirY: enemyShotSpeed/Math.SQRT2 },
+  { type: 'shoot_direction', dirX: enemyShotSpeed/Math.SQRT2, dirY: enemyShotSpeed/Math.SQRT2 },
+  { type: 'wait', frames: 64 },
+  // TODO: !!!!!
+  // { type: "repeat", times: 2, actions: [
+  //   { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },
+  //   {type:'shoot_direction', dirX: -enemyShotSpeed/Math.SQRT2, dirY: enemyShotSpeed/Math.SQRT2 },
+  //   {type:'shoot_direction', dirX: enemyShotSpeed/Math.SQRT2, dirY: enemyShotSpeed/Math.SQRT2 },
+  //   { type: 'wait', frames: 64 },
+  // ]}
+];
 
 export class Enemies {
   app: App;
@@ -14,7 +44,7 @@ export class Enemies {
     this.name = name;
     // Create all shots
     this.enemies = [
-      new Enemy(app, { frameBetweenShots: 60 })
+      new Enemy(app, { shootActions: firstMiniBoss }),
     ];
   }
   
