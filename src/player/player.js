@@ -1,7 +1,7 @@
 import type { App } from "../App.js";
 
 import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../consts.js";
-import { Circle } from "../Position.js";
+import { Circle } from "../Circle.js";
 
 export class Player {
   /**
@@ -10,20 +10,6 @@ export class Player {
   constructor(app: App) {
     this.app = app;
     this.circle = new Circle(100, 100, 20);
-
-    // TODO: Move this shit, maybe
-    const initPlayerDiv = () => {
-      const playerDiv: HTMLDivElement = window.document.querySelector("#player");
-      playerDiv.style.position = "fixed";
-      playerDiv.style.backgroundColor = "blue";
-      playerDiv.style.width = `${this.circle.Diameter}px`;
-      playerDiv.style.height = `${this.circle.Diameter}px`;
-      playerDiv.style.top = `${this.circle.Top}px`;
-      playerDiv.style.left = `${this.circle.Left}px`;
-      playerDiv.style.borderRadius = "5000px";
-      return playerDiv;
-    };
-    this.playerDiv = initPlayerDiv();
   }
 
   /**
@@ -71,8 +57,5 @@ export class Player {
     }
 
     this.bound();
-
-    this.playerDiv.style.top = `${this.circle.Top}px`;
-    this.playerDiv.style.left = `${this.circle.Left}px`;
   };
 }
