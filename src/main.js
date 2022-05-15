@@ -10,6 +10,8 @@ window.onload = () => {
   // Init
   app.player.Init();
   app.playerShots.Init();
+  app.enemyShots.Init();
+  app.enemies.Init();
 
   // Start
   console.log("Start");

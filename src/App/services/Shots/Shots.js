@@ -9,24 +9,29 @@ export class Shots {
   app: App;
   name: string;
   maxShots: number;
+  color: string;
   shots: Shot[];
 
   /**
    * Public
    */
-  constructor(app: App,{ name, maxShots }: { name: string, maxShots: number }) {
+  constructor(
+    app: App,{ name, maxShots, color, poolIndex }:
+    { name: string, maxShots: number, color: string, poolIndex: number }
+  ) {
     this.app = app;
     this.name = name;
     this.maxShots = maxShots;
+    this.color = color;
     // Create all shots
     this.shots = Array(maxShots).fill(0).map((_, i) =>
       new Shot({
-        x: resolutionWidth + 10 + 3,
+        x: resolutionWidth + 10 + 3 + poolIndex*15,
         y: 10 + 3 + i*6,
         spdX: 0,
         spdY: 0,
         active: false,
-        color: 'aqua'
+        color
       })
     );
   }

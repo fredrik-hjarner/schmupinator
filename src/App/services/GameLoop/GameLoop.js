@@ -16,8 +16,9 @@ export class GameLoop {
   framCounterDiv: HTMLDivElement;
   elapsedTimeDiv: HTMLDivElement;
   fpsDiv: HTMLDivElement;
-  nextFrameMillis: number;
+  nextFrameMillis: number | null;
   listeners: Listeners;
+  startTime: number | null;
 
   /**
    * Public
@@ -31,10 +32,12 @@ export class GameLoop {
     this.fpsDiv = initFpsDiv();
     this.nextFrameMillis = null;
     this.listeners = {}; // key-callback pairs
+    this.startTime = null;
   }
 
   Start = () => {
-    this.nextFrameMillis = performance.now();
+    this.startTime = performance.now();
+    this.nextFrameMillis = performance.now() + millisPerFrame;
     setInterval(this.oneGameLoop, 0);
   };
 
@@ -55,10 +58,10 @@ export class GameLoop {
       callback();
     });
     // Display stats.
-    const now = performance.now();
-    this.elapsedTimeDiv.innerHTML = `elapsed: ${round(now/1000)}s`;
+    const elapsed = performance.now() - this.startTime;
+    this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
     this.framCounterDiv.innerHTML = `frames: ${this.FrameCount}`;
-    this.fpsDiv.innerHTML = `fps: ${Math.round(this.FrameCount / (now / 1000))}`;
+    this.fpsDiv.innerHTML = `fps: ${Math.round(this.FrameCount / (elapsed / 1000))}`;
   };
 
   /**

@@ -16,7 +16,7 @@ export class Player {
    */
   constructor(app: App) {
     this.app = app;
-    this.circle = new Circle(100, 100, 20, 'aqua');
+    this.circle = new Circle(resolutionWidth/2, resolutionHeight-20, 20, 'aqua');
     this.lastShotFrame = 0;
   }
 
@@ -67,8 +67,6 @@ export class Player {
       const frame = this.app.gameLoop.FrameCount;
       /**
        * Limit frequency of shots.
-       * TODO: Should probably limit nr of shots as well,
-       * perhaps by tagging shots with a string.
        */
       if(frame - this.lastShotFrame >= framesBewteenPlayerShots) {
         const spdY = -playerShotSpeed;
