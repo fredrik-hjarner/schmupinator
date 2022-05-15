@@ -73,11 +73,11 @@ export class Player {
       if(frame - this.lastShotFrame >= framesBewteenPlayerShots) {
         const spdY = -playerShotSpeed;
         const potentialShots: PotentialShot[] = [
-          { x: this.circle.X, y: this.circle.Y-this.circle.Radius, spdX: 0, spdY },
-          { x: this.circle.X, y: this.circle.Y-this.circle.Radius, spdX: 1.5, spdY },
-          { x: this.circle.X, y: this.circle.Y-this.circle.Radius, spdX: -1.5, spdY },
+          { x: this.circle.X, y: this.circle.Top, spdX: 0, spdY },
+          { x: this.circle.X, y: this.circle.Top, spdX: 1.5, spdY },
+          { x: this.circle.X, y: this.circle.Top, spdX: -1.5, spdY },
         ];
-        this.app.shots.TryShoot(potentialShots);
+        this.app.playerShots.TryShoot(potentialShots);
         this.lastShotFrame = this.app.gameLoop.FrameCount;
       }
     }

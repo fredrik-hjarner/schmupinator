@@ -9,7 +9,7 @@ window.onload = () => {
 
   // Init
   app.player.Init();
-  app.shots.Init();
+  app.playerShots.Init();
 
   // Start
   console.log("Start");
