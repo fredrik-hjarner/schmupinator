@@ -1,6 +1,7 @@
 import type { App } from "../../App.js";
 
 import { firstMiniBossShootActions } from "../../../enemies/firstMiniBoss/shootActions.js";
+import { firstMiniBossMoveActions } from "../../../enemies/firstMiniBoss/moveActions.js";
 import { Enemy } from "./Enemy.js";
 
 export class Enemies {
@@ -15,7 +16,10 @@ export class Enemies {
     this.name = name;
     // Create all shots
     this.enemies = [
-      new Enemy(app, { shootActions: firstMiniBossShootActions }),
+      new Enemy(app, {
+        shootActions: firstMiniBossShootActions,
+        moveActions: firstMiniBossMoveActions
+      }),
     ];
   }
   

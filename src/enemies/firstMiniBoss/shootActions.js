@@ -1,8 +1,8 @@
-import type { ShootAction } from "../../App/services/Enemies/Enemy";
+import type { Action } from "../actionTypes.js";
 
 import { enemyShotSpeed } from "../../consts.js";
 
-export const firstMiniBossShootActions: ShootAction[] = [
+export const firstMiniBossShootActions: Action[] = [
   // beam
   { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },
   { type: 'wait', frames: 3 },

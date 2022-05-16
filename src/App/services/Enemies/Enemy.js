@@ -1,51 +1,36 @@
 import type { App } from "../../App.js";
 import type { PotentialShot } from "../Shots/PotentialShot.js";
+import type { Action } from "../../../enemies/actionTypes.js";
 
-import {
-  playerSpeedPerFrame, resolutionHeight, resolutionWidth
-} from "../../../consts.js";
+import { resolutionWidth } from "../../../consts.js";
 import { Circle } from "../../../Circle.js";
 
 export class Enemy {
   app: App;
   circle: Circle;
-  actions: ShootAction[];
-  generator: Generator<void, void, void>;
+  shootActions: Action[];
+  shootGenerator: Generator<void, void, void>;
+  moveGenerator: Generator<void, void, void>;
 
   /**
    * Public
    */
-  constructor(app: App, { shootActions }: { shootActions: ShootAction[] }) {
+  constructor(
+    app: App,
+    { shootActions, moveActions }: { shootActions: Action[], moveActions: Action[] }
+  ) {
     this.app = app;
     this.circle = new Circle(resolutionWidth/2, 20, 20, 'red');
-    this.actions = shootActions;
-    this.generator = generator(this);
+    this.shootGenerator = generator(app, shootActions, this.HandleAction);
+    this.moveGenerator = generator(app, moveActions, this.HandleAction);
   }
 
   Update = () => {
-    const input = this.app.input;
-
-    const speed = playerSpeedPerFrame[0];
-
-    if (input.buttonsPressed.left) {
-      this.circle.X += speed;
-    }
-    if (input.buttonsPressed.right) {
-      this.circle.X -= speed;
-    }
-    if (input.buttonsPressed.up) {
-      this.circle.Y += speed;
-    }
-    if (input.buttonsPressed.down) {
-      this.circle.Y -= speed;
-    }
-
-    this.bound();
-
-    this.generator.next();
+    this.shootGenerator.next();
+    // this.moveGenerator.next();
   };
 
-  HandleAction = (action: ShootAction) => {
+  HandleAction = (action: Action) => {
     switch(action.type) {
       case 'shoot_direction': {
         this.ShootDirection({ dirX: action.dirX, dirY:action.dirY });
@@ -63,37 +48,11 @@ export class Enemy {
     ];
     this.app.enemyShots.TryShoot(potentialShots);
   };
-
-  /**
-   * Private
-   */
-  bound = () => {
-    if(this.circle.Left < 0) {
-      this.circle.Left = 0;
-    } else if(this.circle.Right > resolutionWidth) {
-      this.circle.Right = resolutionWidth;
-    }
-    if(this.circle.Top < 0) {
-      this.circle.Top = 0;
-    } else if (this.circle.Bottom > resolutionHeight) {
-      this.circle.Bottom = resolutionHeight;
-    }
-  };
-
 }
 
-export type ShootAction =
-  { type: "wait", frames: number} |
-  { type: "wait_util_frame_nr", framenr: number} |
-  { type: "shoot_direction", dirX: number, dirY: number };
-
-/**
- * TODO: Do I need to kill a function generator?
- * How do I do that if needed?
- */
-function* generator(enemy: Enemy): Generator<void, void, void> {
-  const app = enemy.app;
-  const actions = enemy.actions;
+function* generator(
+  app: App, actions: Action[], actionHandler: (Action) => void
+): Generator<void, void, void> {
   let currIndex = 0;
   const nrActions = actions.length;
 
@@ -113,7 +72,7 @@ function* generator(enemy: Enemy): Generator<void, void, void> {
       }
 
       default:
-        enemy.HandleAction(currAction);
+        actionHandler(currAction);
     }
     currIndex++;
     if(currIndex >= nrActions) { // index 1+1 & nr 2 => not kosher
