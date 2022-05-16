@@ -18,6 +18,7 @@ export class App {
     this.player = new Player(this); // TODO: player should also have name
     this.playerShots = new Shots(
       this,
+      // TODO: actually dont need name, could use uuid().
       { name: "playerShots", maxShots: 3*3, color: 'aqua', poolIndex: 0 }
     );
     this.enemyShots = new Shots(

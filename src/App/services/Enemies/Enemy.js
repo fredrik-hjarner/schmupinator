@@ -45,6 +45,18 @@ export class Enemy {
     this.generator.next();
   };
 
+  HandleAction = (action: ShootAction) => {
+    switch(action.type) {
+      case 'shoot_direction': {
+        this.ShootDirection({ dirX: action.dirX, dirY:action.dirY });
+        break;
+      }
+      
+      default:
+        console.error(`unknown action type: ${action.type}`);
+    }
+  };
+
   ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
     const potentialShots: PotentialShot[] = [
       { x: this.circle.X, y: this.circle.Y, spdX: dirX, spdY: dirY },
@@ -99,16 +111,9 @@ function* generator(enemy: Enemy): Generator<void, void, void> {
         // console.log('finished waiting');
         break;
       }
-      
-      // shoot_direction
-      case 'shoot_direction': {
-        enemy.ShootDirection({ dirX: currAction.dirX, dirY: currAction.dirY });
-        break;
-      }
 
       default:
-        console.error("unknown action");
-        return;
+        enemy.HandleAction(currAction);
     }
     currIndex++;
     if(currIndex >= nrActions) { // index 1+1 & nr 2 => not kosher
