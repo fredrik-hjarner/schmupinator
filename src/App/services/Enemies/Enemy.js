@@ -8,6 +8,8 @@ import { Circle } from "../../../Circle.js";
 export class Enemy {
   app: App;
   circle: Circle;
+  speedX: number;
+  speedY: number;
   shootActions: Action[];
   shootGenerator: Generator<void, void, void>;
   moveGenerator: Generator<void, void, void>;
@@ -23,17 +25,25 @@ export class Enemy {
     this.circle = new Circle(resolutionWidth/2, 20, 20, 'red');
     this.shootGenerator = generator(app, shootActions, this.HandleAction);
     this.moveGenerator = generator(app, moveActions, this.HandleAction);
+    this.speedX = 0;
+    this.speedY = 0;
   }
 
   Update = () => {
+    this.applySpeed();
     this.shootGenerator.next();
-    // this.moveGenerator.next();
+    this.moveGenerator.next();
   };
 
   HandleAction = (action: Action) => {
     switch(action.type) {
       case 'shoot_direction': {
         this.ShootDirection({ dirX: action.dirX, dirY:action.dirY });
+        break;
+      }
+
+      case 'set_speed': {
+        this.SetSpeed({ x: action.x, y: action.y });
         break;
       }
       
@@ -47,6 +57,19 @@ export class Enemy {
       { x: this.circle.X, y: this.circle.Y, spdX: dirX, spdY: dirY },
     ];
     this.app.enemyShots.TryShoot(potentialShots);
+  };
+
+  SetSpeed = ({ x, y }: {x: number, y: number}) => {
+    this.speedX = x;
+    this.speedY = y;
+  };
+
+  /**
+   * Private
+   */
+  applySpeed = () => {
+    this.circle.X += this.speedX;
+    this.circle.Y += this.speedY;
   };
 }
 
