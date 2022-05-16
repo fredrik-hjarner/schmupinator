@@ -2,6 +2,7 @@ import type { App } from "../../App.js";
 
 import { firstMiniBossShootActions } from "../../../enemies/firstMiniBoss/shootActions.js";
 import { firstMiniBossMoveActions } from "../../../enemies/firstMiniBoss/moveActions.js";
+import { resolutionWidth } from "../../../consts.js";
 import { Enemy } from "./Enemy.js";
 
 export class Enemies {
@@ -17,6 +18,14 @@ export class Enemies {
     // Create all shots
     this.enemies = [
       new Enemy(app, {
+        origX: resolutionWidth*0.333,
+        origY: 20,
+        shootActions: firstMiniBossShootActions,
+        moveActions: firstMiniBossMoveActions
+      }),
+      new Enemy(app, {
+        origX: resolutionWidth*0.666,
+        origY: 20,
         shootActions: firstMiniBossShootActions,
         moveActions: firstMiniBossMoveActions
       }),

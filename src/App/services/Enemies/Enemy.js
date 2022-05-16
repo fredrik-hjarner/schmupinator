@@ -2,7 +2,6 @@ import type { App } from "../../App.js";
 import type { PotentialShot } from "../Shots/PotentialShot.js";
 import type { Action } from "../../../enemies/actionTypes.js";
 
-import { resolutionWidth } from "../../../consts.js";
 import { Circle } from "../../../Circle.js";
 
 export class Enemy {
@@ -19,10 +18,11 @@ export class Enemy {
    */
   constructor(
     app: App,
-    { shootActions, moveActions }: { shootActions: Action[], moveActions: Action[] }
+    { origX, origY, shootActions, moveActions }:
+    { origX: number, origY: number, shootActions: Action[], moveActions: Action[] }
   ) {
     this.app = app;
-    this.circle = new Circle(resolutionWidth/2, 20, 20, 'red');
+    this.circle = new Circle(origX, origY, 20, 'red');
     this.shootGenerator = generator(app, shootActions, this.HandleAction);
     this.moveGenerator = generator(app, moveActions, this.HandleAction);
     this.speedX = 0;

@@ -4,5 +4,7 @@ export const firstMiniBossMoveActions: Action[] = [
   { type: 'set_speed', x: 2, y: 0 },
   { type: 'wait', frames: 60 },
   { type: 'set_speed', x: -2, y: 0 },
+  { type: 'wait', frames: 120 },
+  { type: 'set_speed', x: 2, y: 0 },
   { type: 'wait', frames: 60 },
 ];
