@@ -3,7 +3,8 @@ export type Action =
    * Common
    */
   { type: "wait", frames: number} |
-  { type: "wait_util_frame_nr", framenr: number} |
+  { type: "wait_util_frame_nr", frameNr: number} |
+  { type: "repeat", times: number, actions: Action[] } |
   /**
    * Shooting
    */

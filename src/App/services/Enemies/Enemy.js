@@ -1,6 +1,6 @@
 import type { App } from "../../App.js";
 import type { PotentialShot } from "../Shots/PotentialShot.js";
-import type { Action } from "./enemies/actionTypes.js";
+import type { Action } from "./actionTypes.js";
 
 import { Circle } from "../../../Circle.js";
 import { CommandExecutor } from "./CommandExecutor.js";

@@ -1,5 +1,5 @@
 import type { App } from "../../App";
-import type { Action } from "./enemies/actionTypes";
+import type { Action } from "./actionTypes";
 
 export function* CommandExecutor(
   app: App, actions: Action[], actionHandler: (Action) => void
@@ -11,7 +11,14 @@ export function* CommandExecutor(
   while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
     const currAction = actions[currIndex];
     switch(currAction.type) {
-      // wait
+      case "repeat": {
+        const times = currAction.times;
+        for(let i=0; i<times; i++) {
+          yield* CommandExecutor(app, currAction.actions, actionHandler);
+        }
+        break;
+      }
+      
       case 'wait': {
         // console.log('wait');
         const waitUntil = app.gameLoop.FrameCount + currAction.frames;
@@ -26,8 +33,8 @@ export function* CommandExecutor(
         actionHandler(currAction);
     }
     currIndex++;
-    if(currIndex >= nrActions) { // index 1+1 & nr 2 => not kosher
-      currIndex = 0; // start from beginning.
-    }
+    // if(currIndex >= nrActions) { // index 1+1 & nr 2 => not kosher
+    //   currIndex = 0; // start from beginning.
+    // }
   }
 }
