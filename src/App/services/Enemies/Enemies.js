@@ -1,7 +1,10 @@
 import type { App } from "../../App.js";
 
 import { firstMiniBossShootActions } from "./enemies/firstMiniBoss/shootActions.js";
-import { firstMiniBossMoveActions } from "./enemies/firstMiniBoss/moveActions.js";
+import {
+  firstMiniBossMoveActions1,
+  firstMiniBossMoveActions2
+} from "./enemies/firstMiniBoss/moveActions.js";
 import { resolutionWidth } from "../../../consts.js";
 import { Enemy } from "./Enemy.js";
 
@@ -21,13 +24,13 @@ export class Enemies {
         origX: resolutionWidth*0.333,
         origY: 20,
         shootActions: firstMiniBossShootActions,
-        moveActions: firstMiniBossMoveActions
+        moveActions: firstMiniBossMoveActions1
       }),
       new Enemy(app, {
         origX: resolutionWidth*0.666,
         origY: 20,
         shootActions: firstMiniBossShootActions,
-        moveActions: firstMiniBossMoveActions
+        moveActions: firstMiniBossMoveActions2
       }),
     ];
   }
