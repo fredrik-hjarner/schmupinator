@@ -47,7 +47,7 @@ export function* CommandExecutor(
             actionHandler({type: 'set_position', x: position.x, y: position.y});
           }
           if(currAction.type === "move_bezier") {
-            const position = bezier(currAction.start, currAction.bend, currAction.end, progress);
+            const position = bezier(currAction.bend, currAction.end, progress);
             actionHandler({
               type: 'set_position',
               x: startPos.x + position.x,

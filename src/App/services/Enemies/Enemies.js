@@ -22,13 +22,13 @@ export class Enemies {
     this.enemies = [
       new Enemy(app, {
         origX: resolutionWidth*0.333,
-        origY: 20,
+        origY: -20,
         shootActions: firstMiniBossShootActions,
         moveActions: firstMiniBossMoveActions1
       }),
       new Enemy(app, {
         origX: resolutionWidth*0.666,
-        origY: 20,
+        origY: -20,
         shootActions: firstMiniBossShootActions,
         moveActions: firstMiniBossMoveActions2
       }),
