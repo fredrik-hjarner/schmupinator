@@ -1,7 +1,7 @@
 import type { App } from "../../App.js";
 
-import { firstMiniBossShootActions } from "../../../enemies/firstMiniBoss/shootActions.js";
-import { firstMiniBossMoveActions } from "../../../enemies/firstMiniBoss/moveActions.js";
+import { firstMiniBossShootActions } from "./enemies/firstMiniBoss/shootActions.js";
+import { firstMiniBossMoveActions } from "./enemies/firstMiniBoss/moveActions.js";
 import { resolutionWidth } from "../../../consts.js";
 import { Enemy } from "./Enemy.js";
 

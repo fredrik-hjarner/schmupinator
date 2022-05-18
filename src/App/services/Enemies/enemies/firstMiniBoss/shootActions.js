@@ -1,6 +1,6 @@
 import type { Action } from "../actionTypes.js";
 
-import { enemyShotSpeed } from "../../consts.js";
+import { enemyShotSpeed } from "../../../../../consts.js";
 
 export const firstMiniBossShootActions: Action[] = [
   // beam

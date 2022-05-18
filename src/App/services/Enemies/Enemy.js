@@ -1,8 +1,9 @@
 import type { App } from "../../App.js";
 import type { PotentialShot } from "../Shots/PotentialShot.js";
-import type { Action } from "../../../enemies/actionTypes.js";
+import type { Action } from "./enemies/actionTypes.js";
 
 import { Circle } from "../../../Circle.js";
+import { CommandExecutor } from "./CommandExecutor.js";
 
 export class Enemy {
   app: App;
@@ -10,8 +11,8 @@ export class Enemy {
   speedX: number;
   speedY: number;
   shootActions: Action[];
-  shootGenerator: Generator<void, void, void>;
-  moveGenerator: Generator<void, void, void>;
+  shootCmdExecutor: Generator<void, void, void>;
+  moveCmdExecutor: Generator<void, void, void>;
 
   /**
    * Public
@@ -23,16 +24,16 @@ export class Enemy {
   ) {
     this.app = app;
     this.circle = new Circle(origX, origY, 20, 'red');
-    this.shootGenerator = generator(app, shootActions, this.HandleAction);
-    this.moveGenerator = generator(app, moveActions, this.HandleAction);
+    this.shootCmdExecutor = CommandExecutor(app, shootActions, this.HandleAction);
+    this.moveCmdExecutor = CommandExecutor(app, moveActions, this.HandleAction);
     this.speedX = 0;
     this.speedY = 0;
   }
 
   Update = () => {
     this.applySpeed();
-    this.shootGenerator.next();
-    this.moveGenerator.next();
+    this.shootCmdExecutor.next();
+    this.moveCmdExecutor.next();
   };
 
   HandleAction = (action: Action) => {
@@ -71,35 +72,4 @@ export class Enemy {
     this.circle.X += this.speedX;
     this.circle.Y += this.speedY;
   };
-}
-
-function* generator(
-  app: App, actions: Action[], actionHandler: (Action) => void
-): Generator<void, void, void> {
-  let currIndex = 0;
-  const nrActions = actions.length;
-
-  // while(true) {
-  while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
-    const currAction = actions[currIndex];
-    switch(currAction.type) {
-      // wait
-      case 'wait': {
-        // console.log('wait');
-        const waitUntil = app.gameLoop.FrameCount + currAction.frames;
-        while(app.gameLoop.FrameCount < waitUntil) {
-          yield;
-        }
-        // console.log('finished waiting');
-        break;
-      }
-
-      default:
-        actionHandler(currAction);
-    }
-    currIndex++;
-    if(currIndex >= nrActions) { // index 1+1 & nr 2 => not kosher
-      currIndex = 0; // start from beginning.
-    }
-  }
 }
