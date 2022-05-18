@@ -1,6 +1,7 @@
 import type { App } from "../../App.js";
 import type { PotentialShot } from "../Shots/PotentialShot.js";
 import type { Action } from "./actionTypes.js";
+import type { Vector } from "../../../math/bezier.js";
 
 import { Circle } from "../../../Circle.js";
 import { CommandExecutor } from "./CommandExecutor.js";
@@ -24,10 +25,18 @@ export class Enemy {
   ) {
     this.app = app;
     this.circle = new Circle(origX, origY, 20, 'red');
-    this.shootCmdExecutor =
-      CommandExecutor(shootActions, this.HandleAction, () => app.gameLoop.FrameCount);
-    this.moveCmdExecutor =
-      CommandExecutor(moveActions, this.HandleAction, () => app.gameLoop.FrameCount);
+    this.shootCmdExecutor = CommandExecutor(
+      shootActions,
+      this.HandleAction,
+      () => app.gameLoop.FrameCount,
+      this.getPosition
+    );
+    this.moveCmdExecutor = CommandExecutor(
+      moveActions,
+      this.HandleAction,
+      () => app.gameLoop.FrameCount,
+      this.getPosition
+    );
     this.speedX = 0;
     this.speedY = 0;
   }
@@ -49,6 +58,11 @@ export class Enemy {
         this.SetSpeed({ x: action.x, y: action.y });
         break;
       }
+
+      case 'set_position': {
+        this.SetPosition({ x: action.x, y: action.y });
+        break;
+      }
       
       default:
         console.error(`unknown action type: ${action.type}`);
@@ -67,11 +81,20 @@ export class Enemy {
     this.speedY = y;
   };
 
+  SetPosition = ({ x, y }: {x: number, y: number}) => {
+    this.circle.X = x;
+    this.circle.Y = y;
+  };
+
   /**
    * Private
    */
   applySpeed = () => {
     this.circle.X += this.speedX;
     this.circle.Y += this.speedY;
+  };
+
+  getPosition = (): Vector => {
+    return { x: this.circle.x, y: this.circle.y };
   };
 }

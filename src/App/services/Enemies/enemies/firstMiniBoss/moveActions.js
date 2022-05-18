@@ -13,11 +13,9 @@ export const firstMiniBossMoveActions1: Action[] = [
 
 export const firstMiniBossMoveActions2: Action[] = [
   { type: "repeat", times: 9999, actions:[
-    { type: 'set_speed', x: 2, y: 0 },
+    { type: 'move', movement: {x: 100, y: 100}, frames: 300 },
     { type: 'wait', frames: 60 },
-    { type: 'set_speed', x: -2, y: 0 },
-    { type: 'wait', frames: 120 },
-    { type: 'set_speed', x: 2, y: 0 },
+    { type: 'move', movement: {x: -100, y: -100}, frames: 300 },
     { type: 'wait', frames: 60 },
   ] }
 ];

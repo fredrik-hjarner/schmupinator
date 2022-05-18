@@ -14,6 +14,7 @@ export type Action =
   /**
    * Movement
    */
-   { type: "move_line", start: Vector, end: Vector, frames: number } |
+  { type: "move", movement: Vector, frames: number } |
+  { type: "set_position", x: number, y: number } |
   { type: "move_bezier", start: Vector, bend: Vector, end: Vector, frames: number } |
   { type: "set_speed", x: number, y: number };
