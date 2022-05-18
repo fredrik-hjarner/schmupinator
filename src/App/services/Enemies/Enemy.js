@@ -24,8 +24,10 @@ export class Enemy {
   ) {
     this.app = app;
     this.circle = new Circle(origX, origY, 20, 'red');
-    this.shootCmdExecutor = CommandExecutor(app, shootActions, this.HandleAction);
-    this.moveCmdExecutor = CommandExecutor(app, moveActions, this.HandleAction);
+    this.shootCmdExecutor =
+      CommandExecutor(shootActions, this.HandleAction, () => app.gameLoop.FrameCount);
+    this.moveCmdExecutor =
+      CommandExecutor(moveActions, this.HandleAction, () => app.gameLoop.FrameCount);
     this.speedX = 0;
     this.speedY = 0;
   }
