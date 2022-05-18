@@ -1,5 +1,6 @@
 import type { Action } from "./actionTypes";
-import type { Vector } from "../../../math/bezier.js";
+
+import { bezier, Vector } from "../../../math/bezier.js";
 
 import { moveLine } from "../../../math/moveLine.js";
 
@@ -33,6 +34,7 @@ export function* CommandExecutor(
         break;
       }
 
+      case "move_bezier":
       case "move": {
         const startFrame =  getFrame();
         const endFrame = startFrame + currAction.frames;
@@ -40,8 +42,18 @@ export function* CommandExecutor(
         while((endFrame - getFrame()) > 0) {
           const passedFrames = getFrame() - startFrame + 1; // The +1 is to make it start at frame 1
           const progress = passedFrames / currAction.frames;
-          const position = moveLine(startPos, currAction.movement, progress);
-          actionHandler({type: 'set_position', x: position.x, y: position.y});
+          if(currAction.type === "move") {
+            const position = moveLine(startPos, currAction.movement, progress);
+            actionHandler({type: 'set_position', x: position.x, y: position.y});
+          }
+          if(currAction.type === "move_bezier") {
+            const position = bezier(currAction.start, currAction.bend, currAction.end, progress);
+            actionHandler({
+              type: 'set_position',
+              x: startPos.x + position.x,
+              y: startPos.y + position.y
+            });
+          }
           yield;
         }
         break;

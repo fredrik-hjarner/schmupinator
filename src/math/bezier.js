@@ -4,11 +4,11 @@ export const bezier = (start: Vector, bend: Vector, end: Vector, t: number): Vec
   return {
     x:
       (1-t)**2 * start.x +
-      2(1-t)**2 * t * bend.x +
+      2*(1-t) * t * bend.x +
       t**2 * end.x,
     y: 
       (1-t)**2 * start.y +
-      2(1-t)**2 * t * bend.y +
+      2*(1-t) * t * bend.y +
       t**2 * end.y,
   };
 };
