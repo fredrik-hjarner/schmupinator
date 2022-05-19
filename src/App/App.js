@@ -3,6 +3,7 @@ import { GameLoop } from './services/GameLoop/GameLoop.js';
 import { Input } from './services/Input/Input.js';
 import { Player } from './services/Player/Player.js';
 import { Shots } from './services/Shots/Shots.js';
+import { GamePad } from './services/GamePad/GamePad.js';
 
 export class App {
   input: Input;
@@ -11,6 +12,7 @@ export class App {
   playerShots: Shots;
   enemyShots: Shots;
   enemies: Enemies;
+  gamePpad: GamePad;
 
   constructor() {
     this.input = new Input(this);
@@ -26,5 +28,6 @@ export class App {
       { name: "enemyShots", maxShots: 25, color: 'red', poolIndex: 1 }
     );
     this.enemies = new Enemies(this, { name: "enemies" });
+    this.gamepad = new GamePad();
   }
 }

@@ -48,22 +48,23 @@ export class Player {
 
   updatePlayer = () => {
     const input = this.app.input;
+    const gamepad = this.app.gamepad;
 
     const speed = playerSpeedPerFrame[0];
 
-    if (input.buttonsPressed.left) {
+    if (input.buttonsPressed.left || gamepad.left) {
       this.circle.X -= speed;
     }
-    if (input.buttonsPressed.right) {
+    if (input.buttonsPressed.right || gamepad.right) {
       this.circle.X += speed;
     }
-    if (input.buttonsPressed.up) {
+    if (input.buttonsPressed.up || gamepad.up) {
       this.circle.Y -= speed;
     }
-    if (input.buttonsPressed.down) {
+    if (input.buttonsPressed.down || gamepad.down) {
       this.circle.Y += speed;
     }
-    if(input.buttonsPressed.space) {
+    if(input.buttonsPressed.space || gamepad.shoot) {
       const frame = this.app.gameLoop.FrameCount;
       /**
        * Limit frequency of shots.
