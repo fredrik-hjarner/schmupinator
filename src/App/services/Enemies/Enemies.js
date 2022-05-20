@@ -18,19 +18,22 @@ export class Enemies {
   constructor(app: App, { name }: { name: string }) {
     this.app = app;
     this.name = name;
-    // Create all shots
     this.enemies = [
       new Enemy(app, {
         origX: resolutionWidth*0.333,
         origY: -20,
-        shootActions: firstMiniBossShootActions,
-        moveActions: firstMiniBossMoveActions1
+        actionLists: [
+          firstMiniBossShootActions,
+          firstMiniBossMoveActions1
+        ]
       }),
       new Enemy(app, {
         origX: resolutionWidth*0.666,
         origY: -20,
-        shootActions: firstMiniBossShootActions,
-        moveActions: firstMiniBossMoveActions2
+        actionLists: [
+          firstMiniBossShootActions,
+          firstMiniBossMoveActions2
+        ]
       }),
     ];
   }

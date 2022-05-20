@@ -4,47 +4,38 @@ import type { Action } from "./actionTypes.js";
 import type { Vector } from "../../../math/bezier.js";
 
 import { Circle } from "../../../Circle.js";
-import { CommandExecutor } from "./CommandExecutor.js";
+import { ActionExecutor } from "./ActionExecutor.js";
 
 export class Enemy {
   app: App;
   circle: Circle;
   speedX: number;
   speedY: number;
-  shootActions: Action[];
-  shootCmdExecutor: Generator<void, void, void>;
-  moveCmdExecutor: Generator<void, void, void>;
+  actionExecutor: ActionExecutor;
 
   /**
    * Public
    */
   constructor(
     app: App,
-    { origX, origY, shootActions, moveActions }:
-    { origX: number, origY: number, shootActions: Action[], moveActions: Action[] }
+    { origX, origY, actionLists }:
+    { origX: number, origY: number, actionLists: Action[][] }
   ) {
     this.app = app;
     this.circle = new Circle(origX, origY, 20, 'red');
-    this.shootCmdExecutor = CommandExecutor(
-      shootActions,
-      this.HandleAction,
-      () => app.gameLoop.FrameCount,
-      this.getPosition
-    );
-    this.moveCmdExecutor = CommandExecutor(
-      moveActions,
-      this.HandleAction,
-      () => app.gameLoop.FrameCount,
-      this.getPosition
-    );
+    this.actionExecutor = new ActionExecutor({
+      actionHandler: this.HandleAction,
+      actionLists,
+      getFrame: () => app.gameLoop.FrameCount,
+      getPosition: this.getPosition,
+    });
     this.speedX = 0;
     this.speedY = 0;
   }
 
   Update = () => {
     this.applySpeed();
-    this.shootCmdExecutor.next();
-    this.moveCmdExecutor.next();
+    this.actionExecutor.ProgressOneFrame();
   };
 
   HandleAction = (action: Action) => {
