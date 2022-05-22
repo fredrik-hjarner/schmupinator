@@ -8,6 +8,7 @@ import { ActionExecutor } from "./ActionExecutor.js";
 
 export class Enemy {
   app: App;
+  id: number;
   circle: Circle;
   speedX: number;
   speedY: number;
@@ -18,10 +19,11 @@ export class Enemy {
    */
   constructor(
     app: App,
-    { origX, origY, actionLists }:
-    { origX: number, origY: number, actionLists: Action[][] }
+    { id, origX, origY, actionLists }:
+    { id: number,origX: number, origY: number, actionLists: Action[][] }
   ) {
     this.app = app;
+    this.id = id;
     this.circle = new Circle(origX, origY, 20, 'red');
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,

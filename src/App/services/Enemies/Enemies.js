@@ -7,6 +7,7 @@ import {
 } from "./enemies/firstMiniBoss/moveActions.js";
 import { resolutionWidth } from "../../../consts.js";
 import { Enemy } from "./Enemy.js";
+import { uuid } from "../../../utils/uuid.js";
 
 export class Enemies {
   app: App;
@@ -20,6 +21,7 @@ export class Enemies {
     this.name = name;
     this.enemies = [
       new Enemy(app, {
+        id: uuid(),
         origX: resolutionWidth*0.333,
         origY: -20,
         actionLists: [
@@ -28,6 +30,7 @@ export class Enemies {
         ]
       }),
       new Enemy(app, {
+        id: uuid(),
         origX: resolutionWidth*0.666,
         origY: -20,
         actionLists: [

@@ -4,6 +4,7 @@ import { Input } from './services/Input/Input.js';
 import { Player } from './services/Player/Player.js';
 import { Shots } from './services/Shots/Shots.js';
 import { GamePad } from './services/GamePad/GamePad.js';
+import { Collisions } from './services/Collisions/Collisions.js';
 
 export class App {
   input: Input;
@@ -12,7 +13,8 @@ export class App {
   playerShots: Shots;
   enemyShots: Shots;
   enemies: Enemies;
-  gamePpad: GamePad;
+  gamepad: GamePad;
+  collisions: Collisions;
 
   constructor() {
     this.input = new Input(this);
@@ -29,5 +31,6 @@ export class App {
     );
     this.enemies = new Enemies(this, { name: "enemies" });
     this.gamepad = new GamePad();
+    this.collisions = new Collisions(this);
   }
 }

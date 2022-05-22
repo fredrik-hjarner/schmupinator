@@ -47,6 +47,16 @@ export class Player {
   };
 
   updatePlayer = () => {
+    /**
+     * Check player death
+     */
+    if(this.app.collisions.collisions.playerWasHit) {
+      location.reload();
+    }
+
+    /**
+     * Check input
+     */
     const input = this.app.input;
     const gamepad = this.app.gamepad;
 
