@@ -1,7 +1,7 @@
 import { resolutionHeight, resolutionWidth } from "./consts";
 
 export const initGameDiv = () => {
-  const gameDiv: HTMLDivElement = window.document.querySelector("#game");
+  const gameDiv: HTMLDivElement = window.document.querySelector("#game") as HTMLDivElement;
   gameDiv.style.height = `${resolutionHeight}px`;
   gameDiv.style.width = `${resolutionWidth}px`;
   gameDiv.style.backgroundColor = "black";

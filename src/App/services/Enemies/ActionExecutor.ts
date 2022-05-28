@@ -10,13 +10,13 @@ type TActionExecutorArgs = {
    * The actions in Action[] execute sequentially.
    */
   actionLists: Action[][];
-  actionHandler: (Action) => void;
+  actionHandler: (action: Action) => void;
   getFrame: () => number;
   getPosition: () => Vector;
 }
 
 export class ActionExecutor {
-  actionHandler: (Action) => void;
+  actionHandler: (action: Action) => void;
   getFrame: () => number;
   getPosition: () => Vector;
   generators: Generator<void, void, void>[];

@@ -94,11 +94,14 @@ module.exports = {
     /**
      * Typescript
      */
-    "@typescript-eslint/no-unused-vars": "error"
+    "@typescript-eslint/no-unused-vars": "error",
 
     /************
      * Disables *
      ************/
-    
+    /**
+     * Typescript
+     */
+    "@typescript-eslint/no-unnecessary-type-assertion": "off"
   }
 };

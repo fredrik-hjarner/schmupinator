@@ -8,7 +8,7 @@ export class Circle {
   Radius: number;
   color: string;
   UUID: string;
-  div?: HTMLDivElement;
+  div: HTMLDivElement;
 
   /**
    * Public

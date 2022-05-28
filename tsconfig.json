@@ -2,6 +2,9 @@
   "include": [
     "src/**/*"
   ],
+  "exclude": [
+    "dist/**/*"
+  ],
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "dist",
@@ -11,6 +14,13 @@
     "lib": [
       "ES2021",
       "DOM",
-    ]
-  },
+    ],
+    "allowSyntheticDefaultImports": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitAny": true,
+    // "noUncheckedIndexedAccess": true
+    "noUnusedLocals": true,
+    "strict": true,
+  }
 }

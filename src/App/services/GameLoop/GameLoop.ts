@@ -53,6 +53,9 @@ export class GameLoop {
    * Private
    */
   nextFrame = () => {
+    if(this.startTime === null) {
+      throw new Error("this.startTime === null");
+    }
     this.FrameCount++;
     Object.values(this.listeners).forEach(callback => {
       callback();
@@ -70,6 +73,9 @@ export class GameLoop {
    * when one frame has passed.
    */
   oneGameLoop = () => {
+    if(this.nextFrameMillis === null) {
+      throw new Error("this.nextFrameMillis === null");
+    }
     while (performance.now() >= this.nextFrameMillis) {
       this.nextFrameMillis += millisPerFrame;
       this.nextFrame();
