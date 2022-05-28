@@ -19,8 +19,8 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "noImplicitAny": true,
-    // "noUncheckedIndexedAccess": true
     "noUnusedLocals": true,
     "strict": true,
+    "removeComments": true
   }
 }
