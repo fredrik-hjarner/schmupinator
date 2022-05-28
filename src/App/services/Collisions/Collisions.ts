@@ -1,13 +1,5 @@
 import type { Circle } from "../../../Circle";
 import type { App } from "../../App";
-// import type { Enemy } from "../Enemies/Enemy";
-
-type TCalcCollisionsArgs = {
-  player: Circle;
-  // playerShots: Circle[];
-  // enemies: Enemy[];
-  enemyShots: Circle[];
-};
 
 type TCalcCollisionsRet = {
   playerWasHit: boolean;
@@ -46,38 +38,37 @@ export class Collisions {
      */
   update = () => {
     const player = this.app.player.circle;
+    const playerShots = this.app.playerShots.shots.map(s => s.circle);
     const enemyShots = this.app.enemyShots.shots.map(s => s.circle);
+    const enemies = this.app.enemies.enemies;
     /**
      * TODO: This is just temporary.
      * What should happen is that a collision update event
      * should happen which can be subscribed to.
      * I need to make an Events service to add on app.
      */
-    this.collisions = this.calcCollisions({ player, enemyShots });
-  };
+    const playerWasHit = this.calcCircleWasHitByShots({ circle: player, shots: enemyShots });
+    const enemiesThatWereHit = enemies.reduce<number[]>((acc, enemy) => {
+      const wasHit = this.calcCircleWasHitByShots({ circle: enemy.circle, shots: playerShots });
+      return wasHit ? [...acc, enemy.id] : acc;
+    }, []);
 
-  calcCollisions = ({
-    player,
-    // playerShots,
-    // enemies,
-    enemyShots,
-  }: TCalcCollisionsArgs): TCalcCollisionsRet => {
-    const playerWasHit = this.calcPlayerWasHit({ player, enemyShots });
-    return {
+    this.collisions = {
       playerWasHit,
-      enemiesThatWereHit: []
+      enemiesThatWereHit
     };
   };
 
-  calcPlayerWasHit = (
-    { player, enemyShots }: { player: Circle, enemyShots: Circle[] }
+
+  calcCircleWasHitByShots = (
+    { circle, shots }: { circle: Circle, shots: Circle[] }
   ): boolean => {
-    for(let i=0; i<enemyShots.length; i++) {
-      const shot = enemyShots[i];
+    for(let i=0; i<shots.length; i++) {
+      const shot = shots[i];
       // Multiplying minDistance if a hack to cause lower hit "box".
-      const minDistance = player.Radius + shot.Radius * 0.8;
-      const xDist = player.x - shot.x;
-      const yDist = player.y - shot.y;
+      const minDistance = circle.Radius + shot.Radius * 0.8;
+      const xDist = circle.x - shot.x;
+      const yDist = circle.y - shot.y;
       const distance = Math.sqrt(xDist**2 + yDist**2);
       if(distance <= minDistance) {
         return true;
