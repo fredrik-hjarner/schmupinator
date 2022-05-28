@@ -9,6 +9,8 @@ import { ActionExecutor } from "./ActionExecutor";
 export class Enemy {
   app: App;
   id: number;
+  maxHp: number;
+  hp: number;
   circle: Circle;
   speedX: number;
   speedY: number;
@@ -19,11 +21,13 @@ export class Enemy {
    */
   constructor(
     app: App,
-    { id, origX, origY, actionLists }:
-    { id: number,origX: number, origY: number, actionLists: Action[][] }
+    { id, origX, origY, hp, actionLists }:
+    { id: number,origX: number, origY: number, hp: number, actionLists: Action[][] }
   ) {
     this.app = app;
     this.id = id;
+    this.maxHp = hp;
+    this.hp = hp;
     this.circle = new Circle(origX, origY, 20, 'red');
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,
@@ -41,12 +45,19 @@ export class Enemy {
      */
     const { enemiesThatWereHit } = this.app.collisions.collisions;
     if(enemiesThatWereHit.includes(this.id)) {
-      const enemies = this.app.enemies;
-      // remove this enemy.
-      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
-      // TODO: Maybe publish a death event or something.
-      // TODO: Hit points.
-      return;
+      this.hp -= 1;
+      if(this.hp < 1) {
+        const enemies = this.app.enemies;
+        // remove this enemy.
+        enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
+        // TODO: Turning it black is stupid.
+        this.circle.div.style.borderColor = "black";
+        // TODO: Maybe publish a death event or something.
+        // TODO: Hit points.
+        return;
+      } else if(this.hp <= this.maxHp/2) {
+        this.circle.div.style.borderStyle = "dashed";
+      }
     }
 
     this.applySpeed();
