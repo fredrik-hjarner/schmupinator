@@ -2,6 +2,13 @@ import { resolutionHeight, resolutionWidth } from "../../../consts.js";
 import { Circle } from "../../../Circle.js";
 
 export class Shot {
+  origX: number;
+  origY: number;
+  circle: Circle;
+  spdX: number;
+  spdY: number;
+  active: boolean;
+
   /**
    * Public
    */

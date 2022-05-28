@@ -17,7 +17,7 @@ export class App {
   collisions: Collisions;
 
   constructor() {
-    this.input = new Input(this);
+    this.input = new Input();
     this.gameLoop = new GameLoop(this);
     this.player = new Player(this); // TODO: player should also have name
     this.playerShots = new Shots(

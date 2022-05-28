@@ -64,7 +64,8 @@ export class Collisions {
   }: TCalcCollisionsArgs): TCalcCollisionsRet => {
     const playerWasHit = this.calcPlayerWasHit({ player, enemyShots });
     return {
-      playerWasHit
+      playerWasHit,
+      enemiesThatWereHit: []
     };
   };
 

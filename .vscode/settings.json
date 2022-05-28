@@ -1,6 +1,6 @@
 {
   "javascript.validate.enable": false,
-  "typescript.validate.enable": false,
+  "typescript.validate.enable": true,
   "javascript.updateImportsOnFileMove.enabled": "prompt",
   "typescript.updateImportsOnFileMove.enabled": "prompt",
   "editor.formatOnSave": true,

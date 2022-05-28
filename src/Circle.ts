@@ -2,6 +2,14 @@ import { px } from "./utils/px.js";
 import { uuid } from "./utils/uuid.js";
 
 export class Circle {
+  x: number;
+  y: number;
+  Diameter: number;
+  Radius: number;
+  color: string;
+  UUID: string;
+  div?: HTMLDivElement;
+
   /**
    * Public
    */

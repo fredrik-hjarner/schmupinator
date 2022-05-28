@@ -1,7 +1,0 @@
-{
-  "presets": [],
-  "plugins": [
-    // Removes typescript types.
-    "@babel/plugin-transform-typescript"
-  ]
-}

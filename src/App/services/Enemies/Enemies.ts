@@ -12,6 +12,7 @@ import { uuid } from "../../../utils/uuid.js";
 export class Enemies {
   app: App;
   enemies: Enemy[];
+  name: string;
 
   /**
    * Public
