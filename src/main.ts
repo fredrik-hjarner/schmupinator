@@ -1,5 +1,5 @@
-import { App } from './App/App.js';
-import { initGameDiv } from './gameDiv.js';
+import { App } from './App/App';
+import { initGameDiv } from './gameDiv';
 
 initGameDiv();
 

@@ -1,10 +1,10 @@
-import type { App } from "../../App.js";
-import type { PotentialShot } from "../Shots/PotentialShot.js";
-import type { Action } from "./actionTypes.js";
-import type { Vector } from "../../../math/bezier.js";
+import type { App } from "../../App";
+import type { PotentialShot } from "../Shots/PotentialShot";
+import type { Action } from "./actionTypes";
+import type { Vector } from "../../../math/bezier";
 
-import { Circle } from "../../../Circle.js";
-import { ActionExecutor } from "./ActionExecutor.js";
+import { Circle } from "../../../Circle";
+import { ActionExecutor } from "./ActionExecutor";
 
 export class Enemy {
   app: App;

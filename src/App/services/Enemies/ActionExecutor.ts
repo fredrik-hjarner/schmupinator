@@ -1,7 +1,7 @@
 import type { Action } from "./actionTypes";
 
-import { bezier, Vector } from "../../../math/bezier.js";
-import { moveLine } from "../../../math/moveLine.js";
+import { bezier, Vector } from "../../../math/bezier";
+import { moveLine } from "../../../math/moveLine";
 
 type TActionExecutorArgs = {
   /**

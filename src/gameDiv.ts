@@ -1,4 +1,4 @@
-import { resolutionHeight, resolutionWidth } from "./consts.js";
+import { resolutionHeight, resolutionWidth } from "./consts";
 
 export const initGameDiv = () => {
   const gameDiv: HTMLDivElement = window.document.querySelector("#game");

@@ -1,10 +1,10 @@
-import type  { App } from "../../App.js";
+import type  { App } from "../../App";
 
-import { millisPerFrame } from "../../../consts.js";
-import { round } from "../../../utils/round.js";
-import { initElapsedTimeDiv } from "./elapsedTimeDiv.js";
-import { initFpsDiv } from "./fpsDiv.js";
-import { initFrameCounterDiv } from "./frameCounterDiv.js";
+import { millisPerFrame } from "../../../consts";
+import { round } from "../../../utils/round";
+import { initElapsedTimeDiv } from "./elapsedTimeDiv";
+import { initFpsDiv } from "./fpsDiv";
+import { initFrameCounterDiv } from "./frameCounterDiv";
 
 type Listeners = {
   [key: string]: () => void

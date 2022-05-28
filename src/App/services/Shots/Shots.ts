@@ -1,9 +1,9 @@
-import type { App } from "../../App.js";
-import type { PotentialShot } from "./PotentialShot.js";
+import type { App } from "../../App";
+import type { PotentialShot } from "./PotentialShot";
 
-import { resolutionWidth } from "../../../consts.js";
+import { resolutionWidth } from "../../../consts";
 
-import { Shot } from "./Shot.js";
+import { Shot } from "./Shot";
 
 export class Shots {
   app: App;

@@ -1,5 +1,5 @@
-import { px } from "./utils/px.js";
-import { uuid } from "./utils/uuid.js";
+import { px } from "./utils/px";
+import { uuid } from "./utils/uuid";
 
 export class Circle {
   x: number;

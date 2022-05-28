@@ -18,6 +18,16 @@ module.exports = {
     "import",
     "@typescript-eslint"
   ],
+  settings: {
+    'import/resolver': {
+      /**
+       * eslint-import-resolver-typescript make eslint understand imports better.
+       * even though typescript is an empty object it needs to be there for
+       * eslint-import-resolver-typescript to do it's thing.
+       */
+      typescript: {}
+    },
+  },
   rules: {
     /****************************
      * Warning that are fixable *
@@ -74,12 +84,12 @@ module.exports = {
     //     "import/no-unused-modules": ["error", {
     //       "missingExports": true,
     //       "unusedExports": true,
-    //       "ignoreExports": ["src/main.js"]
+    //       "ignoreExports": ["src/main.ts"]
     //     }],
     "import/no-nodejs-modules": "error",
     "import/no-duplicates": "error",
     "import/no-namespace": "error",
-    "import/extensions": ["error", "always"],
+    "import/extensions": ["error", "never"],
     "import/no-default-export": "error",
     /**
      * Typescript

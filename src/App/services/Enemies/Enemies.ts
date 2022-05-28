@@ -1,13 +1,13 @@
-import type { App } from "../../App.js";
+import type { App } from "../../App";
 
-import { firstMiniBossShootActions } from "./enemies/firstMiniBoss/shootActions.js";
+import { firstMiniBossShootActions } from "./enemyConfigs/firstMiniBoss/shootActions";
 import {
   firstMiniBossMoveActions1,
   firstMiniBossMoveActions2
-} from "./enemies/firstMiniBoss/moveActions.js";
-import { resolutionWidth } from "../../../consts.js";
-import { Enemy } from "./Enemy.js";
-import { uuid } from "../../../utils/uuid.js";
+} from "./enemyConfigs/firstMiniBoss/moveActions";
+import { resolutionWidth } from "../../../consts";
+import { Enemy } from "./Enemy";
+import { uuid } from "../../../utils/uuid";
 
 export class Enemies {
   app: App;

@@ -1,5 +1,5 @@
-import { resolutionHeight } from "../../../consts.js";
-import { px } from "../../../utils/px.js";
+import { resolutionHeight } from "../../../consts";
+import { px } from "../../../utils/px";
 
 export const initElapsedTimeDiv = () => {
   const elapsedTimeDiv: HTMLDivElement = window.document.querySelector("#elapsedTimeDiv");

@@ -1,5 +1,5 @@
-import { resolutionHeight, resolutionWidth } from "../../../consts.js";
-import { Circle } from "../../../Circle.js";
+import { resolutionHeight, resolutionWidth } from "../../../consts";
+import { Circle } from "../../../Circle";
 
 export class Shot {
   origX: number;

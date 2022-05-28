@@ -1,10 +1,10 @@
-import { Enemies } from './services/Enemies/Enemies.js';
-import { GameLoop } from './services/GameLoop/GameLoop.js';
-import { Input } from './services/Input/Input.js';
-import { Player } from './services/Player/Player.js';
-import { Shots } from './services/Shots/Shots.js';
-import { GamePad } from './services/GamePad/GamePad.js';
-import { Collisions } from './services/Collisions/Collisions.js';
+import { Enemies } from './services/Enemies/Enemies';
+import { GameLoop } from './services/GameLoop/GameLoop';
+import { Input } from './services/Input/Input';
+import { Player } from './services/Player/Player';
+import { Shots } from './services/Shots/Shots';
+import { GamePad } from './services/GamePad/GamePad';
+import { Collisions } from './services/Collisions/Collisions';
 
 export class App {
   input: Input;

@@ -1,10 +1,10 @@
-import type { App } from "../../App.js";
+import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
 
 import {
   framesBewteenPlayerShots, playerShotSpeed, playerSpeedPerFrame, resolutionHeight, resolutionWidth
-} from "../../../consts.js";
-import { Circle } from "../../../Circle.js";
+} from "../../../consts";
+import { Circle } from "../../../Circle";
 
 export class Player {
   app: App;

@@ -1,4 +1,4 @@
-import type { Action } from "../../actionTypes.js";
+import type { Action } from "../../actionTypes";
 
 const firstMiniBossMoveActions = (dir: number): Action[] => ([
   { type: 'move', movement: {x: 0, y: 130}, frames: 120 },
