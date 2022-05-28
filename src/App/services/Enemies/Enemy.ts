@@ -5,6 +5,7 @@ import type { Vector } from "../../../math/bezier";
 
 import { Circle } from "../../../Circle";
 import { ActionExecutor } from "./ActionExecutor";
+import { px } from "../../../utils/px";
 
 export class Enemy {
   app: App;
@@ -37,26 +38,35 @@ export class Enemy {
     });
     this.speedX = 0;
     this.speedY = 0;
+
+    this.updateDisplayHealth();
   }
 
   Update = () => {
     /**
-     * Check it got hit
+     * Check if got hit
      */
     const { enemiesThatWereHit } = this.app.collisions.collisions;
     if(enemiesThatWereHit.includes(this.id)) {
       this.hp -= 1;
+
+      /**
+       * Display damage.
+       * Starts filled with color,
+       * border gets successively thinner until they are gone.
+       */
+      const { style } = this.circle.div;
+      const width = parseFloat(style.width);
+      const factorHealthLeft = this.hp / this.maxHp;
+      style.borderWidth = px(factorHealthLeft * (width/2));
+
+      // Die
       if(this.hp < 1) {
         const enemies = this.app.enemies;
         // remove this enemy.
         enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
-        // TODO: Turning it black is stupid.
-        this.circle.div.style.borderColor = "black";
         // TODO: Maybe publish a death event or something.
-        // TODO: Hit points.
         return;
-      } else if(this.hp <= this.maxHp/2) {
-        this.circle.div.style.borderStyle = "dashed";
       }
     }
 
@@ -113,5 +123,12 @@ export class Enemy {
 
   getPosition = (): Vector => {
     return { x: this.circle.x, y: this.circle.y };
+  };
+
+  updateDisplayHealth = () => {
+    const { style } = this.circle.div;
+    const width = parseFloat(style.width);
+    const factorHealthLeft = this.hp / this.maxHp;
+    style.borderWidth = px(factorHealthLeft * (width/2));
   };
 }
