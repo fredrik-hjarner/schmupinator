@@ -36,6 +36,19 @@ export class Enemy {
   }
 
   Update = () => {
+    /**
+     * Check it got hit
+     */
+    const { enemiesThatWereHit } = this.app.collisions.collisions;
+    if(enemiesThatWereHit.includes(this.id)) {
+      const enemies = this.app.enemies;
+      // remove this enemy.
+      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
+      // TODO: Maybe publish a death event or something.
+      // TODO: Hit points.
+      return;
+    }
+
     this.applySpeed();
     this.actionExecutor.ProgressOneFrame();
   };

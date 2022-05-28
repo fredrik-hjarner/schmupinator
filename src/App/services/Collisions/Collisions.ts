@@ -1,7 +1,7 @@
 import type { Circle } from "../../../Circle";
 import type { App } from "../../App";
 
-type TCalcCollisionsRet = {
+type TCollisions = {
   playerWasHit: boolean;
   // List of id:s of enemies that were hit.
   enemiesThatWereHit: number[];
@@ -9,7 +9,7 @@ type TCalcCollisionsRet = {
 
 export class Collisions {
   app: App;
-  collisions: TCalcCollisionsRet;
+  collisions: TCollisions;
 
   /**
    * Public
