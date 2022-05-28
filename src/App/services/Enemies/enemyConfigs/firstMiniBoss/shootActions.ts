@@ -5,6 +5,8 @@ const enemyShotSpeed = 2.8;
 const diagonalSpd = enemyShotSpeed/Math.SQRT2;
 
 export const firstMiniBossShootActions: Action[] = [
+  // { type: "set_shot_speed", pixelsPerFrame: enemyShotSpeed },
+  { type: 'wait', frames: 25 },
   { type: "repeat", times: 9999, actions: [
     // beam
     { type: 'shoot_direction', dirX: 0, dirY: enemyShotSpeed },

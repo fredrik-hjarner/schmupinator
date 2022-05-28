@@ -15,6 +15,7 @@ export class Enemy {
   circle: Circle;
   speedX: number;
   speedY: number;
+  shotSpeed: number;
   actionExecutor: ActionExecutor;
 
   /**
@@ -30,6 +31,7 @@ export class Enemy {
     this.maxHp = hp;
     this.hp = hp;
     this.circle = new Circle(origX, origY, 35, 'red');
+    this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,
       actionLists,
@@ -74,6 +76,10 @@ export class Enemy {
     this.actionExecutor.ProgressOneFrame();
   };
 
+  /**
+   * Essentially maps actions to class methods,
+   * that is has very "thin" responsibilities.
+   */
   HandleAction = (action: Action) => {
     switch(action.type) {
       case 'shoot_direction': {
@@ -83,6 +89,11 @@ export class Enemy {
 
       case 'set_speed': {
         this.SetSpeed({ x: action.x, y: action.y });
+        break;
+      }
+
+      case 'set_shot_speed': {
+        this.SetShotSpeed(action.pixelsPerFrame);
         break;
       }
 
@@ -97,8 +108,17 @@ export class Enemy {
   };
 
   ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
+    const isZero = dirX === 0 && dirY === 0;
+    const pixelsPerFrame = this.shotSpeed;
+    const pythagoras = isZero ? 9999 : Math.sqrt(dirX**2 + dirY**2);
+    const speedUpFactor = pixelsPerFrame / pythagoras;
     const potentialShots: PotentialShot[] = [
-      { x: this.circle.X, y: this.circle.Y, spdX: dirX, spdY: dirY },
+      {
+        x: this.circle.X,
+        y: this.circle.Y,
+        spdX: dirX * speedUpFactor,
+        spdY: dirY * speedUpFactor
+      },
     ];
     this.app.enemyShots.TryShoot(potentialShots);
   };
@@ -106,6 +126,10 @@ export class Enemy {
   SetSpeed = ({ x, y }: {x: number, y: number}) => {
     this.speedX = x;
     this.speedY = y;
+  };
+
+  SetShotSpeed = (pixelsPerFrame: number) => {
+    this.shotSpeed = pixelsPerFrame;
   };
 
   SetPosition = ({ x, y }: {x: number, y: number}) => {
