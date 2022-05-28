@@ -1,7 +1,10 @@
 import type { Action } from "../../actionTypes";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const firstMiniBossMoveActions = (dir: number): Action[] => ([
-  { type: 'move', movement: {x: 0, y: 130}, frames: 120 },
+  // Move into view
+  { type: 'move', movement: {x: 0, y: 20}, frames: 40 },
+  { type: 'move', movement: {x: 0, y: 110}, frames: 90 },
   { type: 'move_bezier', bend: {x:0,y:10}, end: {x:30*dir,y:10}, frames: 50},
   { type: 'wait', frames: 25 },
   { type: 'move_bezier', bend: {x:0,y:10}, end: {x:-30*dir,y:10}, frames: 50},
