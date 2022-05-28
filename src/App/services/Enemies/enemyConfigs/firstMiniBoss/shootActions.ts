@@ -1,6 +1,6 @@
 import type { Action } from "../../actionTypes";
 
-import { enemyShotSpeed } from "../../../../../consts";
+const enemyShotSpeed = 2.8;
 
 const diagonalSpd = enemyShotSpeed/Math.SQRT2;
 
