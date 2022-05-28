@@ -14,6 +14,10 @@ const firstMiniBossMoveActions = (dir: number): Action[] => ([
   { type: 'move_bezier', bend: {x:0,y:50}, end: {x:50*dir,y:50}, frames: 50},
   { type: 'wait', frames: 25 },
   { type: 'move', movement: {x: -50*dir, y: 0}, frames: 50 },
+  { type: 'wait', frames: 25 },
+  { type: 'move', movement: {x: 0, y: 30}, frames: 30 },
+  { type: 'wait', frames: 25 },
+  { type: 'move', movement: {x: 0, y: -70}, frames: 70 },
 ]);
 
 export const firstMiniBossMoveActions1: Action[] = firstMiniBossMoveActions(1);

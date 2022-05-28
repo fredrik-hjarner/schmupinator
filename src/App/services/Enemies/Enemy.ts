@@ -29,7 +29,7 @@ export class Enemy {
     this.id = id;
     this.maxHp = hp;
     this.hp = hp;
-    this.circle = new Circle(origX, origY, 20, 'red');
+    this.circle = new Circle(origX, origY, 35, 'red');
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,
       actionLists,
