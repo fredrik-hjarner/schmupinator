@@ -34,6 +34,7 @@ export type Action =
    * Movement
    */
   TMove |
+  TMoveToAbsolute |
   TSetPosition |
   TMoveBezier |
   TSetSpeed;

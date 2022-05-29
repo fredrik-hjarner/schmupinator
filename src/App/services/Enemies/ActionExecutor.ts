@@ -62,6 +62,7 @@ export class ActionExecutor {
           break;
         }
   
+        case "move_to_absolute":
         case "move_bezier":
         case "move": {
           const startFrame =  this.getFrame();
@@ -74,8 +75,13 @@ export class ActionExecutor {
             if(currAction.type === "move") {
               const position = moveLine(startPos, currAction.movement, progress);
               this.actionHandler({type: 'set_position', x: position.x, y: position.y});
-            }
-            if(currAction.type === "move_bezier") {
+            } else if(currAction.type === "move_to_absolute") {
+              const { moveTo } = currAction;
+              const xToGo = moveTo.x !== undefined ? moveTo.x - startPos.x : 0;
+              const yToGo = moveTo.y !== undefined ? moveTo.y - startPos.y : 0;
+              const position = { x: startPos.x + xToGo*progress, y: startPos.y + yToGo*progress}; 
+              this.actionHandler({type: 'set_position', x: position.x, y: position.y});
+            } else if(currAction.type === "move_bezier") {
               const position = bezier(currAction.bend, currAction.end, progress);
               this.actionHandler({
                 type: 'set_position',
