@@ -2,7 +2,8 @@ import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
 
 import {
-  framesBewteenPlayerShots, playerShotSpeed, playerSpeedPerFrame, resolutionHeight, resolutionWidth
+  framesBewteenPlayerShots, playerInvincible, playerShotSpeed,
+  playerSpeedPerFrame, resolutionHeight, resolutionWidth
 } from "../../../consts";
 import { Circle } from "../../../Circle";
 
@@ -50,8 +51,10 @@ export class Player {
     /**
      * Check player death
      */
-    if(this.app.collisions.collisions.playerWasHit) {
-      location.reload();
+    if(!playerInvincible) {
+      if(this.app.collisions.collisions.playerWasHit) {
+        location.reload();
+      }
     }
 
     /**
