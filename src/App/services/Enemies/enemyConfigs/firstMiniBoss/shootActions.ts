@@ -1,7 +1,7 @@
 import type { Action } from "../../actionTypes";
 
 export const firstMiniBossShootActions: Action[] = [
-  { type: 'wait', frames: 45 },
+  { type: 'wait', frames: 75 },
   { type: "repeat", times: 9999, actions: [
     { type: "set_shot_speed", pixelsPerFrame: 2.6 },
     // beam
