@@ -101,6 +101,11 @@ export class Enemy {
         this.SetPosition({ x: action.x, y: action.y });
         break;
       }
+
+      case 'shoot_toward_player': {
+        this.ShootTowardPlayer();
+        break;
+      }
       
       default:
         console.error(`unknown action type: ${action.type}`);
@@ -121,6 +126,14 @@ export class Enemy {
       },
     ];
     this.app.enemyShots.TryShoot(potentialShots);
+  };
+
+  ShootTowardPlayer = () => {
+    const player = this.app.player.circle;
+    const me = this.circle;
+    const dirX = player.x - me.x;
+    const dirY = player.y - me.y;
+    this.ShootDirection({ dirX, dirY });
   };
 
   SetSpeed = ({ x, y }: {x: number, y: number}) => {
