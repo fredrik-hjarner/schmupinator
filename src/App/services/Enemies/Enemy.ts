@@ -1,11 +1,13 @@
 import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
 import type { Action } from "./actionTypes";
-import type { Vector } from "../../../math/bezier";
+import type { Vector as TVector } from "../../../math/bezier";
 
 import { Circle } from "../../../Circle";
 import { ActionExecutor } from "./ActionExecutor";
 import { px } from "../../../utils/px";
+import { Vector } from "../../../math/Vector";
+import { Angle } from "../../../math/Angle";
 
 export class Enemy {
   app: App;
@@ -106,6 +108,11 @@ export class Enemy {
         this.ShootTowardPlayer();
         break;
       }
+
+      case 'shoot_beside_player': {
+        this.ShootBesidePlayer(action.clockwiseDegrees);
+        break;
+      }
       
       default:
         console.error(`unknown action type: ${action.type}`);
@@ -136,6 +143,15 @@ export class Enemy {
     this.ShootDirection({ dirX, dirY });
   };
 
+  ShootBesidePlayer = (clockwiseDegrees: number) => {
+    const player = this.app.player.circle;
+    const me = this.circle;
+    const dirX = player.x - me.x;
+    const dirY = player.y - me.y;
+    const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(clockwiseDegrees));
+    this.ShootDirection({ dirX: vector.x, dirY: vector.y });
+  };
+
   SetSpeed = ({ x, y }: {x: number, y: number}) => {
     this.speedX = x;
     this.speedY = y;
@@ -158,7 +174,7 @@ export class Enemy {
     this.circle.Y += this.speedY;
   };
 
-  getPosition = (): Vector => {
+  getPosition = (): TVector => {
     return { x: this.circle.x, y: this.circle.y };
   };
 
