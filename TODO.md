@@ -2,3 +2,5 @@
 Both functions that the original state first and saves it, then measures progess then sends the
 original state and the progress to Enemy (that iself executes the stuff).\
 * Add reset.css and normalize.css.
+* Create an Event service
+

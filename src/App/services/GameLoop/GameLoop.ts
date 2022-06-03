@@ -6,10 +6,6 @@ import { initElapsedTimeDiv } from "./elapsedTimeDiv";
 import { initFpsDiv } from "./fpsDiv";
 import { initFrameCounterDiv } from "./frameCounterDiv";
 
-type Listeners = {
-  [key: string]: () => void
-}
-
 export class GameLoop {
   app: App;
   FrameCount: number;
@@ -17,7 +13,6 @@ export class GameLoop {
   elapsedTimeDiv: HTMLDivElement;
   fpsDiv: HTMLDivElement;
   nextFrameMillis: number | null;
-  listeners: Listeners;
   startTime: number | null;
 
   /**
@@ -31,7 +26,6 @@ export class GameLoop {
     this.elapsedTimeDiv = initElapsedTimeDiv();
     this.fpsDiv = initFpsDiv();
     this.nextFrameMillis = null;
-    this.listeners = {}; // key-callback pairs
     this.startTime = null;
   }
 
@@ -41,25 +35,15 @@ export class GameLoop {
     setInterval(this.oneGameLoop, 0);
   };
 
-  SubscribeToNextFrame = (key: string, callback: () => void) => {
-    this.listeners[key] = callback;
-  };
-
-  UnsubscribeToNextFrame = (key: string) => {
-    delete this.listeners[key];
-  };
-
   /**
    * Private
    */
-  nextFrame = () => {
+  private nextFrame = () => {
     if(this.startTime === null) {
       throw new Error("this.startTime === null");
     }
     this.FrameCount++;
-    Object.values(this.listeners).forEach(callback => {
-      callback();
-    });
+    this.app.events.dispatchEvent({ type: "frame_tick" });
     // Display stats.
     const elapsed = performance.now() - this.startTime;
     this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
@@ -72,7 +56,7 @@ export class GameLoop {
    * Idea is to run these as fast as possible and to only progress a frame
    * when one frame has passed.
    */
-  oneGameLoop = () => {
+  private oneGameLoop = () => {
     if(this.nextFrameMillis === null) {
       throw new Error("this.nextFrameMillis === null");
     }

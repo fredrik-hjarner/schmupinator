@@ -5,6 +5,7 @@ import { Player } from './services/Player/Player';
 import { Shots } from './services/Shots/Shots';
 import { GamePad } from './services/GamePad/GamePad';
 import { Collisions } from './services/Collisions/Collisions';
+import { Events } from './services/Events/Events';
 
 export class App {
   input: Input;
@@ -15,6 +16,7 @@ export class App {
   enemies: Enemies;
   gamepad: GamePad;
   collisions: Collisions;
+  events: Events;
 
   constructor() {
     this.input = new Input();
@@ -32,5 +34,6 @@ export class App {
     this.enemies = new Enemies(this, { name: "enemies" });
     this.gamepad = new GamePad();
     this.collisions = new Collisions(this);
+    this.events = new Events({ app: this, name:"events" });
   }
 }

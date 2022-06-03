@@ -51,7 +51,14 @@ export class Enemies {
    * that case.
    */
   Init = () => {
-    this.app.gameLoop.SubscribeToNextFrame(this.name, this.update);
+    this.app.events.subscribeToEvent(
+      this.name,
+      ({ type }) => {
+        if(type === 'frame_tick') {
+          this.update();
+        }
+      }
+    );
   };
 
   /**

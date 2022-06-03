@@ -28,7 +28,15 @@ export class Player {
    * that case.
    */
   Init = () => {
-    this.app.gameLoop.SubscribeToNextFrame("updatePlayer", this.updatePlayer);
+    // TODO: Use this.name instead.
+    this.app.events.subscribeToEvent(
+      "updatePlayer",
+      ({ type }) => {
+        if(type === 'frame_tick') {
+          this.updatePlayer();
+        }
+      }
+    );
   };
 
   /**

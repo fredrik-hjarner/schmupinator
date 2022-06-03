@@ -30,7 +30,14 @@ export class Collisions {
    */
   Init = () => {
     // TODO: Use this.name instead!!
-    this.app.gameLoop.SubscribeToNextFrame("Collisions", this.update);
+    this.app.events.subscribeToEvent(
+      "Collisions",
+      ({ type }) => {
+        if(type === 'frame_tick') {
+          this.update();
+        }
+      }
+    );
   };
   
   /**
