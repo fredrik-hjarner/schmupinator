@@ -1,4 +1,5 @@
 import type { App } from "../../App";
+import type { TCollisions } from "../Collisions/Collisions";
 
 type TConstructor = {
   app: App,
@@ -12,7 +13,8 @@ type TSubscribers = {
 }
 
 type TEvent =
-  { type: 'frame_tick' }; // signals next frame has come.
+  { type: 'frame_tick' } | // signals next frame has come.
+  { type: 'collisions', collisions: TCollisions }; // when collisions happen.
 
 export class Events {
   app: App;

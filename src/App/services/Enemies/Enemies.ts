@@ -53,20 +53,20 @@ export class Enemies {
   Init = () => {
     this.app.events.subscribeToEvent(
       this.name,
-      ({ type }) => {
-        if(type === 'frame_tick') {
-          this.update();
+      event => {
+        switch(event.type) {
+          case 'frame_tick':
+            this.enemies.forEach(enemy => {
+              enemy.OnFrameTick();
+            });
+            break;
+          case 'collisions':
+            this.enemies.forEach(enemy => {
+              enemy.OnCollisions(event.collisions);
+            });
+            break;
         }
       }
     );
-  };
-
-  /**
-   * Private
-   */
-  update = () => {
-    this.enemies.forEach(enemy => {
-      enemy.Update();
-    });
   };
 }

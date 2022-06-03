@@ -1,7 +1,7 @@
 import type { Circle } from "../../../Circle";
 import type { App } from "../../App";
 
-type TCollisions = {
+export type TCollisions = {
   playerWasHit: boolean;
   // List of id:s of enemies that were hit.
   enemiesThatWereHit: number[];
@@ -9,17 +9,12 @@ type TCollisions = {
 
 export class Collisions {
   app: App;
-  collisions: TCollisions;
 
   /**
    * Public
    */
   constructor(app: App) {
     this.app = app;
-    this.collisions = {
-      playerWasHit: false,
-      enemiesThatWereHit: []
-    };
   }
 
   /**
@@ -41,9 +36,9 @@ export class Collisions {
   };
   
   /**
-     * Private
-     */
-  update = () => {
+   * Private
+   */
+  private update = () => {
     const player = this.app.player.circle;
     const playerShots = this.app.playerShots.shots.map(s => s.circle);
     const enemyShots = this.app.enemyShots.shots.map(s => s.circle);
@@ -60,14 +55,15 @@ export class Collisions {
       return wasHit ? [...acc, enemy.id] : acc;
     }, []);
 
-    this.collisions = {
-      playerWasHit,
-      enemiesThatWereHit
-    };
+    // Only send event if there were collisions.
+    if (playerWasHit || enemiesThatWereHit.length > 0) {
+      const collisions = { playerWasHit, enemiesThatWereHit };
+      this.app.events.dispatchEvent({ type: 'collisions', collisions });
+    }
   };
 
 
-  calcCircleWasHitByShots = (
+  private calcCircleWasHitByShots = (
     { circle, shots }: { circle: Circle, shots: Circle[] }
   ): boolean => {
     for(let i=0; i<shots.length; i++) {

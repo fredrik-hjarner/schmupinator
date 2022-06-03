@@ -1,5 +1,6 @@
 import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
+import type { TCollisions } from "../Collisions/Collisions";
 
 import {
   framesBewteenPlayerShots, playerInvincible, playerShotSpeed,
@@ -31,9 +32,14 @@ export class Player {
     // TODO: Use this.name instead.
     this.app.events.subscribeToEvent(
       "updatePlayer",
-      ({ type }) => {
-        if(type === 'frame_tick') {
-          this.updatePlayer();
+      event => {
+        switch(event.type) {
+          case 'frame_tick':
+            this.onFrameTick();
+            break;
+          case 'collisions':
+            this.onCollisions(event.collisions);
+            break;
         }
       }
     );
@@ -54,17 +60,19 @@ export class Player {
       this.circle.Bottom = resolutionHeight;
     }
   };
-
-  updatePlayer = () => {
+  
+  private onCollisions = (collisions: TCollisions) => {
     /**
      * Check player death
      */
     if(!playerInvincible) {
-      if(this.app.collisions.collisions.playerWasHit) {
+      if(collisions.playerWasHit) {
         location.reload();
       }
     }
+  };
 
+  private onFrameTick = () => {
     /**
      * Check input
      */

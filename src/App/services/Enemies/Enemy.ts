@@ -2,6 +2,7 @@ import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
 import type { Action } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
+import type { TCollisions } from "../Collisions/Collisions";
 
 import { Circle } from "../../../Circle";
 import { ActionExecutor } from "./ActionExecutor";
@@ -46,11 +47,16 @@ export class Enemy {
     this.updateDisplayHealth();
   }
 
-  Update = () => {
+  public OnFrameTick = () => {
+    this.applySpeed();
+    this.actionExecutor.ProgressOneFrame();
+  };
+
+  public OnCollisions = (collisions: TCollisions) => {
     /**
      * Check if got hit
      */
-    const { enemiesThatWereHit } = this.app.collisions.collisions;
+    const { enemiesThatWereHit } = collisions;
     if(enemiesThatWereHit.includes(this.id)) {
       this.hp -= 1;
 
@@ -73,9 +79,6 @@ export class Enemy {
         return;
       }
     }
-
-    this.applySpeed();
-    this.actionExecutor.ProgressOneFrame();
   };
 
   /**
