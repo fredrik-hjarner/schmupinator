@@ -79,18 +79,30 @@ export class Player {
     const input = this.app.input;
     const gamepad = this.app.gamepad;
 
-    const speed = playerSpeedPerFrame[0];
+    let speed = playerSpeedPerFrame[0];
 
-    if (input.buttonsPressed.left || gamepad.left) {
+    const left = input.buttonsPressed.left || gamepad.left;
+    const right = input.buttonsPressed.right || gamepad.right;
+    const up = input.buttonsPressed.up || gamepad.up;
+    const down = input.buttonsPressed.down || gamepad.down;
+
+    const horizonal = left || right;
+    const vertical = up || down;
+    if(horizonal && vertical) {
+      // decrease speed to not have diagonal movement be faster.
+      speed /= Math.SQRT2;
+    }
+
+    if (left) {
       this.circle.X -= speed;
     }
-    if (input.buttonsPressed.right || gamepad.right) {
+    if (right) {
       this.circle.X += speed;
     }
-    if (input.buttonsPressed.up || gamepad.up) {
+    if (up) {
       this.circle.Y -= speed;
     }
-    if (input.buttonsPressed.down || gamepad.down) {
+    if (down) {
       this.circle.Y += speed;
     }
     if(input.buttonsPressed.space || gamepad.shoot) {
