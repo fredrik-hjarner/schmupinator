@@ -1,7 +1,7 @@
 import type { Vector } from "../../../../../math/bezier";
 import type { Action, TMoveToAbsolute } from "../../actionTypes";
 
-import { resolutionWidth as resWidth } from "../../../../../consts";
+import { resolutionHeight as resHeight, resolutionWidth as resWidth } from "../../../../../consts";
 
 const moveToAbsolute = (
   { moveTo, frames}: { moveTo: Partial<Vector>, frames: number},
@@ -61,12 +61,14 @@ const firstMiniBossMoveActions = (dir: number): Action[] => {
     // left-down closer (not made exact)
     moveToAbsolute({  moveTo: {x: getX(80), y: 105}, frames: 40 }, mirrored),
     { type: 'wait', frames: 25 },
-    // rotate one full circle clockwise.
+    // rotate one full circle clockwise. (not made exact)
     { type: 'rotate_around_point', point: { x: resWidth/2}, degrees: 360, frames: 240 },
     { type: 'wait', frames: 25 },
-    // rotate one full circle again but counter-clockwise.
+    // rotate one full circle again but counter-clockwise. (not made exact)
     { type: 'rotate_around_point', point: { x: resWidth/2 }, degrees: -360, frames: 240 },
     { type: 'wait', frames: 25 },
+    // move out of the screen (not made exact)
+    moveToAbsolute({ moveTo: {x: getX(160), y: resHeight+50}, frames: 210 }, mirrored),
   ];
 };
 
