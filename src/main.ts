@@ -1,7 +1,4 @@
 import { App } from './App/App';
-import { initGameDiv } from './gameDiv';
-
-initGameDiv();
 
 window.onload = () => {
   // Create app

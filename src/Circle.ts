@@ -29,7 +29,7 @@ export class Circle {
       div.style.boxSizing = "border-box";
       div.style.borderColor = color;
       div.style.borderStyle = "solid";
-      div.style.borderWidth = "1px";
+      div.style.borderWidth = px(diameter/2); // filled
       div.style.width = `${diameter}px`;
       div.style.height = `${diameter}px`;
       div.style.top = `${this.Top}px`;

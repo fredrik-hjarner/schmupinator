@@ -5,10 +5,13 @@ import { round } from "../../../utils/round";
 import { initElapsedTimeDiv } from "./elapsedTimeDiv";
 import { initFpsDiv } from "./fpsDiv";
 import { initFrameCounterDiv } from "./frameCounterDiv";
+import { initGameDiv } from "./gameDiv";
+import { px } from "../../../utils/px";
 
 export class GameLoop {
   app: App;
   FrameCount: number;
+  gameDiv: HTMLDivElement;
   framCounterDiv: HTMLDivElement;
   elapsedTimeDiv: HTMLDivElement;
   fpsDiv: HTMLDivElement;
@@ -23,6 +26,7 @@ export class GameLoop {
 
     this.FrameCount = 0;
     this.framCounterDiv = initFrameCounterDiv();
+    this.gameDiv = initGameDiv();
     this.elapsedTimeDiv = initElapsedTimeDiv();
     this.fpsDiv = initFpsDiv();
     this.nextFrameMillis = null;
@@ -46,6 +50,8 @@ export class GameLoop {
     for(let i=0; i<gameSpeed; i++) {
       this.FrameCount++;
       this.app.events.dispatchEvent({ type: "frame_tick" });
+      const bgPos: number = Math.round(this.FrameCount/2);
+      this.gameDiv.style.backgroundPositionY = px(bgPos);
     }
     // Display stats.
     const elapsed = performance.now() - this.startTime;
