@@ -1,7 +1,7 @@
 import type { Vector } from "../../../../../math/bezier";
 import type { Action, TMoveToAbsolute } from "../../actionTypes";
 
-import { resolutionWidth } from "../../../../../consts";
+import { resolutionWidth as resWidth } from "../../../../../consts";
 
 const moveToAbsolute = (
   { moveTo, frames}: { moveTo: Partial<Vector>, frames: number},
@@ -13,7 +13,7 @@ const moveToAbsolute = (
   if(moveTo.x !== undefined) {
     return  {
       type: 'move_to_absolute',
-      moveTo: { x: resolutionWidth - moveTo.x, y: moveTo.y },
+      moveTo: { x: resWidth - moveTo.x, y: moveTo.y },
       frames
     };
   }
@@ -22,7 +22,7 @@ const moveToAbsolute = (
 
 // Helper method. TODO: Hopefully remove this later!
 const getX = (distanceBetweenShips: number) => {
-  return resolutionWidth/2 - distanceBetweenShips/2;
+  return resWidth/2 - distanceBetweenShips/2;
 };
 
 // Maps out the movements of the left one.
@@ -31,9 +31,6 @@ const firstMiniBossMoveActions = (dir: number): Action[] => {
   const mirrored = dir === -1;
 
   return [
-    /**
-     * New attempt to make positions more exact.
-     */
     // Move into view
     moveToAbsolute({ moveTo: {x: getX(125), y: 0}, frames: 40 }, mirrored),
     // move down
@@ -50,9 +47,8 @@ const firstMiniBossMoveActions = (dir: number): Action[] => {
     // move up
     moveToAbsolute({ moveTo: {y: 11}, frames: 100 }, mirrored),
     { type: 'wait', frames: 25 },
-    // half-circle-right-down
-    { type: 'move_bezier', bend: {x:-50*dir,y:0}, end: {x:-50*dir,y:50}, frames: 50},
-    { type: 'move_bezier', bend: {x:0,y:50}, end: {x:50*dir,y:50}, frames: 50},
+    // half-circle-left-down
+    { type: 'rotate_around_point', point: {y: 61}, degrees: -180*dir, frames: 100 },
     { type: 'wait', frames: 25 },
     // move out/right
     moveToAbsolute({ moveTo: {x: getX(158)}, frames: 50 }, mirrored),
@@ -65,36 +61,12 @@ const firstMiniBossMoveActions = (dir: number): Action[] => {
     // left-down closer (not made exact)
     moveToAbsolute({  moveTo: {x: getX(80), y: 105}, frames: 40 }, mirrored),
     { type: 'wait', frames: 25 },
-    // clock-wise up-right-down-left circle
-    { type: 'move_bezier', bend: {x:0,y:-50*dir}, end: {x:50*dir,y:-50*dir}, frames: 60},
-    { type: 'move_bezier', bend: {x:50*dir,y:0}, end: {x:50*dir,y:50*dir}, frames: 60},
-    { type: 'move_bezier', bend: {x:0,y:50*dir}, end: {x:-50*dir,y:50*dir}, frames: 60},
-    { type: 'move_bezier', bend: {x:-50*dir,y:0}, end: {x:-50*dir,y:-50*dir}, frames: 60},
-
-
-
-    /**
-     * Old relative movements
-     */
-    // // Move into view
-    // { type: 'move', movement: {x: 0, y: 20}, frames: 40 },
-    // { type: 'move', movement: {x: 0, y: 110}, frames: 90 },
-    // { type: 'move_bezier', bend: {x:0,y:10}, end: {x:30*dir,y:10}, frames: 50},
-    // { type: 'wait', frames: 25 },
-    // { type: 'move_bezier', bend: {x:0,y:10}, end: {x:-30*dir,y:10}, frames: 50},
-    // { type: 'wait', frames: 25 },
-    // { type: 'move', movement: {x: 30*dir, y: 0}, frames: 50 },
-    // { type: 'wait', frames: 25 },
-    // { type: 'move', movement: {x: 0, y: -100}, frames: 100 },
-    // { type: 'wait', frames: 25 },
-    // { type: 'move_bezier', bend: {x:-50*dir,y:0}, end: {x:-50*dir,y:50}, frames: 50},
-    // { type: 'move_bezier', bend: {x:0,y:50}, end: {x:50*dir,y:50}, frames: 50},
-    // { type: 'wait', frames: 25 },
-    // { type: 'move', movement: {x: -50*dir, y: 0}, frames: 50 },
-    // { type: 'wait', frames: 25 },
-    // { type: 'move', movement: {x: 0, y: 30}, frames: 30 },
-    // { type: 'wait', frames: 25 },
-    // { type: 'move', movement: {x: 0, y: -70}, frames: 70 },
+    // rotate one full circle clockwise.
+    { type: 'rotate_around_point', point: { x: resWidth/2}, degrees: 360, frames: 240 },
+    { type: 'wait', frames: 25 },
+    // rotate one full circle again but counter-clockwise.
+    { type: 'rotate_around_point', point: { x: resWidth/2 }, degrees: -360, frames: 240 },
+    { type: 'wait', frames: 25 },
   ];
 };
 

@@ -95,8 +95,9 @@ export class ActionExecutor {
               });
             } else if(currAction.type) {
               const startPosVector = new Vector(startPos.x, startPos.y);
-              const pointVector = new Vector(currAction.point.x, currAction.point.y);
-              // const vectorFromPointToStart = Vector.fromTo(pointVector, startPosVector);
+              const pointX = currAction.point.x ?? startPos.x;
+              const pointY = currAction.point.y ?? startPos.y;
+              const pointVector = new Vector(pointX, pointY);
               const rotatedVector = startPosVector.rotateClockwiseAroundVector(
                 Angle.fromDegrees(progress*currAction.degrees),
                 pointVector
