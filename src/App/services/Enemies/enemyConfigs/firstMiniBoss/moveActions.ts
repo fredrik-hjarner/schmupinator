@@ -60,8 +60,16 @@ const firstMiniBossMoveActions = (dir: number): Action[] => {
     // down
     moveToAbsolute({  moveTo: {y: 141}, frames: 30 }, mirrored),
     { type: 'wait', frames: 25 },
-    //
-    { type: 'move', movement: {x: 0, y: -70}, frames: 70 },
+    // up
+    moveToAbsolute({  moveTo: {y: 61}, frames: 80 }, mirrored),
+    // left-down closer (not made exact)
+    moveToAbsolute({  moveTo: {x: getX(80), y: 105}, frames: 40 }, mirrored),
+    { type: 'wait', frames: 25 },
+    // clock-wise up-right-down-left circle
+    { type: 'move_bezier', bend: {x:0,y:-50*dir}, end: {x:50*dir,y:-50*dir}, frames: 60},
+    { type: 'move_bezier', bend: {x:50*dir,y:0}, end: {x:50*dir,y:50*dir}, frames: 60},
+    { type: 'move_bezier', bend: {x:0,y:50*dir}, end: {x:-50*dir,y:50*dir}, frames: 60},
+    { type: 'move_bezier', bend: {x:-50*dir,y:0}, end: {x:-50*dir,y:-50*dir}, frames: 60},
 
 
 
