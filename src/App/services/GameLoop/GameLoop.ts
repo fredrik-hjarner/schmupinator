@@ -42,9 +42,9 @@ export class GameLoop {
     if(this.startTime === null) {
       throw new Error("this.startTime === null");
     }
-    this.FrameCount++;
     const gameSpeed = this.app.gameSpeed.GameSpeed;
     for(let i=0; i<gameSpeed; i++) {
+      this.FrameCount++;
       this.app.events.dispatchEvent({ type: "frame_tick" });
     }
     // Display stats.
