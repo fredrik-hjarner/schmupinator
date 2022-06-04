@@ -1,8 +1,7 @@
 import type { App } from "../../App";
 
 import { Enemy } from "./Enemy";
-import { firstMiniBoss1 } from "./enemyConfigs/firstMiniBoss/firstMiniboss1";
-import { firstMiniBoss2 } from "./enemyConfigs/firstMiniBoss/firstMiniboss2";
+import { enemyJsons } from "./enemyConfigs/enemyJsons";
 
 export class Enemies {
   app: App;
@@ -15,10 +14,7 @@ export class Enemies {
   constructor(app: App, { name }: { name: string }) {
     this.app = app;
     this.name = name;
-    this.enemies = [
-      new Enemy(app, firstMiniBoss1),
-      new Enemy(app, firstMiniBoss2),
-    ];
+    this.enemies = [];
   }
   
   /**
@@ -32,11 +28,25 @@ export class Enemies {
       this.name,
       event => {
         switch(event.type) {
-          case 'frame_tick':
+          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
+          case 'frame_tick': {
+            // TODO: Should get enemyJsons sent in via constructor.
+            const enemiesToSpawn = enemyJsons.filter(enemy =>
+              enemy.spawnOnFrame === this.app.gameLoop.FrameCount
+            );
+            enemiesToSpawn.forEach(enemyJson => {
+              this.enemies.push(new Enemy(this.app, enemyJson));
+            });
+            /**
+             * TODO: Here we see that the first tick happens immediately at spawn so I could,
+             * if I wanted to, actually set everything in the actions as actions such as set_hp,
+             * set_position etc. Dunno if I want to do it like that though.
+             */
             this.enemies.forEach(enemy => {
               enemy.OnFrameTick();
             });
             break;
+          }
           case 'collisions':
             this.enemies.forEach(enemy => {
               enemy.OnCollisions(event.collisions);
