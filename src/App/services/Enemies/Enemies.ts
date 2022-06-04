@@ -1,13 +1,8 @@
 import type { App } from "../../App";
 
-import { firstMiniBossShootActions } from "./enemyConfigs/firstMiniBoss/shootActions";
-import {
-  firstMiniBossMoveActions1,
-  firstMiniBossMoveActions2
-} from "./enemyConfigs/firstMiniBoss/moveActions";
-import { resolutionWidth } from "../../../consts";
 import { Enemy } from "./Enemy";
-import { uuid } from "../../../utils/uuid";
+import { firstMiniBoss1 } from "./enemyConfigs/firstMiniBoss/firstMiniboss1";
+import { firstMiniBoss2 } from "./enemyConfigs/firstMiniBoss/firstMiniboss2";
 
 export class Enemies {
   app: App;
@@ -21,26 +16,8 @@ export class Enemies {
     this.app = app;
     this.name = name;
     this.enemies = [
-      new Enemy(app, {
-        id: uuid(),
-        origX: resolutionWidth*0.333,
-        origY: -20,
-        hp: 120,
-        actionLists: [
-          firstMiniBossShootActions,
-          firstMiniBossMoveActions1
-        ]
-      }),
-      new Enemy(app, {
-        id: uuid(),
-        origX: resolutionWidth*0.666,
-        origY: -20,
-        hp: 120,
-        actionLists: [
-          firstMiniBossShootActions,
-          firstMiniBossMoveActions2
-        ]
-      }),
+      new Enemy(app, firstMiniBoss1),
+      new Enemy(app, firstMiniBoss2),
     ];
   }
   

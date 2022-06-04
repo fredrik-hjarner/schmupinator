@@ -1,5 +1,5 @@
 import type { Vector } from "../../../../../math/bezier";
-import type { Action, TMoveToAbsolute } from "../../actionTypes";
+import type { TAction, TMoveToAbsolute } from "../../actionTypes";
 
 import { resolutionHeight as resHeight, resolutionWidth as resWidth } from "../../../../../consts";
 
@@ -27,7 +27,7 @@ const getX = (distanceBetweenShips: number) => {
 
 // Maps out the movements of the left one.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const firstMiniBossMoveActions = (dir: number): Action[] => {
+const firstMiniBossMoveActions = (dir: number): TAction[] => {
   const mirrored = dir === -1;
 
   return [
@@ -72,6 +72,6 @@ const firstMiniBossMoveActions = (dir: number): Action[] => {
   ];
 };
 
-export const firstMiniBossMoveActions1: Action[] = firstMiniBossMoveActions(1);
+export const firstMiniBossMoveActions1: TAction[] = firstMiniBossMoveActions(1);
 
-export const firstMiniBossMoveActions2: Action[] = firstMiniBossMoveActions(-1);
+export const firstMiniBossMoveActions2: TAction[] = firstMiniBossMoveActions(-1);

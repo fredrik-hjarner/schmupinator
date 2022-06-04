@@ -1,6 +1,6 @@
-import type { Action } from "../../actionTypes";
+import type { TAction } from "../../actionTypes";
 
-export const firstMiniBossShootActions: Action[] = [
+export const firstMiniBossShootActions: TAction[] = [
   { type: 'wait', frames: 75 },
   { type: "repeat", times: 9999, actions: [
     { type: "set_shot_speed", pixelsPerFrame: 2.6 },

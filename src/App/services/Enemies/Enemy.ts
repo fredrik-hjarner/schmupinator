@@ -1,6 +1,6 @@
 import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
-import type { Action } from "./actionTypes";
+import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
 
@@ -9,10 +9,11 @@ import { ActionExecutor } from "./ActionExecutor";
 import { px } from "../../../utils/px";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
+import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 
 export class Enemy {
   app: App;
-  id: number;
+  id: string;
   maxHp: number;
   hp: number;
   circle: Circle;
@@ -26,18 +27,17 @@ export class Enemy {
    */
   constructor(
     app: App,
-    { id, origX, origY, hp, actionLists }:
-    { id: number,origX: number, origY: number, hp: number, actionLists: Action[][] }
+    json: IEnemyJson,
   ) {
     this.app = app;
-    this.id = id;
-    this.maxHp = hp;
-    this.hp = hp;
-    this.circle = new Circle(origX, origY, 35, 'red');
+    this.id = json.name;
+    this.maxHp = json.hp;
+    this.hp = json.hp;
+    this.circle = new Circle(json.startPosition.x, json.startPosition.y, 35, 'red');
     this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,
-      actionLists,
+      actionLists: json.actionsLists,
       getFrame: () => app.gameLoop.FrameCount,
       getPosition: this.getPosition,
     });
@@ -85,7 +85,7 @@ export class Enemy {
    * Essentially maps actions to class methods,
    * that is has very "thin" responsibilities.
    */
-  HandleAction = (action: Action) => {
+  HandleAction = (action: TAction) => {
     switch(action.type) {
       case 'shoot_direction': {
         this.ShootDirection({ dirX: action.dirX, dirY:action.dirY });

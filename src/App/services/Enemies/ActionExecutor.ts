@@ -1,4 +1,4 @@
-import type { Action } from "./actionTypes";
+import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
 import { bezier } from "../../../math/bezier";
@@ -12,14 +12,14 @@ type TActionExecutorArgs = {
    * The outer arrays will execute in parallell.
    * The actions in Action[] execute sequentially.
    */
-  actionLists: Action[][];
-  actionHandler: (action: Action) => void;
+  actionLists: TAction[][];
+  actionHandler: (action: TAction) => void;
   getFrame: () => number;
   getPosition: () => TVector;
 }
 
 export class ActionExecutor {
-  actionHandler: (action: Action) => void;
+  actionHandler: (action: TAction) => void;
   getFrame: () => number;
   getPosition: () => TVector;
   generators: Generator<void, void, void>[];
@@ -40,7 +40,7 @@ export class ActionExecutor {
    * Private
    */
   
-  *generator(actions: Action[]): Generator<void, void, void> {
+  *generator(actions: TAction[]): Generator<void, void, void> {
     let currIndex = 0;
     const nrActions = actions.length;
   

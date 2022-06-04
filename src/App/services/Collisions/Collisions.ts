@@ -4,7 +4,7 @@ import type { App } from "../../App";
 export type TCollisions = {
   playerWasHit: boolean;
   // List of id:s of enemies that were hit.
-  enemiesThatWereHit: number[];
+  enemiesThatWereHit: string[];
 };
 
 export class Collisions {
@@ -50,7 +50,7 @@ export class Collisions {
      * I need to make an Events service to add on app.
      */
     const playerWasHit = this.calcCircleWasHitByShots({ circle: player, shots: enemyShots });
-    const enemiesThatWereHit = enemies.reduce<number[]>((acc, enemy) => {
+    const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
       const wasHit = this.calcCircleWasHitByShots({ circle: enemy.circle, shots: playerShots });
       return wasHit ? [...acc, enemy.id] : acc;
     }, []);

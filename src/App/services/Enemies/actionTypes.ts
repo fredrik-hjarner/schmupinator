@@ -2,7 +2,7 @@ import type { Vector } from "../../../math/bezier";
 
 export type TWait =              { type: "wait", frames: number};
 export type TWaitUtilFrameNr =   { type: "wait_util_frame_nr", frameNr: number};
-export type TRepeat =            { type: "repeat", times: number, actions: Action[] };
+export type TRepeat =            { type: "repeat", times: number, actions: TAction[] };
 export type TShootDirection =    { type: "shoot_direction", dirX: number, dirY: number };
 export type TShootTowardPlayer = { type: "shoot_toward_player" };
 export type TShootBesidePlayer = { type: "shoot_beside_player", clockwiseDegrees: number };
@@ -18,7 +18,7 @@ export type TSetSpeed =          { type: "set_speed", x: number, y: number };
 export type TRotateAroundPoint = { type: "rotate_around_point",
                                    point: Partial<Vector>, degrees: number, frames: number };
 
-export type Action =
+export type TAction =
   /**
    * Common
    */
