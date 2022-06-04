@@ -1,7 +1,10 @@
 import type { Action } from "./actionTypes";
+import type { Vector as TVector } from "../../../math/bezier";
 
-import { bezier, Vector } from "../../../math/bezier";
+import { bezier } from "../../../math/bezier";
 import { moveLine } from "../../../math/moveLine";
+import { Vector } from "../../../math/Vector";
+import { Angle } from "../../../math/Angle";
 
 type TActionExecutorArgs = {
   /**
@@ -12,13 +15,13 @@ type TActionExecutorArgs = {
   actionLists: Action[][];
   actionHandler: (action: Action) => void;
   getFrame: () => number;
-  getPosition: () => Vector;
+  getPosition: () => TVector;
 }
 
 export class ActionExecutor {
   actionHandler: (action: Action) => void;
   getFrame: () => number;
-  getPosition: () => Vector;
+  getPosition: () => TVector;
   generators: Generator<void, void, void>[];
 
   constructor({ actionLists, actionHandler, getFrame, getPosition }: TActionExecutorArgs) {
@@ -62,6 +65,7 @@ export class ActionExecutor {
           break;
         }
   
+        case 'rotate_around_point':
         case "move_to_absolute":
         case "move_bezier":
         case "move": {
@@ -72,6 +76,7 @@ export class ActionExecutor {
             // The +1 is to make it start at frame 1
             const passedFrames = this.getFrame() - startFrame + 1;
             const progress = passedFrames / currAction.frames;
+            // TODO: Change to switch instead.
             if(currAction.type === "move") {
               const position = moveLine(startPos, currAction.movement, progress);
               this.actionHandler({type: 'set_position', x: position.x, y: position.y});
@@ -87,6 +92,19 @@ export class ActionExecutor {
                 type: 'set_position',
                 x: startPos.x + position.x,
                 y: startPos.y + position.y
+              });
+            } else if(currAction.type) {
+              const startPosVector = new Vector(startPos.x, startPos.y);
+              const pointVector = new Vector(currAction.point.x, currAction.point.y);
+              // const vectorFromPointToStart = Vector.fromTo(pointVector, startPosVector);
+              const rotatedVector = startPosVector.rotateClockwiseAroundVector(
+                Angle.fromDegrees(progress*currAction.degrees),
+                pointVector
+              );
+              this.actionHandler({
+                type: 'set_position',
+                x: rotatedVector.x,
+                y: rotatedVector.y
               });
             }
             yield;

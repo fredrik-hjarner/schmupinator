@@ -15,6 +15,8 @@ export type TMoveToAbsolute =    { type: "move_to_absolute",
 export type TSetPosition =       { type: "set_position", x: number, y: number };
 export type TMoveBezier =        { type: "move_bezier", bend: Vector, end: Vector, frames: number };
 export type TSetSpeed =          { type: "set_speed", x: number, y: number };
+export type TRotateAroundPoint = { type: "rotate_around_point",
+                                   point: Vector, degrees: number, frames: number };
 
 export type Action =
   /**
@@ -37,4 +39,5 @@ export type Action =
   TMoveToAbsolute |
   TSetPosition |
   TMoveBezier |
-  TSetSpeed;
+  TSetSpeed |
+  TRotateAroundPoint;

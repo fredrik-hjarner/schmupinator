@@ -5,7 +5,8 @@
   "exclude": [
     "dist/**/*",
     // TODO: Fix tests!
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
+    // "jest.config.cjs"
   ],
   "compilerOptions": {
     "rootDir": "./src",
@@ -17,6 +18,7 @@
       "ES2021",
       "DOM",
     ],
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": false,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

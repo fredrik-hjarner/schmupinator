@@ -2,7 +2,12 @@ module.exports = {
   // "extends": "eslint:recommended",
   parser: "@typescript-eslint/parser",
   // TODO: Fix tests!
-  ignorePatterns: ["src/**/*test.ts"],
+  ignorePatterns: [
+    "jest.config.cjs",
+    ".eslintrc.cjs",
+    "dist/**/*",
+    "src/**/*test.ts"
+  ],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ['./tsconfig.json'],

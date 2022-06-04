@@ -70,14 +70,14 @@ describe("lengths", () => {
 describe("rotations", () => {
   it("zero", () => {
     const vector = new Vector(0, 0);
-    const newVector = vector.rotateAntiClockwise(Angle.fromDegrees(90));
+    const newVector = vector.rotateClockwise(Angle.fromDegrees(90));
     expect(newVector.x).toBeCloseTo(0);
     expect(newVector.y).toBeCloseTo(0);
   });
 
   it("right to up", () => {
     const vector = new Vector(1, 0);
-    const newVector = vector.rotateAntiClockwise(Angle.fromDegrees(90));
+    const newVector = vector.rotateClockwise(Angle.fromDegrees(90));
     expect(newVector.x).toBeCloseTo(0);
     expect(newVector.y).toBeCloseTo(1);
   });
