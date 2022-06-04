@@ -43,7 +43,10 @@ export class GameLoop {
       throw new Error("this.startTime === null");
     }
     this.FrameCount++;
-    this.app.events.dispatchEvent({ type: "frame_tick" });
+    const gameSpeed = this.app.gameSpeed.GameSpeed;
+    for(let i=0; i<gameSpeed; i++) {
+      this.app.events.dispatchEvent({ type: "frame_tick" });
+    }
     // Display stats.
     const elapsed = performance.now() - this.startTime;
     this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;

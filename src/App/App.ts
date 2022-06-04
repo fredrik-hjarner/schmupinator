@@ -6,6 +6,7 @@ import { Shots } from './services/Shots/Shots';
 import { GamePad } from './services/GamePad/GamePad';
 import { Collisions } from './services/Collisions/Collisions';
 import { Events } from './services/Events/Events';
+import { GameSpeed } from './services/GameSpeed/GameSpeed';
 
 export class App {
   input: Input;
@@ -17,6 +18,7 @@ export class App {
   gamepad: GamePad;
   collisions: Collisions;
   events: Events;
+  gameSpeed: GameSpeed;
 
   constructor() {
     this.input = new Input();
@@ -34,6 +36,7 @@ export class App {
     this.enemies = new Enemies(this, { name: "enemies" });
     this.gamepad = new GamePad();
     this.collisions = new Collisions(this);
-    this.events = new Events({ app: this, name:"events" });
+    this.events = new Events({ app: this, name: "events" });
+    this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
   }
 }

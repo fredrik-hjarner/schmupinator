@@ -25,7 +25,7 @@ export class Enemies {
         id: uuid(),
         origX: resolutionWidth*0.333,
         origY: -20,
-        hp: 110,
+        hp: 120,
         actionLists: [
           firstMiniBossShootActions,
           firstMiniBossMoveActions1
@@ -35,7 +35,7 @@ export class Enemies {
         id: uuid(),
         origX: resolutionWidth*0.666,
         origY: -20,
-        hp: 110,
+        hp: 120,
         actionLists: [
           firstMiniBossShootActions,
           firstMiniBossMoveActions2
