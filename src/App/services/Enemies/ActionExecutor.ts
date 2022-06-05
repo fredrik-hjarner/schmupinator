@@ -72,10 +72,6 @@ export class ActionExecutor {
         }
         
         case 'wait': {
-          /**
-           * TODO: I should be able to remove currentFrame right?
-           * I could just yield the number of times in currAction.frames, right?
-           */
           for(let i=0; i<currAction.frames; i++) {
             yield;
           }
