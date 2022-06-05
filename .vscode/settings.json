@@ -13,5 +13,9 @@
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-src-file"
+  }
 }

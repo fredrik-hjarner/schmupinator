@@ -47,6 +47,20 @@ export class ActionExecutor {
     while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
       const currAction = actions[currIndex];
       switch(currAction.type) {
+        case "parallell_race": {
+          const { actionsLists } = currAction;
+          const generators = actionsLists.map(actions => this.generator(actions));
+          // advance generators one step.
+          let results = generators.map(generator => generator.next());
+          // Loop until one if done
+          while(!results.some(result => result.done)) {
+            // yield because after running once, something needed to wait/yield.
+            yield;
+            // advance generators one step.
+            results = generators.map(generator => generator.next());
+          }
+          break;
+        }
         case "repeat": {
           const times = currAction.times;
           for(let i=0; i<times; i++) {
@@ -54,9 +68,18 @@ export class ActionExecutor {
           }
           break;
         }
+
+        case "wait_next_frame": {
+          yield;
+          break;
+        }
         
         case 'wait': {
           // console.log('wait');
+          /**
+           * TODO: I should be able to remove currentFrame right?
+           * I could just yield the number of times in currAction.frames, right?
+           */
           const waitUntil = this.getFrame() + currAction.frames;
           while(this.getFrame() < waitUntil) {
             yield;
