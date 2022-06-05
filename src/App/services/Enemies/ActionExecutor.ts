@@ -5,6 +5,7 @@ import { bezier } from "../../../math/bezier";
 import { moveLine } from "../../../math/moveLine";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
+import { GeneratorUtils } from "../../../utils/GeneratorUtils";
 
 type TActionExecutorArgs = {
   /**
@@ -80,10 +81,10 @@ export class ActionExecutor {
         }
 
         case "repeat": {
-          const times = currAction.times;
-          for(let i=0; i<times; i++) {
-            yield* this.makeGenerator(currAction.actions);
-          }
+          yield*  GeneratorUtils.Repeat({
+            makeGenerator: () => this.makeGenerator(currAction.actions),
+            times: currAction.times
+          });
           break;
         }
 
