@@ -9,11 +9,11 @@ const createAimerPair = (
   { spawnOnFrame, distanceBetween }: { spawnOnFrame: number, distanceBetween: number }
 ) => [
   createNonShootingAimer({
-    spawnOnFrame,
+    spawnOnFrame: spawnOnFrame + 40,
     spawnPosition: {x: resolutionWidth/2 - distanceBetween/2, y: -22}
   }),
   createNonShootingAimer({
-    spawnOnFrame,
+    spawnOnFrame: spawnOnFrame + 40,
     spawnPosition: {x: resolutionWidth/2 + distanceBetween/2, y: -22}
   }),
 ];
