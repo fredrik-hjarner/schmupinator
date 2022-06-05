@@ -26,6 +26,7 @@ export class Shots {
       // Create all shots
       this.shots = Array(maxShots).fill(0).map((_, i) =>
          new Shot({
+            shotsService: this,
             x: resolutionWidth + 10 + 3 + poolIndex*15,
             y: 10 + 3 + i*6,
             spdX: 0,

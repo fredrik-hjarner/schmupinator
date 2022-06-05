@@ -2,19 +2,20 @@ import type { App } from "../../App";
 import type { TCollisions } from "../Collisions/Collisions";
 
 type TConstructor = {
-  app: App,
-  name: string
+   app: App,
+   name: string
 }
 
 type TCallback = (event: TEvent) => void;
 
 type TSubscribers = {
-  [key: string]: TCallback
+   [ key: string]: TCallback
 }
 
-type TEvent =
-  { type: 'frame_tick' } | // signals next frame has come.
-  { type: 'collisions', collisions: TCollisions }; // when collisions happen.
+export type TEvent =
+   { type: 'frame_tick' } | // signals next frame has come.
+   { type: 'collisions', collisions: TCollisions } | // when collisions happen.
+   { type: 'player_missed_bullet' }; // when player's bullet exists gameDiv/screen.
 
 export class Events {
    app: App;

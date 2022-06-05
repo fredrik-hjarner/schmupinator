@@ -1,7 +1,20 @@
+import type { Shots } from "./Shots";
+
 import { resolutionHeight, resolutionWidth } from "../../../consts";
 import { Circle } from "../../../Circle";
 
+type TConstructor = {
+   shotsService: Shots,
+   x: number,
+   y: number,
+   spdX: number;
+   spdY: number;
+   active: boolean;
+   color: string;
+}
+
 export class Shot {
+   shotsService: Shots;
    origX: number;
    origY: number;
    circle: Circle;
@@ -12,10 +25,8 @@ export class Shot {
    /**
     * Public
     */
-   constructor(
-      { x, y, spdX, spdY, active, color }:
-    {x: number, y: number, spdX: number, spdY: number, active: boolean, color: string}
-   ) {
+   constructor({ shotsService, x, y, spdX, spdY, active, color }: TConstructor) {
+      this.shotsService = shotsService;
       this.origX = x;
       this.origY = y;
       this.circle = new Circle(x, y, 6, color);
@@ -41,6 +52,12 @@ export class Shot {
       this.active = false;
       this.circle.X = this.origX;
       this.circle.Y = this.origY;
+      /**
+       * TODO: Not super nic to look at the name like this.
+       */
+      if(this.shotsService.name === 'playerShots') {
+         this.shotsService.app.events.dispatchEvent({ type: 'player_missed_bullet' });
+      }
    };
 
    bound = () => {

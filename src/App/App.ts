@@ -7,6 +7,7 @@ import { GamePad } from './services/GamePad/GamePad';
 import { Collisions } from './services/Collisions/Collisions';
 import { Events } from './services/Events/Events';
 import { GameSpeed } from './services/GameSpeed/GameSpeed';
+import { Points } from './services/Points/Points';
 
 export class App {
    input: Input;
@@ -19,8 +20,12 @@ export class App {
    collisions: Collisions;
    events: Events;
    gameSpeed: GameSpeed;
+   points: Points;
 
    constructor() {
+      /**
+       * Constuct services
+       */
       this.input = new Input();
       this.gameLoop = new GameLoop(this);
       this.player = new Player(this); // TODO: player should also have name
@@ -38,5 +43,16 @@ export class App {
       this.collisions = new Collisions(this);
       this.events = new Events({ app: this, name: "events" });
       this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
+      this.points = new Points({ app: this, name: "points" });
+
+      /**
+       * Init services
+       */
+      this.player.Init();
+      this.playerShots.Init();
+      this.enemyShots.Init();
+      this.enemies.Init();
+      this.collisions.Init();
+      this.points.Init();
    }
 }
