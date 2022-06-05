@@ -5,14 +5,12 @@ import { ActionExecutor } from '../ActionExecutor';
 
 describe("parallell_race", () => {
   const getPosition = (): TVector => ({ x: 0, y: 0 });
-  const getFrame = () => 1;
 
   it("empty actions list. exect no exception. expect done", () => {
     const recordedActions: TAction[] = [];
     const actionHandler = (action: TAction) => { recordedActions.push(action) };
 
     const generator = new ActionExecutor({
-      getFrame,
       getPosition,
       actionHandler,
       actionLists: [
@@ -31,7 +29,6 @@ describe("parallell_race", () => {
     const actionHandler = (action: TAction) => { recordedActions.push(action) };
 
     const generator = new ActionExecutor({
-      getFrame,
       getPosition,
       actionHandler,
       actionLists: [
@@ -53,7 +50,6 @@ describe("parallell_race", () => {
     const actionHandler = (action: TAction) => { recordedActions.push(action) };
 
     const generator = new ActionExecutor({
-      getFrame,
       getPosition,
       actionHandler,
       actionLists: [
@@ -77,7 +73,6 @@ describe("parallell_race", () => {
     const actionHandler = (action: TAction) => { recordedActions.push(action) };
 
     const generator = new ActionExecutor({
-      getFrame,
       getPosition,
       actionHandler,
       actionLists: [

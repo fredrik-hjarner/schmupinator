@@ -14,19 +14,16 @@ type TActionExecutorArgs = {
    */
   actionLists: TAction[][];
   actionHandler: (action: TAction) => void;
-  getFrame: () => number;
   getPosition: () => TVector;
 }
 
 export class ActionExecutor {
   actionHandler: (action: TAction) => void;
-  getFrame: () => number;
   getPosition: () => TVector;
   generators: Generator<void, void, void>[];
 
-  constructor({ actionLists, actionHandler, getFrame, getPosition }: TActionExecutorArgs) {
+  constructor({ actionLists, actionHandler, getPosition }: TActionExecutorArgs) {
     this.actionHandler = actionHandler;
-    this.getFrame = getFrame;
     this.getPosition = getPosition;
     this.generators = actionLists.map(actionList => this.generator(actionList));
   }
@@ -75,16 +72,13 @@ export class ActionExecutor {
         }
         
         case 'wait': {
-          // console.log('wait');
           /**
            * TODO: I should be able to remove currentFrame right?
            * I could just yield the number of times in currAction.frames, right?
            */
-          const waitUntil = this.getFrame() + currAction.frames;
-          while(this.getFrame() < waitUntil) {
+          for(let i=0; i<currAction.frames; i++) {
             yield;
           }
-          // console.log('finished waiting');
           break;
         }
   
@@ -92,12 +86,13 @@ export class ActionExecutor {
         case "move_to_absolute":
         case "move_bezier":
         case "move": {
-          const startFrame =  this.getFrame();
-          const endFrame = startFrame + currAction.frames;
           const startPos = this.getPosition();
-          while((endFrame - this.getFrame()) > 0) {
-            // The +1 is to make it start at frame 1
-            const passedFrames = this.getFrame() - startFrame + 1;
+          /**
+           * Start from 1 so that first step is not zero progression, but first step of progression.
+           * Allow passedFrames to go up to (include) currActon.frames, i.e. if 4 then
+           * allow passedFrames to go all the way up to 4.
+           */
+          for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
             const progress = passedFrames / currAction.frames;
             // TODO: Change to switch instead.
             if(currAction.type === "move") {

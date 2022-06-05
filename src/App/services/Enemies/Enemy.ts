@@ -38,7 +38,6 @@ export class Enemy {
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,
       actionLists: json.actionsLists,
-      getFrame: () => app.gameLoop.FrameCount,
       getPosition: this.getPosition,
     });
     this.speedX = 0;
