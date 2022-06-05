@@ -13,12 +13,10 @@ describe("parallell_race", () => {
     const generator = new ActionExecutor({
       getPosition,
       actionHandler,
-      actionLists: [
-        [{
-          type: "parallell_race", actionsLists: [[]]
-        }]
-      ]
-    }).generators[0];
+      actions: [{
+        type: "parallell_race", actionsLists: [[]]
+      }]
+    }).generator;
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(0);
@@ -31,15 +29,13 @@ describe("parallell_race", () => {
     const generator = new ActionExecutor({
       getPosition,
       actionHandler,
-      actionLists: [
-        [{
-          type: "parallell_race", actionsLists: [
-            [],
-            [{ type: 'set_speed', x: 0, y: 0 }]
-          ]
-        }]
-      ]
-    }).generators[0];
+      actions: [{
+        type: "parallell_race", actionsLists: [
+          [],
+          [{ type: 'set_speed', x: 0, y: 0 }]
+        ]
+      }]
+    }).generator;
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(1);
@@ -52,17 +48,15 @@ describe("parallell_race", () => {
     const generator = new ActionExecutor({
       getPosition,
       actionHandler,
-      actionLists: [
-        [{
-          type: "parallell_race", actionsLists: [[
-            { type: 'set_speed', x: 0, y: 0 }
-          ], [
-            { type: 'wait_next_frame' },
-            { type: 'set_speed', x: 0, y: 0 }
-          ]]
-        }]
-      ]
-    }).generators[0];
+      actions: [{
+        type: "parallell_race", actionsLists: [[
+          { type: 'set_speed', x: 0, y: 0 }
+        ], [
+          { type: 'wait_next_frame' },
+          { type: 'set_speed', x: 0, y: 0 }
+        ]]
+      }]
+    }).generator;
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(1);
@@ -75,19 +69,17 @@ describe("parallell_race", () => {
     const generator = new ActionExecutor({
       getPosition,
       actionHandler,
-      actionLists: [
-        [{
-          type: "parallell_race", actionsLists: [[
-            { type: 'wait_next_frame' },
-            { type: 'set_speed', x: 0, y: 0 }
-          ], [
-            { type: 'wait_next_frame' },
-            { type: 'wait_next_frame' },
-            { type: 'set_speed', x: 0, y: 0 }
-          ]]
-        }]
-      ]
-    }).generators[0];
+      actions: [{
+        type: "parallell_race", actionsLists: [[
+          { type: 'wait_next_frame' },
+          { type: 'set_speed', x: 0, y: 0 }
+        ], [
+          { type: 'wait_next_frame' },
+          { type: 'wait_next_frame' },
+          { type: 'set_speed', x: 0, y: 0 }
+        ]]
+      }]
+    }).generator;
 
     expect(generator.next().done).toBe(false);
     expect(recordedActions.length).toBe(0);

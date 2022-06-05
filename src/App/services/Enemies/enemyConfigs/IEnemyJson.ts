@@ -7,5 +7,5 @@ export interface IEnemyJson {
   spawnOnFrame: number,
   hp: number;
   startPosition: TVector;
-  actionsLists: TAction[][];
+  actions: TAction[];
 }

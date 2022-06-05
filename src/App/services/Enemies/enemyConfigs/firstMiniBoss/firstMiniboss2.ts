@@ -7,14 +7,16 @@ import { uuid } from "../../../../../utils/uuid";
 
 export const firstMiniBoss2: IEnemyJson = {
   name: `${uuid()}`,
-  spawnOnFrame: 60,
+  spawnOnFrame: 60*5,
   hp: 120,
   startPosition: {
     x: resolutionWidth*0.666,
     y: -20
   },
-  actionsLists: [
-    firstMiniBossShootActions,
-    firstMiniBossMoveActions2
+  actions: [
+    { type: "parallell_race", actionsLists: [
+      firstMiniBossShootActions,
+      firstMiniBossMoveActions2
+    ] }
   ]
 };

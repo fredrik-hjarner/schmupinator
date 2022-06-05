@@ -8,11 +8,11 @@ import { Angle } from "../../../math/Angle";
 
 type TActionExecutorArgs = {
   /**
-   * An array of Action arrays.
-   * The outer arrays will execute in parallell.
-   * The actions in Action[] execute sequentially.
+   * The actions to execute.
+   * Executes them in sequence.
+   * You can execute things in parallell with special compound actions like parallell_race.
    */
-  actionLists: TAction[][];
+  actions: TAction[];
   actionHandler: (action: TAction) => void;
   getPosition: () => TVector;
 }
@@ -20,24 +20,25 @@ type TActionExecutorArgs = {
 export class ActionExecutor {
   actionHandler: (action: TAction) => void;
   getPosition: () => TVector;
-  generators: Generator<void, void, void>[];
+  generator: Generator<void, void, void>;
 
-  constructor({ actionLists, actionHandler, getPosition }: TActionExecutorArgs) {
+  constructor({ actions, actionHandler, getPosition }: TActionExecutorArgs) {
     this.actionHandler = actionHandler;
     this.getPosition = getPosition;
-    this.generators = actionLists.map(actionList => this.generator(actionList));
+    this.generator = this.makeGenerator(actions);
   }
 
+  // TODO: Prolly return something special when died/finished.
   ProgressOneFrame() {
-    // Execute each generator (actionList) in parallell.
-    this.generators.forEach(g => { g.next(); });
+    // TODO: Die/kill self/explode when done!
+    this.generator.next();
   }
 
   /**
    * Private
    */
   
-  *generator(actions: TAction[]): Generator<void, void, void> {
+  *makeGenerator(actions: TAction[]): Generator<void, void, void> {
     let currIndex = 0;
     const nrActions = actions.length;
   
@@ -46,7 +47,7 @@ export class ActionExecutor {
       switch(currAction.type) {
         case "parallell_race": {
           const { actionsLists } = currAction;
-          const generators = actionsLists.map(actions => this.generator(actions));
+          const generators = actionsLists.map(actions => this.makeGenerator(actions));
           // advance generators one step.
           let results = generators.map(generator => generator.next());
           // Loop until one if done
@@ -61,7 +62,7 @@ export class ActionExecutor {
         case "repeat": {
           const times = currAction.times;
           for(let i=0; i<times; i++) {
-            yield* this.generator(currAction.actions);
+            yield* this.makeGenerator(currAction.actions);
           }
           break;
         }

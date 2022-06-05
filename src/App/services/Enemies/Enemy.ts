@@ -37,7 +37,7 @@ export class Enemy {
     this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,
-      actionLists: json.actionsLists,
+      actions: json.actions,
       getPosition: this.getPosition,
     });
     this.speedX = 0;

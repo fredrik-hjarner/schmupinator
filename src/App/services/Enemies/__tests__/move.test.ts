@@ -14,14 +14,12 @@ describe("move", () => {
     const generator = new ActionExecutor({
       getPosition,
       actionHandler,
-      actionLists: [
-        [{
-          type: "move",
-          movement: { x: 1, y: 0 },
-          frames: 0
-        }]
-      ]
-    }).generators[0];
+      actions: [{
+        type: "move",
+        movement: { x: 1, y: 0 },
+        frames: 0
+      }]
+    }).generator;
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(1);
@@ -34,14 +32,12 @@ describe("move", () => {
     const generator = new ActionExecutor({
       getPosition,
       actionHandler,
-      actionLists: [
-        [{
-          type: "move",
-          movement: { x: 1, y: 0 },
-          frames: 1
-        }]
-      ]
-    }).generators[0];
+      actions: [{
+        type: "move",
+        movement: { x: 1, y: 0 },
+        frames: 1
+      }]
+    }).generator;
 
     // move, also will yield
     expect(generator.next().done).toBe(false);
@@ -60,14 +56,12 @@ describe("move", () => {
     const generator = new ActionExecutor({
       getPosition,
       actionHandler,
-      actionLists: [
-        [{
-          type: "move",
-          movement: { x: 2, y: 0 },
-          frames: 2
-        }]
-      ]
-    }).generators[0];
+      actions: [{
+        type: "move",
+        movement: { x: 2, y: 0 },
+        frames: 2
+      }]
+    }).generator;
 
     // 1st move.
     expect(generator.next().done).toBe(false);
