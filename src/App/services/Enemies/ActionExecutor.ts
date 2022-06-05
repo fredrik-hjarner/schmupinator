@@ -111,7 +111,7 @@ export class ActionExecutor {
                 x: startPos.x + position.x,
                 y: startPos.y + position.y
               });
-            } else if(currAction.type) {
+            } else if(currAction.type === "rotate_around_point") {
               const startPosVector = new Vector(startPos.x, startPos.y);
               const pointX = currAction.point.x ?? startPos.x;
               const pointY = currAction.point.y ?? startPos.y;
