@@ -10,5 +10,4 @@ problem, I want those two to be fully separated.
 SIMPLE actions. SIMPLE actions are executed by the game engine and the ADVANCED actions are "utils".
 If I had simple actions such as NOOP which would just wait a frame, then I think it would be
 easier to do some kind of RUN AHEAD functionality.
-* Make GeneratorUtils with generalized versions of Repeat and ParallellRace.
 * Create Skip 30 frames and Skip 60 frames buttons, to advance time.

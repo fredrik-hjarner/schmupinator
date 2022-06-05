@@ -47,36 +47,14 @@ export class ActionExecutor {
       const currAction = actions[currIndex];
       switch(currAction.type) {
         case "parallell_race": {
-          const { actionsLists } = currAction;
-          const generators = actionsLists.map(actions => this.makeGenerator(actions));
-          // advance generators one step.
-          let results = generators.map(generator => generator.next());
-          // Loop until one is done
-          while(!results.some(result => result.done)) {
-            // yield because after running once, something needed to wait/yield.
-            yield;
-            // advance generators one step.
-            results = generators.map(generator => generator.next());
-          }
+          const generators = currAction.actionsLists.map(actions => this.makeGenerator(actions));
+          yield* GeneratorUtils.ParallellRace(generators);
           break;
         }
 
-        /**
-         * TODO: Fix code duplication with parallal_race paralell_all.
-         * TODO: Untested. Test this.
-         */
         case "parallell_all": {
-          const { actionsLists } = currAction;
-          const generators = actionsLists.map(actions => this.makeGenerator(actions));
-          // advance generators one step.
-          let results = generators.map(generator => generator.next());
-          // Loop until all are done
-          while(!results.every(result => result.done)) {
-            // yield because after running once, something needed to wait/yield.
-            yield;
-            // advance generators one step.
-            results = generators.map(generator => generator.next());
-          }
+          const generators = currAction.actionsLists.map(actions => this.makeGenerator(actions));
+          yield* GeneratorUtils.ParallellAll(generators);
           break;
         }
 
