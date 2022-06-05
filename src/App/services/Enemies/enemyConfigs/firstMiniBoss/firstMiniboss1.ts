@@ -9,6 +9,7 @@ export const firstMiniBoss1: IEnemyJson = {
   name: `${uuid()}`,
   spawnOnFrame: 60*10,
   hp: 120,
+  diameter: 35,
   startPosition: {
     x: resolutionWidth*0.333,
     y: -20

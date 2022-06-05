@@ -34,7 +34,7 @@ export class Enemy {
     this.id = json.name;
     this.maxHp = json.hp;
     this.hp = json.hp;
-    this.circle = new Circle(json.startPosition.x, json.startPosition.y, 35, 'red');
+    this.circle = new Circle(json.startPosition.x, json.startPosition.y, json.diameter, 'red');
     this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
     this.actionExecutor = new ActionExecutor({
       actionHandler: this.HandleAction,
