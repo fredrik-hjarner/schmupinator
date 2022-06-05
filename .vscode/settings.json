@@ -17,5 +17,6 @@
   "jest.autoRun": {
     "watch": false,
     "onSave": "test-src-file"
-  }
+  },
+  "editor.tabSize": 3
 }

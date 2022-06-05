@@ -17,27 +17,27 @@ type TEvent =
   { type: 'collisions', collisions: TCollisions }; // when collisions happen.
 
 export class Events {
-  app: App;
-  name: string;
-  subscribers: TSubscribers;
+   app: App;
+   name: string;
+   subscribers: TSubscribers;
 
-  constructor({ app, name }: TConstructor) {
-    this.app = app;
-    this.name = name;
-    this.subscribers = {}; // key-callback pairs
-  }
+   constructor({ app, name }: TConstructor) {
+      this.app = app;
+      this.name = name;
+      this.subscribers = {}; // key-callback pairs
+   }
 
-  public subscribeToEvent = (nameOfSubscriber: string, callback: TCallback) => {
-    this.subscribers[nameOfSubscriber] = callback;
-  };
+   public subscribeToEvent = (nameOfSubscriber: string, callback: TCallback) => {
+      this.subscribers[nameOfSubscriber] = callback;
+   };
 
-  public unsubscribeToEvent = (nameOfSubscriber: string) => {
-    delete this.subscribers[nameOfSubscriber];
-  };
+   public unsubscribeToEvent = (nameOfSubscriber: string) => {
+      delete this.subscribers[nameOfSubscriber];
+   };
 
-  public dispatchEvent = (event: TEvent) => {
-    Object.values(this.subscribers).forEach(callback => {
-      callback(event);
-    });
-  };
+   public dispatchEvent = (event: TEvent) => {
+      Object.values(this.subscribers).forEach(callback => {
+         callback(event);
+      });
+   };
 }

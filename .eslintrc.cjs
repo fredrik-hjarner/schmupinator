@@ -44,7 +44,7 @@ module.exports = {
      */
     "arrow-spacing": "warn",
     "eqeqeq": "warn",
-    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    "indent": ["warn", 3, { "SwitchCase": 1 }],
     "no-unneeded-ternary": "warn",
     "no-useless-computed-key": "warn",
     "no-useless-rename": "warn",

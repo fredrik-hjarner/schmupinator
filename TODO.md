@@ -16,3 +16,30 @@ If I had simple actions such as NOOP which would just wait a frame, then I think
 easier to do some kind of RUN AHEAD functionality.
 
 * Create Skip 30 frames and Skip 60 frames buttons, to advance time.
+
+* Make "move" have Partial<TVector>.
+
+* Maybe have a ActionPreprocessor that simplifies actions, for example expands repeat actions, or
+turns all rotate around point actions into individual set_position actions, or turns all absolute
+moves into relative moves (dunno, can maybe simplify things, maybe.)
+
+* Implements Snippets:
+{
+   snippets: [
+      {name: "sinus" actions: [...]}
+   ],
+   // enemies: [
+   //   {name: "sinus-1", actions: [{ type: "execute_snippet", snippetName: "sinus" }]}
+   // ]
+   spawnActions: [...]
+}
+
+* Maybe make a SpawnerActionExecutor that can handle actions such as
+{
+   type: "spawn",
+   enemy: 'sinus-1',
+   spawnFrame: { frame: 1000, relativeToLabel: 'part-2' },
+   snippets: [...],
+}
+
+* frameLabels: [{ label: 'part-3', frame: 100, relativeToLabel: 'part-2' }]

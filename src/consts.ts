@@ -14,8 +14,8 @@ export const millisPerFrame = 1000 / frameRate;
 export const playerInvincible = true;
 
 export const playerSpeedPerFrame = [
-  // zero upgrades
-  2.35 // confirmed correct!
+   // zero upgrades
+   2.35 // confirmed correct!
 ]; 
 
 export const framesBewteenPlayerShots = 8;

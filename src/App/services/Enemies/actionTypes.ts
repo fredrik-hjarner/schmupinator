@@ -9,15 +9,19 @@ export type TShootTowardPlayer =   { type: "shoot_toward_player" };
 export type TShootBesidePlayer =   { type: "shoot_beside_player", clockwiseDegrees: number };
 export type TSetShotSpeed =        { type: "set_shot_speed", pixelsPerFrame: number };
 // Moves relative to current position.
-export type TMove =                { type: "move", movement: Vector, frames: number };
+export type TMove =                { type: "move", movement: Partial<Vector>, frames: number };
 // Move to an absolute postion on screen.
 export type TMoveToAbsolute =      { type: "move_to_absolute",
                                      moveTo: Partial<Vector>, frames: number };
 export type TSetPosition =         { type: "set_position", x: number, y: number };
 export type TMoveBezier =          { type: "move_bezier", bend:Vector, end:Vector, frames:number };
 export type TSetSpeed =            { type: "set_speed", pixelsPerFrame: number };
-export type TRotateAroundPoint   = { type: "rotate_around_point",
-                                    point: Partial<Vector>, degrees: number, frames: number };
+export type TRotateAroundAbsolutePoint =
+                                   { type: "rotate_around_absolute_point",
+                                     point:Partial<Vector>, degrees:number, frames:number };
+export type TRotateAroundRelativePoint =
+                                   { type: "rotate_around_relative_point",
+                                     point:Partial<Vector>, degrees:number, frames:number };
 /**
  * Like Promise.race.
  * Executes TAction lists in parallell, stops when any one of them has finished.
@@ -53,6 +57,7 @@ export type TAction =
   TSetPosition |
   TMoveBezier |
   TSetSpeed |
-  TRotateAroundPoint |
+  TRotateAroundAbsolutePoint |
+  TRotateAroundRelativePoint |
   TRotateTowardsPlayer |
   TMoveAccordingToSpeedAndDirection;

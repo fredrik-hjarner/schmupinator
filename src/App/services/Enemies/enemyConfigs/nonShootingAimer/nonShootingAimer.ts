@@ -9,27 +9,27 @@ type TCreateNonShootingAimerArgs = {
 }
 
 export const createNonShootingAimer = (
-  { spawnOnFrame, spawnPosition }: TCreateNonShootingAimerArgs
+   { spawnOnFrame, spawnPosition }: TCreateNonShootingAimerArgs
 ): IEnemyJson => {
-  return {
-    name: `nonShootingAimer-${uuid()}`,
-    spawnOnFrame,
-    hp: 4,
-    diameter: 22,
-    startPosition: spawnPosition,
-    actions: [
-      { type: 'set_speed', pixelsPerFrame: 1.60 },
-      { type: "parallell_all", actionsLists: [[
-        { type: "repeat", times: (60/8)*5, actions: [
-          { type: 'rotate_towards_player' },
-          { type: "wait", frames: 8 }
-        ] }
-      ],[
-        { type: "repeat", times: 60*10, actions: [
-          { type: 'move_according_to_speed_and_direction' },
-          { type: "wait_next_frame" }
-        ] }
-      ]] },
-    ]
-  };
+   return {
+      name: `nonShootingAimer-${uuid()}`,
+      spawnOnFrame,
+      hp: 4,
+      diameter: 22,
+      startPosition: spawnPosition,
+      actions: [
+         { type: 'set_speed', pixelsPerFrame: 1.60 },
+         { type: "parallell_all", actionsLists: [[
+            { type: "repeat", times: (60/8)*4, actions: [
+               { type: 'rotate_towards_player' },
+               { type: "wait", frames: 8 }
+            ] }
+         ],[
+            { type: "repeat", times: 60*10, actions: [
+               { type: 'move_according_to_speed_and_direction' },
+               { type: "wait_next_frame" }
+            ] }
+         ]] },
+      ]
+   };
 };
