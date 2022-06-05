@@ -7,7 +7,7 @@ import { uuid } from "../../../../../utils/uuid";
 
 export const firstMiniBoss2: IEnemyJson = {
   name: `${uuid()}`,
-  spawnOnFrame: 60*5,
+  spawnOnFrame: 60*10,
   hp: 120,
   startPosition: {
     x: resolutionWidth*0.666,

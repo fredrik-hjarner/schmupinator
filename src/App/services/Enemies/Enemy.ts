@@ -10,6 +10,7 @@ import { px } from "../../../utils/px";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
+import { UnitVector } from "../../../math/UnitVector";
 
 export class Enemy {
   app: App;
@@ -17,9 +18,9 @@ export class Enemy {
   maxHp: number;
   hp: number;
   circle: Circle;
-  speedX: number;
-  speedY: number;
+  speed: number;
   shotSpeed: number;
+  direction: UnitVector;
   actionExecutor: ActionExecutor;
 
   /**
@@ -40,14 +41,14 @@ export class Enemy {
       actions: json.actions,
       getPosition: this.getPosition,
     });
-    this.speedX = 0;
-    this.speedY = 0;
+    this.speed = 0;
+    // default direction down.
+    this.direction = new UnitVector(new Vector(0, 1));
 
     this.updateDisplayHealth();
   }
 
   public OnFrameTick = () => {
-    this.applySpeed();
     this.actionExecutor.ProgressOneFrame();
   };
 
@@ -92,7 +93,7 @@ export class Enemy {
       }
 
       case 'set_speed': {
-        this.SetSpeed({ x: action.x, y: action.y });
+        this.SetSpeed(action.pixelsPerFrame);
         break;
       }
 
@@ -113,6 +114,16 @@ export class Enemy {
 
       case 'shoot_beside_player': {
         this.ShootBesidePlayer(action.clockwiseDegrees);
+        break;
+      }
+
+      case "rotate_towards_player": {
+        this.RotateTowardsPlayer();
+        break;
+      }
+
+      case "move_according_to_speed_and_direction": {
+        this.moveAccordingToSpeedAndDirection();
         break;
       }
       
@@ -154,9 +165,8 @@ export class Enemy {
     this.ShootDirection({ dirX: vector.x, dirY: vector.y });
   };
 
-  SetSpeed = ({ x, y }: {x: number, y: number}) => {
-    this.speedX = x;
-    this.speedY = y;
+  SetSpeed = (pixelsPerFrame: number) => {
+    this.speed = pixelsPerFrame;
   };
 
   SetShotSpeed = (pixelsPerFrame: number) => {
@@ -168,12 +178,22 @@ export class Enemy {
     this.circle.Y = y;
   };
 
+  RotateTowardsPlayer = () => {
+    const playerCircle = this.app.player.circle;
+    const playerVector = new Vector(playerCircle.x, playerCircle.y);
+    const enemyCircle = this.circle;
+    // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
+    const enemyVector = new Vector(enemyCircle.x, enemyCircle.y);
+    const vectorFromEnemyToPlayer = Vector.fromTo(enemyVector, playerVector);
+    this.direction = new UnitVector(vectorFromEnemyToPlayer);
+  };
+
   /**
    * Private
    */
-  applySpeed = () => {
-    this.circle.X += this.speedX;
-    this.circle.Y += this.speedY;
+  moveAccordingToSpeedAndDirection = () => {
+    this.circle.X += this.direction.x * this.speed;
+    this.circle.Y += this.direction.y * this.speed;
   };
 
   getPosition = (): TVector => {
