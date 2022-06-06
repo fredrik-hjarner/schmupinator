@@ -27,4 +27,9 @@ export class GameSpeed implements IService {
       const value = this.gameSpeedElement.value;
       return parseInt(value, 10);
    }
+
+   // nr of frames per 1/60 seconds.
+   public set GameSpeed(value: number) {
+      this.gameSpeedElement.value = `${value}`;
+   }
 }

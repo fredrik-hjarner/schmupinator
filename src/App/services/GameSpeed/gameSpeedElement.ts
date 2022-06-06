@@ -7,5 +7,6 @@ export const initGameSpeedElement = () => {
    element.style.position = "fixed";
    element.style.top = px(resolutionHeight);
    element.style.right = px(resolutionWidth);
+   element.value = "1";
    return element;
 };

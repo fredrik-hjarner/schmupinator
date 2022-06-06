@@ -17,8 +17,6 @@ easier to do some kind of RUN AHEAD functionality.
 
 * Create Skip 30 frames and Skip 60 frames buttons, to advance time.
 
-* Make "move" have Partial<TVector>.
-
 * Maybe have a ActionPreprocessor that simplifies actions, for example expands repeat actions, or
 turns all rotate around point actions into individual set_position actions, or turns all absolute
 moves into relative moves (dunno, can maybe simplify things, maybe.)
@@ -45,3 +43,9 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 * frameLabels: [{ label: 'part-3', frame: 100, relativeToLabel: 'part-2' }]
 
 * Make GameOver service.
+
+* Optimize Events service so you can only subscribe to certain events.
+
+* Make it so that colliding with an enemy kills you.
+
+* Add { type: "enemy_died", enemyName: string } event.

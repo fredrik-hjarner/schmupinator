@@ -67,7 +67,7 @@ export class Player {
        */
       if(!playerInvincible) {
          if(collisions.playerWasHit) {
-            location.reload();
+            this.app.events.dispatchEvent({ type: "player_died" });
          }
       }
    };

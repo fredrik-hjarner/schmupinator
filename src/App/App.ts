@@ -8,6 +8,7 @@ import { Collisions } from './services/Collisions/Collisions';
 import { Events } from './services/Events/Events';
 import { GameSpeed } from './services/GameSpeed/GameSpeed';
 import { Points } from './services/Points/Points';
+import { GameOver } from './services/GameOver/GameOver';
 
 export class App {
    input: Input;
@@ -21,6 +22,7 @@ export class App {
    events: Events;
    gameSpeed: GameSpeed;
    points: Points;
+   gameOver: GameOver;
 
    constructor() {
       /**
@@ -44,6 +46,7 @@ export class App {
       this.events = new Events({ app: this, name: "events" });
       this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
       this.points = new Points({ app: this, name: "points" });
+      this.gameOver = new GameOver({ app: this, name: "gameOver" });
 
       /**
        * Init services
@@ -54,5 +57,6 @@ export class App {
       this.enemies.Init();
       this.collisions.Init();
       this.points.Init();
+      this.gameOver.Init();
    }
 }

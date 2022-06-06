@@ -9,12 +9,12 @@ import { initGameDiv } from "./gameDiv";
 import { px } from "../../../utils/px";
 
 export class GameLoop {
-   app: App;
+   readonly app: App;
    FrameCount: number;
-   gameDiv: HTMLDivElement;
-   framCounterDiv: HTMLDivElement;
-   elapsedTimeDiv: HTMLDivElement;
-   fpsDiv: HTMLDivElement;
+   readonly gameDiv: HTMLDivElement;
+   readonly framCounterDiv: HTMLDivElement;
+   readonly elapsedTimeDiv: HTMLDivElement;
+   readonly fpsDiv: HTMLDivElement;
    nextFrameMillis: number | null;
    startTime: number | null;
 
