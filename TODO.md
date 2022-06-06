@@ -43,3 +43,5 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 }
 
 * frameLabels: [{ label: 'part-3', frame: 100, relativeToLabel: 'part-2' }]
+
+* Make GameOver service.

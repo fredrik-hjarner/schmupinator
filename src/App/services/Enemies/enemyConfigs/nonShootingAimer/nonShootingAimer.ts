@@ -20,7 +20,7 @@ export const createNonShootingAimer = (
       actions: [
          { type: 'set_speed', pixelsPerFrame: 1.60 },
          { type: "parallell_all", actionsLists: [[
-            { type: "repeat", times: (60/8)*4, actions: [
+            { type: "repeat", times: (60/8)*3.5, actions: [
                { type: 'rotate_towards_player' },
                { type: "wait", frames: 8 }
             ] }
