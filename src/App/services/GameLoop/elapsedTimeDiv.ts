@@ -1,11 +1,12 @@
-import { resolutionHeight } from "../../../consts";
+import { resolutionHeight, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 
 export const initElapsedTimeDiv = () => {
-   const elapsedTimeDiv: HTMLDivElement =
+   const element: HTMLDivElement =
     window.document.querySelector("#elapsedTimeDiv") as HTMLDivElement;
-   elapsedTimeDiv.style.position = "fixed";
-   elapsedTimeDiv.style.top = px(resolutionHeight + 20);
-   elapsedTimeDiv.style.left = "0px";
-   return elapsedTimeDiv;
+   element.style.position = "fixed";
+   element.style.top = px(resolutionHeight + 20);
+   element.style.left = "0px";
+   element.style.zIndex = zIndices.controlsAndLogs;
+   return element;
 };

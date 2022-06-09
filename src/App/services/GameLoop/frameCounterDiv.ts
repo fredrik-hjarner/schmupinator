@@ -1,11 +1,12 @@
-import { resolutionHeight } from "../../../consts";
+import { resolutionHeight, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 
 export const initFrameCounterDiv = () => {
-   const frameCounter: HTMLDivElement =
+   const element: HTMLDivElement =
     window.document.querySelector("#frameCounter") as HTMLDivElement;
-   frameCounter.style.position = "fixed";
-   frameCounter.style.top = px(resolutionHeight);
-   frameCounter.style.left = "0px";
-   return frameCounter;
+   element.style.position = "fixed";
+   element.style.top = px(resolutionHeight);
+   element.style.left = "0px";
+   element.style.zIndex = zIndices.controlsAndLogs;
+   return element;
 };

@@ -51,3 +51,7 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 * Add { type: "enemy_died", enemyName: string } event.
 
 * Try SWC Typescript compiler.
+
+* Have consts file with all z indices.
+
+* Add collisions with enemy ships themselves.

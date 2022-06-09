@@ -46,6 +46,9 @@ export class GameOver implements IService {
    private showGameOver = () => {
       // TODO: Implement GameOver screenand behaviour.
       this.app.gameSpeed.GameSpeed = 0;
-      setTimeout(() => { location.reload(); }, 2000);
+      this.gameOverElement.style.visibility = "visible";
+      setTimeout(() => {
+         // location.reload();
+      }, 2000);
    };
 }

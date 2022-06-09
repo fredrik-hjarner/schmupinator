@@ -1,4 +1,4 @@
-import { resolutionHeight, resolutionWidth } from "../../../consts";
+import { resolutionHeight, resolutionWidth, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 
 export const initGameSpeedElement = () => {
@@ -8,5 +8,6 @@ export const initGameSpeedElement = () => {
    element.style.top = px(resolutionHeight);
    element.style.right = px(resolutionWidth);
    element.value = "1";
+   element.style.zIndex = zIndices.controlsAndLogs;
    return element;
 };

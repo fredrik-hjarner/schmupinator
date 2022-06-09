@@ -11,7 +11,7 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "dist",
-    "incremental": true, // performance increase.
+    // "incremental": true, // performance increase. // this seems to cause problems sometimes.
     "allowJs": true,
     "checkJs": true,
     "target": "ES2022",

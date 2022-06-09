@@ -5,7 +5,7 @@ import { round } from "../../../utils/round";
 import { initElapsedTimeDiv } from "./elapsedTimeDiv";
 import { initFpsDiv } from "./fpsDiv";
 import { initFrameCounterDiv } from "./frameCounterDiv";
-import { initGameDiv } from "./gameDiv";
+import { initGameDiv, initGameHideBottom } from "./gameDiv";
 import { px } from "../../../utils/px";
 
 export class GameLoop {
@@ -27,6 +27,7 @@ export class GameLoop {
       this.FrameCount = 0;
       this.framCounterDiv = initFrameCounterDiv();
       this.gameDiv = initGameDiv();
+      initGameHideBottom();
       this.elapsedTimeDiv = initElapsedTimeDiv();
       this.fpsDiv = initFpsDiv();
       this.nextFrameMillis = null;

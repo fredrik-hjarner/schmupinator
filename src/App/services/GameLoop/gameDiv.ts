@@ -1,4 +1,5 @@
-import { resolutionHeight, resolutionWidth } from "../../../consts";
+import { resolutionHeight, resolutionWidth, zIndices } from "../../../consts";
+import { px } from "../../../utils/px";
 
 export const initGameDiv = () => {
    const gameDiv: HTMLDivElement = window.document.querySelector("#game") as HTMLDivElement;
@@ -15,4 +16,17 @@ export const initGameDiv = () => {
    gameDiv.style.backgroundRepeat = "repeat-y";
    gameDiv.style.backgroundPositionY = "0px";
    return gameDiv;
+};
+
+export const initGameHideBottom = () => {
+   const element: HTMLDivElement =
+      window.document.querySelector("#gameHideBottom") as HTMLDivElement;
+   element.style.height = px(150);
+   element.style.width = px(resolutionWidth);
+   element.style.position = "fixed";
+   element.style.top = px(resolutionHeight);
+   element.style.left = px(0);
+   element.style.backgroundColor = "white";
+   element.style.zIndex = zIndices.gameHide;
+   return element;
 };
