@@ -49,3 +49,5 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 * Make it so that colliding with an enemy kills you.
 
 * Add { type: "enemy_died", enemyName: string } event.
+
+* Try SWC Typescript compiler.
