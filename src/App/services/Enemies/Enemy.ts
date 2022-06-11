@@ -5,7 +5,7 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
 
 import { Circle } from "../../../Circle";
-import { ActionExecutor } from "./ActionExecutor";
+import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { px } from "../../../utils/px";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
@@ -21,7 +21,7 @@ export class Enemy {
    speed: number;
    shotSpeed: number;
    direction: UnitVector;
-   actionExecutor: ActionExecutor;
+   actionExecutor: EnemyActionExecutor;
 
    /**
    * Public
@@ -36,7 +36,7 @@ export class Enemy {
       this.hp = json.hp;
       this.circle = new Circle(json.startPosition.x, json.startPosition.y, json.diameter, 'red');
       this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
-      this.actionExecutor = new ActionExecutor({
+      this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
          actions: json.actions,
          getPosition: this.getPosition,

@@ -7,7 +7,7 @@ import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
 
-type TActionExecutorArgs = {
+type TEnemyActionExecutorArgs = {
   /**
    * The actions to execute.
    * Executes them in sequence.
@@ -18,12 +18,12 @@ type TActionExecutorArgs = {
   getPosition: () => TVector;
 }
 
-export class ActionExecutor {
+export class EnemyActionExecutor {
    private actionHandler: (action: TAction) => void;
    private getPosition: () => TVector;
    generator: Generator<void, void, void>;
 
-   constructor({ actions, actionHandler, getPosition }: TActionExecutorArgs) {
+   constructor({ actions, actionHandler, getPosition }: TEnemyActionExecutorArgs) {
       this.actionHandler = actionHandler;
       this.getPosition = getPosition;
       this.generator = this.makeGenerator(actions);
