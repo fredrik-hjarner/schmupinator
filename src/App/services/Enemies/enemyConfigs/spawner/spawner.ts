@@ -13,59 +13,127 @@ export const spawner: IEnemyJson = {
    actions: [
       { type: 'wait', frames: 120 },
       { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 159 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 199 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 239 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 279 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 319 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 359 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 399 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 128.5, y: -22 } },
-      { type: 'wait', frames: 1 },
-      { type: 'spawn', enemy: 'nonShootingAimer', position: { x: 228.5, y: -22 } },
-      { type: 'wait', frames: 559 },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 40 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 128.5, y: -22 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 40 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 128.5, y: -22 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 40 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 128.5, y: -22 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 40 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 128.5, y: -22 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 40 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 128.5, y: -22 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 40 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 128.5, y: -22 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 40 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 128.5, y: -22 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'nonShootingAimer',
+         position: { x: 228.5, y: -22 }
+      },
+      { type: 'wait', frames: 160 },
       { type: 'spawn', enemy: 'sinusLeft', position: { x: 75, y: -20 } },
-      { type: 'wait', frames: 71 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusRight', position: { x: 280, y: -20 } },
-      { type: 'wait', frames: 629 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusLeft', position: { x: 75, y: -20 } },
-      { type: 'wait', frames: 141 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusRight', position: { x: 280, y: -20 } },
-      { type: 'wait', frames: 699 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusLeft', position: { x: 75, y: -20 } },
-      { type: 'wait', frames: 211 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusRight', position: { x: 280, y: -20 } },
-      { type: 'wait', frames: 769 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusLeft', position: { x: 75, y: -20 } },
-      { type: 'wait', frames: 281 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusRight', position: { x: 280, y: -20 } },
-      { type: 'wait', frames: 839 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusLeft', position: { x: 75, y: -20 } },
-      { type: 'wait', frames: 351 },
+      { type: 'wait', frames: 70 },
       { type: 'spawn', enemy: 'sinusRight', position: { x: 280, y: -20 } },
-      { type: 'wait', frames: 1089 },
-      { type: 'spawn', enemy: 'firstMiniboss1', position: { x: 118.881, y: -20 } },
-      { type: 'wait', frames: 351 },
-      { type: 'spawn', enemy: 'firstMiniboss2', position: { x: 237.762, y: -20 } }
+      { type: 'wait', frames: 250 },
+      {
+         type: 'spawn',
+         enemy: 'firstMiniboss1',
+         position: { x: 118.881, y: -20 }
+      },
+      { type: 'wait', frames: 0 },
+      {
+         type: 'spawn',
+         enemy: 'firstMiniboss2',
+         position: { x: 237.762, y: -20 }
+      }
    ]
 };
