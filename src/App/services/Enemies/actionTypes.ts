@@ -32,7 +32,7 @@ export type TParallellAll        = { type: "parallell_all", actionsLists: TShort
 export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
 // Spawns an enemy. Only usuable by the spawner
-export type TSpawn = { type: "spawn", enemy: string, position: Vector };
+export type TSpawn = { type: "spawn", enemy: string, x: number, y: number };
 
 export type TAction =
 /**

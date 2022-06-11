@@ -130,8 +130,8 @@ export class Enemy {
          }
 
          case "spawn": {
-            const { enemy, position } = action;
-            this.spawn({ enemy, position });
+            const { enemy, x, y } = action;
+            this.spawn({ enemy, position: { x, y } });
             break;
          }
       
