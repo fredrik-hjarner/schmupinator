@@ -1,7 +1,5 @@
 import type { IEnemyJson } from "../IEnemyJson";
 
-import { uuid } from "../../../../../utils/uuid";
-
 type TCreateSinusRightArgs = {
   spawnOnFrame: number;
 }
@@ -10,7 +8,7 @@ export const createRightSinus = (
    { spawnOnFrame }: TCreateSinusRightArgs
 ): IEnemyJson => {
    return {
-      name: `sinusRight-${uuid()}`,
+      name: `sinusRight`,
       spawnOnFrame,
       hp: 3,
       diameter: 24,

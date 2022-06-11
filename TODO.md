@@ -55,3 +55,10 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 * Have consts file with all z indices.
 
 * Add collisions with enemy ships themselves.
+
+* It'd be cooler if the Spawner was an ememy, just like other enemies,
+but it is invisible, noCollision, invincible and always spawn at [0,0] at frame 1.
+Then it could move around and so like all other enemies.
+
+* I could do it as css and have position: relative/absolute with relative as default,
+that would make relative/absolute positioning actions more coherent.

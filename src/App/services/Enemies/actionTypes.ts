@@ -30,7 +30,8 @@ export type TParallellRace       = { type: "parallell_race", actionsLists: TActi
 export type TParallellAll        = { type: "parallell_all", actionsLists: TAction[][] };
 export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
-
+// Spawns an enemy. Only usuable by the spawner
+export type TSpawn = { type: "spawn", enemy: string, position: Vector };
 
 export type TAction =
   /**
@@ -60,4 +61,8 @@ export type TAction =
   TRotateAroundAbsolutePoint |
   TRotateAroundRelativePoint |
   TRotateTowardsPlayer |
-  TMoveAccordingToSpeedAndDirection;
+  TMoveAccordingToSpeedAndDirection |
+  /**
+   * Spawning
+   */
+   TSpawn;

@@ -6,6 +6,7 @@ import { firstMiniBoss2 } from "./firstMiniBoss/firstMiniboss2";
 import { resolutionWidth } from "../../../../consts";
 import { createLeftSinus } from "./sinus/sinusLeft";
 import { createRightSinus } from "./sinus/sinusRight";
+import { spawner } from "./spawner/spawner";
 
 const startSpawnAimers = 80;
 const startSpawnSinus = 40*8 + 60*4;
@@ -24,6 +25,7 @@ const createAimerPair = (
 ];
 
 export const enemyJsons: IEnemyJson[] = [
+   spawner,
    ...createAimerPair({ spawnOnFrame: 40*1, distanceBetween: 100 }),
    ...createAimerPair({ spawnOnFrame: 40*2, distanceBetween: 100 }),
    ...createAimerPair({ spawnOnFrame: 40*3, distanceBetween: 100 }),
@@ -39,9 +41,9 @@ export const enemyJsons: IEnemyJson[] = [
    createRightSinus({spawnOnFrame: startSpawnSinus + 70*3}),
    createLeftSinus({spawnOnFrame: startSpawnSinus + 70*4}),
    createRightSinus({spawnOnFrame: startSpawnSinus + 70*5}),
-   createRightSinus({spawnOnFrame: startSpawnSinus + 70*6}),
+   createLeftSinus({spawnOnFrame: startSpawnSinus + 70*6}),
    createRightSinus({spawnOnFrame: startSpawnSinus + 70*7}),
-   createRightSinus({spawnOnFrame: startSpawnSinus + 70*8}),
+   createLeftSinus({spawnOnFrame: startSpawnSinus + 70*8}),
    createRightSinus({spawnOnFrame: startSpawnSinus + 70*9}),
 
    firstMiniBoss1,

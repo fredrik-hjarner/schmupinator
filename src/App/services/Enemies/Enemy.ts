@@ -11,6 +11,7 @@ import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { UnitVector } from "../../../math/UnitVector";
+import { uuid } from "../../../utils/uuid";
 
 export class Enemy {
    app: App;
@@ -28,13 +29,14 @@ export class Enemy {
    */
    constructor(
       app: App,
+      position: TVector,
       json: IEnemyJson,
    ) {
       this.app = app;
-      this.id = json.name;
+      this.id = `${json.name}-${uuid()}`;
       this.maxHp = json.hp;
       this.hp = json.hp;
-      this.circle = new Circle(json.startPosition.x, json.startPosition.y, json.diameter, 'red');
+      this.circle = new Circle(position.x,position.y, json.diameter, 'red');
       this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
@@ -126,6 +128,12 @@ export class Enemy {
             this.moveAccordingToSpeedAndDirection();
             break;
          }
+
+         case "spawn": {
+            const { enemy, position } = action;
+            this.spawn({ enemy, position });
+            break;
+         }
       
          default:
             console.error(`unknown action type: ${action.type}`);
@@ -194,6 +202,10 @@ export class Enemy {
    moveAccordingToSpeedAndDirection = () => {
       this.circle.X += this.direction.x * this.speed;
       this.circle.Y += this.direction.y * this.speed;
+   };
+
+   spawn = ({ enemy, position }: { enemy: string, position: TVector }) => {
+      this.app.enemies.Spawn({ enemy, position });
    };
 
    getPosition = (): TVector => {

@@ -3,10 +3,9 @@ import type { IEnemyJson } from "../IEnemyJson";
 import { resolutionWidth } from "../../../../../consts";
 import { firstMiniBossMoveActions1 } from "./moveActions";
 import { firstMiniBossShootActions } from "./shootActions";
-import { uuid } from "../../../../../utils/uuid";
 
 export const firstMiniBoss1: IEnemyJson = {
-   name: `${uuid()}`,
+   name: "firstMiniboss1",
    spawnOnFrame: 60*24,
    hp: 120,
    diameter: 35,

@@ -1,8 +1,6 @@
 import type { IEnemyJson } from "../IEnemyJson";
 import type { Vector as TVector } from "../../../../../math/bezier";
 
-import { uuid } from "../../../../../utils/uuid";
-
 type TCreateNonShootingAimerArgs = {
   spawnOnFrame: number;
   spawnPosition: TVector;
@@ -12,7 +10,7 @@ export const createNonShootingAimer = (
    { spawnOnFrame, spawnPosition }: TCreateNonShootingAimerArgs
 ): IEnemyJson => {
    return {
-      name: `nonShootingAimer-${uuid()}`,
+      name: `nonShootingAimer`,
       spawnOnFrame,
       hp: 4,
       diameter: 22,

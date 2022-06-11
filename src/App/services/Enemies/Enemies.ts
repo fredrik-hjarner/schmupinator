@@ -1,7 +1,9 @@
+import type { Vector as TVector } from "../../../math/bezier";
 import type { App } from "../../App";
 
 import { Enemy } from "./Enemy";
 import { enemyJsons } from "./enemyConfigs/enemyJsons";
+// import { spawner } from "./enemyConfigs/spawner/spawner";
 
 export class Enemies {
    app: App;
@@ -14,7 +16,15 @@ export class Enemies {
    constructor(app: App, { name }: { name: string }) {
       this.app = app;
       this.name = name;
-      this.enemies = [];
+      this.enemies = [
+         /**
+          * The "spawner" enemy is not a normal enemy.
+          * It can do everything that an enemy can do, but it's
+          * primary purpose is to auto-spawn at [0, 0] and
+          * be resposible for spawning enemies.
+          */
+         // new Enemy(app, spawner)
+      ];
    }
   
    /**
@@ -35,7 +45,8 @@ export class Enemies {
                      enemy.spawnOnFrame === this.app.gameLoop.FrameCount
                   );
                   enemiesToSpawn.forEach(enemyJson => {
-                     this.enemies.push(new Enemy(this.app, enemyJson));
+                     // TODO: Remove enemyJson.startPosition.
+                     this.enemies.push(new Enemy(this.app, enemyJson.startPosition, enemyJson));
                   });
                   /**
                    * TODO: Here we see that the first tick happens immediately at spawn so I could,
@@ -55,5 +66,13 @@ export class Enemies {
             }
          }
       );
+   };
+
+   Spawn = ({ enemy, position }: { enemy: string, position: TVector }) => {
+      const enemyJson = enemyJsons.find(e => e.name === enemy);
+      if(!enemyJson) {
+         throw new Error(`Unknown enemy "${enemy}".`);
+      }
+      this.enemies.push(new Enemy(this.app, position, enemyJson));
    };
 }
