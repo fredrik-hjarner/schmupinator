@@ -44,12 +44,17 @@ export class Collisions {
       const enemyShots = this.app.enemyShots.shots.map(s => s.circle);
       const enemies = this.app.enemies.enemies;
       /**
+       * TODO!!!!!!!!!!
+       */
+      // const enemyCircles = enemies.map(e => e.circle);
+      /**
        * TODO: This is just temporary.
        * What should happen is that a collision update event
        * should happen which can be subscribed to.
        * I need to make an Events service to add on app.
        */
       const playerWasHit = this.calcCircleWasHitByShots({ circle: player, shots: enemyShots });
+      // playerWasHit = playerWasHit || 
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
          const wasHit = this.calcCircleWasHitByShots({ circle: enemy.circle, shots: playerShots });
          return wasHit ? [...acc, enemy.id] : acc;
