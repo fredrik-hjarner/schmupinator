@@ -3,7 +3,7 @@ import type { App } from "../../App";
 
 import { Enemy } from "./Enemy";
 import { enemyJsons } from "./enemyConfigs/enemyJsons";
-// import { spawner } from "./enemyConfigs/spawner/spawner";
+import { spawner } from "./enemyConfigs/spawner/spawner";
 
 export class Enemies {
    app: App;
@@ -23,7 +23,7 @@ export class Enemies {
           * primary purpose is to auto-spawn at [0, 0] and
           * be resposible for spawning enemies.
           */
-         // new Enemy(app, spawner)
+         new Enemy(app, {x: 0, y: 0}, spawner)
       ];
    }
   
@@ -40,14 +40,6 @@ export class Enemies {
             switch(event.type) {
                // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
                case 'frame_tick': {
-                  // TODO: Should get enemyJsons sent in via constructor.
-                  const enemiesToSpawn = enemyJsons.filter(enemy =>
-                     enemy.spawnOnFrame === this.app.gameLoop.FrameCount
-                  );
-                  enemiesToSpawn.forEach(enemyJson => {
-                     // TODO: Remove enemyJson.startPosition.
-                     this.enemies.push(new Enemy(this.app, enemyJson.startPosition, enemyJson));
-                  });
                   /**
                    * TODO: Here we see that the first tick happens immediately at spawn so I could,
                    * if I wanted to, actually set everything in the actions as actions such as set
@@ -69,6 +61,7 @@ export class Enemies {
    };
 
    Spawn = ({ enemy, position }: { enemy: string, position: TVector }) => {
+      console.log(`Spawn: enemy=${enemy}, position=${JSON.stringify(position)}`);
       const enemyJson = enemyJsons.find(e => e.name === enemy);
       if(!enemyJson) {
          throw new Error(`Unknown enemy "${enemy}".`);
