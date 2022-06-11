@@ -11,7 +11,7 @@ export const leftSinus: IEnemyJson = {
          { type: "parallell_all", actionsLists: [[
             { type: "rotate_around_relative_point", degrees: -180, frames: 35, point: {y: 31} },
          ],[
-            { type: 'wait', frames:15 },
+            { wait:15 },
             { type: 'shoot_toward_player' }
          ]] },
          // move right.
@@ -20,7 +20,7 @@ export const leftSinus: IEnemyJson = {
          { type: "parallell_all", actionsLists: [[
             { type: "rotate_around_relative_point", degrees: 180, frames: 35, point: {y: 31} },
          ],[
-            { type: 'wait', frames:15 },
+            { wait:15 },
             { type: 'shoot_toward_player' }
          ]] },
          // move left.

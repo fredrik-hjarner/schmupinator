@@ -6,6 +6,7 @@ import { moveLine } from "../../../math/moveLine";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
+import { ShortFormToLongForm, TShortFormAction } from "./actionTypesShortForms";
 
 type TEnemyActionExecutorArgs = {
   /**
@@ -13,7 +14,7 @@ type TEnemyActionExecutorArgs = {
    * Executes them in sequence.
    * You can execute things in parallell with special compound actions like parallell_race.
    */
-  actions: TAction[];
+  actions: TShortFormAction[];
   actionHandler: (action: TAction) => void;
   getPosition: () => TVector;
 }
@@ -39,7 +40,8 @@ export class EnemyActionExecutor {
    * Private
    */
 
-   private *makeGenerator(actions: TAction[]): Generator<void, void, void> {
+   private *makeGenerator(shortFormActions: TShortFormAction[]): Generator<void, void, void> {
+      const actions = shortFormActions.map(ShortFormToLongForm);
       let currIndex = 0;
       const nrActions = actions.length;
   

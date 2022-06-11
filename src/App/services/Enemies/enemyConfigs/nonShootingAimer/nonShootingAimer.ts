@@ -9,7 +9,7 @@ export const nonShootingAimer: IEnemyJson = {
       { type: "parallell_all", actionsLists: [[
          { type: "repeat", times: (60/8)*3.5, actions: [
             { type: 'rotate_towards_player' },
-            { type: "wait", frames: 8 }
+            { wait: 8 }
          ] }
       ],[
          { type: "repeat", times: 60*10, actions: [
