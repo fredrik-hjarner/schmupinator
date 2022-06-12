@@ -2,7 +2,7 @@ import type { Vector } from "../../../math/bezier";
 import type { TShortFormAction } from "./actionTypesShortForms";
 
 export type TWait =                { type: "wait", frames: number };
-export type TWaitNextFrame =       { type: "wait_next_frame" };
+export type TWaitNextFrame =       { type: "waitNextFrame" };
 export type TWaitUtilFrameNr =     { type: "wait_util_frame_nr", frameNr: number};
 export type TRepeat =              { type: "repeat", times: number, actions: TShortFormAction[] };
 export type TShootDirection =      { type: "shootDirection", x: number, y: number };
@@ -16,7 +16,7 @@ export type TMoveToAbsolute =      { type: "move_to_absolute",
 moveTo: Partial<Vector>, frames: number };
 export type TSetPosition =         { type: "set_position", x: number, y: number };
 export type TMoveBezier =          { type: "move_bezier", bend:Vector, end:Vector, frames:number };
-export type TSetSpeed =            { type: "set_speed", pixelsPerFrame: number };
+export type TSetSpeed =            { type: "setSpeed", pixelsPerFrame: number };
 export type TRotateAroundAbsolutePoint =
 { type: "rotate_around_absolute_point",
 point:Partial<Vector>, degrees:number, frames:number };

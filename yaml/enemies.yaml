@@ -39,7 +39,7 @@ enemy:
   hp: 4
   diameter: 22
   actions: 
-    - { type: set_speed, pixelsPerFrame: 1.60 }
+    - { type: setSpeed, pixelsPerFrame: 1.60 }
     - parallellAll:
       - - repeat: 26.25
           actions:
@@ -48,5 +48,5 @@ enemy:
       - - repeat: 600
           actions:
             - type: move_according_to_speed_and_direction
-            - type: wait_next_frame
+            - type: waitNextFrame
   

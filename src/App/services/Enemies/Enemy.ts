@@ -94,7 +94,7 @@ export class Enemy {
             break;
          }
 
-         case "set_speed": {
+         case "setSpeed": {
             this.SetSpeed(action.pixelsPerFrame);
             break;
          }

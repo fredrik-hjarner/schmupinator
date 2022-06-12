@@ -32,7 +32,7 @@ describe("parallell_race", () => {
       actions: [{
         type: "parallell_race", actionsLists: [
           [],
-          [{ type: 'set_speed', pixelsPerFrame: 1 }]
+          [{ type: 'setSpeed', pixelsPerFrame: 1 }]
         ]
       }]
     }).generator;
@@ -50,10 +50,10 @@ describe("parallell_race", () => {
       actionHandler,
       actions: [{
         type: "parallell_race", actionsLists: [[
-          { type: 'set_speed', pixelsPerFrame: 1 }
+          { type: 'setSpeed', pixelsPerFrame: 1 }
         ], [
-          { type: 'wait_next_frame' },
-          { type: 'set_speed', pixelsPerFrame: 1 }
+          { type: 'waitNextFrame' },
+          { type: 'setSpeed', pixelsPerFrame: 1 }
         ]]
       }]
     }).generator;
@@ -71,12 +71,12 @@ describe("parallell_race", () => {
       actionHandler,
       actions: [{
         type: "parallell_race", actionsLists: [[
-          { type: 'wait_next_frame' },
-          { type: 'set_speed', pixelsPerFrame: 1 }
+          { type: 'waitNextFrame' },
+          { type: 'setSpeed', pixelsPerFrame: 1 }
         ], [
-          { type: 'wait_next_frame' },
-          { type: 'wait_next_frame' },
-          { type: 'set_speed', pixelsPerFrame: 1 }
+          { type: 'waitNextFrame' },
+          { type: 'waitNextFrame' },
+          { type: 'setSpeed', pixelsPerFrame: 1 }
         ]]
       }]
     }).generator;

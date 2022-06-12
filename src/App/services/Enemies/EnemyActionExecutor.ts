@@ -68,7 +68,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "wait_next_frame": {
+            case "waitNextFrame": {
                yield;
                break;
             }
