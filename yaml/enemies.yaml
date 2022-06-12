@@ -95,31 +95,21 @@ enemy:
     - *rotateLeftAndShoot
     - *moveRight
 ---
+x-shootDown: &shootDown { type: shootDirection, x: 0, y: 1}
+
 x-shootingPattern: &shootingPattern
   - wait: 75
   - repeat: 9999
     actions:
     - setShotSpeed: 2.6
-    - type: shootDirection
-      x: 0
-      y: 1
-    - wait: 3
-    - type: shootDirection
-      x: 0
-      y: 1
-    - wait: 3
-    - type: shootDirection
-      x: 0
-      y: 1
-    - wait: 58
+    - { repeat: 3, actions: [*shootDown, wait: 3] }
+    - wait: 55
     - setShotSpeed: 2.2
     - repeat: 2
       actions:
       - type: shoot_toward_player
-      - type: shoot_beside_player
-        clockwiseDegrees: 25
-      - type: shoot_beside_player
-        clockwiseDegrees: -25
+      - { type: shoot_beside_player, degrees: 25 }
+      - { type: shoot_beside_player, degrees: -25 }
       - wait: 64
 
 enemy:
@@ -129,7 +119,7 @@ enemy:
   actions:
   - type: parallell_race
     actionsLists:
-    - &shootingPattern
+    - *shootingPattern
     - - type: move_to_absolute
         moveTo:
           x: 116

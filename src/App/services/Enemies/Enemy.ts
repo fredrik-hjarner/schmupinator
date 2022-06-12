@@ -120,7 +120,7 @@ export class Enemy {
          }
 
          case "shoot_beside_player": {
-            this.ShootBesidePlayer(action.clockwiseDegrees);
+            this.ShootBesidePlayer(action.degrees);
             break;
          }
 
@@ -169,12 +169,12 @@ export class Enemy {
       this.ShootDirection({ dirX, dirY });
    };
 
-   ShootBesidePlayer = (clockwiseDegrees: number) => {
+   ShootBesidePlayer = (degrees: number) => {
       const player = this.app.player.circle;
       const me = this.circle;
       const dirX = player.x - me.x;
       const dirY = player.y - me.y;
-      const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(clockwiseDegrees));
+      const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(degrees));
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
 

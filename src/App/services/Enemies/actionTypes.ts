@@ -7,7 +7,7 @@ export type TWaitUtilFrameNr =     { type: "wait_util_frame_nr", frameNr: number
 export type TRepeat =              { type: "repeat", times: number, actions: TSFAction[] };
 export type TShootDirection =      { type: "shootDirection", x: number, y: number };
 export type TShootTowardPlayer =   { type: "shoot_toward_player" };
-export type TShootBesidePlayer =   { type: "shoot_beside_player", clockwiseDegrees: number };
+export type TShootBesidePlayer =   { type: "shoot_beside_player", degrees: number };
 export type TSetShotSpeed =        { type: "setShotSpeed", pixelsPerFrame: number };
 // Moves relative to current position.
 export type TMove =                { type: "move", frames: number } & Partial<Vector>;

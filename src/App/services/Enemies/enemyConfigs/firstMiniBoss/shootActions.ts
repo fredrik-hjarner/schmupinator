@@ -15,8 +15,8 @@ export const firstMiniBossShootActions: TShortFormAction[] = [
       { setShotSpeed: 2.2 },
       { repeat: 2, actions: [
          { type: "shoot_toward_player" },
-         { type: "shoot_beside_player", clockwiseDegrees: 25 },
-         { type: "shoot_beside_player", clockwiseDegrees: -25 },
+         { type: "shoot_beside_player", degrees: 25 },
+         { type: "shoot_beside_player", degrees: -25 },
          { wait: 64 },
       ]}
    ]}

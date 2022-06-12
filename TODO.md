@@ -68,3 +68,5 @@ that would make relative/absolute positioning actions more coherent.
 * Have private constructors, and use a Construct method instead that can be async.
 
 * Eventually remove all long forms that have short forms to reduce complexity!
+
+* Twice, Thrice, Forever short forms.
