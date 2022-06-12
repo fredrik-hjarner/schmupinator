@@ -9,6 +9,9 @@ type TConstructor = {
 export class Input implements IInput {
    app: App;
    name: string;
+   history: {
+      [frame: string]: ButtonsPressed
+   };
 
    private buttonsPressed: ButtonsPressed = {
       space: false,
@@ -21,11 +24,34 @@ export class Input implements IInput {
    constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
+      this.history = {};
       document.onkeydown = this.onKeyDown;
       document.onkeyup = this.onKeyUp;
    }
 
+   public Init = () => {
+      this.app.events.subscribeToEvent(this.name, (event) => {
+         if(event.type === "player_died"){
+            console.log("Input.history:");
+            console.log(this.history);
+         }
+      });
+   };
+
    public get ButtonsPressed() {
+      const frame = this.app.gameLoop.FrameCount;
+      const buttonsPressed = { ...this.buttonsPressed };
+      const wasPressed = Object.values(buttonsPressed).includes(true);
+      if(wasPressed) {
+         Object.keys(buttonsPressed).forEach((k) => {
+            if(k === "space" || k === "up" || k === "down" ||k === "left" ||k === "right") {
+               if(buttonsPressed[k] === false) {
+                  delete buttonsPressed[k];
+               }
+            }
+         });
+         this.history[frame] = buttonsPressed;
+      }
       return this.buttonsPressed;
    }
 

@@ -65,6 +65,7 @@ export class App {
        * yaml async. Enemies needs to be available at least when Enemies service tries to use them.
        */
       await this.yaml.Init();
+      this.input.Init();
       this.player.Init();
       this.playerShots.Init();
       this.enemyShots.Init();
