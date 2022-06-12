@@ -15,6 +15,11 @@ const isShortFormRepeat = (action: TShortFormAction): action is TShortFormRepeat
    return (action as TShortFormRepeat).repeat !== undefined;
 };
 
+export type TShortFormParallellAll = { parallellAll: TShortFormAction[][] };
+const isShortFormParallellAll = (action: TShortFormAction): action is TShortFormParallellAll => {
+   return (action as TShortFormParallellAll).parallellAll !== undefined;
+};
+
 
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
@@ -26,11 +31,17 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    } else if(isShortFormRepeat(shortForm)) {
       const { repeat, actions } = shortForm;
       return { type: "repeat", times: repeat, actions };
+   } else if(isShortFormParallellAll(shortForm)) {
+      const { parallellAll } = shortForm;
+      return { type: "parallellAll", actionsLists: parallellAll };
    }
    return shortForm;
 };
 
-export type TShortFormAction = Exclude<TAction, TWait | TSpawn | TRepeat> |
+export type TShortFormAction =
+   Exclude<TAction, TWait | TSpawn | TRepeat /*| TParallellAll*/> |
+
    TShortFormWait |
    TShortFormSpawn |
-   TShortFormRepeat;
+   TShortFormRepeat |
+   TShortFormParallellAll;

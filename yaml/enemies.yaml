@@ -40,8 +40,7 @@ enemy:
   diameter: 22
   actions: 
     - { type: set_speed, pixelsPerFrame: 1.60 }
-    - type: parallell_all
-      actionsLists:
+    - parallellAll:
       - - repeat: 26.25
           actions:
             - type: rotate_towards_player

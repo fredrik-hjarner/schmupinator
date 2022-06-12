@@ -28,7 +28,7 @@ point:Partial<Vector>, degrees:number, frames:number };
  * Executes TAction lists in parallell, stops when any one of them has finished.
  */
 export type TParallellRace       = { type: "parallell_race", actionsLists: TShortFormAction[][] };
-export type TParallellAll        = { type: "parallell_all", actionsLists: TShortFormAction[][] };
+export type TParallellAll        = { type: "parallellAll", actionsLists: TShortFormAction[][] };
 export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
 // Spawns an enemy.

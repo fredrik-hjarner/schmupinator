@@ -8,7 +8,7 @@ export const rightSinus: IEnemyJson = {
       { type: "set_shot_speed", pixelsPerFrame: 2 },
       { repeat: 2, actions: [
          // rotate 180 degrees and shoot.
-         { type: "parallell_all", actionsLists: [[
+         { parallellAll: [[
             { type: "rotate_around_relative_point", degrees: 180, frames: 35, point: {y: 31} },
          ],[
             { wait:15 },
@@ -17,7 +17,7 @@ export const rightSinus: IEnemyJson = {
          // move right.
          { type: "move", frames: 80, movement: {x: -205, y: 30} },
          // rotate 180 degrees and shoot.
-         { type: "parallell_all", actionsLists: [[
+         { parallellAll: [[
             { type: "rotate_around_relative_point", degrees: -180, frames: 35, point: {y: 31} },
          ],[
             { wait:15 },

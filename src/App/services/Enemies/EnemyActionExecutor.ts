@@ -54,7 +54,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "parallell_all": {
+            case "parallellAll": {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
                yield* GeneratorUtils.ParallellAll(generators);
                break;
