@@ -4,32 +4,32 @@ x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }
 x-sinusLeft: &sinusLeft { spawn: sinus, flags: [left], x: 75, y: -20 }
 x-sinusRight: &sinusRight { spawn: sinus, x: 280, y: -20 }
 
-x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss1, x: 118.881, y: -20 }
-x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss2, x: 237.762, y: -20 }
+x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss, x: 118.881, y: -20 }
+x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss, flags: [right], x: 237.762, y: -20 }
 
 enemy:
     name: spawner
     diameter: 20
     hp: 9999
     actions:
-        # - wait: 120
+        - wait: 120
 
-        # - repeat: 8
-        #   actions:
-        #     - *aimerLeft
-        #     - *aimerRight
-        #     - wait: 40
+        - repeat: 8
+          actions:
+            - *aimerLeft
+            - *aimerRight
+            - wait: 40
 
-        # - wait: 120
+        - wait: 120
 
-        # - repeat: 5
-        #   actions:
-        #     - *sinusLeft
-        #     - wait: 70
-        #     - *sinusRight
-        #     - wait: 70
+        - repeat: 5
+          actions:
+            - *sinusLeft
+            - wait: 70
+            - *sinusRight
+            - wait: 70
 
-        # - wait: 180
+        - wait: 180
         
         - *leftMiniBoss
         - *rightMiniBoss
@@ -129,6 +129,7 @@ x:
 - &downOutOfScreen      { moveToAbsolute: { x: 98.5, y: 290 }, frames: 210 }
 
 x-movementPattern: &movementPattern
+  - { flag: right, yes: [{ type: mirrorX, value: true }] }
   - *intoScreen
   - *down1
   - *quarterCircleDownIn
@@ -149,14 +150,16 @@ x-movementPattern: &movementPattern
   - wait: 25
   - *downIn
   - wait: 25
+  - { flag: right, yes: [{ type: mirrorY, value: true }] }
   - *rotateClockwise
   - wait: 25
   - *rotateAntiClockwise
+  - { flag: right, yes: [{ type: mirrorY, value: false }] }
   - wait: 25
   - *downOutOfScreen
 
 enemy:
-  name: firstMiniboss1
+  name: firstMiniboss
   hp: 120
   diameter: 35
   actions:

@@ -35,10 +35,17 @@ export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed
 export type TSpawn = { type: "spawn", enemy: string, x: number, y: number, flags?: string[] };
 // Simple if case. Executes yes if true. Executs no when false.
 export type TFlag = { type: "flag", flagName: string, yes?: TSFAction[], no?: TSFAction[] };
+/**
+ * Mirroring mirrors an axis.
+ * If you have an enemy that moves like another enemy, except
+ * that every x movement is inverted then try mirrorX.
+ */
+export type TMirrorX = { type: "mirrorX", value: boolean };
+export type TMirrorY = { type: "mirrorY", value: boolean };
 
 export type TAction =
    /**
-    * Common
+    * Utils
     */
    TWait |
    TWaitNextFrame| 
@@ -69,4 +76,12 @@ export type TAction =
    * Spawning
    */
    TSpawn |
-   TFlag;
+   /**
+    * Control/Conditions/Flags
+    */
+   TFlag |
+   /**
+    * Mirroring
+    */
+   TMirrorX |
+   TMirrorY;

@@ -2,8 +2,8 @@ import { px } from "./utils/px";
 import { uuid } from "./utils/uuid";
 
 export class Circle {
-   x: number;
-   y: number;
+   private x: number;
+   private y: number;
    Diameter: number;
    Radius: number;
    color: string;

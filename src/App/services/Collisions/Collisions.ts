@@ -75,8 +75,8 @@ export class Collisions {
          const shot = shots[i];
          // Multiplying minDistance if a hack to cause lower hit "box".
          const minDistance = circle.Radius + shot.Radius * 0.8;
-         const xDist = circle.x - shot.x;
-         const yDist = circle.y - shot.y;
+         const xDist = circle.X - shot.X;
+         const yDist = circle.Y - shot.Y;
          const distance = Math.sqrt(xDist**2 + yDist**2);
          if(distance <= minDistance) {
             return true;

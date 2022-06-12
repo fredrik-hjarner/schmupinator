@@ -12,6 +12,7 @@ import { Angle } from "../../../math/Angle";
 import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
+import { resolutionHeight, resolutionWidth } from "../../../consts";
 
 export class Enemy {
    app: App;
@@ -23,6 +24,8 @@ export class Enemy {
    shotSpeed: number;
    direction: UnitVector;
    flags: string[];
+   mirrorX: boolean;
+   mirrorY: boolean;
    actionExecutor: EnemyActionExecutor;
 
    /**
@@ -42,6 +45,8 @@ export class Enemy {
       this.circle = new Circle(position.x,position.y, json.diameter, "red");
       this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
       this.flags = flags;
+      this.mirrorX = false;
+      this.mirrorY = false;
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
          actions: json.actions,
@@ -139,6 +144,19 @@ export class Enemy {
             this.spawn({ enemy, flags, position: { x, y } });
             break;
          }
+
+         case "mirrorX": {
+            const { value } = action;
+            this.setMirrorX(value);
+            break;
+         }
+
+         case "mirrorY": {
+            const { value } = action;
+            this.setMirrorY(value);
+            break;
+         }
+      
       
          default:
             console.error(`unknown action type: ${action.type}`);
@@ -164,16 +182,16 @@ export class Enemy {
    ShootTowardPlayer = () => {
       const player = this.app.player.circle;
       const me = this.circle;
-      const dirX = player.x - me.x;
-      const dirY = player.y - me.y;
+      const dirX = player.X - me.X;
+      const dirY = player.Y - me.Y;
       this.ShootDirection({ dirX, dirY });
    };
 
    ShootBesidePlayer = (degrees: number) => {
       const player = this.app.player.circle;
       const me = this.circle;
-      const dirX = player.x - me.x;
-      const dirY = player.y - me.y;
+      const dirX = player.X - me.X;
+      const dirY = player.Y - me.Y;
       const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(degrees));
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
@@ -187,16 +205,28 @@ export class Enemy {
    };
 
    SetPosition = ({ x, y }: {x: number, y: number}) => {
-      this.circle.X = x;
-      this.circle.Y = y;
+      const prevPos = this.getPosition();
+      const prevPosVector = new Vector(prevPos.x, prevPos.y);
+      const destVector = new Vector(x, y);
+      const deltaVector = Vector.fromTo(prevPosVector, destVector);
+      let deltaX = deltaVector.x;
+      let deltaY = deltaVector.y;
+      if(this.mirrorX) {
+         deltaX = -deltaX;
+      }
+      if(this.mirrorY) {
+         deltaY = -deltaY;
+      }
+      this.circle.X += deltaX;
+      this.circle.Y += deltaY;
    };
 
    RotateTowardsPlayer = () => {
       const playerCircle = this.app.player.circle;
-      const playerVector = new Vector(playerCircle.x, playerCircle.y);
+      const playerVector = new Vector(playerCircle.X, playerCircle.Y);
       const enemyCircle = this.circle;
       // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
-      const enemyVector = new Vector(enemyCircle.x, enemyCircle.y);
+      const enemyVector = new Vector(enemyCircle.X, enemyCircle.Y);
       const vectorFromEnemyToPlayer = Vector.fromTo(enemyVector, playerVector);
       this.direction = new UnitVector(vectorFromEnemyToPlayer);
    };
@@ -214,10 +244,31 @@ export class Enemy {
    };
 
    getPosition = (): TVector => {
-      return { x: this.circle.x, y: this.circle.y };
+      let x = this.circle.X;
+      let y = this.circle.Y;
+      /**
+       * If mirroring Enemy will lie about it's location.
+       * It's sort of a hack actually, not super beautiful.
+       */
+      if(this.mirrorX) {
+         x = resolutionWidth - x;
+      }
+      if(this.mirrorY) {
+         y = resolutionHeight - y;
+      }
+      
+      return { x, y };
    };
 
    getFlag = (flag: string) => this.flags.includes(flag);
+
+   setMirrorX = (value: boolean) => {
+      this.mirrorX = value;
+   };
+
+   setMirrorY = (value: boolean) => {
+      this.mirrorY = value;
+   };
 
    updateDisplayHealth = () => {
       const { style } = this.circle.div;

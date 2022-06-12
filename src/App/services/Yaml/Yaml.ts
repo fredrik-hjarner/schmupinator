@@ -6,7 +6,6 @@ import type { Document, parseAllDocuments } from "yaml";
 // @ts-ignore
 import { parseAllDocuments as parse } from "../../../../node_modules/yaml/browser/dist/index";
 
-import { firstMiniBoss2 } from "../Enemies/enemyConfigs/firstMiniBoss/firstMiniboss2";
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 
 type TConstructor = {
@@ -26,9 +25,7 @@ export class Yaml implements IService {
    constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
-      this.EnemyJsons = [
-         firstMiniBoss2
-      ];
+      this.EnemyJsons = [];
    }
 
    Init = async () => {
