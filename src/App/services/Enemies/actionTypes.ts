@@ -10,7 +10,7 @@ export type TShootTowardPlayer =   { type: "shoot_toward_player" };
 export type TShootBesidePlayer =   { type: "shoot_beside_player", clockwiseDegrees: number };
 export type TSetShotSpeed =        { type: "setShotSpeed", pixelsPerFrame: number };
 // Moves relative to current position.
-export type TMove =                { type: "move", movement: Partial<Vector>, frames: number };
+export type TMove =                { type: "move", frames: number } & Partial<Vector>;
 // Move to an absolute postion on screen.
 export type TMoveToAbsolute =      { type: "move_to_absolute",
 moveTo: Partial<Vector>, frames: number };

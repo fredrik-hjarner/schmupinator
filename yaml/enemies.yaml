@@ -53,10 +53,11 @@ enemy:
 x-moveLeft: &moveLeft
   type: move
   frames: 80
-  movement: { x: -205, y: 30 }
+  x: -205
+  y: 30
 x-moveRight: &moveRight
   <<: *moveLeft
-  movement: { x: 205, y: 30 }
+  x: 205
 
 x-rotateLeft: &rotateLeft
   - type: rotate_around_relative_point

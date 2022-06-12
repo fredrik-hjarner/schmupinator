@@ -20,7 +20,6 @@ const isShortFormParallellAll = (action: TShortFormAction): action is TShortForm
    return (action as TShortFormParallellAll).parallellAll !== undefined;
 };
 
-
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;

@@ -97,8 +97,8 @@ export class EnemyActionExecutor {
                   const progress = passedFrames / currAction.frames;
                   switch(currAction.type) {
                      case "move": {
-                        const moveX = currAction.movement.x ?? 0;
-                        const moveY = currAction.movement.y ?? 0;
+                        const moveX = currAction.x ?? 0;
+                        const moveY = currAction.y ?? 0;
                         const position = moveLine(startPos, { x: moveX, y: moveY }, progress);
                         this.actionHandler({type: "set_position", x: position.x, y: position.y});
                         break;
