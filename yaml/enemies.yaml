@@ -120,84 +120,27 @@ enemy:
   - type: parallell_race
     actionsLists:
     - *shootingPattern
-    - - type: moveToAbsolute
-        moveTo:
-          x: 116
-          y: 0
-        frames: 40
-      - type: moveToAbsolute
-        moveTo:
-          y: 75
-        frames: 52
-      - type: move_bezier
-        bend:
-          x: 0
-          y: 21
-        end:
-          x: 30
-          y: 21
-        frames: 39
+    - - { moveToAbsolute: { x: 116, y: 0 }, frames: 40 }
+      - { moveToAbsolute: { y: 75 }, frames: 52 }
+      - { type: move_bezier, bend: { x: 0, y: 21 }, end: { x: 30, y: 21 }, frames: 39 }
       - wait: 25
-      - type: move_bezier
-        bend:
-          x: 0
-          y: 10
-        end:
-          x: -30
-          y: 10
-        frames: 39
+      - { type: move_bezier, bend: { x: 0, y: 10 }, end: { x: -30, y: 10 }, frames: 39}
       - wait: 25
-      - type: moveToAbsolute
-        moveTo:
-          x: 139.5
-        frames: 47
+      - { moveToAbsolute: { x: 139.5 }, frames: 47 }
       - wait: 25
-      - type: moveToAbsolute
-        moveTo:
-          y: 11
-        frames: 100
+      - { moveToAbsolute: { y: 11 }, frames: 100 }
       - wait: 25
-      - type: rotate_around_absolute_point
-        point:
-          y: 61
-        degrees: -180
-        frames: 100
+      - { type: rotate_around_absolute_point, point: { y: 61 }, degrees: -180, frames: 100 }
       - wait: 25
-      - type: moveToAbsolute
-        moveTo:
-          x: 99.5
-        frames: 50
+      - { moveToAbsolute: { x: 99.5 }, frames: 50 }
       - wait: 25
-      - type: moveToAbsolute
-        moveTo:
-          y: 141
-        frames: 30
+      - { moveToAbsolute: { y: 141 }, frames: 30 }
       - wait: 25
-      - type: moveToAbsolute
-        moveTo:
-          y: 61
-        frames: 80
-      - type: moveToAbsolute
-        moveTo:
-          x: 138.5
-          y: 105
-        frames: 40
+      - { moveToAbsolute: { y: 61 }, frames: 80 }
+      - { moveToAbsolute: { x: 138.5, y: 105 }, frames: 40 }
       - wait: 25
-      - type: rotate_around_absolute_point
-        point:
-          x: 178.5
-        degrees: 360
-        frames: 240
+      - { type: rotate_around_absolute_point, point: { x: 178.5 }, degrees: 360, frames: 240 }
       - wait: 25
-      - type: rotate_around_absolute_point
-        point:
-          x: 178.5
-        degrees: -360
-        frames: 240
+      - { type: rotate_around_absolute_point, point: { x: 178.5 }, degrees: -360, frames: 240 }
       - wait: 25
-      - type: moveToAbsolute
-        moveTo:
-          x: 98.5
-          y: 290
-        frames: 210
-
+      - { moveToAbsolute: { x: 98.5, y: 290 }, frames: 210 }
