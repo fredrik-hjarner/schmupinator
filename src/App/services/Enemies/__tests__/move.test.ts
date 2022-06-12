@@ -1,7 +1,7 @@
 import type { TAction, TSetPosition } from '../actionTypes';
 import type { Vector as TVector } from '../../../../math/bezier';
 
-import { ActionExecutor } from '../ActionExecutor';
+import { EnemyActionExecutor } from '../EnemyActionExecutor';
 
 describe("move", () => {
   const getPosition = (): TVector => ({ x: 0, y: 0 });
@@ -11,7 +11,7 @@ describe("move", () => {
     const recordedActions: TAction[] = [];
     const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
-    const generator = new ActionExecutor({
+    const generator = new EnemyActionExecutor({
       getPosition,
       actionHandler,
       actions: [{
@@ -29,7 +29,7 @@ describe("move", () => {
     const recordedActions: TAction[] = [];
     const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
-    const generator = new ActionExecutor({
+    const generator = new EnemyActionExecutor({
       getPosition,
       actionHandler,
       actions: [{
@@ -53,7 +53,7 @@ describe("move", () => {
     const recordedActions: TAction[] = [];
     const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
-    const generator = new ActionExecutor({
+    const generator = new EnemyActionExecutor({
       getPosition,
       actionHandler,
       actions: [{
