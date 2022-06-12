@@ -1,6 +1,8 @@
 import type { App } from "../../App";
 import type { ButtonsPressed, IInput } from "./IInput";
 
+// import { replay } from "./replay";
+
 type TConstructor = {
    app: App;
    name: string;
@@ -38,7 +40,20 @@ export class Input implements IInput {
       });
    };
 
-   public get ButtonsPressed() {
+   public get ButtonsPressed(): ButtonsPressed {
+      // if(false) {
+      //    const frame = `${this.app.gameLoop.FrameCount}`;
+      //    const allFalse = { down: false, left: false, right: false, space: false, up: false };
+      //    if(!(frame in replay)) {
+      //       return allFalse;
+      //    }
+      //    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //    // @ts-ignore
+      //    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      //    const buttonsPressed = {...allFalse, ...replay[frame]} as ButtonsPressed;
+      //    return buttonsPressed;
+      // }
+      
       const frame = this.app.gameLoop.FrameCount;
       const buttonsPressed = { ...this.buttonsPressed };
       const wasPressed = Object.values(buttonsPressed).includes(true);
