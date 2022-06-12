@@ -12,24 +12,24 @@ enemy:
     diameter: 20
     hp: 9999
     actions:
-        - wait: 120
+        # - wait: 120
 
-        - repeat: 8
-          actions:
-            - *aimerLeft
-            - *aimerRight
-            - wait: 40
+        # - repeat: 8
+        #   actions:
+        #     - *aimerLeft
+        #     - *aimerRight
+        #     - wait: 40
 
-        - wait: 120
+        # - wait: 120
 
-        - repeat: 5
-          actions:
-            - *sinusLeft
-            - wait: 70
-            - *sinusRight
-            - wait: 70
+        # - repeat: 5
+        #   actions:
+        #     - *sinusLeft
+        #     - wait: 70
+        #     - *sinusRight
+        #     - wait: 70
 
-        - wait: 180
+        # - wait: 180
         
         - *leftMiniBoss
         - *rightMiniBoss
@@ -83,7 +83,7 @@ enemy:
   hp: 3
   diameter: 24
   actions:
-  - { type: setShotSpeed, pixelsPerFrame: 2 }
+  - { setShotSpeed: 2 }
   - flag: left
     yes:
     - *rotateLeftAndShoot
@@ -94,3 +94,120 @@ enemy:
     - *moveLeft
     - *rotateLeftAndShoot
     - *moveRight
+---
+x-shootingPattern: &shootingPattern
+  - wait: 75
+  - repeat: 9999
+    actions:
+    - setShotSpeed: 2.6
+    - type: shootDirection
+      x: 0
+      y: 1
+    - wait: 3
+    - type: shootDirection
+      x: 0
+      y: 1
+    - wait: 3
+    - type: shootDirection
+      x: 0
+      y: 1
+    - wait: 58
+    - setShotSpeed: 2.2
+    - repeat: 2
+      actions:
+      - type: shoot_toward_player
+      - type: shoot_beside_player
+        clockwiseDegrees: 25
+      - type: shoot_beside_player
+        clockwiseDegrees: -25
+      - wait: 64
+
+enemy:
+  name: firstMiniboss1
+  hp: 120
+  diameter: 35
+  actions:
+  - type: parallell_race
+    actionsLists:
+    - &shootingPattern
+    - - type: move_to_absolute
+        moveTo:
+          x: 116
+          y: 0
+        frames: 40
+      - type: move_to_absolute
+        moveTo:
+          y: 75
+        frames: 52
+      - type: move_bezier
+        bend:
+          x: 0
+          y: 21
+        end:
+          x: 30
+          y: 21
+        frames: 39
+      - wait: 25
+      - type: move_bezier
+        bend:
+          x: 0
+          y: 10
+        end:
+          x: -30
+          y: 10
+        frames: 39
+      - wait: 25
+      - type: move_to_absolute
+        moveTo:
+          x: 139.5
+        frames: 47
+      - wait: 25
+      - type: move_to_absolute
+        moveTo:
+          y: 11
+        frames: 100
+      - wait: 25
+      - type: rotate_around_absolute_point
+        point:
+          y: 61
+        degrees: -180
+        frames: 100
+      - wait: 25
+      - type: move_to_absolute
+        moveTo:
+          x: 99.5
+        frames: 50
+      - wait: 25
+      - type: move_to_absolute
+        moveTo:
+          y: 141
+        frames: 30
+      - wait: 25
+      - type: move_to_absolute
+        moveTo:
+          y: 61
+        frames: 80
+      - type: move_to_absolute
+        moveTo:
+          x: 138.5
+          y: 105
+        frames: 40
+      - wait: 25
+      - type: rotate_around_absolute_point
+        point:
+          x: 178.5
+        degrees: 360
+        frames: 240
+      - wait: 25
+      - type: rotate_around_absolute_point
+        point:
+          x: 178.5
+        degrees: -360
+        frames: 240
+      - wait: 25
+      - type: move_to_absolute
+        moveTo:
+          x: 98.5
+          y: 290
+        frames: 210
+

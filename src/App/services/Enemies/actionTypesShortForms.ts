@@ -1,4 +1,4 @@
-import type { TAction, TFlag, TRepeat, TSpawn, TWait } from "./actionTypes";
+import type { TAction, TFlag, TRepeat, TSetShotSpeed, TSpawn, TWait } from "./actionTypes";
 
 export type TShortFormWait = { wait: number };
 const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => {
@@ -25,6 +25,11 @@ const iShortFormFlag = (action: TShortFormAction): action is TShortFormFlag => {
    return (action as TShortFormFlag).flag !== undefined;
 };
 
+export type TShortFormSetShotSpeed = { setShotSpeed: number };
+const isShortFormSetShotSpeed = (action: TShortFormAction): action is TShortFormSetShotSpeed => {
+   return (action as TShortFormSetShotSpeed).setShotSpeed !== undefined;
+};
+
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
@@ -41,15 +46,19 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    } else if(iShortFormFlag(shortForm)) {
       const { flag, yes, no } = shortForm;
       return { type: "flag", flagName: flag, yes, no };
+   } else if(isShortFormSetShotSpeed(shortForm)) {
+      const { setShotSpeed } = shortForm;
+      return { type: "setShotSpeed", pixelsPerFrame: setShotSpeed };
    }
    return shortForm;
 };
 
 export type TShortFormAction =
-   Exclude<TAction, TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag> |
+   Exclude<TAction, TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed> |
 
    TShortFormWait |
    TShortFormSpawn |
    TShortFormRepeat |
    TShortFormParallellAll |
-   TShortFormFlag
+   TShortFormFlag |
+   TShortFormSetShotSpeed;
