@@ -33,7 +33,7 @@ export class App {
       /**
        * Constuct services
        */
-      this.input = new Input();
+      this.input = new Input({ app: this, name: "input" });
       this.gameLoop = new GameLoop(this);
       this.player = new Player(this); // TODO: player should also have name
       this.playerShots = new Shots(

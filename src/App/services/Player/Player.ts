@@ -81,10 +81,10 @@ export class Player {
 
       let speed = playerSpeedPerFrame[0];
 
-      const left = input.buttonsPressed.left || gamepad.left;
-      const right = input.buttonsPressed.right || gamepad.right;
-      const up = input.buttonsPressed.up || gamepad.up;
-      const down = input.buttonsPressed.down || gamepad.down;
+      const left = input.ButtonsPressed.left || gamepad.left;
+      const right = input.ButtonsPressed.right || gamepad.right;
+      const up = input.ButtonsPressed.up || gamepad.up;
+      const down = input.ButtonsPressed.down || gamepad.down;
 
       const horizonal = left || right;
       const vertical = up || down;
@@ -105,7 +105,7 @@ export class Player {
       if (down) {
          this.circle.Y += speed;
       }
-      if(input.buttonsPressed.space || gamepad.shoot) {
+      if(input.ButtonsPressed.space || gamepad.shoot) {
          const frame = this.app.gameLoop.FrameCount;
          /**
           * Limit frequency of shots.
