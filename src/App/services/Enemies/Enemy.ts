@@ -22,15 +22,18 @@ export class Enemy {
    speed: number;
    shotSpeed: number;
    direction: UnitVector;
+   flags: string[];
    actionExecutor: EnemyActionExecutor;
 
    /**
    * Public
    */
+   // TODO: take object as input instead.
    constructor(
       app: App,
       position: TVector,
       json: IEnemyJson,
+      flags: string[] = []
    ) {
       this.app = app;
       this.id = `${json.name}-${uuid()}`;
@@ -38,10 +41,12 @@ export class Enemy {
       this.hp = json.hp;
       this.circle = new Circle(position.x,position.y, json.diameter, "red");
       this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
+      this.flags = flags;
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
          actions: json.actions,
          getPosition: this.getPosition,
+         getFlag: this.getFlag
       });
       this.speed = 0;
       // default direction down.
@@ -130,8 +135,8 @@ export class Enemy {
          }
 
          case "spawn": {
-            const { enemy, x, y } = action;
-            this.spawn({ enemy, position: { x, y } });
+            const { enemy, flags, x, y } = action;
+            this.spawn({ enemy, flags, position: { x, y } });
             break;
          }
       
@@ -204,13 +209,15 @@ export class Enemy {
       this.circle.Y += this.direction.y * this.speed;
    };
 
-   spawn = ({ enemy, position }: { enemy: string, position: TVector }) => {
-      this.app.enemies.Spawn({ enemy, position });
+   spawn = ({ enemy, flags, position }: { enemy: string, flags?: string[], position: TVector }) => {
+      this.app.enemies.Spawn({ enemy, flags, position });
    };
 
    getPosition = (): TVector => {
       return { x: this.circle.x, y: this.circle.y };
    };
+
+   getFlag = (flag: string) => this.flags.includes(flag);
 
    updateDisplayHealth = () => {
       const { style } = this.circle.div;

@@ -3,6 +3,8 @@ import type { Vector as TVector } from '../../../../math/bezier';
 
 import { EnemyActionExecutor } from '../EnemyActionExecutor';
 
+const getFlag = (_: string) => false;
+
 describe("move", () => {
   const getPosition = (): TVector => ({ x: 0, y: 0 });
 
@@ -14,9 +16,11 @@ describe("move", () => {
     const generator = new EnemyActionExecutor({
       getPosition,
       actionHandler,
+      getFlag,
       actions: [{
         type: "move",
-        movement: { x: 1, y: 0 },
+        x: 1,
+        y: 0,
         frames: 0
       }]
     }).generator;
@@ -32,9 +36,11 @@ describe("move", () => {
     const generator = new EnemyActionExecutor({
       getPosition,
       actionHandler,
+      getFlag,
       actions: [{
         type: "move",
-        movement: { x: 1, y: 0 },
+        x: 1,
+        y: 0,
         frames: 1
       }]
     }).generator;
@@ -56,9 +62,11 @@ describe("move", () => {
     const generator = new EnemyActionExecutor({
       getPosition,
       actionHandler,
+      getFlag,
       actions: [{
         type: "move",
-        movement: { x: 2, y: 0 },
+        x: 2,
+        y: 0,
         frames: 2
       }]
     }).generator;

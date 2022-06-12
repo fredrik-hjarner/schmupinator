@@ -9,24 +9,27 @@ import { GeneratorUtils } from "../../../utils/GeneratorUtils";
 import { ShortFormToLongForm, TShortFormAction } from "./actionTypesShortForms";
 
 type TEnemyActionExecutorArgs = {
-  /**
+   /**
    * The actions to execute.
    * Executes them in sequence.
    * You can execute things in parallell with special compound actions like parallell_race.
    */
-  actions: TShortFormAction[];
-  actionHandler: (action: TAction) => void;
-  getPosition: () => TVector;
+   actions: TShortFormAction[];
+   actionHandler: (action: TAction) => void;
+   getPosition: () => TVector;
+   getFlag: (flag: string) => boolean;
 }
 
 export class EnemyActionExecutor {
    private actionHandler: (action: TAction) => void;
    private getPosition: () => TVector;
+   private getFlag: (flag: string) => boolean;
    generator: Generator<void, void, void>;
 
-   constructor({ actions, actionHandler, getPosition }: TEnemyActionExecutorArgs) {
+   constructor({ actions, actionHandler, getPosition, getFlag }: TEnemyActionExecutorArgs) {
       this.actionHandler = actionHandler;
       this.getPosition = getPosition;
+      this.getFlag = getFlag;
       this.generator = this.makeGenerator(actions);
    }
 
@@ -40,11 +43,11 @@ export class EnemyActionExecutor {
    * Private
    */
 
-   private *makeGenerator(shortFormActions: TShortFormAction[]): Generator<void, void, void> {
+   private *makeGenerator(shortFormActions: TShortFormAction[] = []): Generator<void, void, void> {
       const actions = shortFormActions.map(ShortFormToLongForm);
       let currIndex = 0;
       const nrActions = actions.length;
-  
+
       while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
          const currAction = actions[currIndex];
          switch(currAction.type) {
@@ -68,18 +71,25 @@ export class EnemyActionExecutor {
                break;
             }
 
+            case "flag": {
+               const { flag, yes, no } = currAction;
+               const flagValue = this.getFlag(flag);
+               yield* this.makeGenerator(flagValue ? yes : no);
+               break;
+            }
+
             case "waitNextFrame": {
                yield;
                break;
             }
-        
+
             case "wait": {
                for(let i=0; i<currAction.frames; i++) {
                   yield;
                }
                break;
             }
-  
+
             case "rotate_around_relative_point":
             case "rotate_around_absolute_point":
             case "move_to_absolute":
@@ -162,7 +172,7 @@ export class EnemyActionExecutor {
                }
                break;
             }
-  
+
             default:
                this.actionHandler(currAction);
          }

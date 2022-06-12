@@ -9,7 +9,6 @@ import { parseAllDocuments as parse } from "../../../../node_modules/yaml/browse
 import { firstMiniBoss1 } from "../Enemies/enemyConfigs/firstMiniBoss/firstMiniboss1";
 import { firstMiniBoss2 } from "../Enemies/enemyConfigs/firstMiniBoss/firstMiniboss2";
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
-import { rightSinus } from "../Enemies/enemyConfigs/sinus/sinusRight";
 
 type TConstructor = {
    app: App;
@@ -29,10 +28,6 @@ export class Yaml implements IService {
       this.app = app;
       this.name = name;
       this.EnemyJsons = [
-         // spawner,
-         // nonShootingAimer,
-         // leftSinus,
-         rightSinus,
          firstMiniBoss1,
          firstMiniBoss2
       ];

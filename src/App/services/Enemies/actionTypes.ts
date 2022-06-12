@@ -1,10 +1,10 @@
 import type { Vector } from "../../../math/bezier";
-import type { TShortFormAction } from "./actionTypesShortForms";
+import type { TShortFormAction as TSFAction } from "./actionTypesShortForms";
 
 export type TWait =                { type: "wait", frames: number };
 export type TWaitNextFrame =       { type: "waitNextFrame" };
 export type TWaitUtilFrameNr =     { type: "wait_util_frame_nr", frameNr: number};
-export type TRepeat =              { type: "repeat", times: number, actions: TShortFormAction[] };
+export type TRepeat =              { type: "repeat", times: number, actions: TSFAction[] };
 export type TShootDirection =      { type: "shootDirection", x: number, y: number };
 export type TShootTowardPlayer =   { type: "shoot_toward_player" };
 export type TShootBesidePlayer =   { type: "shoot_beside_player", clockwiseDegrees: number };
@@ -27,43 +27,46 @@ point:Partial<Vector>, degrees:number, frames:number };
  * Like Promise.race.
  * Executes TAction lists in parallell, stops when any one of them has finished.
  */
-export type TParallellRace       = { type: "parallell_race", actionsLists: TShortFormAction[][] };
-export type TParallellAll        = { type: "parallellAll", actionsLists: TShortFormAction[][] };
+export type TParallellRace       = { type: "parallell_race", actionsLists: TSFAction[][] };
+export type TParallellAll        = { type: "parallellAll", actionsLists: TSFAction[][] };
 export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
 // Spawns an enemy.
-export type TSpawn = { type: "spawn", enemy: string, x: number, y: number };
+export type TSpawn = { type: "spawn", enemy: string, x: number, y: number, flags?: string[] };
+// Simple if case. Executes yes if true. Executs no when false.
+export type TFlag = { type: "flag", flag: string, yes?: TSFAction[], no?: TSFAction[] };
 
 export type TAction =
-/**
- * Common
- */
-TWait |
-TWaitNextFrame| 
-  TWaitUtilFrameNr |
-  TRepeat |
-  TParallellRace |
-  TParallellAll |
-  /**
+   /**
+    * Common
+    */
+   TWait |
+   TWaitNextFrame| 
+   TWaitUtilFrameNr |
+   TRepeat |
+   TParallellRace |
+   TParallellAll |
+   /**
    * Shooting
    */
-  TSetShotSpeed |
-  TShootDirection |
-  TShootTowardPlayer |
-  TShootBesidePlayer |
-  /**
+   TSetShotSpeed |
+   TShootDirection |
+   TShootTowardPlayer |
+   TShootBesidePlayer |
+   /**
    * Movement
    */
-  TMove |
-  TMoveToAbsolute |
-  TSetPosition |
-  TMoveBezier |
-  TSetSpeed |
-  TRotateAroundAbsolutePoint |
-  TRotateAroundRelativePoint |
-  TRotateTowardsPlayer |
-  TMoveAccordingToSpeedAndDirection |
-  /**
+   TMove |
+   TMoveToAbsolute |
+   TSetPosition |
+   TMoveBezier |
+   TSetSpeed |
+   TRotateAroundAbsolutePoint |
+   TRotateAroundRelativePoint |
+   TRotateTowardsPlayer |
+   TMoveAccordingToSpeedAndDirection |
+   /**
    * Spawning
    */
-   TSpawn;
+   TSpawn |
+   TFlag;

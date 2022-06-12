@@ -36,14 +36,16 @@ export class Enemies {
       this.app.events.subscribeToEvent(this.name, this.handleEvent);
    };
 
-   public Spawn = ({ enemy, position }: { enemy: string, position: TVector }) => {
+   public Spawn = (
+      { enemy, flags, position }: { enemy: string, flags?: string[], position: TVector }
+   ) => {
       const { EnemyJsons } = this.app.yaml;
       console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = EnemyJsons.find(e => e.name === enemy);
       if(!enemyJson) {
          throw new Error(`Unknown enemy "${enemy}".`);
       }
-      this.enemies.push(new Enemy(this.app, position, enemyJson));
+      this.enemies.push(new Enemy(this.app, position, enemyJson, flags));
    };
 
    private handleEvent = (event: TEvent) => {
