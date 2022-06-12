@@ -1,0 +1,37 @@
+x-aimerLeft: &aimerLeft { spawn: nonShootingAimer, x: 128.5, y: -22 }
+x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }
+
+x-sinusLeft: &sinusLeft { spawn: sinusLeft, x: 75, y: -20 }
+x-sinusRight: &sinusRight { spawn: sinusRight, x: 280, y: -20 }
+
+x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss1, x: 118.881, y: -20 }
+x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss2, x: 237.762, y: -20 }
+
+enemy:
+    name: spawner
+    diameter: 20
+    hp: 9999
+    actions:
+        - wait: 120
+
+        - type: repeat
+          times: 8
+          actions:
+            - *aimerLeft
+            - *aimerRight
+            - wait: 40
+
+        - wait: 120
+
+        - type: repeat
+          times: 5
+          actions:
+            - *sinusLeft
+            - wait: 70
+            - *sinusRight
+            - wait: 70
+
+        - wait: 180
+        
+        - *leftMiniBoss
+        - *rightMiniBoss

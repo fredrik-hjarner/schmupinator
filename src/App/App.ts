@@ -9,6 +9,7 @@ import { Events } from './services/Events/Events';
 import { GameSpeed } from './services/GameSpeed/GameSpeed';
 import { Points } from './services/Points/Points';
 import { GameOver } from './services/GameOver/GameOver';
+import { Yaml } from './services/Yaml/Yaml';
 
 export class App {
    input: Input;
@@ -23,7 +24,11 @@ export class App {
    gameSpeed: GameSpeed;
    points: Points;
    gameOver: GameOver;
+   yaml: Yaml;
 
+   /**
+    * Step 1 of initialization
+    */
    constructor() {
       /**
        * Constuct services
@@ -47,10 +52,19 @@ export class App {
       this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
       this.points = new Points({ app: this, name: "points" });
       this.gameOver = new GameOver({ app: this, name: "gameOver" });
+      this.yaml = new Yaml({ app: this, name: "yaml" });
+   }
 
+   /**
+    * Step 2 of initialization
+    */
+   Init = async () => {
       /**
-       * Init services
+       * Order of initialization usually don't matter.
+       * Unfortunately Yaml has to init early since it needs to, right now, fetch
+       * yaml async. Enemies needs to be available at least when Enemies service tries to use them.
        */
+      await this.yaml.Init();
       this.player.Init();
       this.playerShots.Init();
       this.enemyShots.Init();
@@ -58,5 +72,5 @@ export class App {
       this.collisions.Init();
       this.points.Init();
       this.gameOver.Init();
-   }
+   };
 }

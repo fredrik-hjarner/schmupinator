@@ -3,6 +3,6 @@ import type { App } from "../App";
 export interface IService {
   app: App;
   name: string;
-  // Init: () => void
+  // Init: () => Promise<void>
   // Destroy: () => void
 }

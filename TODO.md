@@ -62,3 +62,5 @@ Then it could move around and so like all other enemies.
 
 * I could do it as css and have position: relative/absolute with relative as default,
 that would make relative/absolute positioning actions more coherent.
+
+* Actually. All Init could be async and be awaited.

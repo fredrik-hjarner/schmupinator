@@ -4,14 +4,12 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "start": "run-s lint clean build add-extensions copy-index copy-reset copy-bg serve",
+    "start": "run-s lint clean build add-extensions copy-yaml serve",
     "lint": "eslint --fix src",
-    "clean": "trash dist/*",
+    "clean": "trash dist/src/*",
     "build": "tsc",
-    "add-extensions": "babel dist -d dist",
-    "copy-index": "cpy --flat src/index.html dist",
-    "copy-reset": "cpy --flat src/reset.css dist",
-    "copy-bg": "cpy --flat src/bg.jpg dist",
+    "add-extensions": "babel dist/src -d dist/src",
+    "copy-yaml": "cpy node_modules/yaml/browser/dist dist",
     "serve": "serve dist"
   },
   "script comments": {
@@ -36,5 +34,8 @@
     "trash-cli": "^5.0.0",
     "ts-jest": "^28.0.4",
     "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "yaml": "^2.1.1"
   }
 }

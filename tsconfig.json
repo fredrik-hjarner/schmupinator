@@ -1,6 +1,6 @@
 {
   "include": [
-    "src/**/*"
+    "src/**/*",
   ],
   "exclude": [
     "dist/**/*",
@@ -10,15 +10,17 @@
   ],
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "dist",
+    "outDir": "dist/src",
     // "incremental": true, // performance increase. // this seems to cause problems sometimes.
     "allowJs": true,
     "checkJs": true,
-    "target": "ES2022",
-    "lib": [
-      "ES2021",
-      "DOM",
-    ],
+    "target": "ESNext",
+    "module": "ESNext",
+    // "lib": [
+    //   "ESNext",
+    //   "ES2021",
+    //   "DOM",
+    // ],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": false,
     "allowUnreachableCode": false,
@@ -26,6 +28,12 @@
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "strict": true,
-    "removeComments": true
+    "removeComments": true,
+    // "baseUrl": ".", // This must be specified if "paths" is.
+    // "paths": {
+    //   "yaml": [
+    //     "node_modules/yaml"
+    //   ] // This mapping is relative to "baseUrl"
+    // }
   }
 }

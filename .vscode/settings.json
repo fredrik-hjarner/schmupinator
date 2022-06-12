@@ -18,5 +18,13 @@
     "watch": false,
     "onSave": "test-src-file"
   },
-  "editor.tabSize": 3
+  "editor.tabSize": 3,
+  "indentRainbow.colors": [
+    "rgba(255,0,0,0.06)",
+    "rgba(0,0,0,0)",
+    "rgba(0,255,0,0.06)",
+    "rgba(0,0,0,0)",
+    "rgba(0,0,255,0.12)",
+    "rgba(0,0,0,0)",
+  ]
 }
