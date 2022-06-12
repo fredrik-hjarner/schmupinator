@@ -89,8 +89,8 @@ export class Enemy {
     */
    HandleAction = (action: TAction) => {
       switch(action.type) {
-         case 'shoot_direction': {
-            this.ShootDirection({ dirX: action.dirX, dirY:action.dirY });
+         case 'shootDirection': {
+            this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
          }
 

@@ -5,11 +5,11 @@ export const firstMiniBossShootActions: TShortFormAction[] = [
    { type: "repeat", times: 9999, actions: [
       { type: "set_shot_speed", pixelsPerFrame: 2.6 },
       // beam
-      { type: 'shoot_direction', dirX: 0, dirY: 1 },
+      { type: 'shootDirection', x: 0, y: 1 },
       { wait: 3 },
-      { type: 'shoot_direction', dirX: 0, dirY: 1 },
+      { type: 'shootDirection', x: 0, y: 1 },
       { wait: 3 },
-      { type: 'shoot_direction', dirX: 0, dirY: 1 },
+      { type: 'shootDirection', x: 0, y: 1 },
       { wait: 64 - 3 - 3 },
       // triplets
       { type: "set_shot_speed", pixelsPerFrame: 2.2 },
