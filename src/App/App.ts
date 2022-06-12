@@ -1,15 +1,15 @@
-import { Enemies } from './services/Enemies/Enemies';
-import { GameLoop } from './services/GameLoop/GameLoop';
-import { Input } from './services/Input/Input';
-import { Player } from './services/Player/Player';
-import { Shots } from './services/Shots/Shots';
-import { GamePad } from './services/GamePad/GamePad';
-import { Collisions } from './services/Collisions/Collisions';
-import { Events } from './services/Events/Events';
-import { GameSpeed } from './services/GameSpeed/GameSpeed';
-import { Points } from './services/Points/Points';
-import { GameOver } from './services/GameOver/GameOver';
-import { Yaml } from './services/Yaml/Yaml';
+import { Enemies } from "./services/Enemies/Enemies";
+import { GameLoop } from "./services/GameLoop/GameLoop";
+import { Input } from "./services/Input/Input";
+import { Player } from "./services/Player/Player";
+import { Shots } from "./services/Shots/Shots";
+import { GamePad } from "./services/GamePad/GamePad";
+import { Collisions } from "./services/Collisions/Collisions";
+import { Events } from "./services/Events/Events";
+import { GameSpeed } from "./services/GameSpeed/GameSpeed";
+import { Points } from "./services/Points/Points";
+import { GameOver } from "./services/GameOver/GameOver";
+import { Yaml } from "./services/Yaml/Yaml";
 
 export class App {
    input: Input;
@@ -39,11 +39,11 @@ export class App {
       this.playerShots = new Shots(
          this,
          // TODO: actually dont need name, could use uuid().
-         { name: "playerShots", maxShots: 3*3, color: 'aqua', poolIndex: 0 }
+         { name: "playerShots", maxShots: 3*3, color: "aqua", poolIndex: 0 }
       );
       this.enemyShots = new Shots(
          this,
-         { name: "enemyShots", maxShots: 25, color: 'red', poolIndex: 1 }
+         { name: "enemyShots", maxShots: 25, color: "red", poolIndex: 1 }
       );
       this.enemies = new Enemies(this, { name: "enemies" });
       this.gamepad = new GamePad();

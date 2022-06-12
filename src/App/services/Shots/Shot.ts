@@ -55,8 +55,8 @@ export class Shot {
       /**
        * TODO: Not super nic to look at the name like this.
        */
-      if(this.shotsService.name === 'playerShots') {
-         this.shotsService.app.events.dispatchEvent({ type: 'player_missed_bullet' });
+      if(this.shotsService.name === "playerShots") {
+         this.shotsService.app.events.dispatchEvent({ type: "player_missed_bullet" });
       }
    };
 

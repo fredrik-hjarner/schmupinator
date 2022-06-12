@@ -73,7 +73,7 @@ export class EnemyActionExecutor {
                break;
             }
         
-            case 'wait': {
+            case "wait": {
                for(let i=0; i<currAction.frames; i++) {
                   yield;
                }
@@ -81,7 +81,7 @@ export class EnemyActionExecutor {
             }
   
             case "rotate_around_relative_point":
-            case 'rotate_around_absolute_point':
+            case "rotate_around_absolute_point":
             case "move_to_absolute":
             case "move_bezier":
             case "move": {
@@ -100,7 +100,7 @@ export class EnemyActionExecutor {
                         const moveX = currAction.movement.x ?? 0;
                         const moveY = currAction.movement.y ?? 0;
                         const position = moveLine(startPos, { x: moveX, y: moveY }, progress);
-                        this.actionHandler({type: 'set_position', x: position.x, y: position.y});
+                        this.actionHandler({type: "set_position", x: position.x, y: position.y});
                         break;
                      }
                      case "move_to_absolute": {
@@ -111,13 +111,13 @@ export class EnemyActionExecutor {
                            x: startPos.x + xToGo*progress,
                            y: startPos.y + yToGo*progress
                         }; 
-                        this.actionHandler({type: 'set_position', x: position.x, y: position.y});
+                        this.actionHandler({type: "set_position", x: position.x, y: position.y});
                         break;
                      }
                      case "move_bezier": {
                         const position = bezier(currAction.bend, currAction.end, progress);
                         this.actionHandler({
-                           type: 'set_position',
+                           type: "set_position",
                            x: startPos.x + position.x,
                            y: startPos.y + position.y
                         });
@@ -132,7 +132,7 @@ export class EnemyActionExecutor {
                            pointVector
                         );
                         this.actionHandler({
-                           type: 'set_position',
+                           type: "set_position",
                            x: rotatedVector.x,
                            y: rotatedVector.y
                         });
@@ -151,7 +151,7 @@ export class EnemyActionExecutor {
                            pointVector
                         );
                         this.actionHandler({
-                           type: 'set_position',
+                           type: "set_position",
                            x: rotatedVector.x,
                            y: rotatedVector.y
                         });

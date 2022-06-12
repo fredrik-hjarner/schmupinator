@@ -9,16 +9,16 @@ const moveToAbsolute = (
    mirroredX: boolean
 ): TMoveToAbsolute => {
    if (!mirroredX) {
-      return  { type: 'move_to_absolute', moveTo, frames };
+      return  { type: "move_to_absolute", moveTo, frames };
    }
    if(moveTo.x !== undefined) {
       return  {
-         type: 'move_to_absolute',
+         type: "move_to_absolute",
          moveTo: { x: resWidth - moveTo.x, y: moveTo.y },
          frames
       };
    }
-   return  { type: 'move_to_absolute',  moveTo, frames };
+   return  { type: "move_to_absolute",  moveTo, frames };
 };
 
 // Helper method. TODO: Hopefully remove this later!
@@ -37,10 +37,10 @@ const firstMiniBossMoveActions = (dir: number): TShortFormAction[] => {
       // move down
       moveToAbsolute({ moveTo: {y: 75}, frames: 52 }, mirrored),
       // semi-circle-left-down // TODO: This is not absolute yet.
-      { type: 'move_bezier', bend: {x:0,y:21}, end: {x:30*dir,y:21}, frames: 39},
+      { type: "move_bezier", bend: {x:0,y:21}, end: {x:30*dir,y:21}, frames: 39},
       { wait: 25 },
       // semi-circle-right-down // TODO: This is not absolute yet.
-      { type: 'move_bezier', bend: {x:0,y:10}, end: {x:-30*dir,y:10}, frames: 39},
+      { type: "move_bezier", bend: {x:0,y:10}, end: {x:-30*dir,y:10}, frames: 39},
       { wait: 25 },
       // move closer/right
       moveToAbsolute({ moveTo: {x: getX(78)}, frames: 47 }, mirrored),
@@ -49,7 +49,7 @@ const firstMiniBossMoveActions = (dir: number): TShortFormAction[] => {
       moveToAbsolute({ moveTo: {y: 11}, frames: 100 }, mirrored),
       { wait: 25 },
       // half-circle-left-down
-      { type: 'rotate_around_absolute_point', point: {y: 61}, degrees: -180*dir, frames: 100 },
+      { type: "rotate_around_absolute_point", point: {y: 61}, degrees: -180*dir, frames: 100 },
       { wait: 25 },
       // move out/right
       moveToAbsolute({ moveTo: {x: getX(158)}, frames: 50 }, mirrored),
@@ -63,10 +63,10 @@ const firstMiniBossMoveActions = (dir: number): TShortFormAction[] => {
       moveToAbsolute({  moveTo: {x: getX(80), y: 105}, frames: 40 }, mirrored),
       { wait: 25 },
       // rotate one full circle clockwise. (not made exact)
-      { type: 'rotate_around_absolute_point', point: { x: resWidth/2}, degrees: 360, frames: 240 },
+      { type: "rotate_around_absolute_point", point: { x: resWidth/2}, degrees: 360, frames: 240 },
       { wait: 25 },
       // rotate one full circle again but counter-clockwise. (not made exact)
-      { type: 'rotate_around_absolute_point', point: {x: resWidth/2}, degrees: -360, frames: 240 },
+      { type: "rotate_around_absolute_point", point: {x: resWidth/2}, degrees: -360, frames: 240 },
       { wait: 25 },
       // move out of the screen (not made exact)
       moveToAbsolute({ moveTo: {x: getX(160), y: resHeight+50}, frames: 210 }, mirrored),

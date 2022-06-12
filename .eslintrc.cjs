@@ -52,6 +52,7 @@ module.exports = {
     "prefer-const": "warn",
     "semi": "warn",
     "no-undef": "error",
+    "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
     /**
      * Import
      */

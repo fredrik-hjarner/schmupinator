@@ -47,7 +47,7 @@ export class Shots {
       this.app.events.subscribeToEvent(
          this.name,
          ({ type }) => {
-            if(type === 'frame_tick') {
+            if(type === "frame_tick") {
                this.update();
             }
          }

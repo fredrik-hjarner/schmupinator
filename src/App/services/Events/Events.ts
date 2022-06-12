@@ -13,10 +13,10 @@ type TSubscribers = {
 }
 
 export type TEvent =
-   { type: 'frame_tick' } | // signals next frame has come.
-   { type: 'collisions', collisions: TCollisions } | // when collisions happen.
-   { type: 'player_missed_bullet' } | // when player's bullet exists gameDiv/screen.
-   { type: 'player_died' }; // when player's bullet exists gameDiv/screen.
+   { type: "frame_tick" } | // signals next frame has come.
+   { type: "collisions", collisions: TCollisions } | // when collisions happen.
+   { type: "player_missed_bullet" } | // when player's bullet exists gameDiv/screen.
+   { type: "player_died" }; // when player's bullet exists gameDiv/screen.
 
 export class Events {
    app: App;

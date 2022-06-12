@@ -4,7 +4,7 @@ import type { Document } from "yaml";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { parseAllDocuments } from '../../../../node_modules/yaml/browser/dist/index';
+import { parseAllDocuments } from "../../../../node_modules/yaml/browser/dist/index";
 
 import { firstMiniBoss1 } from "../Enemies/enemyConfigs/firstMiniBoss/firstMiniboss1";
 import { firstMiniBoss2 } from "../Enemies/enemyConfigs/firstMiniBoss/firstMiniboss2";

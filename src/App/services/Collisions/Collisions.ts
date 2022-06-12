@@ -28,7 +28,7 @@ export class Collisions {
       this.app.events.subscribeToEvent(
          "Collisions",
          ({ type }) => {
-            if(type === 'frame_tick') {
+            if(type === "frame_tick") {
                this.update();
             }
          }
@@ -63,7 +63,7 @@ export class Collisions {
       // Only send event if there were collisions.
       if (playerWasHit || enemiesThatWereHit.length > 0) {
          const collisions = { playerWasHit, enemiesThatWereHit };
-         this.app.events.dispatchEvent({ type: 'collisions', collisions });
+         this.app.events.dispatchEvent({ type: "collisions", collisions });
       }
    };
 

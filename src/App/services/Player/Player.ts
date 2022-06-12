@@ -18,7 +18,7 @@ export class Player {
     */
    constructor(app: App) {
       this.app = app;
-      this.circle = new Circle(resolutionWidth/2, resolutionHeight-20, 20, 'aqua');
+      this.circle = new Circle(resolutionWidth/2, resolutionHeight-20, 20, "aqua");
       this.lastShotFrame = 0;
    }
 
@@ -34,10 +34,10 @@ export class Player {
          "updatePlayer",
          event => {
             switch(event.type) {
-               case 'frame_tick':
+               case "frame_tick":
                   this.onFrameTick();
                   break;
-               case 'collisions':
+               case "collisions":
                   this.onCollisions(event.collisions);
                   break;
             }

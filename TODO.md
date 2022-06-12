@@ -66,3 +66,5 @@ that would make relative/absolute positioning actions more coherent.
 * EnemyJsons should be a maop keyed by the enemy name, also rename to EnemyYamls maybe.
 
 * Have private constructors, and use a Construct method instead that can be async.
+
+* Eventually remove all long forms that have short forms to reduce complexity!

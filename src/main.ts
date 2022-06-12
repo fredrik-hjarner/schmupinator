@@ -1,4 +1,4 @@
-import { App } from './App/App';
+import { App } from "./App/App";
 
 window.onload = async () => {
    // Create app

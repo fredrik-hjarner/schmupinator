@@ -36,7 +36,7 @@ export class Enemy {
       this.id = `${json.name}-${uuid()}`;
       this.maxHp = json.hp;
       this.hp = json.hp;
-      this.circle = new Circle(position.x,position.y, json.diameter, 'red');
+      this.circle = new Circle(position.x,position.y, json.diameter, "red");
       this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
@@ -89,32 +89,32 @@ export class Enemy {
     */
    HandleAction = (action: TAction) => {
       switch(action.type) {
-         case 'shootDirection': {
+         case "shootDirection": {
             this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
          }
 
-         case 'set_speed': {
+         case "set_speed": {
             this.SetSpeed(action.pixelsPerFrame);
             break;
          }
 
-         case 'set_shot_speed': {
+         case "set_shot_speed": {
             this.SetShotSpeed(action.pixelsPerFrame);
             break;
          }
 
-         case 'set_position': {
+         case "set_position": {
             this.SetPosition({ x: action.x, y: action.y });
             break;
          }
 
-         case 'shoot_toward_player': {
+         case "shoot_toward_player": {
             this.ShootTowardPlayer();
             break;
          }
 
-         case 'shoot_beside_player': {
+         case "shoot_beside_player": {
             this.ShootBesidePlayer(action.clockwiseDegrees);
             break;
          }

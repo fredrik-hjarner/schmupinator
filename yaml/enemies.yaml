@@ -14,8 +14,7 @@ enemy:
     actions:
         - wait: 120
 
-        - type: repeat
-          times: 8
+        - repeat: 8
           actions:
             - *aimerLeft
             - *aimerRight
@@ -23,8 +22,7 @@ enemy:
 
         - wait: 120
 
-        - type: repeat
-          times: 5
+        - repeat: 5
           actions:
             - *sinusLeft
             - wait: 70
@@ -44,13 +42,11 @@ enemy:
     - { type: set_speed, pixelsPerFrame: 1.60 }
     - type: parallell_all
       actionsLists:
-      - - type: repeat
-          times: 26.25
+      - - repeat: 26.25
           actions:
             - type: rotate_towards_player
             - wait: 8
-      - - type: repeat
-          times: 600
+      - - repeat: 600
           actions:
             - type: move_according_to_speed_and_direction
             - type: wait_next_frame

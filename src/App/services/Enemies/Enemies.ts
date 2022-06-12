@@ -49,7 +49,7 @@ export class Enemies {
    private handleEvent = (event: TEvent) => {
       switch(event.type) {
          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
-         case 'frame_tick': {
+         case "frame_tick": {
             /**
              * TODO: Here we see that the first tick happens immediately at spawn so I could,
              * if I wanted to, actually set everything in the actions as actions such as set
@@ -60,7 +60,7 @@ export class Enemies {
             });
             break;
          }
-         case 'collisions':
+         case "collisions":
             this.enemies.forEach(enemy => {
                enemy.OnCollisions(event.collisions);
             });
