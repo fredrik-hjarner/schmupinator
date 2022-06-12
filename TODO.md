@@ -21,27 +21,6 @@ easier to do some kind of RUN AHEAD functionality.
 turns all rotate around point actions into individual set_position actions, or turns all absolute
 moves into relative moves (dunno, can maybe simplify things, maybe.)
 
-* Implements Snippets:
-{
-   snippets: [
-      {name: "sinus" actions: [...]}
-   ],
-   // enemies: [
-   //   {name: "sinus-1", actions: [{ type: "execute_snippet", snippetName: "sinus" }]}
-   // ]
-   spawnActions: [...]
-}
-
-* Maybe make a SpawnerActionExecutor that can handle actions such as
-{
-   type: "spawn",
-   enemy: 'sinus-1',
-   spawnFrame: { frame: 1000, relativeToLabel: 'part-2' },
-   snippets: [...],
-}
-
-* frameLabels: [{ label: 'part-3', frame: 100, relativeToLabel: 'part-2' }]
-
 * Make GameOver service.
 
 * Optimize Events service so you can only subscribe to certain events.
@@ -56,14 +35,10 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 
 * Add collisions with enemy ships themselves.
 
-* It'd be cooler if the Spawner was an ememy, just like other enemies,
-but it is invisible, noCollision, invincible and always spawn at [0,0] at frame 1.
-Then it could move around and so like all other enemies.
-
 * I could do it as css and have position: relative/absolute with relative as default,
 that would make relative/absolute positioning actions more coherent.
 
-* EnemyJsons should be a maop keyed by the enemy name, also rename to EnemyYamls maybe.
+* EnemyJsons should be a map keyed by the enemy name, also rename to EnemyYamls maybe.
 
 * Have private constructors, and use a Construct method instead that can be async.
 
