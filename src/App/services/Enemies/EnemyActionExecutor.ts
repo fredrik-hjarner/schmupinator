@@ -12,7 +12,7 @@ type TEnemyActionExecutorArgs = {
    /**
    * The actions to execute.
    * Executes them in sequence.
-   * You can execute things in parallell with special compound actions like parallell_race.
+   * You can execute things in parallell with special compound actions like parallellRace.
    */
    actions: TShortFormAction[];
    actionHandler: (action: TAction) => void;
@@ -51,7 +51,7 @@ export class EnemyActionExecutor {
       while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
          const currAction = actions[currIndex];
          switch(currAction.type) {
-            case "parallell_race": {
+            case "parallellRace": {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
                yield* GeneratorUtils.ParallellRace(generators);
                break;

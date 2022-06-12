@@ -27,7 +27,7 @@ point:Partial<Vector>, degrees:number, frames:number };
  * Like Promise.race.
  * Executes TAction lists in parallell, stops when any one of them has finished.
  */
-export type TParallellRace       = { type: "parallell_race", actionsLists: TSFAction[][] };
+export type TParallellRace       = { type: "parallellRace", actionsLists: TSFAction[][] };
 export type TParallellAll        = { type: "parallellAll", actionsLists: TSFAction[][] };
 export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };

@@ -5,7 +5,7 @@ import { EnemyActionExecutor } from '../EnemyActionExecutor';
 
 const getFlag = (_: string) => false;
 
-describe("parallell_race", () => {
+describe("parallellRace", () => {
   const getPosition = (): TVector => ({ x: 0, y: 0 });
 
   it("empty actions list. exect no exception. expect done", () => {
@@ -17,7 +17,7 @@ describe("parallell_race", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallell_race", actionsLists: [[]]
+        type: "parallellRace", actionsLists: [[]]
       }]
     }).generator;
 
@@ -34,7 +34,7 @@ describe("parallell_race", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallell_race", actionsLists: [
+        type: "parallellRace", actionsLists: [
           [],
           [{ type: 'setSpeed', pixelsPerFrame: 1 }]
         ]
@@ -54,7 +54,7 @@ describe("parallell_race", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallell_race", actionsLists: [[
+        type: "parallellRace", actionsLists: [[
           { type: 'setSpeed', pixelsPerFrame: 1 }
         ], [
           { type: 'waitNextFrame' },
@@ -76,7 +76,7 @@ describe("parallell_race", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallell_race", actionsLists: [[
+        type: "parallellRace", actionsLists: [[
           { type: 'waitNextFrame' },
           { type: 'setSpeed', pixelsPerFrame: 1 }
         ], [

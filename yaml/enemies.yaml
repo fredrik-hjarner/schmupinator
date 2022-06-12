@@ -112,35 +112,54 @@ x-shootingPattern: &shootingPattern
       - { type: shoot_beside_player, degrees: -25 }
       - wait: 64
 
+x-01: &intoScreen           { moveToAbsolute: { x: 116, y: 0 }, frames: 40 }
+x-02: &down1                { moveToAbsolute: { y: 75 }, frames: 52 }
+x-03: &quarterCircleDownIn  { type: move_bezier, bend: { x: 0, y: 21 }, end: { x: 30, y: 21 }, frames: 39 }
+x-04: &quarterCircleDownOut { type: move_bezier, bend: { x: 0, y: 10 }, end: { x: -30, y: 10 }, frames: 39 }
+x-05: &in1                  { moveToAbsolute: { x: 139.5 }, frames: 47 }
+x-06: &up1                  { moveToAbsolute: { y: 11 }, frames: 100 }
+x-07: &halfCircleLeftDown   { type: rotate_around_absolute_point, point: { y: 61 }, degrees: -180, frames: 100 }
+x-08: &out1                 { moveToAbsolute: { x: 99.5 }, frames: 50 }
+x-09: &down2                { moveToAbsolute: { y: 141 }, frames: 30 }
+x-10: &up2                  { moveToAbsolute: { y: 61 }, frames: 80 }
+x-11: &downIn               { moveToAbsolute: { x: 138.5, y: 105 }, frames: 40 }
+x-12: &rotateClockwise      { type: rotate_around_absolute_point, point: { x: 178.5 }, degrees: 360, frames: 240 }
+x-13: &rotateAntiClockwise  { type: rotate_around_absolute_point, point: { x: 178.5 }, degrees: -360, frames: 240 }
+x-14: &downOutOfScreen      { moveToAbsolute: { x: 98.5, y: 290 }, frames: 210 }
+
+x-movementPattern: &movementPattern
+  - *intoScreen
+  - *down1
+  - *quarterCircleDownIn
+  - wait: 25
+  - *quarterCircleDownOut
+  - wait: 25
+  - *in1
+  - wait: 25
+  - *up1
+  - wait: 25
+  - *halfCircleLeftDown
+  - wait: 25
+  - *out1
+  - wait: 25
+  - *down2
+  - wait: 25
+  - *up2
+  - wait: 25
+  - *downIn
+  - wait: 25
+  - *rotateClockwise
+  - wait: 25
+  - *rotateAntiClockwise
+  - wait: 25
+  - *downOutOfScreen
+
 enemy:
   name: firstMiniboss1
   hp: 120
   diameter: 35
   actions:
-  - type: parallell_race
+  - type: parallellRace
     actionsLists:
     - *shootingPattern
-    - - { moveToAbsolute: { x: 116, y: 0 }, frames: 40 }
-      - { moveToAbsolute: { y: 75 }, frames: 52 }
-      - { type: move_bezier, bend: { x: 0, y: 21 }, end: { x: 30, y: 21 }, frames: 39 }
-      - wait: 25
-      - { type: move_bezier, bend: { x: 0, y: 10 }, end: { x: -30, y: 10 }, frames: 39}
-      - wait: 25
-      - { moveToAbsolute: { x: 139.5 }, frames: 47 }
-      - wait: 25
-      - { moveToAbsolute: { y: 11 }, frames: 100 }
-      - wait: 25
-      - { type: rotate_around_absolute_point, point: { y: 61 }, degrees: -180, frames: 100 }
-      - wait: 25
-      - { moveToAbsolute: { x: 99.5 }, frames: 50 }
-      - wait: 25
-      - { moveToAbsolute: { y: 141 }, frames: 30 }
-      - wait: 25
-      - { moveToAbsolute: { y: 61 }, frames: 80 }
-      - { moveToAbsolute: { x: 138.5, y: 105 }, frames: 40 }
-      - wait: 25
-      - { type: rotate_around_absolute_point, point: { x: 178.5 }, degrees: 360, frames: 240 }
-      - wait: 25
-      - { type: rotate_around_absolute_point, point: { x: 178.5 }, degrees: -360, frames: 240 }
-      - wait: 25
-      - { moveToAbsolute: { x: 98.5, y: 290 }, frames: 210 }
+    - *movementPattern

@@ -8,7 +8,7 @@ export const firstMiniBoss1: IEnemyJson = {
    hp: 120,
    diameter: 35,
    actions: [
-      { type: "parallell_race", actionsLists: [
+      { type: "parallellRace", actionsLists: [
          firstMiniBossShootActions,
          firstMiniBossMoveActions1
       ] }
