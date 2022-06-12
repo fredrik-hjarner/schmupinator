@@ -92,7 +92,7 @@ export class EnemyActionExecutor {
 
             case "rotate_around_relative_point":
             case "rotate_around_absolute_point":
-            case "move_to_absolute":
+            case "moveToAbsolute":
             case "move_bezier":
             case "move": {
                const startPos = this.getPosition();
@@ -113,7 +113,7 @@ export class EnemyActionExecutor {
                         this.actionHandler({type: "set_position", x: position.x, y: position.y});
                         break;
                      }
-                     case "move_to_absolute": {
+                     case "moveToAbsolute": {
                         const { moveTo } = currAction;
                         const xToGo = moveTo.x !== undefined ? moveTo.x - startPos.x : 0;
                         const yToGo = moveTo.y !== undefined ? moveTo.y - startPos.y : 0;

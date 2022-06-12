@@ -120,12 +120,12 @@ enemy:
   - type: parallell_race
     actionsLists:
     - *shootingPattern
-    - - type: move_to_absolute
+    - - type: moveToAbsolute
         moveTo:
           x: 116
           y: 0
         frames: 40
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           y: 75
         frames: 52
@@ -147,12 +147,12 @@ enemy:
           y: 10
         frames: 39
       - wait: 25
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           x: 139.5
         frames: 47
       - wait: 25
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           y: 11
         frames: 100
@@ -163,21 +163,21 @@ enemy:
         degrees: -180
         frames: 100
       - wait: 25
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           x: 99.5
         frames: 50
       - wait: 25
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           y: 141
         frames: 30
       - wait: 25
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           y: 61
         frames: 80
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           x: 138.5
           y: 105
@@ -195,7 +195,7 @@ enemy:
         degrees: -360
         frames: 240
       - wait: 25
-      - type: move_to_absolute
+      - type: moveToAbsolute
         moveTo:
           x: 98.5
           y: 290

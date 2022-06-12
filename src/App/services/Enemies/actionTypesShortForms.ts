@@ -1,4 +1,7 @@
-import type { TAction, TFlag, TRepeat, TSetShotSpeed, TSpawn, TWait } from "./actionTypes";
+import type {
+   TAction, TFlag, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSpawn, TWait
+} from "./actionTypes";
+import type { Vector as TVector } from "../../../math/bezier";
 
 export type TShortFormWait = { wait: number };
 const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => {
@@ -30,6 +33,11 @@ const isShortFormSetShotSpeed = (action: TShortFormAction): action is TShortForm
    return (action as TShortFormSetShotSpeed).setShotSpeed !== undefined;
 };
 
+export type TShortFormMoveToAbsolute = { moveToAbsolute: Partial<TVector>, frames: number };
+const isShortFormMoveToAbsolute = (acn: TShortFormAction): acn is TShortFormMoveToAbsolute => {
+   return (acn as TShortFormMoveToAbsolute).moveToAbsolute !== undefined;
+};
+
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
@@ -49,16 +57,23 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    } else if(isShortFormSetShotSpeed(shortForm)) {
       const { setShotSpeed } = shortForm;
       return { type: "setShotSpeed", pixelsPerFrame: setShotSpeed };
+   }else if(isShortFormMoveToAbsolute(shortForm)) {
+      const { moveToAbsolute, frames } = shortForm;
+      return { type: "moveToAbsolute", moveTo: moveToAbsolute, frames };
    }
    return shortForm;
 };
 
 export type TShortFormAction =
-   Exclude<TAction, TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed> |
+   Exclude<
+      TAction,
+      TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed | TMoveToAbsolute
+   > |
 
    TShortFormWait |
    TShortFormSpawn |
    TShortFormRepeat |
    TShortFormParallellAll |
    TShortFormFlag |
-   TShortFormSetShotSpeed;
+   TShortFormSetShotSpeed |
+   TShortFormMoveToAbsolute;

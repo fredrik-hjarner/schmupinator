@@ -1,24 +1,22 @@
 import type { Vector } from "../../../../../math/bezier";
-import type { TMoveToAbsolute } from "../../actionTypes";
-import type { TShortFormAction } from "../../actionTypesShortForms";
+import type { TShortFormAction, TShortFormMoveToAbsolute } from "../../actionTypesShortForms";
 
 import { resolutionHeight as resHeight, resolutionWidth as resWidth } from "../../../../../consts";
 
 const moveToAbsolute = (
    { moveTo, frames}: { moveTo: Partial<Vector>, frames: number},
    mirroredX: boolean
-): TMoveToAbsolute => {
+): TShortFormMoveToAbsolute => {
    if (!mirroredX) {
-      return  { type: "move_to_absolute", moveTo, frames };
+      return  { moveToAbsolute: moveTo, frames };
    }
    if(moveTo.x !== undefined) {
       return  {
-         type: "move_to_absolute",
-         moveTo: { x: resWidth - moveTo.x, y: moveTo.y },
+         moveToAbsolute: { x: resWidth - moveTo.x, y: moveTo.y },
          frames
       };
    }
-   return  { type: "move_to_absolute",  moveTo, frames };
+   return  { moveToAbsolute: moveTo, frames };
 };
 
 // Helper method. TODO: Hopefully remove this later!

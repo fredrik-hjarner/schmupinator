@@ -12,7 +12,7 @@ export type TSetShotSpeed =        { type: "setShotSpeed", pixelsPerFrame: numbe
 // Moves relative to current position.
 export type TMove =                { type: "move", frames: number } & Partial<Vector>;
 // Move to an absolute postion on screen.
-export type TMoveToAbsolute =      { type: "move_to_absolute",
+export type TMoveToAbsolute =      { type: "moveToAbsolute",
 moveTo: Partial<Vector>, frames: number };
 export type TSetPosition =         { type: "set_position", x: number, y: number };
 export type TMoveBezier =          { type: "move_bezier", bend:Vector, end:Vector, frames:number };
