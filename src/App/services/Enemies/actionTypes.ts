@@ -8,7 +8,7 @@ export type TRepeat =              { type: "repeat", times: number, actions: TSh
 export type TShootDirection =      { type: "shootDirection", x: number, y: number };
 export type TShootTowardPlayer =   { type: "shoot_toward_player" };
 export type TShootBesidePlayer =   { type: "shoot_beside_player", clockwiseDegrees: number };
-export type TSetShotSpeed =        { type: "set_shot_speed", pixelsPerFrame: number };
+export type TSetShotSpeed =        { type: "setShotSpeed", pixelsPerFrame: number };
 // Moves relative to current position.
 export type TMove =                { type: "move", movement: Partial<Vector>, frames: number };
 // Move to an absolute postion on screen.

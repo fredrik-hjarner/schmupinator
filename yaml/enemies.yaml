@@ -49,4 +49,46 @@ enemy:
           actions:
             - type: move_according_to_speed_and_direction
             - type: waitNextFrame
-  
+---
+x-moveLeft: &moveLeft
+  type: move
+  frames: 80
+  movement: { x: -205, y: 30 }
+x-moveRight: &moveRight
+  type: move
+  frames: 80
+  movement: { x: 205, y: 30 }
+
+x-rotateLeft: &rotateLeft
+  - type: rotate_around_relative_point
+    degrees: -180
+    frames: 35
+    point: { y: 31 }
+x-rotateRight: &rotateRight
+  - type: rotate_around_relative_point
+    degrees: 180
+    frames: 35
+    point: { y: 31 }
+
+x-shootWhileRotation: &shootWhileRotation
+  - wait: 16
+  - type: shoot_toward_player
+
+x-rotateLeftAndShoot: &rotateLeftAndShoot
+  parallellAll: [*rotateLeft, *shootWhileRotation]
+
+x-rotateRightAndShoot: &rotateRightAndShoot
+  parallellAll: [*rotateRight, *shootWhileRotation]
+
+enemy:
+  name: sinusLeft
+  hp: 3
+  diameter: 24
+  actions:
+  - { type: setShotSpeed, pixelsPerFrame: 2 }
+  - repeat: 2
+    actions:
+    - *rotateLeftAndShoot
+    - *moveRight
+    - *rotateRightAndShoot
+    - *moveLeft

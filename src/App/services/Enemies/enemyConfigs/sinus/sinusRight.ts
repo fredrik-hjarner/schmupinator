@@ -5,7 +5,7 @@ export const rightSinus: IEnemyJson = {
    hp: 3,
    diameter: 24,
    actions: [
-      { type: "set_shot_speed", pixelsPerFrame: 2 },
+      { type: "setShotSpeed", pixelsPerFrame: 2 },
       { repeat: 2, actions: [
          // rotate 180 degrees and shoot.
          { parallellAll: [[
