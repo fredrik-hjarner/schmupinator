@@ -1,8 +1,8 @@
 x-aimerLeft: &aimerLeft { spawn: nonShootingAimer, x: 128.5, y: -22 }
 x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }
 
-x-sinusLeft: &sinusLeft { spawn: sinus, flags: [left], x: 75, y: -20 }
-x-sinusRight: &sinusRight { spawn: sinus, x: 280, y: -20 }
+x-sinusLeft: &sinusLeft { spawn: sinus, x: 75, y: -20 }
+x-sinusRight: &sinusRight { spawn: sinus, flags: [right], x: 280, y: -20 }
 
 x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss, x: 118.881, y: -20 }
 x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss, flags: [right], x: 237.762, y: -20 }
@@ -29,7 +29,7 @@ enemy:
             - *sinusRight
             - wait: 70
 
-        - wait: 180
+        - wait: 200
         
         - *leftMiniBoss
         - *rightMiniBoss
@@ -84,16 +84,13 @@ enemy:
   diameter: 24
   actions:
   - { setShotSpeed: 2 }
-  - flag: left
-    yes:
-    - *rotateLeftAndShoot
-    - *moveRight
+  - { flag: right, yes: [{ type: mirrorX, value: true }] }
   - repeat: 2
     actions:
-    - *rotateRightAndShoot
-    - *moveLeft
     - *rotateLeftAndShoot
     - *moveRight
+    - *rotateRightAndShoot
+    - *moveLeft
 ---
 x-shootDown: &shootDown { type: shootDirection, x: 0, y: 1}
 
