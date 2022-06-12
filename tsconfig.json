@@ -10,7 +10,7 @@
   ],
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "dist/src",
+    "outDir": "dist",
     // "incremental": true, // performance increase. // this seems to cause problems sometimes.
     "allowJs": true,
     "checkJs": true,

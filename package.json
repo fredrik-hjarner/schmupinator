@@ -4,13 +4,12 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "start": "run-s lint clean build add-extensions copy-yaml serve",
+    "start": "run-s lint clean build add-extensions serve",
     "lint": "eslint --fix src",
-    "clean": "trash dist/src/*",
+    "clean": "trash dist/*",
     "build": "tsc",
-    "add-extensions": "babel dist/src -d dist/src",
-    "copy-yaml": "cpy node_modules/yaml/browser/dist dist",
-    "serve": "serve dist"
+    "add-extensions": "babel dist -d dist",
+    "serve": "serve"
   },
   "script comments": {
     "add-extensions": "add-extensions is needed because typescript does not add .js in the imports!!!!"
