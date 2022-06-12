@@ -34,7 +34,7 @@ export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed
 // Spawns an enemy.
 export type TSpawn = { type: "spawn", enemy: string, x: number, y: number, flags?: string[] };
 // Simple if case. Executes yes if true. Executs no when false.
-export type TFlag = { type: "flag", flag: string, yes?: TSFAction[], no?: TSFAction[] };
+export type TFlag = { type: "flag", flagName: string, yes?: TSFAction[], no?: TSFAction[] };
 
 export type TAction =
    /**

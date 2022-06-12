@@ -84,8 +84,7 @@ enemy:
   diameter: 24
   actions:
   - { type: setShotSpeed, pixelsPerFrame: 2 }
-  - type: flag
-    flag: left
+  - flag: left
     yes:
     - *rotateLeftAndShoot
     - *moveRight

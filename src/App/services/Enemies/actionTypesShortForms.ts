@@ -1,4 +1,4 @@
-import type { TAction, TRepeat, TSpawn, TWait } from "./actionTypes";
+import type { TAction, TFlag, TRepeat, TSpawn, TWait } from "./actionTypes";
 
 export type TShortFormWait = { wait: number };
 const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => {
@@ -20,6 +20,11 @@ const isShortFormParallellAll = (action: TShortFormAction): action is TShortForm
    return (action as TShortFormParallellAll).parallellAll !== undefined;
 };
 
+export type TShortFormFlag = { flag: string, yes?: TShortFormAction[], no?: TShortFormAction[] };
+const iShortFormFlag = (action: TShortFormAction): action is TShortFormFlag => {
+   return (action as TShortFormFlag).flag !== undefined;
+};
+
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
@@ -33,14 +38,18 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    } else if(isShortFormParallellAll(shortForm)) {
       const { parallellAll } = shortForm;
       return { type: "parallellAll", actionsLists: parallellAll };
+   } else if(iShortFormFlag(shortForm)) {
+      const { flag, yes, no } = shortForm;
+      return { type: "flag", flagName: flag, yes, no };
    }
    return shortForm;
 };
 
 export type TShortFormAction =
-   Exclude<TAction, TWait | TSpawn | TRepeat /*| TParallellAll*/> |
+   Exclude<TAction, TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag> |
 
    TShortFormWait |
    TShortFormSpawn |
    TShortFormRepeat |
-   TShortFormParallellAll;
+   TShortFormParallellAll |
+   TShortFormFlag
