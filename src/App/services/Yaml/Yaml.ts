@@ -1,10 +1,10 @@
 import type { App } from "../../App";
 import type { IService } from "../IService";
-import type { Document } from "yaml";
+import type { Document, parseAllDocuments } from "yaml";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { parseAllDocuments } from "../../../../node_modules/yaml/browser/dist/index";
+import { parseAllDocuments as parse } from "../../../../node_modules/yaml/browser/dist/index";
 
 import { firstMiniBoss1 } from "../Enemies/enemyConfigs/firstMiniBoss/firstMiniboss1";
 import { firstMiniBoss2 } from "../Enemies/enemyConfigs/firstMiniBoss/firstMiniboss2";
@@ -41,8 +41,7 @@ export class Yaml implements IService {
    Init = async () => {
       const res = await fetch("/yaml/enemies.yaml");
       const text = await res.text();
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const yamlDocuments = parseAllDocuments(text) as Document[];
+      const yamlDocuments = (parse as typeof parseAllDocuments)(text, {merge: true}) as Document[];
       // console.log('yamlsDocuments:', yamlDocuments);
 
       // Check errors

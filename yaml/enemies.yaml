@@ -55,8 +55,7 @@ x-moveLeft: &moveLeft
   frames: 80
   movement: { x: -205, y: 30 }
 x-moveRight: &moveRight
-  type: move
-  frames: 80
+  <<: *moveLeft
   movement: { x: 205, y: 30 }
 
 x-rotateLeft: &rotateLeft
@@ -65,10 +64,8 @@ x-rotateLeft: &rotateLeft
     frames: 35
     point: { y: 31 }
 x-rotateRight: &rotateRight
-  - type: rotate_around_relative_point
+  - <<: *rotateLeft
     degrees: 180
-    frames: 35
-    point: { y: 31 }
 
 x-shootWhileRotation: &shootWhileRotation
   - wait: 16
