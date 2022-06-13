@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Enemies } from "./services/Enemies/Enemies";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { GameLoop } from "./services/GameLoop/GameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -13,17 +15,24 @@ import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
 import { GameOver } from "./services/GameOver/GameOver";
 import { Yaml } from "./services/Yaml/Yaml";
+/**
+ * Interfaces
+ */
 import { IInput } from "./services/Input/IInput";
+import { IGameLoop } from "./services/GameLoop/IGameLoop";
 /**
  * "Mocks"
  */
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { FastGameLoop } from "./services/GameLoop/mocks/FastGameLoop";
 
 export class App {
    input: IInput;
-   gameLoop: GameLoop;
+   gameLoop: IGameLoop;
    player: Player;
    playerShots: Shots;
    enemyShots: Shots;
@@ -45,7 +54,8 @@ export class App {
        */
       this.input = new Input({ app: this, name: "input" });
       // this.input = new ReplayerInput({ app: this, name: "input" });
-      this.gameLoop = new GameLoop(this);
+      this.gameLoop = new GameLoop({ app: this, name: "gameLoop" });
+      // this.gameLoop = new FastGameLoop({ app: this, name: "gameLoop" });
       this.player = new Player(this); // TODO: player should also have name
       this.playerShots = new Shots(
          this,

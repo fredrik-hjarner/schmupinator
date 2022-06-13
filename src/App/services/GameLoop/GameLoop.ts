@@ -7,22 +7,30 @@ import { initFpsDiv } from "./fpsDiv";
 import { initFrameCounterDiv } from "./frameCounterDiv";
 import { initGameDiv, initGameHideBottom, initGameHideRight } from "./gameDiv";
 import { px } from "../../../utils/px";
+import { IGameLoop } from "./IGameLoop";
 
-export class GameLoop {
-   readonly app: App;
-   FrameCount: number;
+type TConstructor = {
+   app: App;
+   name: string;
+};
+
+export class GameLoop implements IGameLoop {
+   public app: App;
+   public name: string;
+   public FrameCount: number;
    readonly gameDiv: HTMLDivElement;
    readonly framCounterDiv: HTMLDivElement;
    readonly elapsedTimeDiv: HTMLDivElement;
    readonly fpsDiv: HTMLDivElement;
-   nextFrameMillis: number | null;
-   startTime: number | null;
+   private nextFrameMillis: number | null;
+   private startTime: number | null;
 
    /**
    * Public
    */
-   constructor(app: App) {
+   constructor({ app, name }: TConstructor) {
       this.app = app;
+      this.name = name;
 
       this.FrameCount = 0;
       this.framCounterDiv = initFrameCounterDiv();
@@ -68,12 +76,19 @@ export class GameLoop {
    * when one frame has passed.
    */
    private oneGameLoop = () => {
-      if(this.nextFrameMillis === null) {
-         throw new Error("this.nextFrameMillis === null");
-      }
-      while (performance.now() >= this.nextFrameMillis) {
-         this.nextFrameMillis += millisPerFrame;
-         this.nextFrame();
+      /**
+       * This outer for loop is only because setInterval is so slow,
+       * it might actually be slower than 60 setInterval per second.
+       * It might not be necessary, and 3 is just an arbitrary number.
+       */
+      for(let i=0; i<3; i++) {
+         if(this.nextFrameMillis === null) {
+            throw new Error("this.nextFrameMillis === null");
+         }
+         while (performance.now() >= this.nextFrameMillis) {
+            this.nextFrameMillis += millisPerFrame;
+            this.nextFrame();
+         }
       }
    };
 }
