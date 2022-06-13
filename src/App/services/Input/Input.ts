@@ -1,8 +1,6 @@
 import type { App } from "../../App";
 import type { ButtonsPressed, IInput } from "./IInput";
 
-// import { replay } from "./replay";
-
 type TConstructor = {
    app: App;
    name: string;
@@ -12,7 +10,10 @@ export class Input implements IInput {
    app: App;
    name: string;
    history: {
-      [frame: string]: ButtonsPressed
+      inputs: {
+         [frame: string]: ButtonsPressed;
+      };
+      score: number;
    };
 
    private buttonsPressed: ButtonsPressed = {
@@ -26,7 +27,7 @@ export class Input implements IInput {
    constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
-      this.history = {};
+      this.history = { inputs: {}, score: 0 };
       document.onkeydown = this.onKeyDown;
       document.onkeyup = this.onKeyUp;
    }
@@ -35,25 +36,14 @@ export class Input implements IInput {
       this.app.events.subscribeToEvent(this.name, (event) => {
          if(event.type === "player_died"){
             console.log("Input.history:");
+            const score = this.app.points.points;
+            this.history.score = score;
             console.log(this.history);
          }
       });
    };
 
    public get ButtonsPressed(): ButtonsPressed {
-      // if(false) {
-      //    const frame = `${this.app.gameLoop.FrameCount}`;
-      //    const allFalse = { down: false, left: false, right: false, space: false, up: false };
-      //    if(!(frame in replay)) {
-      //       return allFalse;
-      //    }
-      //    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      //    // @ts-ignore
-      //    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      //    const buttonsPressed = {...allFalse, ...replay[frame]} as ButtonsPressed;
-      //    return buttonsPressed;
-      // }
-      
       const frame = this.app.gameLoop.FrameCount;
       const buttonsPressed = { ...this.buttonsPressed };
       const wasPressed = Object.values(buttonsPressed).includes(true);
@@ -65,7 +55,7 @@ export class Input implements IInput {
                }
             }
          });
-         this.history[frame] = buttonsPressed;
+         this.history.inputs[frame] = buttonsPressed;
       }
       return this.buttonsPressed;
    }

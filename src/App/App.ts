@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Enemies } from "./services/Enemies/Enemies";
 import { GameLoop } from "./services/GameLoop/GameLoop";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Input } from "./services/Input/Input";
 import { Player } from "./services/Player/Player";
 import { Shots } from "./services/Shots/Shots";
@@ -10,9 +13,16 @@ import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
 import { GameOver } from "./services/GameOver/GameOver";
 import { Yaml } from "./services/Yaml/Yaml";
+import { IInput } from "./services/Input/IInput";
+/**
+ * "Mocks"
+ */
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
 
 export class App {
-   input: Input;
+   input: IInput;
    gameLoop: GameLoop;
    player: Player;
    playerShots: Shots;
@@ -34,6 +44,7 @@ export class App {
        * Constuct services
        */
       this.input = new Input({ app: this, name: "input" });
+      // this.input = new ReplayerInput({ app: this, name: "input" });
       this.gameLoop = new GameLoop(this);
       this.player = new Player(this); // TODO: player should also have name
       this.playerShots = new Shots(
@@ -56,7 +67,11 @@ export class App {
    }
 
    /**
-    * Step 2 of initialization
+    * Step 2 of initialization.
+    * 
+    * The rules are essentially:
+    * 1. In constructor you init what you can without using other services (as dependencies).
+    * 2. If you need other services to init, then do that initialization in the Init function.
     */
    Init = async () => {
       /**
