@@ -48,6 +48,7 @@ type TGraphicsElement = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
    inUse: boolean // If the GraphicsElement is in use, or if it is free to give away.
    element: HTMLDivElement;
+   index: number;
 }
 
 type TConstructor = { app: App; name: string };
@@ -95,11 +96,35 @@ export class Graphics implements IService {
 
    private initElementPool = (): TGraphicsElement[] => {
       return Array(Graphics.poolSize).fill(0).map((_, i) =>
-         this.initOneElement(this.getRestingPlace(i))
+         this.initOneElement(i)
       );
    };
 
-   private initOneElement = ( {x, y }: { x: number, y: number }): TGraphicsElement => {
+   private reset = (ge: TGraphicsElement) => {
+      const { x, y } = this.getRestingPlace(ge.index);
+      const color = "orange";
+      const diameter = 5;
+      const radius = diameter/2;
+
+      const top = y - radius;
+      const left = x - radius;
+   
+      /** TODO: Remove duplication */
+      ge.element.style.position = "fixed";
+      ge.element.style.boxSizing = "border-box";
+      ge.element.style.borderColor = color;
+      ge.element.style.borderStyle = "solid";
+      ge.element.style.borderWidth = px(radius); // filled
+      ge.element.style.width = px(diameter);
+      ge.element.style.height = px(diameter);
+      ge.element.style.top = px(top);
+      ge.element.style.left = px(left);
+      ge.element.style.borderRadius = px(5000);
+      ge.element.style.zIndex = zIndices.graphicsEngineElements;
+   };
+
+   private initOneElement = (i: number): TGraphicsElement => {
+      const { x, y } = this.getRestingPlace(i);
       const color = "orange";
       const diameter = 5;
       const radius = diameter/2;
@@ -108,6 +133,7 @@ export class Graphics implements IService {
       const top = y - radius;
       const left = x - radius;
    
+      /** TODO: Remove duplication */
       const element = document.createElement("div");
       element.id = handle;
       element.style.position = "fixed";
@@ -123,7 +149,7 @@ export class Graphics implements IService {
       element.style.zIndex = zIndices.graphicsEngineElements;
       document.body.appendChild(element);
 
-      return { handle, inUse: false, element };
+      return { handle, inUse: false, element, index: i };
    };
 
    // Helper that finds and assert that an element exists and is in use.
@@ -187,11 +213,8 @@ export class Graphics implements IService {
       ({ handle }: TAction_Release["payload"]): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
 
-         // Put back in resting position!
-         const i = this.elementPool.findIndex(e => e.handle === element.handle);
-         const restingPlace = this.getRestingPlace(i);
-         element.element.style.left = px(restingPlace.x);
-         element.element.style.top = px(restingPlace.y);
+         // Put back in resting position and reset styles.
+         this.reset(element);
          
          element.inUse = false;
          return { type: "responseVoid" };
