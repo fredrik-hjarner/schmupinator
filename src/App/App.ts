@@ -62,11 +62,11 @@ export class App {
       this.playerShots = new Shots(
          this,
          // TODO: actually dont need name, could use uuid().
-         { name: "playerShots", maxShots: 3*3, color: "aqua", poolIndex: 0 }
+         { name: "playerShots", maxShots: 3*3, color: "aqua" }
       );
       this.enemyShots = new Shots(
          this,
-         { name: "enemyShots", maxShots: 25, color: "red", poolIndex: 1 }
+         { name: "enemyShots", maxShots: 25, color: "red" }
       );
       this.enemies = new Enemies(this, { name: "enemies" });
       this.gamepad = new GamePad();

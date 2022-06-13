@@ -1,74 +1,133 @@
 import type { Shots } from "./Shots";
+import type { Graphics, THandle, TResponse_AskForElement } from "../Graphics/Graphics";
+import type { App } from "../../App";
 
 import { resolutionHeight, resolutionWidth } from "../../../consts";
-import { Circle } from "../../../Circle";
 
 type TConstructor = {
+   app: App;
    shotsService: Shots,
    x: number,
    y: number,
    spdX: number;
    spdY: number;
-   active: boolean;
    color: string;
 }
 
 export class Shot {
+   app: App;
    shotsService: Shots;
    origX: number;
    origY: number;
-   circle: Circle;
    spdX: number;
    spdY: number;
-   active: boolean;
+   private x: number;
+   private y: number;
+   private graphics!: Graphics; // Graphics service
+   private diameter: number;
+   private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
 
    /**
     * Public
     */
-   constructor({ shotsService, x, y, spdX, spdY, active, color }: TConstructor) {
+   constructor({ app, shotsService, x, y, spdX, spdY, /* color */ }: TConstructor) {
+      this.app = app;
       this.shotsService = shotsService;
       this.origX = x;
       this.origY = y;
-      this.circle = new Circle(x, y, 6, color);
+      this.diameter = 6;
+      this.x = x;
+      this.y = y;
       this.spdX = spdX;
       this.spdY = spdY;
-      this.active = active;
+
+      this.graphics = this.app.graphics;
+      const response =
+         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
+      this.graphicsHandle = response.handle;
+      this.updateGraphicsPosition();
+      this.graphics.Dispatch({
+         type:"actionSetDiameter",
+         payload: { handle: this.graphicsHandle, diameter: this.diameter }
+      });
+      this.graphics.Dispatch({
+         type:"actionSetHealth",
+         payload: { handle: this.graphicsHandle, healthFactor: 1 }
+      });
    }
-  
-   Update = () => {
-      if(!this.active) {
-         return;
+
+   // Public is this case is a hack. It is used in TryShoot from the outside.
+   private updateGraphicsPosition = () => {
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type:"actionSetPosition",
+            payload: { handle: this.graphicsHandle, x: this.x, y: this.y }
+         });
       }
-      this.circle.X += this.spdX;
-      this.circle.Y += this.spdY;
+   };
+
+   public get Radius(){
+      return this.diameter/2;
+   }
+
+   get X(){ return this.x; }
+   set X(v){ this.x = v; }
+   
+   get Y(){ return this.y; }
+   set Y(v){ this.y = v; }
+
+   get Top(){ return this.y - this.Radius; }
+   set Top(v){ this.y = v + this.Radius; }
+
+   get Bottom(){ return this.y + this.Radius; }
+   set Bottom(v){ this.y = v - this.Radius; }
+
+   get Left(){ return this.x - this.Radius; }
+   set Left(v){ this.x = v + this.Radius; }
+
+   get Right(){ return this.x + this.Radius; }
+   set Right(v){ this.x = v - this.Radius; }
+
+   Update = () => {
+      this.x += this.spdX;
+      this.y += this.spdY;
       this.bound();
+      this.updateGraphicsPosition();
    };
 
    /**
     * Private
     */
    destroy = () => {
-      // Inactivate and set back at resting place.
-      this.active = false;
-      this.circle.X = this.origX;
-      this.circle.Y = this.origY;
+      // Set back at resting place. // TODO: Update this code.
+      this.x = this.origX;
+      this.y = this.origY;
       /**
-       * TODO: Not super nic to look at the name like this.
+       * TODO: Not super nice to look at the name like this.
        */
       if(this.shotsService.name === "playerShots") {
          this.shotsService.app.events.dispatchEvent({ type: "player_missed_bullet" });
       }
+      // Remove from Shots service.
+      this.shotsService.shots = this.shotsService.shots.filter(s => s !== this);
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type: "actionRelease",
+            payload: { handle: this.graphicsHandle }
+         });
+         this.graphicsHandle = undefined;
+      }
    };
 
    bound = () => {
-      if(this.circle.Left < 0) {
+      if(this.Left < 0) {
          this.destroy();
-      } else if(this.circle.Right > resolutionWidth) {
+      } else if(this.Right > resolutionWidth) {
          this.destroy();
       }
-      if(this.circle.Top < 0) {
+      if(this.Top < 0) {
          this.destroy();
-      } else if (this.circle.Bottom > resolutionHeight) {
+      } else if (this.Bottom > resolutionHeight) {
          this.destroy();
       }
    };

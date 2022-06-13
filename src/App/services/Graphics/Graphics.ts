@@ -5,6 +5,7 @@ import type { IService } from "../IService";
 import { resolutionWidth, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 import { uuid } from "../../../utils/uuid";
+import { Vector as TVector } from "../../../math/bezier";
 
 export type THandle = string;
 
@@ -25,9 +26,12 @@ type TAction_SetHealth = { type: "actionSetHealth", payload: {
    handle: THandle,
    healthFactor: number // 0 = no health, 1 = full health
 }};
+// Releases a GraphicsElement, so it's free for other to pick up/ask for/claim.
+type TAction_Release = { type: "actionRelease", payload: { handle: THandle }};
 
 type TGraphicsAction =
-   TAction_AskForElement | TAction_SetPosition | TAction_SetDiameter | TAction_SetHealth;
+   TAction_AskForElement | TAction_SetPosition | TAction_SetDiameter | TAction_SetHealth |
+   TAction_Release;
 
 /*************
  * Responses *
@@ -52,7 +56,7 @@ export class Graphics implements IService {
    public app: App;
    public name: string;
    private elementPool: TGraphicsElement[];
-   private static poolSize = 40;
+   private static poolSize = 100;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -74,16 +78,24 @@ export class Graphics implements IService {
          case "actionSetHealth": {
             return this.actionSetHealth(action.payload);
          }
+         case "actionRelease": {
+            return this.actionRelease(action.payload);
+         }
       }
    };
 
+   private getRestingPlace = (i: number): TVector => {
+      // const i = this.elementPool.findIndex(e => e.handle === element.handle);
+      const column = Math.floor(i /10);
+      const row = i % 10;
+      const x = 20 + resolutionWidth + 10 * column;
+      const y = 20 + 0 + 10 * row;
+      return { x, y };
+   };
+
    private initElementPool = (): TGraphicsElement[] => {
-      const poolIndex = 0;
       return Array(Graphics.poolSize).fill(0).map((_, i) =>
-         this.initOneElement({
-            x: resolutionWidth + 10 + 3 + poolIndex*15,
-            y: 10 + 3 + i*8,
-         })
+         this.initOneElement(this.getRestingPlace(i))
       );
    };
 
@@ -168,6 +180,20 @@ export class Graphics implements IService {
          const element = this.findExistingAndInUse(handle);
          const radius = parseFloat(element.element.style.width)/2;
          element.element.style.borderWidth = px(radius * healthFactor);
+         return { type: "responseVoid" };
+      };
+
+   private actionRelease =
+      ({ handle }: TAction_Release["payload"]): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
+
+         // Put back in resting position!
+         const i = this.elementPool.findIndex(e => e.handle === element.handle);
+         const restingPlace = this.getRestingPlace(i);
+         element.element.style.left = px(restingPlace.x);
+         element.element.style.top = px(restingPlace.y);
+         
+         element.inUse = false;
          return { type: "responseVoid" };
       };
 }

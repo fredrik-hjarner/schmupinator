@@ -14,7 +14,7 @@ export class Player {
    private y: number;
    private graphics!: Graphics; // Graphics service
    private diameter: number;
-   private graphicsHandle!: THandle; // handle to GraphicsElement from Graphics service.
+   private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
    private lastShotFrame: number;
 
    /**
@@ -29,10 +29,12 @@ export class Player {
    }
 
    private updateGraphicsPosition = () => {
-      this.graphics.Dispatch({
-         type:"actionSetPosition",
-         payload: { handle: this.graphicsHandle, x: this.x, y: this.y }
-      });
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type:"actionSetPosition",
+            payload: { handle: this.graphicsHandle, x: this.x, y: this.y }
+         });
+      }
    };
 
    public get Radius(){
@@ -40,7 +42,6 @@ export class Player {
    }
 
    get X(){ return this.x; }
-
    get Y(){ return this.y; }
 
    get Top(){ return this.y - this.Radius; }

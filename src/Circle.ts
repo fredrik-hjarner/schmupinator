@@ -1,6 +1,11 @@
 import { px } from "./utils/px";
 import { uuid } from "./utils/uuid";
 
+/**
+ * TODO:
+ * The only bad thing with this class was that it had a div on it,
+ * otherwise it is a legit class, that I could reusein Shot, Player and Enemy, really.
+ */
 export class Circle {
    private x: number;
    private y: number;

@@ -31,7 +31,7 @@ export class Enemy {
    private mirrorX: boolean;
    private mirrorY: boolean;
    private actionExecutor: EnemyActionExecutor;
-   private graphicsHandle: THandle; // handle to GraphicsElement from Graphics service.
+   private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
 
    /**
     * Public
@@ -112,6 +112,14 @@ export class Enemy {
             // remove this enemy.
             enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
             // TODO: Maybe publish a death event or something.
+            // Clear up graphics.
+            if(this.graphicsHandle) {
+               this.graphics.Dispatch({
+                  type: "actionRelease",
+                  payload: { handle: this.graphicsHandle }
+               });
+               this.graphicsHandle = undefined;
+            }
             return;
          }
       }
@@ -244,10 +252,12 @@ export class Enemy {
       this.X = newX;
       this.Y = newY;
 
-      this.graphics.Dispatch({
-         type:"actionSetPosition",
-         payload: { handle: this.graphicsHandle, x: newX, y: newY }
-      });
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type:"actionSetPosition",
+            payload: { handle: this.graphicsHandle, x: newX, y: newY }
+         });
+      }
    };
 
    RotateTowardsPlayer = () => {
@@ -268,10 +278,12 @@ export class Enemy {
       this.X = newX;
       this.Y = newY;
 
-      this.graphics.Dispatch({
-         type:"actionSetPosition",
-         payload: { handle: this.graphicsHandle, x: newX, y: newY }
-      });
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type:"actionSetPosition",
+            payload: { handle: this.graphicsHandle, x: newX, y: newY }
+         });
+      }
    };
 
    spawn = ({ enemy, flags, position }: { enemy: string, flags?: string[], position: TVector }) => {
@@ -308,9 +320,11 @@ export class Enemy {
    updateDisplayHealth = () => {
       const factorHealthLeft = this.hp / this.maxHp;
 
-      this.graphics.Dispatch({
-         type:"actionSetHealth",
-         payload: { handle: this.graphicsHandle, healthFactor: factorHealthLeft }
-      });
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type:"actionSetHealth",
+            payload: { handle: this.graphicsHandle, healthFactor: factorHealthLeft }
+         });
+      }
    };
 }

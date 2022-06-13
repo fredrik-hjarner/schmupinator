@@ -1,5 +1,6 @@
-import type { Circle } from "../../../Circle";
 import type { App } from "../../App";
+
+export type PosAndRadius = {X: number, Y: number, Radius: number };
 
 export type TCollisions = {
   playerWasHit: boolean;
@@ -40,8 +41,8 @@ export class Collisions {
     */
    private update = () => {
       const player = this.app.player;
-      const playerShots = this.app.playerShots.shots.map(s => s.circle);
-      const enemyShots = this.app.enemyShots.shots.map(s => s.circle);
+      const playerShots = this.app.playerShots.shots.map(s => s);
+      const enemyShots = this.app.enemyShots.shots.map(s => s);
       const enemies = this.app.enemies.enemies;
 
       const playerWasHit = this.calcCircleWasHitByShots({ circle: player, shots: enemyShots });
@@ -60,7 +61,7 @@ export class Collisions {
 
 
    private calcCircleWasHitByShots = (
-      { circle, shots }: { circle: {X: number, Y: number, Radius: number }, shots: Circle[] }
+      { circle, shots }: { circle: PosAndRadius, shots: PosAndRadius[] }
    ): boolean => {
       for(let i=0; i<shots.length; i++) {
          const shot = shots[i];
