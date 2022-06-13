@@ -4,9 +4,7 @@ import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
 
-import { Circle } from "../../../Circle";
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
-import { px } from "../../../utils/px";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
@@ -19,24 +17,25 @@ import {
 
 export class Enemy {
    app: App;
-   graphics: Graphics; // Graphics service
+   X: number;
+   Y: number;
    id: string;
-   maxHp: number;
-   hp: number;
-   diameter: number;
-   circle: Circle;
-   speed: number;
-   shotSpeed: number;
-   direction: UnitVector;
-   flags: string[];
-   mirrorX: boolean;
-   mirrorY: boolean;
-   actionExecutor: EnemyActionExecutor;
-   graphicsHandle: THandle; // handle to GraphicsElement from Graphics service.
+   private graphics: Graphics; // Graphics service
+   private maxHp: number;
+   private hp: number;
+   private diameter: number;
+   private speed: number;
+   private shotSpeed: number;
+   private direction: UnitVector;
+   private flags: string[];
+   private mirrorX: boolean;
+   private mirrorY: boolean;
+   private actionExecutor: EnemyActionExecutor;
+   private graphicsHandle: THandle; // handle to GraphicsElement from Graphics service.
 
    /**
-   * Public
-   */
+    * Public
+    */
    // TODO: take object as input instead.
    constructor(
       app: App,
@@ -49,7 +48,8 @@ export class Enemy {
       this.maxHp = json.hp;
       this.hp = json.hp;
       this.diameter = json.diameter;
-      this.circle = new Circle(position.x,position.y, json.diameter, "red");
+      this.X = position.x;
+      this.Y = position.y;
       this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
       this.flags = flags;
       this.mirrorX = false;
@@ -72,11 +72,19 @@ export class Enemy {
          this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
       this.graphicsHandle = response.handle;
       this.graphics.Dispatch({
+         type:"actionSetPosition",
+         payload: { handle: this.graphicsHandle, x: this.X, y: this.Y }
+      });
+      this.graphics.Dispatch({
          type:"actionSetDiameter",
          payload: { handle: this.graphicsHandle, diameter: json.diameter }
       });
 
       this.updateDisplayHealth();
+   }
+
+   public get Radius(){
+      return this.diameter/2;
    }
 
    public OnFrameTick = () => {
@@ -186,8 +194,8 @@ export class Enemy {
       const speedUpFactor = pixelsPerFrame / pythagoras;
       const potentialShots: PotentialShot[] = [
          {
-            x: this.circle.X,
-            y: this.circle.Y,
+            x: this.X,
+            y: this.Y,
             spdX: dirX * speedUpFactor,
             spdY: dirY * speedUpFactor
          },
@@ -197,17 +205,15 @@ export class Enemy {
 
    ShootTowardPlayer = () => {
       const player = this.app.player.circle;
-      const me = this.circle;
-      const dirX = player.X - me.X;
-      const dirY = player.Y - me.Y;
+      const dirX = player.X - this.X;
+      const dirY = player.Y - this.Y;
       this.ShootDirection({ dirX, dirY });
    };
 
    ShootBesidePlayer = (degrees: number) => {
       const player = this.app.player.circle;
-      const me = this.circle;
-      const dirX = player.X - me.X;
-      const dirY = player.Y - me.Y;
+      const dirX = player.X - this.X;
+      const dirY = player.Y - this.Y;
       const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(degrees));
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
@@ -233,14 +239,11 @@ export class Enemy {
       if(this.mirrorY) {
          deltaY = -deltaY;
       }
-      const newX = this.circle.X + deltaX;
-      const newY = this.circle.Y + deltaY;
-      this.circle.X = newX;
-      this.circle.Y = newY;
+      const newX = this.X + deltaX;
+      const newY = this.Y + deltaY;
+      this.X = newX;
+      this.Y = newY;
 
-      /**
-       * New graphics engine code.
-       */
       this.graphics.Dispatch({
          type:"actionSetPosition",
          payload: { handle: this.graphicsHandle, x: newX, y: newY }
@@ -250,9 +253,8 @@ export class Enemy {
    RotateTowardsPlayer = () => {
       const playerCircle = this.app.player.circle;
       const playerVector = new Vector(playerCircle.X, playerCircle.Y);
-      const enemyCircle = this.circle;
       // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
-      const enemyVector = new Vector(enemyCircle.X, enemyCircle.Y);
+      const enemyVector = new Vector(this.X, this.Y);
       const vectorFromEnemyToPlayer = Vector.fromTo(enemyVector, playerVector);
       this.direction = new UnitVector(vectorFromEnemyToPlayer);
    };
@@ -261,14 +263,11 @@ export class Enemy {
     * Private
     */
    moveAccordingToSpeedAndDirection = () => {
-      const newX = this.circle.X + this.direction.x * this.speed;
-      const newY = this.circle.Y += this.direction.y * this.speed;
-      this.circle.X = newX;
-      this.circle.Y = newY;
+      const newX = this.X + this.direction.x * this.speed;
+      const newY = this.Y += this.direction.y * this.speed;
+      this.X = newX;
+      this.Y = newY;
 
-      /**
-       * New graphics engine code.
-       */
       this.graphics.Dispatch({
          type:"actionSetPosition",
          payload: { handle: this.graphicsHandle, x: newX, y: newY }
@@ -280,8 +279,8 @@ export class Enemy {
    };
 
    getPosition = (): TVector => {
-      let x = this.circle.X;
-      let y = this.circle.Y;
+      let x = this.X;
+      let y = this.Y;
       /**
        * If mirroring Enemy will lie about it's location.
        * It's sort of a hack actually, not super beautiful.
@@ -307,14 +306,8 @@ export class Enemy {
    };
 
    updateDisplayHealth = () => {
-      const { style } = this.circle.div;
-      const width = parseFloat(style.width);
       const factorHealthLeft = this.hp / this.maxHp;
-      style.borderWidth = px(factorHealthLeft * (width/2));
 
-      /**
-       * New graphics engine code
-       */
       this.graphics.Dispatch({
          type:"actionSetHealth",
          payload: { handle: this.graphicsHandle, healthFactor: factorHealthLeft }

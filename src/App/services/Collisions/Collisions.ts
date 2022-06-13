@@ -34,7 +34,7 @@ export class Collisions {
          }
       );
    };
-  
+
    /**
     * Private
     */
@@ -56,7 +56,7 @@ export class Collisions {
       const playerWasHit = this.calcCircleWasHitByShots({ circle: player, shots: enemyShots });
       // playerWasHit = playerWasHit || 
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
-         const wasHit = this.calcCircleWasHitByShots({ circle: enemy.circle, shots: playerShots });
+         const wasHit = this.calcCircleWasHitByShots({ circle: enemy, shots: playerShots });
          return wasHit ? [...acc, enemy.id] : acc;
       }, []);
 
@@ -69,7 +69,7 @@ export class Collisions {
 
 
    private calcCircleWasHitByShots = (
-      { circle, shots }: { circle: Circle, shots: Circle[] }
+      { circle, shots }: { circle: {X: number, Y: number, Radius: number }, shots: Circle[] }
    ): boolean => {
       for(let i=0; i<shots.length; i++) {
          const shot = shots[i];
