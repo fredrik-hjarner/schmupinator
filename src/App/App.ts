@@ -29,6 +29,7 @@ import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FastGameLoop } from "./services/GameLoop/mocks/FastGameLoop";
+import { Graphics } from "./services/Graphics/Graphics";
 
 export class App {
    input: IInput;
@@ -44,6 +45,7 @@ export class App {
    points: Points;
    gameOver: GameOver;
    yaml: Yaml;
+   graphics: Graphics;
 
    /**
     * Step 1 of initialization
@@ -74,6 +76,7 @@ export class App {
       this.points = new Points({ app: this, name: "points" });
       this.gameOver = new GameOver({ app: this, name: "gameOver" });
       this.yaml = new Yaml({ app: this, name: "yaml" });
+      this.graphics = new Graphics({ app: this, name: "graphics" });
    }
 
    /**

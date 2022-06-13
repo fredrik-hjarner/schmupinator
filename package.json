@@ -5,6 +5,7 @@
   "description": "",
   "scripts": {
     "start": "run-s lint clean build add-extensions serve",
+    "s": "yarn start",
     "lint": "eslint --fix src",
     "clean": "trash dist/*",
     "build": "tsc",
