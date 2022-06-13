@@ -204,14 +204,14 @@ export class Enemy {
    };
 
    ShootTowardPlayer = () => {
-      const player = this.app.player.circle;
+      const player = this.app.player;
       const dirX = player.X - this.X;
       const dirY = player.Y - this.Y;
       this.ShootDirection({ dirX, dirY });
    };
 
    ShootBesidePlayer = (degrees: number) => {
-      const player = this.app.player.circle;
+      const player = this.app.player;
       const dirX = player.X - this.X;
       const dirY = player.Y - this.Y;
       const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(degrees));
@@ -251,7 +251,7 @@ export class Enemy {
    };
 
    RotateTowardsPlayer = () => {
-      const playerCircle = this.app.player.circle;
+      const playerCircle = this.app.player;
       const playerVector = new Vector(playerCircle.X, playerCircle.Y);
       // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
       const enemyVector = new Vector(this.X, this.Y);

@@ -1,26 +1,59 @@
 import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
 import type { TCollisions } from "../Collisions/Collisions";
+import type { Graphics, THandle, TResponse_AskForElement } from "../Graphics/Graphics";
 
 import {
    framesBewteenPlayerShots, playerInvincible, playerShotSpeed,
    playerSpeedPerFrame, resolutionHeight, resolutionWidth
 } from "../../../consts";
-import { Circle } from "../../../Circle";
 
 export class Player {
    app: App;
-   circle: Circle;
-   lastShotFrame: number;
+   private x: number;
+   private y: number;
+   private graphics!: Graphics; // Graphics service
+   private diameter: number;
+   private graphicsHandle!: THandle; // handle to GraphicsElement from Graphics service.
+   private lastShotFrame: number;
 
    /**
     * Public
     */
    constructor(app: App) {
       this.app = app;
-      this.circle = new Circle(resolutionWidth/2, resolutionHeight-20, 20, "aqua");
+      this.x = resolutionWidth/2;
+      this.y = resolutionHeight-20;
+      this.diameter = 20;
       this.lastShotFrame = 0;
    }
+
+   private updateGraphicsPosition = () => {
+      this.graphics.Dispatch({
+         type:"actionSetPosition",
+         payload: { handle: this.graphicsHandle, x: this.x, y: this.y }
+      });
+   };
+
+   public get Radius(){
+      return this.diameter/2;
+   }
+
+   get X(){ return this.x; }
+
+   get Y(){ return this.y; }
+
+   get Top(){ return this.y - this.Radius; }
+   set Top(v){ this.y = v + this.Radius; }
+
+   get Bottom(){ return this.y + this.Radius; }
+   set Bottom(v){ this.y = v - this.Radius; }
+
+   get Left(){ return this.x - this.Radius; }
+   set Left(v){ this.x = v + this.Radius; }
+
+   get Right(){ return this.x + this.Radius; }
+   set Right(v){ this.x = v - this.Radius; }
 
    /**
     * Init runs after bootstrap.
@@ -29,6 +62,20 @@ export class Player {
     * that case.
     */
    Init = () => {
+      this.graphics = this.app.graphics;
+      const response =
+         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
+      this.graphicsHandle = response.handle;
+      this.updateGraphicsPosition();
+      this.graphics.Dispatch({
+         type:"actionSetDiameter",
+         payload: { handle: this.graphicsHandle, diameter: this.diameter }
+      });
+      this.graphics.Dispatch({
+         type:"actionSetHealth",
+         payload: { handle: this.graphicsHandle, healthFactor: 1 }
+      });
+
       // TODO: Use this.name instead.
       this.app.events.subscribeToEvent(
          "updatePlayer",
@@ -49,18 +96,18 @@ export class Player {
     * Private
     */
    bound = () => {
-      if(this.circle.Left < 0) {
-         this.circle.Left = 0;
-      } else if(this.circle.Right > resolutionWidth) {
-         this.circle.Right = resolutionWidth;
+      if(this.Left < 0) {
+         this.Left = 0;
+      } else if(this.Right > resolutionWidth) {
+         this.Right = resolutionWidth;
       }
-      if(this.circle.Top < 0) {
-         this.circle.Top = 0;
-      } else if (this.circle.Bottom > resolutionHeight) {
-         this.circle.Bottom = resolutionHeight;
+      if(this.Top < 0) {
+         this.Top = 0;
+      } else if (this.Bottom > resolutionHeight) {
+         this.Bottom = resolutionHeight;
       }
    };
-  
+
    private onCollisions = (collisions: TCollisions) => {
       /**
        * Check player death
@@ -94,16 +141,16 @@ export class Player {
       }
 
       if (left) {
-         this.circle.X -= speed;
+         this.x -= speed;
       }
       if (right) {
-         this.circle.X += speed;
+         this.x += speed;
       }
       if (up) {
-         this.circle.Y -= speed;
+         this.y -= speed;
       }
       if (down) {
-         this.circle.Y += speed;
+         this.y += speed;
       }
       if(input.ButtonsPressed.space || gamepad.shoot) {
          const frame = this.app.gameLoop.FrameCount;
@@ -113,9 +160,9 @@ export class Player {
          if(frame - this.lastShotFrame >= framesBewteenPlayerShots) {
             const spdY = -playerShotSpeed;
             const potentialShots: PotentialShot[] = [
-               { x: this.circle.X, y: this.circle.Top, spdX: 0, spdY },
-               { x: this.circle.X, y: this.circle.Top, spdX: 1.5, spdY },
-               { x: this.circle.X, y: this.circle.Top, spdX: -1.5, spdY },
+               { x: this.x, y: this.Top, spdX: 0, spdY },
+               { x: this.x, y: this.Top, spdX: 1.5, spdY },
+               { x: this.x, y: this.Top, spdX: -1.5, spdY },
             ];
             this.app.playerShots.TryShoot(potentialShots);
             this.lastShotFrame = this.app.gameLoop.FrameCount;
@@ -123,5 +170,6 @@ export class Player {
       }
 
       this.bound();
+      this.updateGraphicsPosition();
    };
 }
