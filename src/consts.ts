@@ -11,7 +11,7 @@ export const resolutionHeight = 240; // confirmed correct!
 const frameRate = 60;
 export const millisPerFrame = 1000 / frameRate;
 
-export const playerInvincible = false;
+export const playerInvincible = true;
 
 export const playerSpeedPerFrame = [
    // zero upgrades
@@ -27,4 +27,5 @@ export const enemyShotSpeed = 3;
 export const zIndices = {
    gameHide: "1",
    controlsAndLogs: "2",
+   graphicsEngineElements: "1"
 };

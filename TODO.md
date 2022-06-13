@@ -45,3 +45,5 @@ that would make relative/absolute positioning actions more coherent.
 * Eventually remove all long forms that have short forms to reduce complexity!
 
 * Twice, Thrice, Forever short forms.
+
+* Add max number of lines in eslint.

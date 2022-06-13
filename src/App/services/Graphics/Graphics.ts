@@ -2,11 +2,11 @@ import type { App } from "../../App";
 
 import type { IService } from "../IService";
 
-import { resolutionWidth } from "../../../consts";
+import { resolutionWidth, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 import { uuid } from "../../../utils/uuid";
 
-type THandle = string;
+export type THandle = string;
 
 /***********
  * Actions *
@@ -17,20 +17,28 @@ type TAction_SetPosition = {
    type: "actionSetPosition",
    payload: { handle: THandle, x?: number, y?: number }
 };
+type TAction_SetDiameter = {
+   type: "actionSetDiameter",
+   payload: { handle: THandle, diameter: number }
+};
+type TAction_SetHealth = { type: "actionSetHealth", payload: {
+   handle: THandle,
+   healthFactor: number // 0 = no health, 1 = full health
+}};
 
-type TGraphicsAction = TAction_AskForElement | TAction_SetPosition;
+type TGraphicsAction =
+   TAction_AskForElement | TAction_SetPosition | TAction_SetDiameter | TAction_SetHealth;
 
 /*************
  * Responses *
  *************/
 // Returns a handle to the element.
-type TResponse_AskForElement = {
-   type: "responseAskForElement",
-   payload: { handle: THandle, error?: string }
+export type TResponse_AskForElement = {
+   type: "responseAskForElement", handle: THandle,
 }
-type TResponse_MaybeError = { type: "responseMaybeError", error?: string };
+export type TResponse_Void = { type: "responseVoid" };
 
-type TGraphicsResponse = TResponse_AskForElement | TResponse_MaybeError;
+type TGraphicsResponse = TResponse_AskForElement | TResponse_Void;
 
 type TGraphicsElement = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
@@ -60,6 +68,12 @@ export class Graphics implements IService {
          case "actionSetPosition": {
             return this.actionSetPosition(action.payload);
          }
+         case "actionSetDiameter": {
+            return this.actionSetDiameter(action.payload);
+         }
+         case "actionSetHealth": {
+            return this.actionSetHealth(action.payload);
+         }
       }
    };
 
@@ -68,19 +82,19 @@ export class Graphics implements IService {
       return Array(Graphics.poolSize).fill(0).map((_, i) =>
          this.initOneElement({
             x: resolutionWidth + 10 + 3 + poolIndex*15,
-            y: 10 + 3 + i*6,
+            y: 10 + 3 + i*8,
          })
       );
    };
 
    private initOneElement = ( {x, y }: { x: number, y: number }): TGraphicsElement => {
-      const color = "red";
-      const diameter = 10;
+      const color = "orange";
+      const diameter = 5;
       const radius = diameter/2;
 
       const handle = `${uuid()}`;
-      const top = x - radius;
-      const left = y - radius;
+      const top = y - radius;
+      const left = x - radius;
    
       const element = document.createElement("div");
       element.id = handle;
@@ -93,28 +107,37 @@ export class Graphics implements IService {
       element.style.height = px(diameter);
       element.style.top = px(top);
       element.style.left = px(left);
-      element.style.borderRadius = px(diameter);
+      element.style.borderRadius = px(5000);
+      element.style.zIndex = zIndices.graphicsEngineElements;
       document.body.appendChild(element);
 
       return { handle, inUse: false, element };
    };
 
+   // Helper that finds and assert that an element exists and is in use.
+   private findExistingAndInUse = (handle: THandle): TGraphicsElement => {
+      const element = this.elementPool.find(element => element.handle === handle);
+      if(!element) {
+         throw new Error(`Graphics: No GraphicsElement with handle "${handle}"!`);
+      }
+      if(!element.inUse) {
+         throw new Error(`Graphics: Trying to set position for unused handle "${handle}"!`);
+      }
+      return element;
+   };
+
    private actionAskForElement = (): TResponse_AskForElement => {
       const unusedElement = this.elementPool.find(element => !element.inUse);
       if(unusedElement) {
-         return { type: "responseAskForElement", payload: { handle: unusedElement.handle} };
+         unusedElement.inUse = true;
+         return { type: "responseAskForElement", handle: unusedElement.handle };
       }
-      console.error("Graphics: All elements are in use!");
-      return { type: "responseAskForElement", payload: { handle: "", error: "no free elements" } };
+      throw new Error("Graphics: All elements are in use!");
    };
 
    private actionSetPosition =
-      ({ handle, x, y }: TAction_SetPosition["payload"]): TResponse_MaybeError => {
-         const element = this.elementPool.find(element => element.handle);
-         if(!element) {
-            console.error(`Graphics: No GraphicsElement with handle "${handle}"!`);
-            return { type: "responseMaybeError", error: `handle "${handle}" not found` };
-         }
+      ({ handle, x, y }: TAction_SetPosition["payload"]): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
          const diameter = parseFloat(element.element.style.width);
          const radius = diameter/2;
          if(x !== undefined) {
@@ -123,6 +146,28 @@ export class Graphics implements IService {
          if(y !== undefined) {
             element.element.style.top = px(y - radius);
          }
-         return { type: "responseMaybeError" };
+         return { type: "responseVoid" };
+      };
+
+   private actionSetDiameter =
+      ({ handle, diameter }: TAction_SetDiameter["payload"]): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
+         const oldRadius = parseFloat(element.element.style.width)/2;
+         const radius = diameter/2;
+         const delta = radius - oldRadius;
+         const style = element.element.style;
+         style.width = px(diameter);
+         style.height = px(diameter);
+         style.left = px(parseFloat(style.left) - delta);
+         style.top = px(parseFloat(style.top) - delta);
+         return { type: "responseVoid" };
+      };
+
+   private actionSetHealth =
+      ({ handle, healthFactor }: TAction_SetHealth["payload"]): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
+         const radius = parseFloat(element.element.style.width)/2;
+         element.element.style.borderWidth = px(radius * healthFactor);
+         return { type: "responseVoid" };
       };
 }

@@ -13,12 +13,17 @@ import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
+import {
+   Graphics, THandle, TResponse_AskForElement
+} from "../Graphics/Graphics";
 
 export class Enemy {
    app: App;
+   graphics: Graphics; // Graphics service
    id: string;
    maxHp: number;
    hp: number;
+   diameter: number;
    circle: Circle;
    speed: number;
    shotSpeed: number;
@@ -27,6 +32,7 @@ export class Enemy {
    mirrorX: boolean;
    mirrorY: boolean;
    actionExecutor: EnemyActionExecutor;
+   graphicsHandle: THandle; // handle to GraphicsElement from Graphics service.
 
    /**
    * Public
@@ -42,6 +48,7 @@ export class Enemy {
       this.id = `${json.name}-${uuid()}`;
       this.maxHp = json.hp;
       this.hp = json.hp;
+      this.diameter = json.diameter;
       this.circle = new Circle(position.x,position.y, json.diameter, "red");
       this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
       this.flags = flags;
@@ -56,6 +63,18 @@ export class Enemy {
       this.speed = 0;
       // default direction down.
       this.direction = new UnitVector(new Vector(0, 1));
+
+      /**
+       * New graphics engine code
+       */
+      this.graphics = this.app.graphics;
+      const response =
+         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
+      this.graphicsHandle = response.handle;
+      this.graphics.Dispatch({
+         type:"actionSetDiameter",
+         payload: { handle: this.graphicsHandle, diameter: json.diameter }
+      });
 
       this.updateDisplayHealth();
    }
@@ -77,10 +96,7 @@ export class Enemy {
           * Starts filled with color,
           * border gets successively thinner until they are gone.
           */
-         const { style } = this.circle.div;
-         const width = parseFloat(style.width);
-         const factorHealthLeft = this.hp / this.maxHp;
-         style.borderWidth = px(factorHealthLeft * (width/2));
+         this.updateDisplayHealth();
 
          // Die
          if(this.hp < 1) {
@@ -217,8 +233,18 @@ export class Enemy {
       if(this.mirrorY) {
          deltaY = -deltaY;
       }
-      this.circle.X += deltaX;
-      this.circle.Y += deltaY;
+      const newX = this.circle.X + deltaX;
+      const newY = this.circle.Y + deltaY;
+      this.circle.X = newX;
+      this.circle.Y = newY;
+
+      /**
+       * New graphics engine code.
+       */
+      this.graphics.Dispatch({
+         type:"actionSetPosition",
+         payload: { handle: this.graphicsHandle, x: newX, y: newY }
+      });
    };
 
    RotateTowardsPlayer = () => {
@@ -232,11 +258,21 @@ export class Enemy {
    };
 
    /**
-   * Private
-   */
+    * Private
+    */
    moveAccordingToSpeedAndDirection = () => {
-      this.circle.X += this.direction.x * this.speed;
-      this.circle.Y += this.direction.y * this.speed;
+      const newX = this.circle.X + this.direction.x * this.speed;
+      const newY = this.circle.Y += this.direction.y * this.speed;
+      this.circle.X = newX;
+      this.circle.Y = newY;
+
+      /**
+       * New graphics engine code.
+       */
+      this.graphics.Dispatch({
+         type:"actionSetPosition",
+         payload: { handle: this.graphicsHandle, x: newX, y: newY }
+      });
    };
 
    spawn = ({ enemy, flags, position }: { enemy: string, flags?: string[], position: TVector }) => {
@@ -275,5 +311,13 @@ export class Enemy {
       const width = parseFloat(style.width);
       const factorHealthLeft = this.hp / this.maxHp;
       style.borderWidth = px(factorHealthLeft * (width/2));
+
+      /**
+       * New graphics engine code
+       */
+      this.graphics.Dispatch({
+         type:"actionSetHealth",
+         payload: { handle: this.graphicsHandle, healthFactor: factorHealthLeft }
+      });
    };
 }
