@@ -1,3 +1,13 @@
+/**
+ * Interfaces
+ */
+import type { IInput } from "./services/Input/IInput";
+import type { IGameLoop } from "./services/GameLoop/IGameLoop";
+import type { IGraphics } from "./services/Graphics/IGraphics";
+
+/**
+ * Services
+ */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Enemies } from "./services/Enemies/Enemies";
 //@ts-ignore
@@ -15,11 +25,7 @@ import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
 import { GameOver } from "./services/GameOver/GameOver";
 import { Yaml } from "./services/Yaml/Yaml";
-/**
- * Interfaces
- */
-import { IInput } from "./services/Input/IInput";
-import { IGameLoop } from "./services/GameLoop/IGameLoop";
+
 /**
  * "Mocks"
  */
@@ -45,7 +51,7 @@ export class App {
    points: Points;
    gameOver: GameOver;
    yaml: Yaml;
-   graphics: Graphics;
+   graphics: IGraphics;
 
    /**
     * Step 1 of initialization

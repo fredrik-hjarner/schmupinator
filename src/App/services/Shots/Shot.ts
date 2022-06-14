@@ -1,5 +1,5 @@
 import type { Shots } from "./Shots";
-import type { Graphics, THandle, TResponse_AskForElement } from "../Graphics/Graphics";
+import type { IGraphics, THandle, TResponse_AskForElement } from "../Graphics/IGraphics";
 import type { App } from "../../App";
 
 import { resolutionHeight, resolutionWidth } from "../../../consts";
@@ -23,7 +23,7 @@ export class Shot {
    spdY: number;
    private x: number;
    private y: number;
-   private graphics!: Graphics; // Graphics service
+   private graphics!: IGraphics; // Graphics service
    private diameter: number;
    private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
 

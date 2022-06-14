@@ -3,6 +3,7 @@ import type { PotentialShot } from "../Shots/PotentialShot";
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
+import type { THandle, TResponse_AskForElement, IGraphics } from "../Graphics/IGraphics";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -11,16 +12,13 @@ import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
-import {
-   Graphics, THandle, TResponse_AskForElement
-} from "../Graphics/Graphics";
 
 export class Enemy {
    app: App;
    X: number;
    Y: number;
    id: string;
-   private graphics: Graphics; // Graphics service
+   private graphics: IGraphics; // Graphics service
    private maxHp: number;
    private hp: number;
    private diameter: number;

@@ -1,48 +1,13 @@
 import type { App } from "../../App";
-
-import type { IService } from "../IService";
+import type {
+   IGraphics, TAction_Release, TAction_SetDiameter, TAction_SetHealth, TAction_SetPosition,
+   TGraphicsAction, TGraphicsResponse, THandle, TResponse_AskForElement, TResponse_Void
+} from "./IGraphics";
 
 import { resolutionWidth, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 import { uuid } from "../../../utils/uuid";
 import { Vector as TVector } from "../../../math/bezier";
-
-export type THandle = string;
-
-/***********
- * Actions *
- ***********/
-// Asks the Graphics Engine for a graphics element if you want one.
-type TAction_AskForElement = { type: "actionAskForElement" };
-type TAction_SetPosition = {
-   type: "actionSetPosition",
-   payload: { handle: THandle, x?: number, y?: number }
-};
-type TAction_SetDiameter = {
-   type: "actionSetDiameter",
-   payload: { handle: THandle, diameter: number }
-};
-type TAction_SetHealth = { type: "actionSetHealth", payload: {
-   handle: THandle,
-   healthFactor: number // 0 = no health, 1 = full health
-}};
-// Releases a GraphicsElement, so it's free for other to pick up/ask for/claim.
-type TAction_Release = { type: "actionRelease", payload: { handle: THandle }};
-
-type TGraphicsAction =
-   TAction_AskForElement | TAction_SetPosition | TAction_SetDiameter | TAction_SetHealth |
-   TAction_Release;
-
-/*************
- * Responses *
- *************/
-// Returns a handle to the element.
-export type TResponse_AskForElement = {
-   type: "responseAskForElement", handle: THandle,
-}
-export type TResponse_Void = { type: "responseVoid" };
-
-type TGraphicsResponse = TResponse_AskForElement | TResponse_Void;
 
 type TGraphicsElement = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
@@ -53,7 +18,7 @@ type TGraphicsElement = {
 
 type TConstructor = { app: App; name: string };
 
-export class Graphics implements IService {
+export class Graphics implements IGraphics {
    public app: App;
    public name: string;
    private elementPool: TGraphicsElement[];

@@ -1,7 +1,7 @@
 import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
 import type { TCollisions } from "../Collisions/Collisions";
-import type { Graphics, THandle, TResponse_AskForElement } from "../Graphics/Graphics";
+import type { IGraphics , THandle, TResponse_AskForElement } from "../Graphics/IGraphics";
 
 import {
    framesBewteenPlayerShots, playerInvincible, playerShotSpeed,
@@ -12,7 +12,7 @@ export class Player {
    app: App;
    private x: number;
    private y: number;
-   private graphics!: Graphics; // Graphics service
+   private graphics!: IGraphics; // Graphics service
    private diameter: number;
    private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
    private lastShotFrame: number;
