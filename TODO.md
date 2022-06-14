@@ -52,3 +52,5 @@ that would make relative/absolute positioning actions more coherent.
   that would allow me to execute actions!!!
 
 * Also it would be really cool if the EnemyActionExecutor could execute GraphicsAction:s.
+
+* DOnt use --- in YAML files. Have ONE single document instead. That allows sharing anchors.

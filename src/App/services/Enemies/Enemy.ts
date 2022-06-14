@@ -24,6 +24,7 @@ export class Enemy {
    private diameter: number;
    private speed: number;
    private shotSpeed: number;
+   // facing/aim
    private direction: UnitVector;
    private flags: string[];
    private mirrorX: boolean;
@@ -175,7 +176,7 @@ export class Enemy {
 
          case "spawn": {
             const { enemy, flags, x, y } = action;
-            this.spawn({ enemy, flags, position: { x, y } });
+            this.spawn({ enemy, flags, pos: { x, y } });
             break;
          }
 
@@ -288,8 +289,10 @@ export class Enemy {
       }
    };
 
-   spawn = ({ enemy, flags, position }: { enemy: string, flags?: string[], position: TVector }) => {
-      this.app.enemies.Spawn({ enemy, flags, position });
+   spawn = ({ enemy, flags, pos }: { enemy: string, flags?: string[], pos: TVector }) => {
+      // Make a relative position into an absolute one.
+      const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
+      this.app.enemies.Spawn({ enemy, flags, position: absolute });
    };
 
    getPosition = (): TVector => {

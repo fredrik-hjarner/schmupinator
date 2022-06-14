@@ -1,3 +1,19 @@
+x-columns:
+  - &c0 0
+  - &c1 36
+  - &c2 71
+  - &c3 107
+  - &c4 143
+  - &c5 179
+  - &c6 214
+  - &c7 250
+  - &c8 286
+  - &c9 321
+  - &c10 357
+
+x-rows:
+  - &r0 0
+
 x-aimerLeft: &aimerLeft { spawn: nonShootingAimer, x: 128.5, y: -22 }
 x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }
 
@@ -26,12 +42,18 @@ x-stage1: &stage1
   - wait: 200
   - do: [*leftMiniBoss, *rightMiniBoss]
 
+x-stage2: &stage2
+  - { spawn: cloner, x: *c5, y: -20 }
+  - wait: 270
+  - do: [{ spawn: cloner, x: *c2, y: -20 }, { spawn: cloner, x: *c8, y: -20 }]
+
 enemy:
     name: spawner
     diameter: 20
     hp: 9999
     actions:
         - do: *stage1
+        # - do: *stage2
 ---
 enemy:
   name: nonShootingAimer
@@ -128,17 +150,16 @@ x-movementPattern: &movementPattern
   - { flag: right, yes: [{ type: mirrorX, value: true }] }
   - *intoScreen
   - *down1
-  - do: [
-      *quarterCircleDownIn, wait: 25,
-      *quarterCircleDownOut, wait: 25,
-      *in1, wait: 25,
-      *up1, wait: 25,
-      *halfCircleLeftDown, wait: 25,
-      *out1, wait: 25,
-      *down2, wait: 25,
-      *up2, wait: 25,
-      *downIn, wait: 25
-    ]
+  - seq:
+      - [*quarterCircleDownIn, wait: 25,]
+      - [*quarterCircleDownOut, wait: 25,]
+      - [*in1, wait: 25,]
+      - [*up1, wait: 25,]
+      - [*halfCircleLeftDown, wait: 25,]
+      - [*out1, wait: 25,]
+      - [*down2, wait: 25,]
+      - [*up2, wait: 25,]
+      - [*downIn, wait: 25]
   - { flag: right, yes: [{ type: mirrorY, value: true }] }
   - *rotateClockwise
   - wait: 25
@@ -156,3 +177,38 @@ enemy:
     actionsLists:
     - *shootingPattern
     - *movementPattern
+---
+x-child: &child { spawn: clonerChild, x: 0, y: 0 }
+
+enemy:
+  name: cloner
+  hp: 25
+  diameter: 29
+  actions:
+    - { moveToAbsolute: { y: 45 }, frames: 150 }
+    - wait: 30
+    - { <<: *child }
+    - { <<: *child, flags: [mirrorX] }
+    - wait: 80
+    - { <<: *child, flags: [mirrorY] }
+    - { <<: *child, flags: [mirrorX, mirrorY] }
+---
+x:
+- &left1 {type: move, x: -45, y: -20, frames: 65 }
+
+enemy:
+  name: clonerChild
+  hp: 10
+  diameter: 18
+  actions:
+    - { flag: mirrorX, yes: [{ type: mirrorX, value: true }] }
+    - { flag: mirrorY, yes: [{ type: mirrorY, value: true }] }
+    - { setShotSpeed: 1.5 }
+    - parallellAll:
+      - - *left1
+      - - wait: 60
+        - repeat: 99
+          actions:
+            - { type: shootDirection, x: 0, y: 1}
+            - wait: 40
+    
