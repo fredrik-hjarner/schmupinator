@@ -47,3 +47,8 @@ that would make relative/absolute positioning actions more coherent.
 * Twice, Thrice, Forever short forms.
 
 * Add max number of lines in eslint.
+
+* It would be super cool if Player WAS-AN Enemy,
+  that would allow me to execute actions!!!
+
+* Also it would be really cool if the EnemyActionExecutor could execute GraphicsAction:s.
