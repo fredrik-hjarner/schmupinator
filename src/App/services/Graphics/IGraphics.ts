@@ -21,10 +21,14 @@ export type TAction_SetHealth = { type: "actionSetHealth", payload: {
 }};
 // Releases a GraphicsElement, so it's free for other to pick up/ask for/claim.
 export type TAction_Release = { type: "actionRelease", payload: { handle: THandle }};
+export type TAction_SetColor = {
+   type: "actionSetColor",
+   payload: { handle: THandle, color: string
+}};
 
 export type TGraphicsAction =
    TAction_AskForElement | TAction_SetPosition | TAction_SetDiameter | TAction_SetHealth |
-   TAction_Release;
+   TAction_Release | TAction_SetColor;
 
 /*************
  * Responses *
@@ -36,13 +40,6 @@ export type TResponse_AskForElement = {
 export type TResponse_Void = { type: "responseVoid" };
 
 export type TGraphicsResponse = TResponse_AskForElement | TResponse_Void;
-
-// export type TGraphicsElement = {
-//    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
-//    inUse: boolean // If the GraphicsElement is in use, or if it is free to give away.
-//    element: HTMLDivElement;
-//    index: number;
-// }
 
 export interface IGraphics extends IService {
    Dispatch(action: TGraphicsAction): TGraphicsResponse;

@@ -77,6 +77,10 @@ export class Enemy {
          type:"actionSetDiameter",
          payload: { handle: this.graphicsHandle, diameter: json.diameter }
       });
+      this.graphics.Dispatch({
+         type:"actionSetColor",
+         payload: { handle: this.graphicsHandle, color: "red" }
+      });
 
       this.updateDisplayHealth();
    }

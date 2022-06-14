@@ -28,6 +28,47 @@ export class Player {
       this.lastShotFrame = 0;
    }
 
+   /**
+    * Init runs after bootstrap.
+    * If it needs to use things on app dont do that in the constructor
+    * since the order on they are added to app makes a difference in
+    * that case.
+    */
+   Init = () => {
+      this.graphics = this.app.graphics;
+      const response =
+         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
+      this.graphicsHandle = response.handle;
+      this.updateGraphicsPosition();
+      this.graphics.Dispatch({
+         type:"actionSetDiameter",
+         payload: { handle: this.graphicsHandle, diameter: this.diameter }
+      });
+      this.graphics.Dispatch({
+         type:"actionSetHealth",
+         payload: { handle: this.graphicsHandle, healthFactor: 1 }
+      });
+      this.graphics.Dispatch({
+         type:"actionSetColor",
+         payload: { handle: this.graphicsHandle, color: "aqua" }
+      });
+
+      // TODO: Use this.name instead.
+      this.app.events.subscribeToEvent(
+         "updatePlayer",
+         event => {
+            switch(event.type) {
+               case "frame_tick":
+                  this.onFrameTick();
+                  break;
+               case "collisions":
+                  this.onCollisions(event.collisions);
+                  break;
+            }
+         }
+      );
+   };
+
    private updateGraphicsPosition = () => {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
@@ -55,43 +96,6 @@ export class Player {
 
    get Right(){ return this.x + this.Radius; }
    set Right(v){ this.x = v - this.Radius; }
-
-   /**
-    * Init runs after bootstrap.
-    * If it needs to use things on app dont do that in the constructor
-    * since the order on they are added to app makes a difference in
-    * that case.
-    */
-   Init = () => {
-      this.graphics = this.app.graphics;
-      const response =
-         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
-      this.graphicsHandle = response.handle;
-      this.updateGraphicsPosition();
-      this.graphics.Dispatch({
-         type:"actionSetDiameter",
-         payload: { handle: this.graphicsHandle, diameter: this.diameter }
-      });
-      this.graphics.Dispatch({
-         type:"actionSetHealth",
-         payload: { handle: this.graphicsHandle, healthFactor: 1 }
-      });
-
-      // TODO: Use this.name instead.
-      this.app.events.subscribeToEvent(
-         "updatePlayer",
-         event => {
-            switch(event.type) {
-               case "frame_tick":
-                  this.onFrameTick();
-                  break;
-               case "collisions":
-                  this.onCollisions(event.collisions);
-                  break;
-            }
-         }
-      );
-   };
 
    /**
     * Private

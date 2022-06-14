@@ -1,7 +1,8 @@
 import type { App } from "../../App";
 import type {
-   IGraphics, TAction_Release, TAction_SetDiameter, TAction_SetHealth, TAction_SetPosition,
-   TGraphicsAction, TGraphicsResponse, THandle, TResponse_AskForElement, TResponse_Void
+   IGraphics, TAction_Release, TAction_SetColor, TAction_SetDiameter, TAction_SetHealth,
+   TAction_SetPosition, TGraphicsAction, TGraphicsResponse, THandle, TResponse_AskForElement,
+   TResponse_Void
 } from "./IGraphics";
 
 import { resolutionWidth, zIndices } from "../../../consts";
@@ -32,21 +33,18 @@ export class Graphics implements IGraphics {
 
    public Dispatch = (action: TGraphicsAction): TGraphicsResponse => {
       switch(action.type) {
-         case "actionAskForElement": {
+         case "actionAskForElement":
             return this.actionAskForElement();
-         }
-         case "actionSetPosition": {
+         case "actionSetPosition":
             return this.actionSetPosition(action.payload);
-         }
-         case "actionSetDiameter": {
+         case "actionSetDiameter":
             return this.actionSetDiameter(action.payload);
-         }
-         case "actionSetHealth": {
+         case "actionSetHealth":
             return this.actionSetHealth(action.payload);
-         }
-         case "actionRelease": {
+         case "actionRelease":
             return this.actionRelease(action.payload);
-         }
+         case "actionSetColor":
+            return this.actionSetColor(action.payload);
       }
    };
 
@@ -182,6 +180,13 @@ export class Graphics implements IGraphics {
          this.reset(element);
          
          element.inUse = false;
+         return { type: "responseVoid" };
+      };
+   
+   private actionSetColor =
+      ({ handle, color }: TAction_SetColor["payload"]): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
+         element.element.style.borderColor = color;
          return { type: "responseVoid" };
       };
 }

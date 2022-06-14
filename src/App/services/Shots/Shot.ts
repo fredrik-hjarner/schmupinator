@@ -30,7 +30,7 @@ export class Shot {
    /**
     * Public
     */
-   constructor({ app, shotsService, x, y, spdX, spdY, /* color */ }: TConstructor) {
+   constructor({ app, shotsService, x, y, spdX, spdY, color }: TConstructor) {
       this.app = app;
       this.shotsService = shotsService;
       this.origX = x;
@@ -53,6 +53,10 @@ export class Shot {
       this.graphics.Dispatch({
          type:"actionSetHealth",
          payload: { handle: this.graphicsHandle, healthFactor: 1 }
+      });
+      this.graphics.Dispatch({
+         type:"actionSetColor",
+         payload: { handle: this.graphicsHandle, color }
       });
    }
 
