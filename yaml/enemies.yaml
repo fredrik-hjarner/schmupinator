@@ -7,32 +7,29 @@ x-sinusRight: &sinusRight { spawn: sinus, flags: [right], x: 280, y: -20 }
 x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss, x: 118.881, y: -20 }
 x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss, flags: [right], x: 237.762, y: -20 }
 
+x-stage1: &stage1 
+  - wait: 120
+
+  - repeat: 8
+    actions: [*aimerLeft, *aimerRight, wait: 40]
+
+  - wait: 120
+
+  - repeat: 5
+    actions:
+      - do: [*sinusLeft, wait: 70]
+      - do: [*sinusRight, wait: 70]
+
+  - wait: 200
+  
+  - do: [*leftMiniBoss, *rightMiniBoss]
+
 enemy:
     name: spawner
     diameter: 20
     hp: 9999
     actions:
-        - wait: 120
-
-        - repeat: 8
-          actions:
-            - *aimerLeft
-            - *aimerRight
-            - wait: 40
-
-        - wait: 120
-
-        - repeat: 5
-          actions:
-            - *sinusLeft
-            - wait: 70
-            - *sinusRight
-            - wait: 70
-
-        - wait: 200
-        
-        - *leftMiniBoss
-        - *rightMiniBoss
+        - do: *stage1
 ---
 enemy:
   name: nonShootingAimer
@@ -129,24 +126,17 @@ x-movementPattern: &movementPattern
   - { flag: right, yes: [{ type: mirrorX, value: true }] }
   - *intoScreen
   - *down1
-  - *quarterCircleDownIn
-  - wait: 25
-  - *quarterCircleDownOut
-  - wait: 25
-  - *in1
-  - wait: 25
-  - *up1
-  - wait: 25
-  - *halfCircleLeftDown
-  - wait: 25
-  - *out1
-  - wait: 25
-  - *down2
-  - wait: 25
-  - *up2
-  - wait: 25
-  - *downIn
-  - wait: 25
+  - do: [
+      *quarterCircleDownIn, wait: 25,
+      *quarterCircleDownOut, wait: 25,
+      *in1, wait: 25,
+      *up1, wait: 25,
+      *halfCircleLeftDown, wait: 25,
+      *out1, wait: 25,
+      *down2, wait: 25,
+      *up2, wait: 25,
+      *downIn, wait: 25
+    ]
   - { flag: right, yes: [{ type: mirrorY, value: true }] }
   - *rotateClockwise
   - wait: 25

@@ -1,5 +1,5 @@
 import type {
-   TAction, TFlag, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSpawn, TWait
+   TAction, TDo, TFlag, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSpawn, TWait
 } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
@@ -38,6 +38,21 @@ const isShortFormMoveToAbsolute = (acn: TShortFormAction): acn is TShortFormMove
    return (acn as TShortFormMoveToAbsolute).moveToAbsolute !== undefined;
 };
 
+export type TShortFormDo = { do: TShortFormAction[] };
+const isShortFormDo = (acn: TShortFormAction): acn is TShortFormDo => {
+   return (acn as TShortFormDo).do !== undefined;
+};
+
+/**
+ * Just another (useless) helper action.
+ * All it does is execute all actions is gets into it.
+ * Essentially it flattens the array of arrays
+ */
+export type TSequence = { seq: TShortFormAction[][] };
+const isSequence = (acn: TShortFormAction): acn is TSequence => {
+   return (acn as TSequence).seq !== undefined;
+};
+
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
@@ -60,6 +75,10 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    }else if(isShortFormMoveToAbsolute(shortForm)) {
       const { moveToAbsolute, frames } = shortForm;
       return { type: "moveToAbsolute", moveTo: moveToAbsolute, frames };
+   }else if(isShortFormDo(shortForm)) {
+      return { type: "do", acns: shortForm.do };
+   }else if(isSequence(shortForm)) {
+      return { type: "do", acns: shortForm.seq.flat() };
    }
    return shortForm;
 };
@@ -67,7 +86,7 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
 export type TShortFormAction =
    Exclude<
       TAction,
-      TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed | TMoveToAbsolute
+      TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed | TMoveToAbsolute | TDo
    > |
 
    TShortFormWait |
@@ -76,4 +95,6 @@ export type TShortFormAction =
    TShortFormParallellAll |
    TShortFormFlag |
    TShortFormSetShotSpeed |
-   TShortFormMoveToAbsolute;
+   TShortFormMoveToAbsolute |
+   TShortFormDo |
+   TSequence;

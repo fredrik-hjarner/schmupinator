@@ -42,6 +42,11 @@ export type TFlag = { type: "flag", flagName: string, yes?: TSFAction[], no?: TS
  */
 export type TMirrorX = { type: "mirrorX", value: boolean };
 export type TMirrorY = { type: "mirrorY", value: boolean };
+/**
+ * The only purpose for this is to "flatten" arrays in YAML.
+ * The action simple executes the actions sent to it. As simple as that.
+ */
+export type TDo = { type: "do", acns: TSFAction[] };
 
 export type TAction =
    /**
@@ -53,6 +58,7 @@ export type TAction =
    TRepeat |
    TParallellRace |
    TParallellAll |
+   TDo |
    /**
    * Shooting
    */
