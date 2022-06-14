@@ -7,21 +7,23 @@ x-sinusRight: &sinusRight { spawn: sinus, flags: [right], x: 280, y: -20 }
 x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss, x: 118.881, y: -20 }
 x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss, flags: [right], x: 237.762, y: -20 }
 
+x:
+  - &aimers
+      repeat: 8
+      actions: [*aimerLeft, *aimerRight, wait: 40]
+
+  - &sinuses
+      repeat: 5
+      actions:
+        - do: [*sinusLeft, wait: 70]
+        - do: [*sinusRight, wait: 70]
+
 x-stage1: &stage1 
   - wait: 120
-
-  - repeat: 8
-    actions: [*aimerLeft, *aimerRight, wait: 40]
-
+  - *aimers
   - wait: 120
-
-  - repeat: 5
-    actions:
-      - do: [*sinusLeft, wait: 70]
-      - do: [*sinusRight, wait: 70]
-
+  - *sinuses
   - wait: 200
-  
   - do: [*leftMiniBoss, *rightMiniBoss]
 
 enemy:
