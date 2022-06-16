@@ -112,9 +112,22 @@ export class EnemyActionExecutor {
                break;
             }
 
+            case "moveToAbsolute": {
+               const startPos = this.getPosition();
+               const { moveTo } = currAction;
+               const moveX = moveTo.x !== undefined ? moveTo.x - startPos.x : 0;
+               const moveY = moveTo.y !== undefined ? moveTo.y - startPos.y : 0;
+               const stepX = moveX / currAction.frames;
+               const stepY = moveY / currAction.frames;
+               for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
+                  this.actionHandler({ type: "moveDelta", x: stepX, y: stepY });
+                  yield;
+               }
+               break;
+            }
+
             case "rotate_around_relative_point":
             case "rotate_around_absolute_point":
-            case "moveToAbsolute":
             case "move_bezier": {
                const startPos = this.getPosition();
                const startPosVector = new Vector(startPos.x, startPos.y);
@@ -127,17 +140,6 @@ export class EnemyActionExecutor {
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
                   const progress = passedFrames / currAction.frames;
                   switch(currAction.type) {
-                     case "moveToAbsolute": {
-                        const { moveTo } = currAction;
-                        const xToGo = moveTo.x !== undefined ? moveTo.x - startPos.x : 0;
-                        const yToGo = moveTo.y !== undefined ? moveTo.y - startPos.y : 0;
-                        const position = {
-                           x: startPos.x + xToGo*progress,
-                           y: startPos.y + yToGo*progress
-                        }; 
-                        this.actionHandler({type: "set_position", x: position.x, y: position.y});
-                        break;
-                     }
                      case "move_bezier": {
                         const position = bezier(currAction.bend, currAction.end, progress);
                         this.actionHandler({
