@@ -1,10 +1,14 @@
-import type { TAction } from "./actionTypes";
+import type {
+   TAction, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
+} from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
 import { ShortFormToLongForm, TShortFormAction } from "./actionTypesShortForms";
+
+type TActionHandler = (action: TAction) => void;
 
 type TEnemyActionExecutorArgs = {
    /**
@@ -13,7 +17,7 @@ type TEnemyActionExecutorArgs = {
    * You can execute things in parallell with special compound actions like parallellRace.
    */
    actions: TShortFormAction[];
-   actionHandler: (action: TAction) => void;
+   actionHandler: TActionHandler;
    getPosition: () => TVector;
    getFlag: (flag: string) => boolean;
 }
@@ -125,56 +129,23 @@ export class EnemyActionExecutor {
                break;
             }
 
-            /**
-             * TODO: Reduce code duplication between
-             * rotate_around_absolute_point and rotate_around_relative_point.
-             */
             case "rotate_around_relative_point": {
                const pointX = currAction.point.x ?? 0;
                const pointY = currAction.point.y ?? 0;
-               const stepDegrees = currAction.degrees / currAction.frames;
-               for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-                  const prevDegrees = stepDegrees * (passedFrames-1);
-                  const currDegrees = stepDegrees * passedFrames;
-
-                  const pointToPosVector = new Vector(-pointX, -pointY);
-
-                  const prevRotated =
-                     pointToPosVector.rotateClockwise(Angle.fromDegrees(prevDegrees));
-                  const currRotated =
-                     pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
-
-                  const delta = Vector.fromTo(prevRotated, currRotated);
-                  this.actionHandler({ type: "moveDelta", x: delta.x, y: delta.y });
-                  yield;
-               }
+               const pointToPosVector = new Vector(-pointX, -pointY);
+               yield* rotateAroundPoint(currAction, pointToPosVector, this.actionHandler);
                break;
             }
 
             case "rotate_around_absolute_point": {
                const startPos = this.getPosition();
-               const startPosVector = new Vector(startPos.x, startPos.y);
-               for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-                  const progress = passedFrames / currAction.frames;
-                  switch(currAction.type) {
-                     case "rotate_around_absolute_point": {
-                        const pointX = currAction.point.x ?? startPos.x;
-                        const pointY = currAction.point.y ?? startPos.y;
-                        const pointVector = new Vector(pointX, pointY);
-                        const rotatedVector = startPosVector.rotateClockwiseAroundVector(
-                           Angle.fromDegrees(progress*currAction.degrees),
-                           pointVector
-                        );
-                        this.actionHandler({
-                           type: "set_position",
-                           x: rotatedVector.x,
-                           y: rotatedVector.y
-                        });
-                        break;
-                     }
-                  }
-                  yield;
-               }
+               const pointX = currAction.point.x ?? startPos.x;
+               const pointY = currAction.point.y ?? startPos.y;
+               const pointToPosVector = Vector.fromTo(
+                  new Vector(pointX, pointY),
+                  new Vector(startPos.x, startPos.y),
+               );
+               yield* rotateAroundPoint(currAction, pointToPosVector, this.actionHandler);
                break;
             }
 
@@ -185,3 +156,22 @@ export class EnemyActionExecutor {
       }
    }
 }
+
+const rotateAroundPoint = function*(
+   currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
+   pointToPosVector: Vector,
+   actionHandler: TActionHandler
+): Generator<void, void, void> {
+   const stepDegrees = currAction.degrees / currAction.frames;
+   for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
+      const prevDegrees = stepDegrees * (passedFrames-1);
+      const currDegrees = stepDegrees * passedFrames;
+
+      const prevRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(prevDegrees));
+      const currRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
+
+      const delta = Vector.fromTo(prevRotated, currRotated);
+      actionHandler({ type: "moveDelta", x: delta.x, y: delta.y });
+      yield;
+   }
+};

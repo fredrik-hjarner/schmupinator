@@ -19,9 +19,9 @@ x:
         - do: [*sinusRight, wait: 70]
 
 x-stage1: &stage1 
-  # - wait: 120
-  # - *aimers
-  # - wait: 120
+  - wait: 120
+  - *aimers
+  - wait: 120
   - *sinuses
   - wait: 200
   - do: [*leftMiniBoss, *rightMiniBoss]
