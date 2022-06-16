@@ -60,8 +60,8 @@ export class App {
       /**
        * Constuct services
        */
-      // this.input = new Input({ app: this, name: "input" });
-      this.input = new ReplayerInput({ app: this, name: "input" });
+      this.input = new Input({ app: this, name: "input" });
+      // this.input = new ReplayerInput({ app: this, name: "input" });
       this.gameLoop = new GameLoop({ app: this, name: "gameLoop" });
       // this.gameLoop = new FastGameLoop({ app: this, name: "gameLoop" });
       this.player = new Player(this); // TODO: player should also have name

@@ -2,7 +2,6 @@ import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
 import { bezier } from "../../../math/bezier";
-import { moveLine } from "../../../math/moveLine";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
@@ -95,11 +94,28 @@ export class EnemyActionExecutor {
                break;
             }
 
+            case "move": {
+               const moveX = currAction.x ?? 0;
+               const moveY = currAction.y ?? 0;
+               const stepX = moveX / currAction.frames;
+               const stepY = moveY / currAction.frames;
+               /**
+                * Start from 1 so that first step is not zero progression, but first step of 
+                * progression.
+                * Allow passedFrames to go up to (include) currActon.frames, i.e. if 4 then
+                * allow passedFrames to go all the way up to 4.
+                */
+               for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
+                  this.actionHandler({ type: "moveDelta", x: stepX, y: stepY });
+                  yield;
+               }
+               break;
+            }
+
             case "rotate_around_relative_point":
             case "rotate_around_absolute_point":
             case "moveToAbsolute":
-            case "move_bezier":
-            case "move": {
+            case "move_bezier": {
                const startPos = this.getPosition();
                const startPosVector = new Vector(startPos.x, startPos.y);
                /**
@@ -111,13 +127,6 @@ export class EnemyActionExecutor {
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
                   const progress = passedFrames / currAction.frames;
                   switch(currAction.type) {
-                     case "move": {
-                        const moveX = currAction.x ?? 0;
-                        const moveY = currAction.y ?? 0;
-                        const position = moveLine(startPos, { x: moveX, y: moveY }, progress);
-                        this.actionHandler({type: "set_position", x: position.x, y: position.y});
-                        break;
-                     }
                      case "moveToAbsolute": {
                         const { moveTo } = currAction;
                         const xToGo = moveTo.x !== undefined ? moveTo.x - startPos.x : 0;

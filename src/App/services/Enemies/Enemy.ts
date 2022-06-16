@@ -132,7 +132,7 @@ export class Enemy {
     * Essentially maps actions to class methods,
     * that is has very "thin" responsibilities.
     */
-   HandleAction = (action: TAction) => {
+   private HandleAction = (action: TAction) => {
       switch(action.type) {
          case "shootDirection": {
             this.ShootDirection({ dirX: action.x, dirY: action.y });
@@ -191,14 +191,31 @@ export class Enemy {
             this.setMirrorY(value);
             break;
          }
-      
+
+         case "moveDelta": {
+            const { x, y } = action;
+            this.moveDelta({ x, y });
+            break;
+         }
       
          default:
             console.error(`unknown action type: ${action.type}`);
       }
+
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type:"actionSetPosition",
+            payload: { handle: this.graphicsHandle, x: this.X, y: this.Y }
+         });
+      }
    };
 
-   ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
+   private moveDelta = ({ x=0, y=0 }: Partial<TVector>) => {
+      this.X = this.mirrorX ? this.X - x : this.X + x;
+      this.Y = this.mirrorY ? this.Y - y : this.Y + y;
+   };
+
+   private ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
       const isZero = dirX === 0 && dirY === 0;
       const pixelsPerFrame = this.shotSpeed;
       const pythagoras = isZero ? 9999 : Math.sqrt(dirX**2 + dirY**2);
@@ -214,14 +231,14 @@ export class Enemy {
       this.app.enemyShots.TryShoot(potentialShots);
    };
 
-   ShootTowardPlayer = () => {
+   private ShootTowardPlayer = () => {
       const player = this.app.player;
       const dirX = player.X - this.X;
       const dirY = player.Y - this.Y;
       this.ShootDirection({ dirX, dirY });
    };
 
-   ShootBesidePlayer = (degrees: number) => {
+   private ShootBesidePlayer = (degrees: number) => {
       const player = this.app.player;
       const dirX = player.X - this.X;
       const dirY = player.Y - this.Y;
@@ -229,15 +246,15 @@ export class Enemy {
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
 
-   SetSpeed = (pixelsPerFrame: number) => {
+   private SetSpeed = (pixelsPerFrame: number) => {
       this.speed = pixelsPerFrame;
    };
 
-   SetShotSpeed = (pixelsPerFrame: number) => {
+   private SetShotSpeed = (pixelsPerFrame: number) => {
       this.shotSpeed = pixelsPerFrame;
    };
 
-   SetPosition = ({ x, y }: {x: number, y: number}) => {
+   private SetPosition = ({ x, y }: {x: number, y: number}) => {
       const prevPos = this.getPosition();
       const prevPosVector = new Vector(prevPos.x, prevPos.y);
       const destVector = new Vector(x, y);
@@ -254,16 +271,9 @@ export class Enemy {
       const newY = this.Y + deltaY;
       this.X = newX;
       this.Y = newY;
-
-      if(this.graphicsHandle) {
-         this.graphics.Dispatch({
-            type:"actionSetPosition",
-            payload: { handle: this.graphicsHandle, x: newX, y: newY }
-         });
-      }
    };
 
-   RotateTowardsPlayer = () => {
+   private RotateTowardsPlayer = () => {
       const playerCircle = this.app.player;
       const playerVector = new Vector(playerCircle.X, playerCircle.Y);
       // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
@@ -272,30 +282,20 @@ export class Enemy {
       this.direction = new UnitVector(vectorFromEnemyToPlayer);
    };
 
-   /**
-    * Private
-    */
-   moveAccordingToSpeedAndDirection = () => {
+   private moveAccordingToSpeedAndDirection = () => {
       const newX = this.X + this.direction.x * this.speed;
       const newY = this.Y += this.direction.y * this.speed;
       this.X = newX;
       this.Y = newY;
-
-      if(this.graphicsHandle) {
-         this.graphics.Dispatch({
-            type:"actionSetPosition",
-            payload: { handle: this.graphicsHandle, x: newX, y: newY }
-         });
-      }
    };
 
-   spawn = ({ enemy, flags, pos }: { enemy: string, flags?: string[], pos: TVector }) => {
+   private spawn = ({ enemy, flags, pos }: { enemy: string, flags?: string[], pos: TVector }) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
       this.app.enemies.Spawn({ enemy, flags, position: absolute });
    };
 
-   getPosition = (): TVector => {
+   private getPosition = (): TVector => {
       let x = this.X;
       let y = this.Y;
       /**
@@ -312,17 +312,17 @@ export class Enemy {
       return { x, y };
    };
 
-   getFlag = (flag: string) => this.flags.includes(flag);
+   private getFlag = (flag: string) => this.flags.includes(flag);
 
-   setMirrorX = (value: boolean) => {
+   private setMirrorX = (value: boolean) => {
       this.mirrorX = value;
    };
 
-   setMirrorY = (value: boolean) => {
+   private setMirrorY = (value: boolean) => {
       this.mirrorY = value;
    };
 
-   updateDisplayHealth = () => {
+   private updateDisplayHealth = () => {
       const factorHealthLeft = this.hp / this.maxHp;
 
       if(this.graphicsHandle) {

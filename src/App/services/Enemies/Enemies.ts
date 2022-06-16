@@ -48,6 +48,9 @@ export class Enemies {
       this.enemies.push(new Enemy(this.app, position, enemyJson, flags));
    };
 
+   /**
+    * TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private
+    */
    private handleEvent = (event: TEvent) => {
       switch(event.type) {
          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.

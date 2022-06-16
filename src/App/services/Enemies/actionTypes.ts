@@ -11,6 +11,8 @@ export type TShootBesidePlayer =   { type: "shoot_beside_player", degrees: numbe
 export type TSetShotSpeed =        { type: "setShotSpeed", pixelsPerFrame: number };
 // Moves relative to current position.
 export type TMove =                { type: "move", frames: number } & Partial<Vector>;
+// A very atomic action.
+export type TMoveDelta =           { type: "moveDelta", x?: number, y?: number }
 // Move to an absolute postion on screen.
 export type TMoveToAbsolute =      { type: "moveToAbsolute",
 moveTo: Partial<Vector>, frames: number };
@@ -70,6 +72,7 @@ export type TAction =
    * Movement
    */
    TMove |
+   TMoveDelta |
    TMoveToAbsolute |
    TSetPosition |
    TMoveBezier |
