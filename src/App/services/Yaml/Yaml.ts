@@ -1,12 +1,16 @@
 import type { App } from "../../App";
 import type { IService } from "../IService";
-import type { Document, parseAllDocuments } from "yaml";
+import type { Document, parseDocument } from "yaml";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { parseAllDocuments as parse } from "../../../../node_modules/yaml/browser/dist/index";
+import {
+   parseDocument as parseDoc
+   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+   // @ts-ignore
+} from "../../../../node_modules/yaml/browser/dist/index";
 
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
+
+type TParseDocument = typeof parseDocument;
 
 type TConstructor = {
    app: App;
@@ -29,19 +33,24 @@ export class Yaml implements IService {
    }
 
    Init = async () => {
-      const res = await fetch("/yaml/enemies.yaml");
-      const text = await res.text();
-      const yamlDocuments = (parse as typeof parseAllDocuments)(text, {merge: true}) as Document[];
-      // console.log('yamlsDocuments:', yamlDocuments);
+      const [common, enemies] = await Promise.all([
+         this.loadYaml("/yaml/common.yaml"),
+         this.loadYaml("/yaml/enemies.yaml")
+      ]);
+
+      const commonDoc = (parseDoc as TParseDocument)(common, {merge: true}) as Document;
 
       // Check errors
-      yamlDocuments.forEach((yamlsDocument) => {
-         const { errors } = yamlsDocument;
-         if(errors.length > 0) {
-            alert(JSON.stringify(errors, null, 2));
-            throw errors;
-         }
+      this.checkError(commonDoc);
+
+      const enemyYaml = enemies.split("---");
+      const yamlDocuments = enemyYaml.map(yaml => {
+         const withCommon = `${common}\n${yaml}`;
+         return (parseDoc as TParseDocument)(withCommon, {merge: true}) as Document;
       });
+
+      // Check errors
+      yamlDocuments.forEach(this.checkError);
 
       // Populate enemies data structure.
       yamlDocuments.forEach((yamlsDocument: { toJS: () => { enemy: IEnemyJson } }) => {
@@ -52,5 +61,21 @@ export class Yaml implements IService {
       });
 
       // console.log('this.EnemyJsons:', this.EnemyJsons);
+   };
+
+   /**
+    * Private
+    */
+   private checkError = (yamlDocument: Document) => {
+      const { errors } = yamlDocument;
+      if(errors.length > 0) {
+         alert(JSON.stringify(errors, null, 2));
+         throw errors;
+      }
+   };
+
+   private loadYaml = async (url: string): Promise<string> => {
+      const res = await fetch(url);
+      return await res.text();
    };
 }
