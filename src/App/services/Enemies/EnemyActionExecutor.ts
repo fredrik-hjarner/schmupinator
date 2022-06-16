@@ -125,16 +125,35 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "rotate_around_relative_point":
+            /**
+             * TODO: Reduce code duplication between
+             * rotate_around_absolute_point and rotate_around_relative_point.
+             */
+            case "rotate_around_relative_point": {
+               const pointX = currAction.point.x ?? 0;
+               const pointY = currAction.point.y ?? 0;
+               const stepDegrees = currAction.degrees / currAction.frames;
+               for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
+                  const prevDegrees = stepDegrees * (passedFrames-1);
+                  const currDegrees = stepDegrees * passedFrames;
+
+                  const pointToPosVector = new Vector(-pointX, -pointY);
+
+                  const prevRotated =
+                     pointToPosVector.rotateClockwise(Angle.fromDegrees(prevDegrees));
+                  const currRotated =
+                     pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
+
+                  const delta = Vector.fromTo(prevRotated, currRotated);
+                  this.actionHandler({ type: "moveDelta", x: delta.x, y: delta.y });
+                  yield;
+               }
+               break;
+            }
+
             case "rotate_around_absolute_point": {
                const startPos = this.getPosition();
                const startPosVector = new Vector(startPos.x, startPos.y);
-               /**
-                * Start from 1 so that first step is not zero progression, but first step of 
-                * progression.
-                * Allow passedFrames to go up to (include) currActon.frames, i.e. if 4 then
-                * allow passedFrames to go all the way up to 4.
-                */
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
                   const progress = passedFrames / currAction.frames;
                   switch(currAction.type) {
@@ -142,25 +161,6 @@ export class EnemyActionExecutor {
                         const pointX = currAction.point.x ?? startPos.x;
                         const pointY = currAction.point.y ?? startPos.y;
                         const pointVector = new Vector(pointX, pointY);
-                        const rotatedVector = startPosVector.rotateClockwiseAroundVector(
-                           Angle.fromDegrees(progress*currAction.degrees),
-                           pointVector
-                        );
-                        this.actionHandler({
-                           type: "set_position",
-                           x: rotatedVector.x,
-                           y: rotatedVector.y
-                        });
-                        break;
-                     }
-                     /**
-                      * TODO: Reduce code duplication between
-                      * rotate_around_absolute_point and rotate_around_relative_point.
-                      */
-                     case "rotate_around_relative_point": {
-                        const pointX = currAction.point.x ?? 0;
-                        const pointY = currAction.point.y ?? 0;
-                        const pointVector = new Vector(startPos.x + pointX, startPos.y + pointY);
                         const rotatedVector = startPosVector.rotateClockwiseAroundVector(
                            Angle.fromDegrees(progress*currAction.degrees),
                            pointVector
