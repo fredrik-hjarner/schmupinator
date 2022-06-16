@@ -4,9 +4,10 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "start": "run-s lint clean build add-extensions serve",
+    "start": "run-s lint:eslint clean build add-extensions serve",
     "s": "yarn start",
-    "lint": "eslint --fix src",
+    "lint:eslint": "eslint --fix src",
+    "lint:ts": "tsc --noEmit",
     "clean": "trash dist/*",
     "build": "tsc",
     "add-extensions": "babel dist -d dist",

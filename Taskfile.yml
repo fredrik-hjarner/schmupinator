@@ -1,0 +1,24 @@
+version: "3"
+
+tasks:
+  serve:
+    cmds:
+      - yarn serve
+
+  build:
+    cmds:
+      - yarn lint:eslint
+      - yarn build
+      - yarn add-extensions
+    sources:
+      - src/**/*.ts
+    generates:
+      - dist/**/*.js
+    method: timestamp
+
+  buildwatch:
+    cmds:
+      - task build -w
+
+  start:
+    deps: [buildwatch, serve]
