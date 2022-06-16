@@ -17,7 +17,6 @@ export type TMoveDelta =           { type: "moveDelta", x?: number, y?: number }
 export type TMoveToAbsolute =      { type: "moveToAbsolute",
 moveTo: Partial<Vector>, frames: number };
 export type TSetPosition =         { type: "set_position", x: number, y: number };
-export type TMoveBezier =          { type: "move_bezier", bend:Vector, end:Vector, frames:number };
 export type TSetSpeed =            { type: "setSpeed", pixelsPerFrame: number };
 export type TRotateAroundAbsolutePoint =
 { type: "rotate_around_absolute_point",
@@ -75,7 +74,6 @@ export type TAction =
    TMoveDelta |
    TMoveToAbsolute |
    TSetPosition |
-   TMoveBezier |
    TSetSpeed |
    TRotateAroundAbsolutePoint |
    TRotateAroundRelativePoint |

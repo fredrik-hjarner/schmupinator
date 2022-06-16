@@ -21,9 +21,9 @@ x:
 x-stage1: &stage1 
   # - wait: 120
   # - *aimers
-  - wait: 120
-  - *sinuses
-  - wait: 200
+  # - wait: 120
+  # - *sinuses
+  # - wait: 200
   - do: [*leftMiniBoss, *rightMiniBoss]
 
 x-stage2: &stage2
@@ -117,8 +117,8 @@ x-shootingPattern: &shootingPattern
 x:
 - &intoScreen           { moveToAbsolute: { x: 116, y: 0 }, frames: 40 }
 - &down1                { moveToAbsolute: { y: 75 }, frames: 52 }
-- &quarterCircleDownIn  { type: move_bezier, bend: { x: 0, y: 21 }, end: { x: 30, y: 21 }, frames: 39 }
-- &quarterCircleDownOut { type: move_bezier, bend: { x: 0, y: 10 }, end: { x: -30, y: 10 }, frames: 39 }
+- &quarterCircleDownIn  {type: rotate_around_relative_point, degrees: -90, frames: 39, point: { x: 25, y: -5 }}
+- &quarterCircleDownOut {type: rotate_around_relative_point, degrees: 90, frames: 39, point: { x: -20, y: -11 }}
 - &in1                  { moveToAbsolute: { x: 139.5 }, frames: 47 }
 - &up1                  { moveToAbsolute: { y: 11 }, frames: 100 }
 - &halfCircleLeftDown   { type: rotate_around_absolute_point, point: { y: 61 }, degrees: -180, frames: 100 }

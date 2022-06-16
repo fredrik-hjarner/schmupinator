@@ -1,7 +1,6 @@
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
-import { bezier } from "../../../math/bezier";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
@@ -127,8 +126,7 @@ export class EnemyActionExecutor {
             }
 
             case "rotate_around_relative_point":
-            case "rotate_around_absolute_point":
-            case "move_bezier": {
+            case "rotate_around_absolute_point": {
                const startPos = this.getPosition();
                const startPosVector = new Vector(startPos.x, startPos.y);
                /**
@@ -140,15 +138,6 @@ export class EnemyActionExecutor {
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
                   const progress = passedFrames / currAction.frames;
                   switch(currAction.type) {
-                     case "move_bezier": {
-                        const position = bezier(currAction.bend, currAction.end, progress);
-                        this.actionHandler({
-                           type: "set_position",
-                           x: startPos.x + position.x,
-                           y: startPos.y + position.y
-                        });
-                        break;
-                     }
                      case "rotate_around_absolute_point": {
                         const pointX = currAction.point.x ?? startPos.x;
                         const pointY = currAction.point.y ?? startPos.y;
