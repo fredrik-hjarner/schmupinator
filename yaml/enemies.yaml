@@ -44,7 +44,7 @@ enemy:
   hp: 4
   diameter: 22
   actions: 
-    - { type: setSpeed, pixelsPerFrame: 1.60 }
+    - setSpeed: 1.60
     - parallellAll:
       - - repeat: 26.25
           actions:
@@ -88,7 +88,7 @@ enemy:
   hp: 3
   diameter: 24
   actions:
-  - { setShotSpeed: 2 }
+  - setShotSpeed: 2
   - { flag: right, yes: [{ type: mirrorX, value: true }] }
   - repeat: 2
     actions:

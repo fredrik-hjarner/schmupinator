@@ -1,5 +1,5 @@
 import type {
-   TAction, TDo, TFlag, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSpawn, TWait
+   TAction, TDo, TFlag, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait
 } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
@@ -43,6 +43,11 @@ const isShortFormDo = (acn: TShortFormAction): acn is TShortFormDo => {
    return (acn as TShortFormDo).do !== undefined;
 };
 
+export type TShortFormSetSpeed = { setSpeed: number };
+const isShortFormSetSpeed = (acn: TShortFormAction): acn is TShortFormSetSpeed => {
+   return (acn as TShortFormSetSpeed).setSpeed !== undefined;
+};
+
 /**
  * Just another (useless) helper action.
  * All it does is execute all actions is gets into it.
@@ -79,6 +84,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       return { type: "do", acns: shortForm.do };
    }else if(isSequence(shortForm)) {
       return { type: "do", acns: shortForm.seq.flat() };
+   }else if(isShortFormSetSpeed(shortForm)) {
+      return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
    }
    return shortForm;
 };
@@ -86,7 +93,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
 export type TShortFormAction =
    Exclude<
       TAction,
-      TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed | TMoveToAbsolute | TDo
+      TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed | TMoveToAbsolute | TDo |
+      TSetSpeed
    > |
 
    TShortFormWait |
@@ -97,4 +105,5 @@ export type TShortFormAction =
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
    TShortFormDo |
-   TSequence;
+   TSequence |
+   TShortFormSetSpeed;

@@ -5634,5 +5634,5 @@ export const replay = {
          "space": true
       }
    },
-   "score": 777
+   "score": 797
 };

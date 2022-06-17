@@ -1,24 +1,24 @@
-version: "3"
+version: 3
+
+silent: true
 
 tasks:
-  serve:
-    cmds:
-      - yarn serve
+  eslint: yarn --silent lint:eslint
 
   build:
     cmds:
-      - yarn lint:eslint
-      - yarn build
-      - yarn add-extensions
-    sources:
-      - src/**/*.ts
-    generates:
-      - dist/**/*.js
+      - yarn --silent build
+      - yarn --silent add-extensions
+
+  lint-build-watcher:
+    deps: [eslint, build]
+    sources: [src/**/*.ts]
+    generates: [dist/**/*.js]
     method: timestamp
 
-  buildwatch:
-    cmds:
-      - task build -w
+  lint-build-watch: task lint-build-watcher -w
+
+  serve: yarn --silent serve
 
   start:
-    deps: [buildwatch, serve]
+    deps: [serve, lint-build-watch]
