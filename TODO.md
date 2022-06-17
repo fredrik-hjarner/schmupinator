@@ -60,3 +60,5 @@ just like you check a flag.
 { attr: 'hp', is: 2 }
 { attr: 'hp', lessThan: 2 }
 { setAttr: 'some flag or variable', val: 2 }
+
+* Shots could be Enemy. Player could be Enemy. Powerups could be Enemy. The power!
