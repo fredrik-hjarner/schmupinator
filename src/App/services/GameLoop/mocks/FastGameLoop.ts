@@ -1,7 +1,7 @@
 import type  { App } from "../../../App";
 import type { IGameLoop } from "../IGameLoop";
 
-import { initGameDiv, initGameHideBottom, initGameHideRight } from "../gameDiv";
+import { initLayer1Element, initGameHideBottom, initGameHideRight } from "../gameDiv";
 import { px } from "../../../../utils/px";
 
 type TConstructor = {
@@ -23,7 +23,7 @@ export class FastGameLoop implements IGameLoop {
       this.name = name;
 
       this.FrameCount = 0;
-      this.gameDiv = initGameDiv();
+      this.gameDiv = initLayer1Element();
       initGameHideBottom();
       initGameHideRight();
    }

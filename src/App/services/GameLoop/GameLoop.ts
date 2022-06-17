@@ -5,7 +5,9 @@ import { round } from "../../../utils/round";
 import { initElapsedTimeDiv } from "./elapsedTimeDiv";
 import { initFpsDiv } from "./fpsDiv";
 import { initFrameCounterDiv } from "./frameCounterDiv";
-import { initGameDiv, initGameHideBottom, initGameHideRight } from "./gameDiv";
+import {
+   initLayer1Element, initGameHideBottom, initGameHideRight, initLayer2Element
+} from "./gameDiv";
 import { px } from "../../../utils/px";
 import { IGameLoop } from "./IGameLoop";
 
@@ -18,7 +20,8 @@ export class GameLoop implements IGameLoop {
    public app: App;
    public name: string;
    public FrameCount: number;
-   readonly gameDiv: HTMLDivElement;
+   readonly layer1Element: HTMLDivElement;
+   readonly layer2Element: HTMLDivElement;
    readonly framCounterDiv: HTMLDivElement;
    readonly elapsedTimeDiv: HTMLDivElement;
    readonly fpsDiv: HTMLDivElement;
@@ -34,7 +37,8 @@ export class GameLoop implements IGameLoop {
 
       this.FrameCount = 0;
       this.framCounterDiv = initFrameCounterDiv();
-      this.gameDiv = initGameDiv();
+      this.layer1Element = initLayer1Element();
+      this.layer2Element = initLayer2Element();
       initGameHideBottom();
       initGameHideRight();
       this.elapsedTimeDiv = initElapsedTimeDiv();
@@ -60,8 +64,11 @@ export class GameLoop implements IGameLoop {
       for(let i=0; i<gameSpeed; i++) {
          this.FrameCount++;
          this.app.events.dispatchEvent({ type: "frame_tick" });
-         const bgPos: number = Math.round(this.FrameCount/2);
-         this.gameDiv.style.backgroundPositionY = px(bgPos);
+         const baseSpeed = 1;
+         const layer1YOffset: number = Math.round(this.FrameCount*baseSpeed);
+         const layer2YOffset: number = Math.round(this.FrameCount*baseSpeed*1.5);
+         this.layer1Element.style.backgroundPositionY = px(layer1YOffset);
+         this.layer2Element.style.backgroundPositionY = px(layer2YOffset);
       }
       // Display stats.
       const elapsed = performance.now() - this.startTime;

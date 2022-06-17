@@ -3,10 +3,13 @@ version: 3
 silent: true
 
 tasks:
-  eslint: yarn --silent lint:eslint
+  eslint:
+    - yarn --silent lint:eslint
+    - echo "eslint finished"
 
   build:
     cmds:
+      - echo "build began"
       - yarn --silent build
       - yarn --silent add-extensions
 

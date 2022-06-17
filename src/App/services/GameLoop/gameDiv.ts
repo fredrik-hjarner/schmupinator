@@ -1,21 +1,38 @@
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 
-export const initGameDiv = () => {
-   const gameDiv: HTMLDivElement = window.document.querySelector("#game") as HTMLDivElement;
-   gameDiv.style.height = `${resolutionHeight}px`;
-   gameDiv.style.width = `${resolutionWidth}px`;
-   gameDiv.style.backgroundColor = "black";
-   gameDiv.style.position = "fixed";
-   gameDiv.style.top = "0px";
-   gameDiv.style.left = "0px";
+export const initLayer1Element = () => {
+   const element: HTMLDivElement = window.document.querySelector("#layer1") as HTMLDivElement;
+   element.style.height = `${resolutionHeight}px`;
+   element.style.width = `${resolutionWidth}px`;
+   element.style.backgroundColor = "black";
+   element.style.position = "fixed";
+   element.style.top = "0px";
+   element.style.left = "0px";
    //bg
-   gameDiv.style.backgroundImage = `url("./bg.jpg")`;
-   gameDiv.style.backgroundSize = "contain";
-   gameDiv.style.backgroundOrigin = "padding-box";
-   gameDiv.style.backgroundRepeat = "repeat-y";
-   gameDiv.style.backgroundPositionY = "0px";
-   return gameDiv;
+   element.style.backgroundImage = `url("./layer1.png")`;
+   element.style.backgroundSize = "contain";
+   element.style.backgroundOrigin = "padding-box";
+   element.style.backgroundRepeat = "repeat-y";
+   element.style.backgroundPositionY = "0px";
+   return element;
+};
+
+export const initLayer2Element = () => {
+   const element: HTMLDivElement = window.document.querySelector("#layer2") as HTMLDivElement;
+   element.style.height = `${resolutionHeight}px`;
+   element.style.width = `${resolutionWidth}px`;
+   element.style.backgroundColor = "none";
+   element.style.position = "fixed";
+   element.style.top = "0px";
+   element.style.left = "0px";
+   //bg
+   element.style.backgroundImage = `url("./layer2.png")`;
+   element.style.backgroundSize = "contain";
+   element.style.backgroundOrigin = "padding-box";
+   element.style.backgroundRepeat = "repeat-y";
+   element.style.backgroundPositionY = "0px";
+   return element;
 };
 
 export const initGameHideBottom = () => {
