@@ -36,7 +36,7 @@ describe("parallellRace", () => {
       actions: [{
         type: "parallellRace", actionsLists: [
           [],
-          [{ type: 'setSpeed', pixelsPerFrame: 1 }]
+          [{ setSpeed: 1 }]
         ]
       }]
     }).generator;
@@ -55,10 +55,10 @@ describe("parallellRace", () => {
       getFlag,
       actions: [{
         type: "parallellRace", actionsLists: [[
-          { type: 'setSpeed', pixelsPerFrame: 1 }
+          { setSpeed: 1 }
         ], [
           { type: 'waitNextFrame' },
-          { type: 'setSpeed', pixelsPerFrame: 1 }
+          { setSpeed: 1 }
         ]]
       }]
     }).generator;
@@ -78,11 +78,11 @@ describe("parallellRace", () => {
       actions: [{
         type: "parallellRace", actionsLists: [[
           { type: 'waitNextFrame' },
-          { type: 'setSpeed', pixelsPerFrame: 1 }
+          { setSpeed: 1 }
         ], [
           { type: 'waitNextFrame' },
           { type: 'waitNextFrame' },
-          { type: 'setSpeed', pixelsPerFrame: 1 }
+          { setSpeed: 1 }
         ]]
       }]
     }).generator;

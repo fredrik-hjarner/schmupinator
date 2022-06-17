@@ -78,7 +78,7 @@ describe("move", () => {
     // 2nd move
     expect(generator.next().done).toBe(false);
     // expect x to be 1.
-    expect((recordedActions[1] as TSetPosition).x).toBe(2);
+    expect((recordedActions[1] as TSetPosition).x).toBe(1);
     // expect done since no more actions
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(2);
