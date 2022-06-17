@@ -3,6 +3,7 @@ import type { App } from "../../App";
 
 import { Enemy } from "./Enemy";
 import { TEvent } from "../Events/Events";
+import { TShortFormAction } from "./actionTypesShortForms";
 
 export class Enemies {
    app: App;
@@ -37,7 +38,8 @@ export class Enemies {
    };
 
    public Spawn = (
-      { enemy, flags, position }: { enemy: string, flags?: string[], position: TVector }
+      { enemy, flags, position, actions=[] }:
+      { enemy: string, flags?: string[], position: TVector, actions?: TShortFormAction[] }
    ) => {
       const { EnemyJsons } = this.app.yaml;
       console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
@@ -45,7 +47,9 @@ export class Enemies {
       if(!enemyJson) {
          throw new Error(`Unknown enemy "${enemy}".`);
       }
-      this.enemies.push(new Enemy(this.app, position, enemyJson, flags));
+      // prepend the actions that the parent sent. this allow parent some control over it's spawn.
+      const newEnemyJson = {...enemyJson, actions: [...actions, ...enemyJson.actions]};
+      this.enemies.push(new Enemy(this.app, position, newEnemyJson, flags));
    };
 
    /**

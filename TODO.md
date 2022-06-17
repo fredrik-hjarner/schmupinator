@@ -54,3 +54,9 @@ that would make relative/absolute positioning actions more coherent.
 * Also it would be really cool if the EnemyActionExecutor could execute GraphicsAction:s.
 
 * DOnt use --- in YAML files. Have ONE single document instead. That allows sharing anchors.
+
+* Flags and every other field on an Enemy could be an attribute, then you could check any attribute
+just like you check a flag.
+{ attr: 'hp', is: 2 }
+{ attr: 'hp', lessThan: 2 }
+{ setAttr: 'some flag or variable', val: 2 }

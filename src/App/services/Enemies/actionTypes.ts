@@ -32,8 +32,10 @@ export type TParallellRace       = { type: "parallellRace", actionsLists: TSFAct
 export type TParallellAll        = { type: "parallellAll", actionsLists: TSFAction[][] };
 export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
-// Spawns an enemy.
-export type TSpawn = { type: "spawn", enemy: string, x: number, y: number, flags?: string[] };
+// Spawns an enemy. actions are prepended to the actions of the particular enemy.
+export type TSpawn = {
+   type: "spawn", enemy: string, x: number, y: number, flags?: string[], actions?: TSFAction[]
+};
 // Simple if case. Executes yes if true. Executs no when false.
 export type TFlag = { type: "flag", flagName: string, yes?: TSFAction[], no?: TSFAction[] };
 /**
@@ -48,6 +50,8 @@ export type TMirrorY = { type: "mirrorY", value: boolean };
  * The action simple executes the actions sent to it. As simple as that.
  */
 export type TDo = { type: "do", acns: TSFAction[] };
+// Well, the enemy dies.
+export type TDie = { type: "die" };
 
 export type TAction =
    /**
@@ -80,9 +84,10 @@ export type TAction =
    TRotateTowardsPlayer |
    TMoveAccordingToSpeedAndDirection |
    /**
-   * Spawning
+   * Spawning/Life cycle
    */
    TSpawn |
+   TDie |
    /**
     * Control/Conditions/Flags
     */

@@ -12,6 +12,7 @@ import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
+import { TShortFormAction } from "./actionTypesShortForms";
 
 export class Enemy {
    app: App;
@@ -175,8 +176,8 @@ export class Enemy {
          }
 
          case "spawn": {
-            const { enemy, flags, x, y } = action;
-            this.spawn({ enemy, flags, pos: { x, y } });
+            const { enemy, flags, x, y, actions } = action;
+            this.spawn({ enemy, flags, pos: { x, y }, actions });
             break;
          }
 
@@ -289,10 +290,13 @@ export class Enemy {
       this.Y = newY;
    };
 
-   private spawn = ({ enemy, flags, pos }: { enemy: string, flags?: string[], pos: TVector }) => {
+   private spawn = (
+      { enemy, flags, pos, actions }:
+      { enemy: string, flags?: string[], pos: TVector, actions?: TShortFormAction[] }
+   ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
-      this.app.enemies.Spawn({ enemy, flags, position: absolute });
+      this.app.enemies.Spawn({ enemy, flags, position: absolute, actions });
    };
 
    private getPosition = (): TVector => {

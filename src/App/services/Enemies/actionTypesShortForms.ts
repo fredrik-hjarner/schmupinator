@@ -8,7 +8,9 @@ const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => 
    return (action as TShortFormWait).wait !== undefined;
 };
 
-export type TShortFormSpawn = { spawn: string, flags?: string[], x: number, y: number };
+export type TShortFormSpawn = { 
+   spawn: string, flags?: string[], x: number, y: number, actions?: TShortFormAction[]
+};
 const isShortFormSpawn = (action: TShortFormAction): action is TShortFormSpawn => {
    return (action as TShortFormSpawn).spawn !== undefined;
 };
@@ -63,8 +65,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       const { wait } = shortForm;
       return { type: "wait", frames: wait };
    } else if(isShortFormSpawn(shortForm)) {
-      const { spawn, flags, x, y } = shortForm;
-      return { type: "spawn", enemy: spawn, flags, x, y };
+      const { spawn, flags, x, y, actions } = shortForm;
+      return { type: "spawn", enemy: spawn, flags, x, y, actions };
    } else if(isShortFormRepeat(shortForm)) {
       const { repeat, actions } = shortForm;
       return { type: "repeat", times: repeat, actions };
