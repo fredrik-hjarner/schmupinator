@@ -29,7 +29,16 @@ class Attribute {
 
 export class Attributes {
    // Observe!! Object types like this should be in Partial<> to signal that keys may not exist.
-   private attributes: Partial<Record<string, Attribute>> = {};
+   private attributes: Partial<Record<string, Attribute>> = {
+      /**
+       * Populate with some default attributes. Later I should probably set all of these with
+       * actions, but it may not hurt to have default values though, and also may serve as
+       * reference of what "built-in" attrs exist.
+       */
+      points:  { value: 10,   type: "number" },
+      hp:      { value: 1,    type: "number" },
+      maxHp:   { value: 1,    type: "number" },
+   };
 
    public SetAttribute = (params: { name: string, value: TAttributeValue }) => {
       const {name, value} = params;

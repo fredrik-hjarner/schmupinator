@@ -14,6 +14,7 @@ import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
 import { TShortFormAction } from "./actionTypesShortForms";
 import { Attributes } from "./Attributes/Attributes";
+import { assertNumber } from "../../../utils/typeAssertions";
 
 export class Enemy {
    app: App;
@@ -21,19 +22,18 @@ export class Enemy {
    Y: number;
    id: string;
    private graphics: IGraphics; // Graphics service
-   private maxHp: number;
-   private hp: number;
    private diameter: number;
-   private speed: number;
-   private shotSpeed: number;
+   private speed = 0;
+   private shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
    // facing/aim
-   private direction: UnitVector;
+   // default direction down.
+   private direction = new UnitVector(new Vector(0, 1));
    private flags: string[];
-   private mirrorX: boolean;
-   private mirrorY: boolean;
+   private mirrorX = false;
+   private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
    private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
-   private attrs: Attributes;
+   private attrs = new Attributes();
 
    /**
     * Public
@@ -47,31 +47,21 @@ export class Enemy {
    ) {
       this.app = app;
       this.id = `${json.name}-${uuid()}`;
-      this.maxHp = json.hp;
-      this.hp = json.hp;
       this.diameter = json.diameter;
       this.X = position.x;
       this.Y = position.y;
-      this.shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
       this.flags = flags;
-      this.mirrorX = false;
-      this.mirrorY = false;
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
          actions: json.actions,
          getPosition: this.getPosition,
          getFlag: this.getFlag
       });
-      this.speed = 0;
-      // default direction down.
-      this.direction = new UnitVector(new Vector(0, 1));
-      this.attrs = new Attributes();
-      // TODO: This should be set by an Action.
-      this.attrs.SetAttribute({ name: "points", value: 10 });
+      // TODO: Attrs should be be set by an Action in future, right?
+      this.attrs.SetAttribute({ name: "hp", value: json.hp });
+      this.attrs.SetAttribute({ name: "maxHp", value: json.hp });
 
-      /**
-       * New graphics engine code
-       */
+      // New graphics engine code
       this.graphics = this.app.graphics;
       const response =
          this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
@@ -92,6 +82,19 @@ export class Enemy {
       this.updateDisplayHealth();
    }
 
+   private get hp():number {
+      return assertNumber(this.attrs.GetAttribute("hp").value);
+   }
+   private set hp(value: number){
+      this.attrs.SetAttribute({ name: "hp", value });
+   }
+   private get maxHp():number {
+      return assertNumber(this.attrs.GetAttribute("maxHp").value);
+   }
+   private set maxHp(value: number){
+      this.attrs.SetAttribute({ name: "maxHp", value });
+   }
+
    public get Radius(){
       return this.diameter/2;
    }
@@ -106,12 +109,7 @@ export class Enemy {
        */
       const { enemiesThatWereHit } = collisions;
       if(enemiesThatWereHit.includes(this.id)) {
-         const points = this.attrs.GetAttribute("points").value as number;
-         const pointsType = typeof points;
-         if(pointsType !== "number") {
-            alert(`OnCollisions: points must be an integer. was "${pointsType}"`);
-            throw new Error(`OnCollisions: points must be an integer. was "${pointsType}"`);
-         }
+         const points = assertNumber(this.attrs.GetAttribute("points").value);
 
          this.app.events.dispatchEvent({
             type: "add_points",
@@ -120,8 +118,7 @@ export class Enemy {
          this.hp -= 1;
 
          /**
-          * Display damage.
-          * Starts filled with color,
+          * Display damage. Starts filled with color,
           * border gets successively thinner until they are gone.
           */
          this.updateDisplayHealth();
