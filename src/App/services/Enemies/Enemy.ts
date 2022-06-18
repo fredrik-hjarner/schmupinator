@@ -101,6 +101,17 @@ export class Enemy {
 
    public OnFrameTick = () => {
       this.actionExecutor.ProgressOneFrame();
+
+      /**
+       * Safest to do all the required updates n shit here, even if hp etc have not been changed.
+       */
+      this.updateDisplayHealth();
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type:"actionSetPosition",
+            payload: { handle: this.graphicsHandle, x: this.X, y: this.Y }
+         });
+      }
    };
 
    public OnCollisions = (collisions: TCollisions) => {
@@ -111,10 +122,7 @@ export class Enemy {
       if(enemiesThatWereHit.includes(this.id)) {
          const points = assertNumber(this.attrs.GetAttribute("points").value);
 
-         this.app.events.dispatchEvent({
-            type: "add_points",
-            points
-         });
+         this.app.events.dispatchEvent({ type: "add_points", points });
          this.hp -= 1;
 
          /**
@@ -219,13 +227,6 @@ export class Enemy {
       
          default:
             console.error(`unknown action type: ${action.type}`);
-      }
-
-      if(this.graphicsHandle) {
-         this.graphics.Dispatch({
-            type:"actionSetPosition",
-            payload: { handle: this.graphicsHandle, x: this.X, y: this.Y }
-         });
       }
    };
 
