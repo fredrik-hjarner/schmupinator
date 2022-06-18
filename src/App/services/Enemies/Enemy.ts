@@ -109,6 +109,7 @@ export class Enemy {
          const points = this.attrs.GetAttribute("points").value as number;
          const pointsType = typeof points;
          if(pointsType !== "number") {
+            alert(`OnCollisions: points must be an integer. was "${pointsType}"`);
             throw new Error(`OnCollisions: points must be an integer. was "${pointsType}"`);
          }
 
@@ -125,23 +126,26 @@ export class Enemy {
           */
          this.updateDisplayHealth();
 
-         // Die
          if(this.hp < 1) {
-            const enemies = this.app.enemies;
-            // remove this enemy.
-            enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
-            // TODO: Maybe publish a death event or something.
-            // Clear up graphics.
-            if(this.graphicsHandle) {
-               this.graphics.Dispatch({
-                  type: "actionRelease",
-                  payload: { handle: this.graphicsHandle }
-               });
-               this.graphicsHandle = undefined;
-            }
-            return;
+            this.die();
          }
       }
+   };
+
+   private die = () => {
+      const enemies = this.app.enemies;
+      // remove this enemy.
+      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
+      // TODO: Maybe publish a death event or something.
+      // Clear up graphics.
+      if(this.graphicsHandle) {
+         this.graphics.Dispatch({
+            type: "actionRelease",
+            payload: { handle: this.graphicsHandle }
+         });
+         this.graphicsHandle = undefined;
+      }
+      return;
    };
 
    /**
@@ -211,6 +215,10 @@ export class Enemy {
             this.setAttribute({ attribute, value });
             break;
          }
+
+         case "die":
+            this.die();
+            break;
       
          default:
             console.error(`unknown action type: ${action.type}`);
@@ -313,7 +321,7 @@ export class Enemy {
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
-      this.app.enemies.Spawn({ enemy, flags, position: absolute, actions });
+      this.app.enemies.Spawn({ enemy, flags, position: absolute, prependActions: actions });
    };
 
    private getPosition = (): TVector => {

@@ -58,6 +58,7 @@ export class GameLoop implements IGameLoop {
    */
    private nextFrame = () => {
       if(this.startTime === null) {
+         alert("this.startTime === null");
          throw new Error("this.startTime === null");
       }
       const gameSpeed = this.app.gameSpeed.GameSpeed;
@@ -90,6 +91,7 @@ export class GameLoop implements IGameLoop {
        */
       for(let i=0; i<3; i++) {
          if(this.nextFrameMillis === null) {
+            alert("this.nextFrameMillis === null");
             throw new Error("this.nextFrameMillis === null");
          }
          while (performance.now() >= this.nextFrameMillis) {

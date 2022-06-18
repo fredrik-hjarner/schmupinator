@@ -27,5 +27,5 @@ export const enemyShotSpeed = 3;
 export const zIndices = {
    gameHide: "1",
    controlsAndLogs: "2",
-   graphicsEngineElements: "0"
+   graphicsEngineElements: "1" // Set to "0" to hide behind gameHide.
 };

@@ -59,7 +59,6 @@ export class Collisions {
       }
    };
 
-
    private calcCircleWasHitByShots = (
       { circle, shots }: { circle: PosAndRadius, shots: PosAndRadius[] }
    ): boolean => {

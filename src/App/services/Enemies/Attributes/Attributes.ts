@@ -17,6 +17,9 @@ class Attribute {
       if(type === "string" || type === "number" || type === "boolean") {
          this.type = type;
       } else {
+         alert(
+            `Attribute.constructor: typeof value was "${type}" which is not an allowed type.`
+         );
          throw new Error(
             `Attribute.constructor: typeof value was "${type}" which is not an allowed type.`
          );
@@ -35,6 +38,9 @@ export class Attributes {
 
    public UnsetAttribute = (name: string) => {
       if(!(name in this.attributes)){
+         alert(
+            `UnsetAttribute: Tried to unset an attribute "${name}" that does not exist.`
+         );
          throw new Error(
             `UnsetAttribute: Tried to unset an attribute "${name}" that does not exist.`
          );
@@ -45,6 +51,9 @@ export class Attributes {
    public GetAttribute = (name: string): Attribute => {
       const attr = this.attributes[name];
       if(attr === undefined) {
+         alert(
+            `GetAttribute: Tried to get an attribute "${name}" that does not exist.`
+         );
          throw new Error(
             `GetAttribute: Tried to get an attribute "${name}" that does not exist.`
          );

@@ -12,9 +12,12 @@ type TSubscribers = {
    [ key: string]: TCallback
 }
 
+type TEventFrameTick = { type: "frame_tick" };
+type TEventCollisions = { type: "collisions", collisions: TCollisions };
+
 export type TEvent =
-   { type: "frame_tick" } | // signals next frame has come.
-   { type: "collisions", collisions: TCollisions } | // when collisions happen.
+   TEventFrameTick | // signals next frame has come.
+   TEventCollisions | // when collisions happen.
    { type: "player_missed_bullet" } | // when player's bullet exists gameDiv/screen.
    { type: "player_died" } | // when player dies.
    { type: "add_points", points: number }; // add points to the player (could be negative).

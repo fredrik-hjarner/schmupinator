@@ -4,6 +4,7 @@ import type { App } from "../../App";
 import { Enemy } from "./Enemy";
 import { TEvent } from "../Events/Events";
 import { TShortFormAction } from "./actionTypesShortForms";
+import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 
 export class Enemies {
    app: App;
@@ -38,17 +39,38 @@ export class Enemies {
    };
 
    public Spawn = (
-      { enemy, flags, position, actions=[] }:
-      { enemy: string, flags?: string[], position: TVector, actions?: TShortFormAction[] }
+      { enemy, flags, position, prependActions=[] }:
+      { enemy: string, flags?: string[], position: TVector, prependActions?: TShortFormAction[] }
    ) => {
       const { EnemyJsons } = this.app.yaml;
-      console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
+      // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = EnemyJsons.find(e => e.name === enemy);
       if(!enemyJson) {
+         alert(`Unknown enemy "${enemy}".`);
          throw new Error(`Unknown enemy "${enemy}".`);
       }
-      // prepend the actions that the parent sent. this allow parent some control over it's spawn.
-      const newEnemyJson = {...enemyJson, actions: [...actions, ...enemyJson.actions]};
+      /**
+       * prepend the actions that the parent sent. this allow parent some control over it's spawn.
+       * also add die-when-outside-screen behaviour too all spawns.
+       * TODO:
+       * This is elegant. Maybe add the die-when-outside-screen behaviour in some other way
+       */
+      const newEnemyJson: IEnemyJson = {
+         ...enemyJson,
+         actions: [
+            {
+               type: "parallellRace",
+               actionsLists: [
+                  [
+                     { type: "waitTilInsideScreen" },
+                     { type: "waitTilOutsideScreen" },
+                     { type: "die" }
+                  ],
+                  [...prependActions, ...enemyJson.actions]
+               ]
+            }
+         ]
+      };
       this.enemies.push(new Enemy(this.app, position, newEnemyJson, flags));
    };
 

@@ -58,6 +58,10 @@ export type TDie = { type: "die" };
  * or it could be  end-user specified variable with any type.
  */
 export type TSetAttribute = { type: "setAttribute", attribute: string, value: TAttributeValue };
+// Waits until Enemy is outside the screen/game window
+export type TWaitTilOutsideScreen = { type: "waitTilOutsideScreen" };
+// Waits until Enemy is inside the screen/game window
+export type TWaitTilInsideScreen = { type: "waitTilInsideScreen" };
 
 export type TAction =
    /**
@@ -94,6 +98,8 @@ export type TAction =
    */
    TSpawn |
    TDie |
+   TWaitTilOutsideScreen |
+   TWaitTilInsideScreen |
    /**
     * Control/Conditions/Flags
     */

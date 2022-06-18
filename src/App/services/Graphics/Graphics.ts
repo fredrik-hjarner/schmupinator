@@ -23,7 +23,7 @@ export class Graphics implements IGraphics {
    public app: App;
    public name: string;
    private elementPool: TGraphicsElement[];
-   private static poolSize = 100;
+   private static poolSize = 25;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -119,9 +119,11 @@ export class Graphics implements IGraphics {
    private findExistingAndInUse = (handle: THandle): TGraphicsElement => {
       const element = this.elementPool.find(element => element.handle === handle);
       if(!element) {
+         alert(`Graphics: No GraphicsElement with handle "${handle}"!`);
          throw new Error(`Graphics: No GraphicsElement with handle "${handle}"!`);
       }
       if(!element.inUse) {
+         alert(`Graphics: Trying to set position for unused handle "${handle}"!`);
          throw new Error(`Graphics: Trying to set position for unused handle "${handle}"!`);
       }
       return element;
@@ -133,6 +135,7 @@ export class Graphics implements IGraphics {
          unusedElement.inUse = true;
          return { type: "responseAskForElement", handle: unusedElement.handle };
       }
+      alert("Graphics: All elements are in use!");
       throw new Error("Graphics: All elements are in use!");
    };
 

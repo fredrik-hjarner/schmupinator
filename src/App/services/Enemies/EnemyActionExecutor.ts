@@ -7,6 +7,7 @@ import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
 import { ShortFormToLongForm, TShortFormAction } from "./actionTypesShortForms";
+import { resolutionHeight, resolutionWidth } from "../../../consts";
 
 type TActionHandler = (action: TAction) => void;
 
@@ -52,6 +53,7 @@ export class EnemyActionExecutor {
 
       while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
          const currAction = actions[currIndex];
+         // console.log(currAction.type);
          switch(currAction.type) {
             case "do": { // flatten essentially.
                yield* this.makeGenerator(currAction.acns);
@@ -92,6 +94,36 @@ export class EnemyActionExecutor {
 
             case "wait": {
                for(let i=0; i<currAction.frames; i++) {
+                  yield;
+               }
+               break;
+            }
+
+            case "waitTilInsideScreen": {
+               const left = -20;
+               const right = resolutionWidth + 20;
+               const top = -20;
+               const bottom = resolutionHeight + 20;
+               // TODO: Move function.
+               const isOutsideScreen = ({ x, y }: TVector): boolean => {
+                  return x < left || x > right || y < top || y > bottom;
+               };
+               while(isOutsideScreen(this.getPosition())) {
+                  yield;
+               }
+               break;
+            }
+
+            case "waitTilOutsideScreen": {
+               const left = -30;
+               const right = resolutionWidth + 30;
+               const top = -30;
+               const bottom = resolutionHeight + 30;
+               // TODO: Move function.
+               const isOutsideScreen = ({ x, y }: TVector): boolean => {
+                  return x < left || x > right || y < top || y > bottom;
+               };
+               while(!isOutsideScreen(this.getPosition())) {
                   yield;
                }
                break;
