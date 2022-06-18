@@ -1,3 +1,9 @@
+enemy:
+  name: shot
+  hp: 9999
+  diameter: 5
+  actions: []
+---
 x-aimerLeft: &aimerLeft { spawn: nonShootingAimer, x: 128.5, y: -22 }
 x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }
 
@@ -75,7 +81,8 @@ x-rotateRight: &rotateRight
 
 x-shootWhileRotation: &shootWhileRotation
   - wait: 16
-  - type: shoot_toward_player
+  # - type: shoot_toward_player
+  - *shootTowardsPlayer
 
 x-rotateLeftAndShoot: &rotateLeftAndShoot
   parallellAll: [*rotateLeft, *shootWhileRotation]
@@ -195,4 +202,3 @@ enemy:
           actions:
             - { type: shootDirection, x: 0, y: 1}
             - wait: 40
-    

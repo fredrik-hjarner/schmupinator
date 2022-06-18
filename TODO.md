@@ -62,3 +62,5 @@ just like you check a flag.
 { setAttr: 'some flag or variable', val: 2 }
 
 * Shots could be Enemy. Player could be Enemy. Powerups could be Enemy. The power!
+
+* Make x,y on spawn action optional.
