@@ -32,8 +32,8 @@ export class Points implements IService {
 
    private onEvent = (event: TEvent) => {
       switch(event.type) {
-         case "collisions": {
-            this.points += event.collisions.enemiesThatWereHit.length * 10;
+         case "add_points": {
+            this.points += event.points;
             this.updatePoints();
             break;
          }

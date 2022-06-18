@@ -64,3 +64,19 @@ just like you check a flag.
 * Shots could be Enemy. Player could be Enemy. Powerups could be Enemy. The power!
 
 * Make x,y on spawn action optional.
+
+* Now when Shots are Enemy, I could do the maxShots limitation with a thing like maxChildren,
+maxChildren would be the max number of spawns. I would need to implement parent-spawn relations.
+
+* Remove Shots entirely since I will no longer need it.
+
+* Improve my "end-to-end" test so that it is more reliable.
+
+* Make simple Type Guards for integers. booleans, strings and place them in some util folder.
+
+* Add events (subs and dispatches) declaration to IService to require services to specificy what
+they subscribe to and what they dispatch. Throw runtime error when it tried to do something it has
+not declared!!
+
+* mock awat the window object somehow. A BrowserDriver or something. A BrowserDriverMock will have
+all operations on window be noops.

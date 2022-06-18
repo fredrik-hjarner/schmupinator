@@ -31,7 +31,7 @@ export class ReplayerInput implements IInput {
             const seconds = (performance.now() - this.startTime)/1000;
             const timeStr = `took ${seconds} seconds to run test.`;
             if(actualScore === expectedScore){
-               alert(`Test Success\nscore: ${expectedScore}\n${timeStr}`);
+               alert(`Test Success\nscore: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`);
             } else {
                alert(`Test Failure\nexpected: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`);
             }

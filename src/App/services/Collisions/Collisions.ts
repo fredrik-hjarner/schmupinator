@@ -42,10 +42,10 @@ export class Collisions {
    private update = () => {
       const player = this.app.player;
       const playerShots = this.app.playerShots.shots.map(s => s);
-      const enemyShots = this.app.enemyShots.shots.map(s => s);
       const enemies = this.app.enemies.enemies;
 
-      const playerWasHit = this.calcCircleWasHitByShots({ circle: player, shots: enemyShots });
+      const playerWasHit =
+         this.calcCircleWasHitByShots({ circle: player, shots: enemies });
       
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
          const wasHit = this.calcCircleWasHitByShots({ circle: enemy, shots: playerShots });

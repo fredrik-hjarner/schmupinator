@@ -1,9 +1,9 @@
 import type { App } from "../../App";
-import type { PotentialShot } from "../Shots/PotentialShot";
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
 import type { THandle, TResponse_AskForElement, IGraphics } from "../Graphics/IGraphics";
+import type { TAttributeValue } from "./Attributes/Attributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -13,6 +13,7 @@ import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
 import { TShortFormAction } from "./actionTypesShortForms";
+import { Attributes } from "./Attributes/Attributes";
 
 export class Enemy {
    app: App;
@@ -32,6 +33,7 @@ export class Enemy {
    private mirrorY: boolean;
    private actionExecutor: EnemyActionExecutor;
    private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
+   private attrs: Attributes;
 
    /**
     * Public
@@ -63,6 +65,9 @@ export class Enemy {
       this.speed = 0;
       // default direction down.
       this.direction = new UnitVector(new Vector(0, 1));
+      this.attrs = new Attributes();
+      // TODO: This should be set by an Action.
+      this.attrs.SetAttribute({ name: "points", value: 10 });
 
       /**
        * New graphics engine code
@@ -101,6 +106,16 @@ export class Enemy {
        */
       const { enemiesThatWereHit } = collisions;
       if(enemiesThatWereHit.includes(this.id)) {
+         const points = this.attrs.GetAttribute("points").value as number;
+         const pointsType = typeof points;
+         if(pointsType !== "number") {
+            throw new Error(`OnCollisions: points must be an integer. was "${pointsType}"`);
+         }
+
+         this.app.events.dispatchEvent({
+            type: "add_points",
+            points
+         });
          this.hp -= 1;
 
          /**
@@ -135,45 +150,37 @@ export class Enemy {
     */
    private HandleAction = (action: TAction) => {
       switch(action.type) {
-         case "shootDirection": {
+         case "shootDirection":
             this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
-         }
 
-         case "setSpeed": {
+         case "setSpeed":
             this.SetSpeed(action.pixelsPerFrame);
             break;
-         }
 
-         case "setShotSpeed": {
+         case "setShotSpeed":
             this.SetShotSpeed(action.pixelsPerFrame);
             break;
-         }
 
-         case "set_position": {
+         case "set_position":
             this.SetPosition({ x: action.x, y: action.y });
             break;
-         }
 
-         case "shoot_toward_player": {
+         case "shoot_toward_player":
             this.ShootTowardPlayer();
             break;
-         }
 
-         case "shoot_beside_player": {
+         case "shoot_beside_player":
             this.ShootBesidePlayer(action.degrees);
             break;
-         }
 
-         case "rotate_towards_player": {
+         case "rotate_towards_player":
             this.RotateTowardsPlayer();
             break;
-         }
 
-         case "move_according_to_speed_and_direction": {
+         case "move_according_to_speed_and_direction":
             this.moveAccordingToSpeedAndDirection();
             break;
-         }
 
          case "spawn": {
             const { enemy, flags, x, y, actions } = action;
@@ -198,6 +205,12 @@ export class Enemy {
             this.moveDelta({ x, y });
             break;
          }
+
+         case "setAttribute": {
+            const { attribute, value } = action;
+            this.setAttribute({ attribute, value });
+            break;
+         }
       
          default:
             console.error(`unknown action type: ${action.type}`);
@@ -219,17 +232,21 @@ export class Enemy {
    private ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
       const isZero = dirX === 0 && dirY === 0;
       const pixelsPerFrame = this.shotSpeed;
+      // TODO: Could maybe do this with UnitVector instead.
       const pythagoras = isZero ? 9999 : Math.sqrt(dirX**2 + dirY**2);
       const speedUpFactor = pixelsPerFrame / pythagoras;
-      const potentialShots: PotentialShot[] = [
-         {
-            x: this.X,
-            y: this.Y,
-            spdX: dirX * speedUpFactor,
-            spdY: dirY * speedUpFactor
-         },
-      ];
-      this.app.enemyShots.TryShoot(potentialShots);
+
+      this.spawn({
+         enemy:"shot",
+         pos: { x: 0, y: 0 },
+         actions:  [
+            { type: "setAttribute", attribute: "points", value: 0 },
+            { repeat: 999, actions: [
+               { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
+               { type: "waitNextFrame" }
+            ]},
+         ]
+      });
    };
 
    private ShootTowardPlayer = () => {
@@ -324,6 +341,11 @@ export class Enemy {
 
    private setMirrorY = (value: boolean) => {
       this.mirrorY = value;
+   };
+
+   private setAttribute = (params: { attribute: string, value: TAttributeValue }) => {
+      const { attribute, value } = params;
+      this.attrs.SetAttribute({ name: attribute, value });
    };
 
    private updateDisplayHealth = () => {

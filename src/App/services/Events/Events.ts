@@ -16,7 +16,8 @@ export type TEvent =
    { type: "frame_tick" } | // signals next frame has come.
    { type: "collisions", collisions: TCollisions } | // when collisions happen.
    { type: "player_missed_bullet" } | // when player's bullet exists gameDiv/screen.
-   { type: "player_died" }; // when player dies.
+   { type: "player_died" } | // when player dies.
+   { type: "add_points", points: number }; // add points to the player (could be negative).
 
 export class Events {
    app: App;

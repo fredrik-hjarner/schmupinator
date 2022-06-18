@@ -1,5 +1,6 @@
 import type { Vector } from "../../../math/bezier";
 import type { TShortFormAction as TSFAction } from "./actionTypesShortForms";
+import type { TAttributeValue } from "./Attributes/Attributes";
 
 export type TWait =                { type: "wait", frames: number };
 export type TWaitNextFrame =       { type: "waitNextFrame" };
@@ -52,6 +53,11 @@ export type TMirrorY = { type: "mirrorY", value: boolean };
 export type TDo = { type: "do", acns: TSFAction[] };
 // Well, the enemy dies.
 export type TDie = { type: "die" };
+/**
+ * Attributes can be either some predefined thing by me such as hp, points,
+ * or it could be  end-user specified variable with any type.
+ */
+export type TSetAttribute = { type: "setAttribute", attribute: string, value: TAttributeValue };
 
 export type TAction =
    /**
@@ -92,6 +98,7 @@ export type TAction =
     * Control/Conditions/Flags
     */
    TFlag |
+   TSetAttribute |
    /**
     * Mirroring
     */
