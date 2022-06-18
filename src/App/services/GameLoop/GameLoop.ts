@@ -6,7 +6,7 @@ import { initElapsedTimeDiv } from "./elapsedTimeDiv";
 import { initFpsDiv } from "./fpsDiv";
 import { initFrameCounterDiv } from "./frameCounterDiv";
 import {
-   initLayer1Element, initGameHideBottom, initGameHideRight, initLayer2Element
+   initLayer1Element, initGameHideBottom, initGameHideRight, initLayer2Element, initLayer3Element
 } from "./gameDiv";
 import { px } from "../../../utils/px";
 import { IGameLoop } from "./IGameLoop";
@@ -22,6 +22,7 @@ export class GameLoop implements IGameLoop {
    public FrameCount: number;
    readonly layer1Element: HTMLDivElement;
    readonly layer2Element: HTMLDivElement;
+   readonly layer3Element: HTMLDivElement;
    readonly framCounterDiv: HTMLDivElement;
    readonly elapsedTimeDiv: HTMLDivElement;
    readonly fpsDiv: HTMLDivElement;
@@ -39,6 +40,7 @@ export class GameLoop implements IGameLoop {
       this.framCounterDiv = initFrameCounterDiv();
       this.layer1Element = initLayer1Element();
       this.layer2Element = initLayer2Element();
+      this.layer3Element = initLayer3Element();
       initGameHideBottom();
       initGameHideRight();
       this.elapsedTimeDiv = initElapsedTimeDiv();
@@ -66,10 +68,12 @@ export class GameLoop implements IGameLoop {
          this.FrameCount++;
          this.app.events.dispatchEvent({ type: "frame_tick" });
          const baseSpeed = 1;
-         const layer1YOffset: number = Math.round(this.FrameCount*baseSpeed);
-         const layer2YOffset: number = Math.round(this.FrameCount*baseSpeed*1.5);
+         const layer1YOffset: number = Math.round(this.FrameCount*baseSpeed * 0.3);
+         const layer2YOffset: number = Math.round(this.FrameCount*baseSpeed);
+         const layer3YOffset: number = Math.round(this.FrameCount*baseSpeed*1.5);
          this.layer1Element.style.backgroundPositionY = px(layer1YOffset);
          this.layer2Element.style.backgroundPositionY = px(layer2YOffset);
+         this.layer3Element.style.backgroundPositionY = px(layer3YOffset);
       }
       // Display stats.
       const elapsed = performance.now() - this.startTime;

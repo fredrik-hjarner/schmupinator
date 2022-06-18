@@ -35,6 +35,23 @@ export const initLayer2Element = () => {
    return element;
 };
 
+export const initLayer3Element = () => {
+   const element: HTMLDivElement = window.document.querySelector("#layer3") as HTMLDivElement;
+   element.style.height = `${resolutionHeight}px`;
+   element.style.width = `${resolutionWidth}px`;
+   element.style.backgroundColor = "none";
+   element.style.position = "fixed";
+   element.style.top = "0px";
+   element.style.left = "0px";
+   //bg
+   element.style.backgroundImage = `url("./layer3.png")`;
+   element.style.backgroundSize = "contain";
+   element.style.backgroundOrigin = "padding-box";
+   element.style.backgroundRepeat = "repeat-y";
+   element.style.backgroundPositionY = "0px";
+   return element;
+};
+
 export const initGameHideBottom = () => {
    const element: HTMLDivElement =
       window.document.querySelector("#gameHideBottom") as HTMLDivElement;
