@@ -58,8 +58,8 @@ export class Enemy {
          getFlag: this.getFlag
       });
       // TODO: Attrs should be be set by an Action in future, right?
-      this.attrs.SetAttribute({ name: "hp", value: json.hp });
-      this.attrs.SetAttribute({ name: "maxHp", value: json.hp });
+      this.hp = json.hp;
+      this.maxHp = json.hp;
 
       // New graphics engine code
       this.graphics = this.app.graphics;
