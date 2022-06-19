@@ -74,3 +74,5 @@ not declared!!
 
 * mock awat the window object somehow. A BrowserDriver or something. A BrowserDriverMock will have
 all operations on window be noops.
+
+* Correctly spell parallel with one l.
