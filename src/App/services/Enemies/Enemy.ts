@@ -247,7 +247,7 @@ export class Enemy {
          pos: { x: 0, y: 0 },
          actions:  [
             { type: "setAttribute", attribute: "points", value: 0 },
-            { repeat: 999, actions: [
+            { forever: [
                { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
                { type: "waitNextFrame" }
             ]},

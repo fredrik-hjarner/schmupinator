@@ -65,6 +65,12 @@ const isSequence = (acn: TShortFormAction): acn is TSequence => {
    return (acn as TSequence).seq !== undefined;
 };
 
+// Infinite repeat of list of actions.
+export type TForever = { forever: TShortFormAction[] };
+const isForever = (acn: TShortFormAction): acn is TForever => {
+   return (acn as TForever).forever !== undefined;
+};
+
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
@@ -96,6 +102,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       return { type: "do", acns: shortForm.seq.flat() };
    }else if(isShortFormSetSpeed(shortForm)) {
       return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
+   }else if(isForever(shortForm)) {
+      return { type: "repeat", times: 100_000_000, actions: shortForm.forever };
    }
    return shortForm;
 };
@@ -117,4 +125,5 @@ export type TShortFormAction =
    TShortFormDo |
    TSequence |
    TShortFormSetSpeed |
-   TShortFormParallellRace;
+   TShortFormParallellRace |
+   TForever;
