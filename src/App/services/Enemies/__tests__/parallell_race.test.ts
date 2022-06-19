@@ -17,7 +17,7 @@ describe("parallellRace", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallellRace", actionsLists: [[]]
+        parallellRace: [[]]
       }]
     }).generator;
 
@@ -34,7 +34,7 @@ describe("parallellRace", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallellRace", actionsLists: [
+        parallellRace: [
           [],
           [{ setSpeed: 1 }]
         ]
@@ -54,7 +54,7 @@ describe("parallellRace", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallellRace", actionsLists: [[
+        parallellRace: [[
           { setSpeed: 1 }
         ], [
           { type: 'waitNextFrame' },
@@ -76,7 +76,7 @@ describe("parallellRace", () => {
       actionHandler,
       getFlag,
       actions: [{
-        type: "parallellRace", actionsLists: [[
+        parallellRace: [[
           { type: 'waitNextFrame' },
           { setSpeed: 1 }
         ], [

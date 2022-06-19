@@ -59,8 +59,7 @@ export class Enemies {
          ...enemyJson,
          actions: [
             {
-               type: "parallellRace",
-               actionsLists: [
+               parallellRace: [
                   [
                      { type: "waitTilInsideScreen" },
                      { type: "waitTilOutsideScreen" },

@@ -164,8 +164,7 @@ enemy:
   hp: 120
   diameter: 35
   actions:
-  - type: parallellRace
-    actionsLists:
+  - parallellRace:
     - *shootingPattern
     - *movementPattern
 ---

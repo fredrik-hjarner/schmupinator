@@ -25,15 +25,11 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 
 * Optimize Events service so you can only subscribe to certain events.
 
-* Make it so that colliding with an enemy kills you.
-
 * Add { type: "enemy_died", enemyName: string } event.
 
 * Try SWC Typescript compiler.
 
 * Have consts file with all z indices.
-
-* Add collisions with enemy ships themselves.
 
 * I could do it as css and have position: relative/absolute with relative as default,
 that would make relative/absolute positioning actions more coherent.
@@ -52,8 +48,6 @@ that would make relative/absolute positioning actions more coherent.
   that would allow me to execute actions!!!
 
 * Also it would be really cool if the EnemyActionExecutor could execute GraphicsAction:s.
-
-* DOnt use --- in YAML files. Have ONE single document instead. That allows sharing anchors.
 
 * Flags and every other field on an Enemy could be an attribute, then you could check any attribute
 just like you check a flag.

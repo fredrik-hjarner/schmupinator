@@ -25,6 +25,11 @@ const isShortFormParallellAll = (action: TShortFormAction): action is TShortForm
    return (action as TShortFormParallellAll).parallellAll !== undefined;
 };
 
+export type TShortFormParallellRace = { parallellRace: TShortFormAction[][] };
+const isShortFormParallellRace = (action: TShortFormAction): action is TShortFormParallellRace => {
+   return (action as TShortFormParallellRace).parallellRace !== undefined;
+};
+
 export type TShortFormFlag = { flag: string, yes?: TShortFormAction[], no?: TShortFormAction[] };
 const iShortFormFlag = (action: TShortFormAction): action is TShortFormFlag => {
    return (action as TShortFormFlag).flag !== undefined;
@@ -73,6 +78,9 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    } else if(isShortFormParallellAll(shortForm)) {
       const { parallellAll } = shortForm;
       return { type: "parallellAll", actionsLists: parallellAll };
+   } else if(isShortFormParallellRace(shortForm)) {
+      const { parallellRace } = shortForm;
+      return { type: "parallellRace", actionsLists: parallellRace };
    } else if(iShortFormFlag(shortForm)) {
       const { flag, yes, no } = shortForm;
       return { type: "flag", flagName: flag, yes, no };
@@ -95,8 +103,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
 export type TShortFormAction =
    Exclude<
       TAction,
-      TWait | TSpawn | TRepeat /*| TParallellAll*/ | TFlag | TSetShotSpeed | TMoveToAbsolute | TDo |
-      TSetSpeed
+      TWait | TSpawn | TRepeat | TFlag | TSetShotSpeed | TMoveToAbsolute | TDo | TSetSpeed |
+      { type: "parallellAll" } | { type: "parallellRace" }
    > |
 
    TShortFormWait |
@@ -108,4 +116,5 @@ export type TShortFormAction =
    TShortFormMoveToAbsolute |
    TShortFormDo |
    TSequence |
-   TShortFormSetSpeed;
+   TShortFormSetSpeed |
+   TShortFormParallellRace;
