@@ -2,6 +2,7 @@ import type { App } from "../../App";
 import type { TEvent } from "../Events/Events";
 import type { IService } from "../IService";
 
+import { isHTMLDivElement } from "../../../utils/typeAssertions";
 import { initPointsElement } from "./pointsElement";
 
 type TConstructor = {
@@ -13,7 +14,7 @@ export class Points implements IService {
    app: App;
    name: string;
    points: number;
-   pointsElement: HTMLDivElement;
+   pointsElement: unknown;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -46,6 +47,8 @@ export class Points implements IService {
    };
 
    private updatePoints = () => {
-      this.pointsElement.innerHTML = `${this.points}`;
+      if(isHTMLDivElement(this.pointsElement)) {
+         this.pointsElement.innerHTML = `${this.points}`;
+      }
    };
 }

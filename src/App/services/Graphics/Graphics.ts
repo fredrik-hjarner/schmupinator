@@ -9,6 +9,7 @@ import { resolutionWidth, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
 import { uuid } from "../../../utils/uuid";
 import { Vector as TVector } from "../../../math/bezier";
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 type TGraphicsElement = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
@@ -97,20 +98,23 @@ export class Graphics implements IGraphics {
       const left = x - radius;
    
       /** TODO: Remove duplication */
-      const element = document.createElement("div");
-      element.id = handle;
-      element.style.position = "fixed";
-      element.style.boxSizing = "border-box";
-      element.style.borderColor = color;
-      element.style.borderStyle = "solid";
-      element.style.borderWidth = px(radius); // filled
-      element.style.width = px(diameter);
-      element.style.height = px(diameter);
-      element.style.top = px(top);
-      element.style.left = px(left);
-      element.style.borderRadius = px(5000);
-      element.style.zIndex = zIndices.graphicsEngineElements;
-      document.body.appendChild(element);
+      const element = BrowserDriver.WithWindow(window => {
+         const element = window.document.createElement("div");
+         element.id = handle;
+         element.style.position = "fixed";
+         element.style.boxSizing = "border-box";
+         element.style.borderColor = color;
+         element.style.borderStyle = "solid";
+         element.style.borderWidth = px(radius); // filled
+         element.style.width = px(diameter);
+         element.style.height = px(diameter);
+         element.style.top = px(top);
+         element.style.left = px(left);
+         element.style.borderRadius = px(5000);
+         element.style.zIndex = zIndices.graphicsEngineElements;
+         window.document.body.appendChild(element);
+         return element;
+      }) as HTMLDivElement;
 
       return { handle, inUse: false, element, index: i };
    };
@@ -119,11 +123,11 @@ export class Graphics implements IGraphics {
    private findExistingAndInUse = (handle: THandle): TGraphicsElement => {
       const element = this.elementPool.find(element => element.handle === handle);
       if(!element) {
-         alert(`Graphics: No GraphicsElement with handle "${handle}"!`);
+         BrowserDriver.Alert(`Graphics: No GraphicsElement with handle "${handle}"!`);
          throw new Error(`Graphics: No GraphicsElement with handle "${handle}"!`);
       }
       if(!element.inUse) {
-         alert(`Graphics: Trying to set position for unused handle "${handle}"!`);
+         BrowserDriver.Alert(`Graphics: Trying to set position for unused handle "${handle}"!`);
          throw new Error(`Graphics: Trying to set position for unused handle "${handle}"!`);
       }
       return element;
@@ -135,7 +139,7 @@ export class Graphics implements IGraphics {
          unusedElement.inUse = true;
          return { type: "responseAskForElement", handle: unusedElement.handle };
       }
-      alert("Graphics: All elements are in use!");
+      BrowserDriver.Alert("Graphics: All elements are in use!");
       throw new Error("Graphics: All elements are in use!");
    };
 

@@ -16,6 +16,10 @@ module.exports = {
     "browser": true,
     "node": false
   },
+  globals: {
+    // console exists in both browser and Node.
+    "console": "readonly",
+  },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",

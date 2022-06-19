@@ -1,3 +1,5 @@
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
+
 export class GamePad {
    constructor() {
       window.addEventListener("gamepadconnected", function(e) {
@@ -14,14 +16,19 @@ export class GamePad {
    get down(): boolean { return this.getPressedButton(13); }
 
    getPressedButton = (index: number): boolean => {
-      const gamepads = navigator.getGamepads();
-      if(gamepads.length < 1) {
+      if(!BrowserDriver.IsBrowser()) {
          return false;
       }
-      const gamepad = gamepads[0];
-      if(!gamepad) {
-         return false;
-      }
-      return !!gamepad.buttons?.[index]?.pressed;
+      return BrowserDriver.WithWindow(window => {
+         const gamepads = window.navigator.getGamepads();
+         if(gamepads.length < 1) {
+            return false;
+         }
+         const gamepad = gamepads[0];
+         if(!gamepad) {
+            return false;
+         }
+         return !!gamepad.buttons?.[index]?.pressed;
+      }) as boolean;
    };
 }

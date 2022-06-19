@@ -9,6 +9,7 @@ import {
 } from "../../../../node_modules/yaml/browser/dist/index";
 
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 type TParseDocument = typeof parseDocument;
 
@@ -69,7 +70,7 @@ export class Yaml implements IService {
    private checkError = (yamlDocument: Document) => {
       const { errors } = yamlDocument;
       if(errors.length > 0) {
-         alert(JSON.stringify(errors, null, 2));
+         BrowserDriver.Alert(JSON.stringify(errors, null, 2));
          throw errors;
       }
    };

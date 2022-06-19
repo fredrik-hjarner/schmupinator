@@ -1,4 +1,6 @@
+import { BrowserDriver } from "./drivers/BrowserDriver";
 import { px } from "./utils/px";
+import { isHTMLDivElement } from "./utils/typeAssertions";
 import { uuid } from "./utils/uuid";
 
 /**
@@ -13,7 +15,7 @@ export class Circle {
    Radius: number;
    color: string;
    UUID: string;
-   div: HTMLDivElement;
+   div: unknown;
 
    /**
     * Public
@@ -26,9 +28,9 @@ export class Circle {
       this.color = color;
       this.UUID = `${uuid()}`;
 
-      this.div = (() => {
-         const div = document.createElement("div");
-
+      this.div = BrowserDriver.WithWindow(window => {
+         const div = window.document.createElement("div");
+   
          div.id = this.UUID;
          div.style.position = "fixed";
          div.style.boxSizing = "border-box";
@@ -40,11 +42,11 @@ export class Circle {
          div.style.top = `${this.Top}px`;
          div.style.left = `${this.Left}px`;
          div.style.borderRadius = "5000px";
-
-         document.body.appendChild(div);
-
+   
+         window.document.body.appendChild(div);
+   
          return div;
-      })();
+      });
    }
 
    get X(){ return this.x; }
@@ -69,6 +71,9 @@ export class Circle {
     * Private
     */
    updatePos = () => {
+      if(!isHTMLDivElement(this.div)){
+         return;
+      }
       this.div.style.top = px(this.Top);
       this.div.style.left = px(this.Left);
    };

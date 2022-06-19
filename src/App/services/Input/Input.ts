@@ -1,6 +1,8 @@
 import type { App } from "../../App";
 import type { ButtonsPressed, IInput } from "./IInput";
 
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
+
 type TConstructor = {
    app: App;
    name: string;
@@ -28,8 +30,10 @@ export class Input implements IInput {
       this.app = app;
       this.name = name;
       this.history = { inputs: {}, score: 0 };
-      document.onkeydown = this.onKeyDown;
-      document.onkeyup = this.onKeyUp;
+      BrowserDriver.WithWindow(window => {
+         window.document.onkeydown = this.onKeyDown;
+         window.document.onkeyup = this.onKeyUp;
+      });
    }
 
    public Init = () => {

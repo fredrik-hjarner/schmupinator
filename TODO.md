@@ -74,3 +74,5 @@ not declared!!
 all operations on window be noops.
 
 * Correctly spell parallel with one l.
+
+* Force with eslint to always specify "private", "public".

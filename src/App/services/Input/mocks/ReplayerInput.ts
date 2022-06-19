@@ -1,6 +1,8 @@
 import type { App } from "../../../App";
 import type { ButtonsPressed, IInput } from "../IInput";
 
+import { BrowserDriver } from "../../../../drivers/BrowserDriver";
+
 import { replay } from "./replay";
 
 type TConstructor = {
@@ -31,9 +33,13 @@ export class ReplayerInput implements IInput {
             const seconds = (performance.now() - this.startTime)/1000;
             const timeStr = `took ${seconds} seconds to run test.`;
             if(actualScore === expectedScore){
-               alert(`Test Success\nscore: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`);
+               BrowserDriver.Alert(
+                  `Test Success\nscore: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`
+               );
             } else {
-               alert(`Test Failure\nexpected: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`);
+               BrowserDriver.Alert(
+                  `Test Failure\nexpected: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`
+               );
             }
          }
       });

@@ -1,6 +1,7 @@
 import { App } from "./App/App";
+import { BrowserDriver } from "./drivers/BrowserDriver";
 
-window.onload = async () => {
+BrowserDriver.OnLoad = async () => {
    // Create app
    const app = new App();
    await app.Init();
