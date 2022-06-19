@@ -71,6 +71,16 @@ const isForever = (acn: TShortFormAction): acn is TForever => {
    return (acn as TForever).forever !== undefined;
 };
 
+export type TTwice = { twice: TShortFormAction[] };
+const isTwice = (acn: TShortFormAction): acn is TTwice => {
+   return (acn as TTwice).twice !== undefined;
+};
+
+export type TThrice = { thrice: TShortFormAction[] };
+const isThrice = (acn: TShortFormAction): acn is TThrice => {
+   return (acn as TThrice).thrice !== undefined;
+};
+
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
@@ -104,6 +114,10 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
    }else if(isForever(shortForm)) {
       return { type: "repeat", times: 100_000_000, actions: shortForm.forever };
+   }else if(isTwice(shortForm)) {
+      return { type: "repeat", times: 2, actions: shortForm.twice };
+   }else if(isThrice(shortForm)) {
+      return { type: "repeat", times: 3, actions: shortForm.thrice };
    }
    return shortForm;
 };
@@ -126,4 +140,6 @@ export type TShortFormAction =
    TSequence |
    TShortFormSetSpeed |
    TShortFormParallellRace |
-   TForever;
+   TForever |
+   TTwice |
+   TThrice;

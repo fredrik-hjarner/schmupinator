@@ -96,8 +96,7 @@ enemy:
   actions:
   - setShotSpeed: 2
   - { flag: right, yes: [{ type: mirrorX, value: true }] }
-  - repeat: 2
-    actions:
+  - twice:
     - *rotateLeftAndShoot
     - *moveRight
     - *rotateRightAndShoot
@@ -109,11 +108,10 @@ x-shootingPattern: &shootingPattern
   - wait: 75
   - forever:
     - setShotSpeed: 2.6
-    - { repeat: 3, actions: [*shootDown, wait: 3] }
+    - thrice: [*shootDown, wait: 3]
     - wait: 55
     - setShotSpeed: 2.2
-    - repeat: 2
-      actions:
+    - twice:
       - type: shoot_toward_player
       - { type: shoot_beside_player, degrees: 25 }
       - { type: shoot_beside_player, degrees: -25 }
