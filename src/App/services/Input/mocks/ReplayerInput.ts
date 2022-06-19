@@ -2,7 +2,6 @@ import type { App } from "../../../App";
 import type { ButtonsPressed, IInput } from "../IInput";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-
 import { replay } from "./replay";
 
 type TConstructor = {
@@ -22,7 +21,7 @@ export class ReplayerInput implements IInput {
    constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
-      this.startTime = performance.now();
+      this.startTime = BrowserDriver.PerformanceNow();
    }
 
    public Init = () => {
@@ -30,7 +29,7 @@ export class ReplayerInput implements IInput {
          if(event.type === "player_died"){
             const actualScore = this.app.points.points;
             const expectedScore = replay.score;
-            const seconds = (performance.now() - this.startTime)/1000;
+            const seconds = (BrowserDriver.PerformanceNow() - this.startTime)/1000;
             const timeStr = `took ${seconds} seconds to run test.`;
             if(actualScore === expectedScore){
                BrowserDriver.Alert(

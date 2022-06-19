@@ -4,6 +4,7 @@ import type { IGameLoop } from "../IGameLoop";
 import { initLayer1Element, initGameHideBottom, initGameHideRight } from "../gameDiv";
 import { px } from "../../../../utils/px";
 import { isHTMLDivElement } from "../../../../utils/typeAssertions";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 
 type TConstructor = {
    app: App;
@@ -57,6 +58,6 @@ export class FastGameLoop implements IGameLoop {
       for(let i=0; i<400; i++) {
          this.nextFrame();
       }
-      console.log(performance.now());
+      console.log(BrowserDriver.PerformanceNow());
    };
 }

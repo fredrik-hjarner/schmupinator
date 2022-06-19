@@ -18,4 +18,9 @@ export class BrowserDriver {
       // eslint-disable-next-line no-undef
       window.onload = callback;
    }
+
+   public static PerformanceNow = (): number => {
+      // eslint-disable-next-line no-undef
+      return performance.now();
+   };
 }

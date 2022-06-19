@@ -52,8 +52,8 @@ export class GameLoop implements IGameLoop {
    }
 
    Start = () => {
-      this.startTime = performance.now();
-      this.nextFrameMillis = performance.now() + millisPerFrame;
+      this.startTime = BrowserDriver.PerformanceNow();
+      this.nextFrameMillis = BrowserDriver.PerformanceNow() + millisPerFrame;
       setInterval(this.oneGameLoop, 0);
    };
 
@@ -84,7 +84,7 @@ export class GameLoop implements IGameLoop {
          }
       }
       // Display stats.
-      const elapsed = performance.now() - this.startTime;
+      const elapsed = BrowserDriver.PerformanceNow() - this.startTime;
       if(
          isHTMLDivElement(this.elapsedTimeDiv) &&
          isHTMLDivElement(this.framCounterDiv) &&
@@ -112,7 +112,7 @@ export class GameLoop implements IGameLoop {
             BrowserDriver.Alert("this.nextFrameMillis === null");
             throw new Error("this.nextFrameMillis === null");
          }
-         while (performance.now() >= this.nextFrameMillis) {
+         while (BrowserDriver.PerformanceNow() >= this.nextFrameMillis) {
             this.nextFrameMillis += millisPerFrame;
             this.nextFrame();
          }
