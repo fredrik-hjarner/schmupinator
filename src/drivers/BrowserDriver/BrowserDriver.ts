@@ -10,7 +10,7 @@ export class BrowserDriver {
 
    public static Alert = (message?: unknown): void => {
       // eslint-disable-next-line no-undef
-      alert(message);
+      window.alert(message);
    };
 
    // eslint-disable-next-line no-undef
@@ -21,11 +21,16 @@ export class BrowserDriver {
 
    public static PerformanceNow = (): number => {
       // eslint-disable-next-line no-undef
-      return performance.now();
+      return window.performance.now();
    };
 
    public static SetInterval = (callback: () => void, ms: number): number => {
       // eslint-disable-next-line no-undef
       return window.setInterval(callback, ms);
+   };
+
+   public static Fetch = (input: RequestInfo | URL): Promise<Response> => {
+      // eslint-disable-next-line no-undef
+      return window.fetch(input);
    };
 }

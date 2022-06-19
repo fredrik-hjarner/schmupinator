@@ -1,5 +1,4 @@
 module.exports = {
-  // "extends": "eslint:recommended",
   parser: "@typescript-eslint/parser",
   // TODO: Fix tests!
   ignorePatterns: [
@@ -13,7 +12,13 @@ module.exports = {
     project: ['./tsconfig.json'],
   },
   env: {
-    "browser": true,
+    /**
+     * I disable both node and browser because I dont allow to use anything that relies on a
+     * specific environment. If you want to use something that is not common to ALL environments
+     * you MUST use them in a highly controlled manner via some kind of "driver" such as my
+     * BrowserDriver class.
+     */
+    "browser": false,
     "node": false
   },
   globals: {

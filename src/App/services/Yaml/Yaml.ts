@@ -76,7 +76,7 @@ export class Yaml implements IService {
    };
 
    private loadYaml = async (url: string): Promise<string> => {
-      const res = await fetch(url);
+      const res = await BrowserDriver.Fetch(url);
       return await res.text();
    };
 }
