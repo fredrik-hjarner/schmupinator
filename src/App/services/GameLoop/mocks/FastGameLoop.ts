@@ -31,7 +31,7 @@ export class FastGameLoop implements IGameLoop {
    }
 
    Start = () => {
-      setInterval(this.oneGameLoop, 0);
+      BrowserDriver.SetInterval(this.oneGameLoop, 0);
    };
 
    /**

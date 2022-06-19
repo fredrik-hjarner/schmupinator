@@ -23,4 +23,9 @@ export class BrowserDriver {
       // eslint-disable-next-line no-undef
       return performance.now();
    };
+
+   public static SetInterval = (callback: () => void, ms: number): number => {
+      // eslint-disable-next-line no-undef
+      return window.setInterval(callback, ms);
+   };
 }
