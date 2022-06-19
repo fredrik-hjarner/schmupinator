@@ -3,6 +3,7 @@ import type { IGameLoop } from "../IGameLoop";
 
 import { initLayer1Element, initGameHideBottom, initGameHideRight } from "../gameDiv";
 import { px } from "../../../../utils/px";
+import { isHTMLDivElement } from "../../../../utils/typeAssertions";
 
 type TConstructor = {
    app: App;
@@ -13,7 +14,7 @@ export class FastGameLoop implements IGameLoop {
    public app: App;
    public name: string;
    public FrameCount: number;
-   private gameDiv: HTMLDivElement;
+   private gameDiv: unknown;
 
    /**
    * Public
@@ -43,7 +44,9 @@ export class FastGameLoop implements IGameLoop {
       this.FrameCount++;
       this.app.events.dispatchEvent({ type: "frame_tick" });
       const bgPos: number = Math.round(this.FrameCount/2);
-      this.gameDiv.style.backgroundPositionY = px(bgPos);
+      if(isHTMLDivElement(this.gameDiv)) {
+         this.gameDiv.style.backgroundPositionY = px(bgPos);
+      }
    };
 
    private oneGameLoop = () => {

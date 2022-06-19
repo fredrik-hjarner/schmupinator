@@ -10,6 +10,8 @@ import {
 } from "./gameDiv";
 import { px } from "../../../utils/px";
 import { IGameLoop } from "./IGameLoop";
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { isHTMLDivElement } from "../../../utils/typeAssertions";
 
 type TConstructor = {
    app: App;
@@ -20,12 +22,12 @@ export class GameLoop implements IGameLoop {
    public app: App;
    public name: string;
    public FrameCount: number;
-   readonly layer1Element: HTMLDivElement;
-   readonly layer2Element: HTMLDivElement;
-   readonly layer3Element: HTMLDivElement;
-   readonly framCounterDiv: HTMLDivElement;
-   readonly elapsedTimeDiv: HTMLDivElement;
-   readonly fpsDiv: HTMLDivElement;
+   readonly layer1Element: unknown;
+   readonly layer2Element: unknown;
+   readonly layer3Element: unknown;
+   readonly framCounterDiv: unknown;
+   readonly elapsedTimeDiv: unknown;
+   readonly fpsDiv: unknown;
    private nextFrameMillis: number | null;
    private startTime: number | null;
 
@@ -60,7 +62,7 @@ export class GameLoop implements IGameLoop {
    */
    private nextFrame = () => {
       if(this.startTime === null) {
-         alert("this.startTime === null");
+         BrowserDriver.Alert("this.startTime === null");
          throw new Error("this.startTime === null");
       }
       const gameSpeed = this.app.gameSpeed.GameSpeed;
@@ -71,15 +73,27 @@ export class GameLoop implements IGameLoop {
          const layer1YOffset: number = Math.round(this.FrameCount*baseSpeed * 0.3);
          const layer2YOffset: number = Math.round(this.FrameCount*baseSpeed);
          const layer3YOffset: number = Math.round(this.FrameCount*baseSpeed*1.5);
-         this.layer1Element.style.backgroundPositionY = px(layer1YOffset);
-         this.layer2Element.style.backgroundPositionY = px(layer2YOffset);
-         this.layer3Element.style.backgroundPositionY = px(layer3YOffset);
+         if(
+            isHTMLDivElement(this.layer1Element) &&
+            isHTMLDivElement(this.layer2Element) &&
+            isHTMLDivElement(this.layer3Element)
+         ) {
+            this.layer1Element.style.backgroundPositionY = px(layer1YOffset);
+            this.layer2Element.style.backgroundPositionY = px(layer2YOffset);
+            this.layer3Element.style.backgroundPositionY = px(layer3YOffset);
+         }
       }
       // Display stats.
       const elapsed = performance.now() - this.startTime;
-      this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
-      this.framCounterDiv.innerHTML = `frames: ${this.FrameCount}`;
-      this.fpsDiv.innerHTML = `fps: ${Math.round(this.FrameCount / (elapsed / 1000))}`;
+      if(
+         isHTMLDivElement(this.elapsedTimeDiv) &&
+         isHTMLDivElement(this.framCounterDiv) &&
+         isHTMLDivElement(this.fpsDiv)
+      ) {
+         this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
+         this.framCounterDiv.innerHTML = `frames: ${this.FrameCount}`;
+         this.fpsDiv.innerHTML = `fps: ${Math.round(this.FrameCount / (elapsed / 1000))}`;
+      }
    };
 
    /**
@@ -95,7 +109,7 @@ export class GameLoop implements IGameLoop {
        */
       for(let i=0; i<3; i++) {
          if(this.nextFrameMillis === null) {
-            alert("this.nextFrameMillis === null");
+            BrowserDriver.Alert("this.nextFrameMillis === null");
             throw new Error("this.nextFrameMillis === null");
          }
          while (performance.now() >= this.nextFrameMillis) {

@@ -5,6 +5,7 @@ import { Enemy } from "./Enemy";
 import { TEvent } from "../Events/Events";
 import { TShortFormAction } from "./actionTypesShortForms";
 import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 export class Enemies {
    app: App;
@@ -46,7 +47,7 @@ export class Enemies {
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = EnemyJsons.find(e => e.name === enemy);
       if(!enemyJson) {
-         alert(`Unknown enemy "${enemy}".`);
+         BrowserDriver.Alert(`Unknown enemy "${enemy}".`);
          throw new Error(`Unknown enemy "${enemy}".`);
       }
       /**

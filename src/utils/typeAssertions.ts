@@ -16,3 +16,8 @@ export const isHTMLDivElement = (value: unknown): value is HTMLDivElement => {
    // eslint-disable-next-line no-undef
    return value instanceof window.HTMLDivElement;
 };
+
+export const isHTMLInputElement = (value: unknown): value is HTMLInputElement => {
+   // eslint-disable-next-line no-undef
+   return value instanceof window.HTMLInputElement;
+};

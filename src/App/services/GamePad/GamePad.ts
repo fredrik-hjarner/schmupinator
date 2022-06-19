@@ -2,10 +2,12 @@ import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 export class GamePad {
    constructor() {
-      window.addEventListener("gamepadconnected", function(e) {
-         console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
-            e.gamepad.index, e.gamepad.id,
-            e.gamepad.buttons.length, e.gamepad.axes.length);
+      BrowserDriver.WithWindow(window => {
+         window.addEventListener("gamepadconnected", function(e) {
+            console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.",
+               e.gamepad.index, e.gamepad.id,
+               e.gamepad.buttons.length, e.gamepad.axes.length);
+         });
       });
    }
 

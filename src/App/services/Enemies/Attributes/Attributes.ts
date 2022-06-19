@@ -1,3 +1,5 @@
+import { BrowserDriver } from "../../../../drivers/BrowserDriver";
+
 /**
  * End-user should be able to set attributes, they will be like variables,
  * that is why they need to be able to be of different types.
@@ -17,7 +19,7 @@ class Attribute {
       if(type === "string" || type === "number" || type === "boolean") {
          this.type = type;
       } else {
-         alert(
+         BrowserDriver.Alert(
             `Attribute.constructor: typeof value was "${type}" which is not an allowed type.`
          );
          throw new Error(
@@ -47,7 +49,7 @@ export class Attributes {
 
    public UnsetAttribute = (name: string) => {
       if(!(name in this.attributes)){
-         alert(
+         BrowserDriver.Alert(
             `UnsetAttribute: Tried to unset an attribute "${name}" that does not exist.`
          );
          throw new Error(
@@ -60,7 +62,7 @@ export class Attributes {
    public GetAttribute = (name: string): Attribute => {
       const attr = this.attributes[name];
       if(attr === undefined) {
-         alert(
+         BrowserDriver.Alert(
             `GetAttribute: Tried to get an attribute "${name}" that does not exist.`
          );
          throw new Error(

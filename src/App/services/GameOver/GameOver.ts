@@ -2,6 +2,7 @@ import type { App } from "../../App";
 import type { TEvent } from "../Events/Events";
 import type { IService } from "../IService";
 
+import { isHTMLDivElement } from "../../../utils/typeAssertions";
 import { initGameOverElement } from "./gameOverElement";
 
 type TConstructor = {
@@ -12,7 +13,7 @@ type TConstructor = {
 export class GameOver implements IService {
    readonly app: App;
    readonly name: string;
-   gameOverElement: HTMLDivElement;
+   gameOverElement: unknown;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -46,9 +47,8 @@ export class GameOver implements IService {
    private showGameOver = () => {
       // TODO: Implement GameOver screenand behaviour.
       this.app.gameSpeed.GameSpeed = 0;
-      this.gameOverElement.style.visibility = "visible";
-      setTimeout(() => {
-         // location.reload();
-      }, 2000);
+      if(isHTMLDivElement(this.gameOverElement)) {
+         this.gameOverElement.style.visibility = "visible";
+      }
    };
 }
