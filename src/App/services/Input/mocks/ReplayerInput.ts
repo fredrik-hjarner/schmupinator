@@ -1,7 +1,7 @@
 import type { App } from "../../../App";
 import type { ButtonsPressed, IInput } from "../IInput";
 
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
+import { BrowserDriver, IsBrowser } from "../../../../drivers/BrowserDriver";
 import { replay } from "./replay";
 
 type TConstructor = {
@@ -27,18 +27,28 @@ export class ReplayerInput implements IInput {
    public Init = () => {
       this.app.events.subscribeToEvent(this.name, (event) => {
          if(event.type === "player_died"){
-            const actualScore = this.app.points.points;
-            const expectedScore = replay.score;
+            const actual = this.app.points.points;
+            const expected = replay.score;
             const seconds = (BrowserDriver.PerformanceNow() - this.startTime)/1000;
             const timeStr = `took ${seconds} seconds to run test.`;
-            if(actualScore === expectedScore){
-               BrowserDriver.Alert(
-                  `Test Success\nscore: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`
-               );
+            if(actual === expected){
+               const msg = `Test Success\nscore: ${expected}\ngot: ${actual}\n${timeStr}`;
+               if(IsBrowser()){
+                  BrowserDriver.Alert(msg);
+               } else {
+                  console.log(msg);
+                  // eslint-disable-next-line no-undef
+                  process.exit(0);
+               }
             } else {
-               BrowserDriver.Alert(
-                  `Test Failure\nexpected: ${expectedScore}\ngot: ${actualScore}\n${timeStr}`
-               );
+               const msg = `Test Failure\nexpected: ${expected}\ngot: ${actual}\n${timeStr}`;
+               if(IsBrowser()){
+                  BrowserDriver.Alert(msg);
+               } else {
+                  console.log(msg);
+                  // eslint-disable-next-line no-undef
+                  process.exit(1);
+               }
             }
          }
       });

@@ -1,4 +1,4 @@
-import { BrowserDriver } from "../drivers/BrowserDriver";
+import { BrowserDriver, IsBrowser } from "../drivers/BrowserDriver";
 
 export const isNumber = (value: unknown): value is number => {
    return typeof value === "number";
@@ -13,11 +13,17 @@ export const assertNumber = (value: unknown): number => {
 };
 
 export const isHTMLDivElement = (value: unknown): value is HTMLDivElement => {
+   if(!IsBrowser()) {
+      return false;
+   }
    // eslint-disable-next-line no-undef
    return value instanceof window.HTMLDivElement;
 };
 
 export const isHTMLInputElement = (value: unknown): value is HTMLInputElement => {
+   if(!IsBrowser()) {
+      return false;
+   }
    // eslint-disable-next-line no-undef
    return value instanceof window.HTMLInputElement;
 };

@@ -3,6 +3,9 @@ version: 3
 silent: true
 
 tasks:
+  e2e:
+    cmd: node dist/main.js
+
   eslint:
     - yarn --silent lint:eslint
     - echo "eslint finished"
@@ -12,6 +15,7 @@ tasks:
       - echo "build began"
       - yarn --silent build
       - yarn --silent add-extensions
+      - task: e2e
 
   lint-build-watcher:
     deps: [eslint, build]

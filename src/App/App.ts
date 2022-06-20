@@ -25,6 +25,7 @@ import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
 import { GameOver } from "./services/GameOver/GameOver";
 import { Yaml } from "./services/Yaml/Yaml";
+import { Graphics } from "./services/Graphics/Graphics";
 
 /**
  * "Mocks"
@@ -32,10 +33,16 @@ import { Yaml } from "./services/Yaml/Yaml";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
+import { MockGraphics } from "./services/Graphics/MockGraphics";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FastGameLoop } from "./services/GameLoop/mocks/FastGameLoop";
-import { Graphics } from "./services/Graphics/Graphics";
+
+/**
+ * Other
+ */
+import { IsBrowser } from "../drivers/BrowserDriver";
+import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
 
 export class App {
    input: IInput;
@@ -60,10 +67,14 @@ export class App {
       /**
        * Constuct services
        */
-      // this.input = new Input({ app: this, name: "input" });
-      this.input = new ReplayerInput({ app: this, name: "input" });
-      this.gameLoop = new GameLoop({ app: this, name: "gameLoop" });
-      // this.gameLoop = new FastGameLoop({ app: this, name: "gameLoop" });
+      this.input = IsBrowser() ?
+         new Input({ app: this, name: "input" }) :
+         // new ReplayerInput({ app: this, name: "input" }) :
+         new ReplayerInput({ app: this, name: "input" });
+      this.gameLoop = IsBrowser() ?
+         new GameLoop({ app: this, name: "gameLoop" }) :
+         // new FastGameLoop({ app: this, name: "gameLoop" }) :
+         new NodeGameLoop({ app: this, name: "nodeGameLoop" });
       this.player = new Player(this); // TODO: player should also have name
       this.playerShots = new Shots(
          this,
@@ -82,7 +93,9 @@ export class App {
       this.points = new Points({ app: this, name: "points" });
       this.gameOver = new GameOver({ app: this, name: "gameOver" });
       this.yaml = new Yaml({ app: this, name: "yaml" });
-      this.graphics = new Graphics({ app: this, name: "graphics" });
+      this.graphics = IsBrowser() ?
+         new Graphics({ app: this, name: "graphics" }) :
+         new MockGraphics({ app: this, name: "mockGraphics" });
    }
 
    /**

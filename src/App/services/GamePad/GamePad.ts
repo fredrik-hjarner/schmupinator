@@ -1,4 +1,4 @@
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
 
 export class GamePad {
    constructor() {
@@ -18,7 +18,7 @@ export class GamePad {
    get down(): boolean { return this.getPressedButton(13); }
 
    getPressedButton = (index: number): boolean => {
-      if(!BrowserDriver.IsBrowser()) {
+      if(!IsBrowser()) {
          return false;
       }
       return BrowserDriver.WithWindow(window => {
