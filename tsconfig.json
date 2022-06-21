@@ -35,5 +35,8 @@
     //     "node_modules/yaml"
     //   ] // This mapping is relative to "baseUrl"
     // }
+  },
+  "ts-node": {
+    "esm": true
   }
 }

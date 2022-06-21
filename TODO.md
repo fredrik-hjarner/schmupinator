@@ -4,10 +4,6 @@ original state and the progress to Enemy (that iself executes the stuff).
 
 * Add reset.css and normalize.css.
 
-* Refactor rending engine and sprite pools, maybe have a Graphics service.
-Actually max shots and stuff should NOT be connected to the number of sprites!!! because that is a
-problem, I want those two to be fully separated.
-
 * Add so that I can hover with mouse to see x, y positions in absolute x,y on gameDiv.
 
 * Maybe I could have ADVANCED and SIMPLE actions, where ADVANCED actions are transformed into
@@ -69,9 +65,6 @@ maxChildren would be the max number of spawns. I would need to implement parent-
 * Add events (subs and dispatches) declaration to IService to require services to specificy what
 they subscribe to and what they dispatch. Throw runtime error when it tried to do something it has
 not declared!!
-
-* mock awat the window object somehow. A BrowserDriver or something. A BrowserDriverMock will have
-all operations on window be noops.
 
 * Correctly spell parallel with one l.
 
