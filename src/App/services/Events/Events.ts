@@ -1,5 +1,6 @@
 import type { App } from "../../App";
 import type { TCollisions } from "../Collisions/Collisions";
+import type { IService } from "../IService";
 
 type TConstructor = {
    app: App,
@@ -22,7 +23,7 @@ export type TEvent =
    { type: "player_died" } | // when player dies.
    { type: "add_points", points: number }; // add points to the player (could be negative).
 
-export class Events {
+export class Events implements IService {
    app: App;
    name: string;
    subscribers: TSubscribers;

@@ -69,3 +69,5 @@ not declared!!
 * Correctly spell parallel with one l.
 
 * Force with eslint to always specify "private", "public".
+
+* I should probably not send in `app`, but rather `deps: IService[]` into services.

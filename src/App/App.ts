@@ -45,6 +45,8 @@ import { IsBrowser } from "../drivers/BrowserDriver";
 import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
 
 export class App {
+   // types here should not be IService but rather something that implements IService.
+   // TODO: also all types should NOT be concrete types, but interfaces.
    input: IInput;
    gameLoop: IGameLoop;
    player: Player;
@@ -68,14 +70,14 @@ export class App {
        * Constuct services
        */
       this.input = IsBrowser() ?
-         new Input({ app: this, name: "input" }) :
-         // new ReplayerInput({ app: this, name: "input" }) :
+         // new Input({ app: this, name: "input" }) :
+         new ReplayerInput({ app: this, name: "input" }) :
          new ReplayerInput({ app: this, name: "input" });
       this.gameLoop = IsBrowser() ?
          new GameLoop({ app: this, name: "gameLoop" }) :
          // new FastGameLoop({ app: this, name: "gameLoop" }) :
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
-      this.player = new Player(this); // TODO: player should also have name
+      this.player = new Player({ app: this, name: "player" });
       this.playerShots = new Shots(
          this,
          // TODO: actually dont need name, could use uuid().
@@ -86,8 +88,8 @@ export class App {
          { name: "enemyShots", maxShots: 25, color: "red" }
       );
       this.enemies = new Enemies(this, { name: "enemies" });
-      this.gamepad = new GamePad();
-      this.collisions = new Collisions(this);
+      this.gamepad = new GamePad({ app: this, name: "gamePad" });
+      this.collisions = new Collisions({ app: this, name: "collisions" });
       this.events = new Events({ app: this, name: "events" });
       this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
       this.points = new Points({ app: this, name: "points" });

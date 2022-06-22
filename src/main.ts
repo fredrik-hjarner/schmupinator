@@ -9,5 +9,4 @@ BrowserDriver.OnLoad(async () => {
    // Start
    console.log("Start");
    app.gameLoop.Start();
-   console.log("Finished!");
 });

@@ -1,4 +1,5 @@
 import type { App } from "../../App";
+import type { IService } from "../IService";
 
 export type PosAndRadius = {X: number, Y: number, Radius: number };
 
@@ -8,14 +9,21 @@ export type TCollisions = {
   enemiesThatWereHit: string[];
 };
 
-export class Collisions {
+type TConstructor = {
    app: App;
+   name: string;
+}
+
+export class Collisions implements IService {
+   app: App;
+   name: string;
 
    /**
    * Public
    */
-   constructor(app: App) {
-      this.app = app;
+   constructor(params: TConstructor) {
+      this.app = params.app;
+      this.name = params.name;
    }
 
    /**

@@ -2,14 +2,21 @@ import type { App } from "../../App";
 import type { PotentialShot } from "../Shots/PotentialShot";
 import type { TCollisions } from "../Collisions/Collisions";
 import type { IGraphics , THandle, TResponse_AskForElement } from "../Graphics/IGraphics";
+import type { IService } from "../IService";
 
 import {
    framesBewteenPlayerShots, playerInvincible, playerShotSpeed,
    playerSpeedPerFrame, resolutionHeight, resolutionWidth
 } from "../../../consts";
 
-export class Player {
+type TConstructor = {
    app: App;
+   name: string;
+}
+
+export class Player implements IService {
+   app: App;
+   name: string;
    private x: number;
    private y: number;
    private graphics!: IGraphics; // Graphics service
@@ -20,8 +27,9 @@ export class Player {
    /**
     * Public
     */
-   constructor(app: App) {
-      this.app = app;
+   constructor(params: TConstructor) {
+      this.app = params.app;
+      this.name = params.name;
       this.x = resolutionWidth/2;
       this.y = resolutionHeight-20;
       this.diameter = 20;

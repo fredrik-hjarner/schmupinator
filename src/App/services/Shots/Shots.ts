@@ -1,9 +1,10 @@
 import type { App } from "../../App";
 import type { PotentialShot } from "./PotentialShot";
+import type { IService } from "../IService";
 
 import { Shot } from "./Shot";
 
-export class Shots {
+export class Shots implements IService {
    app: App;
    name: string;
    private maxShots: number;

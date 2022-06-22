@@ -1,5 +1,6 @@
 import type { Vector as TVector } from "../../../math/bezier";
 import type { App } from "../../App";
+import type { IService } from "../IService";
 
 import { Enemy } from "./Enemy";
 import { TEvent } from "../Events/Events";
@@ -7,10 +8,10 @@ import { TShortFormAction } from "./actionTypesShortForms";
 import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
-export class Enemies {
+export class Enemies implements IService {
    app: App;
-   enemies: Enemy[];
    name: string;
+   enemies: Enemy[];
 
    /**
     * Public
