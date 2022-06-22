@@ -61,6 +61,10 @@ export class Player implements IService {
          type:"actionSetColor",
          payload: { handle: this.graphicsHandle, color: "aqua" }
       });
+      this.graphics.Dispatch({
+         type:"actionSetShape",
+         payload: { handle: this.graphicsHandle, shape: "circle" }
+      });
 
       // TODO: Use this.name instead.
       this.app.events.subscribeToEvent(

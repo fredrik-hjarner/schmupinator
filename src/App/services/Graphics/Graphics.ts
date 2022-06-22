@@ -1,8 +1,8 @@
 import type { App } from "../../App";
 import type {
    IGraphics, TAction_Release, TAction_SetColor, TAction_SetDiameter, TAction_SetHealth,
-   TAction_SetPosition, TGraphicsAction, TGraphicsResponse, THandle, TResponse_AskForElement,
-   TResponse_Void
+   TAction_SetPosition, TAction_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
+   TResponse_AskForElement, TResponse_Void, TShape
 } from "./IGraphics";
 
 import { resolutionWidth, zIndices } from "../../../consts";
@@ -16,6 +16,8 @@ type TGraphicsElement = {
    inUse: boolean // If the GraphicsElement is in use, or if it is free to give away.
    element: HTMLDivElement;
    index: number;
+   shape: TShape;
+   diameter: number;
 }
 
 type TConstructor = { app: App; name: string };
@@ -50,6 +52,8 @@ export class Graphics implements IGraphics {
             return this.actionRelease(action.payload);
          case "actionSetColor":
             return this.actionSetColor(action.payload);
+         case "actionSetShape":
+            return this.actionSetShape(action.payload);
       }
    };
 
@@ -120,7 +124,7 @@ export class Graphics implements IGraphics {
          return element;
       }) as HTMLDivElement;
 
-      return { handle, inUse: false, element, index: i };
+      return { handle, inUse: false, element, index: i, shape: "circle", diameter: 5 };
    };
 
    // Helper that finds and assert that an element exists and is in use.
@@ -164,7 +168,7 @@ export class Graphics implements IGraphics {
    private actionSetDiameter =
       ({ handle, diameter }: TAction_SetDiameter["payload"]): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
-         const oldRadius = parseFloat(element.element.style.width)/2;
+         const oldRadius = element.diameter/2;
          const radius = diameter/2;
          const delta = radius - oldRadius;
          const style = element.element.style;
@@ -172,6 +176,8 @@ export class Graphics implements IGraphics {
          style.height = px(diameter);
          style.left = px(parseFloat(style.left) - delta);
          style.top = px(parseFloat(style.top) - delta);
+
+         element.diameter = diameter;
          return { type: "responseVoid" };
       };
 
@@ -198,6 +204,48 @@ export class Graphics implements IGraphics {
       ({ handle, color }: TAction_SetColor["payload"]): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          element.element.style.borderColor = color;
+         return { type: "responseVoid" };
+      };
+
+   private actionSetShape =
+      ({ handle, shape }: TAction_SetShape["payload"]): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
+         if(element.shape === shape) {
+            return { type: "responseVoid" };
+         }
+         switch(shape) {
+            case "circle": {
+               element.element.style.borderRadius = px(5000);
+               break;
+            }
+            case "square": {
+               // element.style.position = "fixed";
+               // element.style.boxSizing = "border-box";
+               // element.style.borderColor = color;
+               // element.style.borderStyle = "solid";
+               // element.style.borderWidth = px(radius); // filled
+               // element.style.width = px(diameter);
+               // element.style.height = px(diameter);
+               // element.style.top = px(top);
+               // element.style.left = px(left);
+               element.element.style.borderRadius = px(0);
+               break;
+            }
+            case "triangle": {
+               const dia = element.diameter;
+               element.element.style.borderRadius = px(0);
+               element.element.style.width = px(0);
+               element.element.style.height = px(0);
+               element.element.style.borderTopWidth = px(0);
+               element.element.style.borderLeft = `${px(dia/2)} solid transparent`;
+               element.element.style.borderRight = `${px(dia/2)} solid transparent`;
+               element.element.style.borderBottom = `${px(dia)} solid red`;
+               element.element.style.transform =
+                  `translateX(${px(-dia/2)}) translateY(${px(-dia/2)})`;
+               break;
+            }
+         }
+         element.shape = shape;
          return { type: "responseVoid" };
       };
 }

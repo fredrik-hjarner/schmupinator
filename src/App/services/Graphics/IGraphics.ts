@@ -2,6 +2,8 @@ import type { IService } from "../IService";
 
 export type THandle = string;
 
+export type TShape = "circle" | "square" | "triangle";
+
 /***********
  * Actions *
  ***********/
@@ -23,12 +25,16 @@ export type TAction_SetHealth = { type: "actionSetHealth", payload: {
 export type TAction_Release = { type: "actionRelease", payload: { handle: THandle }};
 export type TAction_SetColor = {
    type: "actionSetColor",
-   payload: { handle: THandle, color: string
-}};
+   payload: { handle: THandle, color: string }
+};
+export type TAction_SetShape = {
+   type: "actionSetShape",
+   payload: { handle: THandle, shape: TShape }
+};
 
 export type TGraphicsAction =
    TAction_AskForElement | TAction_SetPosition | TAction_SetDiameter | TAction_SetHealth |
-   TAction_Release | TAction_SetColor;
+   TAction_Release | TAction_SetColor | TAction_SetShape;
 
 /*************
  * Responses *
