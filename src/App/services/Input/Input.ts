@@ -36,7 +36,8 @@ export class Input implements IInput {
       });
    }
 
-   public Init = () => {
+   // eslint-disable-next-line @typescript-eslint/require-await
+   public Init = async () => {
       this.app.events.subscribeToEvent(this.name, (event) => {
          if(event.type === "player_died"){
             console.log("Input.history:");

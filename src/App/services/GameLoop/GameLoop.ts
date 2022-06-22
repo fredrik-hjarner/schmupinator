@@ -51,6 +51,10 @@ export class GameLoop implements IGameLoop {
       this.startTime = null;
    }
 
+   Init = async () => {
+      // noop
+   };
+
    Start = () => {
       this.startTime = BrowserDriver.PerformanceNow();
       this.nextFrameMillis = BrowserDriver.PerformanceNow() + millisPerFrame;

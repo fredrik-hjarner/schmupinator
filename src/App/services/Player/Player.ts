@@ -42,7 +42,8 @@ export class Player implements IService {
     * since the order on they are added to app makes a difference in
     * that case.
     */
-   Init = () => {
+   // eslint-disable-next-line @typescript-eslint/require-await
+   Init = async () => {
       this.graphics = this.app.graphics;
       const response =
          this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;

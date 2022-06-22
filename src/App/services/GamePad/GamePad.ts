@@ -23,6 +23,10 @@ export class GamePad implements IService {
          });
       });
    }
+   
+   Init = async () => {
+      // noop
+   };
 
    get shoot(): boolean { return this.getPressedButton(0); }
    get left(): boolean { return this.getPressedButton(14); }

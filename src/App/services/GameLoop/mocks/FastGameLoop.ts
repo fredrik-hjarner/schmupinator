@@ -29,6 +29,10 @@ export class FastGameLoop implements IGameLoop {
       initGameHideBottom();
       initGameHideRight();
    }
+   
+   Init = async () => {
+      // noop
+   };
 
    Start = () => {
       BrowserDriver.SetInterval(this.oneGameLoop, 0);

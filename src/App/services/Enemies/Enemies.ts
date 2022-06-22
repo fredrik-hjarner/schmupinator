@@ -28,7 +28,8 @@ export class Enemies implements IService {
     * since the order on they are added to app makes a difference in
     * that case.
     */
-   Init = () => {
+   // eslint-disable-next-line @typescript-eslint/require-await
+   Init = async () => {
       /**
        * The "spawner" enemy is not a normal enemy.
        * It can do everything that an enemy can do, but it's

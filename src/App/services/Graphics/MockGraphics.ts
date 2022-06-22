@@ -12,6 +12,10 @@ export class MockGraphics implements IGraphics {
       this.name = name;
    }
 
+   Init = async () => {
+      // noop
+   };
+
    public Dispatch = (_: TGraphicsAction): TGraphicsResponse => {
       // noop
       return { type: "responseVoid" };

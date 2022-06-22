@@ -21,7 +21,8 @@ export class GameOver implements IService {
       this.gameOverElement = initGameOverElement();
    }
 
-   Init = () => {
+   // eslint-disable-next-line @typescript-eslint/require-await
+   Init = async () => {
       this.app.events.subscribeToEvent(this.name, this.onEvent);
    };
 

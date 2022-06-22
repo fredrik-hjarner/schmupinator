@@ -114,13 +114,19 @@ export class App {
        * yaml async. Enemies needs to be available at least when Enemies service tries to use them.
        */
       await this.yaml.Init();
-      this.input.Init();
-      this.player.Init();
-      this.playerShots.Init();
-      this.enemyShots.Init();
-      this.enemies.Init();
-      this.collisions.Init();
-      this.points.Init();
-      this.gameOver.Init();
+
+      await this.input.Init();
+      await this.gameLoop.Init();
+      await this.player.Init();
+      await this.playerShots.Init();
+      await this.enemyShots.Init();
+      await this.enemies.Init();
+      await this.gamepad.Init();
+      await this.collisions.Init();
+      await this.events.Init();
+      await this.gameSpeed.Init();
+      await this.points.Init();
+      await this.gameOver.Init();
+      await this.graphics.Init();
    };
 }

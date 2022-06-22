@@ -31,7 +31,8 @@ export class Shots implements IService {
     * since the order on they are added to app makes a difference in
     * that case.
     */
-   Init = () => {
+   // eslint-disable-next-line @typescript-eslint/require-await
+   Init = async () => {
       this.app.events.subscribeToEvent(
          this.name,
          ({ type }) => {

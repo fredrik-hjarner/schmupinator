@@ -23,6 +23,10 @@ export class NodeGameLoop implements IGameLoop {
       this.FrameCount = 0;
    }
 
+   Init = async () => {
+      // noop
+   };
+
    Start = () => {
       BrowserDriver.SetInterval(this.oneGameLoop, 0);
    };

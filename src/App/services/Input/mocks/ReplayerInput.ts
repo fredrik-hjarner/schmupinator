@@ -24,7 +24,8 @@ export class ReplayerInput implements IInput {
       this.startTime = BrowserDriver.PerformanceNow();
    }
 
-   public Init = () => {
+   // eslint-disable-next-line @typescript-eslint/require-await
+   public Init = async () => {
       this.app.events.subscribeToEvent(this.name, (event) => {
          if(event.type === "player_died"){
             const actual = this.app.points.points;

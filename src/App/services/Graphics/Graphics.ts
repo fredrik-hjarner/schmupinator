@@ -32,6 +32,10 @@ export class Graphics implements IGraphics {
       this.elementPool = this.initElementPool();
    }
 
+   Init = async () => {
+      // noop
+   };
+
    public Dispatch = (action: TGraphicsAction): TGraphicsResponse => {
       switch(action.type) {
          case "actionAskForElement":

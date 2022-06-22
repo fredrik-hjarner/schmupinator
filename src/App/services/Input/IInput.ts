@@ -10,5 +10,4 @@ export type ButtonsPressed = {
 
 export interface IInput extends IService {
    ButtonsPressed: ButtonsPressed
-   Init: () => void
 }

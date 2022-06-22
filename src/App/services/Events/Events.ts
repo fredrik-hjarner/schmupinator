@@ -34,6 +34,10 @@ export class Events implements IService {
       this.subscribers = {}; // key-callback pairs
    }
 
+   Init = async () => {
+      // noop
+   };
+
    public subscribeToEvent = (nameOfSubscriber: string, callback: TCallback) => {
       this.subscribers[nameOfSubscriber] = callback;
    };

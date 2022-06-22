@@ -23,6 +23,10 @@ export class GameSpeed implements IService {
       this.gameSpeedElement = initGameSpeedElement();
    }
 
+   Init = async () => {
+      // noop
+   };
+
    // nr of frames per 1/60 seconds.
    public get GameSpeed() {
       if(isHTMLInputElement(this.gameSpeedElement)) {
