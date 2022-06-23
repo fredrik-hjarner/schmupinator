@@ -1,9 +1,9 @@
-import type { IWatcher, WatchParams } from './IWatcher';
+import type { IWatcher, WatchParams } from './IWatcher.js';
 
 import { watch } from 'chokidar';
 
-export const Watcher: IWatcher = {
-   watch: (params: WatchParams) => {
+export class Watcher implements IWatcher {
+   public watch = (params: WatchParams) => {
       const { globsToWatch, fileChangedCallback } = params;
       
       const onError = (error: Error) => {
