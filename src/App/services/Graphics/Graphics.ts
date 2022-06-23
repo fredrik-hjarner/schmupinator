@@ -1,7 +1,7 @@
 import type { App } from "../../App";
 import type {
-   IGraphics, TAction_Release, TAction_SetColor, TAction_SetDiameter, TAction_SetHealth,
-   TAction_SetPosition, TAction_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
+   IGraphics, TGraphics_Release, TGraphics_SetColor, TGraphics_SetDiameter, TGraphics_SetHealth,
+   TGraphics_SetPosition, TGraphics_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
    TResponse_AskForElement, TResponse_Void, TShape
 } from "./IGraphics";
 
@@ -152,7 +152,7 @@ export class Graphics implements IGraphics {
    };
 
    private actionSetPosition =
-      ({ handle, x, y }: Omit<TAction_SetPosition,"type">): TResponse_Void => {
+      ({ handle, x, y }: Omit<TGraphics_SetPosition,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          const diameter = parseFloat(element.element.style.width);
          const radius = diameter/2;
@@ -166,7 +166,7 @@ export class Graphics implements IGraphics {
       };
 
    private actionSetDiameter =
-      ({ handle, diameter }: Omit<TAction_SetDiameter,"type">): TResponse_Void => {
+      ({ handle, diameter }: Omit<TGraphics_SetDiameter,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          const oldRadius = element.diameter/2;
          const radius = diameter/2;
@@ -182,7 +182,7 @@ export class Graphics implements IGraphics {
       };
 
    private actionSetHealth =
-      ({ handle, healthFactor }: Omit<TAction_SetHealth,"type">): TResponse_Void => {
+      ({ handle, healthFactor }: Omit<TGraphics_SetHealth,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          const radius = parseFloat(element.element.style.width)/2;
          element.element.style.borderWidth = px(radius * healthFactor);
@@ -190,7 +190,7 @@ export class Graphics implements IGraphics {
       };
 
    private actionRelease =
-      ({ handle }: Omit<TAction_Release,"type">): TResponse_Void => {
+      ({ handle }: Omit<TGraphics_Release,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
 
          // Put back in resting position and reset styles.
@@ -201,14 +201,14 @@ export class Graphics implements IGraphics {
       };
    
    private actionSetColor =
-      ({ handle, color }: Omit<TAction_SetColor,"type">): TResponse_Void => {
+      ({ handle, color }: Omit<TGraphics_SetColor,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          element.element.style.borderColor = color;
          return { type: "responseVoid" };
       };
 
    private actionSetShape =
-      ({ handle, shape }: Omit<TAction_SetShape,"type">): TResponse_Void => {
+      ({ handle, shape }: Omit<TGraphics_SetShape,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          if(element.shape === shape) {
             return { type: "responseVoid" };

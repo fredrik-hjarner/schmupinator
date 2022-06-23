@@ -8,34 +8,34 @@ export type TShape = "circle" | "square" | "triangle";
  * Actions *
  ***********/
 // Asks the Graphics Engine for a graphics element if you want one.
-export type TAction_AskForElement = { type: "actionAskForElement" };
-export type TAction_SetPosition = {
+export type TGraphics_AskForElement = { type: "actionAskForElement" };
+export type TGraphics_SetPosition = {
    type: "actionSetPosition",
    handle: THandle, x?: number, y?: number
 };
-export type TAction_SetDiameter = {
+export type TGraphics_SetDiameter = {
    type: "actionSetDiameter",
    handle: THandle, diameter: number
 };
-export type TAction_SetHealth = {
+export type TGraphics_SetHealth = {
    type: "actionSetHealth",
    handle: THandle,
    healthFactor: number // 0 = no health, 1 = full health
 };
 // Releases a GraphicsElement, so it's free for other to pick up/ask for/claim.
-export type TAction_Release = { type: "actionRelease", handle: THandle };
-export type TAction_SetColor = {
+export type TGraphics_Release = { type: "actionRelease", handle: THandle };
+export type TGraphics_SetColor = {
    type: "actionSetColor",
    handle: THandle, color: string
 };
-export type TAction_SetShape = {
+export type TGraphics_SetShape = {
    type: "actionSetShape",
    handle: THandle, shape: TShape
 };
 
 export type TGraphicsAction =
-   TAction_AskForElement | TAction_SetPosition | TAction_SetDiameter | TAction_SetHealth |
-   TAction_Release | TAction_SetColor | TAction_SetShape;
+   TGraphics_AskForElement | TGraphics_SetPosition | TGraphics_SetDiameter | TGraphics_SetHealth |
+   TGraphics_Release | TGraphics_SetColor | TGraphics_SetShape;
 
 /*************
  * Responses *
