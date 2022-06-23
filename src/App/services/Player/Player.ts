@@ -46,23 +46,23 @@ export class Player implements IService {
    Init = async () => {
       this.graphics = this.app.graphics;
       const response =
-         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
+         this.graphics.Dispatch({ type:"gfxAskForElement" }) as TResponse_AskForElement;
       this.graphicsHandle = response.handle;
       this.updateGraphicsPosition();
       this.graphics.Dispatch({
-         type:"actionSetDiameter",
+         type:"gfxSetDiameter",
          handle: this.graphicsHandle, diameter: this.diameter
       });
       this.graphics.Dispatch({
-         type:"actionSetHealth",
+         type:"gfxSetHealth",
          handle: this.graphicsHandle, healthFactor: 1
       });
       this.graphics.Dispatch({
-         type:"actionSetColor",
+         type:"gfxSetColor",
          handle: this.graphicsHandle, color: "aqua"
       });
       this.graphics.Dispatch({
-         type:"actionSetShape",
+         type:"gfxSetShape",
          handle: this.graphicsHandle, shape: "circle"
       });
 
@@ -85,7 +85,7 @@ export class Player implements IService {
    private updateGraphicsPosition = () => {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
-            type:"actionSetPosition",
+            type:"gfxSetPosition",
             handle: this.graphicsHandle, x: this.x, y: this.y
          });
       }

@@ -43,19 +43,19 @@ export class Shot {
 
       this.graphics = this.app.graphics;
       const response =
-         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
+         this.graphics.Dispatch({ type:"gfxAskForElement" }) as TResponse_AskForElement;
       this.graphicsHandle = response.handle;
       this.updateGraphicsPosition();
       this.graphics.Dispatch({
-         type:"actionSetDiameter",
+         type:"gfxSetDiameter",
          handle: this.graphicsHandle, diameter: this.diameter
       });
       this.graphics.Dispatch({
-         type:"actionSetHealth",
+         type:"gfxSetHealth",
          handle: this.graphicsHandle, healthFactor: 1
       });
       this.graphics.Dispatch({
-         type:"actionSetColor",
+         type:"gfxSetColor",
          handle: this.graphicsHandle, color
       });
    }
@@ -64,7 +64,7 @@ export class Shot {
    private updateGraphicsPosition = () => {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
-            type:"actionSetPosition",
+            type:"gfxSetPosition",
             handle: this.graphicsHandle, x: this.x, y: this.y
          });
       }
@@ -116,7 +116,7 @@ export class Shot {
       this.shotsService.shots = this.shotsService.shots.filter(s => s !== this);
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
-            type: "actionRelease",
+            type: "gfxRelease",
             handle: this.graphicsHandle
          });
          this.graphicsHandle = undefined;

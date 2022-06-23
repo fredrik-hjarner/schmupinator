@@ -64,18 +64,18 @@ export class Enemy {
       // New graphics engine code
       this.graphics = this.app.graphics;
       const response =
-         this.graphics.Dispatch({ type:"actionAskForElement" }) as TResponse_AskForElement;
+         this.graphics.Dispatch({ type:"gfxAskForElement" }) as TResponse_AskForElement;
       this.graphicsHandle = response.handle;
       this.graphics.Dispatch({
-         type:"actionSetPosition",
+         type:"gfxSetPosition",
          handle: this.graphicsHandle, x: this.X, y: this.Y
       });
       this.graphics.Dispatch({
-         type:"actionSetDiameter",
+         type:"gfxSetDiameter",
          handle: this.graphicsHandle, diameter: json.diameter
       });
       this.graphics.Dispatch({
-         type:"actionSetColor",
+         type:"gfxSetColor",
          handle: this.graphicsHandle, color: "red"
       });
 
@@ -108,7 +108,7 @@ export class Enemy {
       this.updateDisplayHealth();
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
-            type:"actionSetPosition",
+            type:"gfxSetPosition",
             handle: this.graphicsHandle, x: this.X, y: this.Y
          });
       }
@@ -145,7 +145,7 @@ export class Enemy {
       // Clear up graphics.
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
-            type: "actionRelease",
+            type: "gfxRelease",
             handle: this.graphicsHandle
          });
          this.graphicsHandle = undefined;
@@ -359,7 +359,7 @@ export class Enemy {
 
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
-            type:"actionSetHealth",
+            type:"gfxSetHealth",
             handle: this.graphicsHandle, healthFactor: factorHealthLeft
          });
       }
