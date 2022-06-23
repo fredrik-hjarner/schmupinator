@@ -2,7 +2,9 @@ import type { App } from "../../App";
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
-import type { THandle, TResponse_AskForElement, IGraphics } from "../Graphics/IGraphics";
+import type {
+   THandle, TResponse_AskForElement, IGraphics, TGraphicsAction
+} from "../Graphics/IGraphics";
 import type { TAttributeValue } from "./Attributes/Attributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
@@ -77,6 +79,10 @@ export class Enemy {
       this.graphics.Dispatch({
          type:"gfxSetColor",
          handle: this.graphicsHandle, color: "red"
+      });
+      this.graphics.Dispatch({
+         type:"gfxSetShape",
+         handle: this.graphicsHandle, shape: "diamondShield"
       });
 
       this.updateDisplayHealth();
@@ -209,24 +215,21 @@ export class Enemy {
             break;
          }
 
-         case "moveDelta": {
-            const { x, y } = action;
-            this.moveDelta({ x, y });
+         case "moveDelta":
+            this.moveDelta({ x: action.x, y: action.y });
             break;
-         }
 
-         case "setAttribute": {
-            const { attribute, value } = action;
-            this.setAttribute({ attribute, value });
+         case "setAttribute":
+            this.setAttribute({ attribute: action.attribute, value: action.value });
             break;
-         }
 
          case "die":
             this.die();
             break;
       
          default:
-            console.error(`unknown action type: ${action.type}`);
+            // Add the handle, that we have, to the gfx action from the commands.
+            this.graphics.Dispatch({ ...action, handle: this.graphicsHandle } as TGraphicsAction);
       }
    };
 

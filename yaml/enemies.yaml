@@ -38,6 +38,9 @@ x-stage2: &stage2
   - wait: 270
   - do: [{ spawn: cloner, x: *c2, y: -20 }, { spawn: cloner, x: *c8, y: -20 }]
 
+x-stage3: &stage3
+  - { spawn: shapeShifter, x: *c5, y: *r5 }
+
 enemy:
     name: spawner
     diameter: 20
@@ -45,6 +48,22 @@ enemy:
     actions:
         - do: *stage1
         # - do: *stage2
+        # - do: *stage3
+---
+enemy:
+    name: shapeShifter
+    diameter: 30
+    hp: 100
+    actions:
+      - forever:
+        - { type: gfxSetShape, shape: circle }
+        - wait: 60
+        - { type: gfxSetShape, shape: square }
+        - wait: 60
+        - { type: gfxSetShape, shape: triangle }
+        - wait: 60
+        - { type: gfxSetShape, shape: diamondShield }
+        - wait: 60
 ---
 enemy:
   name: nonShootingAimer

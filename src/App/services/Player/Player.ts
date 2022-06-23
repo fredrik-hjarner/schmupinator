@@ -63,7 +63,7 @@ export class Player implements IService {
       });
       this.graphics.Dispatch({
          type:"gfxSetShape",
-         handle: this.graphicsHandle, shape: "circle"
+         handle: this.graphicsHandle, shape: "diamondShield"
       });
 
       // TODO: Use this.name instead.

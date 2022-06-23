@@ -54,6 +54,13 @@ export class Graphics implements IGraphics {
             return this.actionSetColor(action);
          case "gfxSetShape":
             return this.actionSetShape(action);
+         default: {
+            // eslint-disable-next-line
+            // @ts-ignore
+            const errMsg = `unknown action type: ${action.type}`; // eslint-disable-line
+            BrowserDriver.Alert(errMsg); 
+            throw new Error(errMsg);
+         }
       }
    };
 
@@ -91,7 +98,6 @@ export class Graphics implements IGraphics {
       ge.element.style.height = px(diameter);
       ge.element.style.top = px(top);
       ge.element.style.left = px(left);
-      ge.element.style.borderRadius = px(5000);
       ge.element.style.zIndex = zIndices.graphicsEngineElements;
    };
 
@@ -118,7 +124,6 @@ export class Graphics implements IGraphics {
          element.style.height = px(diameter);
          element.style.top = px(top);
          element.style.left = px(left);
-         element.style.borderRadius = px(5000);
          element.style.zIndex = zIndices.graphicsEngineElements;
          window.document.body.appendChild(element);
          return element;
@@ -215,35 +220,21 @@ export class Graphics implements IGraphics {
          }
          switch(shape) {
             case "circle": {
-               element.element.style.borderRadius = px(5000);
+               element.element.style.clipPath = "circle(50%)";
                break;
             }
             case "square": {
-               // element.style.position = "fixed";
-               // element.style.boxSizing = "border-box";
-               // element.style.borderColor = color;
-               // element.style.borderStyle = "solid";
-               // element.style.borderWidth = px(radius); // filled
-               // element.style.width = px(diameter);
-               // element.style.height = px(diameter);
-               // element.style.top = px(top);
-               // element.style.left = px(left);
-               element.element.style.borderRadius = px(0);
+               element.element.style.clipPath = "none";
                break;
             }
             case "triangle": {
-               const dia = element.diameter;
-               element.element.style.borderRadius = px(0);
-               element.element.style.width = px(0);
-               element.element.style.height = px(0);
-               element.element.style.borderTopWidth = px(0);
-               element.element.style.borderLeft = `${px(dia/2)} solid transparent`;
-               element.element.style.borderRight = `${px(dia/2)} solid transparent`;
-               element.element.style.borderBottom = `${px(dia)} solid red`;
-               element.element.style.transform =
-                  `translateX(${px(-dia/2)}) translateY(${px(-dia/2)})`;
+               element.element.style.clipPath = "polygon(50% 0%, 100% 100%, 0% 100%)";
                break;
             }
+            case "diamondShield":
+               element.element.style.clipPath =
+                  "polygon(50% 0%,100.00% 80.00%,50% 100%,0.00% 80.00%)";
+               break;
          }
          element.shape = shape;
          return { type: "responseVoid" };
