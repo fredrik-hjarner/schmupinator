@@ -1,7 +1,7 @@
 import type { App } from "../../App";
 import type {
    IGraphics, TGfx_Release, TGfx_SetColor, TGfx_SetDiameter, TGfx_SetHealth,
-   TGfx_SetPosition, TGfx_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
+   TGfx_SetPosition, TGfx_SetRotation, TGfx_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
    TResponse_AskForElement, TResponse_Void, TShape
 } from "./IGraphics";
 
@@ -54,6 +54,8 @@ export class Graphics implements IGraphics {
             return this.actionSetColor(action);
          case "gfxSetShape":
             return this.actionSetShape(action);
+         case "gfxSetRotation":
+            return this.actionSetRotation(action);
          default: {
             // eslint-disable-next-line
             // @ts-ignore
@@ -215,9 +217,6 @@ export class Graphics implements IGraphics {
    private actionSetShape =
       ({ handle, shape }: Omit<TGfx_SetShape,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
-         if(element.shape === shape) {
-            return { type: "responseVoid" };
-         }
          switch(shape) {
             case "circle": {
                element.element.style.clipPath = "circle(50%)";
@@ -228,15 +227,22 @@ export class Graphics implements IGraphics {
                break;
             }
             case "triangle": {
-               element.element.style.clipPath = "polygon(50% 0%, 100% 100%, 0% 100%)";
+               element.element.style.clipPath = "polygon(50% 100%, 100% 0%, 0% 0%)";
                break;
             }
             case "diamondShield":
                element.element.style.clipPath =
-                  "polygon(50% 0%,100.00% 80.00%,50% 100%,0.00% 80.00%)";
+                  "polygon(50% 0%,100.00% 20.00%,50% 100%,0.00% 20.00%)";
                break;
          }
          element.shape = shape;
+         return { type: "responseVoid" };
+      };
+
+   private actionSetRotation =
+      ({ handle, degrees }: Omit<TGfx_SetRotation,"type">): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
+         element.element.style.transform = `rotate(${degrees}deg)`;
          return { type: "responseVoid" };
       };
 }

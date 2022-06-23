@@ -4,6 +4,7 @@ enemy:
   diameter: 5
   actions: []
     # - points: 0
+    # - { type: gfxSetShape, shape: circle }
 ---
 x-aimerLeft: &aimerLeft { spawn: nonShootingAimer, x: 128.5, y: -22 }
 x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }

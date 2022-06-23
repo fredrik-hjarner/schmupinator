@@ -1,7 +1,7 @@
 import type { Vector } from "../../../math/bezier";
 import type {
    TGfx_AskForElement, TGfx_Release, TGfx_SetColor, TGfx_SetDiameter, TGfx_SetHealth,
-   TGfx_SetPosition, TGfx_SetShape,
+   TGfx_SetPosition, TGfx_SetRotation, TGfx_SetShape
 } from "../Graphics/IGraphics";
 import type { TShortFormAction as TSFAction } from "./actionTypesShortForms";
 import type { TAttributeValue } from "./Attributes/Attributes";
@@ -124,4 +124,5 @@ export type TAction =
    Omit<TGfx_SetHealth, "handle"> |
    Omit<TGfx_Release, "handle"> |
    Omit<TGfx_SetColor, "handle"> |
-   Omit<TGfx_SetShape, "handle">;
+   Omit<TGfx_SetShape, "handle"> |
+   Omit<TGfx_SetRotation, "handle">;

@@ -32,10 +32,14 @@ export type TGfx_SetShape = {
    type: "gfxSetShape",
    handle: THandle, shape: TShape
 };
+export type TGfx_SetRotation = {
+   type: "gfxSetRotation",
+   handle: THandle, degrees: number
+};
 
 export type TGraphicsAction =
    TGfx_AskForElement | TGfx_SetPosition | TGfx_SetDiameter | TGfx_SetHealth |
-   TGfx_Release | TGfx_SetColor | TGfx_SetShape;
+   TGfx_Release | TGfx_SetColor | TGfx_SetShape | TGfx_SetRotation;
 
 /*************
  * Responses *

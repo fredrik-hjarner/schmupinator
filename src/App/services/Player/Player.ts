@@ -65,6 +65,10 @@ export class Player implements IService {
          type:"gfxSetShape",
          handle: this.graphicsHandle, shape: "diamondShield"
       });
+      this.graphics.Dispatch({
+         type:"gfxSetRotation",
+         handle: this.graphicsHandle, degrees: 180
+      });
 
       // TODO: Use this.name instead.
       this.app.events.subscribeToEvent(

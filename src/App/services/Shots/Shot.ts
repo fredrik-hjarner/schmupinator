@@ -58,6 +58,10 @@ export class Shot {
          type:"gfxSetColor",
          handle: this.graphicsHandle, color
       });
+      this.graphics.Dispatch({
+         type:"gfxSetShape",
+         handle: this.graphicsHandle, shape: "circle"
+      });
    }
 
    // Public is this case is a hack. It is used in TryShoot from the outside.

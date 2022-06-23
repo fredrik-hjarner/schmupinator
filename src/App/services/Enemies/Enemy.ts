@@ -40,7 +40,6 @@ export class Enemy {
    /**
     * Public
     */
-   // TODO: take object as input instead.
    constructor(
       app: App,
       position: TVector,
@@ -249,7 +248,8 @@ export class Enemy {
          enemy:"shot",
          pos: { x: 0, y: 0 },
          actions:  [
-            { type: "setAttribute", attribute: "points", value: 0 },
+            { type: "setAttribute", attribute: "points", value: 0 },// TODO: move points to yml file
+            { type: "gfxSetShape", shape: "circle" },
             { forever: [
                { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
                { type: "waitNextFrame" }
