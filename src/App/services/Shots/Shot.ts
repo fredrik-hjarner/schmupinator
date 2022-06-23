@@ -48,15 +48,15 @@ export class Shot {
       this.updateGraphicsPosition();
       this.graphics.Dispatch({
          type:"actionSetDiameter",
-         payload: { handle: this.graphicsHandle, diameter: this.diameter }
+         handle: this.graphicsHandle, diameter: this.diameter
       });
       this.graphics.Dispatch({
          type:"actionSetHealth",
-         payload: { handle: this.graphicsHandle, healthFactor: 1 }
+         handle: this.graphicsHandle, healthFactor: 1
       });
       this.graphics.Dispatch({
          type:"actionSetColor",
-         payload: { handle: this.graphicsHandle, color }
+         handle: this.graphicsHandle, color
       });
    }
 
@@ -65,7 +65,7 @@ export class Shot {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
             type:"actionSetPosition",
-            payload: { handle: this.graphicsHandle, x: this.x, y: this.y }
+            handle: this.graphicsHandle, x: this.x, y: this.y
          });
       }
    };
@@ -117,7 +117,7 @@ export class Shot {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
             type: "actionRelease",
-            payload: { handle: this.graphicsHandle }
+            handle: this.graphicsHandle
          });
          this.graphicsHandle = undefined;
       }

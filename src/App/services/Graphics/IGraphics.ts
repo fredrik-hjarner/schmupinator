@@ -11,25 +11,26 @@ export type TShape = "circle" | "square" | "triangle";
 export type TAction_AskForElement = { type: "actionAskForElement" };
 export type TAction_SetPosition = {
    type: "actionSetPosition",
-   payload: { handle: THandle, x?: number, y?: number }
+   handle: THandle, x?: number, y?: number
 };
 export type TAction_SetDiameter = {
    type: "actionSetDiameter",
-   payload: { handle: THandle, diameter: number }
+   handle: THandle, diameter: number
 };
-export type TAction_SetHealth = { type: "actionSetHealth", payload: {
+export type TAction_SetHealth = {
+   type: "actionSetHealth",
    handle: THandle,
    healthFactor: number // 0 = no health, 1 = full health
-}};
+};
 // Releases a GraphicsElement, so it's free for other to pick up/ask for/claim.
-export type TAction_Release = { type: "actionRelease", payload: { handle: THandle }};
+export type TAction_Release = { type: "actionRelease", handle: THandle };
 export type TAction_SetColor = {
    type: "actionSetColor",
-   payload: { handle: THandle, color: string }
+   handle: THandle, color: string
 };
 export type TAction_SetShape = {
    type: "actionSetShape",
-   payload: { handle: THandle, shape: TShape }
+   handle: THandle, shape: TShape
 };
 
 export type TGraphicsAction =

@@ -51,19 +51,19 @@ export class Player implements IService {
       this.updateGraphicsPosition();
       this.graphics.Dispatch({
          type:"actionSetDiameter",
-         payload: { handle: this.graphicsHandle, diameter: this.diameter }
+         handle: this.graphicsHandle, diameter: this.diameter
       });
       this.graphics.Dispatch({
          type:"actionSetHealth",
-         payload: { handle: this.graphicsHandle, healthFactor: 1 }
+         handle: this.graphicsHandle, healthFactor: 1
       });
       this.graphics.Dispatch({
          type:"actionSetColor",
-         payload: { handle: this.graphicsHandle, color: "aqua" }
+         handle: this.graphicsHandle, color: "aqua"
       });
       this.graphics.Dispatch({
          type:"actionSetShape",
-         payload: { handle: this.graphicsHandle, shape: "circle" }
+         handle: this.graphicsHandle, shape: "circle"
       });
 
       // TODO: Use this.name instead.
@@ -86,7 +86,7 @@ export class Player implements IService {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
             type:"actionSetPosition",
-            payload: { handle: this.graphicsHandle, x: this.x, y: this.y }
+            handle: this.graphicsHandle, x: this.x, y: this.y
          });
       }
    };

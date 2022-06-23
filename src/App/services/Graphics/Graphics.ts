@@ -43,17 +43,17 @@ export class Graphics implements IGraphics {
          case "actionAskForElement":
             return this.actionAskForElement();
          case "actionSetPosition":
-            return this.actionSetPosition(action.payload);
+            return this.actionSetPosition(action);
          case "actionSetDiameter":
-            return this.actionSetDiameter(action.payload);
+            return this.actionSetDiameter(action);
          case "actionSetHealth":
-            return this.actionSetHealth(action.payload);
+            return this.actionSetHealth(action);
          case "actionRelease":
-            return this.actionRelease(action.payload);
+            return this.actionRelease(action);
          case "actionSetColor":
-            return this.actionSetColor(action.payload);
+            return this.actionSetColor(action);
          case "actionSetShape":
-            return this.actionSetShape(action.payload);
+            return this.actionSetShape(action);
       }
    };
 
@@ -152,7 +152,7 @@ export class Graphics implements IGraphics {
    };
 
    private actionSetPosition =
-      ({ handle, x, y }: TAction_SetPosition["payload"]): TResponse_Void => {
+      ({ handle, x, y }: Omit<TAction_SetPosition,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          const diameter = parseFloat(element.element.style.width);
          const radius = diameter/2;
@@ -166,7 +166,7 @@ export class Graphics implements IGraphics {
       };
 
    private actionSetDiameter =
-      ({ handle, diameter }: TAction_SetDiameter["payload"]): TResponse_Void => {
+      ({ handle, diameter }: Omit<TAction_SetDiameter,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          const oldRadius = element.diameter/2;
          const radius = diameter/2;
@@ -182,7 +182,7 @@ export class Graphics implements IGraphics {
       };
 
    private actionSetHealth =
-      ({ handle, healthFactor }: TAction_SetHealth["payload"]): TResponse_Void => {
+      ({ handle, healthFactor }: Omit<TAction_SetHealth,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          const radius = parseFloat(element.element.style.width)/2;
          element.element.style.borderWidth = px(radius * healthFactor);
@@ -190,7 +190,7 @@ export class Graphics implements IGraphics {
       };
 
    private actionRelease =
-      ({ handle }: TAction_Release["payload"]): TResponse_Void => {
+      ({ handle }: Omit<TAction_Release,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
 
          // Put back in resting position and reset styles.
@@ -201,14 +201,14 @@ export class Graphics implements IGraphics {
       };
    
    private actionSetColor =
-      ({ handle, color }: TAction_SetColor["payload"]): TResponse_Void => {
+      ({ handle, color }: Omit<TAction_SetColor,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          element.element.style.borderColor = color;
          return { type: "responseVoid" };
       };
 
    private actionSetShape =
-      ({ handle, shape }: TAction_SetShape["payload"]): TResponse_Void => {
+      ({ handle, shape }: Omit<TAction_SetShape,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          if(element.shape === shape) {
             return { type: "responseVoid" };

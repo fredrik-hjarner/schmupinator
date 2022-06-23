@@ -68,15 +68,15 @@ export class Enemy {
       this.graphicsHandle = response.handle;
       this.graphics.Dispatch({
          type:"actionSetPosition",
-         payload: { handle: this.graphicsHandle, x: this.X, y: this.Y }
+         handle: this.graphicsHandle, x: this.X, y: this.Y
       });
       this.graphics.Dispatch({
          type:"actionSetDiameter",
-         payload: { handle: this.graphicsHandle, diameter: json.diameter }
+         handle: this.graphicsHandle, diameter: json.diameter
       });
       this.graphics.Dispatch({
          type:"actionSetColor",
-         payload: { handle: this.graphicsHandle, color: "red" }
+         handle: this.graphicsHandle, color: "red"
       });
 
       this.updateDisplayHealth();
@@ -109,7 +109,7 @@ export class Enemy {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
             type:"actionSetPosition",
-            payload: { handle: this.graphicsHandle, x: this.X, y: this.Y }
+            handle: this.graphicsHandle, x: this.X, y: this.Y
          });
       }
    };
@@ -146,7 +146,7 @@ export class Enemy {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
             type: "actionRelease",
-            payload: { handle: this.graphicsHandle }
+            handle: this.graphicsHandle
          });
          this.graphicsHandle = undefined;
       }
@@ -360,7 +360,7 @@ export class Enemy {
       if(this.graphicsHandle) {
          this.graphics.Dispatch({
             type:"actionSetHealth",
-            payload: { handle: this.graphicsHandle, healthFactor: factorHealthLeft }
+            handle: this.graphicsHandle, healthFactor: factorHealthLeft
          });
       }
    };
