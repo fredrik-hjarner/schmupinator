@@ -93,9 +93,10 @@ export class Graphics implements IGraphics {
       /** TODO: Remove duplication */
       ge.element.style.position = "fixed";
       ge.element.style.boxSizing = "border-box";
-      ge.element.style.borderColor = color;
-      ge.element.style.borderStyle = "solid";
-      ge.element.style.borderWidth = px(radius); // filled
+      // ge.element.style.borderColor = color;
+      // ge.element.style.borderStyle = "solid";
+      // ge.element.style.borderWidth = px(radius); // filled
+      ge.element.style.backgroundColor = color;
       ge.element.style.width = px(diameter);
       ge.element.style.height = px(diameter);
       ge.element.style.top = px(top);
@@ -119,9 +120,10 @@ export class Graphics implements IGraphics {
          element.id = handle;
          element.style.position = "fixed";
          element.style.boxSizing = "border-box";
-         element.style.borderColor = color;
-         element.style.borderStyle = "solid";
-         element.style.borderWidth = px(radius); // filled
+         // element.style.borderColor = color;
+         // element.style.borderStyle = "solid";
+         // element.style.borderWidth = px(radius); // filled
+         element.style.backgroundColor = color;
          element.style.width = px(diameter);
          element.style.height = px(diameter);
          element.style.top = px(top);
@@ -210,7 +212,7 @@ export class Graphics implements IGraphics {
    private actionSetColor =
       ({ handle, color }: Omit<TGfx_SetColor,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
-         element.element.style.borderColor = color;
+         element.element.style.backgroundColor = color;
          return { type: "responseVoid" };
       };
 
