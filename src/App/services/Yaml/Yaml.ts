@@ -40,8 +40,8 @@ export class Yaml implements IService {
       const parseDoc = IsBrowser() ? parseDocBrowser : (await import("yaml")).parseDocument;
 
       const [common, enemies] = await Promise.all([
-         this.loadYaml("yaml/common.yaml"),
-         this.loadYaml("yaml/enemies.yaml")
+         BrowserDriver.FetchText("yaml/common.yaml"),
+         BrowserDriver.FetchText("yaml/enemies.yaml")
       ]);
 
       const commonDoc = (parseDoc as TParseDocument)(common, {merge: true}) as Document;
@@ -78,9 +78,5 @@ export class Yaml implements IService {
          BrowserDriver.Alert(JSON.stringify(errors, null, 2));
          throw errors;
       }
-   };
-
-   private loadYaml = async (url: string): Promise<string> => {
-      return await BrowserDriver.Fetch(url);
    };
 }

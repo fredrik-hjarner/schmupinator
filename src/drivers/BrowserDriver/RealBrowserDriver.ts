@@ -27,9 +27,15 @@ export class RealBrowserDriver implements IBrowserDriver {
       return window.setInterval(callback, ms);
    };
 
-   public Fetch = async (input: RequestInfo | URL): Promise<string> => {
+   public FetchText = async (input: RequestInfo | URL): Promise<string> => {
       // eslint-disable-next-line no-undef
       const res = await window.fetch(input);
       return await res.text();
+   };
+
+   public FetchBinary = async (input: RequestInfo | URL): Promise<Blob> => {
+      // eslint-disable-next-line no-undef
+      const res = await window.fetch(input);
+      return await res.blob();
    };
 }

@@ -27,9 +27,16 @@ export class NodeBrowserDriver implements IBrowserDriver {
       return 0;
    };
 
-   public Fetch = async (path: string): Promise<string> => {
+   public FetchText = async (path: string): Promise<string> => {
       const { readFile } = await import("fs/promises");
       const buffer = await readFile(path);
       return buffer.toString();
+   };
+
+   // eslint-disable-next-line no-undef
+   public FetchBinary = async (path: string): Promise<Buffer> => {
+      const { readFile } = await import("fs/promises");
+      const buffer = await readFile(path);
+      return buffer;
    };
 }

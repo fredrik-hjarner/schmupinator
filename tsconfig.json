@@ -1,6 +1,6 @@
 {
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "exclude": [
     "dist/**/*",
@@ -36,6 +36,10 @@
     //   ] // This mapping is relative to "baseUrl"
     // }
   },
+  /**
+   * I run ts-node for some "build" scripts. Here's some overrides for it's settings.
+   * I mostly have no idea what I am doing with it and just try out options until it works.
+   */
   "ts-node": {
     "compilerOptions": {
       "target": "ESNext",
@@ -43,6 +47,7 @@
       "rootDir": "./",
       "moduleResolution": "Node16",
       "noImplicitAny": false,
+      "allowSyntheticDefaultImports": true
     },
     "esm": true
   }
