@@ -85,7 +85,7 @@ module.exports = {
      * Default
      */
     "max-len": ["error", 100],
-    "max-lines": ["error", 370],
+    "max-lines": ["error", 360],
     /**
      * Import
      */

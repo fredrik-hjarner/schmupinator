@@ -2,9 +2,7 @@ import type { App } from "../../App";
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
-import type {
-   THandle, TResponse_AskForElement, IGraphics, TGraphicsAction
-} from "../Graphics/IGraphics";
+import type { IGraphics, TGraphicsAction } from "../Graphics/IGraphics";
 import type { TAttributeValue } from "./Attributes/Attributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
@@ -17,6 +15,7 @@ import { resolutionHeight, resolutionWidth } from "../../../consts";
 import { TShortFormAction } from "./actionTypesShortForms";
 import { Attributes } from "./Attributes/Attributes";
 import { assertNumber } from "../../../utils/typeAssertions";
+import { EnemyGfx } from "./EnemyGfx";
 
 export class Enemy {
    app: App;
@@ -34,7 +33,7 @@ export class Enemy {
    private mirrorX = false;
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
-   private graphicsHandle?: THandle; // handle to GraphicsElement from Graphics service.
+   private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private attrs = new Attributes();
 
    /**
@@ -64,27 +63,9 @@ export class Enemy {
 
       // New graphics engine code
       this.graphics = this.app.graphics;
-      const response =
-         this.graphics.Dispatch({ type:"gfxAskForElement" }) as TResponse_AskForElement;
-      this.graphicsHandle = response.handle;
-      this.graphics.Dispatch({
-         type:"gfxSetPosition",
-         handle: this.graphicsHandle, x: this.X, y: this.Y
+      this.gfx = new EnemyGfx({
+         diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
       });
-      this.graphics.Dispatch({
-         type:"gfxSetDiameter",
-         handle: this.graphicsHandle, diameter: json.diameter
-      });
-      this.graphics.Dispatch({
-         type:"gfxSetColor",
-         handle: this.graphicsHandle, color: "red"
-      });
-      this.graphics.Dispatch({
-         type:"gfxSetShape",
-         handle: this.graphicsHandle, shape: "diamondShield"
-      });
-
-      this.updateDisplayHealth();
    }
 
    private get hp():number {
@@ -111,12 +92,7 @@ export class Enemy {
        * Safest to do all the required updates n shit here, even if hp etc have not been changed.
        */
       this.updateDisplayHealth();
-      if(this.graphicsHandle) {
-         this.graphics.Dispatch({
-            type:"gfxSetPosition",
-            handle: this.graphicsHandle, x: this.X, y: this.Y
-         });
-      }
+      this.gfx?.setPosition({ x: this.X, y: this.Y });
    };
 
    public OnCollisions = (collisions: TCollisions) => {
@@ -148,12 +124,9 @@ export class Enemy {
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
       // TODO: Maybe publish a death event or something.
       // Clear up graphics.
-      if(this.graphicsHandle) {
-         this.graphics.Dispatch({
-            type: "gfxRelease",
-            handle: this.graphicsHandle
-         });
-         this.graphicsHandle = undefined;
+      if(this.gfx) {
+         this.gfx.release();
+         this.gfx = undefined;
       }
       return;
    };
@@ -228,7 +201,7 @@ export class Enemy {
       
          default:
             // Add the handle, that we have, to the gfx action from the commands.
-            this.graphics.Dispatch({ ...action, handle: this.graphicsHandle } as TGraphicsAction);
+            this.graphics.Dispatch({ ...action, handle: this.gfx?.gfxHandle } as TGraphicsAction);
       }
    };
 
@@ -360,11 +333,6 @@ export class Enemy {
    private updateDisplayHealth = () => {
       const factorHealthLeft = this.hp / this.maxHp;
 
-      if(this.graphicsHandle) {
-         this.graphics.Dispatch({
-            type:"gfxSetHealth",
-            handle: this.graphicsHandle, healthFactor: factorHealthLeft
-         });
-      }
+      this.gfx?.updateDisplayHealth(factorHealthLeft);
    };
 }
