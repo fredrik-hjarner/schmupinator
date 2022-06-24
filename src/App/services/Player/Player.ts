@@ -63,7 +63,7 @@ export class Player implements IService {
       });
       this.graphics.Dispatch({
          type:"gfxSetRotation",
-         handle: this.graphicsHandle, degrees: 180
+         handle: this.graphicsHandle, degrees: 0
       });
 
       // TODO: Use this.name instead.

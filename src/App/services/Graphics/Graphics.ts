@@ -230,12 +230,12 @@ export class Graphics implements IGraphics {
                break;
             }
             case "triangle": {
-               element.element.style.clipPath = "polygon(50% 100%, 100% 0%, 0% 0%)";
+               element.element.style.clipPath = "polygon(50% 0%, 100% 100%, 0% 100%)";
                break;
             }
             case "diamondShield":
                element.element.style.clipPath =
-                  "polygon(50% 0%,100.00% 20.00%,50% 100%,0.00% 20.00%)";
+                  "polygon(50% 0%,100.00% 80.00%,50% 100%,0.00% 80.00%)";
                break;
          }
          element.shape = shape;

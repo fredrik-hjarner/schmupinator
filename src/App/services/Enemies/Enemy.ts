@@ -93,6 +93,7 @@ export class Enemy {
        */
       this.updateDisplayHealth();
       this.gfx?.setPosition({ x: this.X, y: this.Y });
+      this.gfx?.setRotation({ degrees: this.direction.toVector().angle.degrees });
    };
 
    public OnCollisions = (collisions: TCollisions) => {

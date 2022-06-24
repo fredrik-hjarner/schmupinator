@@ -84,24 +84,24 @@ describe("rotations", () => {
 });
 
 describe("angle", () => {
-  it("0", () => {
-    const v1 = new Vector(1, 0);
-    expect(v1.angle.degrees).toBeCloseTo(0);
-  });
-
   it("90", () => {
-    const v1 = new Vector(0, 1);
+    const v1 = new Vector(1, 0);
     expect(v1.angle.degrees).toBeCloseTo(90);
   });
 
   it("180", () => {
-    const v1 = new Vector(-1, 0);
+    const v1 = new Vector(0, 1);
     expect(v1.angle.degrees).toBeCloseTo(180);
   });
 
   it("270", () => {
-    const v1 = new Vector(0, -1);
+    const v1 = new Vector(-1, 0);
     expect(v1.angle.degrees).toBeCloseTo(270);
+  });
+
+  it("0", () => {
+    const v1 = new Vector(0, -1);
+    expect(v1.angle.degrees).toBeCloseTo(0);
   });
 });
 

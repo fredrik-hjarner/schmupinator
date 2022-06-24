@@ -61,6 +61,11 @@ export class EnemyGfx {
       });
    };
 
+   public setRotation = ({ degrees }: { degrees: number }) => {
+      this.graphics.Dispatch({ type: "gfxSetRotation", handle: this.gfxHandle, degrees: degrees });
+      this.graphics.Dispatch({ type: "gfxSetRotation", handle: this.gfxHealth, degrees: degrees });
+   };
+
    public dispatch = (action: TGraphicsActionWithoutHandle) => {
       switch(action.type) {
          case "gfxSetColor":

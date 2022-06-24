@@ -80,7 +80,7 @@ export class Vector {
    }
 
    get angle(): Angle {
-      return Angle.fromRadians(Math.atan2(this.y, this.x));
+      return Angle.fromRadians(Math.atan2(this.y, this.x) + Math.PI/2);
    }
 
    antiClockwiseAngleTo = (vector: Vector): Angle => {
