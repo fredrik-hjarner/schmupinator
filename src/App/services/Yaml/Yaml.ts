@@ -4,11 +4,10 @@ import type { Document } from "yaml";
 
 // TODO: Must be some way to fix typescript imports when using es modules.
 import { parseDocument } from "yaml";
+import { loadAsync } from "jszip";
 
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-
-type TParseDocument = typeof parseDocument;
 
 type TConstructor = {
    app: App;
@@ -31,16 +30,24 @@ export class Yaml implements IService {
    }
 
    Init = async () => {
-      // TODO: Must be some way to fix typescript imports when using es modules.
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const parseDoc = parseDocument;
+      const zipData = await BrowserDriver.FetchBinary("yaml/game.zip");
+      // console.log("zipData:", zipData);
+      const zip = await loadAsync(zipData);
+      // console.log("zip:", zip);
 
-      const [common, enemies] = await Promise.all([
-         BrowserDriver.FetchText("yaml/common.yaml"),
-         BrowserDriver.FetchText("yaml/enemies.yaml")
-      ]);
+      const common = await zip.file("common.yaml")?.async("text");
+      const enemies = await zip.file("enemies.yaml")?.async("text");
 
-      const commonDoc = (parseDoc as TParseDocument)(common, {merge: true}) as Document;
+      if(!common) {
+         BrowserDriver.Alert("Yaml: Failed to load common.yml");
+         throw new Error("Yaml: Failed to load common.yml");
+      }
+      if(!enemies) {
+         BrowserDriver.Alert("Yaml: Failed to load enemies.yml");
+         throw new Error("Yaml: Failed to load enemies.yml");
+      }
+
+      const commonDoc = parseDocument(common, {merge: true});
 
       // Check errors
       this.checkError(commonDoc);
@@ -48,7 +55,7 @@ export class Yaml implements IService {
       const enemyYaml = enemies.split("---");
       const yamlDocuments = enemyYaml.map(yaml => {
          const withCommon = `${common}\n${yaml}`;
-         return (parseDoc as TParseDocument)(withCommon, {merge: true}) as Document;
+         return parseDocument(withCommon, {merge: true});
       });
 
       // Check errors

@@ -24,6 +24,7 @@
     "vite-node": "^0.16.0"
   },
   "dependencies": {
+    "jszip": "^3.10.0",
     "yaml": "^2.1.1"
   }
 }
