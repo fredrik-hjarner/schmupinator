@@ -84,3 +84,5 @@ describe("move", () => {
     expect(recordedActions.length).toBe(2);
   });
 });
+
+export {}

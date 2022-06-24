@@ -93,3 +93,5 @@ describe("parallellRace", () => {
     expect(recordedActions.length).toBe(1);
   });
 });
+
+export {}

@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Truxinator</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <script type="module" src='dist/main.js'></script>
-  <link rel="stylesheet" type="text/css" href="./reset.css" media=”screen” />
-</head>
-
-<body>
-  <div id="layer1"></div>
-  <div id="layer2"></div>
-  <div id="layer3"></div>
-  <div id="gameHideRight"></div>
-  <div id="gameHideBottom"></div>
-  <input id="speedUp" type="range" min="0" max="3" value="1" />
-  <div id="frameCounter"></div>
-  <div id="elapsedTimeDiv"></div>
-  <div id="fpsDiv"></div>
-  <div id="pointsDiv"></div>
-  <div id="gameOverDiv">
-    <div id="gameOverTextDiv" style="text-align: center; top: 110px; font-size: 30px; position: absolute; width: 100%">
-      GAME OVER
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./reset.css" media=”screen” />
+    <title>Truxinator</title>
+  </head>
+  <body>
+    <div id="layer1"></div>
+    <div id="layer2"></div>
+    <div id="layer3"></div>
+    <div id="gameHideRight"></div>
+    <div id="gameHideBottom"></div>
+    <input id="speedUp" type="range" min="0" max="3" value="1" />
+    <div id="frameCounter"></div>
+    <div id="elapsedTimeDiv"></div>
+    <div id="fpsDiv"></div>
+    <div id="pointsDiv"></div>
+    <div id="gameOverDiv">
+      <div id="gameOverTextDiv" style="text-align: center; top: 110px; font-size: 30px; position: absolute; width: 100%">
+        GAME OVER
+      </div>
     </div>
-  </div>
-</body>
-
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

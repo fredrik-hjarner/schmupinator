@@ -1,54 +1,31 @@
 {
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "moduleResolution": "Node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true
+  },
   "include": [
-    "src/**/*"
+    "src"
   ],
   "exclude": [
-    "dist/**/*",
+    // "dist/**/*",
     // TODO: Fix tests!
-    "src/**/*.test.ts",
+    // "src/**/*.test.ts",
     // "jest.config.cjs"
   ],
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "dist",
-    "incremental": true, // performance increase. // this seems to cause problems sometimes.
-    "allowJs": true,
-    "checkJs": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    // "lib": [
-    //   "ESNext",
-    //   "ES2021",
-    //   "DOM",
-    // ],
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": false,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "strict": true,
-    "removeComments": true,
-    // "baseUrl": ".", // This must be specified if "paths" is.
-    // "paths": {
-    //   "yaml": [
-    //     "node_modules/yaml"
-    //   ] // This mapping is relative to "baseUrl"
-    // }
-  },
-  /**
-   * I run ts-node for some "build" scripts. Here's some overrides for it's settings.
-   * I mostly have no idea what I am doing with it and just try out options until it works.
-   */
-  "ts-node": {
-    "compilerOptions": {
-      "target": "ESNext",
-      "module": "Node16",
-      "rootDir": "./",
-      "moduleResolution": "Node16",
-      "noImplicitAny": false,
-      "allowSyntheticDefaultImports": true
-    },
-    "esm": true
-  }
 }

@@ -3,30 +3,22 @@ version: 3
 silent: true
 
 tasks:
-  e2e:
-    cmd: node dist/main.js
+  e2e: npx vite-node ./src/main.ts
 
   eslint:
-    - yarn --silent lint:eslint
+    - yarn --silent eslint --fix src
     - echo "eslint finished"
 
-  build:
-    cmds:
-      - echo "build began"
-      - yarn --silent build
-      - yarn --silent add-extensions
-      - task: e2e
-
-  lint-build-watcher:
-    deps: [eslint, build]
+  lint-e2e-watcher:
+    deps: [eslint, e2e]
     sources: [src/**/*.ts]
-    generates: [dist/**/*.js]
-    method: timestamp
+    # generates: [dist/**/*.js]
+    # method: timestamp
     # defer: [echo "--------------------"]
 
-  lint-build-watch: task lint-build-watcher -w
+  lint-e2e-watch: task lint-e2e-watcher -w
 
-  serve: yarn --silent serve
+  serve: yarn --silent dev
 
   start:
-    deps: [serve, lint-build-watch]
+    deps: [serve, lint-e2e-watch]

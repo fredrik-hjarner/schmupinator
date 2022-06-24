@@ -36,3 +36,5 @@ it("Repeat nothing twice. Expect done immediately.", () => {
   const generator = GeneratorUtils.Repeat({ makeGenerator: () => makeGenerator(), times: 2 });
   expect(generator.next()).toEqual({ done: true, value: undefined });
 });
+
+export {}

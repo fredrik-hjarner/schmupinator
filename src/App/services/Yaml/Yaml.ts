@@ -1,16 +1,12 @@
 import type { App } from "../../App";
 import type { IService } from "../IService";
-import type { Document, parseDocument } from "yaml";
+import type { Document } from "yaml";
 
 // TODO: Must be some way to fix typescript imports when using es modules.
-import {
-   parseDocument as parseDocBrowser
-   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-   // @ts-ignore
-} from "../../../../node_modules/yaml/browser/dist/index";
+import { parseDocument } from "yaml";
 
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
-import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 type TParseDocument = typeof parseDocument;
 
@@ -37,7 +33,7 @@ export class Yaml implements IService {
    Init = async () => {
       // TODO: Must be some way to fix typescript imports when using es modules.
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const parseDoc = IsBrowser() ? parseDocBrowser : (await import("yaml")).parseDocument;
+      const parseDoc = parseDocument;
 
       const [common, enemies] = await Promise.all([
          BrowserDriver.FetchText("yaml/common.yaml"),
