@@ -112,7 +112,7 @@ module.exports = {
     /**
      * Typescript
      */
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_$" }],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
 
     /************
      * Disables *

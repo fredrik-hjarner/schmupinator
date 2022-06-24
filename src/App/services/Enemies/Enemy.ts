@@ -2,7 +2,7 @@ import type { App } from "../../App";
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
-import type { IGraphics, TGraphicsAction } from "../Graphics/IGraphics";
+import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { TAttributeValue } from "./Attributes/Attributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
@@ -200,8 +200,7 @@ export class Enemy {
             break;
       
          default:
-            // Add the handle, that we have, to the gfx action from the commands.
-            this.graphics.Dispatch({ ...action, handle: this.gfx?.gfxHandle } as TGraphicsAction);
+            this.gfx?.dispatch(action as TGraphicsActionWithoutHandle);
       }
    };
 

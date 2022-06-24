@@ -1,7 +1,7 @@
 import type { App } from "../../App";
 import type {
-   IGraphics, TGfx_Release, TGfx_SetColor, TGfx_SetDiameter, TGfx_SetHealth,
-   TGfx_SetPosition, TGfx_SetRotation, TGfx_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
+   IGraphics, TGfx_Release, TGfx_SetColor, TGfx_SetDiameter, TGfx_SetPosition, TGfx_SetRotation,
+   TGfx_SetScale, TGfx_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
    TResponse_AskForElement, TResponse_Void, TShape
 } from "./IGraphics";
 
@@ -15,6 +15,8 @@ type TGraphicsElement = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
    inUse: boolean // If the GraphicsElement is in use, or if it is free to give away.
    element: HTMLDivElement;
+   scale: number;
+   rotation: number; // degrees
    index: number;
    shape: TShape;
    diameter: number;
@@ -46,8 +48,6 @@ export class Graphics implements IGraphics {
             return this.actionSetPosition(action);
          case "gfxSetDiameter":
             return this.actionSetDiameter(action);
-         case "gfxSetHealth":
-            return this.actionSetHealth(action);
          case "gfxRelease":
             return this.actionRelease(action);
          case "gfxSetColor":
@@ -56,6 +56,8 @@ export class Graphics implements IGraphics {
             return this.actionSetShape(action);
          case "gfxSetRotation":
             return this.actionSetRotation(action);
+         case "gfxSetScale":
+            return this.actionSetScale(action);
          default: {
             // eslint-disable-next-line
             // @ts-ignore
@@ -90,18 +92,18 @@ export class Graphics implements IGraphics {
       const top = y - radius;
       const left = x - radius;
    
+      ge.rotation = 0;
+      ge.scale = 1;
       /** TODO: Remove duplication */
       ge.element.style.position = "fixed";
       ge.element.style.boxSizing = "border-box";
-      // ge.element.style.borderColor = color;
-      // ge.element.style.borderStyle = "solid";
-      // ge.element.style.borderWidth = px(radius); // filled
       ge.element.style.backgroundColor = color;
       ge.element.style.width = px(diameter);
       ge.element.style.height = px(diameter);
       ge.element.style.top = px(top);
       ge.element.style.left = px(left);
       ge.element.style.zIndex = zIndices.graphicsEngineElements;
+      ge.element.style.transform = `rotate(0deg) scale(1)`;
    };
 
    private initOneElement = (i: number): TGraphicsElement => {
@@ -120,20 +122,27 @@ export class Graphics implements IGraphics {
          element.id = handle;
          element.style.position = "fixed";
          element.style.boxSizing = "border-box";
-         // element.style.borderColor = color;
-         // element.style.borderStyle = "solid";
-         // element.style.borderWidth = px(radius); // filled
          element.style.backgroundColor = color;
          element.style.width = px(diameter);
          element.style.height = px(diameter);
          element.style.top = px(top);
          element.style.left = px(left);
          element.style.zIndex = zIndices.graphicsEngineElements;
+         element.style.transform = `rotate(0deg) scale(1)`;
          window.document.body.appendChild(element);
          return element;
       }) as HTMLDivElement;
 
-      return { handle, inUse: false, element, index: i, shape: "circle", diameter: 5 };
+      return {
+         handle,
+         inUse: false,
+         element,
+         index: i,
+         shape: "circle",
+         diameter: 5,
+         scale: 1,
+         rotation: 0
+      };
    };
 
    // Helper that finds and assert that an element exists and is in use.
@@ -190,14 +199,6 @@ export class Graphics implements IGraphics {
          return { type: "responseVoid" };
       };
 
-   private actionSetHealth =
-      ({ handle, healthFactor }: Omit<TGfx_SetHealth,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
-         const radius = parseFloat(element.element.style.width)/2;
-         element.element.style.borderWidth = px(radius * healthFactor);
-         return { type: "responseVoid" };
-      };
-
    private actionRelease =
       ({ handle }: Omit<TGfx_Release,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
@@ -244,7 +245,18 @@ export class Graphics implements IGraphics {
    private actionSetRotation =
       ({ handle, degrees }: Omit<TGfx_SetRotation,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
-         element.element.style.transform = `rotate(${degrees}deg)`;
+         element.rotation = degrees;
+         element.element.style.transform =
+            `rotate(${element.rotation}deg) scale(${element.scale})`;
+         return { type: "responseVoid" };
+      };
+
+   private actionSetScale =
+      ({ handle, scale }: Omit<TGfx_SetScale,"type">): TResponse_Void => {
+         const element = this.findExistingAndInUse(handle);
+         element.scale = scale;
+         element.element.style.transform =
+            `rotate(${element.rotation}deg) scale(${element.scale})`;
          return { type: "responseVoid" };
       };
 }

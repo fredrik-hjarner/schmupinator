@@ -17,11 +17,6 @@ export type TGfx_SetDiameter = {
    type: "gfxSetDiameter",
    handle: THandle, diameter: number
 };
-export type TGfx_SetHealth = {
-   type: "gfxSetHealth",
-   handle: THandle,
-   healthFactor: number // 0 = no health, 1 = full health
-};
 // Releases a GraphicsElement, so it's free for other to pick up/ask for/claim.
 export type TGfx_Release = { type: "gfxRelease", handle: THandle };
 export type TGfx_SetColor = {
@@ -36,10 +31,29 @@ export type TGfx_SetRotation = {
    type: "gfxSetRotation",
    handle: THandle, degrees: number
 };
+export type TGfx_SetScale = {
+   type: "gfxSetScale",
+   handle: THandle, scale: number
+};
 
 export type TGraphicsAction =
-   TGfx_AskForElement | TGfx_SetPosition | TGfx_SetDiameter | TGfx_SetHealth |
-   TGfx_Release | TGfx_SetColor | TGfx_SetShape | TGfx_SetRotation;
+   TGfx_AskForElement | TGfx_SetPosition | TGfx_SetDiameter | TGfx_Release |
+   TGfx_SetColor | TGfx_SetShape | TGfx_SetRotation | TGfx_SetScale;
+
+/**
+ * When you run commands via a yaml file,the handle does not need to be sent in
+ * because the enemy itself knows/has it's own graphics handle, so it is
+ * unnecesary to add.
+ */
+export type TGraphicsActionWithoutHandle =
+   // TGfx_AskForElement | // not allowed to run as command from yaml
+   Omit<TGfx_SetPosition, "handle"> |
+   Omit<TGfx_SetDiameter, "handle"> |
+   // Omit<TGfx_Release, "handle"> | // not allowed to run as command from yaml
+   Omit<TGfx_SetColor, "handle"> |
+   Omit<TGfx_SetShape, "handle"> |
+   Omit<TGfx_SetRotation, "handle"> |
+   Omit<TGfx_SetScale, "handle">;
 
 /*************
  * Responses *

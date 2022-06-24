@@ -1,8 +1,5 @@
 import type { Vector } from "../../../math/bezier";
-import type {
-   TGfx_AskForElement, TGfx_Release, TGfx_SetColor, TGfx_SetDiameter, TGfx_SetHealth,
-   TGfx_SetPosition, TGfx_SetRotation, TGfx_SetShape
-} from "../Graphics/IGraphics";
+import type { TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { TShortFormAction as TSFAction } from "./actionTypesShortForms";
 import type { TAttributeValue } from "./Attributes/Attributes";
 
@@ -118,11 +115,4 @@ export type TAction =
     * And also all Graphics actions
     * I remove the handles because the enemy that executes the actions has the handle already.
     */
-   TGfx_AskForElement |
-   Omit<TGfx_SetPosition, "handle"> |
-   Omit<TGfx_SetDiameter, "handle"> |
-   Omit<TGfx_SetHealth, "handle"> |
-   Omit<TGfx_Release, "handle"> |
-   Omit<TGfx_SetColor, "handle"> |
-   Omit<TGfx_SetShape, "handle"> |
-   Omit<TGfx_SetRotation, "handle">;
+   TGraphicsActionWithoutHandle;

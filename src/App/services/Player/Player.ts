@@ -54,10 +54,6 @@ export class Player implements IService {
          handle: this.graphicsHandle, diameter: this.diameter
       });
       this.graphics.Dispatch({
-         type:"gfxSetHealth",
-         handle: this.graphicsHandle, healthFactor: 1
-      });
-      this.graphics.Dispatch({
          type:"gfxSetColor",
          handle: this.graphicsHandle, color: "aqua"
       });
