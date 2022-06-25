@@ -3,7 +3,13 @@ version: 3
 silent: true
 
 tasks:
-  e2e: npx vite-node ./src/main.ts
+  zip:
+    sources: [yaml/*]
+    cmds: [yarn zip]
+
+  e2e:
+    deps: [zip]
+    cmds: [npx vite-node ./src/main.ts]
 
   eslint:
     - yarn --silent eslint --fix src

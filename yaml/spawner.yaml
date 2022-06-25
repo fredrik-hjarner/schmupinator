@@ -1,0 +1,44 @@
+x-aimerLeft: &aimerLeft { spawn: nonShootingAimer, x: 128.5, y: -22 }
+x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }
+
+x-sinusLeft: &sinusLeft { spawn: sinus, x: 75, y: -20 }
+x-sinusRight: &sinusRight { spawn: sinus, flags: [right], x: 280, y: -20 }
+
+x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss, x: 118.881, y: -20 }
+x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss, flags: [right], x: 237.762, y: -20 }
+
+x:
+  - &aimers
+      repeat: 8
+      actions: [*aimerLeft, *aimerRight, wait: 40]
+
+  - &sinuses
+      repeat: 5
+      actions:
+        - do: [*sinusLeft, wait: 70]
+        - do: [*sinusRight, wait: 70]
+
+x-stage1: &stage1 
+  - wait: 120
+  - *aimers
+  - wait: 120
+  - *sinuses
+  - wait: 200
+  - do: [*leftMiniBoss, *rightMiniBoss]
+
+x-stage2: &stage2
+  - { spawn: cloner, x: *c5, y: -20 }
+  - wait: 270
+  - do: [{ spawn: cloner, x: *c2, y: -20 }, { spawn: cloner, x: *c8, y: -20 }]
+
+x-stage3: &stage3
+  - { spawn: shapeShifter, x: *c5, y: *r5 }
+
+enemy:
+    name: spawner
+    diameter: 20
+    hp: 9999
+    actions:
+        - do: *stage1
+        # - do: *stage2
+        # - do: *stage3

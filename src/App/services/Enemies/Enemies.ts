@@ -47,7 +47,13 @@ export class Enemies implements IService {
    ) => {
       const { EnemyJsons } = this.app.yaml;
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
-      const enemyJson = EnemyJsons.find(e => e.name === enemy);
+      const enemyJson = EnemyJsons.find(e => {
+         if(typeof e === "undefined") {
+            BrowserDriver.Alert(`enemy in EnemyJsons is undefined`);
+            throw new Error(`enemy in EnemyJsons is undefined`);
+         }
+         return e.name === enemy;
+      });
       if(!enemyJson) {
          BrowserDriver.Alert(`Unknown enemy "${enemy}".`);
          throw new Error(`Unknown enemy "${enemy}".`);

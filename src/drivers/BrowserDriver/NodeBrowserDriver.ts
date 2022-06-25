@@ -36,7 +36,18 @@ export class NodeBrowserDriver implements IBrowserDriver {
    // eslint-disable-next-line no-undef
    public FetchBinary = async (path: string): Promise<Buffer> => {
       const { readFile } = await import("fs/promises");
-      const buffer = await readFile(path);
+      let buffer;
+      try {
+         buffer = await readFile(path);
+      }
+      catch(err) {
+         /**
+          * Adding "public" to the url is a hack to get vite-node to find files in the "public"
+          * folder. Problem with v. 16.0.0.
+          * TODO: Maybe a later version of vite-node fixes this.
+          */
+         buffer = await readFile("public" + path);
+      }
       return buffer;
    };
 }

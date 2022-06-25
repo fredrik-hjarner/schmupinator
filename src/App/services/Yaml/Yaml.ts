@@ -41,9 +41,9 @@ export class Yaml implements IService {
 
       const allOtherFiles = await Promise.all(
          files
-            .filter(f => f !== "common.yml")
+            .filter(f => f !== "common.yaml")
             .map(async (f) => {
-               const yml = await zip.file("enemies.yaml")?.async("text");
+               const yml = await zip.file(f)?.async("text");
                if(!yml) {
                   const err = `Yaml: Failed to unzip ${f}`;
                   BrowserDriver.Alert(err);
@@ -56,23 +56,33 @@ export class Yaml implements IService {
       const enemyYaml = allOtherFiles.reduce<string[]>((acc, f) => {
          return [...acc, ...f.split("---")];
       }, []);
+      // console.log("enemyYaml:", enemyYaml);
+      // console.log("enemyYaml.length:", enemyYaml.length);
       const yamlDocuments = enemyYaml.map(yaml => {
          const withCommon = commonFile ? `${commonFile}\n${yaml}` : yaml;
+         // console.log("withCommon:", withCommon);
+         // console.log("//////////////////////////\n\n\n\n\n\n:");
+         const yamlDocument = parseDocument(withCommon, {merge: true});
+         this.checkError(yamlDocument);
          return parseDocument(withCommon, {merge: true});
       });
 
       // Check errors
-      yamlDocuments.forEach(this.checkError);
+      // yamlDocuments.forEach(this.checkError);
 
       // Populate enemies data structure.
       yamlDocuments.forEach((yamlsDocument: { toJS: () => { enemy: IEnemyJson } }) => {
          // console.log('yamlsDocument:', yamlsDocument);
          const yaml = yamlsDocument.toJS();
          // console.log('yaml:', yaml);
+         if(!yaml?.enemy) {
+            console.error(`Error: Yaml service: Trying to add an empty enemy. Skipping.`);
+            return;
+         }
          this.EnemyJsons.push(yaml.enemy as IEnemyJson);
       });
 
-      // console.log('this.EnemyJsons:', this.EnemyJsons);
+      // console.log("this.EnemyJsons:", this.EnemyJsons);
    };
 
    /**
