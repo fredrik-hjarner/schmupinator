@@ -21,6 +21,7 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "noImplicitAny": true,
+    "incremental": true, // disable this if you have problems. known to cause problems.
   },
   "include": [
     "src"

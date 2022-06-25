@@ -35,6 +35,7 @@ export class Enemy {
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private attrs = new Attributes();
+   private name: string;
 
    /**
     * Public
@@ -47,6 +48,7 @@ export class Enemy {
    ) {
       this.app = app;
       this.id = `${json.name}-${uuid()}`;
+      this.name = json.name;
       this.diameter = json.diameter;
       this.X = position.x;
       this.Y = position.y;
@@ -104,7 +106,7 @@ export class Enemy {
       if(enemiesThatWereHit.includes(this.id)) {
          const points = assertNumber(this.attrs.GetAttribute("points").value);
 
-         this.app.events.dispatchEvent({ type: "add_points", points });
+         this.app.events.dispatchEvent({ type: "add_points", points, enemy: this.name });
          this.hp -= 1;
 
          /**

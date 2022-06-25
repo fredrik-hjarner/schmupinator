@@ -4,6 +4,7 @@
 import type { IInput } from "./services/Input/IInput";
 import type { IGameLoop } from "./services/GameLoop/IGameLoop";
 import type { IGraphics } from "./services/Graphics/IGraphics";
+import type { IPoints } from "./services/Points/IPoints";
 
 /**
  * Services
@@ -37,12 +38,13 @@ import { MockGraphics } from "./services/Graphics/MockGraphics";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FastGameLoop } from "./services/GameLoop/mocks/FastGameLoop";
+import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
+import { PointsTester } from "./services/Points/mocks/PointsTester";
 
 /**
  * Other
  */
 import { IsBrowser } from "../drivers/BrowserDriver";
-import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
 
 export class App {
    // types here should not be IService but rather something that implements IService.
@@ -57,7 +59,7 @@ export class App {
    collisions: Collisions;
    events: Events;
    gameSpeed: GameSpeed;
-   points: Points;
+   points: IPoints;
    gameOver: GameOver;
    yaml: Yaml;
    graphics: IGraphics;
@@ -92,7 +94,9 @@ export class App {
       this.collisions = new Collisions({ app: this, name: "collisions" });
       this.events = new Events({ app: this, name: "events" });
       this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
-      this.points = new Points({ app: this, name: "points" });
+      this.points = IsBrowser() ?
+         new Points({ app: this, name: "points" }):
+         new PointsTester({ app: this, name: "xPointsTester" });
       this.gameOver = new GameOver({ app: this, name: "gameOver" });
       this.yaml = new Yaml({ app: this, name: "yaml" });
       this.graphics = IsBrowser() ?

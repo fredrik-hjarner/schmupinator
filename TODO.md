@@ -73,3 +73,7 @@ not declared!!
 * I should probably not send in `app`, but rather `deps: IService[]` into services.
 
 * Yaml: Maybe do so all files starting with _ are prepended to every file.
+
+* Opps you get points by shooting the spawners.
+
+* When shots hit an enemy, they should disappear.

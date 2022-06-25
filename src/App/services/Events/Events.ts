@@ -21,7 +21,8 @@ export type TEvent =
    TEventCollisions | // when collisions happen.
    { type: "player_missed_bullet" } | // when player's bullet exists gameDiv/screen.
    { type: "player_died" } | // when player dies.
-   { type: "add_points", points: number }; // add points to the player (could be negative).
+   // add points to the player (could be negative).
+   { type: "add_points", points: number, enemy: string };
 
 export class Events implements IService {
    app: App;

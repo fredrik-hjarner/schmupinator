@@ -12,17 +12,14 @@ tasks:
     cmds: [npx vite-node ./src/main.ts]
 
   eslint:
-    - yarn --silent eslint --fix src
-    - echo "eslint finished"
-
-  lint-e2e-watcher:
-    deps: [eslint, e2e]
     sources: [src/**/*.ts]
-    # generates: [dist/**/*.js]
-    # method: timestamp
-    # defer: [echo "--------------------"]
+    cmds:
+      - echo "eslint started"
+      - yarn tsc
+      - yarn --silent eslint --fix src
+      - echo "eslint finished"
 
-  lint-e2e-watch: task lint-e2e-watcher -w
+  lint-e2e-watch: task --parallel -w eslint e2e
 
   serve: yarn --silent dev
 
