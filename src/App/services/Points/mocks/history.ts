@@ -20,6 +20,10 @@ export const history = {
       "points": 10,
       "reason": "nonShootingAimer"
    },
+   "196": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
    "198": {
       "points": -1,
       "reason": "player_missed_bullet"
@@ -80,10 +84,6 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "241": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
    "242": {
       "points": 10,
       "reason": "nonShootingAimer"
@@ -97,6 +97,10 @@ export const history = {
       "reason": "player_missed_bullet"
    },
    "248": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "249": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -121,20 +125,20 @@ export const history = {
       "reason": "nonShootingAimer"
    },
    "262": {
-      "points": -1,
-      "reason": "player_missed_bullet"
+      "points": 10,
+      "reason": "nonShootingAimer"
    },
    "267": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "268": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
    "270": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "273": {
-      "points": 10,
-      "reason": "nonShootingAimer"
    },
    "278": {
       "points": -1,
@@ -172,7 +176,7 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "320": {
+   "321": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -224,11 +228,11 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "357": {
+   "358": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "358": {
+   "359": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -244,10 +248,6 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "370": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
    "371": {
       "points": 10,
       "reason": "nonShootingAimer"
@@ -257,6 +257,10 @@ export const history = {
       "reason": "player_missed_bullet"
    },
    "377": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "378": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -332,6 +336,10 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
+   "444": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
    "448": {
       "points": -1,
       "reason": "player_missed_bullet"
@@ -353,14 +361,10 @@ export const history = {
       "reason": "nonShootingAimer"
    },
    "472": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "477": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "478": {
+   "477": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -448,13 +452,13 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
-   "632": {
-      "points": 10,
-      "reason": "sinus"
-   },
    "637": {
       "points": -1,
       "reason": "player_missed_bullet"
+   },
+   "638": {
+      "points": 10,
+      "reason": "sinus"
    },
    "645": {
       "points": -1,
@@ -512,9 +516,17 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
+   "735": {
+      "points": 0,
+      "reason": "shot"
+   },
    "741": {
       "points": -1,
       "reason": "player_missed_bullet"
+   },
+   "742": {
+      "points": 0,
+      "reason": "shot"
    },
    "749": {
       "points": -1,
@@ -660,10 +672,6 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "956": {
-      "points": 10,
-      "reason": "sinus"
-   },
    "957": {
       "points": 10,
       "reason": "sinus"
@@ -676,13 +684,25 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
+   "964": {
+      "points": 10,
+      "reason": "sinus"
+   },
    "969": {
+      "points": 0,
+      "reason": "shot"
+   },
+   "975": {
       "points": 0,
       "reason": "shot"
    },
    "977": {
       "points": -1,
       "reason": "player_missed_bullet"
+   },
+   "981": {
+      "points": 0,
+      "reason": "shot"
    },
    "984": {
       "points": -1,
@@ -728,10 +748,6 @@ export const history = {
       "points": 0,
       "reason": "shot"
    },
-   "1046": {
-      "points": 0,
-      "reason": "shot"
-   },
    "1047": {
       "points": -1,
       "reason": "player_missed_bullet"
@@ -764,10 +780,6 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1097": {
-      "points": 10,
-      "reason": "sinus"
-   },
    "1098": {
       "points": 10,
       "reason": "sinus"
@@ -780,9 +792,17 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
+   "1105": {
+      "points": 10,
+      "reason": "sinus"
+   },
    "1111": {
-      "points": -1,
-      "reason": "player_missed_bullet"
+      "points": 0,
+      "reason": "shot"
+   },
+   "1118": {
+      "points": 0,
+      "reason": "shot"
    },
    "1119": {
       "points": -1,
@@ -791,6 +811,10 @@ export const history = {
    "1127": {
       "points": -1,
       "reason": "player_missed_bullet"
+   },
+   "1130": {
+      "points": 0,
+      "reason": "shot"
    },
    "1134": {
       "points": -1,
@@ -1080,6 +1104,10 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
+   "1562": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
    "1568": {
       "points": 10,
       "reason": "firstMiniboss"
@@ -1215,5 +1243,9 @@ export const history = {
    "1661": {
       "points": 10,
       "reason": "firstMiniboss"
+   },
+   "1663": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    }
 };

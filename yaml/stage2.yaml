@@ -1,17 +1,11 @@
 enemy:
-    name: shapeShifter
-    diameter: 30
-    hp: 100
+    name: stage2
+    diameter: 20
+    hp: 9999
     actions:
-      - forever:
-        - { type: gfxSetShape, shape: circle }
-        - wait: 60
-        - { type: gfxSetShape, shape: square }
-        - wait: 60
-        - { type: gfxSetShape, shape: triangle }
-        - wait: 60
-        - { type: gfxSetShape, shape: diamondShield }
-        - wait: 60
+      - { spawn: cloner, x: *c5, y: -20 }
+      - wait: 270
+      - do: [{ spawn: cloner, x: *c2, y: -20 }, { spawn: cloner, x: *c8, y: -20 }]
 ---
 x-child: &child { spawn: clonerChild, x: 0, y: 0 }
 

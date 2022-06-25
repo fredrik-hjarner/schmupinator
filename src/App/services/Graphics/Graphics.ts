@@ -28,7 +28,7 @@ export class Graphics implements IGraphics {
    public app: App;
    public name: string;
    private elementPool: TGraphicsElement[];
-   private static poolSize = 50;
+   private static poolSize = 100;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;

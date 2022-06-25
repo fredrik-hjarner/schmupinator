@@ -1,0 +1,21 @@
+enemy:
+    name: stage3
+    diameter: 20
+    hp: 9999
+    actions:
+      - { spawn: shapeShifter, x: *c5, y: *r5 }
+---
+enemy:
+    name: shapeShifter
+    diameter: 30
+    hp: 100
+    actions:
+      - forever:
+        - { type: gfxSetShape, shape: circle }
+        - wait: 60
+        - { type: gfxSetShape, shape: square }
+        - wait: 60
+        - { type: gfxSetShape, shape: triangle }
+        - wait: 60
+        - { type: gfxSetShape, shape: diamondShield }
+        - wait: 60
