@@ -29,32 +29,35 @@ export class Yaml implements IService {
       this.EnemyJsons = [];
    }
 
-   Init = async () => {
+   public Init = async () => {
       const zipData = await BrowserDriver.FetchBinary("yaml/game.zip");
-      // console.log("zipData:", zipData);
       const zip = await loadAsync(zipData);
-      // console.log("zip:", zip);
 
-      const common = await zip.file("common.yaml")?.async("text");
-      const enemies = await zip.file("enemies.yaml")?.async("text");
+      const commonFile = await zip.file("common.yaml")?.async("text");
+      // const commonDoc = commonFile ? parseDocument(commonFile, {merge: true}) : undefined;
+      // if(commonDoc) { this.checkError(commonDoc); }
 
-      if(!common) {
-         BrowserDriver.Alert("Yaml: Failed to load common.yml");
-         throw new Error("Yaml: Failed to load common.yml");
-      }
-      if(!enemies) {
-         BrowserDriver.Alert("Yaml: Failed to load enemies.yml");
-         throw new Error("Yaml: Failed to load enemies.yml");
-      }
+      const files: string[] = Object.keys(zip.files);
 
-      const commonDoc = parseDocument(common, {merge: true});
+      const allOtherFiles = await Promise.all(
+         files
+            .filter(f => f !== "common.yml")
+            .map(async (f) => {
+               const yml = await zip.file("enemies.yaml")?.async("text");
+               if(!yml) {
+                  const err = `Yaml: Failed to unzip ${f}`;
+                  BrowserDriver.Alert(err);
+                  throw new Error(err);
+               }
+               return yml;
+            })
+      );
 
-      // Check errors
-      this.checkError(commonDoc);
-
-      const enemyYaml = enemies.split("---");
+      const enemyYaml = allOtherFiles.reduce<string[]>((acc, f) => {
+         return [...acc, ...f.split("---")];
+      }, []);
       const yamlDocuments = enemyYaml.map(yaml => {
-         const withCommon = `${common}\n${yaml}`;
+         const withCommon = commonFile ? `${commonFile}\n${yaml}` : yaml;
          return parseDocument(withCommon, {merge: true});
       });
 
