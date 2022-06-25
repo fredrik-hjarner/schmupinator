@@ -77,3 +77,6 @@ not declared!!
 * Opps you get points by shooting the spawners.
 
 * When shots hit an enemy, they should disappear.
+
+* PointsTester is unsafe. It should take more control and FORCE Points to resond to events before
+PointsTester.
