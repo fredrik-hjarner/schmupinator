@@ -30,7 +30,7 @@ export class Yaml implements IService {
    }
 
    public Init = async () => {
-      const zipData = await BrowserDriver.FetchBinary("yaml/game.zip");
+      const zipData = await BrowserDriver.FetchBinary("/game.zip");
       const zip = await loadAsync(zipData);
 
       const commonFile = await zip.file("common.yaml")?.async("text");

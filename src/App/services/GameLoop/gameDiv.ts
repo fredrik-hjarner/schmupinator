@@ -12,7 +12,7 @@ export const initLayer1Element = () => {
       element.style.top = "0px";
       element.style.left = "0px";
       //bg
-      element.style.backgroundImage = `url("./layer1.png")`;
+      element.style.backgroundImage = `url("/images/layer1.png")`;
       element.style.backgroundSize = "contain";
       element.style.backgroundOrigin = "padding-box";
       element.style.backgroundRepeat = "repeat-y";
@@ -31,7 +31,7 @@ export const initLayer2Element = () => {
       element.style.top = "0px";
       element.style.left = "0px";
       //bg
-      element.style.backgroundImage = `url("./layer2.png")`;
+      element.style.backgroundImage = `url("/images/layer2.png")`;
       element.style.backgroundSize = "contain";
       element.style.backgroundOrigin = "padding-box";
       element.style.backgroundRepeat = "repeat-y";
@@ -50,7 +50,7 @@ export const initLayer3Element = () => {
       element.style.top = "0px";
       element.style.left = "0px";
       //bg
-      element.style.backgroundImage = `url("./layer3.png")`;
+      element.style.backgroundImage = `url("/images/layer3.png")`;
       element.style.backgroundSize = "contain";
       element.style.backgroundOrigin = "padding-box";
       element.style.backgroundRepeat = "repeat-y";
