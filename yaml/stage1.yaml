@@ -2,10 +2,18 @@ x-aimerLeft: &aimerLeft { spawn: nonShootingAimer, x: 128.5, y: -22 }
 x-aimerRight: &aimerRight { spawn: nonShootingAimer, x: 228.5, y: -22 }
 
 x-sinusLeft: &sinusLeft { spawn: sinus, x: 75, y: -20 }
-x-sinusRight: &sinusRight { spawn: sinus, flags: [right], x: 280, y: -20 }
+x-sinusRight: &sinusRight
+  spawn: sinus
+  x: 280
+  y: -20
+  actions: [{ type: "setAttribute", attribute: "right", value: true }]
 
 x-leftMiniBoss: &leftMiniBoss { spawn: firstMiniboss, x: 118.881, y: -20 }
-x-rightMiniBoss: &rightMiniBoss { spawn: firstMiniboss, flags: [right], x: 237.762, y: -20 }
+x-rightMiniBoss: &rightMiniBoss
+  spawn: firstMiniboss
+  x: 237.762
+  y: -20
+  actions: [{ type: "setAttribute", attribute: "right", value: true }]
 
 x:
   - &aimers

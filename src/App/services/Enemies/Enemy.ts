@@ -29,7 +29,6 @@ export class Enemy {
    // facing/aim
    // default direction down.
    private direction = new UnitVector(new Vector(0, 1));
-   private flags: string[];
    private mirrorX = false;
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
@@ -44,7 +43,6 @@ export class Enemy {
       app: App,
       position: TVector,
       json: IEnemyJson,
-      flags: string[] = []
    ) {
       this.app = app;
       this.id = `${json.name}-${uuid()}`;
@@ -52,12 +50,11 @@ export class Enemy {
       this.diameter = json.diameter;
       this.X = position.x;
       this.Y = position.y;
-      this.flags = flags;
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
          actions: json.actions,
          getPosition: this.getPosition,
-         getFlag: this.getFlag
+         getAttr: this.getAttr
       });
       // TODO: Attrs should be be set by an Action in future, right?
       this.hp = json.hp;
@@ -173,8 +170,8 @@ export class Enemy {
             break;
 
          case "spawn": {
-            const { enemy, flags, x, y, actions } = action;
-            this.spawn({ enemy, flags, pos: { x, y }, actions });
+            const { enemy, x, y, actions } = action;
+            this.spawn({ enemy, pos: { x, y }, actions });
             break;
          }
 
@@ -292,12 +289,12 @@ export class Enemy {
    };
 
    private spawn = (
-      { enemy, flags, pos, actions }:
-      { enemy: string, flags?: string[], pos: TVector, actions?: TShortFormAction[] }
+      { enemy, pos, actions }:
+      { enemy: string, pos: TVector, actions?: TShortFormAction[] }
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
-      this.app.enemies.Spawn({ enemy, flags, position: absolute, prependActions: actions });
+      this.app.enemies.Spawn({ enemy, position: absolute, prependActions: actions });
    };
 
    private getPosition = (): TVector => {
@@ -317,7 +314,9 @@ export class Enemy {
       return { x, y };
    };
 
-   private getFlag = (flag: string) => this.flags.includes(flag);
+   private getAttr = (attr: string) => {
+      return this.attrs.attrExists(attr) && !!this.attrs.GetAttribute(attr).value;
+   };
 
    private setMirrorX = (value: boolean) => {
       this.mirrorX = value;

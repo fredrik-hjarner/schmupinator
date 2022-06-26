@@ -16,11 +16,16 @@ enemy:
   actions:
     - { moveToAbsolute: { y: 45 }, frames: 150 }
     - wait: 30
-    - { <<: *child }
-    - { <<: *child, flags: [mirrorX] }
+    - *child
+    - <<: *child
+      actions: [{ type: "setAttribute", attribute: "mirrorX", value: true }]
     - wait: 80
-    - { <<: *child, flags: [mirrorY] }
-    - { <<: *child, flags: [mirrorX, mirrorY] }
+    - <<: *child
+      actions: [{ type: "setAttribute", attribute: "mirrorY", value: true }]
+    - <<: *child
+      actions: 
+        - { type: "setAttribute", attribute: "mirrorX", value: true }
+        - { type: "setAttribute", attribute: "mirrorY", value: true }
 ---
 x:
 - &left1 {type: move, x: -45, y: -20, frames: 65 }

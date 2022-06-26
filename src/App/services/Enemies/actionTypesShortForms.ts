@@ -9,7 +9,7 @@ const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => 
 };
 
 export type TShortFormSpawn = { 
-   spawn: string, flags?: string[], x: number, y: number, actions?: TShortFormAction[]
+   spawn: string, x: number, y: number, actions?: TShortFormAction[]
 };
 const isShortFormSpawn = (action: TShortFormAction): action is TShortFormSpawn => {
    return (action as TShortFormSpawn).spawn !== undefined;
@@ -86,8 +86,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       const { wait } = shortForm;
       return { type: "wait", frames: wait };
    } else if(isShortFormSpawn(shortForm)) {
-      const { spawn, flags, x, y, actions } = shortForm;
-      return { type: "spawn", enemy: spawn, flags, x, y, actions };
+      const { spawn, x, y, actions } = shortForm;
+      return { type: "spawn", enemy: spawn, x, y, actions };
    } else if(isShortFormRepeat(shortForm)) {
       const { repeat, actions } = shortForm;
       return { type: "repeat", times: repeat, actions };
@@ -98,8 +98,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       const { parallellRace } = shortForm;
       return { type: "parallellRace", actionsLists: parallellRace };
    } else if(iShortFormAttr(shortForm)) {
-      const { attr: flag, yes, no } = shortForm;
-      return { type: "attr", attrName: flag, yes, no };
+      const { attr, yes, no } = shortForm;
+      return { type: "attr", attrName: attr, yes, no };
    } else if(isShortFormSetShotSpeed(shortForm)) {
       const { setShotSpeed } = shortForm;
       return { type: "setShotSpeed", pixelsPerFrame: setShotSpeed };

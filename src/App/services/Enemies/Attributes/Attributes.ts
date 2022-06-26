@@ -71,4 +71,6 @@ export class Attributes {
       }
       return attr;
    };
+
+   public attrExists = (name: string) => !!this.attributes[name];
 }

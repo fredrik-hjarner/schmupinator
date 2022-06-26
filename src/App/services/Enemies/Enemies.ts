@@ -42,8 +42,8 @@ export class Enemies implements IService {
    };
 
    public Spawn = (
-      { enemy, flags, position, prependActions=[] }:
-      { enemy: string, flags?: string[], position: TVector, prependActions?: TShortFormAction[] }
+      { enemy, position, prependActions=[] }:
+      { enemy: string, position: TVector, prependActions?: TShortFormAction[] }
    ) => {
       const { EnemyJsons } = this.app.yaml;
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
@@ -79,7 +79,7 @@ export class Enemies implements IService {
             }
          ]
       };
-      this.enemies.push(new Enemy(this.app, position, newEnemyJson, flags));
+      this.enemies.push(new Enemy(this.app, position, newEnemyJson));
    };
 
    /**

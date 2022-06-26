@@ -20,19 +20,19 @@ type TEnemyActionExecutorArgs = {
    actions: TShortFormAction[];
    actionHandler: TActionHandler;
    getPosition: () => TVector;
-   getFlag: (flag: string) => boolean;
+   getAttr: (attr: string) => boolean;
 }
 
 export class EnemyActionExecutor {
    private actionHandler: (action: TAction) => void;
    private getPosition: () => TVector;
-   private getFlag: (flag: string) => boolean;
+   private getAttr: (attr: string) => boolean;
    generator: Generator<void, void, void>;
 
-   constructor({ actions, actionHandler, getPosition, getFlag }: TEnemyActionExecutorArgs) {
+   constructor({ actions, actionHandler, getPosition, getAttr }: TEnemyActionExecutorArgs) {
       this.actionHandler = actionHandler;
       this.getPosition = getPosition;
-      this.getFlag = getFlag;
+      this.getAttr = getAttr;
       this.generator = this.makeGenerator(actions);
    }
 
@@ -81,9 +81,9 @@ export class EnemyActionExecutor {
             }
 
             case "attr": {
-               const { attrName: flag, yes, no } = currAction;
-               const flagValue = this.getFlag(flag);
-               yield* this.makeGenerator(flagValue ? yes : no);
+               const { attrName, yes, no } = currAction;
+               const attrValue = this.getAttr(attrName);
+               yield* this.makeGenerator(attrValue ? yes : no);
                break;
             }
 
