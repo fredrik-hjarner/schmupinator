@@ -99,7 +99,7 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       return { type: "parallellRace", actionsLists: parallellRace };
    } else if(iShortFormAttr(shortForm)) {
       const { attr: flag, yes, no } = shortForm;
-      return { type: "attr", flagName: flag, yes, no };
+      return { type: "attr", attrName: flag, yes, no };
    } else if(isShortFormSetShotSpeed(shortForm)) {
       const { setShotSpeed } = shortForm;
       return { type: "setShotSpeed", pixelsPerFrame: setShotSpeed };

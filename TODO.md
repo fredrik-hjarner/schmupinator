@@ -81,6 +81,4 @@ not declared!!
 * PointsTester is unsafe. It should take more control and FORCE Points to resond to events before
 PointsTester.
 
-* remove tsconfig.tsbuildinfo from repo, and game.zip.
-
 * Start the game by clicking a start button.
