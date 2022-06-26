@@ -34,9 +34,8 @@ export class Collisions implements IService {
     */
    // eslint-disable-next-line @typescript-eslint/require-await
    Init = async () => {
-      // TODO: Use this.name instead!!
       this.app.events.subscribeToEvent(
-         "Collisions",
+         this.name,
          ({ type }) => {
             if(type === "frame_tick") {
                this.update();

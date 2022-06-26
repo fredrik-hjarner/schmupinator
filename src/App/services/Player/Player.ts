@@ -66,9 +66,8 @@ export class Player implements IService {
          handle: this.graphicsHandle, degrees: 0
       });
 
-      // TODO: Use this.name instead.
       this.app.events.subscribeToEvent(
-         "updatePlayer",
+         this.name,
          event => {
             switch(event.type) {
                case "frame_tick":
