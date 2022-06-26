@@ -6,3 +6,4 @@ enemy:
       - { spawn: stage1, x: 0, y: 0 }
       # - { spawn: stage2, x: 0, y: 0 }
       # - { spawn: stage3, x: 0, y: 0 }
+      # - { spawn: stage4, x: 0, y: 0 }

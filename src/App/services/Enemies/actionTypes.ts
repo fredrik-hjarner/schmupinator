@@ -80,6 +80,11 @@ export type TWaitTilInsideScreen = { type: "waitTilInsideScreen" };
  * execute in parallel to them).
  */
 export type TFork = { type: "fork", actions: TSFAction[] };
+/**
+ * Set only the move direction. Only specific some move actions care about the direction which 
+ * gotta be called to move in the direction set with this action.
+ */
+export type TMoveDirection = { type: "setMoveDirection", degrees: number };
 
 export type TAction =
    /**
@@ -112,6 +117,7 @@ export type TAction =
    TRotateAroundRelativePoint |
    TRotateTowardsPlayer |
    TMoveAccordingToSpeedAndDirection |
+   TMoveDirection |
    /**
    * Spawning/Life cycle
    */

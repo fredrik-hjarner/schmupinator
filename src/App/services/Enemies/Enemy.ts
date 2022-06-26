@@ -27,7 +27,7 @@ export class Enemy {
    private shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
    // facing/aim
    // default direction down.
-   private direction = new UnitVector(new Vector(0, 1));
+   private moveDirection = new UnitVector(new Vector(0, 1));
    private mirrorX = false;
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
@@ -91,7 +91,7 @@ export class Enemy {
        */
       this.updateDisplayHealth();
       this.gfx?.setPosition({ x: this.X, y: this.Y });
-      this.gfx?.setRotation({ degrees: this.direction.toVector().angle.degrees });
+      this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
 
    public OnCollisions = (collisions: TCollisions) => {
@@ -163,6 +163,10 @@ export class Enemy {
 
          case "rotate_towards_player":
             this.RotateTowardsPlayer();
+            break;
+
+         case "setMoveDirection":
+            this.setMoveDirection(action.degrees);
             break;
 
          case "move_according_to_speed_and_direction":
@@ -293,12 +297,17 @@ export class Enemy {
       // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
       const enemyVector = new Vector(this.X, this.Y);
       const vectorFromEnemyToPlayer = Vector.fromTo(enemyVector, playerVector);
-      this.direction = new UnitVector(vectorFromEnemyToPlayer);
+      this.moveDirection = new UnitVector(vectorFromEnemyToPlayer);
+   };
+
+   private setMoveDirection = (degrees: number) => {
+      const dir = new UnitVector(new Vector(0, -1)).rotateClockwise(Angle.fromDegrees(degrees));
+      this.moveDirection = dir;
    };
 
    private moveAccordingToSpeedAndDirection = () => {
-      const newX = this.X + this.direction.x * this.speed;
-      const newY = this.Y += this.direction.y * this.speed;
+      const newX = this.X + this.moveDirection.x * this.speed;
+      const newY = this.Y += this.moveDirection.y * this.speed;
       this.X = newX;
       this.Y = newY;
    };
