@@ -2,6 +2,7 @@ import type {
    TAction, TDo, TAttr, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait, TFork
 } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
+import type { TAttributeValue } from "./Attributes/Attributes";
 
 export type TShortFormWait = { wait: number };
 const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => {
@@ -30,7 +31,8 @@ const isShortFormParallellRace = (action: TShortFormAction): action is TShortFor
    return (action as TShortFormParallellRace).parallellRace !== undefined;
 };
 
-export type TShortFormAttr = { attr: string, yes?: TShortFormAction[], no?: TShortFormAction[] };
+export type TShortFormAttr =
+   { attr: string, is: TAttributeValue, yes?: TShortFormAction[], no?: TShortFormAction[] };
 const iShortFormAttr = (action: TShortFormAction): action is TShortFormAttr => {
    return (action as TShortFormAttr).attr !== undefined;
 };
@@ -103,8 +105,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       const { parallellRace } = shortForm;
       return { type: "parallellRace", actionsLists: parallellRace };
    } else if(iShortFormAttr(shortForm)) {
-      const { attr, yes, no } = shortForm;
-      return { type: "attr", attrName: attr, yes, no };
+      const { attr, is, yes, no } = shortForm;
+      return { type: "attr", attrName: attr, is, yes, no };
    } else if(isShortFormSetShotSpeed(shortForm)) {
       const { setShotSpeed } = shortForm;
       return { type: "setShotSpeed", pixelsPerFrame: setShotSpeed };

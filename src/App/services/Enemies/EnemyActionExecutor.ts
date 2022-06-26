@@ -94,9 +94,9 @@ export class EnemyActionExecutor {
             }
 
             case "attr": {
-               const { attrName, yes, no } = currAction;
+               const { attrName, is, yes, no } = currAction;
                const attrValue = this.getAttr(attrName);
-               yield* this.makeGenerator(attrValue ? yes : no);
+               yield* this.makeGenerator(attrValue === is ? yes : no);
                break;
             }
 

@@ -38,8 +38,9 @@ export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed
 export type TSpawn = {
    type: "spawn", enemy: string, x: number, y: number, actions?: TSFAction[]
 };
-// Simple if case. Executes yes if true. Executs no when false.
-export type TAttr = { type: "attr", attrName: string, yes?: TSFAction[], no?: TSFAction[] };
+// Simple if-equals case. Executes yes if true. Executs no when false.
+export type TAttr =
+   { type: "attr", attrName: string, is: TAttributeValue, yes?: TSFAction[], no?: TSFAction[] };
 /**
  * Mirroring mirrors an axis.
  * If you have an enemy that moves like another enemy, except

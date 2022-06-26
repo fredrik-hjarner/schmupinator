@@ -87,7 +87,7 @@ enemy:
   diameter: 24
   actions:
   - setShotSpeed: 2
-  - { attr: right, yes: [{ type: mirrorX, value: true }] }
+  - { attr: right, is: true, yes: [{ type: mirrorX, value: true }] }
   - twice:
     - *rotateLeftAndShoot
     - *moveRight
@@ -126,7 +126,7 @@ x:
 - &downOutOfScreen      { moveToAbsolute: { x: 98.5, y: 290 }, frames: 210 }
 
 x-movementPattern: &movementPattern
-  - { attr: right, yes: [{ type: mirrorX, value: true }] }
+  - { attr: right, is: true, yes: [{ type: mirrorX, value: true }] }
   - *intoScreen
   - *down1
   - seq:
@@ -139,11 +139,11 @@ x-movementPattern: &movementPattern
       - [*down2, wait: 25,]
       - [*up2, wait: 25,]
       - [*downIn, wait: 25]
-  - { attr: right, yes: [{ type: mirrorY, value: true }] }
+  - { attr: right, is: true, yes: [{ type: mirrorY, value: true }] }
   - *rotateClockwise
   - wait: 25
   - *rotateAntiClockwise
-  - { attr: right, yes: [{ type: mirrorY, value: false }] }
+  - { attr: right, is: true, yes: [{ type: mirrorY, value: false }] }
   - wait: 25
   - *downOutOfScreen
 
