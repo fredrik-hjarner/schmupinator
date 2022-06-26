@@ -1,5 +1,5 @@
 import type {
-   TAction, TDo, TFlag, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait
+   TAction, TDo, TAttr, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait
 } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
@@ -30,9 +30,9 @@ const isShortFormParallellRace = (action: TShortFormAction): action is TShortFor
    return (action as TShortFormParallellRace).parallellRace !== undefined;
 };
 
-export type TShortFormFlag = { flag: string, yes?: TShortFormAction[], no?: TShortFormAction[] };
-const iShortFormFlag = (action: TShortFormAction): action is TShortFormFlag => {
-   return (action as TShortFormFlag).flag !== undefined;
+export type TShortFormAttr = { attr: string, yes?: TShortFormAction[], no?: TShortFormAction[] };
+const iShortFormAttr = (action: TShortFormAction): action is TShortFormAttr => {
+   return (action as TShortFormAttr).attr !== undefined;
 };
 
 export type TShortFormSetShotSpeed = { setShotSpeed: number };
@@ -97,9 +97,9 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    } else if(isShortFormParallellRace(shortForm)) {
       const { parallellRace } = shortForm;
       return { type: "parallellRace", actionsLists: parallellRace };
-   } else if(iShortFormFlag(shortForm)) {
-      const { flag, yes, no } = shortForm;
-      return { type: "flag", flagName: flag, yes, no };
+   } else if(iShortFormAttr(shortForm)) {
+      const { attr: flag, yes, no } = shortForm;
+      return { type: "attr", flagName: flag, yes, no };
    } else if(isShortFormSetShotSpeed(shortForm)) {
       const { setShotSpeed } = shortForm;
       return { type: "setShotSpeed", pixelsPerFrame: setShotSpeed };
@@ -125,7 +125,7 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
 export type TShortFormAction =
    Exclude<
       TAction,
-      TWait | TSpawn | TRepeat | TFlag | TSetShotSpeed | TMoveToAbsolute | TDo | TSetSpeed |
+      TWait | TSpawn | TRepeat | TAttr | TSetShotSpeed | TMoveToAbsolute | TDo | TSetSpeed |
       { type: "parallellAll" } | { type: "parallellRace" }
    > |
 
@@ -133,7 +133,7 @@ export type TShortFormAction =
    TShortFormSpawn |
    TShortFormRepeat |
    TShortFormParallellAll |
-   TShortFormFlag |
+   TShortFormAttr |
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
    TShortFormDo |

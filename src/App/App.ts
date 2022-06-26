@@ -39,6 +39,8 @@ import { MockGraphics } from "./services/Graphics/MockGraphics";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FastGameLoop } from "./services/GameLoop/mocks/FastGameLoop";
 import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PointsTester } from "./services/Points/mocks/PointsTester";
 
 /**
@@ -97,6 +99,7 @@ export class App {
       this.points = IsBrowser() ?
          new Points({ app: this, name: "points" }):
          new PointsTester({ app: this, name: "xPointsTester" });
+      // new Points({ app: this, name: "points" });
       this.gameOver = new GameOver({ app: this, name: "gameOver" });
       this.yaml = new Yaml({ app: this, name: "yaml" });
       this.graphics = IsBrowser() ?

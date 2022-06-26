@@ -30,8 +30,8 @@ enemy:
   hp: 10
   diameter: 18
   actions:
-    - { flag: mirrorX, yes: [{ type: mirrorX, value: true }] }
-    - { flag: mirrorY, yes: [{ type: mirrorY, value: true }] }
+    - { attr: mirrorX, yes: [{ type: mirrorX, value: true }] }
+    - { attr: mirrorY, yes: [{ type: mirrorY, value: true }] }
     - { setShotSpeed: 1.5 }
     - parallellAll:
       - - *left1

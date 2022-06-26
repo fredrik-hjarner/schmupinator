@@ -80,7 +80,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "flag": {
+            case "attr": {
                const { flagName: flag, yes, no } = currAction;
                const flagValue = this.getFlag(flag);
                yield* this.makeGenerator(flagValue ? yes : no);

@@ -39,7 +39,7 @@ export type TSpawn = {
    type: "spawn", enemy: string, x: number, y: number, flags?: string[], actions?: TSFAction[]
 };
 // Simple if case. Executes yes if true. Executs no when false.
-export type TFlag = { type: "flag", flagName: string, yes?: TSFAction[], no?: TSFAction[] };
+export type TAttr = { type: "attr", flagName: string, yes?: TSFAction[], no?: TSFAction[] };
 /**
  * Mirroring mirrors an axis.
  * If you have an enemy that moves like another enemy, except
@@ -104,7 +104,7 @@ export type TAction =
    /**
     * Control/Conditions/Flags
     */
-   TFlag |
+   TAttr |
    TSetAttribute |
    /**
     * Mirroring

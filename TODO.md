@@ -82,3 +82,5 @@ not declared!!
 PointsTester.
 
 * remove tsconfig.tsbuildinfo from repo, and game.zip.
+
+* Start the game by clicking a start button.
