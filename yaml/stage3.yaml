@@ -5,6 +5,7 @@ enemy:
     actions:
       - { spawn: shapeShifter, x: *c5, y: *r5 }
       - { spawn: healer, x: *c4, y: *r4 }
+      - { spawn: dehealer, x: *c6, y: *r4 }
 ---
 enemy:
     name: shapeShifter
@@ -24,8 +25,18 @@ enemy:
 enemy:
     name: healer
     diameter: 30
-    hp: 100
+    hp: 50
+    actions:
+      -  { type: "setAttribute", attribute: "hp", value: 25 }
+      - forever:
+        - wait: 10
+        - { attr: hp, is: 50, no: [{ type: "incr", attribute: "hp" }] }
+---
+enemy:
+    name: dehealer
+    diameter: 30
+    hp: 50
     actions:
       - forever:
-        - wait: 120
-        - { type: "setAttribute", attribute: "hp", value: 100 }
+        - wait: 10
+        - { type: "decr", attribute: "hp" }

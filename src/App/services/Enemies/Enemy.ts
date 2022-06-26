@@ -3,7 +3,6 @@ import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
-import type { TAttributeValue } from "./Attributes/Attributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -134,6 +133,7 @@ export class Enemy {
    /**
     * Essentially maps actions to class methods,
     * that is has very "thin" responsibilities.
+    * Actually one-lines are okey to inline here.
     */
    private HandleAction = (action: TAction) => {
       switch(action.type) {
@@ -192,11 +192,19 @@ export class Enemy {
             break;
 
          case "setAttribute":
-            this.setAttribute({ attribute: action.attribute, value: action.value });
+            this.attrs.SetAttribute({ name: action.attribute, value: action.value });
             break;
 
          case "die":
             this.die();
+            break;
+
+         case "incr":
+            this.attrs.incr(action.attribute);
+            break;
+
+         case "decr":
+            this.attrs.decr(action.attribute);
             break;
       
          default:
@@ -322,7 +330,7 @@ export class Enemy {
    };
 
    private getAttr = (attr: string) => {
-      return this.attrs.attrExists(attr) && !!this.attrs.GetAttribute(attr).value;
+      return this.attrs.attrExists(attr) && this.attrs.GetAttribute(attr).value;
    };
 
    private setMirrorX = (value: boolean) => {
@@ -331,11 +339,6 @@ export class Enemy {
 
    private setMirrorY = (value: boolean) => {
       this.mirrorY = value;
-   };
-
-   private setAttribute = (params: { attribute: string, value: TAttributeValue }) => {
-      const { attribute, value } = params;
-      this.attrs.SetAttribute({ name: attribute, value });
    };
 
    private updateDisplayHealth = () => {

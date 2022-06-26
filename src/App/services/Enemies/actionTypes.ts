@@ -41,6 +41,13 @@ export type TSpawn = {
 // Simple if-equals case. Executes yes if true. Executs no when false.
 export type TAttr =
    { type: "attr", attrName: string, is: TAttributeValue, yes?: TSFAction[], no?: TSFAction[] };
+// Increments an attribute. Obviously will blow up if trying to increment a non-number.
+export type TIncrement =
+{ type: "incr", attribute: string };
+// Decrements an attribute. Obviously will blow up if trying to increment a non-number.
+export type TDecrement =
+{ type: "decr", attribute: string };
+
 /**
  * Mirroring mirrors an axis.
  * If you have an enemy that moves like another enemy, except
@@ -117,6 +124,8 @@ export type TAction =
     */
    TAttr |
    TSetAttribute |
+   TIncrement |
+   TDecrement |
    /**
     * Mirroring
     */

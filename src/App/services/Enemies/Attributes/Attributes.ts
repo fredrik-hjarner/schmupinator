@@ -11,13 +11,12 @@ export type TAttribute = Attribute;
 
 class Attribute {
    public value: TAttributeValue;
-   public type: "string" | "number" | "boolean";
    
    constructor(value: TAttributeValue) {
       this.value = value;
       const type = typeof value;
       if(type === "string" || type === "number" || type === "boolean") {
-         this.type = type;
+         // noop
       } else {
          BrowserDriver.Alert(
             `Attribute.constructor: typeof value was "${type}" which is not an allowed type.`
@@ -37,9 +36,20 @@ export class Attributes {
        * actions, but it may not hurt to have default values though, and also may serve as
        * reference of what "built-in" attrs exist.
        */
-      points:  { value: 10,   type: "number" },
-      hp:      { value: 1,    type: "number" },
-      maxHp:   { value: 1,    type: "number" },
+      points:  { value: 10 },
+      hp:      { value: 1 },
+      maxHp:   { value: 1 },
+   };
+
+   private getAndAssertAttribute = (name: string): Attribute => {
+      if(!(name in this.attributes)){
+         const msg = `Attribute:  Attribute "${name}" does not exist.`;
+         BrowserDriver.Alert(msg);
+         throw new Error(msg);
+      }
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore guaranteed to exist since previous if case.
+      return this.attributes[name];
    };
 
    public SetAttribute = (params: { name: string, value: TAttributeValue }) => {
@@ -48,29 +58,35 @@ export class Attributes {
    };
 
    public UnsetAttribute = (name: string) => {
-      if(!(name in this.attributes)){
-         BrowserDriver.Alert(
-            `UnsetAttribute: Tried to unset an attribute "${name}" that does not exist.`
-         );
-         throw new Error(
-            `UnsetAttribute: Tried to unset an attribute "${name}" that does not exist.`
-         );
-      }
+      this.getAndAssertAttribute(name);
       delete this.attributes[name];
    };
 
    public GetAttribute = (name: string): Attribute => {
-      const attr = this.attributes[name];
-      if(attr === undefined) {
-         BrowserDriver.Alert(
-            `GetAttribute: Tried to get an attribute "${name}" that does not exist.`
-         );
-         throw new Error(
-            `GetAttribute: Tried to get an attribute "${name}" that does not exist.`
-         );
-      }
-      return attr;
+      return this.getAndAssertAttribute(name);
    };
 
    public attrExists = (name: string) => !!this.attributes[name];
+
+   public incr = (name: string) => {
+      const attr = this.getAndAssertAttribute(name);
+      if(typeof attr.value !== "number") {
+         const msg =
+            `Attribute.incr: Tried to increment ${name} which is of type ${typeof attr.value}`;
+         BrowserDriver.Alert(msg);
+         throw new Error(msg);
+      }
+      attr.value++;
+   };
+
+   public decr = (name: string) => {
+      const attr = this.getAndAssertAttribute(name);
+      if(typeof attr.value !== "number") {
+         const msg =
+            `Attribute.decr: Tried to decrement ${name} which is of type ${typeof attr.value}`;
+         BrowserDriver.Alert(msg);
+         throw new Error(msg);
+      }
+      attr.value--;
+   };
 }
