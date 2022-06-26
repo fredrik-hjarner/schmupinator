@@ -82,3 +82,9 @@ not declared!!
 PointsTester.
 
 * Start the game by clicking a start button.
+
+* When an emepy has spawned it should probably execute it's EnemyExecutor (generators) once,
+otherwise, if the enemy has setup actions, then it might exist for one frame in an uninitialized
+state.
+
+* Make a "mocked" EventsTester service so I can verify that all events are the same.

@@ -27,19 +27,23 @@ export class EnemyActionExecutor {
    private actionHandler: (action: TAction) => void;
    private getPosition: () => TVector;
    private getAttr: (attr: string) => boolean;
-   generator: Generator<void, void, void>;
+   /**
+    * The only reason I don't have only ONE generator is because of the `fork` action.
+    * `fork` creates/adds a new generator. I think that's the only way it could work really.
+    */
+   generators: Generator<void, void, void>[];
 
    constructor({ actions, actionHandler, getPosition, getAttr }: TEnemyActionExecutorArgs) {
       this.actionHandler = actionHandler;
       this.getPosition = getPosition;
       this.getAttr = getAttr;
-      this.generator = this.makeGenerator(actions);
+      this.generators = [this.makeGenerator(actions)];
    }
 
    // TODO: Prolly return something special when died/finished.
    public ProgressOneFrame() {
       // TODO: Die/kill self/explode when done!
-      this.generator.next();
+      this.generators.forEach(g => { g.next(); });
    }
 
    /**
@@ -55,6 +59,15 @@ export class EnemyActionExecutor {
          const currAction = actions[currIndex];
          // console.log(currAction.type);
          switch(currAction.type) {
+            case "fork": {
+               // Create a new generator for the fork to allow it to execute parallelly.
+               const generator = this.makeGenerator(currAction.actions);
+               this.generators.push(generator);
+               // execute once, otherwise the first forked action would execute next frame.
+               generator.next();
+               break;
+            }
+
             case "do": { // flatten essentially.
                yield* this.makeGenerator(currAction.acns);
                break;

@@ -68,15 +68,14 @@ export class Enemies implements IService {
          ...enemyJson,
          actions: [
             {
-               parallellRace: [
-                  [
-                     { type: "waitTilInsideScreen" },
-                     { type: "waitTilOutsideScreen" },
-                     { type: "die" }
-                  ],
-                  [...prependActions, ...enemyJson.actions]
+               fork: [
+                  { type: "waitTilInsideScreen" },
+                  { type: "waitTilOutsideScreen" },
+                  { type: "die" }
                ]
-            }
+            },
+            ...prependActions,
+            ...enemyJson.actions
          ]
       };
       this.enemies.push(new Enemy(this.app, position, newEnemyJson));

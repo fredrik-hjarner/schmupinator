@@ -220,12 +220,19 @@ export class Enemy {
          enemy:"shot",
          pos: { x: 0, y: 0 },
          actions:  [
-            { type: "setAttribute", attribute: "points", value: 0 },// TODO: move points to yml file
-            { type: "gfxSetShape", shape: "circle" },
-            { forever: [
-               { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
-               { type: "waitNextFrame" }
-            ]},
+            {
+               fork: [
+                  {
+                     forever: [
+                        /**
+                         * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
+                         * and then in yaml file a `moveAccordingToDirAndSpeed` action.
+                         */
+                        { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
+                        { type: "waitNextFrame" }
+                     ]},
+               ]
+            }
          ]
       });
    };

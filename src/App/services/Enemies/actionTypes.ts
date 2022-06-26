@@ -63,6 +63,15 @@ export type TSetAttribute = { type: "setAttribute", attribute: string, value: TA
 export type TWaitTilOutsideScreen = { type: "waitTilOutsideScreen" };
 // Waits until Enemy is inside the screen/game window
 export type TWaitTilInsideScreen = { type: "waitTilInsideScreen" };
+/**
+ * Fork is like fork in C essentially. The actions in fork executes separately
+ * (in a separate generator) i.e. these actions won't delay other actions.
+ * Usually you can get the same behaviour with `paralllelAll`/`parallelRace` but in some situations
+ * the parallel actions aren't really an option (such as when you prepend actions when spawning
+ * a new enemy and you want those actions to not delay the enemy's own actions, but rather
+ * execute in parallel to them).
+ */
+export type TFork = { type: "fork", actions: TSFAction[] };
 
 export type TAction =
    /**
@@ -75,6 +84,7 @@ export type TAction =
    TParallellRace |
    TParallellAll |
    TDo |
+   TFork |
    /**
    * Shooting
    */

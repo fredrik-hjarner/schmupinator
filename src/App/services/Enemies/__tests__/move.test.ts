@@ -23,7 +23,7 @@ describe("move", () => {
         y: 0,
         frames: 0
       }]
-    }).generator;
+    }).generators[0];
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(1);
@@ -43,7 +43,7 @@ describe("move", () => {
         y: 0,
         frames: 1
       }]
-    }).generator;
+    }).generators[0];
 
     // move, also will yield
     expect(generator.next().done).toBe(false);
@@ -69,7 +69,7 @@ describe("move", () => {
         y: 0,
         frames: 2
       }]
-    }).generator;
+    }).generators[0];
 
     // 1st move.
     expect(generator.next().done).toBe(false);

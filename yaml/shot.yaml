@@ -2,6 +2,6 @@ enemy:
   name: shot
   hp: 9999
   diameter: 5
-  actions: []
-    # - points: 0
-    # - { type: gfxSetShape, shape: circle }
+  actions: 
+    - { type: setAttribute, attribute: points, value: 0 }
+    - { type: gfxSetShape, shape: circle }

@@ -19,7 +19,7 @@ describe("parallellRace", () => {
       actions: [{
         parallellRace: [[]]
       }]
-    }).generator;
+    }).generators[0];
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(0);
@@ -39,7 +39,7 @@ describe("parallellRace", () => {
           [{ setSpeed: 1 }]
         ]
       }]
-    }).generator;
+    }).generators[0];
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(1);
@@ -61,7 +61,7 @@ describe("parallellRace", () => {
           { setSpeed: 1 }
         ]]
       }]
-    }).generator;
+    }).generators[0];
 
     expect(generator.next().done).toBe(true);
     expect(recordedActions.length).toBe(1);
@@ -85,7 +85,7 @@ describe("parallellRace", () => {
           { setSpeed: 1 }
         ]]
       }]
-    }).generator;
+    }).generators[0];
 
     expect(generator.next().done).toBe(false);
     expect(recordedActions.length).toBe(0);

@@ -1,5 +1,5 @@
 import type {
-   TAction, TDo, TAttr, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait
+   TAction, TDo, TAttr, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait, TFork
 } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 
@@ -81,6 +81,11 @@ const isThrice = (acn: TShortFormAction): acn is TThrice => {
    return (acn as TThrice).thrice !== undefined;
 };
 
+export type TShortFormFork = { fork: TShortFormAction[] };
+const isShortFormFork = (acn: TShortFormAction): acn is TShortFormFork => {
+   return (acn as TShortFormFork).fork !== undefined;
+};
+
 export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
@@ -118,6 +123,8 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
       return { type: "repeat", times: 2, actions: shortForm.twice };
    }else if(isThrice(shortForm)) {
       return { type: "repeat", times: 3, actions: shortForm.thrice };
+   } else if(isShortFormFork(shortForm)) {
+      return { type: "fork", actions: shortForm.fork };
    }
    return shortForm;
 };
@@ -126,7 +133,7 @@ export type TShortFormAction =
    Exclude<
       TAction,
       TWait | TSpawn | TRepeat | TAttr | TSetShotSpeed | TMoveToAbsolute | TDo | TSetSpeed |
-      { type: "parallellAll" } | { type: "parallellRace" }
+      { type: "parallellAll" } | { type: "parallellRace" } | TFork
    > |
 
    TShortFormWait |
@@ -142,4 +149,5 @@ export type TShortFormAction =
    TShortFormParallellRace |
    TForever |
    TTwice |
-   TThrice;
+   TThrice |
+   TShortFormFork
