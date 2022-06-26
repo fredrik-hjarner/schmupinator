@@ -4,6 +4,7 @@ enemy:
     hp: 9999
     actions:
       - { spawn: shapeShifter, x: *c5, y: *r5 }
+      - { spawn: healer, x: *c4, y: *r4 }
 ---
 enemy:
     name: shapeShifter
@@ -19,3 +20,12 @@ enemy:
         - wait: 60
         - { type: gfxSetShape, shape: diamondShield }
         - wait: 60
+---
+enemy:
+    name: healer
+    diameter: 30
+    hp: 100
+    actions:
+      - forever:
+        - wait: 120
+        - { type: "setAttribute", attribute: "hp", value: 100 }

@@ -88,3 +88,14 @@ otherwise, if the enemy has setup actions, then it might exist for one frame in 
 state.
 
 * Make a "mocked" EventsTester service so I can verify that all events are the same.
+
+* Have action that waits until an attribute has a certain value.
+It could also be done like this, if `return` would exit/finished/complete the current generator.
+ { parallellRace: [[
+   { forever: [
+      { attr: x, is: 1, yes: [{ type: return }] },
+      wait: 1
+   ] },
+]] }
+in order for that to work though I'd have to reprogram GeneratorUtils.Repeat to only create ONE
+generator (now it creates several thus only one would be killed)!
