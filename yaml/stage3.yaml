@@ -21,6 +21,8 @@ enemy:
         - wait: 60
         - { type: gfxSetShape, shape: diamondShield }
         - wait: 60
+        - { type: gfxSetShape, shape: octagon }
+        - wait: 60
 ---
 enemy:
     name: healer

@@ -237,6 +237,10 @@ export class Graphics implements IGraphics {
                element.element.style.clipPath =
                   "polygon(50% 0%,100.00% 80.00%,50% 100%,0.00% 80.00%)";
                break;
+            case "octagon":
+               element.element.style.clipPath =
+                  "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)";
+               break;
          }
          element.shape = shape;
          return { type: "responseVoid" };
