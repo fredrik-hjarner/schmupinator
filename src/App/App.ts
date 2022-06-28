@@ -5,6 +5,7 @@ import type { IInput } from "./services/Input/IInput";
 import type { IGameLoop } from "./services/GameLoop/IGameLoop";
 import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
+import type { IUI } from "./services/UI/IUI";
 
 /**
  * Services
@@ -27,6 +28,7 @@ import { Points } from "./services/Points/Points";
 import { GameOver } from "./services/GameOver/GameOver";
 import { Yaml } from "./services/Yaml/Yaml";
 import { Graphics } from "./services/Graphics/Graphics";
+import { UI } from "./services/UI/UI";
 
 /**
  * "Mocks"
@@ -42,6 +44,7 @@ import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PointsTester } from "./services/Points/mocks/PointsTester";
+import { MockUI } from "./services/UI/MockUI";
 
 /**
  * Other
@@ -65,6 +68,7 @@ export class App {
    gameOver: GameOver;
    yaml: Yaml;
    graphics: IGraphics;
+   ui: IUI;
 
    /**
     * Step 1 of initialization
@@ -105,6 +109,9 @@ export class App {
       this.graphics = IsBrowser() ?
          new Graphics({ app: this, name: "graphics" }) :
          new MockGraphics({ app: this, name: "mockGraphics" });
+      this.ui = IsBrowser() ?
+         new UI({ app: this, name: "ui" }) :
+         new MockUI({ app: this, name: "mockUi" });
    }
 
    /**
@@ -135,5 +142,6 @@ export class App {
       await this.points.Init();
       await this.gameOver.Init();
       await this.graphics.Init();
+      await this.ui.Init();
    };
 }
