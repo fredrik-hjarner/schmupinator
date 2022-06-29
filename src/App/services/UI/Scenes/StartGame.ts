@@ -1,12 +1,26 @@
 import type { IScene } from "./IScene";
+import type { App } from "../../../App";
+import type { IUI } from "../IUI";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../../consts";
 import { px } from "../../../../utils/px";
 
+type TConstructor = {
+   app: App;
+   ui: IUI;
+}
+
 export class StartGame implements IScene {
+   readonly app: App;
+   readonly ui: IUI;
    private startButtonElement?: HTMLButtonElement;
    private shadeElement?: HTMLDivElement;
+
+   constructor(params: TConstructor) {
+      this.app = params.app;
+      this.ui = params.ui;
+   }
 
    public render() {
       this.createShade();
@@ -22,8 +36,9 @@ export class StartGame implements IScene {
    }
 
    private createShade = () => {
-      this.startButtonElement = BrowserDriver.WithWindow(window => {
+      BrowserDriver.WithWindow(window => {
          const element = window.document.createElement("div");
+         this.shadeElement = element;
 
          // element.id = handle;
          element.style.position = "fixed";
@@ -37,12 +52,18 @@ export class StartGame implements IScene {
          window.document.body.appendChild(element);
          
          return element;
-      }) as HTMLButtonElement;
+      });
+   };
+
+   private startGame = () => {
+      this.app.gameLoop.Start();
+      this.destroy();
    };
 
    private createButton = () => {
-      this.startButtonElement = BrowserDriver.WithWindow(window => {
+      BrowserDriver.WithWindow(window => {
          const element = window.document.createElement("button");
+         this.startButtonElement = element;
 
          const text = window.document.createTextNode("Start game");
          element.appendChild(text);
@@ -53,10 +74,11 @@ export class StartGame implements IScene {
          element.style.zIndex = zIndices.ui;
          element.style.fontSize = px(22);
          element.style.padding = "5px 10px";
+         element.onclick = this.startGame;
 
          window.document.body.appendChild(element);
          
          return element;
-      }) as HTMLButtonElement;
+      });
    };
 }

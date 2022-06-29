@@ -3,6 +3,7 @@ import type { IUI } from "./IUI";
 import type { IScene } from "./Scenes/IScene";
 
 import { StartGame } from "./Scenes/StartGame";
+import { Game } from "./Scenes/Game";
 
 type TConstructor = {
    app: App;
@@ -14,12 +15,14 @@ export class UI implements IUI {
    readonly name: string;
 
    startGame: IScene;
+   game: IScene;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
 
-      this.startGame = new StartGame();
+      this.startGame = new StartGame({ app, ui: this });
+      this.game = new Game({ app, ui: this });
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await

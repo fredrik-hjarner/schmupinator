@@ -1,5 +1,5 @@
 import { App } from "./App/App";
-import { BrowserDriver } from "./drivers/BrowserDriver";
+import { BrowserDriver, IsBrowser } from "./drivers/BrowserDriver";
 
 BrowserDriver.OnLoad(async () => {
    // Create app
@@ -7,6 +7,8 @@ BrowserDriver.OnLoad(async () => {
    await app.Init();
 
    // Start
-   console.log("Start");
-   app.gameLoop.Start();
+   // console.log("Start");
+   if(!IsBrowser()) {
+      app.gameLoop.Start();
+   }
 });
