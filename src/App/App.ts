@@ -25,7 +25,6 @@ import { Collisions } from "./services/Collisions/Collisions";
 import { Events } from "./services/Events/Events";
 import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
-import { GameOver } from "./services/GameOver/GameOver";
 import { Yaml } from "./services/Yaml/Yaml";
 import { Graphics } from "./services/Graphics/Graphics";
 import { UI } from "./services/UI/UI";
@@ -65,7 +64,6 @@ export class App {
    events: Events;
    gameSpeed: GameSpeed;
    points: IPoints;
-   gameOver: GameOver;
    yaml: Yaml;
    graphics: IGraphics;
    ui: IUI;
@@ -104,7 +102,6 @@ export class App {
          new Points({ app: this, name: "points" }):
          new PointsTester({ app: this, name: "xPointsTester" });
       // new Points({ app: this, name: "points" });
-      this.gameOver = new GameOver({ app: this, name: "gameOver" });
       this.yaml = new Yaml({ app: this, name: "yaml" });
       this.graphics = IsBrowser() ?
          new Graphics({ app: this, name: "graphics" }) :
@@ -140,7 +137,6 @@ export class App {
       await this.events.Init();
       await this.gameSpeed.Init();
       await this.points.Init();
-      await this.gameOver.Init();
       await this.graphics.Init();
       await this.ui.Init();
    };

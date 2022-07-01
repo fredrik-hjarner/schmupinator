@@ -17,8 +17,6 @@ easier to do some kind of RUN AHEAD functionality.
 turns all rotate around point actions into individual set_position actions, or turns all absolute
 moves into relative moves (dunno, can maybe simplify things, maybe.)
 
-* Make GameOver service.
-
 * Optimize Events service so you can only subscribe to certain events.
 
 * Add { type: "enemy_died", enemyName: string } event.
