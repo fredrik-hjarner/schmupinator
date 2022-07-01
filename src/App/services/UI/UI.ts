@@ -4,6 +4,7 @@ import type { IScene } from "./Scenes/IScene";
 
 import { StartGame } from "./Scenes/StartGame";
 import { Game } from "./Scenes/Game";
+import { GameOver } from "./Scenes/GameOver";
 
 type TConstructor = {
    app: App;
@@ -16,6 +17,7 @@ export class UI implements IUI {
 
    startGame: IScene;
    game: IScene;
+   gameOver: IScene;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -23,10 +25,12 @@ export class UI implements IUI {
 
       this.startGame = new StartGame({ app, ui: this });
       this.game = new Game({ app, ui: this });
+      this.gameOver = new GameOver({ app, ui: this });
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async () => {
       this.startGame.render();
+      // this.gameOver.render();
    };
 }
