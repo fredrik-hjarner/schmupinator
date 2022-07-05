@@ -1,5 +1,5 @@
 import type { App } from "../../../App";
-import type { TEvent } from "../../Events/Events";
+import type { TEvent } from "../../Events/IEvents";
 import type { IPoints, THistoryEntry } from "../IPoints";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";

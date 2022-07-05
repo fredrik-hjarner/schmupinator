@@ -1,7 +1,7 @@
 import type { App } from "../../App";
 import type { IUI } from "./IUI";
 import type { IScene } from "./Scenes/IScene";
-import type { TEvent } from "../Events/Events";
+import type { TEvent } from "../Events/IEvents";
 
 import { StartGame } from "./Scenes/StartGame";
 import { Game } from "./Scenes/Game";

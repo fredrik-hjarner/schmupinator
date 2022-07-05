@@ -1,33 +1,15 @@
 import type { App } from "../../App";
-import type { TCollisions } from "../Collisions/Collisions";
-import type { IService } from "../IService";
+import type { IEvents, TCallback, TEvent, TSubscribers } from "./IEvents";
 
 type TConstructor = {
    app: App,
    name: string
 }
 
-type TCallback = (event: TEvent) => void;
-
-type TSubscribers = {
-   [ key: string]: TCallback
-}
-
-type TEventFrameTick = { type: "frame_tick" };
-type TEventCollisions = { type: "collisions", collisions: TCollisions };
-
-export type TEvent =
-   TEventFrameTick | // signals next frame has come.
-   TEventCollisions | // when collisions happen.
-   { type: "player_missed_bullet" } | // when player's bullet exists gameDiv/screen.
-   { type: "player_died" } | // when player dies.
-   // add points to the player (could be negative).
-   { type: "add_points", points: number, enemy: string };
-
-export class Events implements IService {
+export class Events implements IEvents {
    app: App;
    name: string;
-   subscribers: TSubscribers;
+   private subscribers: TSubscribers;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;

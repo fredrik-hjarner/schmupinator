@@ -3,7 +3,7 @@ import type { App } from "../../App";
 import type { IService } from "../IService";
 
 import { Enemy } from "./Enemy";
-import { TEvent } from "../Events/Events";
+import { TEvent } from "../Events/IEvents";
 import { TShortFormAction } from "./actionTypesShortForms";
 import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";

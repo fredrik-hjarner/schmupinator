@@ -6,6 +6,7 @@ import type { IGameLoop } from "./services/GameLoop/IGameLoop";
 import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
+import type { IEvents } from "./services/Events/IEvents";
 
 /**
  * Services
@@ -22,6 +23,8 @@ import { Player } from "./services/Player/Player";
 import { Shots } from "./services/Shots/Shots";
 import { GamePad } from "./services/GamePad/GamePad";
 import { Collisions } from "./services/Collisions/Collisions";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Events } from "./services/Events/Events";
 import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
@@ -44,6 +47,10 @@ import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PointsTester } from "./services/Points/mocks/PointsTester";
 import { MockUI } from "./services/UI/MockUI";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { RecordEvents } from "./services/Events/mocks/RecordEvents";
+import { EventsTester } from "./services/Events/mocks/EventsTester";
 
 /**
  * Other
@@ -61,7 +68,7 @@ export class App {
    enemies: Enemies;
    gamepad: GamePad;
    collisions: Collisions;
-   events: Events;
+   events: IEvents;
    gameSpeed: GameSpeed;
    points: IPoints;
    yaml: Yaml;
@@ -96,7 +103,10 @@ export class App {
       this.enemies = new Enemies(this, { name: "enemies" });
       this.gamepad = new GamePad({ app: this, name: "gamePad" });
       this.collisions = new Collisions({ app: this, name: "collisions" });
-      this.events = new Events({ app: this, name: "events" });
+      this.events =  IsBrowser() ?
+         new Events({ app: this, name: "events" }) :
+         // new RecordEvents({ app: this, name: "events" }) :
+         new EventsTester({ app: this, name: "events" });
       this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
       this.points = IsBrowser() ?
          new Points({ app: this, name: "points" }):
