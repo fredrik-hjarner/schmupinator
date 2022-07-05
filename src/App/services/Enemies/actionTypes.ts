@@ -85,6 +85,8 @@ export type TFork = { type: "fork", actions: TSFAction[] };
  * gotta be called to move in the direction set with this action.
  */
 export type TMoveDirection = { type: "setMoveDirection", degrees: number };
+// Yields until the attribute has the value set in is.
+export type TWaitUntilAttrIs = { type: "waitUntilAttrIs", attr: string, is: TAttributeValue };
 
 export type TAction =
    /**
@@ -132,6 +134,7 @@ export type TAction =
    TSetAttribute |
    TIncrement |
    TDecrement |
+   TWaitUntilAttrIs |
    /**
     * Mirroring
     */

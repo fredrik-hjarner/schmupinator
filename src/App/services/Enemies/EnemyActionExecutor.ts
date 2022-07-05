@@ -22,6 +22,7 @@ type TEnemyActionExecutorArgs = {
    actionHandler: TActionHandler;
    getPosition: () => TVector;
    getAttr: (attr: string) => TAttributeValue;
+   getId: () => string;
 }
 
 export class EnemyActionExecutor {
@@ -41,10 +42,25 @@ export class EnemyActionExecutor {
       this.generators = [this.makeGenerator(actions)];
    }
 
-   // TODO: Prolly return something special when died/finished.
-   public ProgressOneFrame() {
+   // TODO: Maybe I should clear up generators that have status `done`.
+   // Return true when all generators have finished, i.e. no actions left ot execute.
+   public ProgressOneFrame(): boolean {
       // TODO: Die/kill self/explode when done!
-      this.generators.forEach(g => { g.next(); });
+      const prevGeneratorsLength =  this.generators.length;
+      const nexts = this.generators.map(g => {
+         return g.next();
+      });
+      const generatorsLength = this.generators.length;
+      if(prevGeneratorsLength === generatorsLength) {
+         /**
+          * During the execution more generators can be added,
+          * so only if the number has not been changed can we make assumptions about all generators
+          * having finished or not.
+          */
+         const allDone = nexts.every(next => next.done);
+         return allDone;
+      }
+      return false;
    }
 
    /**
@@ -60,6 +76,14 @@ export class EnemyActionExecutor {
          const currAction = actions[currIndex];
          // console.log(currAction.type);
          switch(currAction.type) {
+            case "waitUntilAttrIs": {
+               const { attr, is } = currAction;
+               while(this.getAttr(attr) !== is) {
+                  yield;
+               }
+               break;
+            }
+
             case "fork": {
                // Create a new generator for the fork to allow it to execute parallely.
                const generator = this.makeGenerator(currAction.actions);

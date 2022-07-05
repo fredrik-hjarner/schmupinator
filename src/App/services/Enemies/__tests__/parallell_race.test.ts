@@ -4,6 +4,7 @@ import type { Vector as TVector } from '../../../../math/bezier';
 import { EnemyActionExecutor } from '../EnemyActionExecutor';
 
 const getAttr = (_: string) => false;
+const getId = (): string => 'id';
 
 describe("parallelRace", () => {
   const getPosition = (): TVector => ({ x: 0, y: 0 });
@@ -16,6 +17,7 @@ describe("parallelRace", () => {
       getPosition,
       actionHandler,
       getAttr,
+      getId,
       actions: [{
         parallelRace: [[]]
       }]
@@ -33,6 +35,7 @@ describe("parallelRace", () => {
       getPosition,
       actionHandler,
       getAttr,
+      getId,
       actions: [{
         parallelRace: [
           [],
@@ -53,6 +56,7 @@ describe("parallelRace", () => {
       getPosition,
       actionHandler,
       getAttr,
+      getId,
       actions: [{
         parallelRace: [[
           { setSpeed: 1 }
@@ -75,6 +79,7 @@ describe("parallelRace", () => {
       getPosition,
       actionHandler,
       getAttr,
+      getId,
       actions: [{
         parallelRace: [[
           { type: 'waitNextFrame' },

@@ -4,6 +4,7 @@ import type { Vector as TVector } from '../../../../math/bezier';
 import { EnemyActionExecutor } from '../EnemyActionExecutor';
 
 const getAttr = (_: string) => false;
+const getId = (): string => 'id';
 
 describe("move", () => {
   const getPosition = (): TVector => ({ x: 0, y: 0 });
@@ -17,6 +18,7 @@ describe("move", () => {
       getPosition,
       actionHandler,
       getAttr,
+      getId,
       actions: [{
         type: "move",
         x: 1,
@@ -37,6 +39,7 @@ describe("move", () => {
       getPosition,
       actionHandler,
       getAttr,
+      getId,
       actions: [{
         type: "move",
         x: 1,
@@ -63,6 +66,7 @@ describe("move", () => {
       getPosition,
       actionHandler,
       getAttr,
+      getId,
       actions: [{
         type: "move",
         x: 2,

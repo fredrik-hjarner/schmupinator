@@ -53,7 +53,8 @@ export class Enemy {
          actionHandler: this.HandleAction,
          actions: json.actions,
          getPosition: this.getPosition,
-         getAttr: this.getAttr
+         getAttr: this.getAttr,
+         getId: () => this.id,
       });
       // TODO: Attrs should be be set by an Action in future, right?
       this.hp = json.hp;
@@ -84,7 +85,9 @@ export class Enemy {
    }
 
    public OnFrameTick = () => {
-      this.actionExecutor.ProgressOneFrame();
+      const done = this.actionExecutor.ProgressOneFrame();
+      if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
+      // if(done) { this.die(); }
 
       /**
        * Safest to do all the required updates n shit here, even if hp etc have not been changed.
@@ -352,7 +355,6 @@ export class Enemy {
 
    private updateDisplayHealth = () => {
       const factorHealthLeft = this.hp / this.maxHp;
-
       this.gfx?.updateDisplayHealth(factorHealthLeft);
    };
 }
