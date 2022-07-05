@@ -28,10 +28,10 @@ export type TRotateAroundRelativePoint =
 point:Partial<Vector>, degrees:number, frames:number };
 /**
  * Like Promise.race.
- * Executes TAction lists in parallell, stops when any one of them has finished.
+ * Executes TAction lists in parallel, stops when any one of them has finished.
  */
-export type TParallellRace       = { type: "parallellRace", actionsLists: TSFAction[][] };
-export type TParallellAll        = { type: "parallellAll", actionsLists: TSFAction[][] };
+export type TparallelRace       = { type: "parallelRace", actionsLists: TSFAction[][] };
+export type TparallelAll        = { type: "parallelAll", actionsLists: TSFAction[][] };
 export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
 // Spawns an enemy. actions are prepended to the actions of the particular enemy.
@@ -94,8 +94,8 @@ export type TAction =
    TWaitNextFrame| 
    TWaitUtilFrameNr |
    TRepeat |
-   TParallellRace |
-   TParallellAll |
+   TparallelRace |
+   TparallelAll |
    TDo |
    TFork |
    /**

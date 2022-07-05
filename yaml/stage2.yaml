@@ -38,7 +38,7 @@ enemy:
     - { attr: mirrorX, is: true, yes: [{ type: mirrorX, value: true }] }
     - { attr: mirrorY, is: true, yes: [{ type: mirrorY, value: true }] }
     - { setShotSpeed: 1.5 }
-    - parallellAll:
+    - parallelAll:
       - - *left1
       - - wait: 60
         - forever:

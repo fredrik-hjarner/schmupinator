@@ -14,7 +14,7 @@ export class GeneratorUtils {
     * TODO: Fix code duplication with parallal_race paralell_all.
     * TODO: Untested. Test this.
     */
-   static ParallellRace = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
+   static parallelRace = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
       // advance generators one step.
       let results = generators.map(generator => generator.next());
       // Loop until one is done
@@ -30,7 +30,7 @@ export class GeneratorUtils {
     * TODO: Fix code duplication with parallal_race paralell_all.
     * TODO: Untested. Test this.
     */
-   static ParallellAll = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
+   static parallelAll = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
       // advance generators one step.
       let results = generators.map(generator => generator.next());
       // Loop until all are done

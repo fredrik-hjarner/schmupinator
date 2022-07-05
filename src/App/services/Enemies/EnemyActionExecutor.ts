@@ -16,7 +16,7 @@ type TEnemyActionExecutorArgs = {
    /**
    * The actions to execute.
    * Executes them in sequence.
-   * You can execute things in parallell with special compound actions like parallellRace.
+   * You can execute things in parallel with special compound actions like parallelRace.
    */
    actions: TShortFormAction[];
    actionHandler: TActionHandler;
@@ -61,7 +61,7 @@ export class EnemyActionExecutor {
          // console.log(currAction.type);
          switch(currAction.type) {
             case "fork": {
-               // Create a new generator for the fork to allow it to execute parallelly.
+               // Create a new generator for the fork to allow it to execute parallely.
                const generator = this.makeGenerator(currAction.actions);
                this.generators.push(generator);
                // execute once, otherwise the first forked action would execute next frame.
@@ -74,15 +74,15 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "parallellRace": {
+            case "parallelRace": {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
-               yield* GeneratorUtils.ParallellRace(generators);
+               yield* GeneratorUtils.parallelRace(generators);
                break;
             }
 
-            case "parallellAll": {
+            case "parallelAll": {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
-               yield* GeneratorUtils.ParallellAll(generators);
+               yield* GeneratorUtils.parallelAll(generators);
                break;
             }
 

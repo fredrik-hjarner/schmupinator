@@ -21,14 +21,14 @@ const isShortFormRepeat = (action: TShortFormAction): action is TShortFormRepeat
    return (action as TShortFormRepeat).repeat !== undefined;
 };
 
-export type TShortFormParallellAll = { parallellAll: TShortFormAction[][] };
-const isShortFormParallellAll = (action: TShortFormAction): action is TShortFormParallellAll => {
-   return (action as TShortFormParallellAll).parallellAll !== undefined;
+export type TShortFormparallelAll = { parallelAll: TShortFormAction[][] };
+const isShortFormparallelAll = (action: TShortFormAction): action is TShortFormparallelAll => {
+   return (action as TShortFormparallelAll).parallelAll !== undefined;
 };
 
-export type TShortFormParallellRace = { parallellRace: TShortFormAction[][] };
-const isShortFormParallellRace = (action: TShortFormAction): action is TShortFormParallellRace => {
-   return (action as TShortFormParallellRace).parallellRace !== undefined;
+export type TShortFormparallelRace = { parallelRace: TShortFormAction[][] };
+const isShortFormparallelRace = (action: TShortFormAction): action is TShortFormparallelRace => {
+   return (action as TShortFormparallelRace).parallelRace !== undefined;
 };
 
 export type TShortFormAttr =
@@ -98,12 +98,12 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    } else if(isShortFormRepeat(shortForm)) {
       const { repeat, actions } = shortForm;
       return { type: "repeat", times: repeat, actions };
-   } else if(isShortFormParallellAll(shortForm)) {
-      const { parallellAll } = shortForm;
-      return { type: "parallellAll", actionsLists: parallellAll };
-   } else if(isShortFormParallellRace(shortForm)) {
-      const { parallellRace } = shortForm;
-      return { type: "parallellRace", actionsLists: parallellRace };
+   } else if(isShortFormparallelAll(shortForm)) {
+      const { parallelAll } = shortForm;
+      return { type: "parallelAll", actionsLists: parallelAll };
+   } else if(isShortFormparallelRace(shortForm)) {
+      const { parallelRace } = shortForm;
+      return { type: "parallelRace", actionsLists: parallelRace };
    } else if(iShortFormAttr(shortForm)) {
       const { attr, is, yes, no } = shortForm;
       return { type: "attr", attrName: attr, is, yes, no };
@@ -135,20 +135,20 @@ export type TShortFormAction =
    Exclude<
       TAction,
       TWait | TSpawn | TRepeat | TAttr | TSetShotSpeed | TMoveToAbsolute | TDo | TSetSpeed |
-      { type: "parallellAll" } | { type: "parallellRace" } | TFork
+      { type: "parallelAll" } | { type: "parallelRace" } | TFork
    > |
 
    TShortFormWait |
    TShortFormSpawn |
    TShortFormRepeat |
-   TShortFormParallellAll |
+   TShortFormparallelAll |
    TShortFormAttr |
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
    TShortFormDo |
    TSequence |
    TShortFormSetSpeed |
-   TShortFormParallellRace |
+   TShortFormparallelRace |
    TForever |
    TTwice |
    TThrice |

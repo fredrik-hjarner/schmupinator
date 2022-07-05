@@ -44,7 +44,7 @@ enemy:
   diameter: 22
   actions: 
     - setSpeed: 1.60
-    - parallellAll:
+    - parallelAll:
       - - repeat: 26.25
           actions:
             - type: rotate_towards_player
@@ -76,10 +76,10 @@ x-shootWhileRotation: &shootWhileRotation
   - type: shoot_toward_player
 
 x-rotateLeftAndShoot: &rotateLeftAndShoot
-  parallellAll: [*rotateLeft, *shootWhileRotation]
+  parallelAll: [*rotateLeft, *shootWhileRotation]
 
 x-rotateRightAndShoot: &rotateRightAndShoot
-  parallellAll: [*rotateRight, *shootWhileRotation]
+  parallelAll: [*rotateRight, *shootWhileRotation]
 
 enemy:
   name: sinus
@@ -152,6 +152,6 @@ enemy:
   hp: 120
   diameter: 35
   actions:
-  - parallellRace:
+  - parallelRace:
     - *shootingPattern
     - *movementPattern

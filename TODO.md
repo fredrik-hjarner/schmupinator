@@ -64,22 +64,18 @@ maxChildren would be the max number of spawns. I would need to implement parent-
 they subscribe to and what they dispatch. Throw runtime error when it tried to do something it has
 not declared!!
 
-* Correctly spell parallel with one l.
-
 * Force with eslint to always specify "private", "public".
 
 * I should probably not send in `app`, but rather `deps: IService[]` into services.
 
 * Yaml: Maybe do so all files starting with _ are prepended to every file.
 
-* Opps you get points by shooting the spawners.
+* Opps you get points by shooting the spawners... or, maybe not?
 
 * When shots hit an enemy, they should disappear.
 
 * PointsTester is unsafe. It should take more control and FORCE Points to resond to events before
 PointsTester.
-
-* Start the game by clicking a start button.
 
 * When an emepy has spawned it should probably execute it's EnemyExecutor (generators) once,
 otherwise, if the enemy has setup actions, then it might exist for one frame in an uninitialized
@@ -89,7 +85,7 @@ state.
 
 * Have action that waits until an attribute has a certain value.
 It could also be done like this, if `return` would exit/finished/complete the current generator.
- { parallellRace: [[
+ { parallelRace: [[
    { forever: [
       { attr: x, is: 1, yes: [{ type: return }] },
       wait: 1

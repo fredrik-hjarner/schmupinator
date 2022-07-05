@@ -7,7 +7,7 @@ import type {
 
 import { resolutionWidth, zIndices } from "../../../consts";
 import { px } from "../../../utils/px";
-import { uuid } from "../../../utils/uuid";
+import { guid } from "../../../utils/uuid";
 import { Vector as TVector } from "../../../math/bezier";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
@@ -112,7 +112,7 @@ export class Graphics implements IGraphics {
       const diameter = 5;
       const radius = diameter/2;
 
-      const handle = `${uuid()}`;
+      const handle = `${guid()}`;
       const top = y - radius;
       const left = x - radius;
    
