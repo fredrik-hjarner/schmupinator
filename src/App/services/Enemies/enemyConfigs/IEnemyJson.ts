@@ -5,4 +5,5 @@ export interface IEnemyJson {
   hp: number; // actually maxHp
   diameter: number;
   actions: TShortFormAction[];
+  onDeath?: TShortFormAction[];
 }
