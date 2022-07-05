@@ -14,10 +14,7 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "gitlens.codeLens.enabled": false,
-  "jest.autoRun": {
-    "watch": false,
-    "onSave": "test-src-file"
-  },
+  "jest.autoRun": "off",
   "editor.tabSize": 3,
   "indentRainbow.colors": [
     "rgba(0,0,0,0)",
@@ -28,5 +25,5 @@
     "rgba(0,0,255,0.12)",
   ],
   "jest.showTerminalOnLaunch": false,
-  "yaml.format.enable": false
+  "yaml.format.enable": false,
 }
