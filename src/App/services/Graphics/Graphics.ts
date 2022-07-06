@@ -1,4 +1,3 @@
-import type { App } from "../../App";
 import type {
    IGraphics, TGfx_Release, TGfx_SetColor, TGfx_SetDiameter, TGfx_SetPosition, TGfx_SetRotation,
    TGfx_SetScale, TGfx_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
@@ -22,16 +21,14 @@ type TGraphicsElement = {
    diameter: number;
 }
 
-type TConstructor = { app: App; name: string };
+type TConstructor = { name: string };
 
 export class Graphics implements IGraphics {
-   public app: App;
    public name: string;
    private elementPool: TGraphicsElement[];
    private static poolSize = 100;
 
-   constructor({ app, name }: TConstructor) {
-      this.app = app;
+   constructor({ name }: TConstructor) {
       this.name = name;
       this.elementPool = this.initElementPool();
    }

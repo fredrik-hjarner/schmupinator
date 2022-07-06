@@ -1,28 +1,34 @@
-import type { App } from "../../App";
-import type { IService } from "../IService";
+import type { Enemies } from "../Enemies/Enemies";
+import type { IEvents } from "../Events/IEvents";
+import type { IService, TInitParams } from "../IService";
+import type { Player } from "../Player/Player";
+import type { Shots } from "../Shots/Shots";
 
 export type PosAndRadius = {X: number, Y: number, Radius: number };
 
 export type TCollisions = {
-  playerWasHit: boolean;
-  // List of id:s of enemies that were hit.
-  enemiesThatWereHit: string[];
+   playerWasHit: boolean;
+   // List of id:s of enemies that were hit.
+   enemiesThatWereHit: string[];
 };
 
 type TConstructor = {
-   app: App;
    name: string;
 }
 
 export class Collisions implements IService {
-   app: App;
    name: string;
+   
+   // deps/services
+   events!: IEvents;
+   player!: Player;
+   enemies!: Enemies;
+   playerShots!: Shots;
 
    /**
    * Public
    */
    constructor(params: TConstructor) {
-      this.app = params.app;
       this.name = params.name;
    }
 
@@ -33,8 +39,13 @@ export class Collisions implements IService {
     * that case.
     */
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async () => {
-      this.app.events.subscribeToEvent(
+   Init = async (deps?: TInitParams) => {
+      this.events = deps?.events as IEvents;
+      this.player = deps?.player as Player;
+      this.enemies = deps?.enemies as Enemies;
+      this.playerShots = deps?.playerShots as Shots;
+      
+      this.events.subscribeToEvent(
          this.name,
          ({ type }) => {
             if(type === "frame_tick") {
@@ -48,9 +59,9 @@ export class Collisions implements IService {
     * Private
     */
    private update = () => {
-      const player = this.app.player;
-      const playerShots = this.app.playerShots.shots.map(s => s);
-      const enemies = this.app.enemies.enemies;
+      const player = this.player;
+      const playerShots = this.playerShots.shots.map(s => s);
+      const enemies = this.enemies.enemies;
 
       const playerWasHit =
          this.calcCircleWasHitByShots({ circle: player, shots: enemies });
@@ -63,7 +74,7 @@ export class Collisions implements IService {
       // Only send event if there were collisions.
       if (playerWasHit || enemiesThatWereHit.length > 0) {
          const collisions = { playerWasHit, enemiesThatWereHit };
-         this.app.events.dispatchEvent({ type: "collisions", collisions });
+         this.events.dispatchEvent({ type: "collisions", collisions });
       }
    };
 

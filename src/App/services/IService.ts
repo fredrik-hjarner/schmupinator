@@ -1,7 +1,6 @@
-import type { App } from "../App";
+export type TInitParams = Partial<{ [serviceName: string]: IService }>;
 
 export interface IService {
-  app: App;
   name: string;
   // Create: () => Promise<IService>
   /**
@@ -9,6 +8,6 @@ export interface IService {
    * Here you are allowed to use other services (that are deps),
    * because you know they have initialized.
    */
-  Init: () => Promise<void>
+  Init: (deps?: TInitParams) => Promise<void>
   // Destroy: () => void
 }

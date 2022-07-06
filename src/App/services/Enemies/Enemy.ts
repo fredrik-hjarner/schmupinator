@@ -1,8 +1,8 @@
-import type { App } from "../../App";
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TCollisions } from "../Collisions/Collisions";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
+import type { Enemies } from "./Enemies";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -17,10 +17,10 @@ import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
 
 export class Enemy {
-   app: App;
    X: number;
    Y: number;
    id: string;
+   private enemies: Enemies; // enemies service
    private graphics: IGraphics; // Graphics service
    private diameter: number;
    private speed = 0;
@@ -39,11 +39,11 @@ export class Enemy {
     * Public
     */
    constructor(
-      app: App,
+      enemies: Enemies,
       position: TVector,
       json: IEnemyJson,
    ) {
-      this.app = app;
+      this.enemies = enemies;
       this.id = `${json.name}-${uuid()}`;
       this.name = json.name;
       this.diameter = json.diameter;
@@ -61,7 +61,7 @@ export class Enemy {
       this.maxHp = json.hp;
 
       // New graphics engine code
-      this.graphics = this.app.graphics;
+      this.graphics = this.enemies.graphics;
       this.gfx = new EnemyGfx({
          diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
       });
@@ -105,7 +105,7 @@ export class Enemy {
       if(enemiesThatWereHit.includes(this.id)) {
          const points = assertNumber(this.attrs.GetAttribute("points").value);
 
-         this.app.events.dispatchEvent({ type: "add_points", points, enemy: this.name });
+         this.enemies.events.dispatchEvent({ type: "add_points", points, enemy: this.name });
          this.hp -= 1;
 
          /**
@@ -121,7 +121,7 @@ export class Enemy {
    };
 
    private die = () => {
-      const enemies = this.app.enemies;
+      const enemies = this.enemies;
       // remove this enemy.
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
       // TODO: Maybe publish a death event or something.
@@ -253,14 +253,14 @@ export class Enemy {
    };
 
    private ShootTowardPlayer = () => {
-      const player = this.app.player;
+      const player = this.enemies.player;
       const dirX = player.X - this.X;
       const dirY = player.Y - this.Y;
       this.ShootDirection({ dirX, dirY });
    };
 
    private ShootBesidePlayer = (degrees: number) => {
-      const player = this.app.player;
+      const player = this.enemies.player;
       const dirX = player.X - this.X;
       const dirY = player.Y - this.Y;
       const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(degrees));
@@ -295,7 +295,7 @@ export class Enemy {
    };
 
    private RotateTowardsPlayer = () => {
-      const playerCircle = this.app.player;
+      const playerCircle = this.enemies.player;
       const playerVector = new Vector(playerCircle.X, playerCircle.Y);
       // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
       const enemyVector = new Vector(this.X, this.Y);
@@ -321,7 +321,7 @@ export class Enemy {
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
-      this.app.enemies.Spawn({ enemy, position: absolute, prependActions: actions });
+      this.enemies.Spawn({ enemy, position: absolute, prependActions: actions });
    };
 
    private getPosition = (): TVector => {

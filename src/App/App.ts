@@ -33,7 +33,7 @@ import { Graphics } from "./services/Graphics/Graphics";
 import { UI } from "./services/UI/UI";
 
 /**
- * "Mocks"
+ * "Mocks"/Service variations
  */
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -100,22 +100,22 @@ export class App {
          this,
          { name: "enemyShots", maxShots: 25, color: "red" }
       );
-      this.enemies = new Enemies(this, { name: "enemies" });
-      this.gamepad = new GamePad({ app: this, name: "gamePad" });
-      this.collisions = new Collisions({ app: this, name: "collisions" });
+      this.enemies = new Enemies({ name: "enemies" });
+      this.gamepad = new GamePad({ name: "gamePad" });
+      this.collisions = new Collisions({ name: "collisions" });
       this.events =  IsBrowser() ?
          new Events({ app: this, name: "events" }) :
          // new RecordEvents({ app: this, name: "events" }) :
          new EventsTester({ app: this, name: "events" });
-      this.gameSpeed = new GameSpeed({ app: this, name: "gameSpeed" });
+      this.gameSpeed = new GameSpeed({ name: "gameSpeed" });
       this.points = IsBrowser() ?
          new Points({ app: this, name: "points" }):
          new PointsTester({ app: this, name: "xPointsTester" });
       // new Points({ app: this, name: "points" });
-      this.yaml = new Yaml({ app: this, name: "yaml" });
+      this.yaml = new Yaml({ name: "yaml" });
       this.graphics = IsBrowser() ?
-         new Graphics({ app: this, name: "graphics" }) :
-         new MockGraphics({ app: this, name: "mockGraphics" });
+         new Graphics({ name: "graphics" }) :
+         new MockGraphics({ name: "mockGraphics" });
       this.ui = IsBrowser() ?
          new UI({ app: this, name: "ui" }) :
          new MockUI({ app: this, name: "mockUi" });
@@ -141,9 +141,19 @@ export class App {
       await this.player.Init();
       await this.playerShots.Init();
       await this.enemyShots.Init();
-      await this.enemies.Init();
+      await this.enemies.Init({
+         yaml: this.yaml,
+         events: this.events,
+         player: this.player,
+         graphics: this.graphics,
+      });
       await this.gamepad.Init();
-      await this.collisions.Init();
+      await this.collisions.Init({
+         events: this.events,
+         player: this.player,
+         enemies: this.enemies,
+         playerShots: this.playerShots
+      });
       await this.events.Init();
       await this.gameSpeed.Init();
       await this.points.Init();

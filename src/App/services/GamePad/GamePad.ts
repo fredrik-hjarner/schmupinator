@@ -1,19 +1,15 @@
 import type { IService } from "../IService";
-import type { App } from "../../App";
 
 import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
 
 type TConstructor = {
-   app: App;
    name: string;
 }
 
 export class GamePad implements IService {
-   app: App;
    name: string;
 
    constructor(params: TConstructor) {
-      this.app = params.app;
       this.name = params.name;
       BrowserDriver.WithWindow(window => {
          window.addEventListener("gamepadconnected", function(e) {

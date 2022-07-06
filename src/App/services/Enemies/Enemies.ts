@@ -1,23 +1,29 @@
 import type { Vector as TVector } from "../../../math/bezier";
-import type { App } from "../../App";
-import type { IService } from "../IService";
+import type { IService, TInitParams } from "../IService";
+import type { Yaml } from "../Yaml/Yaml";
+import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
+import type { IEvents, TEvent } from "../Events/IEvents";
+import type { TShortFormAction } from "./actionTypesShortForms";
+import type { Player } from "../Player/Player";
+import type { IGraphics } from "../Graphics/IGraphics";
 
 import { Enemy } from "./Enemy";
-import { TEvent } from "../Events/IEvents";
-import { TShortFormAction } from "./actionTypesShortForms";
-import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 export class Enemies implements IService {
-   app: App;
    name: string;
    enemies: Enemy[];
+
+   // deps/services
+   yaml!: Yaml;
+   events!: IEvents;
+   player!: Player;
+   graphics!: IGraphics;
 
    /**
     * Public
     */
-   constructor(app: App, { name }: { name: string }) {
-      this.app = app;
+   constructor({ name }: { name: string }) {
       this.name = name;
       this.enemies = [];
    }
@@ -29,7 +35,12 @@ export class Enemies implements IService {
     * that case.
     */
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async () => {
+   Init = async (deps?: TInitParams) => {
+      this.events = deps?.events as IEvents;
+      this.yaml = deps?.yaml as Yaml;
+      this.player = deps?.player as Player;
+      this.graphics = deps?.graphics as IGraphics;
+
       /**
        * The "spawner" enemy is not a normal enemy.
        * It can do everything that an enemy can do, but it's
@@ -38,14 +49,14 @@ export class Enemies implements IService {
        */
       this.Spawn({ enemy: "spawner", position: { x:0, y: 0 } });
 
-      this.app.events.subscribeToEvent(this.name, this.handleEvent);
+      this.events.subscribeToEvent(this.name, this.handleEvent);
    };
 
    public Spawn = (
       { enemy, position, prependActions=[] }:
       { enemy: string, position: TVector, prependActions?: TShortFormAction[] }
    ) => {
-      const { EnemyJsons } = this.app.yaml;
+      const { EnemyJsons } = this.yaml;
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = EnemyJsons.find(e => {
          if(typeof e === "undefined") {
@@ -78,7 +89,7 @@ export class Enemies implements IService {
             ...enemyJson.actions
          ]
       };
-      this.enemies.push(new Enemy(this.app, position, newEnemyJson));
+      this.enemies.push(new Enemy(this, position, newEnemyJson));
    };
 
    /**

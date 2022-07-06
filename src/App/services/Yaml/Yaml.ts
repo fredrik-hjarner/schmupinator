@@ -1,4 +1,3 @@
-import type { App } from "../../App";
 import type { IService } from "../IService";
 import type { Document } from "yaml";
 
@@ -10,12 +9,10 @@ import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 type TConstructor = {
-   app: App;
    name: string
 }
 
 export class Yaml implements IService {
-   readonly app: App;
    readonly name: string;
    /**
     * TODO: this should be a maop keyed by the enemy name.
@@ -23,8 +20,7 @@ export class Yaml implements IService {
    EnemyJsons: IEnemyJson[];
    
 
-   constructor({ app, name }: TConstructor) {
-      this.app = app;
+   constructor({ name }: TConstructor) {
       this.name = name;
       this.EnemyJsons = [];
    }

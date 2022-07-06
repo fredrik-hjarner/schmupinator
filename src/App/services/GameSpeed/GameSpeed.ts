@@ -1,24 +1,20 @@
-import type { App } from "../../App";
 import type { IService } from "../IService";
 
 import { isHTMLInputElement } from "../../../utils/typeAssertions";
 import { initGameSpeedElement } from "./gameSpeedElement";
 
 type TConstructor = {
-   app: App;
    name: string;
 }
 
 export class GameSpeed implements IService {
-   app: App;
    name: string;
    gameSpeedElement: unknown;
 
    /**
    * Public
    */
-   constructor({ app, name }: TConstructor) {
-      this.app = app;
+   constructor({ name }: TConstructor) {
       this.name = name;
       this.gameSpeedElement = initGameSpeedElement();
    }
