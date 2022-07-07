@@ -2,7 +2,7 @@
 import { IBrowserDriver } from "./IBrowserDriver";
 
 export class NodeBrowserDriver implements IBrowserDriver {
-   public WithWindow = (_: (window: Window) => unknown): void => {
+   public WithWindow = <T>(_: (window: Window) => T): void => {
       // noop. Don't execute whatever is in the callback.
    };
 

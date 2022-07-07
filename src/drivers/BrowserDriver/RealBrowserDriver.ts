@@ -1,7 +1,7 @@
 import { IBrowserDriver } from "./IBrowserDriver";
 
 export class RealBrowserDriver implements IBrowserDriver {
-   public WithWindow = (callback: (window: Window) => unknown): unknown => {
+   public WithWindow = <T>(callback: (window: Window) => T): T => {
       // eslint-disable-next-line no-undef
       return callback(window);
    };
