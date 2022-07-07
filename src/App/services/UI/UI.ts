@@ -10,6 +10,7 @@ import { StartGame } from "./Scenes/StartGame";
 import { Game } from "./Scenes/Game";
 import { GameOver } from "./Scenes/GameOver";
 import { Highscore } from "./Scenes/Highscore";
+import { EnterHighscore } from "./Scenes/EnterHighscore";
 
 type TConstructor = {
    name: string
@@ -30,6 +31,7 @@ export class UI implements IUI {
    game: IScene;
    gameOver: IScene;
    highscore: IScene;
+   enterHighscore: IScene;
 
    constructor({ name }: TConstructor) {
       this.name = name;
@@ -38,6 +40,7 @@ export class UI implements IUI {
       this.game = new Game({ ui: this });
       this.gameOver = new GameOver({ ui: this });
       this.highscore = new Highscore({ ui: this });
+      this.enterHighscore = new EnterHighscore({ ui: this });
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
@@ -51,6 +54,7 @@ export class UI implements IUI {
       this.events.subscribeToEvent(this.name, this.onEvent);
 
       this.startGame.render();
+      // this.enterHighscore.render();
       // this.highscore.render();
       // this.gameOver.render();
    };
