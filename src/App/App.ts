@@ -28,6 +28,7 @@ import { Collisions } from "./services/Collisions/Collisions";
 import { Events } from "./services/Events/Events";
 import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
+import { Highscore } from "./services/Highscore/Highscore";
 import { Yaml } from "./services/Yaml/Yaml";
 import { Graphics } from "./services/Graphics/Graphics";
 import { UI } from "./services/UI/UI";
@@ -76,6 +77,7 @@ export class App {
    uiEvents: IEvents;
    gameSpeed: GameSpeed;
    points: IPoints;
+   highscore: Highscore;
    yaml: Yaml;
    graphics: IGraphics;
    ui: IUI;
@@ -118,6 +120,7 @@ export class App {
          new Points({ app: this, name: "points" }):
          new PointsTester({ app: this, name: "xPointsTester" });
       // new Points({ app: this, name: "points" });
+      this.highscore = new Highscore({ name: "highscore" });
       this.yaml = new Yaml({ name: "yaml" });
       this.graphics = IsBrowser() ?
          new Graphics({ name: "graphics" }) :
