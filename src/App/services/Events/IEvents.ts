@@ -17,7 +17,9 @@ export type TEvent =
    { type: "player_missed_bullet" } | // when player's bullet exists gameDiv/screen.
    { type: "player_died" } | // when player dies.
    // add points to the player (could be negative).
-   { type: "add_points", points: number, enemy: string };
+   { type: "add_points", points: number, enemy: string } |
+   // sent for/to UI so UI can update.
+   { type: "uiScoreUpdated", points: number };
 
 export interface IEvents extends IService {
    app: App;

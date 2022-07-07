@@ -9,7 +9,7 @@ type TConstructor = {
    ui: UI;
 }
 
-export class GameOver implements IScene {
+export class Highscore implements IScene {
    readonly ui: UI;
    private shadeElement?: HTMLDivElement;
 

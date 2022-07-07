@@ -1,24 +1,20 @@
 import type { IScene } from "./IScene";
-import type { App } from "../../../App";
-import type { IUI } from "../IUI";
+import type { UI } from "../UI";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../../consts";
 import { px } from "../../../../utils/px";
 
 type TConstructor = {
-   app: App;
-   ui: IUI;
+   ui: UI;
 }
 
 export class StartGame implements IScene {
-   readonly app: App;
-   readonly ui: IUI;
+   readonly ui: UI;
    private startButtonElement?: HTMLButtonElement;
    private shadeElement?: HTMLDivElement;
 
    constructor(params: TConstructor) {
-      this.app = params.app;
       this.ui = params.ui;
    }
 
@@ -56,8 +52,11 @@ export class StartGame implements IScene {
    };
 
    private startGame = () => {
-      this.app.gameLoop.Start();
+      this.ui.gameLoop.Start();
       this.destroy();
+
+      // TODO: This is super ugly. UI should have logic for switching scenes!
+      this.ui.game.render();
    };
 
    private createButton = () => {

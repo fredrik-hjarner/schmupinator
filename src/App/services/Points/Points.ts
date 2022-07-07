@@ -2,8 +2,6 @@ import type { App } from "../../App";
 import type { TEvent } from "../Events/IEvents";
 import type { IPoints, THistoryEntry } from "./IPoints";
 
-import { isHTMLDivElement } from "../../../utils/typeAssertions";
-import { initPointsElement } from "./pointsElement";
 import { IsBrowser } from "../../../drivers/BrowserDriver";
 
 type TConstructor = {
@@ -16,13 +14,11 @@ export class Points implements IPoints {
    name: string;
    points: number;
    public history: Partial<{ [frame: number]: THistoryEntry }>;
-   private pointsElement: unknown;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
       this.points = 0;
-      this.pointsElement = initPointsElement();
       this.history = {};
    }
 
@@ -62,8 +58,7 @@ export class Points implements IPoints {
    };
 
    private updatePoints = () => {
-      if(isHTMLDivElement(this.pointsElement)) {
-         this.pointsElement.innerHTML = `${this.points}`;
-      }
+      // Dispatch event so UI knows to update.
+      this.app.uiEvents.dispatchEvent({ type: "uiScoreUpdated", points: this.points });
    };
 }

@@ -93,3 +93,18 @@ It could also be done like this, if `return` would exit/finished/complete the cu
 ]] }
 in order for that to work though I'd have to reprogram GeneratorUtils.Repeat to only create ONE
 generator (now it creates several thus only one would be killed)!
+
+* Make Highscore service and UI.
+How?
+1. There exists a list, say top 10, of highscores. These can be prepopulated with random crap.
+2. When a player dies or finished the game, it is calculated if the player qualified for hiscore.
+3.1. If the player made hiscore,  they can enter their name.
+3.2. After they have entered their name they see the hiscore.
+4. If got no hiscore, then get to see the highscore at least.
+5. click to get from hiscore to... dunno, start game screen.
+
+From a data perspective its easy: there exists a list of entries { score, name } sorted by score.
+
+Actually the easiest things would be to draw the highscore in the "Game" scene.
+
+* Create a UiEvents service, that is only listened to by the UI & UI Scenes.

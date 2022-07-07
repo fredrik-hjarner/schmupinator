@@ -69,6 +69,11 @@ export class App {
    gamepad: GamePad;
    collisions: Collisions;
    events: IEvents;
+   /**
+    * only listened to by the UI & UI Scenes,
+    * other services send messages over uiEvents so that the UI know when to update.
+    */
+   uiEvents: IEvents;
    gameSpeed: GameSpeed;
    points: IPoints;
    yaml: Yaml;
@@ -107,6 +112,7 @@ export class App {
          new Events({ app: this, name: "events" }) :
          // new RecordEvents({ app: this, name: "events" }) :
          new EventsTester({ app: this, name: "events" });
+      this.uiEvents = new Events({ app: this, name: "uiEvents" });
       this.gameSpeed = new GameSpeed({ name: "gameSpeed" });
       this.points = IsBrowser() ?
          new Points({ app: this, name: "points" }):
@@ -117,8 +123,8 @@ export class App {
          new Graphics({ name: "graphics" }) :
          new MockGraphics({ name: "mockGraphics" });
       this.ui = IsBrowser() ?
-         new UI({ app: this, name: "ui" }) :
-         new MockUI({ app: this, name: "mockUi" });
+         new UI({ name: "ui" }) :
+         new MockUI({ name: "mockUi" });
    }
 
    /**
@@ -158,6 +164,11 @@ export class App {
       await this.gameSpeed.Init();
       await this.points.Init();
       await this.graphics.Init();
-      await this.ui.Init();
+      await this.ui.Init({
+         events: this.events,
+         uiEvents: this.uiEvents,
+         gameLoop: this.gameLoop,
+         gameSpeed: this.gameSpeed,
+      });
    };
 }
