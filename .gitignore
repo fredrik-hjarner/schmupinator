@@ -3,3 +3,4 @@ dist
 .task
 tsconfig.tsbuildinfo
 game.zip
+.VSCodeCounter
