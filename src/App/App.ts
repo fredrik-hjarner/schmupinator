@@ -172,6 +172,7 @@ export class App {
          uiEvents: this.uiEvents,
          gameLoop: this.gameLoop,
          gameSpeed: this.gameSpeed,
+         highscore: this.highscore,
       });
    };
 }

@@ -43,6 +43,8 @@ export class Game implements IScene {
    };
 
    private createHiscore = () => {
+      const record = this.ui.highscoreService.getTop1().score;
+
       BrowserDriver.WithWindow(window => {
          const element = window.document.createElement("div");
          this.hiscoreElement = element;
@@ -54,7 +56,7 @@ export class Game implements IScene {
          element.style.fontSize = px(14);
          element.style.zIndex = zIndices.ui;
          
-         element.innerHTML = "Record 0";
+         element.innerHTML = `Record ${record}`;
 
          window.document.body.appendChild(element);
          
