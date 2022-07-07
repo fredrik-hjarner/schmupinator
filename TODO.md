@@ -108,3 +108,5 @@ From a data perspective its easy: there exists a list of entries { score, name }
 Actually the easiest things would be to draw the highscore in the "Game" scene.
 
 * Create a UiEvents service, that is only listened to by the UI & UI Scenes.
+
+* Use my utils createShade and createText throughout the UI Scenes code.

@@ -51,6 +51,7 @@ export class UI implements IUI {
       this.events.subscribeToEvent(this.name, this.onEvent);
 
       this.startGame.render();
+      // this.highscore.render();
       // this.gameOver.render();
    };
 
