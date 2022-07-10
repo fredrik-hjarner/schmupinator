@@ -19,6 +19,14 @@ export class GameOver implements IScene {
 
    public render() {
       this.createShade();
+
+      // TODO: Fix. Just some mocking atm.
+      BrowserDriver.WithWindow(window => {
+         window.setTimeout(() => {
+            this.destroy();
+            this.ui.enterHighscore.render();
+         }, 5000);
+      });
    }
 
    public destroy() {

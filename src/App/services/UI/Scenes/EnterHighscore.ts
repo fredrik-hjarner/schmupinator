@@ -5,6 +5,7 @@ import { createShade } from "./utils/shade";
 import { createText } from "./utils/text";
 import { createButton } from "./utils/button";
 import { createInput } from "./utils/input";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 
 type TConstructor = {
    ui: UI;
@@ -33,6 +34,19 @@ export class EnterHighscore implements IScene {
       });
       this.input = createInput({
          placeholder: "Done", fontSize: 20, top: 99, left: 115
+      });
+
+      // TODO: Fix. Just some mocking atm.
+      BrowserDriver.WithWindow(window => {
+         window.setTimeout(() => {
+            // Enter entry then go to Highscore screen.
+            this.ui.highscoreService.registerNewEntry({
+               name: "Nils",
+               score: 100
+            });
+            this.destroy();
+            this.ui.highscore.render();
+         }, 5000);
       });
    }
 

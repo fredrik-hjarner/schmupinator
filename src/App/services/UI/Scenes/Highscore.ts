@@ -3,6 +3,7 @@ import type { UI } from "../UI";
 
 import { createShade } from "./utils/shade";
 import { createText } from "./utils/text";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 
 type TConstructor = {
    ui: UI;
@@ -30,6 +31,15 @@ export class Highscore implements IScene {
       this.title = createText({text: "Highscore", fontSize: 24, top: 10, left: 128 });
       this.top10 = createText({
          text: this.getTop10Text(), fontSize: 15, top: 40, left: 40
+      });
+
+      // TODO: Fix. Just some mocking atm.
+      BrowserDriver.WithWindow(window => {
+         window.setTimeout(() => {
+            // Enter entry then go to Highscore screen.
+            this.destroy();
+            this.ui.startGame.render();
+         }, 5000);
       });
    }
 
