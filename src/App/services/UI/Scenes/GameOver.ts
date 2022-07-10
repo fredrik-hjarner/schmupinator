@@ -24,8 +24,19 @@ export class GameOver implements IScene {
       BrowserDriver.WithWindow(window => {
          window.setTimeout(() => {
             this.destroy();
-            this.ui.enterHighscore.render();
-         }, 5000);
+
+            const points = this.ui.points.points;
+            const { qualifiedForTop10: qualified, rank } =
+               this.ui.highscoreService.qualifiedForTop10(points);
+
+            if(qualified) {
+               console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
+               this.ui.enterHighscore.render();
+            } else {
+               console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
+               this.ui.startGame.render();
+            }
+         }, 4000);
       });
    }
 

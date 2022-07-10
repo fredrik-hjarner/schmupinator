@@ -173,6 +173,8 @@ export class App {
          gameLoop: this.gameLoop,
          gameSpeed: this.gameSpeed,
          highscore: this.highscore,
+         points: this.points,
       });
+      await this.highscore.Init();
    };
 }

@@ -40,4 +40,12 @@ describe("qualifiedForTop10", () => {
       const actual = hs.qualifiedForTop10(2);
       expect(actual).toEqual(expected);
    });
+   it("same score as rank 0, but get rank 1 because later", () => {
+      const expected: TQualifiedForTop10 = {
+         qualifiedForTop10: true,
+         rank: 1
+      }
+      const actual = hs.qualifiedForTop10(10);
+      expect(actual).toEqual(expected);
+   });
 });

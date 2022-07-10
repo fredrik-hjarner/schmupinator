@@ -39,7 +39,7 @@ export class Highscore implements IScene {
             // Enter entry then go to Highscore screen.
             this.destroy();
             this.ui.startGame.render();
-         }, 5000);
+         }, 4000);
       });
    }
 

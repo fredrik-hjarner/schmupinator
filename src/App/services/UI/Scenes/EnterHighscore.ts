@@ -42,11 +42,11 @@ export class EnterHighscore implements IScene {
             // Enter entry then go to Highscore screen.
             this.ui.highscoreService.registerNewEntry({
                name: "Nils",
-               score: 100
+               score: this.ui.points.points
             });
             this.destroy();
             this.ui.highscore.render();
-         }, 5000);
+         }, 4000);
       });
    }
 
