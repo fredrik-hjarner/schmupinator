@@ -4,6 +4,7 @@ import type { UI } from "../UI";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { createShade } from "./utils/shade";
 import { createText } from "./utils/text";
+import { Countdown } from "./utils/Countdown";
 
 type TConstructor = {
    ui: UI;
@@ -13,6 +14,7 @@ export class GameOver implements IScene {
    readonly ui: UI;
    private shadeElement?: HTMLDivElement;
    private textElement?: HTMLDivElement;
+   private countdown?: Countdown;
 
    constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -27,23 +29,12 @@ export class GameOver implements IScene {
          left: 115,
       });
 
-      // TODO: Fix. Just some mocking atm.
-      BrowserDriver.WithWindow(window => {
-         window.setTimeout(() => {
-            const points = this.ui.points.points;
-            const { qualifiedForTop10: qualified, rank } =
-               this.ui.highscoreService.qualifiedForTop10(points);
-
-            if(qualified) {
-               console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
-               this.ui.SetActiveScene(this.ui.enterHighscore);
-            } else {
-               console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
-               // TODO: reload just because app does not clear up by itself yet.
-               window.location.reload();
-               // this.ui.SetActiveScene(this.ui.startGame);
-            }
-         }, 4000);
+      this.countdown = new Countdown({
+         secondsLeft: 6,
+         onDone: this.handleCountdDownDone,
+         fontSize: 26,
+         top: 150,
+         left: 170,
       });
    }
 
@@ -53,5 +44,27 @@ export class GameOver implements IScene {
 
       this.textElement?.remove();
       this.textElement = undefined;
+
+      this.countdown?.destroy();
+      this.countdown = undefined;
    }
+
+   private handleCountdDownDone = () => {
+      // TODO: Fix. Just some mocking atm.
+      const points = this.ui.points.points;
+      const { qualifiedForTop10: qualified, rank } =
+         this.ui.highscoreService.qualifiedForTop10(points);
+
+      if(qualified) {
+         console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
+         this.ui.SetActiveScene(this.ui.enterHighscore);
+      } else {
+         console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
+         // TODO: reload just because app does not clear up by itself yet.
+         BrowserDriver.WithWindow(window => {
+            window.location.reload();
+         });
+         // this.ui.SetActiveScene(this.ui.startGame);
+      }
+   };
 }

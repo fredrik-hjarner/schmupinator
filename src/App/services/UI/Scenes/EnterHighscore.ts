@@ -5,7 +5,7 @@ import { createShade } from "./utils/shade";
 import { createText } from "./utils/text";
 import { createButton } from "./utils/button";
 import { createInput } from "./utils/input";
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
+import { Countdown } from "./utils/Countdown";
 
 type TConstructor = {
    ui: UI;
@@ -18,6 +18,7 @@ export class EnterHighscore implements IScene {
    private subTitle?: HTMLDivElement;
    private button?: HTMLButtonElement;
    private input?: HTMLInputElement;
+   private countdown?: Countdown;
 
    constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -36,16 +37,12 @@ export class EnterHighscore implements IScene {
          placeholder: "Done", fontSize: 20, top: 99, left: 115
       });
 
-      // TODO: Fix. Just some mocking atm.
-      BrowserDriver.WithWindow(window => {
-         window.setTimeout(() => {
-            // Enter entry then go to Highscore screen.
-            this.ui.highscoreService.registerNewEntry({
-               name: "Nils",
-               score: this.ui.points.points
-            });
-            this.ui.SetActiveScene(this.ui.highscore);
-         }, 4000);
+      this.countdown = new Countdown({
+         secondsLeft: 8,
+         onDone: this.handleCountdDownDone,
+         fontSize: 24,
+         top: 10,
+         left: 320,
       });
    }
 
@@ -64,5 +61,17 @@ export class EnterHighscore implements IScene {
 
       this.input?.remove();
       this.input = undefined;
+
+      this.countdown?.destroy();
+      this.countdown = undefined;
    }
+
+   private handleCountdDownDone = () => {
+      // Enter entry then go to Highscore screen.
+      this.ui.highscoreService.registerNewEntry({
+         name: "Nils",
+         score: this.ui.points.points
+      });
+      this.ui.SetActiveScene(this.ui.highscore);
+   };
 }

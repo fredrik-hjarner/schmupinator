@@ -4,6 +4,7 @@ import type { UI } from "../UI";
 import { createShade } from "./utils/shade";
 import { createText } from "./utils/text";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
+import { Countdown } from "./utils/Countdown";
 
 type TConstructor = {
    ui: UI;
@@ -14,6 +15,7 @@ export class Highscore implements IScene {
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private top10?: HTMLDivElement;
+   private countdown?: Countdown;
 
    constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -33,13 +35,12 @@ export class Highscore implements IScene {
          text: this.getTop10Text(), fontSize: 15, top: 40, left: 40
       });
 
-      // TODO: Fix. Just some mocking atm.
-      BrowserDriver.WithWindow(window => {
-         window.setTimeout(() => {
-            // TODO: reload just because app does not clear up by itself yet.
-            window.location.reload();
-            // this.ui.SetActiveScene(this.ui.startGame);
-         }, 4000);
+      this.countdown = new Countdown({
+         secondsLeft: 8,
+         onDone: this.handleCountdDownDone,
+         fontSize: 24,
+         top: 10,
+         left: 300,
       });
    }
 
@@ -52,5 +53,16 @@ export class Highscore implements IScene {
 
       this.top10?.remove();
       this.top10 = undefined;
+
+      this.countdown?.destroy();
+      this.countdown = undefined;
    }
+
+   private handleCountdDownDone = () => {
+      BrowserDriver.WithWindow(window => {
+         // TODO: reload just because app does not clear up by itself yet.
+         window.location.reload();
+         // this.ui.SetActiveScene(this.ui.startGame);
+      });
+   };
 }

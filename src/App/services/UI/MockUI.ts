@@ -12,6 +12,6 @@ export class MockUI implements IUI {
    }
 
    public Init = async () => {
-      //
+      // noop. should show any UI for node/deno.
    };
 }
