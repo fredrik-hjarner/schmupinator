@@ -27,6 +27,8 @@ import { Collisions } from "./services/Collisions/Collisions";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Events } from "./services/Events/Events";
 import { GameSpeed } from "./services/GameSpeed/GameSpeed";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Points } from "./services/Points/Points";
 import { Highscore } from "./services/Highscore/Highscore";
 import { Yaml } from "./services/Yaml/Yaml";
@@ -118,6 +120,7 @@ export class App {
       this.gameSpeed = new GameSpeed({ name: "gameSpeed" });
       this.points = IsBrowser() ?
          new Points({ app: this, name: "points" }):
+         // new PointsTester({ app: this, name: "xPointsTester" }):
          new PointsTester({ app: this, name: "xPointsTester" });
       // new Points({ app: this, name: "points" });
       this.highscore = new Highscore({ name: "highscore" });

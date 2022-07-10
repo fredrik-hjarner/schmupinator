@@ -28,6 +28,9 @@ export class ReplayerInput implements IInput {
    public Init = async () => {
       this.app.events.subscribeToEvent(this.name, (event) => {
          if(event.type === "player_died"){
+            // unsub because we dont want to get in here again.
+            this.app.events.unsubscribeToEvent(this.name);
+
             const actual = this.app.points.points;
             const expected = replay.score;
             const seconds = (BrowserDriver.PerformanceNow() - this.startTime)/1000;
@@ -35,7 +38,8 @@ export class ReplayerInput implements IInput {
             if(actual === expected){
                const msg = `Test Success\nscore: ${expected}\ngot: ${actual}\n${timeStr}`;
                if(IsBrowser()){
-                  BrowserDriver.Alert(msg);
+                  // BrowserDriver.Alert(msg);
+                  console.log(msg);
                } else {
                   console.log(msg);
                   // eslint-disable-next-line no-undef
@@ -45,6 +49,7 @@ export class ReplayerInput implements IInput {
                const msg = `Test Failure\nexpected: ${expected}\ngot: ${actual}\n${timeStr}`;
                if(IsBrowser()){
                   BrowserDriver.Alert(msg);
+                  // console.log(msg);
                } else {
                   console.log(msg);
                   // eslint-disable-next-line no-undef

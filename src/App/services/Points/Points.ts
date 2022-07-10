@@ -49,6 +49,9 @@ export class Points implements IPoints {
             break;
          }
          case "player_died":
+            // unsub because we dont want to get in here again.
+            this.app.events.unsubscribeToEvent(this.name);
+
             if(IsBrowser()) {
                console.log("Points.history:");
                console.log(this.history);
