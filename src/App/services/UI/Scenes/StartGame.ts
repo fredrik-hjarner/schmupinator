@@ -2,8 +2,9 @@ import type { IScene } from "./IScene";
 import type { UI } from "../UI";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { resolutionHeight, resolutionWidth, zIndices } from "../../../../consts";
+import { zIndices } from "../../../../consts";
 import { px } from "../../../../utils/px";
+import { createShade } from "./utils/shade";
 
 type TConstructor = {
    ui: UI;
@@ -19,7 +20,7 @@ export class StartGame implements IScene {
    }
 
    public render() {
-      this.createShade();
+      this.shadeElement = createShade();
       this.createButton();
    }
 
@@ -30,26 +31,6 @@ export class StartGame implements IScene {
       this.startButtonElement?.remove();
       this.startButtonElement = undefined;
    }
-
-   private createShade = () => {
-      BrowserDriver.WithWindow(window => {
-         const element = window.document.createElement("div");
-         this.shadeElement = element;
-
-         // element.id = handle;
-         element.style.position = "fixed";
-         element.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-         element.style.top = px(0);
-         element.style.left = px(0);
-         element.style.width = px(resolutionWidth);
-         element.style.height = px(resolutionHeight);
-         element.style.zIndex = zIndices.ui;
-
-         window.document.body.appendChild(element);
-         
-         return element;
-      });
-   };
 
    private startGame = () => {
       this.ui.gameLoop.Start();
@@ -67,8 +48,8 @@ export class StartGame implements IScene {
          element.appendChild(text);
 
          element.style.position = "fixed";
-         element.style.top = px(114);
-         element.style.left = px(119);
+         element.style.top = px(110);
+         element.style.left = px(115);
          element.style.zIndex = zIndices.ui;
          element.style.fontSize = px(22);
          element.style.padding = "5px 10px";

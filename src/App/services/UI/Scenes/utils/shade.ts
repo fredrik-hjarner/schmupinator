@@ -7,7 +7,7 @@ export const createShade = () => {
       const element = window.document.createElement("div");
 
       element.style.position = "fixed";
-      element.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+      element.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
       element.style.top = px(0);
       element.style.left = px(0);
       element.style.width = px(resolutionWidth);
