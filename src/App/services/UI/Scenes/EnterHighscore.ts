@@ -31,14 +31,22 @@ export class EnterHighscore implements IScene {
       });
       this.subTitle = createText({ text: "Enter your name", fontSize: 20, top: 60, left: 112 });
       this.button = createButton({
-         text: "Done", fontSize: 20, top: 140, left: 149
+         text: "Done",
+         fontSize: 20,
+         top: 140,
+         left: 149,
+         onClick: this.handleCountdDownDone
       });
       this.input = createInput({
-         placeholder: "Done", fontSize: 20, top: 99, left: 115
+         placeholder: "",
+         maxlength: 6,
+         fontSize: 20,
+         top: 99,
+         left: 115
       });
 
       this.countdown = new Countdown({
-         secondsLeft: 8,
+         secondsLeft: 25,
          onDone: this.handleCountdDownDone,
          fontSize: 24,
          top: 10,
@@ -69,7 +77,8 @@ export class EnterHighscore implements IScene {
    private handleCountdDownDone = () => {
       // Enter entry then go to Highscore screen.
       this.ui.highscoreService.registerNewEntry({
-         name: "Nils",
+         // TODO: Dont allow no name?
+         name: this.input?.value || "ANON",
          score: this.ui.points.points
       });
       this.ui.SetActiveScene(this.ui.highscore);

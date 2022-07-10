@@ -4,13 +4,14 @@ import { px } from "../../../../../utils/px";
 
 type TCreateInputParams = {
    placeholder: string,
+   maxlength?: number
    fontSize?: number;
    left?: number,
    top?: number
 }
 
 export const createInput = (params: TCreateInputParams) => {
-   const { placeholder, fontSize=16, left=0, top=0 } = params;
+   const { placeholder, maxlength=6, fontSize=16, left=0, top=0 } = params;
 
    return BrowserDriver.WithWindow(window => {
       const element = window.document.createElement("input");
@@ -18,6 +19,7 @@ export const createInput = (params: TCreateInputParams) => {
       element.type = "text";
       element.size = 10;
       element.placeholder = placeholder;
+      element.maxLength = maxlength;
       element.style.position = "fixed";
       element.style.top = px(top);
       element.style.left = px(left);
