@@ -36,9 +36,7 @@ export class Highscore implements IScene {
       // TODO: Fix. Just some mocking atm.
       BrowserDriver.WithWindow(window => {
          window.setTimeout(() => {
-            // Enter entry then go to Highscore screen.
-            this.destroy();
-            this.ui.startGame.render();
+            this.ui.SetActiveScene(this.ui.startGame);
          }, 4000);
       });
    }

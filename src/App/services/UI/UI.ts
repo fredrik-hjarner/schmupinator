@@ -35,6 +35,9 @@ export class UI implements IUI {
    highscore: IScene;
    enterHighscore: IScene;
 
+   // Active scene
+   activeScene?: IScene;
+
    constructor({ name }: TConstructor) {
       this.name = name;
 
@@ -56,10 +59,25 @@ export class UI implements IUI {
 
       this.events.subscribeToEvent(this.name, this.onEvent);
 
-      this.startGame.render();
+      this.SetActiveScene(this.startGame);
       // this.enterHighscore.render();
       // this.highscore.render();
       // this.gameOver.render();
+   };
+
+   public SetActiveScene = (scene: IScene) => {
+      if(scene === this.activeScene) {
+         // same scene already active.
+         console.warn("Trying to set a scene to active which is already active.");
+         return;
+      }
+
+      if(this.activeScene) {
+         this.activeScene.destroy();
+      }
+
+      this.activeScene = scene;
+      this.activeScene.render();
    };
 
    private onEvent = (event: TEvent) => {
@@ -68,16 +86,14 @@ export class UI implements IUI {
             if(this.gameLoop.FrameCount >= 3200) {
                // TODO: THis is ugly. Should not assume which the active scene is.
                this.gameSpeed.GameSpeed = 0;
-               this.game.destroy();
-               this.gameOver.render();
+               this.SetActiveScene(this.gameOver);
             }
             break;
          }
          case "player_died": {
             // TODO: THis is ugly. Should not assume which the active scene is.
             this.gameSpeed.GameSpeed = 0;
-            this.game.destroy();
-            this.gameOver.render();
+            this.SetActiveScene(this.gameOver);
             break;
          }
       }

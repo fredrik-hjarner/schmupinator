@@ -44,8 +44,7 @@ export class EnterHighscore implements IScene {
                name: "Nils",
                score: this.ui.points.points
             });
-            this.destroy();
-            this.ui.highscore.render();
+            this.ui.SetActiveScene(this.ui.highscore);
          }, 4000);
       });
    }

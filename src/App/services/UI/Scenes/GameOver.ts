@@ -23,18 +23,16 @@ export class GameOver implements IScene {
       // TODO: Fix. Just some mocking atm.
       BrowserDriver.WithWindow(window => {
          window.setTimeout(() => {
-            this.destroy();
-
             const points = this.ui.points.points;
             const { qualifiedForTop10: qualified, rank } =
                this.ui.highscoreService.qualifiedForTop10(points);
 
             if(qualified) {
                console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
-               this.ui.enterHighscore.render();
+               this.ui.SetActiveScene(this.ui.enterHighscore);
             } else {
                console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
-               this.ui.startGame.render();
+               this.ui.SetActiveScene(this.ui.startGame);
             }
          }, 4000);
       });
