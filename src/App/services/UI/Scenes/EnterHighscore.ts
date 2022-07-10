@@ -6,13 +6,20 @@ import { createText } from "./utils/text";
 import { createButton } from "./utils/button";
 import { createInput } from "./utils/input";
 import { Countdown } from "./utils/Countdown";
+import { isNumber } from "../../../../utils/typeAssertions";
 
 type TConstructor = {
    ui: UI;
 }
 
 export class EnterHighscore implements IScene {
+   // deps/services
    readonly ui: UI;
+
+   // vars
+   private rank?: number;
+
+   // elements
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private subTitle?: HTMLDivElement;
@@ -24,7 +31,11 @@ export class EnterHighscore implements IScene {
       this.ui = params.ui;
    }
 
-   public render() {
+   // If rank is a number then that's the rank the player got in top10 list.
+   public render(rank?: unknown) {
+      if(isNumber(rank)) {
+         this.rank = rank;
+      }
       this.shadeElement = createShade();
       this.title = createText({
          text: "Made it into the Highscore", fontSize: 24, top: 10, left: 52
@@ -81,6 +92,6 @@ export class EnterHighscore implements IScene {
          name: this.input?.value || "ANON",
          score: this.ui.points.points
       });
-      this.ui.SetActiveScene(this.ui.highscore);
+      this.ui.SetActiveScene(this.ui.highscore, this.rank);
    };
 }

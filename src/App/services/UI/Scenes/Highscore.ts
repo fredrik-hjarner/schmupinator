@@ -5,6 +5,7 @@ import { createShade } from "./utils/shade";
 import { createText } from "./utils/text";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { Countdown } from "./utils/Countdown";
+import { isNumber } from "../../../../utils/typeAssertions";
 
 type TConstructor = {
    ui: UI;
@@ -28,7 +29,12 @@ export class Highscore implements IScene {
       return [header, ...top10].join("\n");
    };
 
-   public render() {
+   // if rank is a number it intructs to highlight that rank in the top10 list.
+   public render(rank: unknown) {
+      if(isNumber(rank)) {
+         // TODO: Implement highlight of last added highscore.
+         console.log(`Should highligh rank ${rank}`);
+      }
       this.shadeElement = createShade();
       this.title = createText({text: "Highscore", fontSize: 24, top: 10, left: 128 });
       this.top10 = createText({
@@ -36,7 +42,7 @@ export class Highscore implements IScene {
       });
 
       this.countdown = new Countdown({
-         secondsLeft: 8,
+         secondsLeft: 10,
          onDone: this.handleCountdDownDone,
          fontSize: 24,
          top: 10,

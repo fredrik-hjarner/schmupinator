@@ -57,7 +57,7 @@ export class GameOver implements IScene {
 
       if(qualified) {
          console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
-         this.ui.SetActiveScene(this.ui.enterHighscore);
+         this.ui.SetActiveScene(this.ui.enterHighscore, rank);
       } else {
          console.log(`qualified=${JSON.stringify(qualified)} rank=${JSON.stringify(rank)}`);
          // TODO: reload just because app does not clear up by itself yet.

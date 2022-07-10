@@ -65,7 +65,7 @@ export class UI implements IUI {
       // this.SetActiveScene(this.gameOver);
    };
 
-   public SetActiveScene = (scene: IScene) => {
+   public SetActiveScene = (scene: IScene, props?: unknown) => {
       if(scene === this.activeScene) {
          // same scene already active.
          console.warn("Trying to set a scene to active which is already active.");
@@ -77,7 +77,7 @@ export class UI implements IUI {
       }
 
       this.activeScene = scene;
-      this.activeScene.render();
+      this.activeScene.render(props);
    };
 
    private onEvent = (event: TEvent) => {
