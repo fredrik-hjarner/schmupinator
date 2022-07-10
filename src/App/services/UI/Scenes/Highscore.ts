@@ -36,7 +36,9 @@ export class Highscore implements IScene {
       // TODO: Fix. Just some mocking atm.
       BrowserDriver.WithWindow(window => {
          window.setTimeout(() => {
-            this.ui.SetActiveScene(this.ui.startGame);
+            // TODO: reload just because app does not clear up by itself yet.
+            window.location.reload();
+            // this.ui.SetActiveScene(this.ui.startGame);
          }, 4000);
       });
    }
