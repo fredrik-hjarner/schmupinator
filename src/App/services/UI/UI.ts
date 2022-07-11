@@ -1,6 +1,6 @@
 import type { IUI } from "./IUI";
 import type { IScene } from "./Scenes/IScene";
-import type { IEvents, TEvent } from "../Events/IEvents";
+import type { IGameEvents, IUiEvents, TGameEvent } from "../Events/IEvents";
 import type { GameLoop } from "../GameLoop/GameLoop";
 import type { GameSpeed } from "../GameSpeed/GameSpeed";
 import type { TInitParams } from "../IService";
@@ -21,8 +21,8 @@ export class UI implements IUI {
    readonly name: string;
 
    // deps/services
-   events!: IEvents;
-   uiEvents!: IEvents;
+   events!: IGameEvents;
+   uiEvents!: IUiEvents;
    gameLoop!: GameLoop;
    gameSpeed!: GameSpeed;
    highscoreService!: THighscoreService;
@@ -50,8 +50,8 @@ export class UI implements IUI {
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.events = deps?.events as IEvents;
-      this.uiEvents = deps?.uiEvents as IEvents;
+      this.events = deps?.events as IGameEvents;
+      this.uiEvents = deps?.uiEvents as IUiEvents;
       this.gameLoop = deps?.gameLoop as GameLoop;
       this.gameSpeed = deps?.gameSpeed as GameSpeed;
       this.highscoreService = deps?.highscore as THighscoreService;
@@ -80,7 +80,7 @@ export class UI implements IUI {
       this.activeScene.render(props);
    };
 
-   private onEvent = (event: TEvent) => {
+   private onEvent = (event: TGameEvent) => {
       switch(event.type) {
          case "frame_tick": {
             if(this.gameLoop.FrameCount >= 3200) {

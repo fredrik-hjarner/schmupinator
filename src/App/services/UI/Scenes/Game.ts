@@ -1,5 +1,5 @@
 import type { IScene } from "./IScene";
-import type { TEvent } from "../../Events/IEvents";
+import type { TUiEvent } from "../../Events/IEvents";
 import type { UI } from "../UI";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
@@ -80,7 +80,7 @@ export class Game implements IScene {
       this.ui.events.unsubscribeToEvent("GameUI");
    }
 
-   private onEvent = (event: TEvent) => {
+   private onEvent = (event: TUiEvent) => {
       switch(event.type) {
          case "uiScoreUpdated": {
             if(this.scoreElement) {

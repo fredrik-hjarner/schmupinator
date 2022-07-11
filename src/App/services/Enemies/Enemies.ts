@@ -2,7 +2,7 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IService, TInitParams } from "../IService";
 import type { Yaml } from "../Yaml/Yaml";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { IEvents, TEvent } from "../Events/IEvents";
+import type { IGameEvents, TGameEvent } from "../Events/IEvents";
 import type { TShortFormAction } from "./actionTypesShortForms";
 import type { Player } from "../Player/Player";
 import type { IGraphics } from "../Graphics/IGraphics";
@@ -16,7 +16,7 @@ export class Enemies implements IService {
 
    // deps/services
    yaml!: Yaml;
-   events!: IEvents;
+   events!: IGameEvents;
    player!: Player;
    graphics!: IGraphics;
 
@@ -36,7 +36,7 @@ export class Enemies implements IService {
     */
    // eslint-disable-next-line @typescript-eslint/require-await
    Init = async (deps?: TInitParams) => {
-      this.events = deps?.events as IEvents;
+      this.events = deps?.events as IGameEvents;
       this.yaml = deps?.yaml as Yaml;
       this.player = deps?.player as Player;
       this.graphics = deps?.graphics as IGraphics;
@@ -95,7 +95,7 @@ export class Enemies implements IService {
    /**
     * TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private
     */
-   private handleEvent = (event: TEvent) => {
+   private handleEvent = (event: TGameEvent) => {
       switch(event.type) {
          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
          case "frame_tick": {

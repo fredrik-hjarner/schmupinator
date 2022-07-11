@@ -1,5 +1,5 @@
 import type { App } from "../../App";
-import type { TEvent } from "../Events/IEvents";
+import type { TGameEvent } from "../Events/IEvents";
 import type { IPoints, THistoryEntry } from "./IPoints";
 
 import { IsBrowser } from "../../../drivers/BrowserDriver";
@@ -31,7 +31,7 @@ export class Points implements IPoints {
     * Private
     */
 
-   private onEvent = (event: TEvent) => {
+   private onEvent = (event: TGameEvent) => {
       switch(event.type) {
          case "add_points": {
             this.points += event.points;

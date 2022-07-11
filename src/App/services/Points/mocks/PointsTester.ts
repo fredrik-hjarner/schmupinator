@@ -1,5 +1,5 @@
 import type { App } from "../../../App";
-import type { TEvent } from "../../Events/IEvents";
+import type { TGameEvent } from "../../Events/IEvents";
 import type { IPoints, THistoryEntry } from "../IPoints";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
@@ -39,7 +39,7 @@ export class PointsTester implements IPoints {
     * Private
     */
 
-   private onEvent = (event: TEvent) => {
+   private onEvent = (event: TGameEvent) => {
       // Assumption that the original points have run at this time.
       switch(event.type) {
          case "frame_tick": {

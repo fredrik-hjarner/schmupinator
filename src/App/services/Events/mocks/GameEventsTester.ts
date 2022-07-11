@@ -1,5 +1,7 @@
 import type { App } from "../../../App";
-import type { IEvents, TCallback, TEvent, TSubscribers } from "../IEvents";
+import type {
+   IGameEvents, TGameEventCallback, TGameEvent, TGameEventSubscribers
+} from "../IEvents";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { history } from "./history";
@@ -9,11 +11,11 @@ type TConstructor = {
    name: string
 }
 
-export class EventsTester implements IEvents {
+export class GameEventsTester implements IGameEvents {
    app: App;
    name: string;
-   subscribers: TSubscribers;
-   history: Partial<{ [frame: number]: TEvent[] }>;
+   subscribers: TGameEventSubscribers;
+   history: Partial<{ [frame: number]: TGameEvent[] }>;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -26,7 +28,7 @@ export class EventsTester implements IEvents {
       // noop
    };
 
-   public subscribeToEvent = (nameOfSubscriber: string, callback: TCallback) => {
+   public subscribeToEvent = (nameOfSubscriber: string, callback: TGameEventCallback) => {
       this.subscribers[nameOfSubscriber] = callback;
    };
 
@@ -34,7 +36,7 @@ export class EventsTester implements IEvents {
       delete this.subscribers[nameOfSubscriber];
    };
 
-   public dispatchEvent = (event: TEvent) => {
+   public dispatchEvent = (event: TGameEvent) => {
       if(event.type === "player_died") {
          // if(IsBrowser()) {
          //    console.log("RecordEvents.history:");
@@ -53,7 +55,7 @@ export class EventsTester implements IEvents {
          const lastFrame = this.app.gameLoop.FrameCount-1;
          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
          //@ts-ignore
-         const expected = JSON.stringify(history[lastFrame] as TEvent[] | undefined);
+         const expected = JSON.stringify(history[lastFrame] as TGameEvent[] | undefined);
          const actual = JSON.stringify(this.history[lastFrame]);
          if(expected !== actual) {
             BrowserDriver.Alert(

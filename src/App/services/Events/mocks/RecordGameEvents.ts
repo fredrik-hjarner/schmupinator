@@ -1,5 +1,7 @@
 import type { App } from "../../../App";
-import type { IEvents, TCallback, TEvent, TSubscribers } from "../IEvents";
+import type {
+   IGameEvents, TGameEventCallback, TGameEvent, TGameEventSubscribers
+} from "../IEvents";
 
 import { IsBrowser } from "../../../../drivers/BrowserDriver";
 
@@ -8,11 +10,11 @@ type TConstructor = {
    name: string
 }
 
-export class RecordEvents implements IEvents {
+export class RecordGameEvents implements IGameEvents {
    app: App;
    name: string;
-   subscribers: TSubscribers;
-   history: Partial<{ [frame: number]: TEvent[] }>;
+   subscribers: TGameEventSubscribers;
+   history: Partial<{ [frame: number]: TGameEvent[] }>;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -25,7 +27,7 @@ export class RecordEvents implements IEvents {
       // noop
    };
 
-   public subscribeToEvent = (nameOfSubscriber: string, callback: TCallback) => {
+   public subscribeToEvent = (nameOfSubscriber: string, callback: TGameEventCallback) => {
       this.subscribers[nameOfSubscriber] = callback;
    };
 
@@ -33,7 +35,7 @@ export class RecordEvents implements IEvents {
       delete this.subscribers[nameOfSubscriber];
    };
 
-   public dispatchEvent = (event: TEvent) => {
+   public dispatchEvent = (event: TGameEvent) => {
       if(event.type === "player_died") {
          if(IsBrowser()) {
             console.log("RecordEvents.history:");

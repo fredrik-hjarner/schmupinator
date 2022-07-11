@@ -1,15 +1,15 @@
 import type { App } from "../../App";
-import type { IEvents, TCallback, TEvent, TSubscribers } from "./IEvents";
+import type { IEvents, TEventCallback, TEventSubscribers } from "./IEvents";
 
 type TConstructor = {
    app: App,
    name: string
 }
 
-export class Events implements IEvents {
+export class Events<TEvent> implements IEvents<TEvent> {
    app: App;
    name: string;
-   private subscribers: TSubscribers;
+   private subscribers: TEventSubscribers<TEvent>;
 
    constructor({ app, name }: TConstructor) {
       this.app = app;
@@ -21,7 +21,7 @@ export class Events implements IEvents {
       // noop
    };
 
-   public subscribeToEvent = (nameOfSubscriber: string, callback: TCallback) => {
+   public subscribeToEvent = (nameOfSubscriber: string, callback: TEventCallback<TEvent>) => {
       this.subscribers[nameOfSubscriber] = callback;
    };
 

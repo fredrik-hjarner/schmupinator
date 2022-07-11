@@ -6,7 +6,7 @@ import type { IGameLoop } from "./services/GameLoop/IGameLoop";
 import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
-import type { IEvents } from "./services/Events/IEvents";
+import type { IGameEvents, IUiEvents, TGameEvent, TUiEvent } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 
 /**
@@ -55,8 +55,8 @@ import { PointsTester } from "./services/Points/mocks/PointsTester";
 import { MockUI } from "./services/UI/MockUI";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { RecordEvents } from "./services/Events/mocks/RecordEvents";
-import { EventsTester } from "./services/Events/mocks/EventsTester";
+import { RecordGameEvents } from "./services/Events/mocks/RecordGameEvents";
+import { GameEventsTester } from "./services/Events/mocks/GameEventsTester";
 import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 
 /**
@@ -75,12 +75,12 @@ export class App {
    enemies: Enemies;
    gamepad: GamePad;
    collisions: Collisions;
-   events: IEvents;
+   events: IGameEvents;
    /**
     * only listened to by the UI & UI Scenes,
     * other services send messages over uiEvents so that the UI know when to update.
     */
-   uiEvents: IEvents;
+   uiEvents: IUiEvents;
    gameSpeed: IGameSpeed;
    points: IPoints;
    highscore: Highscore;
@@ -117,10 +117,10 @@ export class App {
       this.gamepad = new GamePad({ name: "gamePad" });
       this.collisions = new Collisions({ name: "collisions" });
       this.events =  IsBrowser() ?
-         new Events({ app: this, name: "events" }) :
+         new Events<TGameEvent>({ app: this, name: "events" }) :
          // new RecordEvents({ app: this, name: "events" }) :
-         new EventsTester({ app: this, name: "events" });
-      this.uiEvents = new Events({ app: this, name: "uiEvents" });
+         new GameEventsTester({ app: this, name: "events" });
+      this.uiEvents = new Events<TUiEvent>({ app: this, name: "uiEvents" });
       this.gameSpeed = IsBrowser() ?
          // new GameSpeed({ name: "gameSpeed" }) :
          new InvisibleGameSpeed({ name: "gameSpeed" }) :

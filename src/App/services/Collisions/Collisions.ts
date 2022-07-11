@@ -1,5 +1,5 @@
 import type { Enemies } from "../Enemies/Enemies";
-import type { IEvents } from "../Events/IEvents";
+import type { IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
 import type { Player } from "../Player/Player";
 import type { Shots } from "../Shots/Shots";
@@ -20,7 +20,7 @@ export class Collisions implements IService {
    name: string;
    
    // deps/services
-   events!: IEvents;
+   events!: IGameEvents;
    player!: Player;
    enemies!: Enemies;
    playerShots!: Shots;
@@ -40,7 +40,7 @@ export class Collisions implements IService {
     */
    // eslint-disable-next-line @typescript-eslint/require-await
    Init = async (deps?: TInitParams) => {
-      this.events = deps?.events as IEvents;
+      this.events = deps?.events as IGameEvents;
       this.player = deps?.player as Player;
       this.enemies = deps?.enemies as Enemies;
       this.playerShots = deps?.playerShots as Shots;
