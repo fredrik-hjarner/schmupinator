@@ -55,8 +55,6 @@ maxChildren would be the max number of spawns. I would need to implement parent-
 they subscribe to and what they dispatch. Throw runtime error when it tried to do something it has
 not declared!!
 
-* Force with eslint to always specify "private", "public".
-
 * I should probably not send in `app`, but rather `deps: IService[]` into services.
 
 * Yaml: Maybe do so all files starting with _ are prepended to every file.
