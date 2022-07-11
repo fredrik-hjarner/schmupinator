@@ -23,8 +23,6 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 * I could do it as css and have position: relative/absolute with relative as default,
 that would make relative/absolute positioning actions more coherent.
 
-* EnemyJsons should be a map keyed by the enemy name, also rename to EnemyYamls maybe.
-
 * Have private constructors, and use a Construct method instead that can be async.
 
 * Eventually remove all long forms that have short forms to reduce complexity!

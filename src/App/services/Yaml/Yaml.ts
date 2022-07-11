@@ -14,15 +14,12 @@ type TConstructor = {
 
 export class Yaml implements IService {
    readonly name: string;
-   /**
-    * TODO: this should be a maop keyed by the enemy name.
-    */
-   private EnemyJsons: IEnemyJson[];
+   private EnemyJsons: Partial<{ [enemyName: string]: IEnemyJson }>;
    
 
    constructor({ name }: TConstructor) {
       this.name = name;
-      this.EnemyJsons = [];
+      this.EnemyJsons = {};
    }
 
    public Init = async () => {
@@ -75,20 +72,14 @@ export class Yaml implements IService {
             console.error(`Error: Yaml service: Trying to add an empty enemy. Skipping.`);
             return;
          }
-         this.EnemyJsons.push(yaml.enemy as IEnemyJson);
+         this.EnemyJsons[yaml.enemy.name] = yaml.enemy as IEnemyJson;
       });
 
       // console.log("this.EnemyJsons:", this.EnemyJsons);
    };
 
    public GetEnemy = (enemyName: string): IEnemyJson | undefined  => {
-      return this.EnemyJsons.find(e => {
-         if(typeof e === "undefined") {
-            BrowserDriver.Alert(`enemy in EnemyJsons is undefined`);
-            throw new Error(`enemy in EnemyJsons is undefined`);
-         }
-         return e.name === enemyName;
-      });
+      return this.EnemyJsons[enemyName];
    };
 
    /**
