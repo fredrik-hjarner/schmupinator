@@ -96,6 +96,9 @@ generator (now it creates several thus only one would be killed)!
 
 * Use my utils createShade and createText throughout the UI Scenes code.
 
+* Maybe I should have a frameTickEvents service, that only has frame_tick on it. This would allow a
+little bit of increased performance I think.
+
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 2. Make it fullscreen somehow.
