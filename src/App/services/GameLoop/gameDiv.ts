@@ -26,7 +26,7 @@ export const initLayer2Element = () => {
       const element: HTMLDivElement = window.document.querySelector("#layer2") as HTMLDivElement;
       element.style.height = `${resolutionHeight}px`;
       element.style.width = `${resolutionWidth}px`;
-      element.style.backgroundColor = "none";
+      element.style.backgroundColor = "unset";
       element.style.position = "fixed";
       element.style.top = "0px";
       element.style.left = "0px";
@@ -45,7 +45,7 @@ export const initLayer3Element = () => {
       const element: HTMLDivElement = window.document.querySelector("#layer3") as HTMLDivElement;
       element.style.height = `${resolutionHeight}px`;
       element.style.width = `${resolutionWidth}px`;
-      element.style.backgroundColor = "none";
+      element.style.backgroundColor = "unset";
       element.style.position = "fixed";
       element.style.top = "0px";
       element.style.left = "0px";
