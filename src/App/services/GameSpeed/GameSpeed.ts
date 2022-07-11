@@ -1,4 +1,4 @@
-import type { IService } from "../IService";
+import type { IGameSpeed } from "./IGameSpeed";
 
 import { isHTMLInputElement } from "../../../utils/typeAssertions";
 import { initGameSpeedElement } from "./gameSpeedElement";
@@ -7,9 +7,9 @@ type TConstructor = {
    name: string;
 }
 
-export class GameSpeed implements IService {
+export class GameSpeed implements IGameSpeed {
    name: string;
-   gameSpeedElement: unknown;
+   private gameSpeedElement: unknown;
 
    /**
    * Public

@@ -7,6 +7,7 @@ import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
 import type { IEvents } from "./services/Events/IEvents";
+import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 
 /**
  * Services
@@ -26,6 +27,8 @@ import { Collisions } from "./services/Collisions/Collisions";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Events } from "./services/Events/Events";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -54,6 +57,7 @@ import { MockUI } from "./services/UI/MockUI";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { RecordEvents } from "./services/Events/mocks/RecordEvents";
 import { EventsTester } from "./services/Events/mocks/EventsTester";
+import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 
 /**
  * Other
@@ -77,7 +81,7 @@ export class App {
     * other services send messages over uiEvents so that the UI know when to update.
     */
    uiEvents: IEvents;
-   gameSpeed: GameSpeed;
+   gameSpeed: IGameSpeed;
    points: IPoints;
    highscore: Highscore;
    yaml: Yaml;
@@ -117,7 +121,10 @@ export class App {
          // new RecordEvents({ app: this, name: "events" }) :
          new EventsTester({ app: this, name: "events" });
       this.uiEvents = new Events({ app: this, name: "uiEvents" });
-      this.gameSpeed = new GameSpeed({ name: "gameSpeed" });
+      this.gameSpeed = IsBrowser() ?
+         // new GameSpeed({ name: "gameSpeed" }) :
+         new InvisibleGameSpeed({ name: "gameSpeed" }) :
+         new InvisibleGameSpeed({ name: "gameSpeed" });
       this.points = IsBrowser() ?
          new Points({ app: this, name: "points" }):
          // new PointsTester({ app: this, name: "xPointsTester" }):

@@ -96,4 +96,6 @@ generator (now it creates several thus only one would be killed)!
 
 * Use my utils createShade and createText throughout the UI Scenes code.
 
-* If the player got a highscore, mark that in the Highscore screen.
+* Last finishing touches:
+1. Hide the debug stuff somehow.
+2. Make it fullscreen somehow.
