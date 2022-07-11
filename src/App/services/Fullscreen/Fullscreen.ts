@@ -9,7 +9,6 @@ type TConstructor = {
 
 export class Fullscreen implements IFullscreen {
    name: string;
-   private interval: number;
    private gameAspectRatio = resolutionWidth / resolutionHeight;
 
    constructor({ name }: TConstructor) {
@@ -17,7 +16,9 @@ export class Fullscreen implements IFullscreen {
 
       this.setFullscreen();
       // TODO: THis is never cleared !!!
-      this.interval = BrowserDriver.SetInterval(this.setFullscreen, 1000);
+      BrowserDriver.WithWindow(window => {
+         window.addEventListener("resize", this.setFullscreen);
+      });
    }
 
    Init = async () => {
@@ -27,7 +28,7 @@ export class Fullscreen implements IFullscreen {
    // TODO: This is never called because it is not on IFullscreen interface etc.
    destroy = () => {
       BrowserDriver.WithWindow(window => {
-         window.clearInterval(this.interval);
+         window.removeEventListener("resize", this.setFullscreen);
       });
    };
 
