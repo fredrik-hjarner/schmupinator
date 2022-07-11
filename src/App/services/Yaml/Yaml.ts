@@ -17,7 +17,7 @@ export class Yaml implements IService {
    /**
     * TODO: this should be a maop keyed by the enemy name.
     */
-   EnemyJsons: IEnemyJson[];
+   private EnemyJsons: IEnemyJson[];
    
 
    constructor({ name }: TConstructor) {
@@ -79,6 +79,16 @@ export class Yaml implements IService {
       });
 
       // console.log("this.EnemyJsons:", this.EnemyJsons);
+   };
+
+   public GetEnemy = (enemyName: string): IEnemyJson | undefined  => {
+      return this.EnemyJsons.find(e => {
+         if(typeof e === "undefined") {
+            BrowserDriver.Alert(`enemy in EnemyJsons is undefined`);
+            throw new Error(`enemy in EnemyJsons is undefined`);
+         }
+         return e.name === enemyName;
+      });
    };
 
    /**

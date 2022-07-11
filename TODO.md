@@ -2,7 +2,6 @@
 Both functions that the original state first and saves it, then measures progess then sends the
 original state and the progress to Enemy (that iself executes the stuff).
 
-* Add reset.css and normalize.css.
 
 * Add so that I can hover with mouse to see x, y positions in absolute x,y on gameDiv.
 
@@ -20,10 +19,6 @@ moves into relative moves (dunno, can maybe simplify things, maybe.)
 * Optimize Events service so you can only subscribe to certain events.
 
 * Add { type: "enemy_died", enemyName: string } event.
-
-* Try SWC Typescript compiler.
-
-* Have consts file with all z indices.
 
 * I could do it as css and have position: relative/absolute with relative as default,
 that would make relative/absolute positioning actions more coherent.
@@ -101,4 +96,6 @@ little bit of increased performance I think.
 
 * Last finishing touches:
 1. Hide the debug stuff somehow.
+1.1 Hide the bullets.
+1.2 Hide the spawner.
 2. 

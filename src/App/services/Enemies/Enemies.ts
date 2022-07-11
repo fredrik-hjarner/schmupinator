@@ -56,15 +56,8 @@ export class Enemies implements IService {
       { enemy, position, prependActions=[] }:
       { enemy: string, position: TVector, prependActions?: TShortFormAction[] }
    ) => {
-      const { EnemyJsons } = this.yaml;
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
-      const enemyJson = EnemyJsons.find(e => {
-         if(typeof e === "undefined") {
-            BrowserDriver.Alert(`enemy in EnemyJsons is undefined`);
-            throw new Error(`enemy in EnemyJsons is undefined`);
-         }
-         return e.name === enemy;
-      });
+      const enemyJson = this.yaml.GetEnemy(enemy);
       if(!enemyJson) {
          BrowserDriver.Alert(`Unknown enemy "${enemy}".`);
          throw new Error(`Unknown enemy "${enemy}".`);
