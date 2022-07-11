@@ -84,14 +84,12 @@ export class UI implements IUI {
       switch(event.type) {
          case "frame_tick": {
             if(this.gameLoop.FrameCount >= 3200) {
-               // TODO: THis is ugly. Should not assume which the active scene is.
                this.gameSpeed.GameSpeed = 0;
                this.SetActiveScene(this.gameOver);
             }
             break;
          }
          case "player_died": {
-            // TODO: THis is ugly. Should not assume which the active scene is.
             this.gameSpeed.GameSpeed = 0;
             this.SetActiveScene(this.gameOver);
             break;

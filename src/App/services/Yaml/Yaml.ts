@@ -1,7 +1,6 @@
 import type { IService } from "../IService";
 import type { Document } from "yaml";
 
-// TODO: Must be some way to fix typescript imports when using es modules.
 import { parseDocument } from "yaml";
 import { loadAsync } from "jszip";
 

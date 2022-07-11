@@ -34,8 +34,6 @@ export class StartGame implements IScene {
 
    private startGame = () => {
       this.ui.gameLoop.Start();
-
-      // TODO: This is super ugly. UI should have logic for switching scenes!
       this.ui.SetActiveScene(this.ui.game);
    };
 
