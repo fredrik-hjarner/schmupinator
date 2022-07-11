@@ -263,7 +263,7 @@ export class Enemy {
       const player = this.enemies.player;
       const dirX = player.X - this.X;
       const dirY = player.Y - this.Y;
-      const vector = new Vector(dirX, dirY).rotateClockwise(Angle.fromDegrees(degrees));
+      const vector = new Vector(dirX, dirY).rotateClockwiseM(Angle.fromDegrees(degrees));
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
 

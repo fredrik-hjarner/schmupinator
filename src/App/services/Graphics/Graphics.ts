@@ -66,7 +66,6 @@ export class Graphics implements IGraphics {
    };
 
    private getRestingPlace = (i: number): TVector => {
-      // const i = this.elementPool.findIndex(e => e.handle === element.handle);
       const column = Math.floor(i /10);
       const row = i % 10;
       const x = 20 + resolutionWidth + 10 * column;

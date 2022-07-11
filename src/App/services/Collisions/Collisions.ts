@@ -60,7 +60,7 @@ export class Collisions implements IService {
     */
    private update = () => {
       const player = this.player;
-      const playerShots = this.playerShots.shots.map(s => s);
+      const playerShots = this.playerShots.shots;
       const enemies = this.enemies.enemies;
 
       const playerWasHit =

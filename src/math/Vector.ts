@@ -1,8 +1,8 @@
 import { Angle } from "./Angle";
 
 export class Vector {
-   public readonly x: number;
-   public readonly y: number;
+   public x: number;
+   public y: number;
 
    public constructor(x: number, y: number) {
       this.x = x;
@@ -121,6 +121,15 @@ export class Vector {
    //#region mutations
 
    // Mutation functions are suffixed with a "M"
+
+   public rotateClockwiseM(angle: Angle): Vector {
+      const x = this.x;
+      const y = this.y;
+      const radians = angle.radians;
+      this.x = Math.cos(radians) * x - Math.sin(radians) * y;
+      this.y = Math.sin(radians) * x + Math.cos(radians) * y;
+      return this;
+   }
 
    //#endregion
 }
