@@ -9,6 +9,7 @@ import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
 import type { IGameEvents, IUiEvents, TGameEvent, TUiEvent } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
+import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
 
 /**
  * Services
@@ -41,6 +42,7 @@ import { Highscore } from "./services/Highscore/Highscore";
 import { Yaml } from "./services/Yaml/Yaml";
 import { Graphics } from "./services/Graphics/Graphics";
 import { UI } from "./services/UI/UI";
+import { Fullscreen } from "./services/Fullscreen/Fullscreen";
 
 /**
  * "Mocks"/Service variations
@@ -63,6 +65,7 @@ import { RecordGameEvents } from "./services/Events/mocks/RecordGameEvents";
 import { GameEventsTester } from "./services/Events/mocks/GameEventsTester";
 import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 import { MockFps } from "./services/Fps/variants/MockFps";
+import { MockFullscreen } from "./services/Fullscreen/variants/MockFullscreen";
 
 /**
  * Other
@@ -93,6 +96,7 @@ export class App {
    yaml: Yaml;
    graphics: IGraphics;
    ui: IUI;
+   fullscreen: IFullscreen;
 
    /**
     * Step 1 of initialization
@@ -164,6 +168,10 @@ export class App {
       this.ui = IsBrowser() ?
          new UI({ name: "ui" }) :
          new MockUI({ name: "mockUi" });
+
+      this.fullscreen = IsBrowser() ?
+         new Fullscreen({ name: "fullscreen" }) :
+         new MockFullscreen({ name: "fullscreen" });
    }
 
    /**
@@ -213,5 +221,6 @@ export class App {
          points: this.points,
       });
       await this.highscore.Init();
+      await this.fullscreen.Init();
    };
 }

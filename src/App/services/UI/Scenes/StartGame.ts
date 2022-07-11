@@ -39,6 +39,7 @@ export class StartGame implements IScene {
       this.ui.SetActiveScene(this.ui.game);
    };
 
+   // TODO: use util createButton !!!
    private createButton = () => {
       BrowserDriver.WithWindow(window => {
          const element = window.document.createElement("button");
@@ -50,6 +51,7 @@ export class StartGame implements IScene {
          element.style.position = "fixed";
          element.style.top = px(110);
          element.style.left = px(115);
+         element.style.whiteSpace = "pre";
          element.style.zIndex = zIndices.ui;
          element.style.fontSize = px(22);
          element.style.padding = "5px 10px";

@@ -47,14 +47,14 @@ export class Highscore implements IService {
       BrowserDriver.WithWindow(window => {
          const fromLocalStorage = window.localStorage.getItem(localStorageKey);
          if(fromLocalStorage) {
-            console.log("Highscore.Init: fromLocalStorage:");
-            console.log(fromLocalStorage);
+            // console.log("Highscore.Init: fromLocalStorage:");
+            // console.log(fromLocalStorage);
             this.top10 = JSON.parse(fromLocalStorage) as THighscoreEntry[];
          } else {
             // If not in localStorage then save the default in localStorage.
-            console.log(
-               "Highscore.Init: localStorage was empty. saving default top10 to localStorage."
-            );
+            // console.log(
+            //    "Highscore.Init: localStorage was empty. saving default top10 to localStorage."
+            // );
             window.localStorage.setItem(localStorageKey, JSON.stringify(this.top10));
          }
       });
