@@ -18,27 +18,27 @@ type TConstructor = {
 }
 
 export class UI implements IUI {
-   readonly name: string;
+   public readonly name: string;
 
    // deps/services
-   events!: IGameEvents;
-   uiEvents!: IUiEvents;
-   gameLoop!: GameLoop;
-   gameSpeed!: GameSpeed;
-   highscoreService!: THighscoreService;
-   points!: IPoints;
+   public events!: IGameEvents;
+   public uiEvents!: IUiEvents;
+   public gameLoop!: GameLoop;
+   public gameSpeed!: GameSpeed;
+   public highscoreService!: THighscoreService;
+   public points!: IPoints;
 
    // Scenes
-   startGame: IScene;
-   game: IScene;
-   gameOver: IScene;
-   highscore: IScene;
-   enterHighscore: IScene;
+   public startGame: IScene;
+   public game: IScene;
+   public gameOver: IScene;
+   public highscore: IScene;
+   public enterHighscore: IScene;
 
    // Active scene
-   activeScene?: IScene;
+   private activeScene?: IScene;
 
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
 
       this.startGame = new StartGame({ ui: this });

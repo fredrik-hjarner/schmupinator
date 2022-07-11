@@ -11,21 +11,21 @@ import { uuid } from "./utils/uuid";
 export class Circle {
    private x: number;
    private y: number;
-   Diameter: number;
-   Radius: number;
-   color: string;
-   UUID: string;
-   div: unknown;
+   // private Diameter: number;
+   private Radius: number;
+   // private color: string;
+   private UUID: string;
+   private div: unknown;
 
    /**
     * Public
     */
-   constructor(x: number, y: number, diameter: number, color = "red") {
+   public constructor(x: number, y: number, diameter: number, color = "red") {
       this.x = x;
       this.y = y;
-      this.Diameter = diameter;
+      // this.Diameter = diameter;
       this.Radius = diameter/2;
-      this.color = color;
+      // this.color = color;
       this.UUID = `${uuid()}`;
 
       this.div = BrowserDriver.WithWindow(window => {
@@ -49,28 +49,28 @@ export class Circle {
       });
    }
 
-   get X(){ return this.x; }
-   set X(v){ this.x = v; this.updatePos(); }
+   public get X(){ return this.x; }
+   public set X(v){ this.x = v; this.updatePos(); }
 
-   get Y(){ return this.y; }
-   set Y(v){ this.y = v; this.updatePos(); }
+   public get Y(){ return this.y; }
+   public set Y(v){ this.y = v; this.updatePos(); }
 
-   get Top(){ return this.y - this.Radius; }
-   set Top(v){ this.y = v + this.Radius; this.updatePos(); }
+   public get Top(){ return this.y - this.Radius; }
+   public set Top(v){ this.y = v + this.Radius; this.updatePos(); }
 
-   get Bottom(){ return this.y + this.Radius; }
-   set Bottom(v){ this.y = v - this.Radius; this.updatePos(); }
+   public get Bottom(){ return this.y + this.Radius; }
+   public set Bottom(v){ this.y = v - this.Radius; this.updatePos(); }
 
-   get Left(){ return this.x - this.Radius; }
-   set Left(v){ this.x = v + this.Radius; this.updatePos(); }
+   public get Left(){ return this.x - this.Radius; }
+   public set Left(v){ this.x = v + this.Radius; this.updatePos(); }
 
-   get Right(){ return this.x + this.Radius; }
-   set Right(v){ this.x = v - this.Radius; this.updatePos(); }
+   public get Right(){ return this.x + this.Radius; }
+   public set Right(v){ this.x = v - this.Radius; this.updatePos(); }
 
    /**
     * Private
     */
-   updatePos = () => {
+   private updatePos = () => {
       if(!isHTMLDivElement(this.div)){
          return;
       }

@@ -15,8 +15,8 @@ type TConstructor = {
 }
 
 export class Player implements IService {
-   app: App;
-   name: string;
+   public readonly app: App;
+   public readonly name: string;
    private x: number;
    private y: number;
    private graphics!: IGraphics; // Graphics service
@@ -27,7 +27,7 @@ export class Player implements IService {
    /**
     * Public
     */
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.app = params.app;
       this.name = params.name;
       this.x = resolutionWidth/2;
@@ -43,7 +43,7 @@ export class Player implements IService {
     * that case.
     */
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async () => {
+   public Init = async () => {
       this.graphics = this.app.graphics;
       const response =
          this.graphics.Dispatch({ type:"gfxAskForElement" }) as TResponse_AskForElement;
@@ -94,25 +94,25 @@ export class Player implements IService {
       return this.diameter/2;
    }
 
-   get X(){ return this.x; }
-   get Y(){ return this.y; }
+   public get X(){ return this.x; }
+   public get Y(){ return this.y; }
 
-   get Top(){ return this.y - this.Radius; }
-   set Top(v){ this.y = v + this.Radius; }
+   public get Top(){ return this.y - this.Radius; }
+   public set Top(v){ this.y = v + this.Radius; }
 
-   get Bottom(){ return this.y + this.Radius; }
-   set Bottom(v){ this.y = v - this.Radius; }
+   public get Bottom(){ return this.y + this.Radius; }
+   public set Bottom(v){ this.y = v - this.Radius; }
 
-   get Left(){ return this.x - this.Radius; }
-   set Left(v){ this.x = v + this.Radius; }
+   public get Left(){ return this.x - this.Radius; }
+   public set Left(v){ this.x = v + this.Radius; }
 
-   get Right(){ return this.x + this.Radius; }
-   set Right(v){ this.x = v - this.Radius; }
+   public get Right(){ return this.x + this.Radius; }
+   public set Right(v){ this.x = v - this.Radius; }
 
    /**
     * Private
     */
-   bound = () => {
+   private bound = () => {
       if(this.Left < 0) {
          this.Left = 0;
       } else if(this.Right > resolutionWidth) {

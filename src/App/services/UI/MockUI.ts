@@ -5,9 +5,9 @@ type TConstructor = {
 }
 
 export class MockUI implements IUI {
-   readonly name: string;
+   public readonly name: string;
 
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
    }
 

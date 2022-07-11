@@ -13,11 +13,11 @@ type TConstructor = {
 }
 
 export class Yaml implements IService {
-   readonly name: string;
+   public readonly name: string;
    private EnemyJsons: Partial<{ [enemyName: string]: IEnemyJson }>;
    
 
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
       this.EnemyJsons = {};
    }

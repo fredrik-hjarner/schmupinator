@@ -32,8 +32,6 @@ that would make relative/absolute positioning actions more coherent.
 * It would be super cool if Player WAS-AN Enemy,
   that would allow me to execute actions!!!
 
-* Also it would be really cool if the EnemyActionExecutor could execute GraphicsAction:s.
-
 * Flags and every other field on an Enemy could be an attribute, then you could check any attribute
 just like you check a flag.
 { attr: 'hp', is: 2 }

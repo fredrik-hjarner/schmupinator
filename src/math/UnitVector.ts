@@ -4,7 +4,7 @@ import { Vector } from "./Vector";
 export class UnitVector {
    private vector: Vector;
 
-   constructor(vector: Vector) {
+   public constructor(vector: Vector) {
       const length = vector.length;
       if (length === 0) {
          this.vector = new Vector(0, 1);
@@ -16,15 +16,15 @@ export class UnitVector {
       this.vector = new Vector(newX, newY);
    }
 
-   get x(): number {
+   public get x(): number {
       return this.vector.x;
    }
 
-   get y(): number {
+   public get y(): number {
       return this.vector.y;
    }
 
-   rotateClockwise(angle: Angle): UnitVector {
+   public rotateClockwise(angle: Angle): UnitVector {
       const x = this.vector.x;
       const y = this.vector.y;
       const radians = angle.radians;
@@ -33,11 +33,11 @@ export class UnitVector {
       return new UnitVector(new Vector(newX, newY));
    }
 
-   toVector(): Vector {
+   public toVector(): Vector {
       return new Vector(this.vector.x, this.vector.y);
    }
 
-   static merge(unitVectors: UnitVector[]): UnitVector {
+   public static merge(unitVectors: UnitVector[]): UnitVector {
       const vectors = unitVectors.map((uv) => uv.toVector());
       const sumVector = Vector.sum(vectors);
       return new UnitVector(sumVector);
@@ -48,7 +48,7 @@ export class UnitVector {
     * when start is left of end and line is completely
     * horizontal.
     */
-   static normalFromPositions = (start: Vector, end: Vector): UnitVector => {
+   public static normalFromPositions = (start: Vector, end: Vector): UnitVector => {
       const vector = Vector.fromTo(start, end);
       const unitVector = new UnitVector(vector);
       const normalVector = unitVector.rotateClockwise(Angle.fromDegrees(90));
@@ -59,7 +59,7 @@ export class UnitVector {
 
    // Mutation functions are suffixed with a "M"
 
-   toVectorM(): Vector {
+   public toVectorM(): Vector {
       return this.vector;
    }
 

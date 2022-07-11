@@ -16,7 +16,7 @@ export class Countdown {
    private secondsLeft: number;
    private onDone: () => void;
 
-   constructor(params: TCountdownConstructor) {
+   public constructor(params: TCountdownConstructor) {
       const { secondsLeft, onDone, fontSize=16, left=0, top=0 } = params;
 
       this.secondsLeft = secondsLeft;

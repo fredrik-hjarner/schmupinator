@@ -18,7 +18,7 @@ export type TQualifiedForTop10 = {
 }
 
 export class Highscore implements IService {
-   readonly name: string;
+   public readonly name: string;
    private top10: THighscoreEntry[] = [
       { name: "A", score: 10 },
       { name: "B", score: 9 },
@@ -34,7 +34,7 @@ export class Highscore implements IService {
 
    // deps/services
 
-   constructor({ name, top10 }: TConstructor) {
+   public constructor({ name, top10 }: TConstructor) {
       this.name = name;
       if(top10) {
          this.top10 = top10;

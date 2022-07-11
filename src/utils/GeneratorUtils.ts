@@ -4,7 +4,7 @@ type TRepeatArgs<X, Y, Z> = {
 }
 
 export class GeneratorUtils {
-   static Repeat = function*<X,Y,Z>({ makeGenerator, times }: TRepeatArgs<X,Y,Z>) {
+   public static Repeat = function*<X,Y,Z>({ makeGenerator, times }: TRepeatArgs<X,Y,Z>) {
       for(let i=0; i<times; i++) {
          yield* makeGenerator(); // must create the generator anew.
       }
@@ -14,7 +14,7 @@ export class GeneratorUtils {
     * TODO: Fix code duplication with parallal_race paralell_all.
     * TODO: Untested. Test this.
     */
-   static parallelRace = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
+   public static parallelRace = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
       // advance generators one step.
       let results = generators.map(generator => generator.next());
       // Loop until one is done
@@ -30,7 +30,7 @@ export class GeneratorUtils {
     * TODO: Fix code duplication with parallal_race paralell_all.
     * TODO: Untested. Test this.
     */
-   static parallelAll = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
+   public static parallelAll = function*<X,Y,Z>(generators: Generator<X, Y, Z>[]) {
       // advance generators one step.
       let results = generators.map(generator => generator.next());
       // Loop until all are done
