@@ -37,13 +37,17 @@ export class Fullscreen implements IFullscreen {
          const body = window.document.body;
          const windowWidth = window.document.documentElement.clientWidth;
          const windowHeight = window.document.documentElement.clientHeight;
-         const windowAspectRatio = windowWidth / windowHeight; // eslint-disable-line
+         const windowAspectRatio = windowWidth / windowHeight;
          if(windowAspectRatio > this.gameAspectRatio) {
-            const yRatio = windowHeight / resolutionHeight;
-            body.style.transform = `scale(${yRatio})`;
+            // will be extra space in x-wise
+            const scale = windowHeight / resolutionHeight;
+            let translateX = 0;
+            translateX = (windowWidth - resolutionWidth*scale) / 2;
+            body.style.transform = `translateX(${translateX}px) scale(${scale})`;
          } else {
-            const xRatio = windowWidth / resolutionWidth;
-            body.style.transform = `scale(${xRatio})`;
+            // will be extra space in y-wise
+            const scale = windowWidth / resolutionWidth;
+            body.style.transform = `scale(${scale})`;
          }
       });
    };
