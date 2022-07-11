@@ -10,12 +10,12 @@ type TConstructor = {
 }
 
 export class Points implements IPoints {
-   app: App;
-   name: string;
-   points: number;
+   private readonly app: App;
+   public readonly name: string;
+   public points: number;
    public history: Partial<{ [frame: number]: THistoryEntry }>;
 
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
       this.points = 0;
@@ -23,7 +23,7 @@ export class Points implements IPoints {
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async () => {
+   public Init = async () => {
       this.app.events.subscribeToEvent(this.name, this.onEvent);
    };
 

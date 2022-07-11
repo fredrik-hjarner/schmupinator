@@ -5,8 +5,8 @@ import type { IService } from "../IService";
 import { Shot } from "./Shot";
 
 export class Shots implements IService {
-   app: App;
-   name: string;
+   public app: App;
+   public readonly name: string;
    private maxShots: number;
    private color: string;
    public shots: Shot[];
@@ -14,7 +14,7 @@ export class Shots implements IService {
    /**
     * Public
     */
-   constructor(
+   public constructor(
       app: App, { name, maxShots, color }:
       { name: string, maxShots: number, color: string }
    ) {
@@ -32,7 +32,7 @@ export class Shots implements IService {
     * that case.
     */
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async () => {
+   public Init = async () => {
       this.app.events.subscribeToEvent(
          this.name,
          ({ type }) => {
@@ -43,7 +43,7 @@ export class Shots implements IService {
       );
    };
 
-   TryShoot = (newShots: PotentialShot[]): boolean => {
+   public TryShoot = (newShots: PotentialShot[]): boolean => {
       const nrActiveShots = this.shots.length;
       const nr = newShots.length;
       if(nrActiveShots + nr > this.maxShots) {
@@ -63,7 +63,7 @@ export class Shots implements IService {
    /**
     * Private
     */
-   update = () => {
+   private update = () => {
       this.shots.forEach(shot => {
          shot.Update();
       });

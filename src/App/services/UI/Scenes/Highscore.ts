@@ -13,10 +13,10 @@ type TConstructor = {
 
 export class Highscore implements IScene {
    // deps/services
-   readonly ui: UI;
+   public readonly ui: UI;
 
    // vars
-   rank?: number;
+   private rank?: number;
 
    // elements
    private shadeElement?: HTMLDivElement;
@@ -24,7 +24,7 @@ export class Highscore implements IScene {
    private top10?: HTMLDivElement;
    private countdown?: Countdown;
 
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.ui = params.ui;
    }
 

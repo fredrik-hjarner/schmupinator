@@ -12,19 +12,19 @@ type TConstructor = {
 }
 
 export class GameEventsTester implements IGameEvents {
-   app: App;
-   name: string;
-   subscribers: TGameEventSubscribers;
-   history: Partial<{ [frame: number]: TGameEvent[] }>;
+   public readonly app: App;
+   public readonly name: string;
+   private subscribers: TGameEventSubscribers;
+   private history: Partial<{ [frame: number]: TGameEvent[] }>;
 
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
       this.history = {};
       this.subscribers = {}; // key-callback pairs
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 

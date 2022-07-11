@@ -11,11 +11,11 @@ type TConstructor = {
 }
 
 export class StartGame implements IScene {
-   readonly ui: UI;
+   public readonly ui: UI;
    private startButtonElement?: HTMLButtonElement;
    private shadeElement?: HTMLDivElement;
 
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.ui = params.ui;
    }
 

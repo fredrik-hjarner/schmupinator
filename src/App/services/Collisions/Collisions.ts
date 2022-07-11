@@ -17,18 +17,18 @@ type TConstructor = {
 }
 
 export class Collisions implements IService {
-   name: string;
+   public readonly name: string;
    
    // deps/services
-   events!: IGameEvents;
-   player!: Player;
-   enemies!: Enemies;
-   playerShots!: Shots;
+   private events!: IGameEvents;
+   private player!: Player;
+   private enemies!: Enemies;
+   private playerShots!: Shots;
 
    /**
    * Public
    */
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.name = params.name;
    }
 
@@ -39,7 +39,7 @@ export class Collisions implements IService {
     * that case.
     */
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async (deps?: TInitParams) => {
+   public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
       this.player = deps?.player as Player;
       this.enemies = deps?.enemies as Enemies;

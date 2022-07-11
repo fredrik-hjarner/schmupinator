@@ -14,7 +14,7 @@ type TConstructor = {
 
 export class EnterHighscore implements IScene {
    // deps/services
-   readonly ui: UI;
+   public readonly ui: UI;
 
    // vars
    private rank?: number;
@@ -27,7 +27,7 @@ export class EnterHighscore implements IScene {
    private input?: HTMLInputElement;
    private countdown?: Countdown;
 
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.ui = params.ui;
    }
 

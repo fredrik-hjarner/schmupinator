@@ -15,12 +15,12 @@ type TConstructor = {
 }
 
 export class Shot {
-   app: App;
-   shotsService: Shots;
-   origX: number;
-   origY: number;
-   spdX: number;
-   spdY: number;
+   private readonly app: App;
+   private shotsService: Shots;
+   private origX: number;
+   private origY: number;
+   private spdX: number;
+   private spdY: number;
    private x: number;
    private y: number;
    private graphics!: IGraphics; // Graphics service
@@ -30,7 +30,7 @@ export class Shot {
    /**
     * Public
     */
-   constructor({ app, shotsService, x, y, spdX, spdY, color }: TConstructor) {
+   public constructor({ app, shotsService, x, y, spdX, spdY, color }: TConstructor) {
       this.app = app;
       this.shotsService = shotsService;
       this.origX = x;
@@ -74,25 +74,25 @@ export class Shot {
       return this.diameter/2;
    }
 
-   get X(){ return this.x; }
-   set X(v){ this.x = v; }
-   
-   get Y(){ return this.y; }
-   set Y(v){ this.y = v; }
+   public get X(){ return this.x; }
+   public set X(v){ this.x = v; }
 
-   get Top(){ return this.y - this.Radius; }
-   set Top(v){ this.y = v + this.Radius; }
+   public get Y(){ return this.y; }
+   public set Y(v){ this.y = v; }
 
-   get Bottom(){ return this.y + this.Radius; }
-   set Bottom(v){ this.y = v - this.Radius; }
+   public get Top(){ return this.y - this.Radius; }
+   public set Top(v){ this.y = v + this.Radius; }
 
-   get Left(){ return this.x - this.Radius; }
-   set Left(v){ this.x = v + this.Radius; }
+   public get Bottom(){ return this.y + this.Radius; }
+   public set Bottom(v){ this.y = v - this.Radius; }
 
-   get Right(){ return this.x + this.Radius; }
-   set Right(v){ this.x = v - this.Radius; }
+   public get Left(){ return this.x - this.Radius; }
+   public set Left(v){ this.x = v + this.Radius; }
 
-   Update = () => {
+   public get Right(){ return this.x + this.Radius; }
+   public set Right(v){ this.x = v - this.Radius; }
+
+   public Update = () => {
       this.x += this.spdX;
       this.y += this.spdY;
       this.bound();
@@ -102,7 +102,7 @@ export class Shot {
    /**
     * Private
     */
-   destroy = () => {
+   private destroy = () => {
       // Set back at resting place. // TODO: Update this code.
       this.x = this.origX;
       this.y = this.origY;
@@ -123,7 +123,7 @@ export class Shot {
       }
    };
 
-   bound = () => {
+   private bound = () => {
       if(this.Left < 0) {
          this.destroy();
       } else if(this.Right > resolutionWidth) {

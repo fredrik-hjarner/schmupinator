@@ -7,15 +7,13 @@ type TConstructor = {
 };
 
 export class MockFps implements IFps {
-   public app: App;
    public name: string;
 
-   constructor({ app, name }: TConstructor) {
-      this.app = app;
+   public constructor({ name }: TConstructor) {
       this.name = name;
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 }

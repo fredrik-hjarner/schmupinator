@@ -7,9 +7,9 @@ type TConstructor = {
 }
 
 export class GamePad implements IService {
-   name: string;
+   public readonly name: string;
 
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.name = params.name;
       BrowserDriver.WithWindow(window => {
          window.addEventListener("gamepadconnected", function(e) {
@@ -20,17 +20,17 @@ export class GamePad implements IService {
       });
    }
    
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 
-   get shoot(): boolean { return this.getPressedButton(0); }
-   get left(): boolean { return this.getPressedButton(14); }
-   get right(): boolean { return this.getPressedButton(15); }
-   get up(): boolean { return  this.getPressedButton(12); }
-   get down(): boolean { return this.getPressedButton(13); }
+   public get shoot(): boolean { return this.getPressedButton(0); }
+   public get left(): boolean { return this.getPressedButton(14); }
+   public get right(): boolean { return this.getPressedButton(15); }
+   public get up(): boolean { return  this.getPressedButton(12); }
+   public get down(): boolean { return this.getPressedButton(13); }
 
-   getPressedButton = (index: number): boolean => {
+   private getPressedButton = (index: number): boolean => {
       if(!IsBrowser()) {
          return false;
       }

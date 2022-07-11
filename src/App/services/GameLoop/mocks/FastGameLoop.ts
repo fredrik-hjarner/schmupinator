@@ -12,15 +12,15 @@ type TConstructor = {
 };
 
 export class FastGameLoop implements IGameLoop {
-   public app: App;
-   public name: string;
+   public readonly app: App;
+   public readonly name: string;
    public FrameCount: number;
    private gameDiv: unknown;
 
    /**
    * Public
    */
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
 
@@ -30,11 +30,11 @@ export class FastGameLoop implements IGameLoop {
       initGameHideRight();
    }
    
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 
-   Start = () => {
+   public Start = () => {
       BrowserDriver.SetInterval(this.oneGameLoop, 0);
    };
 

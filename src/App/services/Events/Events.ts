@@ -7,17 +7,17 @@ type TConstructor = {
 }
 
 export class Events<TEvent> implements IEvents<TEvent> {
-   app: App;
-   name: string;
+   public readonly app: App;
+   public readonly name: string;
    private subscribers: TEventSubscribers<TEvent>;
 
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
       this.subscribers = {}; // key-callback pairs
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 

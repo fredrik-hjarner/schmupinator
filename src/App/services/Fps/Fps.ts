@@ -20,14 +20,14 @@ export class Fps implements IFps {
    private startTime: number | null;
 
    //elements
-   readonly framCounterDiv: unknown;
-   readonly elapsedTimeDiv: unknown;
-   readonly fpsDiv: unknown;
+   private readonly framCounterDiv: unknown;
+   private readonly elapsedTimeDiv: unknown;
+   private readonly fpsDiv: unknown;
 
    /**
     * Public
     */
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
 
@@ -38,7 +38,7 @@ export class Fps implements IFps {
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async () => {
+   public Init = async () => {
       // TODO: Never unsubscribes to this !!!
       this.app.events.subscribeToEvent(this.name, this.handleEvent);
    };

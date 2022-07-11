@@ -18,16 +18,16 @@ export class GameLoop implements IGameLoop {
    public app: App;
    public name: string;
    public FrameCount: number;
-   readonly layer1Element: unknown;
-   readonly layer2Element: unknown;
-   readonly layer3Element: unknown;
+   private readonly layer1Element: unknown;
+   private readonly layer2Element: unknown;
+   private readonly layer3Element: unknown;
    private nextFrameMillis: number | null;
    private startTime: number | null;
 
    /**
    * Public
    */
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
 
@@ -41,11 +41,11 @@ export class GameLoop implements IGameLoop {
       this.startTime = null;
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 
-   Start = () => {
+   public Start = () => {
       this.startTime = BrowserDriver.PerformanceNow();
       this.nextFrameMillis = BrowserDriver.PerformanceNow() + millisPerFrame;
       BrowserDriver.SetInterval(this.oneGameLoop, 0);

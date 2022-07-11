@@ -14,11 +14,11 @@ type TConstructor = {
  * Imports the replay.ts file and simply runs the same inputs.
  */
 export class ReplayerInput implements IInput {
-   app: App;
-   name: string;
-   startTime: number;
+   private readonly app: App;
+   public readonly name: string;
+   private startTime: number;
 
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
       this.startTime = BrowserDriver.PerformanceNow();

@@ -17,9 +17,9 @@ import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
 
 export class Enemy {
-   X: number;
-   Y: number;
-   id: string;
+   public X: number;
+   public Y: number;
+   public id: string;
    private enemies: Enemies; // enemies service
    private graphics: IGraphics; // Graphics service
    private diameter: number;
@@ -38,7 +38,7 @@ export class Enemy {
    /**
     * Public
     */
-   constructor(
+   public constructor(
       enemies: Enemies,
       position: TVector,
       json: IEnemyJson,

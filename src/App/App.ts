@@ -75,33 +75,33 @@ import { IsBrowser } from "../drivers/BrowserDriver";
 export class App {
    // types here should not be IService but rather something that implements IService.
    // TODO: also all types should NOT be concrete types, but interfaces.
-   input: IInput;
-   gameLoop: IGameLoop;
-   fps: IFps;
-   player: Player;
-   playerShots: Shots;
-   enemyShots: Shots;
-   enemies: Enemies;
-   gamepad: GamePad;
-   collisions: Collisions;
-   events: IGameEvents;
+   public input: IInput;
+   public gameLoop: IGameLoop;
+   public fps: IFps;
+   public player: Player;
+   public playerShots: Shots;
+   public enemyShots: Shots;
+   public enemies: Enemies;
+   public gamepad: GamePad;
+   public collisions: Collisions;
+   public events: IGameEvents;
    /**
     * only listened to by the UI & UI Scenes,
     * other services send messages over uiEvents so that the UI know when to update.
     */
-   uiEvents: IUiEvents;
-   gameSpeed: IGameSpeed;
-   points: IPoints;
-   highscore: Highscore;
-   yaml: Yaml;
-   graphics: IGraphics;
-   ui: IUI;
-   fullscreen: IFullscreen;
+   public uiEvents: IUiEvents;
+   public gameSpeed: IGameSpeed;
+   public points: IPoints;
+   public highscore: Highscore;
+   public yaml: Yaml;
+   public graphics: IGraphics;
+   public ui: IUI;
+   public fullscreen: IFullscreen;
 
    /**
     * Step 1 of initialization
     */
-   constructor() {
+   public constructor() {
       /**
        * Constuct services
        */
@@ -181,7 +181,7 @@ export class App {
     * 1. In constructor you init what you can without using other services (as dependencies).
     * 2. If you need other services to init, then do that initialization in the Init function.
     */
-   Init = async () => {
+   public Init = async () => {
       /**
        * Order of initialization usually don't matter.
        * Unfortunately Yaml has to init early since it needs to, right now, fetch

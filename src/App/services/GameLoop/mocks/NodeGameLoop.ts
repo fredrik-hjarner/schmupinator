@@ -16,18 +16,18 @@ export class NodeGameLoop implements IGameLoop {
    /**
    * Public
    */
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
 
       this.FrameCount = 0;
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 
-   Start = () => {
+   public Start = () => {
       BrowserDriver.SetInterval(this.oneGameLoop, 0);
    };
 

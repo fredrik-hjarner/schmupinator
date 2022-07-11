@@ -5,18 +5,15 @@ type TConstructor = {
 }
 
 export class InvisibleGameSpeed implements IGameSpeed {
-   name: string;
+   public readonly name: string;
    private gameSpeed: number;
 
-   /**
-   * Public
-   */
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
       this.gameSpeed = 1;
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 

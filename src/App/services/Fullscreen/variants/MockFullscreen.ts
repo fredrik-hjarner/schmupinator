@@ -5,13 +5,13 @@ type TConstructor = {
 }
 
 export class MockFullscreen implements IFullscreen {
-   name: string;
+   public readonly name: string;
 
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
    }
 
-   Init = async () => {
+   public Init = async () => {
       //
    };
 }

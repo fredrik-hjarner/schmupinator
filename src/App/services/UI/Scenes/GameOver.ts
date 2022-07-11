@@ -11,12 +11,12 @@ type TConstructor = {
 }
 
 export class GameOver implements IScene {
-   readonly ui: UI;
+   public readonly ui: UI;
    private shadeElement?: HTMLDivElement;
    private textElement?: HTMLDivElement;
    private countdown?: Countdown;
 
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.ui = params.ui;
    }
 

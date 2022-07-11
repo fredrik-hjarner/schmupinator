@@ -33,9 +33,9 @@ export class EnemyActionExecutor {
     * The only reason I don't have only ONE generator is because of the `fork` action.
     * `fork` creates/adds a new generator. I think that's the only way it could work really.
     */
-   generators: Generator<void, void, void>[];
+   public generators: Generator<void, void, void>[];
 
-   constructor({ actions, actionHandler, getPosition, getAttr }: TEnemyActionExecutorArgs) {
+   public constructor({ actions, actionHandler, getPosition, getAttr }: TEnemyActionExecutorArgs) {
       this.actionHandler = actionHandler;
       this.getPosition = getPosition;
       this.getAttr = getAttr;

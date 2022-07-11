@@ -12,13 +12,13 @@ type TConstructor = {
 
 export class Game implements IScene {
    //deps/services
-   readonly ui: UI;
+   public readonly ui: UI;
 
    // elements.
    private scoreElement?: HTMLDivElement;
    private hiscoreElement?: HTMLDivElement;
 
-   constructor(params: TConstructor) {
+   public constructor(params: TConstructor) {
       this.ui = params.ui;
    }
 

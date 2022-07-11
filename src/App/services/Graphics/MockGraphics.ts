@@ -5,11 +5,11 @@ type TConstructor = { name: string };
 export class MockGraphics implements IGraphics {
    public name: string;
 
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 

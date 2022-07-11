@@ -8,18 +8,18 @@ type TConstructor = {
 }
 
 export class GameSpeed implements IGameSpeed {
-   name: string;
+   public readonly name: string;
    private gameSpeedElement: unknown;
 
    /**
    * Public
    */
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
       this.gameSpeedElement = initGameSpeedElement();
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 

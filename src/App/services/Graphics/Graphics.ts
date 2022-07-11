@@ -28,12 +28,12 @@ export class Graphics implements IGraphics {
    private elementPool: TGraphicsElement[];
    private static poolSize = 100;
 
-   constructor({ name }: TConstructor) {
+   public constructor({ name }: TConstructor) {
       this.name = name;
       this.elementPool = this.initElementPool();
    }
 
-   Init = async () => {
+   public Init = async () => {
       // noop
    };
 

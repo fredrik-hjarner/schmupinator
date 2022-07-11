@@ -12,7 +12,7 @@ export type TAttribute = Attribute;
 class Attribute {
    public value: TAttributeValue;
    
-   constructor(value: TAttributeValue) {
+   public constructor(value: TAttributeValue) {
       this.value = value;
       const type = typeof value;
       if(type === "string" || type === "number" || type === "boolean") {

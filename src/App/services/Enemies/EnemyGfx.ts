@@ -18,7 +18,7 @@ export class EnemyGfx {
    private gfxHandle: string; // handle to graphics element.
    private gfxHealth: string; // handle to graphics element displaying health.
 
-   constructor(args: TConstructor){
+   public constructor(args: TConstructor){
       const { graphics, x, y, diameter } = args;
 
       this.graphics = graphics;

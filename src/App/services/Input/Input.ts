@@ -9,9 +9,9 @@ type TConstructor = {
 };
 
 export class Input implements IInput {
-   app: App;
-   name: string;
-   history: {
+   private readonly app: App;
+   public readonly name: string;
+   private history: {
       inputs: {
          [frame: string]: ButtonsPressed;
       };
@@ -26,7 +26,7 @@ export class Input implements IInput {
       down: false,
    };
 
-   constructor({ app, name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
       this.history = { inputs: {}, score: 0 };

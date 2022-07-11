@@ -11,19 +11,19 @@ import { Enemy } from "./Enemy";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 export class Enemies implements IService {
-   name: string;
-   enemies: Enemy[];
+   public readonly name: string;
+   public enemies: Enemy[];
 
    // deps/services
-   yaml!: Yaml;
-   events!: IGameEvents;
-   player!: Player;
-   graphics!: IGraphics;
+   private yaml!: Yaml;
+   public events!: IGameEvents;
+   public player!: Player;
+   public graphics!: IGraphics;
 
    /**
     * Public
     */
-   constructor({ name }: { name: string }) {
+   public constructor({ name }: { name: string }) {
       this.name = name;
       this.enemies = [];
    }
@@ -35,7 +35,7 @@ export class Enemies implements IService {
     * that case.
     */
    // eslint-disable-next-line @typescript-eslint/require-await
-   Init = async (deps?: TInitParams) => {
+   public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
       this.yaml = deps?.yaml as Yaml;
       this.player = deps?.player as Player;
