@@ -1,10 +1,6 @@
 import type  { App } from "../../App";
 
 import { millisPerFrame } from "../../../consts";
-import { round } from "../../../utils/round";
-import { initElapsedTimeDiv } from "./elapsedTimeDiv";
-import { initFpsDiv } from "./fpsDiv";
-import { initFrameCounterDiv } from "./frameCounterDiv";
 import {
    initLayer1Element, initGameHideBottom, initGameHideRight, initLayer2Element, initLayer3Element
 } from "./gameDiv";
@@ -25,9 +21,6 @@ export class GameLoop implements IGameLoop {
    readonly layer1Element: unknown;
    readonly layer2Element: unknown;
    readonly layer3Element: unknown;
-   readonly framCounterDiv: unknown;
-   readonly elapsedTimeDiv: unknown;
-   readonly fpsDiv: unknown;
    private nextFrameMillis: number | null;
    private startTime: number | null;
 
@@ -39,14 +32,11 @@ export class GameLoop implements IGameLoop {
       this.name = name;
 
       this.FrameCount = 0;
-      this.framCounterDiv = initFrameCounterDiv();
       this.layer1Element = initLayer1Element();
       this.layer2Element = initLayer2Element();
       this.layer3Element = initLayer3Element();
       initGameHideBottom();
       initGameHideRight();
-      this.elapsedTimeDiv = initElapsedTimeDiv();
-      this.fpsDiv = initFpsDiv();
       this.nextFrameMillis = null;
       this.startTime = null;
    }
@@ -86,17 +76,6 @@ export class GameLoop implements IGameLoop {
             this.layer2Element.style.backgroundPositionY = px(layer2YOffset);
             this.layer3Element.style.backgroundPositionY = px(layer3YOffset);
          }
-      }
-      // Display stats.
-      const elapsed = BrowserDriver.PerformanceNow() - this.startTime;
-      if(
-         isHTMLDivElement(this.elapsedTimeDiv) &&
-         isHTMLDivElement(this.framCounterDiv) &&
-         isHTMLDivElement(this.fpsDiv)
-      ) {
-         this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
-         this.framCounterDiv.innerHTML = `frames: ${this.FrameCount}`;
-         this.fpsDiv.innerHTML = `fps: ${Math.round(this.FrameCount / (elapsed / 1000))}`;
       }
    };
 

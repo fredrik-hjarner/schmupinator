@@ -3,6 +3,7 @@
  */
 import type { IInput } from "./services/Input/IInput";
 import type { IGameLoop } from "./services/GameLoop/IGameLoop";
+import type { IFps } from "./services/Fps/IFps";
 import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
@@ -17,6 +18,9 @@ import { Enemies } from "./services/Enemies/Enemies";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { GameLoop } from "./services/GameLoop/GameLoop";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Fps } from "./services/Fps/Fps";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Input } from "./services/Input/Input";
@@ -58,6 +62,7 @@ import { MockUI } from "./services/UI/MockUI";
 import { RecordGameEvents } from "./services/Events/mocks/RecordGameEvents";
 import { GameEventsTester } from "./services/Events/mocks/GameEventsTester";
 import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
+import { MockFps } from "./services/Fps/variants/MockFps";
 
 /**
  * Other
@@ -69,6 +74,7 @@ export class App {
    // TODO: also all types should NOT be concrete types, but interfaces.
    input: IInput;
    gameLoop: IGameLoop;
+   fps: IFps;
    player: Player;
    playerShots: Shots;
    enemyShots: Shots;
@@ -99,42 +105,62 @@ export class App {
          // new Input({ app: this, name: "input" }) :
          new ReplayerInput({ app: this, name: "input" }) :
          new ReplayerInput({ app: this, name: "input" });
+
       this.gameLoop = IsBrowser() ?
          new GameLoop({ app: this, name: "gameLoop" }) :
          // new FastGameLoop({ app: this, name: "gameLoop" }) :
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
+
+      this.fps = IsBrowser() ?
+         // new Fps({ app: this, name: "fps" }) :
+         new MockFps({ app: this, name: "fps" }) :
+         new MockFps({ app: this, name: "fps" });
+
       this.player = new Player({ app: this, name: "player" });
+
       this.playerShots = new Shots(
          this,
          // TODO: actually dont need name, could use uuid().
          { name: "playerShots", maxShots: 3*3, color: "aqua" }
       );
+
       this.enemyShots = new Shots(
          this,
          { name: "enemyShots", maxShots: 25, color: "red" }
       );
+
       this.enemies = new Enemies({ name: "enemies" });
+
       this.gamepad = new GamePad({ name: "gamePad" });
+
       this.collisions = new Collisions({ name: "collisions" });
+
       this.events =  IsBrowser() ?
          new Events<TGameEvent>({ app: this, name: "events" }) :
          // new RecordEvents({ app: this, name: "events" }) :
          new GameEventsTester({ app: this, name: "events" });
+
       this.uiEvents = new Events<TUiEvent>({ app: this, name: "uiEvents" });
+
       this.gameSpeed = IsBrowser() ?
          // new GameSpeed({ name: "gameSpeed" }) :
          new InvisibleGameSpeed({ name: "gameSpeed" }) :
          new InvisibleGameSpeed({ name: "gameSpeed" });
+
       this.points = IsBrowser() ?
          new Points({ app: this, name: "points" }):
          // new PointsTester({ app: this, name: "xPointsTester" }):
          new PointsTester({ app: this, name: "xPointsTester" });
       // new Points({ app: this, name: "points" });
+
       this.highscore = new Highscore({ name: "highscore" });
+
       this.yaml = new Yaml({ name: "yaml" });
+
       this.graphics = IsBrowser() ?
          new Graphics({ name: "graphics" }) :
          new MockGraphics({ name: "mockGraphics" });
+
       this.ui = IsBrowser() ?
          new UI({ name: "ui" }) :
          new MockUI({ name: "mockUi" });
@@ -157,6 +183,7 @@ export class App {
 
       await this.input.Init();
       await this.gameLoop.Init();
+      await this.fps.Init();
       await this.player.Init();
       await this.playerShots.Init();
       await this.enemyShots.Init();
