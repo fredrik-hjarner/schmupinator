@@ -30,7 +30,7 @@ export class GameOver implements IScene {
       });
 
       this.countdown = new Countdown({
-         secondsLeft: 6,
+         secondsLeft: 5,
          onDone: this.handleCountdDownDone,
          fontSize: 26,
          top: 150,

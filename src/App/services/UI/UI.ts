@@ -61,7 +61,7 @@ export class UI implements IUI {
 
       this.SetActiveScene(this.startGame);
       // this.enterHighscore.render();
-      // this.highscore.render();
+      // this.SetActiveScene(this.highscore, 2);
       // this.SetActiveScene(this.gameOver);
    };
 

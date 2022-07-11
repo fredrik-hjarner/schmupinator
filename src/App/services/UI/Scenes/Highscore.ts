@@ -12,7 +12,13 @@ type TConstructor = {
 }
 
 export class Highscore implements IScene {
+   // deps/services
    readonly ui: UI;
+
+   // vars
+   rank?: number;
+
+   // elements
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private top10?: HTMLDivElement;
@@ -24,16 +30,33 @@ export class Highscore implements IScene {
 
    private getTop10Text = (): string => {
       const header = `Rank\t\t\tScore\t\t\tPlayer`;
+      const animation = `<style>
+            @keyframes flash {
+               0%   { color: rgb(255,10,10); }
+               33%  { color: rgb(0,255,0); }
+               66%  { color: rgb(80,80,255); }
+               100% { color: rgb(255,0,0); }
+            }
+         </style>`;
       const top10 = this.ui.highscoreService.getTop10()
-         .map(({ name, score }, i) => `${i+1}\t\t\t\t${score}\t\t\t\t${name}`);
-      return [header, ...top10].join("\n");
+         .map(({ name, score }, i) => {
+            if(isNumber(this.rank) && this.rank === i) {
+               const style = "animation-name: flash;" +
+                  "animation-duration: 1.0s;" +
+                  "animation-iteration-count: infinite;" +
+                  "animation-direction: normal;" +
+                  "animation-timing-function: linear;";
+               return `<span style="${style}">${i+1}\t\t\t\t${score}\t\t\t\t${name}</span>`;
+            }
+            return `${i+1}\t\t\t\t${score}\t\t\t\t${name}`;
+         });
+      return animation + [header, ...top10].join("\n");
    };
 
    // if rank is a number it intructs to highlight that rank in the top10 list.
    public render(rank: unknown) {
       if(isNumber(rank)) {
-         // TODO: Implement highlight of last added highscore.
-         console.log(`Should highligh rank ${rank}`);
+         this.rank = rank;
       }
       this.shadeElement = createShade();
       this.title = createText({text: "Highscore", fontSize: 24, top: 10, left: 128 });
@@ -42,7 +65,7 @@ export class Highscore implements IScene {
       });
 
       this.countdown = new Countdown({
-         secondsLeft: 10,
+         secondsLeft: 15,
          onDone: this.handleCountdDownDone,
          fontSize: 24,
          top: 10,
