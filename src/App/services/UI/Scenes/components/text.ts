@@ -2,31 +2,38 @@ import { zIndices } from "../../../../../consts";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
 import { px } from "../../../../../utils/px";
 
-type TCreateButtonParams = {
+type TCreateTextParams = {
    text: string,
-   onClick?: () => void;
    fontSize?: number;
+   top?: number,
    left?: number,
-   top?: number
+   right?: number,
 }
 
-export const createButton = (params: TCreateButtonParams) => {
-   const { text, onClick=null, fontSize=16, left=0, top=0 } = params;
+export const createText = (params: TCreateTextParams) => {
+   const { text, fontSize=16, left, top, right } = params;
 
    return BrowserDriver.WithWindow(window => {
-      const element = window.document.createElement("button");
+      const element = window.document.createElement("div");
 
       element.style.position = "fixed";
-      element.style.top = px(top);
-      element.style.left = px(left);
+      if(top !== undefined) {
+         element.style.top = px(top);
+      }
+      if(left !== undefined) {
+         element.style.left = px(left);
+      }
+      if(right !== undefined) {
+         element.style.right = px(right);
+      }
+      element.style.color = "white";
       element.style.fontSize = px(fontSize);
       element.style.whiteSpace = "pre";
       element.style.zIndex = zIndices.ui;
       element.innerHTML = text;
-      element.onclick = onClick;
 
       window.document.body.appendChild(element);
       
       return element;
-   }) as HTMLButtonElement;
+   }) as HTMLDivElement;
 };

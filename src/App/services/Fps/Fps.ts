@@ -62,7 +62,7 @@ export class Fps implements IFps {
          isHTMLDivElement(this.framCounterDiv) &&
          isHTMLDivElement(this.fpsDiv)
       ) {
-         const frame = this.app.gameLoop.FrameCount;
+         const frame = event.frameNr;
          this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
          this.framCounterDiv.innerHTML = `frames: ${frame}`;
          this.fpsDiv.innerHTML = `fps: ${Math.round(frame / (elapsed / 1000))}`;

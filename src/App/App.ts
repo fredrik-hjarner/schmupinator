@@ -154,8 +154,8 @@ export class App {
       this.uiEvents = new Events<TUiEvent>({ app: this, name: "uiEvents" });
 
       this.gameSpeed = IsBrowser() ?
-         // new GameSpeed({ name: "gameSpeed" }) :
-         new InvisibleGameSpeed({ name: "gameSpeed" }) :
+         new GameSpeed({ name: "gameSpeed" }) :
+         // new InvisibleGameSpeed({ name: "gameSpeed" }) :
          new InvisibleGameSpeed({ name: "gameSpeed" });
 
       this.points = IsBrowser() ?

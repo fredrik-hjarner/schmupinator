@@ -1,11 +1,12 @@
 import type { IScene } from "./IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./utils/shade";
-import { createText } from "./utils/text";
+import { createShade } from "./components/shade";
+import { createText } from "./components/text";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { Countdown } from "./utils/Countdown";
+import { Countdown } from "./components/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
+import { centerHorizontally } from "./utils/centering";
 
 type TConstructor = {
    ui: UI;
@@ -46,9 +47,9 @@ export class Highscore implements IScene {
                   "animation-iteration-count: infinite;" +
                   "animation-direction: normal;" +
                   "animation-timing-function: linear;";
-               return `<span style="${style}">${i+1}\t\t\t\t${score}\t\t\t\t${name}</span>`;
+               return `<span style="${style}">${i+1}\t\t\t${score}\t\t\t${name}</span>`;
             }
-            return `${i+1}\t\t\t\t${score}\t\t\t\t${name}`;
+            return `${i+1}\t\t\t${score}\t\t\t${name}`;
          });
       return animation + [header, ...top10].join("\n");
    };
@@ -59,17 +60,23 @@ export class Highscore implements IScene {
          this.rank = rank;
       }
       this.shadeElement = createShade();
-      this.title = createText({text: "Highscore", fontSize: 24, top: 10, left: 128 });
-      this.top10 = createText({
-         text: this.getTop10Text(), fontSize: 15, top: 40, left: 40
+
+      this.title = createText({
+         text: "Highscore", fontSize: 26, top: 10
       });
+      centerHorizontally(this.title);
+
+      this.top10 = createText({
+         text: this.getTop10Text(), fontSize: 17, top: 40
+      });
+      centerHorizontally(this.top10);
 
       this.countdown = new Countdown({
          secondsLeft: 15,
          onDone: this.handleCountdDownDone,
-         fontSize: 24,
+         fontSize: 26,
          top: 10,
-         left: 300,
+         left: 315,
       });
    }
 

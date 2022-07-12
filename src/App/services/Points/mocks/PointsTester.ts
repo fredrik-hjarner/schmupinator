@@ -43,7 +43,7 @@ export class PointsTester implements IPoints {
       // Assumption that the original points have run at this time.
       switch(event.type) {
          case "frame_tick": {
-            const frame = this.app.gameLoop.FrameCount;
+            const frame = event.frameNr;
             const expected = this.history[frame] as THistoryEntry | undefined;
             const expectedStr = JSON.stringify(expected);
             const actual = this.pointsService.history[frame] as THistoryEntry | undefined;

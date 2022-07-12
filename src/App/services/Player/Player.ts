@@ -71,7 +71,7 @@ export class Player implements IService {
          event => {
             switch(event.type) {
                case "frame_tick":
-                  this.onFrameTick();
+                  this.onFrameTick(event.frameNr);
                   break;
                case "collisions":
                   this.onCollisions(event.collisions);
@@ -136,7 +136,7 @@ export class Player implements IService {
       }
    };
 
-   private onFrameTick = () => {
+   private onFrameTick = (frame: number) => {
       /**
        * Check input
        */
@@ -170,7 +170,6 @@ export class Player implements IService {
          this.y += speed;
       }
       if(input.ButtonsPressed.space || gamepad.shoot) {
-         const frame = this.app.gameLoop.FrameCount;
          /**
           * Limit frequency of shots.
           */
@@ -182,7 +181,7 @@ export class Player implements IService {
                { x: this.x, y: this.Top, spdX: -1.5, spdY },
             ];
             this.app.playerShots.TryShoot(potentialShots);
-            this.lastShotFrame = this.app.gameLoop.FrameCount;
+            this.lastShotFrame = frame;
          }
       }
 

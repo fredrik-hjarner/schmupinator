@@ -11,7 +11,7 @@ type TCountdownConstructor = {
 }
 
 export class Countdown {
-   private element: HTMLDivElement;
+   public element: HTMLDivElement;
    public interval: number;
    private secondsLeft: number;
    private onDone: () => void;

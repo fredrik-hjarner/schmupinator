@@ -2,9 +2,7 @@ import type { IScene } from "./IScene";
 import type { TUiEvent } from "../../Events/IEvents";
 import type { UI } from "../UI";
 
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { zIndices } from "../../../../consts";
-import { px } from "../../../../utils/px";
+import { createText } from "./components/text";
 
 type TConstructor = {
    ui: UI;
@@ -22,51 +20,22 @@ export class Game implements IScene {
       this.ui = params.ui;
    }
 
-   private createScore = () => {
-      BrowserDriver.WithWindow(window => {
-         const element = window.document.createElement("div");
-         this.scoreElement = element;
-
-         element.style.color = "white";
-         element.style.position = "fixed";
-         element.style.top = px(10);
-         element.style.left = px(20);
-         element.style.fontSize = px(14);
-         element.style.zIndex = zIndices.ui;
-         
-         element.innerHTML = "Score 0";
-
-         window.document.body.appendChild(element);
-         
-         return element;
-      });
-   };
-
-   private createHiscore = () => {
-      const record = this.ui.highscoreService.getTop1().score;
-
-      BrowserDriver.WithWindow(window => {
-         const element = window.document.createElement("div");
-         this.hiscoreElement = element;
-
-         element.style.color = "white";
-         element.style.position = "fixed";
-         element.style.top = px(10);
-         element.style.left = px(260);
-         element.style.fontSize = px(14);
-         element.style.zIndex = zIndices.ui;
-         
-         element.innerHTML = `Record ${record}`;
-
-         window.document.body.appendChild(element);
-         
-         return element;
-      });
-   };
-
    public render() {
-      this.createScore();
-      this.createHiscore();
+      this.scoreElement = createText({
+         text: "Score 0",
+         fontSize: 16,
+         top: 10,
+         left: 20
+      });
+
+      const record = this.ui.highscoreService.getTop1().score;
+      this.hiscoreElement = createText({
+         text: `Record ${record}`,
+         fontSize: 16,
+         top: 10,
+         left: 285
+      });
+
       this.ui.uiEvents.subscribeToEvent("GameUI", this.onEvent);
    }
 

@@ -60,7 +60,7 @@ export class UI implements IUI {
       this.events.subscribeToEvent(this.name, this.onEvent);
 
       this.SetActiveScene(this.startGame);
-      // this.enterHighscore.render();
+      // this.SetActiveScene(this.enterHighscore);
       // this.SetActiveScene(this.highscore, 2);
       // this.SetActiveScene(this.gameOver);
    };

@@ -1,12 +1,13 @@
 import type { IScene } from "./IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./utils/shade";
-import { createText } from "./utils/text";
-import { createButton } from "./utils/button";
-import { createInput } from "./utils/input";
-import { Countdown } from "./utils/Countdown";
+import { createShade } from "./components/shade";
+import { createText } from "./components/text";
+import { createButton } from "./components/button";
+import { createInput } from "./components/input";
+import { Countdown } from "./components/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
+import { centerHorizontally } from "./utils/centering";
 
 type TConstructor = {
    ui: UI;
@@ -36,25 +37,39 @@ export class EnterHighscore implements IScene {
       if(isNumber(rank)) {
          this.rank = rank;
       }
+
       this.shadeElement = createShade();
+
       this.title = createText({
-         text: "Made it into the Highscore", fontSize: 24, top: 10, left: 52
+         text: "Made it into the Highscore",
+         fontSize: 24,
+         top: 10,
       });
-      this.subTitle = createText({ text: "Enter your name", fontSize: 20, top: 60, left: 112 });
+      centerHorizontally(this.title);
+
+      this.subTitle = createText({
+         text: "Enter your name",
+         fontSize: 20,
+         top: 60,
+      });
+      centerHorizontally(this.subTitle);
+      
       this.button = createButton({
          text: "Done",
          fontSize: 20,
          top: 140,
-         left: 149,
+         padding: "0px 20px",
          onClick: this.handleCountdDownDone
       });
+      centerHorizontally(this.button);
+
       this.input = createInput({
          placeholder: "",
          maxlength: 6,
          fontSize: 20,
          top: 99,
-         left: 115
       });
+      centerHorizontally(this.input);
 
       this.countdown = new Countdown({
          secondsLeft: 25,

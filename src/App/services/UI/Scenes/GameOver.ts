@@ -2,9 +2,10 @@ import type { IScene } from "./IScene";
 import type { UI } from "../UI";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { createShade } from "./utils/shade";
-import { createText } from "./utils/text";
-import { Countdown } from "./utils/Countdown";
+import { createShade } from "./components/shade";
+import { createText } from "./components/text";
+import { Countdown } from "./components/Countdown";
+import { centerHorizontally } from "./utils/centering";
 
 type TConstructor = {
    ui: UI;
@@ -22,20 +23,21 @@ export class GameOver implements IScene {
 
    public render() {
       this.shadeElement = createShade();
-      this.shadeElement = createText({
+
+      this.textElement = createText({
          text: "Game Over",
          fontSize: 27,
          top: 105,
-         left: 115,
       });
+      centerHorizontally(this.textElement);
 
       this.countdown = new Countdown({
          secondsLeft: 5,
          onDone: this.handleCountdDownDone,
          fontSize: 26,
          top: 150,
-         left: 170,
       });
+      centerHorizontally(this.countdown.element);
    }
 
    public destroy() {

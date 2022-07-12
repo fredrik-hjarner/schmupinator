@@ -52,7 +52,7 @@ export class GameEventsTester implements IGameEvents {
          this.history[frame]?.push(event); // record event in history/
       }
       if(event.type === "frame_tick") {
-         const lastFrame = this.app.gameLoop.FrameCount-1;
+         const lastFrame = event.frameNr-1;
          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
          //@ts-ignore
          const expected = JSON.stringify(history[lastFrame] as TGameEvent[] | undefined);

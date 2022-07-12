@@ -94,6 +94,11 @@ little bit of increased performance I think.
 * I could make a general NoopService, since most mocks are exactly the same that will save some
 lines of code.
 
+* This is an abuse ` this.app.gameLoop.FrameCount` could most likely use the `frameNr` in the
+`frame_tick` event instead, that way depenencies on `gameLoop` can be removed in some places.
+
+* Confirm that reset.css is imported on PROD build cuz suspicious import path.
+
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 1.1 Hide the bullets.
