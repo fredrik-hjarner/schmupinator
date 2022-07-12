@@ -28,6 +28,8 @@ export const createText = (params: TCreateTextParams) => {
       }
       element.style.color = "white";
       element.style.fontSize = px(fontSize);
+      // The line height of the PixelMicro font gets too "high".
+      // element.style.lineHeight = px(fontSize*0.6);
       element.style.whiteSpace = "pre";
       element.style.zIndex = zIndices.ui;
       element.innerHTML = text;

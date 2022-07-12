@@ -21,8 +21,24 @@
       transform-origin: left top;
       overflow: hidden;
     }
-  </style>
-  <title>Truxinator</title>
+
+    @keyframes flash {
+      0%   { color: rgb(255,10,10); }
+      33%  { color: rgb(0,255,0); }
+      66%  { color: rgb(80,80,255); }
+      100% { color: rgb(255,0,0); }
+    }
+
+    .flash1s, .flash3s {
+      animation-name: flash;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-timing-function: linear;
+    }
+    .flash1s { animation-duration: 1.0s; }
+    .flash3s { animation-duration: 3.0s; }
+    </style>
+  <title>Schmupinator</title>
 </head>
 
 <body>

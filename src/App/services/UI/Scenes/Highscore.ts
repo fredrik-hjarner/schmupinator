@@ -31,27 +31,14 @@ export class Highscore implements IScene {
 
    private getTop10Text = (): string => {
       const header = `Rank\t\t\tScore\t\t\tPlayer`;
-      const animation = `<style>
-            @keyframes flash {
-               0%   { color: rgb(255,10,10); }
-               33%  { color: rgb(0,255,0); }
-               66%  { color: rgb(80,80,255); }
-               100% { color: rgb(255,0,0); }
-            }
-         </style>`;
       const top10 = this.ui.highscoreService.getTop10()
          .map(({ name, score }, i) => {
             if(isNumber(this.rank) && this.rank === i) {
-               const style = "animation-name: flash;" +
-                  "animation-duration: 1.0s;" +
-                  "animation-iteration-count: infinite;" +
-                  "animation-direction: normal;" +
-                  "animation-timing-function: linear;";
-               return `<span style="${style}">${i+1}\t\t\t${score}\t\t\t${name}</span>`;
+               return `<span class="flash1s">${i+1}\t\t\t${score}\t\t\t${name}</span>`;
             }
             return `${i+1}\t\t\t${score}\t\t\t${name}`;
          });
-      return animation + [header, ...top10].join("\n");
+      return [header, ...top10].join("\n");
    };
 
    // if rank is a number it intructs to highlight that rank in the top10 list.

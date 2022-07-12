@@ -1,4 +1,4 @@
-# Shmupinator
+# Schmupinator
 
 **Attention: Work in progress. Code can break backward compatability at any time. Code will most likely not stabilize before 2023, if I even get it to a stable state at all.**
 
@@ -26,7 +26,7 @@ The ambition is to make a shoot 'em up engine with the ability for users create 
 
 * As few dependencies as possible. Fewer dependencies can increase the life span of a project since it will not rely on 1 000 dependences that ~~can~~ *will* break.
 
-## How to clone, build and run *Shumpinator* locally?
+## How to clone, build and run *Schmupinator* locally?
 
 `[TODO: Write instructions.]`
 
