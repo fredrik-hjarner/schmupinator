@@ -4,6 +4,7 @@ import type { UI } from "../../UI";
 import { createShade } from "../components/shade";
 import { centerHorizontally } from "../utils/centering";
 import { createText } from "../components/text";
+import { fontSizes } from "../consts/fontSizes";
 
 type TConstructor = {
    ui: UI;
@@ -35,7 +36,7 @@ export class StartGame implements IScene {
 
       this.startGame = createText({
          text: `Start game`,
-         fontSize: 30,
+         fontSize: fontSizes.normal,
          top: 115,
          onClick: this.onStartGame,
          className: "menuItem",
@@ -44,7 +45,7 @@ export class StartGame implements IScene {
       
       this.highscore = createText({
          text: `Highscore`,
-         fontSize: 30,
+         fontSize: fontSizes.normal,
          top: 140,
          onClick: this.onHighscore,
          className: "menuItem",
@@ -53,7 +54,7 @@ export class StartGame implements IScene {
 
       this.settings = createText({
          text: `Settings`,
-         fontSize: 30,
+         fontSize: fontSizes.normal,
          top: 165,
          className: "menuItem",
       });

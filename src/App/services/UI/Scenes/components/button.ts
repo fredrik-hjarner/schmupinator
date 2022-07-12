@@ -1,6 +1,7 @@
 import { zIndices } from "../../../../../consts";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
 import { px } from "../../../../../utils/px";
+import { fontSizes } from "../consts/fontSizes";
 
 type TCreateButtonParams = {
    text: string,
@@ -12,7 +13,9 @@ type TCreateButtonParams = {
 }
 
 export const createButton = (params: TCreateButtonParams) => {
-   const { text, onClick=null, fontSize=16, left=0, top=0, padding="5px 10px" } = params;
+   const {
+      text, onClick=null, fontSize=fontSizes.smallest, left=0, top=0, padding="5px 10px"
+   } = params;
 
    return BrowserDriver.WithWindow(window => {
       const element = window.document.createElement("button");

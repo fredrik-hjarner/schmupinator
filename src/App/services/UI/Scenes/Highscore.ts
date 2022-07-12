@@ -7,6 +7,7 @@ import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { Countdown } from "./components/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
+import { fontSizes } from "./consts/fontSizes";
 
 type TConstructor = {
    ui: UI;
@@ -49,20 +50,20 @@ export class Highscore implements IScene {
       this.shadeElement = createShade();
 
       this.title = createText({
-         text: "Highscore", fontSize: 26, top: 10
+         text: "Highscore", fontSize: fontSizes.large, top: 5
       });
       centerHorizontally(this.title);
 
       this.top10 = createText({
-         text: this.getTop10Text(), fontSize: 25.5, top: 35
+         text: this.getTop10Text(), fontSize: fontSizes.small, top: 38
       });
       centerHorizontally(this.top10);
 
       this.countdown = new Countdown({
          secondsLeft: 15,
          onDone: this.handleCountdDownDone,
-         fontSize: 26,
-         top: 10,
+         fontSize: fontSizes.large,
+         top: 5,
          left: 315,
       });
    }

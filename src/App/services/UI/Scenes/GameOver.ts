@@ -6,6 +6,7 @@ import { createShade } from "./components/shade";
 import { createText } from "./components/text";
 import { Countdown } from "./components/Countdown";
 import { centerHorizontally } from "./utils/centering";
+import { fontSizes } from "./consts/fontSizes";
 
 type TConstructor = {
    ui: UI;
@@ -26,7 +27,7 @@ export class GameOver implements IScene {
 
       this.textElement = createText({
          text: "Game Over",
-         fontSize: 45,
+         fontSize: fontSizes.largest,
          top: 95,
       });
       centerHorizontally(this.textElement);
@@ -34,7 +35,7 @@ export class GameOver implements IScene {
       this.countdown = new Countdown({
          secondsLeft: 5,
          onDone: this.handleCountdDownDone,
-         fontSize: 45,
+         fontSize: fontSizes.largest,
          top: 130,
       });
       centerHorizontally(this.countdown.element);

@@ -3,6 +3,7 @@ import type { TUiEvent } from "../../Events/IEvents";
 import type { UI } from "../UI";
 
 import { createText } from "./components/text";
+import { fontSizes } from "./consts/fontSizes";
 
 type TConstructor = {
    ui: UI;
@@ -24,7 +25,7 @@ export class Game implements IScene {
       this.scoreElement = createText({
          text: "Score 0",
          color: "white",
-         fontSize: 16,
+         fontSize: fontSizes.smallest,
          top: 10,
          left: 20
       });
@@ -33,7 +34,7 @@ export class Game implements IScene {
       this.hiscoreElement = createText({
          text: `Record ${record}`,
          color: "white",
-         fontSize: 16,
+         fontSize: fontSizes.smallest,
          top: 10,
          left: 285
       });

@@ -1,6 +1,7 @@
 import { zIndices } from "../../../../../consts";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
 import { px } from "../../../../../utils/px";
+import { fontSizes } from "../consts/fontSizes";
 
 type TCreateInputParams = {
    placeholder: string,
@@ -11,7 +12,7 @@ type TCreateInputParams = {
 }
 
 export const createInput = (params: TCreateInputParams) => {
-   const { placeholder, maxlength=6, fontSize=16, left=0, top=0 } = params;
+   const { placeholder, maxlength=6, fontSize=fontSizes.smallest, left=0, top=0 } = params;
 
    return BrowserDriver.WithWindow(window => {
       const element = window.document.createElement("input");

@@ -1,13 +1,15 @@
 import { zIndices } from "../../../../../consts";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
 import { px } from "../../../../../utils/px";
+import { fontSizes } from "../consts/fontSizes";
 
 type TCountdownConstructor = {
    secondsLeft: number;
    onDone: () => void;
    fontSize?: number;
    left?: number,
-   top?: number
+   top?: number,
+   className?: string
 }
 
 export class Countdown {
@@ -17,11 +19,14 @@ export class Countdown {
    private onDone: () => void;
 
    public constructor(params: TCountdownConstructor) {
-      const { secondsLeft, onDone, fontSize=16, left=0, top=0 } = params;
+      const {
+         secondsLeft, onDone, fontSize=fontSizes.smallest, left=0, top=0, className=""
+      } = params;
 
       this.secondsLeft = secondsLeft;
       this.onDone = onDone;
 
+      // TODO: Can't I use createText here instead to reduce code duplication !?
       this.element = BrowserDriver.WithWindow(window => {
          const element = window.document.createElement("div");
 
@@ -33,6 +38,7 @@ export class Countdown {
          element.style.whiteSpace = "pre";
          element.style.zIndex = zIndices.ui;
          element.innerHTML = `${secondsLeft}`;
+         element.className = className;
 
          window.document.body.appendChild(element);
       
