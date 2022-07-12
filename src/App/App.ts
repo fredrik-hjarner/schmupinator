@@ -55,7 +55,10 @@ import { Parallax } from "./services/Parallax/Parallax";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
 import { MockGraphics } from "./services/Graphics/MockGraphics";
-import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
+import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PointsTester } from "./services/Points/mocks/PointsTester";
@@ -67,12 +70,12 @@ import { GameEventsTester } from "./services/Events/mocks/GameEventsTester";
 import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 import { MockFps } from "./services/Fps/variants/MockFps";
 import { MockFullscreen } from "./services/Fullscreen/variants/MockFullscreen";
+import { MockParallax } from "./services/Parallax/variants/MockParallax";
 
 /**
  * Other
  */
 import { IsBrowser } from "../drivers/BrowserDriver";
-import { MockParallax } from "./services/Parallax/variants/MockParallax";
 
 export class App {
    // types here should not be IService but rather something that implements IService.
@@ -114,7 +117,8 @@ export class App {
          new ReplayerInput({ app: this, name: "input" });
 
       this.gameLoop = IsBrowser() ?
-         new GameLoop({ app: this, name: "gameLoop" }) :
+         // new GameLoop({ app: this, name: "gameLoop" }) :
+         new ReqAnimFrameGameLoop({ app: this, name: "gameLoop" }) :
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
 
       this.fps = IsBrowser() ?

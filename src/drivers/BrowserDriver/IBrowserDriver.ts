@@ -9,6 +9,8 @@ export interface IBrowserDriver {
 
    SetInterval(callback: () => void, ms: number): number;
 
+   RequestAnimationFrame: (callback: (time: number) => void) => number
+
    FetchText(input: string): Promise<string>;
 
    // eslint-disable-next-line no-undef

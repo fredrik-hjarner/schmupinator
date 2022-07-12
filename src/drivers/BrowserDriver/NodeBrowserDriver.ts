@@ -27,6 +27,14 @@ export class NodeBrowserDriver implements IBrowserDriver {
       return 0;
    };
 
+   // This implementation is actually pretty bad, but I don't use it anyway?
+   public RequestAnimationFrame = (callback: (time: number) => void): number => {
+      for(let i=0; i<10_000_000; i++) {
+         callback(0);
+      }
+      return 0;
+   };
+
    public FetchText = async (path: string): Promise<string> => {
       const { readFile } = await import("fs/promises");
       const buffer = await readFile(path);

@@ -14,7 +14,6 @@ export class GameLoop implements IGameLoop {
    public name: string;
    public FrameCount: number;
    private nextFrameMillis: number | null;
-   private startTime: number | null;
 
    /**
    * Public
@@ -25,7 +24,6 @@ export class GameLoop implements IGameLoop {
 
       this.FrameCount = 0;
       this.nextFrameMillis = null;
-      this.startTime = null;
    }
 
    public Init = async () => {
@@ -33,7 +31,6 @@ export class GameLoop implements IGameLoop {
    };
 
    public Start = () => {
-      this.startTime = BrowserDriver.PerformanceNow();
       this.nextFrameMillis = BrowserDriver.PerformanceNow() + millisPerFrame;
       BrowserDriver.SetInterval(this.oneGameLoop, 0);
    };
@@ -42,10 +39,6 @@ export class GameLoop implements IGameLoop {
    * Private
    */
    private nextFrame = () => {
-      if(this.startTime === null) {
-         BrowserDriver.Alert("this.startTime === null");
-         throw new Error("this.startTime === null");
-      }
       const gameSpeed = this.app.gameSpeed.GameSpeed;
       for(let i=0; i<gameSpeed; i++) {
          this.FrameCount++;
