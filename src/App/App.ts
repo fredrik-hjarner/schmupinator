@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /**
  * Interfaces
  */
@@ -7,6 +8,8 @@ import type { IFps } from "./services/Fps/IFps";
 import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { IGameEvents, IUiEvents, TGameEvent, TUiEvent } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
@@ -15,7 +18,6 @@ import type { IParallax } from "./services/Parallax/IParallax";
 /**
  * Services
  */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Enemies } from "./services/Enemies/Enemies";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -146,8 +148,9 @@ export class App {
       this.collisions = new Collisions({ name: "collisions" });
 
       this.events =  IsBrowser() ?
-         new Events<TGameEvent>({ app: this, name: "events" }) :
+         // new Events<TGameEvent>({ app: this, name: "events" }) :
          // new RecordEvents({ app: this, name: "events" }) :
+         new GameEventsTester({ app: this, name: "events" }) :
          new GameEventsTester({ app: this, name: "events" });
 
       this.uiEvents = new Events<TUiEvent>({ app: this, name: "uiEvents" });

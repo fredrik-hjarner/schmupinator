@@ -57,15 +57,15 @@ export class GameLoop implements IGameLoop {
        * it might actually be slower than 60 setInterval per second.
        * It might not be necessary, and 3 is just an arbitrary number.
        */
-      for(let i=0; i<3; i++) {
-         if(this.nextFrameMillis === null) {
-            BrowserDriver.Alert("this.nextFrameMillis === null");
-            throw new Error("this.nextFrameMillis === null");
-         }
-         while (BrowserDriver.PerformanceNow() >= this.nextFrameMillis) {
-            this.nextFrameMillis += millisPerFrame;
-            this.nextFrame();
-         }
+      // for(let i=0; i<3; i++) {
+      if(this.nextFrameMillis === null) {
+         BrowserDriver.Alert("this.nextFrameMillis === null");
+         throw new Error("this.nextFrameMillis === null");
       }
+      while (BrowserDriver.PerformanceNow() >= this.nextFrameMillis) {
+         this.nextFrameMillis += millisPerFrame;
+         this.nextFrame();
+      }
+      // }
    };
 }
