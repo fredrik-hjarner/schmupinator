@@ -91,6 +91,9 @@ little bit of increased performance I think.
 * Graphics.elementPool should be Object keyed by handle => performance optimization.
 * Enemies.enemies should be Object keyed by id => performance optimization.
 
+* I could make a general NoopService, since most mocks are exactly the same that will save some
+lines of code.
+
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 1.1 Hide the bullets.

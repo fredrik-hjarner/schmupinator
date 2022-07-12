@@ -40,7 +40,7 @@ export class NodeGameLoop implements IGameLoop {
          return;
       }
       this.FrameCount++;
-      this.app.events.dispatchEvent({ type: "frame_tick" });
+      this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
    };
 
    private oneGameLoop = () => {

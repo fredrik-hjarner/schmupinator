@@ -24,7 +24,7 @@ export interface IEvents<TEvent> extends IService {
  * GameEvents *
  **************/
 
-type TEventFrameTick = { type: "frame_tick" };
+type TEventFrameTick = { type: "frame_tick", frameNr: number };
 type TEventCollisions = { type: "collisions", collisions: TCollisions };
 
 export type TGameEvent =

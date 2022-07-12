@@ -10,6 +10,7 @@ import type { IUI } from "./services/UI/IUI";
 import type { IGameEvents, IUiEvents, TGameEvent, TUiEvent } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
+import type { IParallax } from "./services/Parallax/IParallax";
 
 /**
  * Services
@@ -42,7 +43,10 @@ import { Highscore } from "./services/Highscore/Highscore";
 import { Yaml } from "./services/Yaml/Yaml";
 import { Graphics } from "./services/Graphics/Graphics";
 import { UI } from "./services/UI/UI";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Fullscreen } from "./services/Fullscreen/Fullscreen";
+import { Parallax } from "./services/Parallax/Parallax";
 
 /**
  * "Mocks"/Service variations
@@ -51,9 +55,6 @@ import { Fullscreen } from "./services/Fullscreen/Fullscreen";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
 import { MockGraphics } from "./services/Graphics/MockGraphics";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FastGameLoop } from "./services/GameLoop/mocks/FastGameLoop";
 import { NodeGameLoop } from "./services/GameLoop/mocks/NodeGameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -71,6 +72,7 @@ import { MockFullscreen } from "./services/Fullscreen/variants/MockFullscreen";
  * Other
  */
 import { IsBrowser } from "../drivers/BrowserDriver";
+import { MockParallax } from "./services/Parallax/variants/MockParallax";
 
 export class App {
    // types here should not be IService but rather something that implements IService.
@@ -97,6 +99,7 @@ export class App {
    public graphics: IGraphics;
    public ui: IUI;
    public fullscreen: IFullscreen;
+   public parallax: IParallax;
 
    /**
     * Step 1 of initialization
@@ -112,12 +115,11 @@ export class App {
 
       this.gameLoop = IsBrowser() ?
          new GameLoop({ app: this, name: "gameLoop" }) :
-         // new FastGameLoop({ app: this, name: "gameLoop" }) :
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
 
       this.fps = IsBrowser() ?
-         // new Fps({ app: this, name: "fps" }) :
-         new MockFps({ app: this, name: "fps" }) :
+         new Fps({ app: this, name: "fps" }) :
+         // new MockFps({ app: this, name: "fps" }) :
          new MockFps({ app: this, name: "fps" });
 
       this.player = new Player({ app: this, name: "player" });
@@ -170,8 +172,13 @@ export class App {
          new MockUI({ name: "mockUi" });
 
       this.fullscreen = IsBrowser() ?
-         new Fullscreen({ name: "fullscreen" }) :
+         // new Fullscreen({ name: "fullscreen" }) :
+         new MockFullscreen({ name: "fullscreen" }) :
          new MockFullscreen({ name: "fullscreen" });
+
+      this.parallax = IsBrowser() ?
+         new Parallax({ name: "parallax" }) :
+         new MockParallax({ name: "parallax" });
    }
 
    /**
@@ -182,6 +189,15 @@ export class App {
     * 2. If you need other services to init, then do that initialization in the Init function.
     */
    public Init = async () => {
+      const {
+         enemies, events,
+         gameLoop, gameSpeed, graphics,
+         highscore,
+         player, playerShots, points,
+         yaml,
+         uiEvents
+      } = this;
+
       /**
        * Order of initialization usually don't matter.
        * Unfortunately Yaml has to init early since it needs to, right now, fetch
@@ -196,31 +212,34 @@ export class App {
       await this.playerShots.Init();
       await this.enemyShots.Init();
       await this.enemies.Init({
-         yaml: this.yaml,
-         events: this.events,
-         player: this.player,
-         graphics: this.graphics,
+         events,
+         graphics,
+         player,
+         yaml,
       });
       await this.gamepad.Init();
       await this.collisions.Init({
-         events: this.events,
-         player: this.player,
-         enemies: this.enemies,
-         playerShots: this.playerShots
+         enemies,
+         events,
+         player,
+         playerShots
       });
       await this.events.Init();
       await this.gameSpeed.Init();
       await this.points.Init();
       await this.graphics.Init();
       await this.ui.Init({
-         events: this.events,
-         uiEvents: this.uiEvents,
-         gameLoop: this.gameLoop,
-         gameSpeed: this.gameSpeed,
-         highscore: this.highscore,
-         points: this.points,
+         events,
+         gameLoop,
+         gameSpeed,
+         highscore,
+         points,
+         uiEvents,
       });
       await this.highscore.Init();
       await this.fullscreen.Init();
+      await this.parallax.Init({
+         events,
+      });
    };
 }

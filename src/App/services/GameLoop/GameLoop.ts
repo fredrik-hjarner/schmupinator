@@ -1,13 +1,8 @@
 import type  { App } from "../../App";
 
 import { millisPerFrame } from "../../../consts";
-import {
-   initLayer1Element, initGameHideBottom, initGameHideRight, initLayer2Element, initLayer3Element
-} from "./gameDiv";
-import { px } from "../../../utils/px";
 import { IGameLoop } from "./IGameLoop";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { isHTMLDivElement } from "../../../utils/typeAssertions";
 
 type TConstructor = {
    app: App;
@@ -18,9 +13,6 @@ export class GameLoop implements IGameLoop {
    public app: App;
    public name: string;
    public FrameCount: number;
-   private readonly layer1Element: unknown;
-   private readonly layer2Element: unknown;
-   private readonly layer3Element: unknown;
    private nextFrameMillis: number | null;
    private startTime: number | null;
 
@@ -32,11 +24,6 @@ export class GameLoop implements IGameLoop {
       this.name = name;
 
       this.FrameCount = 0;
-      this.layer1Element = initLayer1Element();
-      this.layer2Element = initLayer2Element();
-      this.layer3Element = initLayer3Element();
-      initGameHideBottom();
-      initGameHideRight();
       this.nextFrameMillis = null;
       this.startTime = null;
    }
@@ -62,20 +49,7 @@ export class GameLoop implements IGameLoop {
       const gameSpeed = this.app.gameSpeed.GameSpeed;
       for(let i=0; i<gameSpeed; i++) {
          this.FrameCount++;
-         this.app.events.dispatchEvent({ type: "frame_tick" });
-         const baseSpeed = 1;
-         const layer1YOffset: number = Math.round(this.FrameCount*baseSpeed * 0.3);
-         const layer2YOffset: number = Math.round(this.FrameCount*baseSpeed);
-         const layer3YOffset: number = Math.round(this.FrameCount*baseSpeed*1.5);
-         if(
-            isHTMLDivElement(this.layer1Element) &&
-            isHTMLDivElement(this.layer2Element) &&
-            isHTMLDivElement(this.layer3Element)
-         ) {
-            this.layer1Element.style.backgroundPositionY = px(layer1YOffset);
-            this.layer2Element.style.backgroundPositionY = px(layer2YOffset);
-            this.layer3Element.style.backgroundPositionY = px(layer3YOffset);
-         }
+         this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
       }
    };
 
