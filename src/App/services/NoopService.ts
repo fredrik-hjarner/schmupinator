@@ -1,10 +1,10 @@
-import { IParallax } from "../IParallax";
+import type { IService } from "./IService";
 
 type TConstructor = {
    name: string;
-};
+}
 
-export class MockParallax implements IParallax {
+export class NoopService implements IService {
    public readonly name: string;
 
    public constructor({ name }: TConstructor) {
@@ -12,6 +12,6 @@ export class MockParallax implements IParallax {
    }
 
    public Init = async () => {
-      // noop
+      //
    };
 }

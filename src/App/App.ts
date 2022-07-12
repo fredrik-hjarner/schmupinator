@@ -53,6 +53,7 @@ import { Parallax } from "./services/Parallax/Parallax";
 /**
  * "Mocks"/Service variations
  */
+import { NoopService } from "./services/NoopService";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
@@ -64,15 +65,12 @@ import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameG
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PointsTester } from "./services/Points/mocks/PointsTester";
-import { MockUI } from "./services/UI/MockUI";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { RecordGameEvents } from "./services/Events/mocks/RecordGameEvents";
 import { GameEventsTester } from "./services/Events/mocks/GameEventsTester";
 import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 import { MockFps } from "./services/Fps/variants/MockFps";
-import { MockFullscreen } from "./services/Fullscreen/variants/MockFullscreen";
-import { MockParallax } from "./services/Parallax/variants/MockParallax";
 
 /**
  * Other
@@ -176,16 +174,16 @@ export class App {
 
       this.ui = IsBrowser() ?
          new UI({ name: "ui" }) :
-         new MockUI({ name: "mockUi" });
+         new NoopService({ name: "mockUi" });
 
       this.fullscreen = IsBrowser() ?
          // new Fullscreen({ name: "fullscreen" }) :
-         new MockFullscreen({ name: "fullscreen" }) :
-         new MockFullscreen({ name: "fullscreen" });
+         new NoopService({ name: "fullscreen" }) :
+         new NoopService({ name: "fullscreen" });
 
       this.parallax = IsBrowser() ?
          new Parallax({ name: "parallax" }) :
-         new MockParallax({ name: "parallax" });
+         new NoopService({ name: "parallax" });
    }
 
    /**
