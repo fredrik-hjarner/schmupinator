@@ -23,6 +23,7 @@ export class Game implements IScene {
    public render() {
       this.scoreElement = createText({
          text: "Score 0",
+         color: "white",
          fontSize: 16,
          top: 10,
          left: 20
@@ -31,6 +32,7 @@ export class Game implements IScene {
       const record = this.ui.highscoreService.getTop1().score;
       this.hiscoreElement = createText({
          text: `Record ${record}`,
+         color: "white",
          fontSize: 16,
          top: 10,
          left: 285

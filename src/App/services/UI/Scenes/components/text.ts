@@ -8,10 +8,15 @@ type TCreateTextParams = {
    top?: number,
    left?: number,
    right?: number,
+   className?: string,
+   color?: string,
+   onClick?: () => void;
 }
 
 export const createText = (params: TCreateTextParams) => {
-   const { text, fontSize=16, left, top, right } = params;
+   const {
+      text, fontSize=16, left, top, right, className="", color="red", onClick=null
+   } = params;
 
    return BrowserDriver.WithWindow(window => {
       const element = window.document.createElement("div");
@@ -26,13 +31,13 @@ export const createText = (params: TCreateTextParams) => {
       if(right !== undefined) {
          element.style.right = px(right);
       }
-      element.style.color = "white";
+      element.style.color = color;
       element.style.fontSize = px(fontSize);
-      // The line height of the PixelMicro font gets too "high".
-      // element.style.lineHeight = px(fontSize*0.6);
       element.style.whiteSpace = "pre";
       element.style.zIndex = zIndices.ui;
       element.innerHTML = text;
+      element.className = className;
+      element.onclick = onClick;
 
       window.document.body.appendChild(element);
       

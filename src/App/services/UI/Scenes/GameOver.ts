@@ -26,16 +26,16 @@ export class GameOver implements IScene {
 
       this.textElement = createText({
          text: "Game Over",
-         fontSize: 27,
-         top: 105,
+         fontSize: 45,
+         top: 95,
       });
       centerHorizontally(this.textElement);
 
       this.countdown = new Countdown({
          secondsLeft: 5,
          onDone: this.handleCountdDownDone,
-         fontSize: 26,
-         top: 150,
+         fontSize: 45,
+         top: 130,
       });
       centerHorizontally(this.countdown.element);
    }

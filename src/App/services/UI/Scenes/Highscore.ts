@@ -30,13 +30,13 @@ export class Highscore implements IScene {
    }
 
    private getTop10Text = (): string => {
-      const header = `Rank\t\t\tScore\t\t\tPlayer`;
+      const header = `Rank\t\tScore\t\tPlayer`;
       const top10 = this.ui.highscoreService.getTop10()
          .map(({ name, score }, i) => {
             if(isNumber(this.rank) && this.rank === i) {
-               return `<span class="flash1s">${i+1}\t\t\t${score}\t\t\t${name}</span>`;
+               return `<span class="flash1s">${i+1}\t\t${score}\t\t${name}</span>`;
             }
-            return `${i+1}\t\t\t${score}\t\t\t${name}`;
+            return `${i+1}\t\t${score}\t\t${name}`;
          });
       return [header, ...top10].join("\n");
    };
@@ -54,7 +54,7 @@ export class Highscore implements IScene {
       centerHorizontally(this.title);
 
       this.top10 = createText({
-         text: this.getTop10Text(), fontSize: 17, top: 40
+         text: this.getTop10Text(), fontSize: 25.5, top: 35
       });
       centerHorizontally(this.top10);
 

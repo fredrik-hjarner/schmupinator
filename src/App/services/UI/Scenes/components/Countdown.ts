@@ -28,7 +28,7 @@ export class Countdown {
          element.style.position = "fixed";
          element.style.top = px(top);
          element.style.left = px(left);
-         element.style.color = "white";
+         element.style.color = "red";
          element.style.fontSize = px(fontSize);
          element.style.whiteSpace = "pre";
          element.style.zIndex = zIndices.ui;

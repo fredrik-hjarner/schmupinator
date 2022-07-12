@@ -15,6 +15,9 @@
     * {
       font-family: "PixelMicro" !important;
       text-transform: uppercase;
+      user-select: none;
+      /* The line height of the PixelMicro font gets too "high". */
+      line-height: 70% !important;
     }
 
     body {
@@ -37,6 +40,18 @@
     }
     .flash1s { animation-duration: 1.0s; }
     .flash3s { animation-duration: 3.0s; }
+
+    .menuItem {
+      cursor: pointer;
+      transition-property: transform, color;
+      transition-duration: 0.8s;
+      color: red !important;
+    }
+    .menuItem:hover {
+      transition-duration: 0.3s;
+      transform: scale(1.05);
+      color: rgba(255, 220, 190) !important;
+    }
     </style>
   <title>Schmupinator</title>
 </head>

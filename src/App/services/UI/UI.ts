@@ -7,7 +7,7 @@ import type { TInitParams } from "../IService";
 import type { Highscore as THighscoreService } from "../Highscore/Highscore";
 import type { IPoints } from "../Points/IPoints";
 
-import { StartGame } from "./Scenes/StartGame";
+import { StartGame } from "./Scenes/StartGame/StartGame";
 import { Game } from "./Scenes/Game";
 import { GameOver } from "./Scenes/GameOver";
 import { Highscore } from "./Scenes/Highscore";
