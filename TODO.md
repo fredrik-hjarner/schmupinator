@@ -70,8 +70,6 @@ PointsTester.
 otherwise, if the enemy has setup actions, then it might exist for one frame in an uninitialized
 state.
 
-* Make a "mocked" EventsTester service so I can verify that all events are the same.
-
 * Have action that waits until an attribute has a certain value.
 It could also be done like this, if `return` would exit/finished/complete the current generator.
  { parallelRace: [[
