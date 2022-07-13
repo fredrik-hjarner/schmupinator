@@ -99,6 +99,8 @@ lines of code.
 
 * Confirm that reset.css is imported on PROD build cuz suspicious import path.
 
+* Turn off @typescript-eslint/ban-ts-comment rule.
+
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 1.1 Hide the bullets.
