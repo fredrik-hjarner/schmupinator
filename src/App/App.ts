@@ -14,6 +14,7 @@ import type { IGameEvents, IUiEvents, TGameEvent, TUiEvent } from "./services/Ev
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
 import type { IParallax } from "./services/Parallax/IParallax";
+import type { IE2eTest } from "./services/E2eTest/IE2eTest";
 
 /**
  * Services
@@ -49,6 +50,7 @@ import { UI } from "./services/UI/UI";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Fullscreen } from "./services/Fullscreen/Fullscreen";
 import { Parallax } from "./services/Parallax/Parallax";
+import { E2eTest } from "./services/E2eTest/E2eTest";
 
 /**
  * "Mocks"/Service variations
@@ -68,7 +70,6 @@ import { PointsTester } from "./services/Points/mocks/PointsTester";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { RecordGameEvents } from "./services/Events/mocks/RecordGameEvents";
-import { GameEventsTester } from "./services/Events/mocks/GameEventsTester";
 import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 import { MockFps } from "./services/Fps/variants/MockFps";
 
@@ -80,6 +81,7 @@ import { IsBrowser } from "../drivers/BrowserDriver";
 export class App {
    // types here should not be IService but rather something that implements IService.
    // TODO: also all types should NOT be concrete types, but interfaces.
+   public e2eTest: IE2eTest;
    public input: IInput;
    public gameLoop: IGameLoop;
    public fps: IFps;
@@ -111,6 +113,10 @@ export class App {
       /**
        * Constuct services
        */
+      this.e2eTest = IsBrowser() ?
+         new NoopService({ name: "e2e" }) :
+         new E2eTest({ name: "e2e" });
+
       this.input = IsBrowser() ?
          // new Input({ app: this, name: "input" }) :
          new ReplayerInput({ app: this, name: "input" }) :
@@ -148,8 +154,8 @@ export class App {
       this.events =  IsBrowser() ?
          // new Events<TGameEvent>({ app: this, name: "events" }) :
          // new RecordEvents({ app: this, name: "events" }) :
-         new GameEventsTester({ app: this, name: "events" }) :
-         new GameEventsTester({ app: this, name: "events" });
+         new Events({ app: this, name: "events" }) :
+         new Events({ app: this, name: "events" });
 
       this.uiEvents = new Events<TUiEvent>({ app: this, name: "uiEvents" });
 
@@ -210,6 +216,9 @@ export class App {
        */
       await this.yaml.Init();
 
+      await this.e2eTest.Init({
+         events,
+      });
       await this.input.Init();
       await this.gameLoop.Init();
       await this.fps.Init();
