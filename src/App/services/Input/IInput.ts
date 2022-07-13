@@ -6,7 +6,7 @@ export type ButtonsPressed = {
    right: boolean
    up: boolean
    down: boolean
- }
+}
 
 export interface IInput extends IService {
    ButtonsPressed: ButtonsPressed

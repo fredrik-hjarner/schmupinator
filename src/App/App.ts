@@ -118,9 +118,9 @@ export class App {
          new E2eTest({ name: "e2e" });
 
       this.input = IsBrowser() ?
-         // new Input({ app: this, name: "input" }) :
-         new ReplayerInput({ app: this, name: "input" }) :
-         new ReplayerInput({ app: this, name: "input" });
+         // new Input({ name: "input" }) :
+         new ReplayerInput({ name: "input" }) :
+         new ReplayerInput({ name: "input" });
 
       this.gameLoop = IsBrowser() ?
          // new GameLoop({ app: this, name: "gameLoop" }) :
@@ -219,7 +219,9 @@ export class App {
       await this.e2eTest.Init({
          events,
       });
-      await this.input.Init();
+      await this.input.Init({
+         events
+      });
       await this.gameLoop.Init();
       await this.fps.Init();
       await this.player.Init();

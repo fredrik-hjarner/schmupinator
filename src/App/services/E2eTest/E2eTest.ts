@@ -2,7 +2,7 @@ import type { IGameEvents, TGameEvent } from "../Events/IEvents";
 import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
 
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
 import { history } from "./history";
 
 type TConstructor = {
@@ -17,8 +17,9 @@ export class E2eTest implements IE2eTest {
     * Since we want as few dependencies as possible we want to ONLY be dependent on the Events
     * service and NOT also have to grab FrameCount off the GameLoop service directly.
     */
-   private frameCount: number = 0;
+   private frameCount = 0;
    private history: Partial<{ [frame: number]: TGameEvent[] }> = {};
+   private startTime = BrowserDriver.PerformanceNow();
 
    // deps/services
    private events!: IGameEvents;
@@ -27,6 +28,7 @@ export class E2eTest implements IE2eTest {
       this.name = name;
    }
 
+   // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       // TODO: Replace typecast with type guard.
       this.events = deps?.events as IGameEvents;
@@ -36,6 +38,16 @@ export class E2eTest implements IE2eTest {
    };
 
    private onEvent = (event: TGameEvent) => {
+      if (event.type === "player_died") {
+         // This should actually trigger for very kind of END OF GAME scenario.
+         console.log("E2eTest: Test succeeded.");
+         const seconds = (BrowserDriver.PerformanceNow() - this.startTime)/1000;
+         console.log(`E2eTest: Took ${seconds} seconds to run test.`);
+         if (!IsBrowser()) {
+            // eslint-disable-next-line no-undef
+            process.exit(0);
+         }
+      }
       if (event.type !== "frame_tick") {
          // dont record frame_tick because that's excessive.
          const frame = this.frameCount;

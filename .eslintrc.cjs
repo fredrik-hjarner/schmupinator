@@ -5,7 +5,7 @@ module.exports = {
     "jest.config.cjs",
     ".eslintrc.cjs",
     "dist/**/*",
-    "src/**/*test.ts"
+    "src/**/*.test.ts"
   ],
   parserOptions: {
     tsconfigRootDir: __dirname,

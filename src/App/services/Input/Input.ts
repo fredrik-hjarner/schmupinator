@@ -1,15 +1,18 @@
-import type { App } from "../../App";
 import type { ButtonsPressed, IInput } from "./IInput";
+import type { IGameEvents } from "../Events/IEvents";
+import type { TInitParams } from "../IService";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 type TConstructor = {
-   app: App;
    name: string;
 };
 
 export class Input implements IInput {
-   private readonly app: App;
+   // deps/services
+   private events!: IGameEvents;
+
+   // vars
    public readonly name: string;
    private history: {
       inputs: {
@@ -17,7 +20,6 @@ export class Input implements IInput {
       };
       score: number;
    };
-
    private buttonsPressed: ButtonsPressed = {
       space: false,
       left: false,
@@ -25,9 +27,15 @@ export class Input implements IInput {
       up: false,
       down: false,
    };
+   /**
+    * Keep track of which frame it is "locally" in this object.
+    * the current frame comes with the "frame_tick" event.
+    * Since we want as few dependencies as possible we want to ONLY be dependent on the Events
+    * service and NOT also have to grab FrameCount off the GameLoop service directly.
+    */
+   private frameCount = 0;
 
-   public constructor({ app, name }: TConstructor) {
-      this.app = app;
+   public constructor({ name }: TConstructor) {
       this.name = name;
       this.history = { inputs: {}, score: 0 };
       BrowserDriver.WithWindow(window => {
@@ -37,19 +45,24 @@ export class Input implements IInput {
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
-   public Init = async () => {
-      this.app.events.subscribeToEvent(this.name, (event) => {
-         if(event.type === "player_died"){
-            console.log("Input.history:");
-            const score = this.app.points.points;
-            this.history.score = score;
-            console.log(this.history);
+   public Init = async (deps?: TInitParams) => {
+      this.events = deps?.events as IGameEvents;
+
+      this.events.subscribeToEvent(this.name, (event) => {
+         switch(event.type) {
+            case "frame_tick":
+               this.frameCount = event.frameNr;
+               break;
+            case "player_died":
+               console.log("Input.history:");
+               console.log(this.history);
+               break;
          }
       });
    };
 
    public get ButtonsPressed(): ButtonsPressed {
-      const frame = this.app.gameLoop.FrameCount;
+      const frame = this.frameCount;
       const buttonsPressed = { ...this.buttonsPressed };
       const wasPressed = Object.values(buttonsPressed).includes(true);
       if(wasPressed) {
