@@ -32,14 +32,10 @@ export class Enemy {
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
-   private attrs = new Attributes();
+   public attrs = new Attributes();
    private name: string;
 
-   public constructor(
-      enemies: Enemies,
-      position: TVector,
-      json: IEnemyJson,
-   ) {
+   public constructor( enemies: Enemies, position: TVector, json: IEnemyJson ) {
       this.enemies = enemies;
       this.id = `${json.name}-${uuid()}`;
       this.name = json.name;
@@ -63,6 +59,13 @@ export class Enemy {
       this.gfx = new EnemyGfx({
          diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
       });
+
+      /**
+       * Execute one frame. This important if the enemy has some initialization that it needs have
+       * to have run, otherwise initialization (with actions) would be delayed one frame from
+       * being constructed/added via constructor.
+       */
+      this.OnFrameTick();
    }
 
    private get hp():number {

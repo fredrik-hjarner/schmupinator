@@ -62,9 +62,11 @@ export class Collisions implements IService {
       const player = this.player;
       const playerShots = this.playerShots.shots;
       const enemies = this.enemies.enemies;
+      const killsPlayerOnCollision = this.enemies.enemies
+         .filter(e => e.attrs.GetAttribute("kills").value === "player");
 
       const playerWasHit =
-         this.calcCircleWasHitByShots({ circle: player, shots: enemies });
+         this.calcCircleWasHitByShots({ circle: player, shots: killsPlayerOnCollision });
       
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
          const wasHit = this.calcCircleWasHitByShots({ circle: enemy, shots: playerShots });

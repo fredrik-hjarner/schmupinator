@@ -39,6 +39,20 @@ export class Attributes {
       points:  { value: 10 },
       hp:      { value: 1 },
       maxHp:   { value: 1 },
+      /**
+       * What this enemy kills when it collides with something.
+       * player
+       * enemy
+       * nothing
+       */
+      kills:   { value: "player" },
+      /**
+       * player
+       * enemy
+       * nothing
+       */
+      // TODO: Use this attribute.
+      killedBy:   { value: "player" },
    };
 
    private getAndAssertAttribute = (name: string): Attribute => {

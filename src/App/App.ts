@@ -153,7 +153,7 @@ export class App {
 
       this.events =  IsBrowser() ?
          // new Events<TGameEvent>({ app: this, name: "events" }) :
-         // new RecordEvents({ app: this, name: "events" }) :
+         // new RecordGameEvents({ app: this, name: "events" }) :
          new Events({ app: this, name: "events" }) :
          new Events({ app: this, name: "events" });
 

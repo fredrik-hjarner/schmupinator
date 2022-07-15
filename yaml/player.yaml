@@ -10,6 +10,7 @@ enemy:
       # which is contra-intuitive. Should prolly not be set
       # automaticallt on tick, but need to be set explicitly.
       - { type: setMoveDirection, degrees: 0 }
+      - { type: "setAttribute", attribute: kills, value: nothing }
       - fork:
         - forever:
           - { type: moveAccordingToInput }
