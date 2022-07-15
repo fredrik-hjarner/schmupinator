@@ -121,6 +121,7 @@ module.exports = {
     /**
      * Typescript
      */
-    "@typescript-eslint/no-unnecessary-type-assertion": "off"
+    "@typescript-eslint/no-unnecessary-type-assertion": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 };

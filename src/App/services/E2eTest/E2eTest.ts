@@ -61,7 +61,6 @@ export class E2eTest implements IE2eTest {
          this.frameCount = event.frameNr;
 
          const lastFrame = event.frameNr - 1;
-         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
          //@ts-ignore
          const expected = JSON.stringify(history[lastFrame] as TGameEvent[] | undefined);
          const actual = JSON.stringify(this.history[lastFrame]);

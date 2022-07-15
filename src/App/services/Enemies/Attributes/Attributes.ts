@@ -41,7 +41,7 @@ export class Attributes {
       maxHp:   { value: 1 },
       /**
        * Different things can and can't collide with each other.
-       * enemy, enemyBullet, player, playerBullet.
+       * none, enemy, enemyBullet, player, playerBullet.
        * (may add groundEnemy later).
        */
       collisionType: { value: "enemy" },
@@ -55,7 +55,6 @@ export class Attributes {
          BrowserDriver.Alert(msg);
          throw new Error(msg);
       }
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore guaranteed to exist since previous if case.
       return this.attributes[name];
    };

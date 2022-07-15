@@ -3163,34 +3163,6 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1094": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "stage1-2",
-               "playerShot-415",
-               "spawner-0",
-               "playerShot-415"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "stage1"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "spawner"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
    "1099": [
       {
          "type": "player_missed_bullet"
@@ -3200,34 +3172,6 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      }
-   ],
-   "1101": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "stage1-2",
-               "playerShot-418",
-               "spawner-0",
-               "playerShot-418"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "stage1"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "spawner"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
       }
    ],
    "1107": [
@@ -3241,62 +3185,6 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1109": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "stage1-2",
-               "playerShot-421",
-               "spawner-0",
-               "playerShot-421"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "stage1"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "spawner"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1114": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "stage1-2",
-               "playerShot-424",
-               "spawner-0",
-               "playerShot-424"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "stage1"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "spawner"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
    "1115": [
       {
          "type": "player_missed_bullet"
@@ -3306,34 +3194,6 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      }
-   ],
-   "1122": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "stage1-2",
-               "playerShot-427",
-               "spawner-0",
-               "playerShot-427"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "stage1"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "spawner"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
       }
    ],
    "1123": [

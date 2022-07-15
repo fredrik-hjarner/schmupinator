@@ -217,6 +217,10 @@ export class Graphics implements IGraphics {
       ({ handle, shape }: Omit<TGfx_SetShape,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
          switch(shape) {
+            case "none": {
+               element.element.style.clipPath = "circle(0%)";
+               break;
+            }
             case "circle": {
                element.element.style.clipPath = "circle(50%)";
                break;

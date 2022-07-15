@@ -816,37 +816,17 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1094": {
-      "points": 0,
-      "reason": "playerShot"
-   },
    "1099": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "1101": {
-      "points": 0,
-      "reason": "playerShot"
    },
    "1107": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1109": {
-      "points": 0,
-      "reason": "playerShot"
-   },
-   "1114": {
-      "points": 0,
-      "reason": "playerShot"
-   },
    "1115": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "1122": {
-      "points": 0,
-      "reason": "playerShot"
    },
    "1123": {
       "points": -1,

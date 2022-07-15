@@ -2,7 +2,6 @@
 Both functions that the original state first and saves it, then measures progess then sends the
 original state and the progress to Enemy (that iself executes the stuff).
 
-
 * Add so that I can hover with mouse to see x, y positions in absolute x,y on gameDiv.
 
 * Maybe I could have ADVANCED and SIMPLE actions, where ADVANCED actions are transformed into
@@ -29,21 +28,10 @@ that would make relative/absolute positioning actions more coherent.
 
 * Add max number of lines in eslint.
 
-* It would be super cool if Player WAS-AN Enemy,
-  that would allow me to execute actions!!!
-
-* Flags and every other field on an Enemy could be an attribute, then you could check any attribute
-just like you check a flag.
-{ attr: 'hp', is: 2 }
-{ attr: 'hp', lessThan: 2 }
-{ setAttr: 'some flag or variable', val: 2 }
-
 * Shots could be Enemy. Player could be Enemy. Powerups could be Enemy. The power!
 
 * Now when Shots are Enemy, I could do the maxShots limitation with a thing like maxChildren,
 maxChildren would be the max number of spawns. I would need to implement parent-spawn relations.
-
-* Remove Shots entirely since I will no longer need it.
 
 * Improve my "end-to-end" test so that it is more reliable.
 
@@ -52,14 +40,11 @@ maxChildren would be the max number of spawns. I would need to implement parent-
 * Add events (subs and dispatches) declaration to IService to require services to specificy what
 they subscribe to and what they dispatch. Throw runtime error when it tried to do something it has
 not declared!!
+Nah, it might be better to have every event in it's own service (i.e. event channel).
 
 * I should probably not send in `app`, but rather `deps: IService[]` into services.
 
 * Yaml: Maybe do so all files starting with _ are prepended to every file.
-
-* Opps you get points by shooting the spawners... or, maybe not?
-
-* When shots hit an enemy, they should disappear.
 
 * PointsTester is unsafe. It should take more control and FORCE Points to resond to events before
 PointsTester.
@@ -95,10 +80,7 @@ lines of code.
 
 * Confirm that reset.css is imported on PROD build cuz suspicious import path.
 
-* Turn off @typescript-eslint/ban-ts-comment rule.
-
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 1.1 Hide the bullets.
-1.2 Hide the spawner.
 2. 

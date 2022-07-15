@@ -49,7 +49,6 @@ export class ReplayerInput implements IInput {
       if(!(frame in replay.inputs)) {
          return allFalse;
       }
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const buttonsPressed = {...allFalse, ...replay.inputs[frame]} as ButtonsPressed;
