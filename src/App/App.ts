@@ -30,7 +30,6 @@ import { Fps } from "./services/Fps/Fps";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Input } from "./services/Input/Input";
 import { Player } from "./services/Player/Player";
-import { Shots } from "./services/Shots/Shots";
 import { GamePad } from "./services/GamePad/GamePad";
 import { Collisions } from "./services/Collisions/Collisions";
 //@ts-ignore
@@ -86,8 +85,6 @@ export class App {
    public gameLoop: IGameLoop;
    public fps: IFps;
    public player: Player;
-   public playerShots: Shots;
-   public enemyShots: Shots;
    public enemies: Enemies;
    public gamepad: GamePad;
    public collisions: Collisions;
@@ -133,17 +130,6 @@ export class App {
          new MockFps({ app: this, name: "fps" });
 
       this.player = new Player({ app: this, name: "player" });
-
-      this.playerShots = new Shots(
-         this,
-         // TODO: actually dont need name, could use uuid().
-         { name: "playerShots", maxShots: 3*3, color: "aqua" }
-      );
-
-      this.enemyShots = new Shots(
-         this,
-         { name: "enemyShots", maxShots: 25, color: "red" }
-      );
 
       this.enemies = new Enemies({ name: "enemies" });
 
@@ -205,7 +191,7 @@ export class App {
          gameLoop, gamepad, gameSpeed, graphics,
          highscore,
          input,
-         player, playerShots, points,
+         player, points,
          yaml,
          uiEvents
       } = this;
@@ -226,8 +212,6 @@ export class App {
       await this.gameLoop.Init();
       await this.fps.Init();
       await this.player.Init();
-      await this.playerShots.Init();
-      await this.enemyShots.Init();
       await this.enemies.Init({
          events,
          graphics,
@@ -240,8 +224,6 @@ export class App {
       await this.collisions.Init({
          enemies,
          events,
-         player,
-         playerShots
       });
       await this.events.Init();
       await this.gameSpeed.Init();

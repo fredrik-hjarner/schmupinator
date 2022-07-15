@@ -1,4 +1,40 @@
 enemy:
+  name: playerShot
+  hp: 9999
+  diameter: 5
+  actions:
+    - { type: "setAttribute", attribute: collisionType, value: playerBullet }
+    - { type: setAttribute, attribute: points, value: 0 }
+    - { type: gfxSetShape, shape: circle }
+    - { type: gfxSetColor, color: aqua }
+---
+x-shoot: &shoot
+  - spawn: playerShot
+    x: 0
+    y: 0
+    actions:
+      - fork:
+        - forever:
+          - { type: "moveDelta", x: 0, y: -9 }
+          - { type: "waitNextFrame" }
+  - spawn: playerShot
+    x: 0
+    y: 0
+    actions:
+      - fork:
+        - forever:
+          - { type: "moveDelta", x: 1.5, y: -9 }
+          - { type: "waitNextFrame" }
+  - spawn: playerShot
+    x: 0
+    y: 0
+    actions:
+      - fork:
+        - forever:
+          - { type: "moveDelta", x: -1.5, y: -9 }
+          - { type: "waitNextFrame" }
+
+enemy:
     name: player
     diameter: 20
     hp: 1
@@ -10,8 +46,13 @@ enemy:
       # which is contra-intuitive. Should prolly not be set
       # automaticallt on tick, but need to be set explicitly.
       - { type: setMoveDirection, degrees: 0 }
-      - { type: "setAttribute", attribute: kills, value: nothing }
+      - { type: "setAttribute", attribute: collisionType, value: player }
       - fork:
         - forever:
           - { type: moveAccordingToInput }
           - type: waitNextFrame
+      - fork:
+        - forever:
+          - { type: waitInputShoot }
+          - do: *shoot
+          - wait: 8

@@ -18,10 +18,10 @@ export const playerSpeedPerFrame = [
    2.35 // confirmed correct!
 ]; 
 
-export const framesBewteenPlayerShots = 8;
-export const playerShotSpeed = 9;
+// export const framesBewteenPlayerShots = 8;
+// export const playerShotSpeed = 9;
 
-export const enemyShotSpeed = 3;
+// export const enemyShotSpeed = 3;
 
 // TODO: Add more/all z indices.
 export const zIndices = {

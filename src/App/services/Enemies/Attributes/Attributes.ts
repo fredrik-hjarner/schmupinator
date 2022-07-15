@@ -40,19 +40,11 @@ export class Attributes {
       hp:      { value: 1 },
       maxHp:   { value: 1 },
       /**
-       * What this enemy kills when it collides with something.
-       * player
-       * enemy
-       * nothing
+       * Different things can and can't collide with each other.
+       * enemy, enemyBullet, player, playerBullet.
+       * (may add groundEnemy later).
        */
-      kills:   { value: "player" },
-      /**
-       * player
-       * enemy
-       * nothing
-       */
-      // TODO: Use this attribute.
-      killedBy:   { value: "player" },
+      collisionType: { value: "enemy" },
    };
 
    private getAndAssertAttribute = (name: string): Attribute => {

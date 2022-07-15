@@ -116,11 +116,15 @@ export class EnemyActionExecutor {
                break;
             }
 
+            case "waitInputShoot": {
+               const shootPressed = () => this.input.ButtonsPressed.space || this.gamepad.shoot;
+               while(!shootPressed()) { yield; }
+               break;
+            }
+
             case "waitUntilAttrIs": {
                const { attr, is } = currAction;
-               while(this.getAttr(attr) !== is) {
-                  yield;
-               }
+               while(this.getAttr(attr) !== is) { yield; }
                break;
             }
 

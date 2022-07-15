@@ -93,6 +93,7 @@ export type TWaitUntilAttrIs = { type: "waitUntilAttrIs", attr: string, is: TAtt
  * to allow the Player to be an Enemy (i.e. GameObject)
  */
 export type TMoveAccordingToInput = { type: "moveAccordingToInput" };
+export type TWaitInputShoot = { type: "waitInputShoot" };
 
 export type TAction =
    /**
@@ -130,6 +131,7 @@ export type TAction =
     * Controls/input
     */
    TMoveAccordingToInput |
+   TWaitInputShoot |
    /**
    * Spawning/Life cycle
    */

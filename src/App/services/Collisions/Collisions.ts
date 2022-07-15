@@ -1,8 +1,8 @@
 import type { Enemies } from "../Enemies/Enemies";
 import type { IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
-import type { Player } from "../Player/Player";
-import type { Shots } from "../Shots/Shots";
+
+import { playerInvincible } from "../../../consts";
 
 export type PosAndRadius = {X: number, Y: number, Radius: number };
 
@@ -21,9 +21,7 @@ export class Collisions implements IService {
    
    // deps/services
    private events!: IGameEvents;
-   private player!: Player;
    private enemies!: Enemies;
-   private playerShots!: Shots;
 
    /**
    * Public
@@ -41,9 +39,7 @@ export class Collisions implements IService {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
-      this.player = deps?.player as Player;
       this.enemies = deps?.enemies as Enemies;
-      this.playerShots = deps?.playerShots as Shots;
       
       this.events.subscribeToEvent(
          this.name,
@@ -59,17 +55,39 @@ export class Collisions implements IService {
     * Private
     */
    private update = () => {
-      const player = this.player;
-      const playerShots = this.playerShots.shots;
-      const enemies = this.enemies.enemies;
+      const enemies = this.enemies.enemies
+         .filter(e =>
+            ["enemy"].includes(e.attrs.GetAttribute("collisionType").value as string)
+         );
       const killsPlayerOnCollision = this.enemies.enemies
-         .filter(e => e.attrs.GetAttribute("kills").value === "player");
+         .filter(e =>
+            ["enemy", "enemyBullet"].includes(e.attrs.GetAttribute("collisionType").value as string)
+         );
+      const playerBullets = this.enemies.enemies
+         .filter(e =>
+            ["playerBullet"].includes(e.attrs.GetAttribute("collisionType").value as string)
+         );
+      const player = this.enemies.enemies
+         .find(e =>
+            ["player"].includes(e.attrs.GetAttribute("collisionType").value as string)
+         );
+      if(player === undefined) {
+         throw new Error("Collisions: Player was not found");
+      }
 
       const playerWasHit =
          this.calcCircleWasHitByShots({ circle: player, shots: killsPlayerOnCollision });
+      if(playerWasHit && !playerInvincible) {
+         // TODO: This is a bit ugly.
+         this.events.dispatchEvent({ type: "player_died" });
+      }
       
+      // TODO: Also remove the bullets that collided here.
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
-         const wasHit = this.calcCircleWasHitByShots({ circle: enemy, shots: playerShots });
+         const wasHit = this.calcCircleWasHitByShots({
+            circle: enemy,
+            shots: playerBullets
+         });
          return wasHit ? [...acc, enemy.id] : acc;
       }, []);
 
