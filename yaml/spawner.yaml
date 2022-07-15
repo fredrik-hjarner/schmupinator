@@ -3,6 +3,7 @@ enemy:
     diameter: 20
     hp: 9999
     actions:
+      # - { spawn: player, x: *c5, y: *r10 }
       - { spawn: stage1, x: 0, y: 0 }
       # - { spawn: stage2, x: 0, y: 0 }
       # - { spawn: stage3, x: 0, y: 0 }

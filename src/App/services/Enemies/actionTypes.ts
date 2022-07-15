@@ -88,6 +88,12 @@ export type TMoveDirection = { type: "setMoveDirection", degrees: number };
 // Yields until the attribute has the value set in is.
 export type TWaitUntilAttrIs = { type: "waitUntilAttrIs", attr: string, is: TAttributeValue };
 
+/**
+ * This action is a way to react to input/gamepad/controls, mainly made in order
+ * to allow the Player to be an Enemy (i.e. GameObject)
+ */
+export type TMoveAccordingToInput = { type: "moveAccordingToInput" };
+
 export type TAction =
    /**
     * Utils
@@ -120,6 +126,10 @@ export type TAction =
    TRotateTowardsPlayer |
    TMoveAccordingToSpeedAndDirection |
    TMoveDirection |
+   /**
+    * Controls/input
+    */
+   TMoveAccordingToInput |
    /**
    * Spawning/Life cycle
    */

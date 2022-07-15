@@ -202,8 +202,9 @@ export class App {
    public Init = async () => {
       const {
          enemies, events,
-         gameLoop, gameSpeed, graphics,
+         gameLoop, gamepad, gameSpeed, graphics,
          highscore,
+         input,
          player, playerShots, points,
          yaml,
          uiEvents
@@ -232,6 +233,8 @@ export class App {
          graphics,
          player,
          yaml,
+         input,
+         gamepad
       });
       await this.gamepad.Init();
       await this.collisions.Init({

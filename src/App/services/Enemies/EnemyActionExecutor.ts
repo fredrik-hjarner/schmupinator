@@ -3,12 +3,14 @@ import type {
 } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TAttributeValue } from "./Attributes/Attributes";
+import type { IInput } from "../Input/IInput";
+import type { GamePad } from "../GamePad/GamePad";
 
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
 import { ShortFormToLongForm, TShortFormAction } from "./actionTypesShortForms";
-import { resolutionHeight, resolutionWidth } from "../../../consts";
+import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../consts";
 
 type TActionHandler = (action: TAction) => void;
 
@@ -22,10 +24,15 @@ type TEnemyActionExecutorArgs = {
    actionHandler: TActionHandler;
    getPosition: () => TVector;
    getAttr: (attr: string) => TAttributeValue;
-   getId: () => string;
+   input: IInput;
+   gamepad: GamePad;
 }
 
 export class EnemyActionExecutor {
+   // deps/services
+   private input: IInput;
+   private gamepad: GamePad;
+
    private actionHandler: (action: TAction) => void;
    private getPosition: () => TVector;
    private getAttr: (attr: string) => TAttributeValue;
@@ -35,10 +42,13 @@ export class EnemyActionExecutor {
     */
    public generators: Generator<void, void, void>[];
 
-   public constructor({ actions, actionHandler, getPosition, getAttr }: TEnemyActionExecutorArgs) {
+   public constructor(params: TEnemyActionExecutorArgs) {
+      const { actions, actionHandler, getPosition, getAttr, input, gamepad } = params;
       this.actionHandler = actionHandler;
       this.getPosition = getPosition;
       this.getAttr = getAttr;
+      this.input = input;
+      this.gamepad = gamepad;
       this.generators = [this.makeGenerator(actions)];
    }
 
@@ -76,6 +86,36 @@ export class EnemyActionExecutor {
          const currAction = actions[currIndex];
          // console.log(currAction.type);
          switch(currAction.type) {
+            case "moveAccordingToInput": {
+               const input = this.input;
+               const gamepad = this.gamepad;
+
+               let speed = playerSpeedPerFrame[0];
+
+               const left = input.ButtonsPressed.left || gamepad.left;
+               const right = input.ButtonsPressed.right || gamepad.right;
+               const up = input.ButtonsPressed.up || gamepad.up;
+               const down = input.ButtonsPressed.down || gamepad.down;
+
+               const horizonal = left || right;
+               const vertical = up || down;
+               if(horizonal && vertical) {
+                  // decrease speed to not have diagonal movement be faster.
+                  speed /= Math.SQRT2;
+               }
+
+               let x=0;
+               let y=0;
+               if (left) { x -= speed; }
+               if (right) { x += speed; }
+               if (up) { y -= speed; }
+               if (down) { y += speed; }
+               if(x !== 0 || y !== 0) {
+                  this.actionHandler({ type: "moveDelta", x, y });
+               }
+               break;
+            }
+
             case "waitUntilAttrIs": {
                const { attr, is } = currAction;
                while(this.getAttr(attr) !== is) {

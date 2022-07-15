@@ -6,6 +6,8 @@ import type { IGameEvents, TGameEvent } from "../Events/IEvents";
 import type { TShortFormAction } from "./actionTypesShortForms";
 import type { Player } from "../Player/Player";
 import type { IGraphics } from "../Graphics/IGraphics";
+import type { GamePad } from "../GamePad/GamePad";
+import type { IInput } from "../Input/IInput";
 
 import { Enemy } from "./Enemy";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
@@ -19,6 +21,8 @@ export class Enemies implements IService {
    public events!: IGameEvents;
    public player!: Player;
    public graphics!: IGraphics;
+   public input!: IInput;
+   public gamepad!: GamePad;
 
    /**
     * Public
@@ -40,6 +44,8 @@ export class Enemies implements IService {
       this.yaml = deps?.yaml as Yaml;
       this.player = deps?.player as Player;
       this.graphics = deps?.graphics as IGraphics;
+      this.input = deps?.input as IInput;
+      this.gamepad = deps?.gamepad as GamePad;
 
       /**
        * The "spawner" enemy is not a normal enemy.

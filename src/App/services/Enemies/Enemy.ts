@@ -35,9 +35,6 @@ export class Enemy {
    private attrs = new Attributes();
    private name: string;
 
-   /**
-    * Public
-    */
    public constructor(
       enemies: Enemies,
       position: TVector,
@@ -54,7 +51,8 @@ export class Enemy {
          actions: json.actions,
          getPosition: this.getPosition,
          getAttr: this.getAttr,
-         getId: () => this.id,
+         input: this.enemies.input,
+         gamepad: this.enemies.gamepad,
       });
       // TODO: Attrs should be be set by an Action in future, right?
       this.hp = json.hp;
@@ -114,9 +112,7 @@ export class Enemy {
           */
          this.updateDisplayHealth();
 
-         if(this.hp < 1) {
-            this.die();
-         }
+         if(this.hp < 1) { this.die(); }
       }
    };
 
