@@ -29,7 +29,6 @@ import { Fps } from "./services/Fps/Fps";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Input } from "./services/Input/Input";
-import { Player } from "./services/Player/Player";
 import { GamePad } from "./services/GamePad/GamePad";
 import { Collisions } from "./services/Collisions/Collisions";
 //@ts-ignore
@@ -84,7 +83,6 @@ export class App {
    public input: IInput;
    public gameLoop: IGameLoop;
    public fps: IFps;
-   public player: Player;
    public enemies: Enemies;
    public gamepad: GamePad;
    public collisions: Collisions;
@@ -128,8 +126,6 @@ export class App {
          new Fps({ app: this, name: "fps" }) :
          // new MockFps({ app: this, name: "fps" }) :
          new MockFps({ app: this, name: "fps" });
-
-      this.player = new Player({ app: this, name: "player" });
 
       this.enemies = new Enemies({ name: "enemies" });
 
@@ -191,7 +187,7 @@ export class App {
          gameLoop, gamepad, gameSpeed, graphics,
          highscore,
          input,
-         player, points,
+         points,
          yaml,
          uiEvents
       } = this;
@@ -211,11 +207,9 @@ export class App {
       });
       await this.gameLoop.Init();
       await this.fps.Init();
-      await this.player.Init();
       await this.enemies.Init({
          events,
          graphics,
-         player,
          yaml,
          input,
          gamepad

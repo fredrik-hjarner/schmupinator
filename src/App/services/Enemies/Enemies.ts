@@ -4,7 +4,6 @@ import type { Yaml } from "../Yaml/Yaml";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import type { IGameEvents, TGameEvent } from "../Events/IEvents";
 import type { TShortFormAction } from "./actionTypesShortForms";
-import type { Player } from "../Player/Player";
 import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
@@ -19,7 +18,6 @@ export class Enemies implements IService {
    // deps/services
    private yaml!: Yaml;
    public events!: IGameEvents;
-   public player!: Player;
    public graphics!: IGraphics;
    public input!: IInput;
    public gamepad!: GamePad;
@@ -42,7 +40,6 @@ export class Enemies implements IService {
    public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
       this.yaml = deps?.yaml as Yaml;
-      this.player = deps?.player as Player;
       this.graphics = deps?.graphics as IGraphics;
       this.input = deps?.input as IInput;
       this.gamepad = deps?.gamepad as GamePad;
@@ -90,6 +87,17 @@ export class Enemies implements IService {
       };
       this.enemies.push(new Enemy(this, position, newEnemyJson));
    };
+
+   // TODO: This could probably be optimized as now it has to find the Player every single time.
+   public get player(): Enemy {
+      const player = this.enemies.find(e =>
+         e.attrs.GetAttribute("collisionType").value as string === "player"
+      );
+      if(player === undefined) {
+         throw new Error("Enemies.getPlayer: Player was not found");
+      }
+      return player;
+   }
 
    /**
     * TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private

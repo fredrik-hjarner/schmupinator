@@ -68,9 +68,7 @@ export class Collisions implements IService {
             ["playerBullet"].includes(e.attrs.GetAttribute("collisionType").value as string)
          );
       const player = this.enemies.enemies
-         .find(e =>
-            ["player"].includes(e.attrs.GetAttribute("collisionType").value as string)
-         );
+         .find(e => e.attrs.GetAttribute("collisionType").value as string === "player");
       if(player === undefined) {
          throw new Error("Collisions: Player was not found");
       }
