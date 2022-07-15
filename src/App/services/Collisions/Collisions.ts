@@ -4,13 +4,16 @@ import type { IService, TInitParams } from "../IService";
 
 import { playerInvincible } from "../../../consts";
 
-export type PosAndRadius = {X: number, Y: number, Radius: number };
+export type PosAndRadiusAndId = {X: number, Y: number, Radius: number, id: string };
 
 export type TCollisions = {
-   playerWasHit: boolean;
    // List of id:s of enemies that were hit.
    enemiesThatWereHit: string[];
 };
+
+type TCalcCollisionsResult =
+   { collided: true, collidedWithId: string } |
+   { collided: false };
 
 type TConstructor = {
    name: string;
@@ -66,7 +69,7 @@ export class Collisions implements IService {
       const player = this.enemies.player;
 
       const playerWasHit =
-         this.calcCircleWasHitByShots({ circle: player, shots: killsPlayerOnCollision });
+         this.calcCollisions({ circle: player, shots: killsPlayerOnCollision }).collided;
       if(playerWasHit && !playerInvincible) {
          // TODO: This is a bit ugly.
          this.events.dispatchEvent({ type: "player_died" });
@@ -74,23 +77,23 @@ export class Collisions implements IService {
       
       // TODO: Also remove the bullets that collided here.
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
-         const wasHit = this.calcCircleWasHitByShots({
+         const collision = this.calcCollisions({
             circle: enemy,
             shots: playerBullets
          });
-         return wasHit ? [...acc, enemy.id] : acc;
+         return collision.collided ? [...acc, enemy.id, collision.collidedWithId] : acc;
       }, []);
 
       // Only send event if there were collisions.
-      if (playerWasHit || enemiesThatWereHit.length > 0) {
-         const collisions = { playerWasHit, enemiesThatWereHit };
+      if (enemiesThatWereHit.length > 0) {
+         const collisions = { enemiesThatWereHit };
          this.events.dispatchEvent({ type: "collisions", collisions });
       }
    };
 
-   private calcCircleWasHitByShots = (
-      { circle, shots }: { circle: PosAndRadius, shots: PosAndRadius[] }
-   ): boolean => {
+   private calcCollisions = (
+      { circle, shots }: { circle: PosAndRadiusAndId, shots: PosAndRadiusAndId[] }
+   ): TCalcCollisionsResult => {
       for(let i=0; i<shots.length; i++) {
          const shot = shots[i];
          // Multiplying minDistance if a hack to cause lower hit "box".
@@ -99,9 +102,9 @@ export class Collisions implements IService {
          const yDist = circle.Y - shot.Y;
          const distance = Math.sqrt(xDist**2 + yDist**2);
          if(distance <= minDistance) {
-            return true;
+            return { collided: true, collidedWithId: shot.id };
          }
       }
-      return false;
+      return { collided: false };
    };
 }

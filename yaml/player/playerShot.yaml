@@ -1,6 +1,6 @@
 enemy:
   name: playerShot
-  hp: 9999
+  hp: 1
   diameter: 5
   actions:
     - { type: setAttribute, attribute: collisionType, value: playerBullet }
