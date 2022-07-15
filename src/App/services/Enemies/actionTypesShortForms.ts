@@ -10,7 +10,7 @@ const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => 
 };
 
 export type TShortFormSpawn = { 
-   spawn: string, x: number, y: number, actions?: TShortFormAction[]
+   spawn: string, x?: number, y?: number, actions?: TShortFormAction[]
 };
 const isShortFormSpawn = (action: TShortFormAction): action is TShortFormSpawn => {
    return (action as TShortFormSpawn).spawn !== undefined;

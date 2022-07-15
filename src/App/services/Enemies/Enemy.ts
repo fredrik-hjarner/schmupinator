@@ -193,7 +193,7 @@ export class Enemy {
             break;
 
          case "spawn": {
-            const { enemy, x, y, actions } = action;
+            const { enemy, x=0, y=0, actions } = action;
             this.spawn({ enemy, pos: { x, y }, actions });
             break;
          }
@@ -244,7 +244,7 @@ export class Enemy {
       const speedUpFactor = pixelsPerFrame / pythagoras;
 
       this.spawn({
-         enemy:"shot",
+         enemy: "shot",
          pos: { x: 0, y: 0 },
          actions:  [
             {

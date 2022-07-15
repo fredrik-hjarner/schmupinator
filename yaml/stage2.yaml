@@ -7,7 +7,7 @@ enemy:
       - wait: 270
       - do: [{ spawn: cloner, x: *c2, y: -20 }, { spawn: cloner, x: *c8, y: -20 }]
 ---
-x-child: &child { spawn: clonerChild, x: 0, y: 0 }
+x-child: &child { spawn: clonerChild }
 
 enemy:
   name: cloner

@@ -36,7 +36,7 @@ export type TRotateTowardsPlayer = { type: "rotate_towards_player" };
 export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
 // Spawns an enemy. actions are prepended to the actions of the particular enemy.
 export type TSpawn = {
-   type: "spawn", enemy: string, x: number, y: number, actions?: TSFAction[]
+   type: "spawn", enemy: string, x?: number, y?: number, actions?: TSFAction[]
 };
 // Simple if-equals case. Executes yes if true. Executs no when false.
 export type TAttr =

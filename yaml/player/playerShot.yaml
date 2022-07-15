@@ -1,0 +1,10 @@
+enemy:
+  name: playerShot
+  hp: 9999
+  diameter: 5
+  actions:
+    - { type: setAttribute, attribute: collisionType, value: playerBullet }
+    # TODO: is points really necessary for this?
+    - { type: setAttribute, attribute: points, value: 0 }
+    - { type: gfxSetShape, shape: circle }
+    - { type: gfxSetColor, color: aqua }

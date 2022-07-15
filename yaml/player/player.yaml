@@ -1,34 +1,17 @@
-enemy:
-  name: playerShot
-  hp: 9999
-  diameter: 5
-  actions:
-    - { type: setAttribute, attribute: collisionType, value: playerBullet }
-    # TODO: is points really necessary for this?
-    - { type: setAttribute, attribute: points, value: 0 }
-    - { type: gfxSetShape, shape: circle }
-    - { type: gfxSetColor, color: aqua }
----
-x-shoot: &shoot
+x-trippleShot: &trippleShot
   - spawn: playerShot
-    x: 0
-    y: 0
     actions:
       - fork:
         - forever:
           - { type: moveDelta, x: 0, y: -9 }
           - { type: waitNextFrame }
   - spawn: playerShot
-    x: 0
-    y: 0
     actions:
       - fork:
         - forever:
           - { type: moveDelta, x: 1.5, y: -9 }
           - { type: waitNextFrame }
   - spawn: playerShot
-    x: 0
-    y: 0
     actions:
       - fork:
         - forever:
@@ -56,5 +39,5 @@ enemy:
       - fork:
         - forever:
           - { type: waitInputShoot }
-          - do: *shoot
+          - do: *trippleShot
           - wait: 8

@@ -40,8 +40,6 @@ just like you check a flag.
 
 * Shots could be Enemy. Player could be Enemy. Powerups could be Enemy. The power!
 
-* Make x,y on spawn action optional.
-
 * Now when Shots are Enemy, I could do the maxShots limitation with a thing like maxChildren,
 maxChildren would be the max number of spawns. I would need to implement parent-spawn relations.
 
