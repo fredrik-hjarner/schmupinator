@@ -1,72 +1,72 @@
 /* eslint-disable max-lines */
 export const history = {
-   "187": {
-      "points": 10,
-      "reason": "nonShootingAimer"
+   "175": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "183": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "188": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "194": {
+   "189": {
       "points": 10,
       "reason": "nonShootingAimer"
+   },
+   "191": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "195": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "198": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "200": {
+   "196": {
       "points": 10,
       "reason": "nonShootingAimer"
+   },
+   "199": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "201": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "206": {
-      "points": -1,
-      "reason": "player_missed_bullet"
+   "202": {
+      "points": 10,
+      "reason": "nonShootingAimer"
    },
    "207": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "213": {
+   "208": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
    "214": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "220": {
       "points": 10,
       "reason": "nonShootingAimer"
+   },
+   "215": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "221": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "222": {
+   "223": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "227": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
-   "230": {
+   "231": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "235": {
-      "points": 10,
-      "reason": "nonShootingAimer"
    },
    "236": {
       "points": 10,
@@ -77,8 +77,16 @@ export const history = {
       "reason": "nonShootingAimer"
    },
    "238": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "239": {
       "points": -1,
       "reason": "player_missed_bullet"
+   },
+   "240": {
+      "points": 10,
+      "reason": "nonShootingAimer"
    },
    "241": {
       "points": 10,
@@ -92,15 +100,15 @@ export const history = {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "246": {
+   "247": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "248": {
+   "249": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "253": {
+   "250": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -109,6 +117,10 @@ export const history = {
       "reason": "nonShootingAimer"
    },
    "255": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "256": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -121,100 +133,80 @@ export const history = {
       "reason": "nonShootingAimer"
    },
    "262": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "266": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "267": {
+   "263": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "268": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "270": {
+   "271": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "278": {
+   "279": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "286": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "293": {
+   "280": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "294": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "300": {
+   "281": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "301": {
+   "287": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "302": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "310": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "318": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "320": {
+   "288": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "326": {
+   "295": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "333": {
+   "303": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "311": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "319": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "327": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "328": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
    "334": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "340": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "341": {
+   "335": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "342": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
-   "345": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
-   "346": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
-   "348": {
+   "343": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
    "351": {
-      "points": 10,
-      "reason": "nonShootingAimer"
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "352": {
       "points": 10,
@@ -224,15 +216,15 @@ export const history = {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "355": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "357": {
+   "354": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "361": {
+   "358": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "359": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
@@ -240,7 +232,15 @@ export const history = {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "368": {
+   "364": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "365": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "367": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
@@ -248,7 +248,11 @@ export const history = {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "376": {
+   "371": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
+   "375": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
@@ -256,55 +260,51 @@ export const history = {
       "points": 10,
       "reason": "nonShootingAimer"
    },
+   "378": {
+      "points": 10,
+      "reason": "nonShootingAimer"
+   },
    "383": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "391": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "399": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "403": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "384": {
+   "407": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "389": {
+   "410": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "390": {
+   "415": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "417": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "392": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "396": {
+   "418": {
       "points": 10,
       "reason": "nonShootingAimer"
-   },
-   "400": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "408": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "416": {
-      "points": -1,
-      "reason": "player_missed_bullet"
    },
    "423": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "424": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
-   "429": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
-   "430": {
+   "425": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
@@ -313,132 +313,116 @@ export const history = {
       "reason": "nonShootingAimer"
    },
    "432": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "436": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "437": {
+   "439": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "447": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "451": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "440": {
+   "455": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "448": {
+   "463": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "456": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "464": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "470": {
-      "points": 10,
-      "reason": "nonShootingAimer"
    },
    "471": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
    "472": {
-      "points": -1,
-      "reason": "player_missed_bullet"
+      "points": 10,
+      "reason": "nonShootingAimer"
    },
    "477": {
       "points": 10,
       "reason": "nonShootingAimer"
    },
-   "478": {
-      "points": 10,
-      "reason": "nonShootingAimer"
-   },
-   "480": {
+   "479": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "488": {
+   "487": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "497": {
+   "495": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "507": {
+   "503": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "515": {
+   "511": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "523": {
+   "519": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "531": {
+   "527": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "539": {
+   "535": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "547": {
+   "543": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "555": {
+   "551": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "564": {
+   "559": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "573": {
+   "567": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "581": {
+   "575": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "589": {
+   "583": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "597": {
+   "591": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "605": {
+   "599": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "613": {
+   "607": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "621": {
+   "615": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "629": {
+   "623": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "630": {
-      "points": 10,
-      "reason": "sinus"
    },
    "631": {
       "points": 10,
@@ -448,53 +432,57 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
-   "637": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "645": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "646": {
-      "points": 0,
-      "reason": "shot"
-   },
-   "653": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "661": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "669": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "677": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "685": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "693": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "701": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "709": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "717": {
+   "633": {
       "points": 10,
       "reason": "sinus"
+   },
+   "639": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "647": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "655": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "663": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "671": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "679": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "687": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "695": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "703": {
+      "points": 10,
+      "reason": "sinus"
+   },
+   "704": {
+      "points": 10,
+      "reason": "sinus"
+   },
+   "705": {
+      "points": 10,
+      "reason": "sinus"
+   },
+   "711": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "718": {
       "points": 10,
@@ -504,73 +492,57 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
-   "725": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "733": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "734": {
-      "points": 0,
-      "reason": "shot"
-   },
-   "741": {
-      "points": 0,
-      "reason": "shot"
-   },
-   "749": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "757": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "765": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "773": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "774": {
+   "720": {
       "points": 10,
       "reason": "sinus"
+   },
+   "727": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "735": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "743": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "751": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "759": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "767": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "775": {
-      "points": 10,
-      "reason": "sinus"
-   },
-   "776": {
-      "points": 10,
-      "reason": "sinus"
-   },
-   "781": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "789": {
+   "783": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "797": {
+   "791": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "805": {
+   "799": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "813": {
+   "807": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
    "815": {
-      "points": 10,
-      "reason": "sinus"
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "816": {
       "points": 10,
@@ -580,45 +552,41 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
-   "821": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "829": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "836": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "842": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "849": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "857": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "865": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "873": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "881": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "883": {
+   "818": {
       "points": 10,
       "reason": "sinus"
+   },
+   "823": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "831": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "839": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "847": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "855": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "863": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "871": {
+      "points": -1,
+      "reason": "player_missed_bullet"
+   },
+   "879": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "884": {
       "points": 10,
@@ -628,39 +596,43 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
-   "889": {
+   "886": {
+      "points": 10,
+      "reason": "sinus"
+   },
+   "887": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "897": {
+   "895": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "905": {
+   "903": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "913": {
+   "911": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "921": {
+   "919": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "929": {
+   "927": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "937": {
+   "935": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "945": {
+   "943": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "953": {
+   "951": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
@@ -672,31 +644,23 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
-   "961": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "963": {
+   "958": {
       "points": 10,
       "reason": "sinus"
    },
-   "968": {
-      "points": 0,
-      "reason": "shot"
-   },
-   "969": {
+   "959": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "977": {
+   "967": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "980": {
-      "points": 0,
-      "reason": "shot"
+   "975": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
-   "984": {
+   "983": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
@@ -724,10 +688,6 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1033": {
-      "points": 10,
-      "reason": "sinus"
-   },
    "1034": {
       "points": 10,
       "reason": "sinus"
@@ -736,21 +696,17 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
+   "1036": {
+      "points": 10,
+      "reason": "sinus"
+   },
    "1039": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1046": {
-      "points": 0,
-      "reason": "shot"
-   },
    "1047": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "1053": {
-      "points": 0,
-      "reason": "shot"
    },
    "1055": {
       "points": -1,
@@ -776,10 +732,6 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1097": {
-      "points": 10,
-      "reason": "sinus"
-   },
    "1098": {
       "points": 10,
       "reason": "sinus"
@@ -788,13 +740,13 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
+   "1100": {
+      "points": 10,
+      "reason": "sinus"
+   },
    "1103": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "1110": {
-      "points": 0,
-      "reason": "shot"
    },
    "1111": {
       "points": -1,
@@ -808,15 +760,15 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1134": {
+   "1135": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1142": {
+   "1143": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1150": {
+   "1151": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
@@ -841,8 +793,8 @@ export const history = {
       "reason": "player_missed_bullet"
    },
    "1199": {
-      "points": 10,
-      "reason": "sinus"
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1200": {
       "points": 10,
@@ -852,13 +804,13 @@ export const history = {
       "points": 10,
       "reason": "sinus"
    },
+   "1202": {
+      "points": 10,
+      "reason": "sinus"
+   },
    "1207": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "1211": {
-      "points": 0,
-      "reason": "shot"
    },
    "1215": {
       "points": -1,
@@ -889,14 +841,18 @@ export const history = {
       "reason": "player_missed_bullet"
    },
    "1271": {
-      "points": 10,
-      "reason": "sinus"
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1272": {
       "points": 10,
       "reason": "sinus"
    },
    "1273": {
+      "points": 10,
+      "reason": "sinus"
+   },
+   "1274": {
       "points": 10,
       "reason": "sinus"
    },
@@ -924,107 +880,151 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1326": {
+   "1327": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1333": {
+   "1335": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1341": {
+   "1343": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1349": {
+   "1351": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1357": {
+   "1359": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1365": {
+   "1367": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1373": {
+   "1375": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1381": {
+   "1383": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1389": {
+   "1391": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1397": {
+   "1399": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1405": {
+   "1407": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1414": {
+   "1415": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1422": {
+   "1423": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1430": {
+   "1431": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1438": {
+   "1439": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1446": {
+   "1447": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1454": {
+   "1455": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1462": {
+   "1463": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1470": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "1477": {
+   "1464": {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1478": {
-      "points": -1,
-      "reason": "player_missed_bullet"
+   "1465": {
+      "points": 10,
+      "reason": "firstMiniboss"
    },
-   "1485": {
+   "1466": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1471": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1472": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1473": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1474": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1479": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1480": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1481": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1482": {
       "points": 10,
       "reason": "firstMiniboss"
    },
    "1486": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1487": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1488": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1489": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1495": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1496": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1503": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1494": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "1502": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "1510": {
+   "1511": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
@@ -1036,35 +1036,35 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1518": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "1522": {
+   "1517": {
       "points": 10,
       "reason": "firstMiniboss"
+   },
+   "1519": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1523": {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1526": {
+   "1524": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1527": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1534": {
-      "points": -1,
-      "reason": "player_missed_bullet"
-   },
-   "1542": {
+   "1535": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
    "1543": {
-      "points": 10,
-      "reason": "firstMiniboss"
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
-   "1550": {
+   "1544": {
       "points": 10,
       "reason": "firstMiniboss"
    },
@@ -1076,7 +1076,7 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1558": {
+   "1553": {
       "points": 10,
       "reason": "firstMiniboss"
    },
@@ -1092,9 +1092,13 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1568": {
+   "1562": {
       "points": 10,
       "reason": "firstMiniboss"
+   },
+   "1567": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1569": {
       "points": 10,
@@ -1108,9 +1112,9 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1577": {
-      "points": 10,
-      "reason": "firstMiniboss"
+   "1575": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1578": {
       "points": 10,
@@ -1124,9 +1128,13 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1586": {
-      "points": 0,
-      "reason": "shot"
+   "1581": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1583": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1587": {
       "points": 10,
@@ -1140,9 +1148,13 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
-   "1595": {
+   "1590": {
       "points": 10,
       "reason": "firstMiniboss"
+   },
+   "1591": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1596": {
       "points": 10,
@@ -1157,8 +1169,8 @@ export const history = {
       "reason": "firstMiniboss"
    },
    "1599": {
-      "points": -1,
-      "reason": "player_missed_bullet"
+      "points": 10,
+      "reason": "firstMiniboss"
    },
    "1607": {
       "points": -1,
@@ -1168,21 +1180,21 @@ export const history = {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1617": {
-      "points": 0,
-      "reason": "shot"
+   "1623": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
-   "1630": {
-      "points": 0,
-      "reason": "shot"
+   "1628": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1629": {
+      "points": 10,
+      "reason": "firstMiniboss"
    },
    "1631": {
       "points": -1,
       "reason": "player_missed_bullet"
-   },
-   "1634": {
-      "points": 10,
-      "reason": "firstMiniboss"
    },
    "1635": {
       "points": 10,
@@ -1192,17 +1204,33 @@ export const history = {
       "points": 10,
       "reason": "firstMiniboss"
    },
+   "1637": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
    "1639": {
       "points": -1,
       "reason": "player_missed_bullet"
    },
-   "1647": {
-      "points": 0,
-      "reason": "shot"
-   },
-   "1649": {
+   "1642": {
       "points": 10,
       "reason": "firstMiniboss"
+   },
+   "1643": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1644": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1645": {
+      "points": 10,
+      "reason": "firstMiniboss"
+   },
+   "1647": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    },
    "1650": {
       "points": 10,
@@ -1221,11 +1249,11 @@ export const history = {
       "reason": "firstMiniboss"
    },
    "1654": {
-      "points": 0,
-      "reason": "shot"
-   },
-   "1657": {
       "points": 10,
       "reason": "firstMiniboss"
+   },
+   "1655": {
+      "points": -1,
+      "reason": "player_missed_bullet"
    }
 };

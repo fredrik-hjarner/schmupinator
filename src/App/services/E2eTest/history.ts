@@ -1,19 +1,25 @@
 /* eslint-disable max-lines */
 export const history = {
-   "187": [
+   "175": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-3"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "183": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "188": [
@@ -22,7 +28,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-3"
+               "nonShootingAimer-4"
             ]
          }
       },
@@ -32,14 +38,13 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "194": [
+   "189": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-3",
-               "nonShootingAimer-5"
+               "nonShootingAimer-4"
             ]
          }
       },
@@ -47,321 +52,20 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
+      }
+   ],
+   "191": [
+      {
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "195": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-2",
-               "nonShootingAimer-3"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "198": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "200": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-5"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "201": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-5"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "206": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "207": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-5"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "213": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-7"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "214": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "220": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-7"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "221": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-7"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "222": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "227": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-7"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "230": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "235": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-2"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "236": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-2"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "237": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-2"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "238": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "241": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-4"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "242": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-4"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "243": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-4"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "246": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "248": [
       {
          "type": "collisions",
          "collisions": {
@@ -383,13 +87,346 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "253": [
+   "196": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-9"
+               "nonShootingAimer-3",
+               "nonShootingAimer-4"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "199": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "201": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-6"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "202": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-6"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "207": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-20"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "208": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-6",
+               "nonShootingAimer-20"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "214": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-20"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "215": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "221": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-20"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "223": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "231": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "236": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-3"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "237": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-3"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "238": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-3"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "239": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "240": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-37"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "241": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-37"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "242": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-5"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "243": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-5"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "247": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "249": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-5",
+               "nonShootingAimer-19"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "250": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-5"
             ]
          }
       },
@@ -401,20 +438,11 @@ export const history = {
    ],
    "254": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-6"
+               "nonShootingAimer-37"
             ]
          }
       },
@@ -426,11 +454,42 @@ export const history = {
    ],
    "255": [
       {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-6"
+               "nonShootingAimer-19",
+               "nonShootingAimer-37"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "256": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-19"
             ]
          }
       },
@@ -446,15 +505,9 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-6",
-               "nonShootingAimer-8"
+               "nonShootingAimer-36"
             ]
          }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
       },
       {
          "type": "add_points",
@@ -468,9 +521,15 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-8"
+               "nonShootingAimer-19",
+               "nonShootingAimer-36"
             ]
          }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       },
       {
          "type": "add_points",
@@ -480,22 +539,11 @@ export const history = {
    ],
    "262": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "266": [
-      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-8"
+               "nonShootingAimer-36"
             ]
          }
       },
@@ -505,13 +553,24 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "267": [
+   "263": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "268": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-8"
+               "nonShootingAimer-36"
             ]
          }
       },
@@ -521,7 +580,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "270": [
+   "271": [
       {
          "type": "player_missed_bullet"
       },
@@ -532,7 +591,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "278": [
+   "279": [
       {
          "type": "player_missed_bullet"
       },
@@ -543,24 +602,13 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "286": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "293": [
+   "280": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-10"
+               "nonShootingAimer-53"
             ]
          }
       },
@@ -570,24 +618,13 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "294": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "300": [
+   "281": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-10"
+               "nonShootingAimer-53"
             ]
          }
       },
@@ -597,13 +634,22 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "301": [
+   "287": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-10"
+               "nonShootingAimer-53"
             ]
          }
       },
@@ -613,46 +659,13 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "302": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "310": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "318": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "320": [
+   "288": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-10"
+               "nonShootingAimer-53"
             ]
          }
       },
@@ -662,7 +675,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "326": [
+   "295": [
       {
          "type": "player_missed_bullet"
       },
@@ -673,13 +686,71 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "333": [
+   "303": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "311": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "319": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "327": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-12"
+               "nonShootingAimer-70"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "328": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-70"
             ]
          }
       },
@@ -691,44 +762,11 @@ export const history = {
    ],
    "334": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "340": [
-      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-9",
-               "nonShootingAimer-12"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "341": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-9"
+               "nonShootingAimer-70"
             ]
          }
       },
@@ -738,7 +776,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "342": [
+   "335": [
       {
          "type": "player_missed_bullet"
       },
@@ -753,7 +791,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-9"
+               "nonShootingAimer-70"
             ]
          }
       },
@@ -763,39 +801,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "345": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-12"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "346": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-12"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "348": [
+   "343": [
       {
          "type": "player_missed_bullet"
       },
@@ -808,18 +814,13 @@ export const history = {
    ],
    "351": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-11"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "352": [
@@ -828,7 +829,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-11"
+               "nonShootingAimer-54"
             ]
          }
       },
@@ -844,7 +845,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-11"
+               "nonShootingAimer-54"
             ]
          }
       },
@@ -854,24 +855,13 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "355": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "357": [
+   "354": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-11"
+               "nonShootingAimer-54"
             ]
          }
       },
@@ -881,7 +871,23 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "361": [
+   "358": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-54"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "359": [
       {
          "type": "player_missed_bullet"
       },
@@ -898,7 +904,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-13"
+               "nonShootingAimer-87"
             ]
          }
       },
@@ -908,7 +914,45 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "368": [
+   "364": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-71",
+               "nonShootingAimer-87"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "365": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-71"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "367": [
       {
          "type": "player_missed_bullet"
       },
@@ -925,7 +969,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-13"
+               "nonShootingAimer-87"
             ]
          }
       },
@@ -935,7 +979,23 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "376": [
+   "371": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-71"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "375": [
       {
          "type": "player_missed_bullet"
       },
@@ -952,7 +1012,23 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-13"
+               "nonShootingAimer-87"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "378": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-71"
             ]
          }
       },
@@ -964,27 +1040,16 @@ export const history = {
    ],
    "383": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-13",
-               "nonShootingAimer-14"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "type": "player_missed_bullet"
       }
    ],
-   "384": [
+   "391": [
       {
          "type": "player_missed_bullet"
       },
@@ -995,29 +1060,24 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "389": [
+   "399": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-14"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
-   "390": [
+   "403": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-14"
+               "nonShootingAimer-104"
             ]
          }
       },
@@ -1027,7 +1087,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "392": [
+   "407": [
       {
          "type": "player_missed_bullet"
       },
@@ -1038,13 +1098,13 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "396": [
+   "410": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-14"
+               "nonShootingAimer-104"
             ]
          }
       },
@@ -1054,7 +1114,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "400": [
+   "415": [
       {
          "type": "player_missed_bullet"
       },
@@ -1065,46 +1125,40 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "408": [
+   "417": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-104"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
-   "416": [
+   "418": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-88"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
    "423": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-16"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "424": [
-      {
          "type": "player_missed_bullet"
       },
       {
@@ -1118,7 +1172,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-15"
+               "nonShootingAimer-104"
             ]
          }
       },
@@ -1128,37 +1182,15 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "429": [
+   "425": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-16"
+               "nonShootingAimer-88"
             ]
          }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "430": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-15",
-               "nonShootingAimer-16"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
       },
       {
          "type": "add_points",
@@ -1168,11 +1200,20 @@ export const history = {
    ],
    "431": [
       {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-15"
+               "nonShootingAimer-88"
             ]
          }
       },
@@ -1184,22 +1225,11 @@ export const history = {
    ],
    "432": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "436": [
-      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-16"
+               "nonShootingAimer-88"
             ]
          }
       },
@@ -1209,13 +1239,35 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "437": [
+   "439": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "447": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "451": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-15"
+               "nonShootingAimer-105"
             ]
          }
       },
@@ -1225,7 +1277,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "440": [
+   "455": [
       {
          "type": "player_missed_bullet"
       },
@@ -1236,7 +1288,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "448": [
+   "463": [
       {
          "type": "player_missed_bullet"
       },
@@ -1245,53 +1297,24 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      }
-   ],
-   "456": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "464": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "470": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-17"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
       }
    ],
    "471": [
       {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-17"
+               "nonShootingAimer-105"
             ]
          }
       },
@@ -1303,13 +1326,18 @@ export const history = {
    ],
    "472": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "nonShootingAimer-105"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
    "477": [
@@ -1318,7 +1346,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "nonShootingAimer-17"
+               "nonShootingAimer-105"
             ]
          }
       },
@@ -1328,23 +1356,7 @@ export const history = {
          "enemy": "nonShootingAimer"
       }
    ],
-   "478": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "nonShootingAimer-17"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "480": [
+   "479": [
       {
          "type": "player_missed_bullet"
       },
@@ -1355,7 +1367,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "488": [
+   "487": [
       {
          "type": "player_missed_bullet"
       },
@@ -1366,7 +1378,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "497": [
+   "495": [
       {
          "type": "player_missed_bullet"
       },
@@ -1377,7 +1389,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "507": [
+   "503": [
       {
          "type": "player_missed_bullet"
       },
@@ -1388,7 +1400,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "515": [
+   "511": [
       {
          "type": "player_missed_bullet"
       },
@@ -1399,7 +1411,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "523": [
+   "519": [
       {
          "type": "player_missed_bullet"
       },
@@ -1410,7 +1422,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "531": [
+   "527": [
       {
          "type": "player_missed_bullet"
       },
@@ -1421,7 +1433,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "539": [
+   "535": [
       {
          "type": "player_missed_bullet"
       },
@@ -1432,7 +1444,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "547": [
+   "543": [
       {
          "type": "player_missed_bullet"
       },
@@ -1443,7 +1455,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "555": [
+   "551": [
       {
          "type": "player_missed_bullet"
       },
@@ -1454,7 +1466,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "564": [
+   "559": [
       {
          "type": "player_missed_bullet"
       },
@@ -1465,7 +1477,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "573": [
+   "567": [
       {
          "type": "player_missed_bullet"
       },
@@ -1476,7 +1488,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "581": [
+   "575": [
       {
          "type": "player_missed_bullet"
       },
@@ -1487,7 +1499,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "589": [
+   "583": [
       {
          "type": "player_missed_bullet"
       },
@@ -1498,7 +1510,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "597": [
+   "591": [
       {
          "type": "player_missed_bullet"
       },
@@ -1509,7 +1521,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "605": [
+   "599": [
       {
          "type": "player_missed_bullet"
       },
@@ -1520,7 +1532,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "613": [
+   "607": [
       {
          "type": "player_missed_bullet"
       },
@@ -1531,7 +1543,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "621": [
+   "615": [
       {
          "type": "player_missed_bullet"
       },
@@ -1542,7 +1554,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "629": [
+   "623": [
       {
          "type": "player_missed_bullet"
       },
@@ -1551,31 +1563,24 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      }
-   ],
-   "630": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-18"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
       }
    ],
    "631": [
       {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-18"
+               "sinus-166"
             ]
          }
       },
@@ -1591,7 +1596,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-18"
+               "sinus-166"
             ]
          }
       },
@@ -1601,56 +1606,23 @@ export const history = {
          "enemy": "sinus"
       }
    ],
-   "637": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "645": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "646": [
+   "633": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "shot-19"
+               "sinus-166"
             ]
          }
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
+         "points": 10,
+         "enemy": "sinus"
       }
    ],
-   "653": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "661": [
+   "639": [
       {
          "type": "player_missed_bullet"
       },
@@ -1661,7 +1633,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "669": [
+   "647": [
       {
          "type": "player_missed_bullet"
       },
@@ -1672,7 +1644,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "677": [
+   "655": [
       {
          "type": "player_missed_bullet"
       },
@@ -1683,7 +1655,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "685": [
+   "663": [
       {
          "type": "player_missed_bullet"
       },
@@ -1694,7 +1666,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "693": [
+   "671": [
       {
          "type": "player_missed_bullet"
       },
@@ -1705,7 +1677,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "701": [
+   "679": [
       {
          "type": "player_missed_bullet"
       },
@@ -1716,7 +1688,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "709": [
+   "687": [
       {
          "type": "player_missed_bullet"
       },
@@ -1727,7 +1699,18 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "717": [
+   "695": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "703": [
       {
          "type": "player_missed_bullet"
       },
@@ -1742,7 +1725,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-20"
+               "sinus-221"
             ]
          }
       },
@@ -1750,6 +1733,49 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "sinus"
+      }
+   ],
+   "704": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "sinus-221"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "705": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "sinus-221"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "711": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "718": [
@@ -1758,7 +1784,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-20"
+               "sinus-192"
             ]
          }
       },
@@ -1770,11 +1796,20 @@ export const history = {
    ],
    "719": [
       {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-20"
+               "sinus-192"
             ]
          }
       },
@@ -1784,120 +1819,13 @@ export const history = {
          "enemy": "sinus"
       }
    ],
-   "725": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "733": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "734": [
+   "720": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "shot-21"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
-      }
-   ],
-   "741": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-21"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
-      }
-   ],
-   "749": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "757": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "765": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "773": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "774": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-22"
+               "sinus-192"
             ]
          }
       },
@@ -1905,41 +1833,86 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "sinus"
+      }
+   ],
+   "727": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "735": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "743": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "751": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "759": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "767": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "775": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-22"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
-      }
-   ],
-   "776": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-22"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "type": "player_missed_bullet"
       }
    ],
-   "781": [
+   "783": [
       {
          "type": "player_missed_bullet"
       },
@@ -1950,7 +1923,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "789": [
+   "791": [
       {
          "type": "player_missed_bullet"
       },
@@ -1961,7 +1934,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "797": [
+   "799": [
       {
          "type": "player_missed_bullet"
       },
@@ -1972,18 +1945,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "805": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "813": [
+   "807": [
       {
          "type": "player_missed_bullet"
       },
@@ -1996,18 +1958,13 @@ export const history = {
    ],
    "815": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-24"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "816": [
@@ -2016,7 +1973,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-24"
+               "sinus-249"
             ]
          }
       },
@@ -2032,7 +1989,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-24"
+               "sinus-249"
             ]
          }
       },
@@ -2042,112 +1999,13 @@ export const history = {
          "enemy": "sinus"
       }
    ],
-   "821": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "829": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "836": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "842": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "849": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "857": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "865": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "873": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "881": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "883": [
+   "818": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-26"
+               "sinus-249"
             ]
          }
       },
@@ -2155,6 +2013,94 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "sinus"
+      }
+   ],
+   "823": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "831": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "839": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "847": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "855": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "863": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "871": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
+   "879": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "884": [
@@ -2163,7 +2109,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-26"
+               "sinus-278"
             ]
          }
       },
@@ -2179,7 +2125,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-26"
+               "sinus-278"
             ]
          }
       },
@@ -2189,7 +2135,23 @@ export const history = {
          "enemy": "sinus"
       }
    ],
-   "889": [
+   "886": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "sinus-278"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "887": [
       {
          "type": "player_missed_bullet"
       },
@@ -2200,7 +2162,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "897": [
+   "895": [
       {
          "type": "player_missed_bullet"
       },
@@ -2211,7 +2173,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "905": [
+   "903": [
       {
          "type": "player_missed_bullet"
       },
@@ -2222,7 +2184,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "913": [
+   "911": [
       {
          "type": "player_missed_bullet"
       },
@@ -2233,7 +2195,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "921": [
+   "919": [
       {
          "type": "player_missed_bullet"
       },
@@ -2244,7 +2206,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "929": [
+   "927": [
       {
          "type": "player_missed_bullet"
       },
@@ -2255,7 +2217,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "937": [
+   "935": [
       {
          "type": "player_missed_bullet"
       },
@@ -2266,7 +2228,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "945": [
+   "943": [
       {
          "type": "player_missed_bullet"
       },
@@ -2277,7 +2239,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "953": [
+   "951": [
       {
          "type": "player_missed_bullet"
       },
@@ -2294,7 +2256,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-28"
+               "sinus-304"
             ]
          }
       },
@@ -2310,7 +2272,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-28"
+               "sinus-304"
             ]
          }
       },
@@ -2320,24 +2282,13 @@ export const history = {
          "enemy": "sinus"
       }
    ],
-   "961": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "963": [
+   "958": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-28"
+               "sinus-304"
             ]
          }
       },
@@ -2347,23 +2298,7 @@ export const history = {
          "enemy": "sinus"
       }
    ],
-   "968": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-29"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
-      }
-   ],
-   "969": [
+   "959": [
       {
          "type": "player_missed_bullet"
       },
@@ -2374,7 +2309,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "977": [
+   "967": [
       {
          "type": "player_missed_bullet"
       },
@@ -2385,23 +2320,18 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "980": [
+   "975": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-29"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
-   "984": [
+   "983": [
       {
          "type": "player_missed_bullet"
       },
@@ -2478,29 +2408,13 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1033": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-30"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
-      }
-   ],
    "1034": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-30"
+               "sinus-333"
             ]
          }
       },
@@ -2516,7 +2430,23 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-30"
+               "sinus-333"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "1036": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "sinus-333"
             ]
          }
       },
@@ -2537,22 +2467,6 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1046": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-31"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
-      }
-   ],
    "1047": [
       {
          "type": "player_missed_bullet"
@@ -2562,22 +2476,6 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      }
-   ],
-   "1053": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-31"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
       }
    ],
    "1055": [
@@ -2646,29 +2544,13 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1097": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-32"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
-      }
-   ],
    "1098": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-32"
+               "sinus-362"
             ]
          }
       },
@@ -2684,7 +2566,23 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-32"
+               "sinus-362"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "1100": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "sinus-362"
             ]
          }
       },
@@ -2703,22 +2601,6 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      }
-   ],
-   "1110": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-33"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
       }
    ],
    "1111": [
@@ -2754,7 +2636,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1134": [
+   "1135": [
       {
          "type": "player_missed_bullet"
       },
@@ -2765,7 +2647,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1142": [
+   "1143": [
       {
          "type": "player_missed_bullet"
       },
@@ -2776,7 +2658,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1150": [
+   "1151": [
       {
          "type": "player_missed_bullet"
       },
@@ -2851,20 +2733,6 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-34"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
       }
    ],
    "1200": [
@@ -2873,7 +2741,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-34"
+               "sinus-391"
             ]
          }
       },
@@ -2889,7 +2757,23 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-34"
+               "sinus-391"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "1202": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "sinus-391"
             ]
          }
       },
@@ -2908,22 +2792,6 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      }
-   ],
-   "1211": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-35"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
       }
    ],
    "1215": [
@@ -3012,20 +2880,6 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "sinus-36"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
       }
    ],
    "1272": [
@@ -3034,7 +2888,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-36"
+               "sinus-417"
             ]
          }
       },
@@ -3050,7 +2904,23 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "sinus-36"
+               "sinus-417"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "1274": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "sinus-417"
             ]
          }
       },
@@ -3126,7 +2996,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1326": [
+   "1327": [
       {
          "type": "player_missed_bullet"
       },
@@ -3137,7 +3007,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1333": [
+   "1335": [
       {
          "type": "player_missed_bullet"
       },
@@ -3148,7 +3018,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1341": [
+   "1343": [
       {
          "type": "player_missed_bullet"
       },
@@ -3159,7 +3029,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1349": [
+   "1351": [
       {
          "type": "player_missed_bullet"
       },
@@ -3170,7 +3040,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1357": [
+   "1359": [
       {
          "type": "player_missed_bullet"
       },
@@ -3181,7 +3051,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1365": [
+   "1367": [
       {
          "type": "player_missed_bullet"
       },
@@ -3192,7 +3062,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1373": [
+   "1375": [
       {
          "type": "player_missed_bullet"
       },
@@ -3203,7 +3073,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1381": [
+   "1383": [
       {
          "type": "player_missed_bullet"
       },
@@ -3214,7 +3084,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1389": [
+   "1391": [
       {
          "type": "player_missed_bullet"
       },
@@ -3225,7 +3095,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1397": [
+   "1399": [
       {
          "type": "player_missed_bullet"
       },
@@ -3236,7 +3106,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1405": [
+   "1407": [
       {
          "type": "player_missed_bullet"
       },
@@ -3247,7 +3117,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1414": [
+   "1415": [
       {
          "type": "player_missed_bullet"
       },
@@ -3258,7 +3128,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1422": [
+   "1423": [
       {
          "type": "player_missed_bullet"
       },
@@ -3269,7 +3139,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1430": [
+   "1431": [
       {
          "type": "player_missed_bullet"
       },
@@ -3280,7 +3150,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1438": [
+   "1439": [
       {
          "type": "player_missed_bullet"
       },
@@ -3291,7 +3161,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1446": [
+   "1447": [
       {
          "type": "player_missed_bullet"
       },
@@ -3302,7 +3172,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1454": [
+   "1455": [
       {
          "type": "player_missed_bullet"
       },
@@ -3313,7 +3183,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1462": [
+   "1463": [
       {
          "type": "player_missed_bullet"
       },
@@ -3324,24 +3194,13 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1470": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1477": [
+   "1464": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3351,24 +3210,175 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1478": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1485": [
+   "1465": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1466": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1471": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1472": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1473": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1474": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1479": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1480": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1481": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1482": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3380,6 +3390,120 @@ export const history = {
    ],
    "1486": [
       {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1487": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1488": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1489": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1495": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1496": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1503": [
+      {
          "type": "player_missed_bullet"
       },
       {
@@ -3389,29 +3513,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1494": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1502": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1510": [
+   "1511": [
       {
          "type": "player_missed_bullet"
       },
@@ -3428,7 +3530,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-38"
+               "firstMiniboss-521"
             ]
          }
       },
@@ -3444,7 +3546,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-38"
+               "firstMiniboss-521"
             ]
          }
       },
@@ -3454,24 +3556,13 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1518": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1522": [
+   "1517": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-38"
+               "firstMiniboss-521"
             ]
          }
       },
@@ -3479,6 +3570,17 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "firstMiniboss"
+      }
+   ],
+   "1519": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "1523": [
@@ -3487,7 +3589,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-38"
+               "firstMiniboss-521"
             ]
          }
       },
@@ -3497,7 +3599,23 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1526": [
+   "1524": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-521"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1527": [
       {
          "type": "player_missed_bullet"
       },
@@ -3508,18 +3626,7 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1534": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1542": [
+   "1535": [
       {
          "type": "player_missed_bullet"
       },
@@ -3532,36 +3639,22 @@ export const history = {
    ],
    "1543": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "firstMiniboss-39"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
-   "1550": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
+   "1544": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3573,11 +3666,20 @@ export const history = {
    ],
    "1551": [
       {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3593,7 +3695,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3603,13 +3705,13 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1558": [
+   "1553": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3634,7 +3736,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3650,7 +3752,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3666,7 +3768,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3676,13 +3778,13 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1568": [
+   "1562": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3690,24 +3792,26 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "firstMiniboss"
+      }
+   ],
+   "1567": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "1569": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3723,7 +3827,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3739,7 +3843,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3749,20 +3853,15 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1577": [
+   "1575": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "firstMiniboss-39"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "1578": [
@@ -3771,7 +3870,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3783,20 +3882,11 @@ export const history = {
    ],
    "1579": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3812,7 +3902,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3822,15 +3912,13 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1586": [
+   "1581": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39",
-               "shot-41",
-               "shot-43"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3838,16 +3926,17 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "firstMiniboss"
+      }
+   ],
+   "1583": [
+      {
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
+         "type": "player_missed_bullet"
       }
    ],
    "1587": [
@@ -3856,7 +3945,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3872,7 +3961,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3884,20 +3973,11 @@ export const history = {
    ],
    "1589": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3907,13 +3987,13 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
-   "1595": [
+   "1590": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3921,6 +4001,17 @@ export const history = {
          "type": "add_points",
          "points": 10,
          "enemy": "firstMiniboss"
+      }
+   ],
+   "1591": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
    "1596": [
@@ -3929,7 +4020,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3945,7 +4036,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3961,7 +4052,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -3980,6 +4071,20 @@ export const history = {
       },
       {
          "type": "player_missed_bullet"
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       }
    ],
    "1607": [
@@ -4004,36 +4109,47 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1617": [
+   "1623": [
       {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "shot-51"
-            ]
-         }
+         "type": "player_missed_bullet"
       },
       {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
       }
    ],
-   "1630": [
+   "1628": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "shot-51"
+               "firstMiniboss-522"
             ]
          }
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1629": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       }
    ],
    "1631": [
@@ -4047,29 +4163,13 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1634": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "firstMiniboss-39"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      }
-   ],
    "1635": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4085,7 +4185,23 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1637": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4106,38 +4222,13 @@ export const history = {
          "type": "player_missed_bullet"
       }
    ],
-   "1647": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
+   "1642": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "shot-48"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
-      }
-   ],
-   "1649": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4147,13 +4238,72 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
+   "1643": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1644": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1645": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": false,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1647": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
    "1650": [
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4169,7 +4319,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4185,7 +4335,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4201,7 +4351,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4217,23 +4367,7 @@ export const history = {
          "collisions": {
             "playerWasHit": false,
             "enemiesThatWereHit": [
-               "shot-48"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "shot"
-      }
-   ],
-   "1657": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "playerWasHit": false,
-            "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
@@ -4243,18 +4377,48 @@ export const history = {
          "enemy": "firstMiniboss"
       }
    ],
+   "1655": [
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      },
+      {
+         "type": "player_missed_bullet"
+      }
+   ],
    "1658": [
+      {
+         "type": "player_died"
+      },
       {
          "type": "collisions",
          "collisions": {
             "playerWasHit": true,
             "enemiesThatWereHit": [
-               "firstMiniboss-39"
+               "firstMiniboss-522"
             ]
          }
       },
       {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      }
+   ],
+   "1659": [
+      {
          "type": "player_died"
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "playerWasHit": true,
+            "enemiesThatWereHit": [
+               "firstMiniboss-522"
+            ]
+         }
       },
       {
          "type": "add_points",
