@@ -93,6 +93,9 @@ export class Enemy {
       /**
        * Safest to do all the required updates n shit here, even if hp etc have not been changed.
        */
+      if(this.attrs.GetAttribute("boundToWindow").value) {
+         this.boundToWindow();
+      }
       this.updateDisplayHealth();
       this.gfx?.setPosition({ x: this.X, y: this.Y });
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
@@ -116,6 +119,20 @@ export class Enemy {
          this.updateDisplayHealth();
 
          if(this.hp < 1) { this.die(); }
+      }
+   };
+
+   private boundToWindow = () => {
+      const radius = this.diameter/2;
+      if(this.X < radius) {
+         this.X = radius;
+      } else if(this.X > resolutionWidth-radius) {
+         this.X = resolutionWidth-radius;
+      }
+      if(this.Y < radius) {
+         this.Y = radius;
+      } else if (this.Y > resolutionHeight-radius) {
+         this.Y = resolutionHeight-radius;
       }
    };
 
@@ -144,7 +161,7 @@ export class Enemy {
             break;
 
          case "setSpeed":
-            this.SetSpeed(action.pixelsPerFrame);
+            this.speed = action.pixelsPerFrame;
             break;
 
          case "setShotSpeed":
@@ -181,17 +198,13 @@ export class Enemy {
             break;
          }
 
-         case "mirrorX": {
-            const { value } = action;
-            this.setMirrorX(value);
+         case "mirrorX": 
+            this.mirrorX = action.value;
             break;
-         }
 
-         case "mirrorY": {
-            const { value } = action;
-            this.setMirrorY(value);
+         case "mirrorY": 
+            this.mirrorY = action.value;
             break;
-         }
 
          case "moveDelta":
             this.moveDelta({ x: action.x, y: action.y });
@@ -266,10 +279,6 @@ export class Enemy {
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
 
-   private SetSpeed = (pixelsPerFrame: number) => {
-      this.speed = pixelsPerFrame;
-   };
-
    private SetShotSpeed = (pixelsPerFrame: number) => {
       this.shotSpeed = pixelsPerFrame;
    };
@@ -342,14 +351,6 @@ export class Enemy {
 
    private getAttr = (attr: string) => {
       return this.attrs.attrExists(attr) && this.attrs.GetAttribute(attr).value;
-   };
-
-   private setMirrorX = (value: boolean) => {
-      this.mirrorX = value;
-   };
-
-   private setMirrorY = (value: boolean) => {
-      this.mirrorY = value;
    };
 
    private updateDisplayHealth = () => {

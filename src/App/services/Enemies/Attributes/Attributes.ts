@@ -45,6 +45,8 @@ export class Attributes {
        * (may add groundEnemy later).
        */
       collisionType: { value: "enemy" },
+      // If should not be allowed to leave the game window.
+      boundToWindow: { value: false },
    };
 
    private getAndAssertAttribute = (name: string): Attribute => {

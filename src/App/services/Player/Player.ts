@@ -118,6 +118,5 @@ export class Player implements IService {
       }
 
       this.bound();
-      // this.updateGraphicsPosition();
    };
 }
