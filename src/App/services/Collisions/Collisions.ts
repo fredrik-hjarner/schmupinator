@@ -17,6 +17,7 @@ type TConstructor = {
 }
 
 export class Collisions implements IService {
+   // vars
    public readonly name: string;
    
    // deps/services
@@ -56,22 +57,13 @@ export class Collisions implements IService {
     */
    private update = () => {
       const enemies = this.enemies.enemies
-         .filter(e =>
-            ["enemy"].includes(e.attrs.GetAttribute("collisionType").value as string)
-         );
-      const killsPlayerOnCollision = this.enemies.enemies
-         .filter(e =>
-            ["enemy", "enemyBullet"].includes(e.attrs.GetAttribute("collisionType").value as string)
-         );
+         .filter(e => e.attrs.GetAttribute("collisionType").value === "enemy");
+      const enemyBullets = this.enemies.enemies
+         .filter(e => e.attrs.GetAttribute("collisionType").value === "enemyBullet");
+      const killsPlayerOnCollision = [...enemyBullets, ...enemies];
       const playerBullets = this.enemies.enemies
-         .filter(e =>
-            ["playerBullet"].includes(e.attrs.GetAttribute("collisionType").value as string)
-         );
-      const player = this.enemies.enemies
-         .find(e => e.attrs.GetAttribute("collisionType").value as string === "player");
-      if(player === undefined) {
-         throw new Error("Collisions: Player was not found");
-      }
+         .filter(e => e.attrs.GetAttribute("collisionType").value === "playerBullet");
+      const player = this.enemies.player;
 
       const playerWasHit =
          this.calcCircleWasHitByShots({ circle: player, shots: killsPlayerOnCollision });

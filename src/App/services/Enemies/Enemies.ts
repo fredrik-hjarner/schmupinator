@@ -14,6 +14,8 @@ import { BrowserDriver } from "../../../drivers/BrowserDriver";
 export class Enemies implements IService {
    public readonly name: string;
    public enemies: Enemy[];
+   // Just so that player does not have to be found every time.
+   private memoizedPlayer?: Enemy;
 
    // deps/services
    private yaml!: Yaml;
@@ -95,18 +97,21 @@ export class Enemies implements IService {
 
    // TODO: This could probably be optimized as now it has to find the Player every single time.
    public get player(): Enemy {
+      if(this.memoizedPlayer !== undefined) {
+         return this.memoizedPlayer;
+      }
+
       const player = this.enemies.find(e =>
          e.attrs.GetAttribute("collisionType").value as string === "player"
       );
       if(player === undefined) {
          throw new Error("Enemies.getPlayer: Player was not found");
       }
+      this.memoizedPlayer = player;
       return player;
    }
 
-   /**
-    * TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private
-    */
+   // TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private
    private handleEvent = (event: TGameEvent) => {
       switch(event.type) {
          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
