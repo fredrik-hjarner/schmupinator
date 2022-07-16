@@ -89,4 +89,4 @@ lines of code.
 1.1 Hide the bullets.
 2. Explain the controls!
 
-* Make a Settings scene where you can set Debug on/off.
+* Make GameHide into it's own service so that I can on/off it via Settings menu.

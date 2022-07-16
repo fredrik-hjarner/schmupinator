@@ -23,7 +23,7 @@ export class Settings implements IScene {
    }
 
    public render() {
-      const { fullscreen } = this.ui.settingsService.settings;
+      const { fullscreen, gameSpeedSlider, fpsStats } = this.ui.settingsService.settings;
 
       this.shadeElement = createShade();
 
@@ -38,10 +38,20 @@ export class Settings implements IScene {
          top: 115,
          menuItems: [
             {
-               text: `fullscreen - ${fullscreen ? "on" : "off" }`, onClick: this.onToggleFullscreen
+               text: `fullscreen - ${fullscreen ? "on" : "off" }`,
+               onClick: () => { this.ui.settingsService.toggleSetting("fullscreen"); }
             },
             {
-               text: "back", onClick: () => { this.ui.SetActiveScene(this.ui.startGame); }
+               text: `fpsStats - ${fpsStats ? "on" : "off" }`,
+               onClick: () => { this.ui.settingsService.toggleSetting("fpsStats"); }
+            },
+            {
+               text: `gameSpeedSlider - ${gameSpeedSlider ? "on" : "off" }`,
+               onClick: () => { this.ui.settingsService.toggleSetting("gameSpeedSlider"); }
+            },
+            {
+               text: "back",
+               onClick: () => { this.ui.SetActiveScene(this.ui.startGame); }
             },
          ]
       });
@@ -57,9 +67,4 @@ export class Settings implements IScene {
 
       this.menu?.destroy();
    }
-
-   private onToggleFullscreen = () => {
-      const { fullscreen } = this.ui.settingsService.settings;
-      this.ui.settingsService.updateSettings({ fullscreen: !fullscreen });
-   };
 }

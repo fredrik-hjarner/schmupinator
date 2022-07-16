@@ -114,7 +114,7 @@ export class App {
        * what services are going to be used, so it should be created first.
        */
       this.settings = new Settings({ app: this, name: "settings" });
-      const { fullscreen } = this.settings.settings;
+      const { fullscreen, gameSpeedSlider, fpsStats } = this.settings.settings;
 
       this.e2eTest = IsBrowser() ?
          new NoopService({ name: "e2e" }) :
@@ -131,8 +131,7 @@ export class App {
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
 
       this.fps = IsBrowser() ?
-         new Fps({ app: this, name: "fps" }) :
-         // new MockFps({ app: this, name: "fps" }) :
+         fpsStats ? new Fps({ app: this, name: "fps" }) : new MockFps({ app: this, name: "fps" }) :
          new MockFps({ app: this, name: "fps" });
 
       this.enemies = new Enemies({ name: "enemies" });
@@ -150,8 +149,9 @@ export class App {
       this.uiEvents = new Events<TUiEvent>({ app: this, name: "uiEvents" });
 
       this.gameSpeed = IsBrowser() ?
-         new GameSpeed({ name: "gameSpeed" }) :
-         // new InvisibleGameSpeed({ name: "gameSpeed" }) :
+         (gameSpeedSlider ?
+            new GameSpeed({ name: "gameSpeed" }) :
+            new InvisibleGameSpeed({ name: "gameSpeed" })) :
          new InvisibleGameSpeed({ name: "gameSpeed" });
 
       this.points = IsBrowser() ?

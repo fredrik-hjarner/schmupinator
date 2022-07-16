@@ -6,7 +6,9 @@ import { App } from "../../App";
 const localStorageKey = "__settings";
 
 type TSettings = {
-   fullscreen: boolean,
+   fullscreen: boolean;
+   gameSpeedSlider: boolean;
+   fpsStats: boolean;
 };
 
 type TConstructor = {
@@ -14,15 +16,12 @@ type TConstructor = {
    name: string,
 }
 
-export type TQualifiedForTop10 = {
-   qualifiedForTop10: boolean;
-   rank?: number;
-}
-
 export class Settings implements IService {
    public readonly name: string;
    public settings: TSettings = {
       fullscreen: true,
+      gameSpeedSlider: false,
+      fpsStats: false,
    };
 
    // deps/services
@@ -55,17 +54,12 @@ export class Settings implements IService {
       // noop
    };
 
-   // Send in whatever settings you want to change/update, rest is unchanged.
-   public updateSettings = (settings: Partial<TSettings>) => {
-      Object.entries(settings).forEach(([k, v]) => {
-         const typedK = k as keyof TSettings;
-         if(v !== undefined) {
-            if(typedK === "fullscreen") {
-               // TODO: Switch Fullscreen servive here.
-            }
-            this.settings[typedK as keyof TSettings] = v;
-         }
-      });
+   public toggleSetting = (setting: keyof TSettings) => {
+      const oldValue = this.settings[setting];
+      this.settings[setting] = !oldValue;
+      if(setting === "fullscreen") {
+         // TODO: Switch Fullscreen servive here.
+      }
 
       // Write settings of this object to localStorage.
       BrowserDriver.WithWindow(window => {
