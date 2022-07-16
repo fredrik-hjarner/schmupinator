@@ -84,8 +84,8 @@ export class Enemy {
    public get Radius(){ return this.diameter/2; }
 
    public OnFrameTick = () => {
-      const done = this.actionExecutor.ProgressOneFrame();
-      if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
+      /* const done = */ this.actionExecutor.ProgressOneFrame();
+      // if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
       // if(done) { this.die(); }
 
       /**
@@ -150,7 +150,6 @@ export class Enemy {
          this.gfx.release();
          this.gfx = undefined;
       }
-      return;
    };
 
    /**

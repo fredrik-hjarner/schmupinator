@@ -112,8 +112,8 @@ export class App {
          new E2eTest({ name: "e2e" });
 
       this.input = IsBrowser() ?
-         new Input({ name: "input" }) :
-         // new ReplayerInput({ name: "input" }) :
+         // new Input({ name: "input" }) :
+         new ReplayerInput({ name: "input" }) :
          new ReplayerInput({ name: "input" });
 
       this.gameLoop = IsBrowser() ?

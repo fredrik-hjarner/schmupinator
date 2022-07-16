@@ -1,130 +1,12 @@
 /* eslint-disable max-lines */
 export const history = {
-   "67": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "75": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "83": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "91": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "99": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "107": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "115": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "123": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "124": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-24",
-               "playerShot-16"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
    "131": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-24",
-               "playerShot-18"
+               "nonShootingAimer-9",
+               "playerShot-5"
             ]
          }
       },
@@ -135,17 +17,22 @@ export const history = {
       },
       {
          "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       }
    ],
-   "137": [
+   "132": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-24",
-               "playerShot-21"
+               "nonShootingAimer-10",
+               "playerShot-4"
             ]
          }
       },
@@ -156,51 +43,58 @@ export const history = {
       },
       {
          "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       }
    ],
-   "139": [
+   "136": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "138": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-10",
+               "playerShot-7"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
    "144": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-24",
-               "playerShot-28"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "147": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "151": [
@@ -208,7 +102,164 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-25",
+               "nonShootingAimer-10",
+               "playerShot-14"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "152": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "158": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-10",
+               "playerShot-17"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "160": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "168": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "172": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-27",
+               "playerShot-20"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "176": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "178": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-27",
+               "playerShot-24"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "179": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-9",
                "playerShot-30"
             ]
          }
@@ -222,25 +273,88 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "155": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "157": [
+   "184": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "185": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-25",
+               "nonShootingAimer-27",
+               "playerShot-29"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "186": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-9",
+               "playerShot-31"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "192": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-26",
                "playerShot-33"
             ]
          }
@@ -254,25 +368,19 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "163": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "164": [
+   "193": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-25",
+               "nonShootingAimer-9",
                "playerShot-35"
             ]
          }
@@ -286,24 +394,20 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "171": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
+   "198": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-25",
-               "playerShot-38"
+               "nonShootingAimer-26",
+               "playerShot-34"
             ]
          }
       },
@@ -316,37 +420,27 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "179": [
+   "200": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "187": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "191": [
+   "205": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-42",
-               "playerShot-48"
+               "nonShootingAimer-26",
+               "playerShot-39"
             ]
          }
       },
@@ -359,48 +453,27 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "195": [
+   "208": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "203": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "211": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "218": [
+   "212": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-42",
-               "playerShot-62"
+               "nonShootingAimer-26",
+               "playerShot-42"
             ]
          }
       },
@@ -413,17 +486,56 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "219": [
+   "213": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-27",
+               "playerShot-41"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "216": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "224": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "225": [
@@ -431,7 +543,211 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-42",
+               "nonShootingAimer-43",
+               "playerShot-47"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "231": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-43",
+               "playerShot-50"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "232": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "238": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-43",
+               "playerShot-53"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "240": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "245": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-43",
+               "playerShot-56"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "248": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "253": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-44",
+               "playerShot-58"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "256": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "258": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-60",
+               "playerShot-59"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "260": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-44",
                "playerShot-63"
             ]
          }
@@ -445,25 +761,52 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "227": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "232": [
+   "264": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "265": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-42",
+               "nonShootingAimer-60",
+               "playerShot-64"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "266": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-44",
                "playerShot-66"
             ]
          }
@@ -477,26 +820,20 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "235": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "239": [
+   "271": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-41",
-               "playerShot-71"
+               "nonShootingAimer-60",
+               "playerShot-67"
             ]
          }
       },
@@ -509,25 +846,50 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "243": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "244": [
+   "272": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-59",
+               "nonShootingAimer-44",
+               "playerShot-69"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "279": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-60",
                "playerShot-70"
             ]
          }
@@ -541,14 +903,26 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "246": [
+   "280": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "285": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-41",
+               "nonShootingAimer-61",
                "playerShot-72"
             ]
          }
@@ -562,44 +936,28 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "247": [
+   "288": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "292": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-41",
-               "playerShot-74"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "251": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-59",
+               "nonShootingAimer-61",
+               "playerShot-75",
+               "nonShootingAimer-77",
                "playerShot-73"
             ]
          }
@@ -613,15 +971,68 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
-   "253": [
+   "296": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "298": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-41",
-               "playerShot-77"
+               "nonShootingAimer-77",
+               "playerShot-76"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "299": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-61",
+               "playerShot-80"
             ]
          }
       },
@@ -634,15 +1045,27 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "258": [
+   "304": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "305": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-79"
+               "nonShootingAimer-77",
+               "playerShot-81"
             ]
          }
       },
@@ -655,122 +1078,19 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "259": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "265": [
+   "306": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-80",
-               "nonShootingAimer-76",
-               "playerShot-78"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "267": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "271": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-75",
-               "playerShot-82"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "272": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-84"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "275": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "277": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-75",
+               "nonShootingAimer-61",
                "playerShot-83"
             ]
          }
@@ -784,15 +1104,25 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "279": [
+   "312": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-87"
+               "nonShootingAimer-77",
+               "playerShot-84"
             ]
          }
       },
@@ -805,36 +1135,19 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "283": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "291": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
+   "318": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-75",
-               "playerShot-90",
-               "nonShootingAimer-92",
+               "nonShootingAimer-78",
                "playerShot-86"
             ]
          }
@@ -851,22 +1164,26 @@ export const history = {
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "298": [
+   "320": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "325": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-75",
-               "playerShot-95"
+               "nonShootingAimer-78",
+               "playerShot-89",
+               "nonShootingAimer-94",
+               "playerShot-87"
             ]
          }
       },
@@ -879,36 +1196,117 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
-   "299": [
+   "328": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "307": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "311": [
+   "332": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-92",
+               "nonShootingAimer-78",
+               "playerShot-92",
+               "nonShootingAimer-94",
+               "playerShot-90"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "336": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "338": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-94",
+               "playerShot-93"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "339": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-78",
                "playerShot-97"
             ]
          }
@@ -922,15 +1320,27 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "314": [
+   "344": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "345": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-59",
-               "playerShot-104"
+               "nonShootingAimer-94",
+               "playerShot-98"
             ]
          }
       },
@@ -943,25 +1353,24 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "315": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "318": [
+   "352": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-92",
+               "nonShootingAimer-95",
                "playerShot-100"
             ]
          }
@@ -975,15 +1384,20 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "320": [
+   "358": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-59",
-               "playerShot-106"
+               "nonShootingAimer-95",
+               "playerShot-103"
             ]
          }
       },
@@ -996,26 +1410,34 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "323": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "324": [
+   "360": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "365": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-92",
-               "playerShot-105"
+               "nonShootingAimer-95",
+               "playerShot-106",
+               "nonShootingAimer-111",
+               "playerShot-104"
             ]
          }
       },
@@ -1028,14 +1450,43 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
-   "326": [
+   "368": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "372": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-76",
+               "nonShootingAimer-95",
+               "playerShot-109",
+               "nonShootingAimer-111",
                "playerShot-107"
             ]
          }
@@ -1049,47 +1500,42 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "331": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "333": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-76",
-               "playerShot-111"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
-   "337": [
+   "376": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "378": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-109",
-               "playerShot-108"
+               "nonShootingAimer-111",
+               "playerShot-110"
             ]
          }
       },
@@ -1100,69 +1546,30 @@ export const history = {
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      }
-   ],
-   "339": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "340": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-76",
-               "playerShot-116"
-            ]
-         }
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
       }
    ],
-   "344": [
+   "384": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "385": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-110",
-               "playerShot-112"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "345": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-93",
+               "nonShootingAimer-111",
+               "playerShot-115",
+               "nonShootingAimer-112",
                "playerShot-114"
             ]
          }
@@ -1174,33 +1581,6 @@ export const history = {
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "347": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "352": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-93",
-               "playerShot-119"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1208,25 +1588,34 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "355": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "357": [
+   "392": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-110",
+               "nonShootingAimer-112",
                "playerShot-117"
             ]
          }
@@ -1240,26 +1629,20 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "363": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "364": [
+   "398": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-110",
-               "playerShot-122"
+               "nonShootingAimer-112",
+               "playerShot-120"
             ]
          }
       },
@@ -1272,26 +1655,34 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "371": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "372": [
+   "400": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "405": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-110",
-               "playerShot-125"
+               "nonShootingAimer-112",
+               "playerShot-123",
+               "nonShootingAimer-128",
+               "playerShot-121"
             ]
          }
       },
@@ -1304,26 +1695,127 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "379": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
       }
    ],
-   "380": [
+   "408": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "412": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-93",
-               "playerShot-133"
+               "nonShootingAimer-128",
+               "playerShot-124"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "416": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "418": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-128",
+               "playerShot-127",
+               "nonShootingAimer-129",
+               "playerShot-126"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "nonShootingAimer"
+      }
+   ],
+   "424": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "425": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "nonShootingAimer-128",
+               "playerShot-132",
+               "nonShootingAimer-129",
+               "playerShot-131"
             ]
          }
       },
@@ -1334,22 +1826,6 @@ export const history = {
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "384": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-127",
-               "playerShot-130"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1357,14 +1833,34 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "386": [
+   "432": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-93",
+               "nonShootingAimer-129",
                "playerShot-134"
             ]
          }
@@ -1378,79 +1874,19 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "387": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "395": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "403": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "406": [
+   "438": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-109",
-               "playerShot-142"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "411": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-127",
-               "playerShot-141",
-               "nonShootingAimer-144",
+               "nonShootingAimer-129",
                "playerShot-137"
             ]
          }
@@ -1467,544 +1903,346 @@ export const history = {
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "440": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "413": [
+   "448": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "456": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "464": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "472": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "480": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "488": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "496": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "504": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "512": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "520": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "528": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "536": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "544": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "552": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "560": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "564": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-109",
-               "playerShot-145"
+               "sinus-190",
+               "playerShot-183"
             ]
          }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
+         "points": 0,
+         "enemy": "playerShot"
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "418": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-126",
-               "playerShot-147"
-            ]
-         }
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
          "points": 10,
-         "enemy": "nonShootingAimer"
+         "enemy": "sinus"
+      }
+   ],
+   "568": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "419": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "420": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-109",
-               "playerShot-149"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "424": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-144",
-               "playerShot-146"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "425": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-126",
-               "playerShot-148"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "427": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "431": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-143",
-               "playerShot-150"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "432": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-126",
-               "playerShot-152"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "435": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "437": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-143",
-               "playerShot-151"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "439": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-126",
-               "playerShot-155"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "443": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "445": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-143",
-               "playerShot-154"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "451": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-143",
-               "playerShot-157"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "459": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "466": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-127",
-               "playerShot-167"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "467": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-127",
-               "playerShot-166"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "475": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "479": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-144",
-               "playerShot-169"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "483": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "485": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "nonShootingAimer-144",
-               "playerShot-174"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "nonShootingAimer"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "491": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "499": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "507": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "515": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "523": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "531": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "539": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "547": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "555": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "563": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "571": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-190",
+               "playerShot-186"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      }
+   ],
+   "576": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "577": [
@@ -2012,8 +2250,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-205",
-               "playerShot-204"
+               "sinus-190",
+               "playerShot-189"
             ]
          }
       },
@@ -2024,375 +2262,2825 @@ export const history = {
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
-      }
-   ],
-   "579": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "583": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-205",
-               "playerShot-208"
-            ]
-         }
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
          "points": 10,
          "enemy": "sinus"
+      }
+   ],
+   "584": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "587": [
+   "592": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "590": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-205",
-               "playerShot-211"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "595": [
+   "600": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "603": [
+   "605": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "608": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "611": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "619": [
+   "614": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "627": [
+   "616": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "617": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "620": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "623": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "626": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "629": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "632": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "635": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "643": [
+   "638": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "651": [
+   "641": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "644": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "647": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "650": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "653": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "656": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "659": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "662": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-234",
-               "playerShot-239"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "667": [
+   "665": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "670": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-234",
-               "playerShot-243"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "675": [
+   "668": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "671": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "674": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "677": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-234",
-               "playerShot-246"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "680": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "683": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-276",
+               "playerLaser-369"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "691": [
+   "685": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-276",
+               "playerLaser-379"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "699": [
+   "686": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-276",
+               "playerLaser-374"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "689": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "692": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "695": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "698": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "701": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "704": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "707": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "715": [
+   "710": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "723": [
+   "713": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "716": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "719": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "722": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "725": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "728": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "731": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "739": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "747": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "755": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "757": [
+   "783": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-263",
-               "playerShot-282"
+               "sinus-416",
+               "playerLaser-470"
             ]
          }
       },
@@ -2404,16 +5092,16 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "758": [
+   "784": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-263",
-               "playerShot-280"
+               "sinus-416",
+               "playerLaser-467"
             ]
          }
       },
@@ -2425,27 +5113,16 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "763": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "764": [
+   "786": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-263",
-               "playerShot-284"
+               "sinus-416",
+               "playerLaser-476"
             ]
          }
       },
@@ -2457,1410 +5134,12180 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "771": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "779": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "enemy": "playerLaser"
       }
    ],
    "787": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "795": [
+   "790": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "803": [
+   "793": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "796": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "799": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "802": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "805": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "808": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "811": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "814": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "817": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-466",
+               "playerLaser-534"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "819": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-466",
+               "playerLaser-545"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "827": [
+   "820": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-466",
+               "playerLaser-540"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "823": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "826": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "829": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "832": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "835": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "840": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-318",
-               "playerShot-311"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
-      }
-   ],
-   "843": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "851": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "854": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-289",
-               "playerShot-320"
-            ]
-         }
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "838": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "841": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "844": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "847": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "850": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "853": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "856": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "859": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "862": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-289",
-               "playerShot-322"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "867": [
+   "865": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "869": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-289",
-               "playerShot-328"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "875": [
+   "868": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "871": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "874": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "877": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "880": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-318",
-               "playerShot-331"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "883": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "888": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-318",
-               "playerShot-332"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "891": [
+   "886": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "899": [
+   "889": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "892": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "895": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "898": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "901": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "904": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "907": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "915": [
+   "910": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "923": [
+   "913": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "916": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "919": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "922": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "925": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "928": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "931": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "934": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "936": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-594",
+               "playerLaser-780"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "937": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-594",
+               "playerLaser-778"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "939": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-594",
+               "playerLaser-788"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "947": [
+   "940": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "943": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "946": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "949": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "952": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "955": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "963": [
+   "958": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "971": [
+   "961": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "964": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "967": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "970": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "973": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "976": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "979": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "983": [
+   "982": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-376",
-               "playerShot-369"
+               "sinus-734",
+               "playerLaser-868"
             ]
          }
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "points": 10,
+         "enemy": "sinus"
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "987": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "990": [
+   "984": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-376",
-               "playerShot-372"
+               "sinus-734",
+               "playerLaser-878"
             ]
          }
       },
       {
          "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "985": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-734",
+               "playerLaser-874"
+            ]
+         }
       },
       {
          "type": "add_points",
          "points": 10,
          "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "995": [
+   "988": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "991": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "994": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "997": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1000": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1003": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1006": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-347",
-               "playerShot-381"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1010": [
+   "1009": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-376",
-               "playerShot-382"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1011": [
+   "1012": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1013": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-347",
-               "playerShot-384"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1019": [
+   "1015": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1018": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1021": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-347",
-               "playerShot-389"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1024": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1027": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1035": [
+   "1030": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1043": [
+   "1033": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1036": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-880",
+               "playerLaser-978"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1038": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-880",
+               "playerLaser-989"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1039": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-880",
+               "playerLaser-984"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1042": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1045": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1048": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1051": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1059": [
+   "1054": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1067": [
+   "1057": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1060": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1063": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1066": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1069": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1072": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1075": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1083": [
+   "1078": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1091": [
+   "1081": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1084": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1087": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1090": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1093": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1096": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1020",
+               "playerLaser-1100"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1098": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1020",
+               "playerLaser-1111"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1099": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1020",
+               "playerLaser-1106"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "1107": [
+   "1102": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1115": [
+   "1105": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1108": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1111": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1114": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1117": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1120": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1123": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1125": [
+   "1126": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-431",
-               "playerShot-426"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1131": [
+   "1129": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-431",
-               "playerShot-428"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1139": [
+   "1132": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-431",
-               "playerShot-432"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1135": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1138": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1141": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1144": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1147": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1151": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-402",
-               "playerShot-440"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1155": [
+   "1150": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1153": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1156": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1159": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-402",
-               "playerShot-442"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1163": [
+   "1162": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1167": [
+   "1165": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-402",
-               "playerShot-447"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1168": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1171": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1179": [
+   "1174": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1160",
+               "playerLaser-1258"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "1187": [
+   "1176": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1160",
+               "playerLaser-1269"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1177": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1160",
+               "playerLaser-1264"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1180": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1183": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1186": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1189": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1192": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1195": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1203": [
+   "1198": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1211": [
+   "1201": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1204": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1207": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1210": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1213": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1216": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1219": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1227": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1235": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1242": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-460",
-               "playerShot-475"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1222": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1225": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1228": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1231": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1234": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1237": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1240": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1243": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1246": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1249": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-460",
-               "playerShot-477"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1251": [
+   "1252": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1257": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-460",
-               "playerShot-482"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1259": [
+   "1255": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1258": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1261": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1264": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1267": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1270": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1273": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1275": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1306",
+               "playerLaser-1467"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
-   "1283": [
+   "1276": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1291": [
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1299": [
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1307": [
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1315": [
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1323": [
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1331": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1339": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1347": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1355": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1363": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1371": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1379": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1387": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1395": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1403": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1411": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1419": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1427": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1435": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1443": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1451": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1459": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1460": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-552"
+               "sinus-1306",
+               "playerLaser-1464"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1278": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-1306",
+               "playerLaser-1473"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1279": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1282": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1285": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1288": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1291": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1294": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1297": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1300": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1303": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1306": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1309": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1312": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1315": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1318": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1321": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1324": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1327": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1330": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1333": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1336": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1339": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1342": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1345": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1394": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1402": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1410": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1418": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1426": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1436": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1444": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1451": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1459": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1464": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1629"
             ]
          }
       },
@@ -3868,6 +17315,11 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -3877,20 +17329,23 @@ export const history = {
    ],
    "1467": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1471": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-555"
+               "firstMiniboss-1639",
+               "playerShot-1632"
             ]
          }
       },
@@ -3898,6 +17353,11 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -3907,22 +17367,23 @@ export const history = {
    ],
    "1475": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1476": [
+   "1479": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-560"
+               "firstMiniboss-1639",
+               "playerShot-1635"
             ]
          }
       },
@@ -3930,6 +17391,11 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -3939,41 +17405,23 @@ export const history = {
    ],
    "1483": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-561"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1490": [
+   "1486": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-566"
+               "firstMiniboss-1639",
+               "playerShot-1640"
             ]
          }
       },
@@ -3986,17 +17434,49 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1491": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1494": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1643"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1498": [
@@ -4004,8 +17484,112 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-571"
+               "firstMiniboss-1639",
+               "playerLaser-1656"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1499": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1652"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1500": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1501": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1646"
             ]
          }
       },
@@ -4018,17 +17602,105 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1499": [
+   "1502": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1658"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1503": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1504": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1666"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1505": [
@@ -4036,8 +17708,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-572"
+               "firstMiniboss-1639",
+               "playerLaser-1664"
             ]
          }
       },
@@ -4049,27 +17721,99 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1506": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1507": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1512": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-575"
+               "firstMiniboss-1639",
+               "playerLaser-1671"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1508": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1649"
             ]
          }
       },
@@ -4082,17 +17826,75 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1509": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1515": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1519": [
@@ -4100,8 +17902,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-578"
+               "firstMiniboss-1639",
+               "playerLaser-1686"
             ]
          }
       },
@@ -4113,7 +17915,7 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1520": [
@@ -4121,8 +17923,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-580"
+               "firstMiniboss-1639",
+               "playerLaser-1682"
             ]
          }
       },
@@ -4134,27 +17936,16 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "1523": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1525": [
+   "1521": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-581"
+               "firstMiniboss-1639",
+               "playerShot-1676"
             ]
          }
       },
@@ -4167,17 +17958,283 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1522": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1691"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1523": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1688"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1525": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1696"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1526": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1694"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1528": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1679"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1531": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1532": [
@@ -4185,8 +18242,192 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-585"
+               "firstMiniboss-1639",
+               "playerLaser-1703"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1533": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1703"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1535": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1709"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1536": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1709"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1538": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1700"
             ]
          }
       },
@@ -4199,24 +18440,32 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1539": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1542": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-588"
+               "firstMiniboss-1639",
+               "playerLaser-1723"
             ]
          }
       },
@@ -4228,16 +18477,108 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1543": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1720"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1545": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1730"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1546": [
       {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-590"
+               "firstMiniboss-1639",
+               "playerLaser-1728"
             ]
          }
       },
@@ -4249,25 +18590,16 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1547": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-591"
+               "firstMiniboss-1639",
+               "playerShot-1715"
             ]
          }
       },
@@ -4280,15 +18612,20 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1553": [
+   "1548": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-597"
+               "firstMiniboss-1639",
+               "playerLaser-1737"
             ]
          }
       },
@@ -4300,18 +18637,297 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1549": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1736"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1550": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1551": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1743"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1552": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1742"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1555": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1557": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1756"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1558": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1751"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1559": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1751"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1560": [
@@ -4319,8 +18935,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-602"
+               "firstMiniboss-1639",
+               "playerLaser-1762"
             ]
          }
       },
@@ -4332,16 +18948,97 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1561": [
       {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-604"
+               "firstMiniboss-1639",
+               "playerLaser-1757"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1562": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1748"
             ]
          }
       },
@@ -4354,26 +19051,20 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1563": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1568": [
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-605"
+               "firstMiniboss-1639",
+               "playerLaser-1767"
             ]
          }
       },
@@ -4385,7 +19076,132 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1564": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1763"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1565": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1568": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1569": [
@@ -4393,8 +19209,142 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-607"
+               "firstMiniboss-1639",
+               "playerLaser-1776"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1570": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1772"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1572": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1782"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1573": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-1778"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1574": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerShot-1769"
             ]
          }
       },
@@ -4407,17 +19357,11 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "1571": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1575": [
@@ -4425,8 +19369,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-610"
+               "firstMiniboss-1639",
+               "playerShot-1771"
             ]
          }
       },
@@ -4439,38 +19383,73 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "1576": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-608"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1577": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1579": [
-      {
-         "type": "player_missed_bullet"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1583": [
@@ -4478,8 +19457,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-613"
+               "firstMiniboss-1639",
+               "playerShot-1786"
             ]
          }
       },
@@ -4492,26 +19471,27 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "1587": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1591": [
+   "1590": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1592": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-616"
+               "firstMiniboss-1639",
+               "playerShot-1789"
             ]
          }
       },
@@ -4524,70 +19504,30 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1595": [
+   "1600": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1603": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1611": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1619": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1627": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1631": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-637"
+               "firstMiniboss-1639",
+               "playerShot-1792"
             ]
          }
       },
@@ -4600,26 +19540,76 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "1635": [
-      {
-         "type": "player_missed_bullet"
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1637": [
+   "1608": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1616": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1624": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1632": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-640"
+               "firstMiniboss-1639",
+               "playerShot-1810"
             ]
          }
       },
@@ -4632,15 +19622,20 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1638": [
+   "1639": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-638"
+               "firstMiniboss-1639",
+               "playerShot-1813"
             ]
          }
       },
@@ -4653,38 +19648,28 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "1643": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1645": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-641"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1640": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1646": [
@@ -4692,8 +19677,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-643"
+               "firstMiniboss-1639",
+               "playerShot-1816"
             ]
          }
       },
@@ -4706,38 +19691,23 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      }
-   ],
-   "1651": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1654": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-644"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1648": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1655": [
@@ -4745,8 +19715,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-645"
+               "firstMiniboss-1639",
+               "playerShot-1819"
             ]
          }
       },
@@ -4759,777 +19729,2031 @@ export const history = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1659": [
+   "1656": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1662": [
+   "1664": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-647"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1663": [
+   "1672": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-648"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1667": [
+   "1680": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1670": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-650"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1671": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-651"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1675": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1678": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-659"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1679": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-660"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1683": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1686": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-662"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1687": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-664"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1691": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1694": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-665"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1695": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-667"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1699": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1702": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-668"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1703": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-670"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "1707": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
    "1710": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-673"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1715": [
+   "1718": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1723": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1731": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1739": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1747": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1755": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1763": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1771": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1779": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1787": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1795": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1803": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1811": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1815": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-721"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1819": [
+   "1726": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1822": [
+   "1734": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-724"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1741": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1748": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1756": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1764": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1772": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1782": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1790": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1798": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1806": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1814": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1824": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1827": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1831": [
+   "1830": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-725"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1832": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-727"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1835": [
+   "1833": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1836": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1839": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1840": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-728"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerShot",
+         "points": -1
       }
    ],
-   "1843": [
+   "1842": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1849": [
+   "1845": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-731"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1848": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1851": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1854": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1857": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-736"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1859": [
+   "1860": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1865": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-739"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1867": [
+   "1863": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1866": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1869": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1872": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1875": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1883": [
+   "1878": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1881": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1884": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1887": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1890": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1891": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2046"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1893": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1894": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2051"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1895": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2051"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1896": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1897": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2057"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1898": [
@@ -5537,8 +21761,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-760"
+               "firstMiniboss-1639",
+               "playerLaser-2057"
             ]
          }
       },
@@ -5550,27 +21774,252 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1899": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1900": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2063"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1901": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2063"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1902": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2073"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1903": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2069"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1905": [
       {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-761"
+               "firstMiniboss-1639",
+               "playerLaser-2079"
             ]
          }
       },
@@ -5582,193 +22031,765 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "1907": [
+   "1906": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2075"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1908": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1911": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1914": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-764"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1915": [
+   "1917": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-765"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1920": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1923": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-767"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1924": [
+   "1926": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-768"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1930": [
+   "1929": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-771"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1931": [
+   "1932": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1937": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-778"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "1939": [
+   "1935": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1938": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1941": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1944": [
       {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1947": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1949": [
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-783"
+               "firstMiniboss-1639",
+               "playerLaser-2171"
             ]
          }
       },
@@ -5780,18 +22801,59 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "1947": [
+   "1950": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1951": [
@@ -5799,8 +22861,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-786"
+               "firstMiniboss-1639",
+               "playerLaser-2181"
             ]
          }
       },
@@ -5812,18 +22874,195 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1952": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2177"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1953": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1954": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2186"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1955": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2183"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1956": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1957": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2191"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1958": [
@@ -5831,8 +23070,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-789"
+               "firstMiniboss-1639",
+               "playerLaser-2189"
             ]
          }
       },
@@ -5844,16 +23083,68 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1959": [
       {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1960": [
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-788"
+               "firstMiniboss-1639",
+               "playerLaser-2196"
             ]
          }
       },
@@ -5865,18 +23156,174 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1961": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2195"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1962": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1963": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2201"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1964": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2201"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1965": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1966": [
@@ -5884,8 +23331,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-791"
+               "firstMiniboss-1639",
+               "playerLaser-2207"
             ]
          }
       },
@@ -5897,7 +23344,7 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1967": [
@@ -5905,8 +23352,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-792"
+               "firstMiniboss-1639",
+               "playerLaser-2207"
             ]
          }
       },
@@ -5918,18 +23365,174 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1968": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1969": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2213"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1970": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2213"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1971": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1972": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2219"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1973": [
@@ -5937,8 +23540,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-796"
+               "firstMiniboss-1639",
+               "playerLaser-2219"
             ]
          }
       },
@@ -5950,16 +23553,66 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1974": [
       {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-794"
+               "firstMiniboss-1639",
+               "playerLaser-2230"
             ]
          }
       },
@@ -5971,18 +23624,233 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1975": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2225"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1976": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2225"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1977": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2236"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1978": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2231"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1979": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2231"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1980": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2242"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1981": [
@@ -5990,8 +23858,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-797"
+               "firstMiniboss-1639",
+               "playerLaser-2237"
             ]
          }
       },
@@ -6003,7 +23871,7 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1982": [
@@ -6011,8 +23879,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-799"
+               "firstMiniboss-1639",
+               "playerLaser-2237"
             ]
          }
       },
@@ -6024,27 +23892,66 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "1987": [
+   "1983": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "1989": [
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-801"
+               "firstMiniboss-1639",
+               "playerLaser-2248"
             ]
          }
       },
@@ -6056,7 +23963,214 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1984": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2243"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1985": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2243"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1986": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2260"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1987": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2255"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1988": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2255"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1989": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1990": [
@@ -6064,8 +24178,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-800"
+               "firstMiniboss-1639",
+               "playerLaser-2261"
             ]
          }
       },
@@ -6077,18 +24191,195 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "1991": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2261"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1992": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1993": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2267"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "1994": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2267"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1995": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1996": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2273"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "1997": [
@@ -6096,8 +24387,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-810"
+               "firstMiniboss-1639",
+               "playerLaser-2273"
             ]
          }
       },
@@ -6109,16 +24400,68 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "1998": [
       {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "1999": [
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-809"
+               "firstMiniboss-1639",
+               "playerLaser-2279"
             ]
          }
       },
@@ -6130,18 +24473,174 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "2000": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2279"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "2001": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2002": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2285"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "2003": [
       {
-         "type": "player_missed_bullet"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2285"
+            ]
+         }
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "2004": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2005": [
@@ -6149,8 +24648,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-813"
+               "firstMiniboss-1639",
+               "playerLaser-2291"
             ]
          }
       },
@@ -6162,27 +24661,68 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "2011": [
+   "2007": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2013": [
+   "2008": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-816"
+               "firstMiniboss-1639",
+               "playerLaser-2298"
             ]
          }
       },
@@ -6194,7 +24734,132 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "2010": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2011": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2304"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      }
+   ],
+   "2013": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2014": [
@@ -6202,8 +24867,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-815"
+               "firstMiniboss-1639",
+               "playerLaser-2311"
             ]
          }
       },
@@ -6215,282 +24880,1264 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
+      }
+   ],
+   "2016": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2019": [
       {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2021": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-818"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2022": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-819"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2027": [
+   "2025": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2029": [
+   "2028": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-821"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2030": [
+   "2031": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-822"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2035": [
+   "2034": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2037": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-824"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2038": [
+   "2040": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-825"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2043": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2046": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-828"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2051": [
+   "2049": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2052": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2055": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-831"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2059": [
+   "2058": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
-   "2063": [
+   "2061": [
       {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-840"
-            ]
-         }
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2064": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2067": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2070": [
       {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2073": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2076": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2079": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2082": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2085": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "2086": [
+      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-843"
+               "firstMiniboss-1639",
+               "playerLaser-2459"
             ]
          }
       },
@@ -6502,27 +26149,66 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "2075": [
+   "2088": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2077": [
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-846"
+               "firstMiniboss-1639",
+               "playerLaser-2469"
             ]
          }
       },
@@ -6534,27 +26220,16 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "2083": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2084": [
+   "2089": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-849"
+               "firstMiniboss-1639",
+               "playerLaser-2465"
             ]
          }
       },
@@ -6566,18 +26241,78 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
    "2091": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1639",
+               "playerLaser-2473"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ],
    "2092": [
@@ -6585,8 +26320,8 @@ export const history = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-852"
+               "firstMiniboss-1639",
+               "playerLaser-2471"
             ]
          }
       },
@@ -6598,25 +26333,66 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "2099": [
+   "2094": [
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
-         "type": "player_missed_bullet"
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-855"
+               "firstMiniboss-1639",
+               "playerLaser-2479"
             ]
          }
       },
@@ -6628,16 +26404,16 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "2106": [
+   "2095": [
       {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-857"
+               "firstMiniboss-1639",
+               "playerLaser-2477"
             ]
          }
       },
@@ -6649,1147 +26425,10 @@ export const history = {
       {
          "type": "add_points",
          "points": 0,
-         "enemy": "playerShot"
+         "enemy": "playerLaser"
       }
    ],
-   "2107": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-858"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2114": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-860"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2115": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-861"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2122": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-867"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2123": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-868"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2130": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-872"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2131": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-873"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2132": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-874"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2139": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-877"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2147": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2155": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2163": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2168": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-886"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2171": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2176": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-889"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2179": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2185": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-892"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2187": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2194": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-901"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2195": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2202": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-904"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2203": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2211": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-905"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2212": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-907"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2219": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-908"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2220": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-910"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2227": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-913"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2235": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2236": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-916"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2243": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2251": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2259": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2267": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2275": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2283": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2291": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2299": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2307": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2315": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2323": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2331": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2339": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2347": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2355": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2363": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2371": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2379": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2387": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2395": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2403": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2411": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2419": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2427": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2435": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2443": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2451": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2459": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2467": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2475": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2483": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2491": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2499": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2507": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2515": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2523": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2531": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2539": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2547": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2555": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2563": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2571": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2579": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2587": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2591": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-1087"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2595": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      }
-   ],
-   "2600": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-565",
-               "playerShot-1090"
-            ]
-         }
-      },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerShot"
-      }
-   ],
-   "2603": [
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
-      {
-         "type": "player_missed_bullet"
-      },
+   "2096": [
       {
          "type": "player_died"
       }
