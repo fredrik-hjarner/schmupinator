@@ -80,6 +80,8 @@ lines of code.
 
 * Confirm that reset.css is imported on PROD build cuz suspicious import path.
 
+* Dont dispatch zero point events.
+
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 1.1 Hide the bullets.

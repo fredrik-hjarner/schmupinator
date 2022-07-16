@@ -1,0 +1,19 @@
+enemy:
+  name: playerLaser
+  hp: 9999
+  diameter: 5
+  actions:
+    - { type: setAttribute, attribute: collisionType, value: playerBullet }
+    # TODO: is points really necessary for this?
+    - { type: setAttribute, attribute: pointsOnDeath, value: -0.2 }
+    - { type: setAttribute, attribute: points, value: 0 }
+    - { type: gfxSetShape, shape: square }
+    - { type: gfxSetColor, color: aqua }
+    # - wait: 1
+    # - { type: die }
+    - parallelRace:
+      - - forever:
+          - { type: moveDelta, y: -30 }
+          - { type: waitNextFrame }
+      - - wait: 8
+        - { type: die }

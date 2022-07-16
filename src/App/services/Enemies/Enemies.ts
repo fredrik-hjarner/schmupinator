@@ -61,11 +61,6 @@ export class Enemies implements IService {
       { enemy, position, prependActions=[] }:
       { enemy: string, position: TVector, prependActions?: TShortFormAction[] }
    ) => {
-      // TODO: This is not elegant.
-      if(enemy === "playerShot") {
-         this.events.dispatchEvent({ type: "player_missed_bullet" });
-      }
-
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = this.yaml.GetEnemy(enemy);
       if(!enemyJson) {

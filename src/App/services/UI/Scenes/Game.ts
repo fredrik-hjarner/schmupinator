@@ -56,7 +56,7 @@ export class Game implements IScene {
       switch(event.type) {
          case "uiScoreUpdated": {
             if(this.scoreElement) {
-               this.scoreElement.innerHTML = `Score ${event.points}`;
+               this.scoreElement.innerHTML = `Score ${Math.round(event.points)}`;
             }
             break;
          }

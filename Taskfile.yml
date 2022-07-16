@@ -4,7 +4,7 @@ silent: true
 
 tasks:
   zip:
-    sources: [yaml/*]
+    sources: [yaml/**/*]
     cmds: [yarn zip]
 
   e2e:

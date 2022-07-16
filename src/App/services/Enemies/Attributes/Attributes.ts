@@ -36,9 +36,11 @@ export class Attributes {
        * actions, but it may not hurt to have default values though, and also may serve as
        * reference of what "built-in" attrs exist.
        */
-      points:  { value: 10 },
-      hp:      { value: 1 },
-      maxHp:   { value: 1 },
+      points:        { value: 10 },
+      // how many points you get when this dies.
+      pointsOnDeath: { value: 0 },
+      hp:            { value: 1 },
+      maxHp:         { value: 1 },
       /**
        * Different things can and can't collide with each other.
        * none, enemy, enemyBullet, player, playerBullet.

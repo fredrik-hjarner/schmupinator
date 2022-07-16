@@ -78,6 +78,7 @@ export class Highscore implements IService {
 
    // Assumably called from EnterHighscore scene when player has recorded name.
    public registerNewEntry = (entry: THighscoreEntry) => {
+      entry.score = Math.round(entry.score);
       const { rank } = this.qualifiedForTop10(entry.score);
       if(rank === undefined) {
          // If didn't rank then just return

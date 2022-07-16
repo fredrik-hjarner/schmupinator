@@ -81,9 +81,7 @@ export class Enemy {
       this.attrs.SetAttribute({ name: "maxHp", value });
    }
 
-   public get Radius(){
-      return this.diameter/2;
-   }
+   public get Radius(){ return this.diameter/2; }
 
    public OnFrameTick = () => {
       const done = this.actionExecutor.ProgressOneFrame();
@@ -140,6 +138,12 @@ export class Enemy {
       const enemies = this.enemies;
       // remove this enemy.
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
+
+      const points = assertNumber(this.attrs.GetAttribute("pointsOnDeath").value);
+      if(points !== 0) {
+         this.enemies.events.dispatchEvent({type: "add_points", enemy: this.name, points });
+      }
+
       // TODO: Maybe publish a death event or something.
       // Clear up graphics.
       if(this.gfx) {
@@ -165,7 +169,7 @@ export class Enemy {
             break;
 
          case "setShotSpeed":
-            this.SetShotSpeed(action.pixelsPerFrame);
+            this.shotSpeed = action.pixelsPerFrame;
             break;
 
          case "set_position":
@@ -277,10 +281,6 @@ export class Enemy {
       const dirY = player.Y - this.Y;
       const vector = new Vector(dirX, dirY).rotateClockwiseM(Angle.fromDegrees(degrees));
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
-   };
-
-   private SetShotSpeed = (pixelsPerFrame: number) => {
-      this.shotSpeed = pixelsPerFrame;
    };
 
    private SetPosition = ({ x, y }: {x: number, y: number}) => {
