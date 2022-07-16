@@ -1,10 +1,10 @@
-import type { IScene } from "../IScene";
-import type { UI } from "../../UI";
+import type { IScene } from "./types/IScene";
+import type { UI } from "../UI";
 
-import { createShade } from "../components/shade";
-import { centerHorizontally } from "../utils/centering";
-import { createText } from "../components/text";
-import { Menu } from "../components/Menu";
+import { createShade } from "./components/shade";
+import { centerHorizontally } from "./utils/centering";
+import { createText } from "./components/text";
+import { Menu } from "./components/Menu";
 
 type TConstructor = {
    ui: UI;
@@ -36,8 +36,8 @@ export class StartGame implements IScene {
          top: 115,
          menuItems: [
             { text: "start game", onClick: this.onStartGame },
-            { text: "highscore", onClick: this.onHighscore },
-            { text: "settings", onClick: () => {/* */}},
+            { text: "highscore", onClick: () => { this.ui.SetActiveScene(this.ui.highscore); } },
+            { text: "settings", onClick: () => { this.ui.SetActiveScene(this.ui.settings); }},
          ]
       });
       this.menu.render();
@@ -56,9 +56,5 @@ export class StartGame implements IScene {
    private onStartGame = () => {
       this.ui.gameLoop.Start();
       this.ui.SetActiveScene(this.ui.game);
-   };
-
-   private onHighscore = () => {
-      this.ui.SetActiveScene(this.ui.highscore);
    };
 }

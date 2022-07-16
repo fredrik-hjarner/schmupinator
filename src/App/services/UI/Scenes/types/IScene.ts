@@ -1,4 +1,4 @@
-import type { IUI } from "../IUI";
+import type { IUI } from "../../IUI";
 
 export interface IScene {
    ui: IUI;

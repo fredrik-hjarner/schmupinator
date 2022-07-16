@@ -1,4 +1,4 @@
-import type { IScene } from "./IScene";
+import type { IScene } from "./types/IScene";
 import type { TUiEvent } from "../../Events/IEvents";
 import type { UI } from "../UI";
 

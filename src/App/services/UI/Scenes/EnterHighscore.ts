@@ -1,4 +1,4 @@
-import type { IScene } from "./IScene";
+import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
 import { createShade } from "./components/shade";

@@ -1,5 +1,5 @@
 import type { IUI } from "./IUI";
-import type { IScene } from "./Scenes/IScene";
+import type { IScene } from "./Scenes/types/IScene";
 import type { IGameEvents, IUiEvents, TGameEvent } from "../Events/IEvents";
 import type { GameLoop } from "../GameLoop/GameLoop";
 import type { GameSpeed } from "../GameSpeed/GameSpeed";
@@ -7,11 +7,12 @@ import type { TInitParams } from "../IService";
 import type { Highscore as THighscoreService } from "../Highscore/Highscore";
 import type { IPoints } from "../Points/IPoints";
 
-import { StartGame } from "./Scenes/StartGame/StartGame";
+import { StartGame } from "./Scenes/StartGame";
 import { Game } from "./Scenes/Game";
 import { GameOver } from "./Scenes/GameOver";
 import { Highscore } from "./Scenes/Highscore";
 import { EnterHighscore } from "./Scenes/EnterHighscore";
+import { Settings } from "./Scenes/Settings";
 
 type TConstructor = {
    name: string
@@ -30,6 +31,7 @@ export class UI implements IUI {
 
    // Scenes
    public startGame: IScene;
+   public settings: IScene;
    public game: IScene;
    public gameOver: IScene;
    public highscore: IScene;
@@ -42,6 +44,7 @@ export class UI implements IUI {
       this.name = name;
 
       this.startGame = new StartGame({ ui: this });
+      this.settings = new Settings({ ui: this });
       this.game = new Game({ ui: this });
       this.gameOver = new GameOver({ ui: this });
       this.highscore = new Highscore({ ui: this });
