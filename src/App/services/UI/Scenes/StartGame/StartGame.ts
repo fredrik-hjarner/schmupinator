@@ -4,7 +4,7 @@ import type { UI } from "../../UI";
 import { createShade } from "../components/shade";
 import { centerHorizontally } from "../utils/centering";
 import { createText } from "../components/text";
-import { fontSizes } from "../consts/fontSizes";
+import { Menu } from "../components/Menu";
 
 type TConstructor = {
    ui: UI;
@@ -16,9 +16,7 @@ export class StartGame implements IScene {
    // elements
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
-   private startGame?: HTMLDivElement;
-   private highscore?: HTMLDivElement;
-   private settings?: HTMLDivElement;
+   private menu?: Menu;
 
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -34,31 +32,15 @@ export class StartGame implements IScene {
       });
       centerHorizontally(this.title);
 
-      this.startGame = createText({
-         text: `Start game`,
-         fontSize: fontSizes.normal,
+      this.menu = new Menu({
          top: 115,
-         onClick: this.onStartGame,
-         className: "menuItem",
+         menuItems: [
+            { text: "start game", onClick: this.onStartGame },
+            { text: "highscore", onClick: this.onHighscore },
+            { text: "settings", onClick: () => {/* */}},
+         ]
       });
-      centerHorizontally(this.startGame);
-      
-      this.highscore = createText({
-         text: `Highscore`,
-         fontSize: fontSizes.normal,
-         top: 140,
-         onClick: this.onHighscore,
-         className: "menuItem",
-      });
-      centerHorizontally(this.highscore);
-
-      this.settings = createText({
-         text: `Settings`,
-         fontSize: fontSizes.normal,
-         top: 165,
-         className: "menuItem",
-      });
-      centerHorizontally(this.settings);
+      this.menu.render();
    }
 
    public destroy() {
@@ -68,14 +50,7 @@ export class StartGame implements IScene {
       this.title?.remove();
       this.title = undefined;
 
-      this.startGame?.remove();
-      this.startGame = undefined;
-
-      this.highscore?.remove();
-      this.highscore = undefined;
-
-      this.settings?.remove();
-      this.settings = undefined;
+      this.menu?.destroy();
    }
 
    private onStartGame = () => {

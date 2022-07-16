@@ -87,4 +87,6 @@ lines of code.
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 1.1 Hide the bullets.
-2. 
+2. Explain the controls!
+
+* Make a Settings scene where you can set Debug on/off.
