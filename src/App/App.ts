@@ -109,11 +109,16 @@ export class App {
       /**
        * Constuct services
        */
+      /**
+       * This is not the most elegant but settings contain some settings that decide
+       * what services are going to be used, so it should be created first.
+       */
+      this.settings = new Settings({ app: this, name: "settings" });
+      const { fullscreen } = this.settings.settings;
+
       this.e2eTest = IsBrowser() ?
          new NoopService({ name: "e2e" }) :
          new E2eTest({ name: "e2e" });
-
-      this.settings = new Settings({ name: "settings" });
 
       this.input = IsBrowser() ?
          // new Input({ name: "input" }) :
@@ -168,8 +173,9 @@ export class App {
          new NoopService({ name: "mockUi" });
 
       this.fullscreen = IsBrowser() ?
-         // new Fullscreen({ name: "fullscreen" }) :
-         new NoopService({ name: "fullscreen" }) :
+         (fullscreen ?
+            new Fullscreen({ name: "fullscreen" }) :
+            new NoopService({ name: "fullscreen" })) :
          new NoopService({ name: "fullscreen" });
 
       this.parallax = IsBrowser() ?
@@ -203,10 +209,10 @@ export class App {
        */
       await this.yaml.Init();
 
+      await this.settings.Init();
       await this.e2eTest.Init({
          events,
       });
-      await this.settings.Init();
       await this.input.Init({
          events
       });

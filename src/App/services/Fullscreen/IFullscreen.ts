@@ -1,3 +1,6 @@
+import type { IDestroyable } from "../../../utils/types/IDestroyable";
 import type { IService } from "../IService";
 
-export type IFullscreen = IService;
+export interface IFullscreen extends IService, IDestroyable {
+   //
+}

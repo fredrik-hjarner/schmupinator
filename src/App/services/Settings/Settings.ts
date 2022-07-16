@@ -1,6 +1,7 @@
 import type { IService, TInitParams } from "../IService";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { App } from "../../App";
 
 const localStorageKey = "__settings";
 
@@ -9,6 +10,7 @@ type TSettings = {
 };
 
 type TConstructor = {
+   app: App;
    name: string,
 }
 
@@ -18,20 +20,19 @@ export type TQualifiedForTop10 = {
 }
 
 export class Settings implements IService {
-   // deps
    public readonly name: string;
    public settings: TSettings = {
       fullscreen: true,
    };
 
    // deps/services
+   //@ts-ignore: TODO: I inted to use app to replace services without location.reload().
+   private app: App;
 
-   public constructor({ name }: TConstructor) {
+   public constructor({ app, name }: TConstructor) {
+      this.app = app;
       this.name = name;
-   }
 
-   // eslint-disable-next-line @typescript-eslint/require-await
-   public Init = async (_deps?: TInitParams) => {
       // attempt to load from localStorage.
       BrowserDriver.WithWindow(window => {
          const fromLocalStorage = window.localStorage.getItem(localStorageKey);
@@ -47,13 +48,22 @@ export class Settings implements IService {
             window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
          }
       });
+   }
+
+   // eslint-disable-next-line @typescript-eslint/require-await
+   public Init = async (_deps?: TInitParams) => {
+      // noop
    };
 
    // Send in whatever settings you want to change/update, rest is unchanged.
    public updateSettings = (settings: Partial<TSettings>) => {
       Object.entries(settings).forEach(([k, v]) => {
+         const typedK = k as keyof TSettings;
          if(v !== undefined) {
-            this.settings[k as keyof TSettings] = v;
+            if(typedK === "fullscreen") {
+               // TODO: Switch Fullscreen servive here.
+            }
+            this.settings[typedK as keyof TSettings] = v;
          }
       });
 

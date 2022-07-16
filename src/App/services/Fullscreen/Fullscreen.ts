@@ -25,12 +25,12 @@ export class Fullscreen implements IFullscreen {
       //
    };
 
-   // TODO: This is never called because it is not on IFullscreen interface etc.
-   // private destroy = () => {
-   //    BrowserDriver.WithWindow(window => {
-   //       window.removeEventListener("resize", this.setFullscreen);
-   //    });
-   // };
+   public destroy = () => {
+      BrowserDriver.WithWindow(window => {
+         window.removeEventListener("resize", this.setFullscreen);
+         window.document.body.style.transform = "none";
+      });
+   };
 
    private setFullscreen = () => {
       BrowserDriver.WithWindow(window => {
