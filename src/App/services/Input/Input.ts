@@ -22,6 +22,7 @@ export class Input implements IInput {
    };
    private buttonsPressed: ButtonsPressed = {
       shoot: false,
+      laser: false,
       left: false,
       right: false,
       up: false,
@@ -67,7 +68,8 @@ export class Input implements IInput {
       const wasPressed = Object.values(buttonsPressed).includes(true);
       if(wasPressed) {
          Object.keys(buttonsPressed).forEach((k) => {
-            if(k === "shoot" || k === "up" || k === "down" ||k === "left" ||k === "right") {
+            if(k === "laser" || k === "shoot" || k === "up" ||
+               k === "down" || k === "left" || k === "right") {
                if(buttonsPressed[k] === false) {
                   delete buttonsPressed[k];
                }
@@ -93,6 +95,10 @@ export class Input implements IInput {
          case 32:
             // Space
             this.buttonsPressed.shoot = value;
+            break;
+         case 17:
+            // Ctrl
+            this.buttonsPressed.laser = value;
             break;
          case 37:
             // Left

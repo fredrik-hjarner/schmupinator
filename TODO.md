@@ -82,6 +82,8 @@ lines of code.
 
 * Dont dispatch zero point events.
 
+* TODO: Set correct button for laser on GamePad !!!
+
 * Last finishing touches:
 1. Hide the debug stuff somehow.
 1.1 Hide the bullets.

@@ -77,6 +77,9 @@ export class EnemyActionExecutor {
    * Private
    */
 
+   private shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
+   private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
+
    private *makeGenerator(shortFormActions: TShortFormAction[] = []): Generator<void, void, void> {
       const actions = shortFormActions.map(ShortFormToLongForm);
       let currIndex = 0;
@@ -117,8 +120,14 @@ export class EnemyActionExecutor {
             }
 
             case "waitInputShoot": {
-               const shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
+               const shootPressed = () => this.shootPressed() && !this.laserPressed();
                while(!shootPressed()) { yield; }
+               break;
+            }
+
+            case "waitInputLaser": {
+               const laserPressed = () => this.laserPressed();
+               while(!laserPressed()) { yield; }
                break;
             }
 

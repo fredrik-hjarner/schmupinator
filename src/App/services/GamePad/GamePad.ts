@@ -25,6 +25,10 @@ export class GamePad implements IService {
    };
 
    public get shoot(): boolean { return this.getPressedButton(0); }
+   /**
+    * TODO: Set correct button for laser.
+    */
+   public get laser(): boolean { return this.getPressedButton(1); }
    public get left(): boolean { return this.getPressedButton(14); }
    public get right(): boolean { return this.getPressedButton(15); }
    public get up(): boolean { return  this.getPressedButton(12); }

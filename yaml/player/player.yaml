@@ -49,5 +49,8 @@ enemy:
       - fork:
         - forever:
           - { type: waitInputShoot }
-          # - do: *laser
           - do: *trippleShot
+      - fork:
+        - forever:
+          - { type: waitInputLaser }
+          - do: *laser

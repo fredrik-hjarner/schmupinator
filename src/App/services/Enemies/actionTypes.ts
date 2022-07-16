@@ -94,6 +94,7 @@ export type TWaitUntilAttrIs = { type: "waitUntilAttrIs", attr: string, is: TAtt
  */
 export type TMoveAccordingToInput = { type: "moveAccordingToInput" };
 export type TWaitInputShoot = { type: "waitInputShoot" };
+export type TWaitInputLaser = { type: "waitInputLaser" };
 
 export type TAction =
    /**
@@ -132,6 +133,7 @@ export type TAction =
     */
    TMoveAccordingToInput |
    TWaitInputShoot |
+   TWaitInputLaser |
    /**
    * Spawning/Life cycle
    */
