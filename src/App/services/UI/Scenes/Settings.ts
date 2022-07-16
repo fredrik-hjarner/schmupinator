@@ -23,6 +23,8 @@ export class Settings implements IScene {
    }
 
    public render() {
+      const { fullscreen } = this.ui.settingsService.settings;
+
       this.shadeElement = createShade();
 
       this.title = createText({
@@ -35,8 +37,12 @@ export class Settings implements IScene {
       this.menu = new Menu({
          top: 115,
          menuItems: [
-            { text: "debug mode - off", onClick: this.onToggleDebugMode },
-            { text: "back", onClick: () => { this.ui.SetActiveScene(this.ui.startGame); } },
+            {
+               text: `fullscreen - ${fullscreen ? "on" : "off" }`, onClick: this.onToggleFullscreen
+            },
+            {
+               text: "back", onClick: () => { this.ui.SetActiveScene(this.ui.startGame); }
+            },
          ]
       });
       this.menu.render();
@@ -52,7 +58,8 @@ export class Settings implements IScene {
       this.menu?.destroy();
    }
 
-   private onToggleDebugMode = () => {
-      // TODO: Implement.
+   private onToggleFullscreen = () => {
+      const { fullscreen } = this.ui.settingsService.settings;
+      this.ui.settingsService.updateSettings({ fullscreen: !fullscreen });
    };
 }

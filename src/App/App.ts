@@ -48,6 +48,7 @@ import { UI } from "./services/UI/UI";
 import { Fullscreen } from "./services/Fullscreen/Fullscreen";
 import { Parallax } from "./services/Parallax/Parallax";
 import { E2eTest } from "./services/E2eTest/E2eTest";
+import { Settings } from "./services/Settings/Settings";
 
 /**
  * "Mocks"/Service variations
@@ -79,6 +80,7 @@ export class App {
    // types here should not be IService but rather something that implements IService.
    // TODO: also all types should NOT be concrete types, but interfaces.
    public e2eTest: IE2eTest;
+   public settings: Settings;
    public input: IInput;
    public gameLoop: IGameLoop;
    public fps: IFps;
@@ -110,6 +112,8 @@ export class App {
       this.e2eTest = IsBrowser() ?
          new NoopService({ name: "e2e" }) :
          new E2eTest({ name: "e2e" });
+
+      this.settings = new Settings({ name: "settings" });
 
       this.input = IsBrowser() ?
          // new Input({ name: "input" }) :
@@ -188,6 +192,7 @@ export class App {
          input,
          points,
          yaml,
+         settings,
          uiEvents
       } = this;
 
@@ -201,6 +206,7 @@ export class App {
       await this.e2eTest.Init({
          events,
       });
+      await this.settings.Init();
       await this.input.Init({
          events
       });
@@ -228,6 +234,7 @@ export class App {
          gameSpeed,
          highscore,
          points,
+         settings,
          uiEvents,
       });
       await this.highscore.Init();
