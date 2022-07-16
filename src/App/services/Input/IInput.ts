@@ -1,7 +1,7 @@
 import type { IService } from "../IService";
 
 export type ButtonsPressed = {
-   space: boolean
+   shoot: boolean
    left: boolean
    right: boolean
    up: boolean

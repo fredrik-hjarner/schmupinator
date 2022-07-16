@@ -117,7 +117,7 @@ export class EnemyActionExecutor {
             }
 
             case "waitInputShoot": {
-               const shootPressed = () => this.input.ButtonsPressed.space || this.gamepad.shoot;
+               const shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
                while(!shootPressed()) { yield; }
                break;
             }
