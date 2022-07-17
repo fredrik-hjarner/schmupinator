@@ -86,7 +86,5 @@ lines of code.
 
 * Last finishing touches:
 1. Hide the debug stuff somehow.
-1.1 Hide the bullets.
+1.1 Hide the bullets on the left side of the game window.
 2. Explain the controls!
-
-* Make GameHide into it's own service so that I can on/off it via Settings menu.
