@@ -1,9 +1,7 @@
 import type { IGameEvents, TGameEvent } from "../Events/IEvents";
 import type { TInitParams } from "../IService";
 
-import {
-   initLayer1Element, initGameHideBottom, initGameHideRight, initLayer2Element, initLayer3Element
-} from "./divs";
+import { initLayer1Element, initLayer2Element, initLayer3Element } from "./divs";
 import { px } from "../../../utils/px";
 import { IParallax } from "./IParallax";
 import { isHTMLDivElement } from "../../../utils/typeAssertions";
@@ -33,8 +31,6 @@ export class Parallax implements IParallax {
       this.layer1Element = initLayer1Element();
       this.layer2Element = initLayer2Element();
       this.layer3Element = initLayer3Element();
-      initGameHideBottom();
-      initGameHideRight();
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await

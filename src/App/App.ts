@@ -14,6 +14,7 @@ import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
 import type { IParallax } from "./services/Parallax/IParallax";
 import type { IE2eTest } from "./services/E2eTest/IE2eTest";
+import type { IOutsideHider } from "./services/OutsideHider/IOutsideHider";
 
 /**
  * Services
@@ -49,6 +50,7 @@ import { Fullscreen } from "./services/Fullscreen/Fullscreen";
 import { Parallax } from "./services/Parallax/Parallax";
 import { E2eTest } from "./services/E2eTest/E2eTest";
 import { Settings } from "./services/Settings/Settings";
+import { OutsideHider } from "./services/OutsideHider/OutsideHider";
 
 /**
  * "Mocks"/Service variations
@@ -101,6 +103,7 @@ export class App {
    public ui: IUI;
    public fullscreen: IFullscreen;
    public parallax: IParallax;
+   public outsideHider: IOutsideHider;
 
    /**
     * Step 1 of initialization
@@ -114,7 +117,7 @@ export class App {
        * what services are going to be used, so it should be created first.
        */
       this.settings = new Settings({ app: this, name: "settings" });
-      const { fullscreen, gameSpeedSlider, fpsStats } = this.settings.settings;
+      const { fullscreen, gameSpeedSlider, fpsStats, outsideHider } = this.settings.settings;
 
       this.e2eTest = IsBrowser() ?
          new NoopService({ name: "e2e" }) :
@@ -131,7 +134,10 @@ export class App {
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
 
       this.fps = IsBrowser() ?
-         fpsStats ? new Fps({ app: this, name: "fps" }) : new MockFps({ app: this, name: "fps" }) :
+         (fpsStats ?
+            new Fps({ app: this, name: "fps" }) :
+            new MockFps({ app: this, name: "fps" })
+         ) :
          new MockFps({ app: this, name: "fps" });
 
       this.enemies = new Enemies({ name: "enemies" });
@@ -151,7 +157,8 @@ export class App {
       this.gameSpeed = IsBrowser() ?
          (gameSpeedSlider ?
             new GameSpeed({ name: "gameSpeed" }) :
-            new InvisibleGameSpeed({ name: "gameSpeed" })) :
+            new InvisibleGameSpeed({ name: "gameSpeed" })
+         ) :
          new InvisibleGameSpeed({ name: "gameSpeed" });
 
       this.points = IsBrowser() ?
@@ -175,12 +182,20 @@ export class App {
       this.fullscreen = IsBrowser() ?
          (fullscreen ?
             new Fullscreen({ name: "fullscreen" }) :
-            new NoopService({ name: "fullscreen" })) :
+            new NoopService({ name: "fullscreen" })
+         ) :
          new NoopService({ name: "fullscreen" });
 
       this.parallax = IsBrowser() ?
          new Parallax({ name: "parallax" }) :
          new NoopService({ name: "parallax" });
+
+      this.outsideHider = IsBrowser() ?
+         (outsideHider ?
+            new OutsideHider({ name: "hider" }) :
+            new NoopService({ name: "hider" })
+         ) :
+         new NoopService({ name: "hider" });
    }
 
    /**
@@ -248,5 +263,6 @@ export class App {
       await this.parallax.Init({
          events,
       });
+      await this.outsideHider.Init();
    };
 }

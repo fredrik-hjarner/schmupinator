@@ -27,6 +27,6 @@ export const playerSpeedPerFrame = [
 export const zIndices = {
    gameHide: "1",
    controlsAndLogs: "2",
-   graphicsEngineElements: "1", // Set to "0" to hide behind gameHide.
+   graphicsEngineElements: "0", // Set to "0" to hide behind gameHide.
    ui: "1"
 };

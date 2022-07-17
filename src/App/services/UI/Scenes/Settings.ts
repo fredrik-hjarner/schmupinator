@@ -23,7 +23,9 @@ export class Settings implements IScene {
    }
 
    public render() {
-      const { fullscreen, gameSpeedSlider, fpsStats } = this.ui.settingsService.settings;
+      const {
+         fullscreen, gameSpeedSlider, fpsStats, outsideHider
+      } = this.ui.settingsService.settings;
 
       this.shadeElement = createShade();
 
@@ -48,6 +50,10 @@ export class Settings implements IScene {
             {
                text: `gameSpeedSlider - ${gameSpeedSlider ? "on" : "off" }`,
                onClick: () => { this.ui.settingsService.toggleSetting("gameSpeedSlider"); }
+            },
+            {
+               text: `outsideHider - ${outsideHider ? "on" : "off" }`,
+               onClick: () => { this.ui.settingsService.toggleSetting("outsideHider"); }
             },
             {
                text: "back",

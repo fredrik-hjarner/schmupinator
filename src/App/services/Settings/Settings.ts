@@ -9,6 +9,7 @@ type TSettings = {
    fullscreen: boolean;
    gameSpeedSlider: boolean;
    fpsStats: boolean;
+   outsideHider: boolean;
 };
 
 type TConstructor = {
@@ -22,6 +23,7 @@ export class Settings implements IService {
       fullscreen: true,
       gameSpeedSlider: false,
       fpsStats: false,
+      outsideHider: true,
    };
 
    // deps/services
