@@ -33,10 +33,11 @@ export class StartGame implements IScene {
       centerHorizontally(this.title);
 
       this.menu = new Menu({
-         top: 115,
+         top: 112,
          menuItems: [
             { text: "start game", onClick: this.onStartGame },
             { text: "highscore", onClick: () => { this.ui.SetActiveScene(this.ui.highscore); } },
+            { text: "controls", onClick: () => { this.ui.SetActiveScene(this.ui.controls); }},
             { text: "settings", onClick: () => { this.ui.SetActiveScene(this.ui.settings); }},
          ]
       });

@@ -10,7 +10,7 @@ type TConstructor = {
    ui: UI;
 }
 
-export class Settings implements IScene {
+export class Controls implements IScene {
    public readonly ui: UI;
 
    // elements
@@ -23,14 +23,10 @@ export class Settings implements IScene {
    }
 
    public render() {
-      const {
-         fullscreen, gameSpeedSlider, fpsStats, outsideHider
-      } = this.ui.settingsService.settings;
-
       this.shadeElement = createShade();
 
       this.title = createText({
-         text: `<span class="flash3s"><span style="font-size: 76px;">S</span>ettings</span>`,
+         text: `<span class="flash3s"><span style="font-size: 76px;">C</span>ontrols</span>`,
          fontSize: 60,
          top: 38,
       });
@@ -40,20 +36,16 @@ export class Settings implements IScene {
          top: 105,
          menuItems: [
             {
-               text: `fullscreen - ${fullscreen ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("fullscreen"); }
+               text: `move - arrow keys`,
+               onClick: () => { /* */ }
             },
             {
-               text: `fpsStats - ${fpsStats ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("fpsStats"); }
+               text: `shoot - space`,
+               onClick: () => { /* */ }
             },
             {
-               text: `gameSpeedSlider - ${gameSpeedSlider ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("gameSpeedSlider"); }
-            },
-            {
-               text: `outsideHider - ${outsideHider ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("outsideHider"); }
+               text: `laser - ctrl`,
+               onClick: () => { /* */ }
             },
             {
                text: "back",
