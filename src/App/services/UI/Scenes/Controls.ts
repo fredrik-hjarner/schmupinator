@@ -5,6 +5,7 @@ import { createShade } from "./components/shade";
 import { centerHorizontally } from "./utils/centering";
 import { createText } from "./components/text";
 import { Menu } from "./components/Menu";
+import { List } from "./components/List";
 
 type TConstructor = {
    ui: UI;
@@ -17,6 +18,7 @@ export class Controls implements IScene {
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private menu?: Menu;
+   private list?: List;
 
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -32,21 +34,19 @@ export class Controls implements IScene {
       });
       centerHorizontally(this.title);
 
-      this.menu = new Menu({
+      this.list = new List({
          top: 105,
+         items: [
+            { text: `move - arrow keys` },
+            { text: `shoot - space` },
+            { text: `laser - ctrl` }
+         ]
+      });
+      this.list.render();
+
+      this.menu = new Menu({
+         top: 105 + 25*3,
          menuItems: [
-            {
-               text: `move - arrow keys`,
-               onClick: () => { /* */ }
-            },
-            {
-               text: `shoot - space`,
-               onClick: () => { /* */ }
-            },
-            {
-               text: `laser - ctrl`,
-               onClick: () => { /* */ }
-            },
             {
                text: "back",
                onClick: () => { this.ui.SetActiveScene(this.ui.startGame); }
@@ -63,6 +63,7 @@ export class Controls implements IScene {
       this.title?.remove();
       this.title = undefined;
 
+      this.list?.destroy();
       this.menu?.destroy();
    }
 }
