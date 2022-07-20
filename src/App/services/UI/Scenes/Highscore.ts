@@ -8,6 +8,8 @@ import { Countdown } from "./components/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
+import { pad } from "../../../../utils/formatting/pad";
+import { Menu } from "./components/Menu";
 
 type TConstructor = {
    ui: UI;
@@ -25,19 +27,25 @@ export class Highscore implements IScene {
    private title?: HTMLDivElement;
    private top10?: HTMLDivElement;
    private countdown?: Countdown;
+   private menu?: Menu;
 
    public constructor(params: TConstructor) {
       this.ui = params.ui;
    }
 
    private getTop10Text = (): string => {
-      const header = `Rank\t\tScore\t\tPlayer`;
+      const padRank = (text: string) => pad(text, 10);
+      const padScore = (text: string) => pad(text, 11);
+
+      const header = padRank("rank") + padScore("Score") + "Player";
       const top10 = this.ui.highscoreService.getTop10()
          .map(({ name, score }, i) => {
+            const rnk = padRank(`${i+1}`);
+            const scr = padScore(`${score}`);
             if(isNumber(this.rank) && this.rank === i) {
-               return `<span class="flash1s">${i+1}\t\t${score}\t\t${name}</span>`;
+               return `<span class="flash1s">${rnk}${scr}${name}</span>`;
             }
-            return `${i+1}\t\t${score}\t\t${name}`;
+            return `${rnk}${scr}${name}`;
          });
       return [header, ...top10].join("\n");
    };
@@ -55,7 +63,9 @@ export class Highscore implements IScene {
       centerHorizontally(this.title);
 
       this.top10 = createText({
-         text: this.getTop10Text(), fontSize: fontSizes.small, top: 38
+         text: this.getTop10Text(),
+         fontSize: fontSizes.smaller,
+         top: 38,
       });
       centerHorizontally(this.top10);
 
@@ -66,6 +76,17 @@ export class Highscore implements IScene {
          top: 5,
          left: 315,
       });
+
+      this.menu = new Menu({
+         top: 207,
+         menuItems: [
+            {
+               text: "back",
+               onClick: () => { this.ui.SetActiveScene(this.ui.startGame); }
+            },
+         ]
+      });
+      this.menu.render();
    }
 
    public destroy() {
@@ -80,6 +101,8 @@ export class Highscore implements IScene {
 
       this.countdown?.destroy();
       this.countdown = undefined;
+
+      this.menu?.destroy();
    }
 
    private handleCountdDownDone = () => {

@@ -28,7 +28,7 @@ export class StartGame implements IScene {
       this.title = createText({
          text: `<span class="flash3s"><span style="font-size: 76px;">S</span>chmupinator</span>`,
          fontSize: 60,
-         top: 38,
+         top: 36,
       });
       centerHorizontally(this.title);
 
