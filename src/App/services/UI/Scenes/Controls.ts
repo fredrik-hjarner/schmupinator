@@ -5,7 +5,7 @@ import { createShade } from "./components/atoms/shade";
 import { centerHorizontally } from "./utils/centering";
 import { createText } from "./components/atoms/text";
 import { Menu } from "./components/molecules/Menu";
-import { List } from "./components/molecules/List";
+import { ShowControls } from "./components/molecules/ShowControls";
 
 type TConstructor = {
    ui: UI;
@@ -18,7 +18,7 @@ export class Controls implements IScene {
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private menu?: Menu;
-   private list?: List;
+   private showControls?: ShowControls;
 
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -34,15 +34,8 @@ export class Controls implements IScene {
       });
       centerHorizontally(this.title);
 
-      this.list = new List({
-         top: 105,
-         items: [
-            { text: `move - arrow keys` },
-            { text: `shoot - space` },
-            { text: `laser - ctrl` }
-         ]
-      });
-      this.list.render();
+      this.showControls = new ShowControls({ top: 105 });
+      this.showControls.render();
 
       this.menu = new Menu({
          top: 105 + 25*3,
@@ -63,7 +56,7 @@ export class Controls implements IScene {
       this.title?.remove();
       this.title = undefined;
 
-      this.list?.destroy();
+      this.showControls?.destroy();
       this.menu?.destroy();
    }
 }
