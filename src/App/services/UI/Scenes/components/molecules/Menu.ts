@@ -18,6 +18,7 @@ export class Menu {
    private top: number;
    private menuItems: TMenuItem[];
    private static spaceBetweenMenuItems = 25;
+   private activeItem?: TMenuItem;
 
    // elements
    private menuItemElements: HTMLDivElement[] = [];
@@ -35,6 +36,8 @@ export class Menu {
             top: this.top + index * Menu.spaceBetweenMenuItems,
             onClick: item.onClick,
             className: "menuItem",
+            onMouseEnter: this.onMouseEnter(item),
+            onMouseLeave: this.onMouseLeave(item)
          });
          centerHorizontally(element);
          return element;
@@ -47,4 +50,21 @@ export class Menu {
       });
       this.menuItemElements = [];
    }
+
+   private onMouseEnter = (item: TMenuItem) => (event: MouseEvent) => {
+      if(this.activeItem !== item) {
+         this.activeItem = item;
+         const currentTarget = event.currentTarget as HTMLDivElement;
+         currentTarget.classList.add("activeMenuItem");
+      }
+   };
+   
+   private onMouseLeave = (item: TMenuItem) =>  (event: MouseEvent) => {
+      // I don't know maybe this if case is needed, maybe not.
+      if(this.activeItem === item) {
+         this.activeItem = undefined;
+         const currentTarget = event.currentTarget as HTMLDivElement;
+         currentTarget.classList.remove("activeMenuItem");
+      }
+   };
 }

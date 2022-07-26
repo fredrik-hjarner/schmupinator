@@ -11,11 +11,14 @@ type TCreateTextParams = {
    className?: string,
    color?: string,
    onClick?: () => void;
+   onMouseEnter?: HTMLDivElement["onmouseenter"];
+   onMouseLeave?: HTMLDivElement["onmouseleave"];
 }
 
 export const createText = (params: TCreateTextParams) => {
    const {
-      text, fontSize=16, left, top, right, className="", color="red", onClick=null
+      text, fontSize=16, left, top, right, className="", color="red", onClick=null,
+      onMouseEnter=null, onMouseLeave=null
    } = params;
 
    return BrowserDriver.WithWindow(window => {
@@ -38,6 +41,8 @@ export const createText = (params: TCreateTextParams) => {
       element.innerHTML = text;
       element.className = className;
       element.onclick = onClick;
+      element.onmouseenter = onMouseEnter;
+      element.onmouseleave = onMouseLeave;
 
       window.document.body.appendChild(element);
       
