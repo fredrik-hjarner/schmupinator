@@ -1,3 +1,5 @@
+import type { IInput, TKey } from "../../../../Input/IInput";
+
 import { centerHorizontally } from "../../utils/centering";
 import { createText } from "../atoms/text";
 import { fontSizes } from "../../consts/fontSizes";
@@ -8,6 +10,7 @@ type TMenuItem = {
 };
 
 type TConstructor = {
+   input: IInput;
    // top y position.
    top: number;
    menuItems: TMenuItem[];
@@ -23,10 +26,14 @@ export class Menu {
    private static spaceBetweenMenuItems = 25;
    private activeItem?: TItemWithIndex;
 
+   // deps/services
+   private input: IInput;
+
    // elements
    private menuItemElements: HTMLDivElement[] = [];
 
    public constructor(params: TConstructor) {
+      this.input = params.input;
       this.top = params.top;
       this.menuItems = params.menuItems.map((item, index) => ({ ...item, index }));
    }
@@ -48,6 +55,17 @@ export class Menu {
 
       // set the first item as active by default/to begin with.
       this.setActiveItem(this.menuItems[0]);
+
+      // register onKey callback. REMEMBER TO UNASSIGN THIS IN DESTROY.
+      this.input.onKeyUpCallback = (key: TKey) => {
+         // TODO: Implement.
+         // console.log("onKeyUp");
+         switch(key) {
+            case "down":
+               // console.log("move cursor down");
+               break;
+         }
+      };
    }
 
    public destroy() {

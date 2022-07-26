@@ -254,6 +254,7 @@ export class App {
          gameLoop,
          gameSpeed,
          highscore,
+         input,
          points,
          settings,
          uiEvents,

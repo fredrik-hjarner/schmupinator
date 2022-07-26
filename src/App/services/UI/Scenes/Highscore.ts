@@ -78,6 +78,7 @@ export class Highscore implements IScene {
       });
 
       this.menu = new Menu({
+         input: this.ui.input,
          top: 207,
          menuItems: [
             {

@@ -33,6 +33,7 @@ export class StartGame implements IScene {
       centerHorizontally(this.title);
 
       this.menu = new Menu({
+         input: this.ui.input,
          top: 112,
          menuItems: [
             { text: "start game", onClick: this.onStartGame },

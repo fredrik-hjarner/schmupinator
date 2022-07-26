@@ -1,4 +1,4 @@
-import type { ButtonsPressed, IInput } from "./IInput";
+import type { ButtonsPressed, IInput, TKey } from "./IInput";
 import type { IGameEvents } from "../Events/IEvents";
 import type { TInitParams } from "../IService";
 
@@ -28,6 +28,7 @@ export class Input implements IInput {
       up: false,
       down: false,
    };
+   public onKeyUpCallback?: (key: TKey) => void;
    /**
     * Keep track of which frame it is "locally" in this object.
     * the current frame comes with the "frame_tick" event.
@@ -40,8 +41,8 @@ export class Input implements IInput {
       this.name = name;
       this.history = { inputs: {}, score: 0 };
       BrowserDriver.WithWindow(window => {
-         window.document.onkeydown = this.onKeyDown;
-         window.document.onkeyup = this.onKeyUp;
+         window.document.onkeydown = this.handleKeyDown;
+         window.document.onkeyup = this.handleKeyUp;
       });
    }
 
@@ -90,45 +91,50 @@ export class Input implements IInput {
    //    };
    // }
 
-   private onKey = (e: KeyboardEvent, value: boolean) => {
+   private handleKey = (e: KeyboardEvent, value: boolean): TKey | undefined => {
       switch (e.keyCode) {
          case 32:
             // Space
             this.buttonsPressed.shoot = value;
-            break;
+            // TODO: This is pretty ugly should have a "map" or something.
+            return "shoot";
          case 17:
             // Ctrl
             this.buttonsPressed.laser = value;
-            break;
+            return "laser";
          case 37:
             // Left
             this.buttonsPressed.left = value;
-            break;
+            return "left";
          case 38:
             // Up
             this.buttonsPressed.up = value;
-            break;
+            return "up";
          case 39:
             // Right
             this.buttonsPressed.right = value;
-            break;
+            return "right";
          case 40:
             // Down
             this.buttonsPressed.down = value;
-            break;
+            return "down";
             // case 27:
             //   // Escape
             //   this.buttonsPressed[Button.RESET] = value;
             //   break;
          default:
+            return undefined;
       }
    };
 
-   private onKeyDown = (e: KeyboardEvent) => {
-      this.onKey(e, true);
+   private handleKeyDown = (e: KeyboardEvent) => {
+      this.handleKey(e, true);
    };
 
-   private onKeyUp = (e: KeyboardEvent) => {
-      this.onKey(e, false);
+   private handleKeyUp = (e: KeyboardEvent) => {
+      const effectedKey =this.handleKey(e, false);
+      if(effectedKey !== undefined) {
+         this.onKeyUpCallback?.(effectedKey);
+      }
    };
 }

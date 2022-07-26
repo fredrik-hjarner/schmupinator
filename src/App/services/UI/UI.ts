@@ -7,6 +7,7 @@ import type { TInitParams } from "../IService";
 import type { Highscore as THighscoreService } from "../Highscore/Highscore";
 import type { IPoints } from "../Points/IPoints";
 import type { Settings as TSettingsService } from "../Settings/Settings";
+import type { IInput } from "../Input/IInput";
 
 import { StartGame } from "./Scenes/StartGame";
 import { Game } from "./Scenes/Game";
@@ -32,6 +33,7 @@ export class UI implements IUI {
    public highscoreService!: THighscoreService;
    public points!: IPoints;
    public settingsService!: TSettingsService;
+   public input!: IInput;
 
    // Scenes
    public startGame: IScene;
@@ -68,6 +70,7 @@ export class UI implements IUI {
       this.highscoreService = deps?.highscore as THighscoreService;
       this.points = deps?.points as IPoints;
       this.settingsService = deps?.settings as TSettingsService;
+      this.input = deps?.input as IInput;
 
       this.events.subscribeToEvent(this.name, this.onEvent);
 

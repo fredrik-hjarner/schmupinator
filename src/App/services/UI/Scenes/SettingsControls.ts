@@ -38,6 +38,7 @@ export class SettingsControls implements IScene {
       this.showControls.render();
 
       this.menu = new Menu({
+         input: this.ui.input,
          top: 105 + 25*3,
          menuItems: [
             {

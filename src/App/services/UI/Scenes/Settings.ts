@@ -37,6 +37,7 @@ export class Settings implements IScene {
       centerHorizontally(this.title);
 
       this.menu = new Menu({
+         input: this.ui.input,
          top: 105,
          menuItems: [
             {
