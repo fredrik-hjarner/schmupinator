@@ -16,15 +16,13 @@ type TConstructor = {
    menuItems: TMenuItem[];
 };
 
-type TItemWithIndex = TMenuItem & { index: number };
-
 export class Menu {
    // vars
    private top: number;
    // index is added in the render method. it's added for convenience.
-   private menuItems: TItemWithIndex[];
+   private menuItems: TMenuItem[];
    private static spaceBetweenMenuItems = 25;
-   private activeItem?: TItemWithIndex;
+   private activeItemIndex?: number;
 
    // deps/services
    private input: IInput;
@@ -46,23 +44,23 @@ export class Menu {
             top: this.top + index * Menu.spaceBetweenMenuItems,
             onClick: item.onClick,
             className: "menuItem",
-            onMouseEnter: () => { this.setActiveItem(item); },
-            onMouseLeave: () => { this.unsetActiveItem(item); }
+            onMouseEnter: () => { this.setActiveIndex(index); },
          });
          centerHorizontally(element);
          return element;
       });
 
       // set the first item as active by default/to begin with.
-      this.setActiveItem(this.menuItems[0]);
+      this.setActiveIndex(0);
 
-      // register onKey callback. REMEMBER TO UNASSIGN THIS IN DESTROY.
+      // register onKey callback. TODO: REMEMBER TO UNASSIGN THIS IN DESTROY.
       this.input.onKeyUpCallback = (key: TKey) => {
-         // TODO: Implement.
-         // console.log("onKeyUp");
          switch(key) {
+            case "up":
+               this.decrActive();
+               break;
             case "down":
-               // console.log("move cursor down");
+               this.incrActive();
                break;
          }
       };
@@ -74,26 +72,45 @@ export class Menu {
       });
       this.menuItemElements = [];
 
-      this.activeItem = undefined;
+      this.activeItemIndex = undefined;
    }
 
-   private setActiveItem = (item: TItemWithIndex) => {
-      if(this.activeItem !== item) {
-         if(this.activeItem !== undefined) {
-            this.unsetActiveItem(this.activeItem);
+   private setActiveIndex = (index: number) => {
+      if(this.activeItemIndex !== index) {
+         if(this.activeItemIndex !== undefined) {
+            // unset the previous one.
+            this.unsetActiveItem(this.activeItemIndex);
          }
-         this.activeItem = item;
-         const element = this.menuItemElements[item.index];
+         this.activeItemIndex = index;
+         const element = this.menuItemElements[index];
          element.classList.add("activeMenuItem");
       }
    };
    
-   private unsetActiveItem = (item: TItemWithIndex) => {
+   private unsetActiveItem = (index: number) => {
       // I don't know maybe this if case is needed, maybe not.
-      if(this.activeItem === item) {
-         this.activeItem = undefined;
-         const element = this.menuItemElements[item.index];
+      if(this.activeItemIndex === index) {
+         this.activeItemIndex = undefined;
+         const element = this.menuItemElements[index];
          element.classList.remove("activeMenuItem");
+      }
+   };
+
+   private incrActive = () => {
+      if(this.activeItemIndex === undefined) {
+         return;
+      }
+      if(this.activeItemIndex < this.menuItems.length - 1) {
+         this.setActiveIndex(this.activeItemIndex + 1);
+      }
+   };
+
+   private decrActive = () => {
+      if(this.activeItemIndex === undefined) {
+         return;
+      }
+      if(this.activeItemIndex >= 1) {
+         this.setActiveIndex(this.activeItemIndex - 1);
       }
    };
 }
