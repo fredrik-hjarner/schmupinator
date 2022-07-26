@@ -11,7 +11,7 @@ type TConstructor = {
    ui: UI;
 }
 
-export class Controls implements IScene {
+export class SettingsControls implements IScene {
    public readonly ui: UI;
 
    // elements

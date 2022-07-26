@@ -14,7 +14,8 @@ import { GameOver } from "./Scenes/GameOver";
 import { Highscore } from "./Scenes/Highscore";
 import { EnterHighscore } from "./Scenes/EnterHighscore";
 import { Settings } from "./Scenes/Settings";
-import { Controls } from "./Scenes/Controls";
+import { SettingsControls } from "./Scenes/SettingsControls";
+import { DisplayControls } from "./Scenes/DisplayControls";
 
 type TConstructor = {
    name: string
@@ -39,7 +40,8 @@ export class UI implements IUI {
    public gameOver: IScene;
    public highscore: IScene;
    public enterHighscore: IScene;
-   public controls: IScene;
+   public settingsControls: IScene;
+   public displayControls: IScene;
 
    // Active scene
    private activeScene?: IScene;
@@ -53,7 +55,8 @@ export class UI implements IUI {
       this.gameOver = new GameOver({ ui: this });
       this.highscore = new Highscore({ ui: this });
       this.enterHighscore = new EnterHighscore({ ui: this });
-      this.controls = new Controls({ ui: this });
+      this.settingsControls = new SettingsControls({ ui: this });
+      this.displayControls = new DisplayControls({ ui: this });
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await

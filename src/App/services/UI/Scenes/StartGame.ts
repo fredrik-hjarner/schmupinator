@@ -37,7 +37,10 @@ export class StartGame implements IScene {
          menuItems: [
             { text: "start game", onClick: this.onStartGame },
             { text: "highscore", onClick: () => { this.ui.SetActiveScene(this.ui.highscore); } },
-            { text: "controls", onClick: () => { this.ui.SetActiveScene(this.ui.controls); }},
+            {
+               text: "controls",
+               onClick: () => { this.ui.SetActiveScene(this.ui.settingsControls); }
+            },
             { text: "settings", onClick: () => { this.ui.SetActiveScene(this.ui.settings); }},
          ]
       });
@@ -55,7 +58,6 @@ export class StartGame implements IScene {
    }
 
    private onStartGame = () => {
-      this.ui.gameLoop.Start();
-      this.ui.SetActiveScene(this.ui.game);
+      this.ui.SetActiveScene(this.ui.displayControls);
    };
 }
