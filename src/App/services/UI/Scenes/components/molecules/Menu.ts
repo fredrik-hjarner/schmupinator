@@ -21,7 +21,7 @@ export class Menu {
    // index is added in the render method. it's added for convenience.
    private menuItems: TItemWithIndex[];
    private static spaceBetweenMenuItems = 25;
-   private activeItem?: TMenuItem;
+   private activeItem?: TItemWithIndex;
 
    // elements
    private menuItemElements: HTMLDivElement[] = [];
@@ -39,12 +39,15 @@ export class Menu {
             top: this.top + index * Menu.spaceBetweenMenuItems,
             onClick: item.onClick,
             className: "menuItem",
-            onMouseEnter: this.onMouseEnter(item),
-            onMouseLeave: this.onMouseLeave(item)
+            onMouseEnter: () => { this.setActiveItem(item); },
+            onMouseLeave: () => { this.unsetActiveItem(item); }
          });
          centerHorizontally(element);
          return element;
       });
+
+      // set the first item as active by default/to begin with.
+      this.setActiveItem(this.menuItems[0]);
    }
 
    public destroy() {
@@ -52,17 +55,22 @@ export class Menu {
          item.remove();
       });
       this.menuItemElements = [];
+
+      this.activeItem = undefined;
    }
 
-   private onMouseEnter = (item: TItemWithIndex) => () => {
+   private setActiveItem = (item: TItemWithIndex) => {
       if(this.activeItem !== item) {
+         if(this.activeItem !== undefined) {
+            this.unsetActiveItem(this.activeItem);
+         }
          this.activeItem = item;
          const element = this.menuItemElements[item.index];
          element.classList.add("activeMenuItem");
       }
    };
    
-   private onMouseLeave = (item: TItemWithIndex) => () => {
+   private unsetActiveItem = (item: TItemWithIndex) => {
       // I don't know maybe this if case is needed, maybe not.
       if(this.activeItem === item) {
          this.activeItem = undefined;
