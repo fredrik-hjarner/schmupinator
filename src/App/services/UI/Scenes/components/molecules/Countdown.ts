@@ -1,7 +1,7 @@
-import { zIndices } from "../../../../../consts";
-import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
-import { px } from "../../../../../utils/px";
-import { fontSizes } from "../consts/fontSizes";
+import { zIndices } from "../../../../../../consts";
+import { BrowserDriver } from "../../../../../../drivers/BrowserDriver";
+import { px } from "../../../../../../utils/px";
+import { fontSizes } from "../../consts/fontSizes";
 
 type TCountdownConstructor = {
    secondsLeft: number;

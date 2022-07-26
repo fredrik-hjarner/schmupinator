@@ -1,10 +1,10 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./components/shade";
-import { createText } from "./components/text";
-import { createInput } from "./components/input";
-import { Countdown } from "./components/Countdown";
+import { createShade } from "./components/atoms/shade";
+import { createText } from "./components/atoms/text";
+import { createInput } from "./components/atoms/input";
+import { Countdown } from "./components/molecules/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";

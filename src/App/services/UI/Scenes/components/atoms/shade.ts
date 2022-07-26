@@ -1,6 +1,6 @@
-import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts";
-import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
-import { px } from "../../../../../utils/px";
+import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../../consts";
+import { BrowserDriver } from "../../../../../../drivers/BrowserDriver";
+import { px } from "../../../../../../utils/px";
 
 export const createShade = () => {
    return BrowserDriver.WithWindow(window => {

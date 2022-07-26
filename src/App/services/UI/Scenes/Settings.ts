@@ -1,10 +1,10 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./components/shade";
+import { createShade } from "./components/atoms/shade";
 import { centerHorizontally } from "./utils/centering";
-import { createText } from "./components/text";
-import { Menu } from "./components/Menu";
+import { createText } from "./components/atoms/text";
+import { Menu } from "./components/molecules/Menu";
 
 type TConstructor = {
    ui: UI;

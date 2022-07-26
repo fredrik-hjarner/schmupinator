@@ -2,9 +2,9 @@ import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { createShade } from "./components/shade";
-import { createText } from "./components/text";
-import { Countdown } from "./components/Countdown";
+import { createShade } from "./components/atoms/shade";
+import { createText } from "./components/atoms/text";
+import { Countdown } from "./components/molecules/Countdown";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
 

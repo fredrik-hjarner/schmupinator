@@ -1,15 +1,15 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./components/shade";
-import { createText } from "./components/text";
+import { createShade } from "./components/atoms/shade";
+import { createText } from "./components/atoms/text";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { Countdown } from "./components/Countdown";
+import { Countdown } from "./components/molecules/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
 import { pad } from "../../../../utils/formatting/pad";
-import { Menu } from "./components/Menu";
+import { Menu } from "./components/molecules/Menu";
 
 type TConstructor = {
    ui: UI;
