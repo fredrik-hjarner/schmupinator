@@ -13,10 +13,13 @@ type TConstructor = {
    menuItems: TMenuItem[];
 };
 
+type TItemWithIndex = TMenuItem & { index: number };
+
 export class Menu {
    // vars
    private top: number;
-   private menuItems: TMenuItem[];
+   // index is added in the render method. it's added for convenience.
+   private menuItems: TItemWithIndex[];
    private static spaceBetweenMenuItems = 25;
    private activeItem?: TMenuItem;
 
@@ -25,7 +28,7 @@ export class Menu {
 
    public constructor(params: TConstructor) {
       this.top = params.top;
-      this.menuItems = params.menuItems;
+      this.menuItems = params.menuItems.map((item, index) => ({ ...item, index }));
    }
 
    public render() {
@@ -51,20 +54,20 @@ export class Menu {
       this.menuItemElements = [];
    }
 
-   private onMouseEnter = (item: TMenuItem) => (event: MouseEvent) => {
+   private onMouseEnter = (item: TItemWithIndex) => () => {
       if(this.activeItem !== item) {
          this.activeItem = item;
-         const currentTarget = event.currentTarget as HTMLDivElement;
-         currentTarget.classList.add("activeMenuItem");
+         const element = this.menuItemElements[item.index];
+         element.classList.add("activeMenuItem");
       }
    };
    
-   private onMouseLeave = (item: TMenuItem) =>  (event: MouseEvent) => {
+   private onMouseLeave = (item: TItemWithIndex) => () => {
       // I don't know maybe this if case is needed, maybe not.
       if(this.activeItem === item) {
          this.activeItem = undefined;
-         const currentTarget = event.currentTarget as HTMLDivElement;
-         currentTarget.classList.remove("activeMenuItem");
+         const element = this.menuItemElements[item.index];
+         element.classList.remove("activeMenuItem");
       }
    };
 }
