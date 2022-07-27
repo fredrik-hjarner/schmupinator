@@ -86,5 +86,7 @@ lines of code.
 
 * Add auto-play to Settings, so I can toggle manual input/replay in that menu.
 
+* Try/verify if Player can have more than 1 hp, which should be able to have.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window
