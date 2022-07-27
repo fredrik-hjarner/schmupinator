@@ -26,7 +26,8 @@ export class DisplayControls implements IScene {
       this.shadeElement = createShade();
 
       this.countdown = new Countdown({
-         secondsLeft: 5,
+         input: this.ui.input,
+         secondsLeft: 6,
          onDone: this.handleCountdDownDone,
          fontSize: fontSizes.large,
          top: 5,

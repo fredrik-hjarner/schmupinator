@@ -4,7 +4,7 @@ import type { UI } from "../UI";
 import { createShade } from "./components/atoms/shade";
 import { createText } from "./components/atoms/text";
 import { createInput } from "./components/atoms/input";
-import { Countdown } from "./components/molecules/Countdown";
+// import { Countdown } from "./components/molecules/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
@@ -26,7 +26,7 @@ export class EnterHighscore implements IScene {
    private subTitle?: HTMLDivElement;
    private button?: HTMLDivElement;
    private input?: HTMLInputElement;
-   private countdown?: Countdown;
+   // private countdown?: Countdown;
    
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -48,14 +48,15 @@ export class EnterHighscore implements IScene {
       });
       centerHorizontally(this.title);
       
-      this.countdown = new Countdown({
-         secondsLeft: 25,
-         onDone: this.handleCountdDownDone,
-         fontSize: fontSizes.normal,
-         top: 10,
-         left: 320,
-         className: "flash1s"
-      });
+      // this.countdown = new Countdown({
+      //    input: this.ui.input,
+      //    secondsLeft: 25,
+      //    onDone: this.handleCountdDownDone,
+      //    fontSize: fontSizes.normal,
+      //    top: 10,
+      //    left: 320,
+      //    className: "flash1s"
+      // });
 
       this.subTitle = createText({
          text: "Enter thy name and\n become a legend",
@@ -99,8 +100,8 @@ export class EnterHighscore implements IScene {
       this.input?.remove();
       this.input = undefined;
 
-      this.countdown?.destroy();
-      this.countdown = undefined;
+      // this.countdown?.destroy();
+      // this.countdown = undefined;
    }
 
    private handleCountdDownDone = () => {

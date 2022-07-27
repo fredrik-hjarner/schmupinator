@@ -1,4 +1,4 @@
-import type { IInput, TKey } from "../../../../Input/IInput";
+import type { IInput } from "../../../../Input/IInput";
 
 import { centerHorizontally } from "../../utils/centering";
 import { createText } from "../atoms/text";
@@ -54,7 +54,7 @@ export class Menu {
       this.setActiveIndex(0);
 
       // register onKey callback.
-      this.input.onKeyUpCallback = (key: TKey) => {
+      this.input.onKeyUpCallback = key => {
          switch(key) {
             case "up":
                this.decrActive();
@@ -63,6 +63,8 @@ export class Menu {
                this.incrActive();
                break;
             case "start":
+            case "laser":
+            case "shoot":
                if(this.activeItemIndex !== undefined) {
                   this.menuItems[this.activeItemIndex].onClick();
                }

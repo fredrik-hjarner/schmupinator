@@ -1,9 +1,13 @@
+import type { IInput } from "../../../../Input/IInput";
+
 import { zIndices } from "../../../../../../consts";
 import { BrowserDriver } from "../../../../../../drivers/BrowserDriver";
 import { px } from "../../../../../../utils/px";
 import { fontSizes } from "../../consts/fontSizes";
 
 type TCountdownConstructor = {
+   input: IInput;
+
    secondsLeft: number;
    onDone: () => void;
    fontSize?: number;
@@ -13,15 +17,23 @@ type TCountdownConstructor = {
 }
 
 export class Countdown {
-   public element: HTMLDivElement;
+   // vars
    public interval: number;
    private secondsLeft: number;
    private onDone: () => void;
 
+   // deps/services
+   private input: IInput;
+
+   // elements
+   public element: HTMLDivElement;
+
    public constructor(params: TCountdownConstructor) {
       const {
-         secondsLeft, onDone, fontSize=fontSizes.smallest, left=0, top=0, className=""
+         input, secondsLeft, onDone, fontSize=fontSizes.smallest, left=0, top=0, className=""
       } = params;
+
+      this.input = input;
 
       this.secondsLeft = secondsLeft;
       this.onDone = onDone;
@@ -46,9 +58,28 @@ export class Countdown {
       }) as HTMLDivElement;
 
       this.interval = BrowserDriver.SetInterval(this.tick, 1000);
+
+      // register onKey callback.
+      this.input.onKeyUpCallback = key => {
+         switch(key) {
+            case "laser":
+            case "shoot":
+            case "start":
+               /**
+                * Allows to "click past" this timeout to "advance"
+                * so you dont have to wait for the timeout.
+                */
+               this.destroy();
+               this.onDone();
+               break;
+         }
+      };
    }
 
    public destroy = () => {
+      // Must unregister the callback.
+      this.input.onKeyUpCallback = undefined;
+
       BrowserDriver.WithWindow(window => {
          window.clearInterval(this.interval);
       });

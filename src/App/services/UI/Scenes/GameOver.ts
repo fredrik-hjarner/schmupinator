@@ -33,6 +33,7 @@ export class GameOver implements IScene {
       centerHorizontally(this.textElement);
 
       this.countdown = new Countdown({
+         input: this.ui.input,
          secondsLeft: 5,
          onDone: this.handleCountdDownDone,
          fontSize: fontSizes.largest,

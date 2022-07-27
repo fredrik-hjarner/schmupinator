@@ -70,6 +70,7 @@ export class Highscore implements IScene {
       centerHorizontally(this.top10);
 
       this.countdown = new Countdown({
+         input: this.ui.input,
          secondsLeft: 15,
          onDone: this.handleCountdDownDone,
          fontSize: fontSizes.large,
