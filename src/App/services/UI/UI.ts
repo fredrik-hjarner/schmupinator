@@ -111,4 +111,22 @@ export class UI implements IUI {
          }
       }
    };
+
+   public destroy = () => {
+      // Destroy all scenes // TODO: should prolly be a loop or somethin'
+      this.startGame.destroy();
+      this.settings.destroy();
+      this.game.destroy();
+      this.gameOver.destroy();
+      this.highscore.destroy();
+      this.enterHighscore.destroy();
+      this.settingsControls.destroy();
+      this.displayControls.destroy();
+
+      // Unsubscribe to events.
+      this.events.unsubscribeToEvent(this.name);
+
+      // Unset active scene
+      this.activeScene = undefined;
+   };
 }
