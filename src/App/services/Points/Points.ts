@@ -41,13 +41,6 @@ export class Points implements IPoints {
             this.updatePoints();
             break;
          }
-         case "player_missed_bullet": {
-            this.points--;
-            const frame = this.app.gameLoop.FrameCount;
-            this.history[frame] = { points: -1, reason: "player_missed_bullet" };
-            this.updatePoints();
-            break;
-         }
          case "player_died":
             // unsub because we dont want to get in here again.
             this.app.events.unsubscribeToEvent(this.name);
