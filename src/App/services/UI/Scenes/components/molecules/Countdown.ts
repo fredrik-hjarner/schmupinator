@@ -19,7 +19,9 @@ type TCountdownConstructor = {
 export class Countdown {
    // vars
    public interval: number;
-   private secondsLeft: number;
+   // secondsLeft that was sent in via construcor.
+   private originalSecondsLeft: number;
+   private currentSecondsLeft: number;
    private onDone: () => void;
 
    // deps/services
@@ -35,7 +37,8 @@ export class Countdown {
 
       this.input = input;
 
-      this.secondsLeft = secondsLeft;
+      this.originalSecondsLeft = secondsLeft;
+      this.currentSecondsLeft = secondsLeft;
       this.onDone = onDone;
 
       // TODO: Can't I use createText here instead to reduce code duplication !?
@@ -68,9 +71,12 @@ export class Countdown {
                /**
                 * Allows to "click past" this timeout to "advance"
                 * so you dont have to wait for the timeout.
+                * But have at least 1 second pass, otherwise player might accidentally skip scene.
                 */
-               this.destroy();
-               this.onDone();
+               if(this.originalSecondsLeft - this.currentSecondsLeft >= 1) {
+                  this.destroy();
+                  this.onDone();
+               }
                break;
          }
       };
@@ -87,9 +93,9 @@ export class Countdown {
    };
 
    private tick = () => {
-      this.secondsLeft--;
-      this.element.innerHTML = `${this.secondsLeft}`;
-      if(this.secondsLeft < 1) {
+      this.currentSecondsLeft--;
+      this.element.innerHTML = `${this.currentSecondsLeft}`;
+      if(this.currentSecondsLeft < 1) {
          this.destroy();
          this.onDone();
       }
