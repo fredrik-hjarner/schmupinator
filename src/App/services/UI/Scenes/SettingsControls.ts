@@ -39,7 +39,7 @@ export class SettingsControls implements IScene {
 
       this.menu = new Menu({
          input: this.ui.input,
-         top: 105 + 25*3,
+         top: 105 + 25*4,
          menuItems: [
             {
                text: "back",

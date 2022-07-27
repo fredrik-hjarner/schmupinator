@@ -53,7 +53,7 @@ export class Menu {
       // set the first item as active by default/to begin with.
       this.setActiveIndex(0);
 
-      // register onKey callback. TODO: REMEMBER TO UNASSIGN THIS IN DESTROY.
+      // register onKey callback.
       this.input.onKeyUpCallback = (key: TKey) => {
          switch(key) {
             case "up":
@@ -72,6 +72,9 @@ export class Menu {
    }
 
    public destroy() {
+      // Must unregister the callback.
+      this.input.onKeyUpCallback = undefined;
+
       this.menuItemElements.forEach(item => {
          item.remove();
       });

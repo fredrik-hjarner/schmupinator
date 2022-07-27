@@ -33,7 +33,7 @@ export class DisplayControls implements IScene {
          left: 315,
       });
 
-      this.showControls = new ShowControls({ top: 85 });
+      this.showControls = new ShowControls({ top: 80 });
       this.showControls.render();
    }
 

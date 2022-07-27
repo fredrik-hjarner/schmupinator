@@ -21,7 +21,8 @@ export class ShowControls {
          items: [
             { text: `move - arrow keys` },
             { text: `shoot - space` },
-            { text: `laser - ctrl` }
+            { text: `laser - ctrl` },
+            { text: `start - enter` }
          ]
       });
       this.list.render();
