@@ -85,6 +85,4 @@ lines of code.
 * TODO: Set correct button for laser on GamePad !!!
 
 * Last finishing touches:
-1. Hide the debug stuff somehow.
-1.1 Hide the bullets on the left side of the game window.
-2. Explain the controls!
+1. Hide the bullets on the left side of the game window
