@@ -46,7 +46,7 @@ export class ReplayerInput implements IInput {
    public get ButtonsPressed(): ButtonsPressed {
       const frame = `${this.frameCount}`;
       const allFalse = {
-         down: false, left: false, right: false, shoot: false, laser: false, up: false
+         start: false, down: false, left: false, right: false, shoot: false, laser: false, up: false
       };
       if(!(frame in replay.inputs)) {
          return allFalse;

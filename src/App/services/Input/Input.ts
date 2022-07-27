@@ -21,6 +21,7 @@ export class Input implements IInput {
       score: number;
    };
    private buttonsPressed: ButtonsPressed = {
+      start: false,
       shoot: false,
       laser: false,
       left: false,
@@ -70,7 +71,8 @@ export class Input implements IInput {
       if(wasPressed) {
          Object.keys(buttonsPressed).forEach((k) => {
             if(k === "laser" || k === "shoot" || k === "up" ||
-               k === "down" || k === "left" || k === "right") {
+               k === "down" || k === "left" || k === "right" ||
+               k === "start") {
                if(buttonsPressed[k] === false) {
                   delete buttonsPressed[k];
                }
@@ -93,10 +95,14 @@ export class Input implements IInput {
 
    private handleKey = (e: KeyboardEvent, value: boolean): TKey | undefined => {
       switch (e.keyCode) {
+         case 13:
+            // Enter
+            this.buttonsPressed.start = value;
+            // TODO: This is pretty ugly should have a "map" or something.
+            return "start";
          case 32:
             // Space
             this.buttonsPressed.shoot = value;
-            // TODO: This is pretty ugly should have a "map" or something.
             return "shoot";
          case 17:
             // Ctrl

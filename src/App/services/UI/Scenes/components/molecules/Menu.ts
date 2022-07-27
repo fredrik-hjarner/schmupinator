@@ -62,6 +62,11 @@ export class Menu {
             case "down":
                this.incrActive();
                break;
+            case "start":
+               if(this.activeItemIndex !== undefined) {
+                  this.menuItems[this.activeItemIndex].onClick();
+               }
+               break;
          }
       };
    }

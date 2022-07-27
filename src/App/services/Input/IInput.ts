@@ -1,8 +1,9 @@
 import type { IService } from "../IService";
 
-export type TKey =  "shoot" | "laser" | "left" | "right" | "up" | "down";
+export type TKey =  "start" | "shoot" | "laser" | "left" | "right" | "up" | "down";
 
 export type ButtonsPressed = {
+   start: boolean;
    shoot: boolean
    laser: boolean
    left: boolean
