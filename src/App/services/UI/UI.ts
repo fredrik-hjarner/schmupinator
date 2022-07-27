@@ -27,7 +27,7 @@ export class UI implements IUI {
 
    // deps/services
    public events!: IGameEvents;
-   public uiEvents!: IUiEvents;
+   public eventsUi!: IUiEvents;
    public gameLoop!: GameLoop;
    public gameSpeed!: GameSpeed;
    public highscoreService!: THighscoreService;
@@ -64,7 +64,7 @@ export class UI implements IUI {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
-      this.uiEvents = deps?.uiEvents as IUiEvents;
+      this.eventsUi = deps?.eventsUi as IUiEvents;
       this.gameLoop = deps?.gameLoop as GameLoop;
       this.gameSpeed = deps?.gameSpeed as GameSpeed;
       this.highscoreService = deps?.highscore as THighscoreService;

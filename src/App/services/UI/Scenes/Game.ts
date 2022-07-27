@@ -39,7 +39,7 @@ export class Game implements IScene {
          left: 285
       });
 
-      this.ui.uiEvents.subscribeToEvent("GameUI", this.onEvent);
+      this.ui.eventsUi.subscribeToEvent("GameUI", this.onEvent);
    }
 
    public destroy() {

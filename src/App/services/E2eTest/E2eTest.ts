@@ -1,4 +1,4 @@
-import type { IGameEvents, TGameEvent } from "../Events/IEvents";
+import type { IEventsPoints, IGameEvents, TGameEvent, TPointsEvent } from "../Events/IEvents";
 import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
 
@@ -18,11 +18,12 @@ export class E2eTest implements IE2eTest {
     * service and NOT also have to grab FrameCount off the GameLoop service directly.
     */
    private frameCount = 0;
-   private history: Partial<{ [frame: number]: TGameEvent[] }> = {};
+   private history: Partial<{ [frame: number]: (TGameEvent | TPointsEvent)[] }> = {};
    private startTime = BrowserDriver.PerformanceNow();
 
    // deps/services
    private events!: IGameEvents;
+   private eventsPoints!: IEventsPoints;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
@@ -32,12 +33,14 @@ export class E2eTest implements IE2eTest {
    public Init = async (deps?: TInitParams) => {
       // TODO: Replace typecast with type guard.
       this.events = deps?.events as IGameEvents;
+      this.eventsPoints = deps?.eventsPoints as IEventsPoints;
 
       // TODO: These are not unsubscribed to.
       this.events.subscribeToEvent(this.name, this.onEvent);
+      this.eventsPoints.subscribeToEvent(this.name, this.onEvent);
    };
 
-   private onEvent = (event: TGameEvent) => {
+   private onEvent = (event: TGameEvent | TPointsEvent) => {
       if (event.type === "player_died") {
          // This should actually trigger for very kind of END OF GAME scenario.
          console.log("E2eTest: Test succeeded.");

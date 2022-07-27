@@ -107,7 +107,7 @@ export class Enemy {
       if(enemiesThatWereHit.includes(this.id)) {
          const points = assertNumber(this.attrs.GetAttribute("points").value);
 
-         this.enemies.events.dispatchEvent({ type: "add_points", points, enemy: this.name });
+         this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
          this.hp -= 1;
 
          /**
@@ -141,7 +141,7 @@ export class Enemy {
 
       const points = assertNumber(this.attrs.GetAttribute("pointsOnDeath").value);
       if(points !== 0) {
-         this.enemies.events.dispatchEvent({type: "add_points", enemy: this.name, points });
+         this.enemies.eventsPoints.dispatchEvent({type: "add_points", enemy: this.name, points });
       }
 
       // TODO: Maybe publish a death event or something.

@@ -1,5 +1,5 @@
 import type { App } from "../../App";
-import type { TGameEvent } from "../Events/IEvents";
+import type { TGameEvent, TPointsEvent } from "../Events/IEvents";
 import type { IPoints, THistoryEntry } from "./IPoints";
 
 import { IsBrowser } from "../../../drivers/BrowserDriver";
@@ -25,13 +25,14 @@ export class Points implements IPoints {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async () => {
       this.app.events.subscribeToEvent(this.name, this.onEvent);
+      this.app.eventsPoints.subscribeToEvent(this.name, this.onEvent);
    };
 
    /**
     * Private
     */
 
-   private onEvent = (event: TGameEvent) => {
+   private onEvent = (event: TGameEvent | TPointsEvent) => {
       switch(event.type) {
          case "add_points": {
             this.points += event.points;
@@ -55,6 +56,6 @@ export class Points implements IPoints {
 
    private updatePoints = () => {
       // Dispatch event so UI knows to update.
-      this.app.uiEvents.dispatchEvent({ type: "uiScoreUpdated", points: this.points });
+      this.app.eventsUi.dispatchEvent({ type: "uiScoreUpdated", points: this.points });
    };
 }

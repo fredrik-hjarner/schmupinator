@@ -84,5 +84,7 @@ lines of code.
 
 * TODO: Set correct button for laser on GamePad !!!
 
+* Add auto-play to Settings, so I can toggle manual input/replay in that menu.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window

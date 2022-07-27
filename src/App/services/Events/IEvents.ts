@@ -30,9 +30,7 @@ type TEventCollisions = { type: "collisions", collisions: TCollisions };
 export type TGameEvent =
    TEventFrameTick | // signals next frame has come.
    TEventCollisions | // when collisions happen.
-   { type: "player_died" } | // when player dies.
-   // add points to the player (could be negative).
-   { type: "add_points", points: number, enemy: string };
+   { type: "player_died" }; // when player dies.
 
 export type TGameEventCallback =  TEventCallback<TGameEvent>;
 export type TGameEventSubscribers = TEventSubscribers<TGameEvent>
@@ -50,3 +48,15 @@ export type TUiEvent =
 export type TUiEventCallback =  TEventCallback<TUiEvent>;
 export type TUiEventSubscribers = TEventSubscribers<TUiEvent>
 export type IUiEvents = IEvents<TUiEvent>;
+
+/****************
+ * EventsPoints *
+ ****************/
+
+export type TPointsEvent =
+   // add points to the player (could be negative).
+   { type: "add_points", points: number, enemy: string };
+
+export type TPointsEventCallback =  TEventCallback<TPointsEvent>;
+export type TPointsEventSubscribers = TEventSubscribers<TPointsEvent>;
+export type IEventsPoints = IEvents<TPointsEvent>;

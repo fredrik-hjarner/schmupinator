@@ -7,9 +7,11 @@ import type { IFps } from "./services/Fps/IFps";
 import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { IGameEvents, IUiEvents, TGameEvent, TUiEvent } from "./services/Events/IEvents";
+import type {
+   //@ts-ignore
+   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   IEventsPoints, IGameEvents, IUiEvents, TGameEvent, TPointsEvent, TUiEvent
+} from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
 import type { IParallax } from "./services/Parallax/IParallax";
@@ -92,9 +94,10 @@ export class App {
    public events: IGameEvents;
    /**
     * only listened to by the UI & UI Scenes,
-    * other services send messages over uiEvents so that the UI know when to update.
+    * other services send messages over eventsUi so that the UI know when to update.
     */
-   public uiEvents: IUiEvents;
+   public eventsUi: IUiEvents;
+   public eventsPoints: IEventsPoints;
    public gameSpeed: IGameSpeed;
    public points: IPoints;
    public highscore: Highscore;
@@ -147,12 +150,14 @@ export class App {
       this.collisions = new Collisions({ name: "collisions" });
 
       this.events =  IsBrowser() ?
-         // new Events<TGameEvent>({ app: this, name: "events" }) :
+         new Events<TGameEvent>({ app: this, name: "events" }) :
          // new RecordGameEvents({ app: this, name: "events" }) :
-         new Events({ app: this, name: "events" }) :
-         new Events({ app: this, name: "events" });
+         // new Events({ app: this, name: "events" }) :
+         new Events<TGameEvent>({ app: this, name: "events" });
 
-      this.uiEvents = new Events<TUiEvent>({ app: this, name: "uiEvents" });
+      this.eventsUi = new Events<TUiEvent>({ app: this, name: "eventsUi" });
+
+      this.eventsPoints = new Events<TPointsEvent>({ app: this, name: "eventsPoints" });
 
       this.gameSpeed = IsBrowser() ?
          (gameSpeedSlider ?
@@ -207,14 +212,14 @@ export class App {
     */
    public Init = async () => {
       const {
-         enemies, events,
+         enemies,
+         events, eventsPoints, eventsUi,
          gameLoop, gamepad, gameSpeed, graphics,
          highscore,
          input,
          points,
          yaml,
          settings,
-         uiEvents
       } = this;
 
       /**
@@ -227,6 +232,7 @@ export class App {
       await this.settings.Init();
       await this.e2eTest.Init({
          events,
+         eventsPoints
       });
       await this.input.Init({
          events
@@ -235,6 +241,7 @@ export class App {
       await this.fps.Init();
       await this.enemies.Init({
          events,
+         eventsPoints,
          graphics,
          yaml,
          input,
@@ -251,13 +258,13 @@ export class App {
       await this.graphics.Init();
       await this.ui.Init({
          events,
+         eventsUi,
          gameLoop,
          gameSpeed,
          highscore,
          input,
          points,
          settings,
-         uiEvents,
       });
       await this.highscore.Init();
       await this.fullscreen.Init();

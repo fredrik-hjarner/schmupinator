@@ -2,7 +2,7 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IService, TInitParams } from "../IService";
 import type { Yaml } from "../Yaml/Yaml";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { IGameEvents, TGameEvent } from "../Events/IEvents";
+import type { IEventsPoints, IGameEvents, TGameEvent } from "../Events/IEvents";
 import type { TShortFormAction } from "./actionTypesShortForms";
 import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
@@ -20,6 +20,7 @@ export class Enemies implements IService {
    // deps/services
    private yaml!: Yaml;
    public events!: IGameEvents;
+   public eventsPoints!: IEventsPoints;
    public graphics!: IGraphics;
    public input!: IInput;
    public gamepad!: GamePad;
@@ -41,6 +42,7 @@ export class Enemies implements IService {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
+      this.eventsPoints = deps?.eventsPoints as IEventsPoints;
       this.yaml = deps?.yaml as Yaml;
       this.graphics = deps?.graphics as IGraphics;
       this.input = deps?.input as IInput;
