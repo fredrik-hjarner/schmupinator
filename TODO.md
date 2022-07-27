@@ -88,5 +88,8 @@ lines of code.
 
 * Try/verify if Player can have more than 1 hp, which should be able to have.
 
+* I want to play a demo of the game in the background of the menu, but that's gonna take work
+to make it happen since I do not at all support any of that as of now.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window
