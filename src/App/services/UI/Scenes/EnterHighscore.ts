@@ -4,10 +4,10 @@ import type { UI } from "../UI";
 import { createShade } from "./components/atoms/shade";
 import { createText } from "./components/atoms/text";
 import { createInput } from "./components/atoms/input";
-// import { Countdown } from "./components/molecules/Countdown";
 import { isNumber } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
+import { Menu } from "./components/molecules/Menu";
 
 type TConstructor = {
    ui: UI;
@@ -24,9 +24,8 @@ export class EnterHighscore implements IScene {
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private subTitle?: HTMLDivElement;
-   private button?: HTMLDivElement;
    private input?: HTMLInputElement;
-   // private countdown?: Countdown;
+   private menu?: Menu;
    
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -47,16 +46,6 @@ export class EnterHighscore implements IScene {
          className: "flash1s"
       });
       centerHorizontally(this.title);
-      
-      // this.countdown = new Countdown({
-      //    input: this.ui.input,
-      //    secondsLeft: 25,
-      //    onDone: this.handleCountdDownDone,
-      //    fontSize: fontSizes.normal,
-      //    top: 10,
-      //    left: 320,
-      //    className: "flash1s"
-      // });
 
       this.subTitle = createText({
          text: "Enter thy name and\n become a legend",
@@ -74,14 +63,17 @@ export class EnterHighscore implements IScene {
       });
       centerHorizontally(this.input);
 
-      this.button = createText({
-         text: "Done",
-         fontSize: fontSizes.normal,
+      this.menu = new Menu({
+         input: this.ui.input,
          top: 165,
-         onClick:  this.handleCountdDownDone,
-         className: "menuItem",
+         menuItems: [
+            {
+               text: "Done",
+               onClick: this.handleCountdDownDone
+            },
+         ]
       });
-      centerHorizontally(this.button);
+      this.menu.render();
    }
 
    public destroy() {
@@ -94,14 +86,10 @@ export class EnterHighscore implements IScene {
       this.subTitle?.remove();
       this.subTitle = undefined;
 
-      this.button?.remove();
-      this.button = undefined;
-
       this.input?.remove();
       this.input = undefined;
-
-      // this.countdown?.destroy();
-      // this.countdown = undefined;
+      
+      this.menu?.destroy();
    }
 
    private handleCountdDownDone = () => {
