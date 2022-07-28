@@ -93,5 +93,7 @@ to make it happen since I do not at all support any of that as of now.
 
 * KeyDowns should trigger KeyDown events that UI can listen to, because that would be an easier and more sensible way foir several UI components to listen to Input.
 
+* Remove the Back button from Highscore scene because it is prolly not needed.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window
