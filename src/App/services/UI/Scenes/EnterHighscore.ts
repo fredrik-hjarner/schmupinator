@@ -3,11 +3,10 @@ import type { UI } from "../UI";
 
 import { createShade } from "./components/atoms/shade";
 import { createText } from "./components/atoms/text";
-import { createInput } from "./components/atoms/input";
 import { isNumber } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
-import { Menu } from "./components/molecules/Menu";
+import { FlipCharacters } from "./components/molecules/FlipCharacters";
 
 type TConstructor = {
    ui: UI;
@@ -24,8 +23,7 @@ export class EnterHighscore implements IScene {
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private subTitle?: HTMLDivElement;
-   private input?: HTMLInputElement;
-   private menu?: Menu;
+   private flipCharacters?: FlipCharacters;
    
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -42,7 +40,7 @@ export class EnterHighscore implements IScene {
       this.title = createText({
          text: "Made it into the Highscore",
          fontSize: fontSizes.normal,
-         top: 10,
+         top: 20,
          className: "flash1s"
       });
       centerHorizontally(this.title);
@@ -50,30 +48,17 @@ export class EnterHighscore implements IScene {
       this.subTitle = createText({
          text: "Enter thy name and\n become a legend",
          fontSize: fontSizes.small,
-         top: 58,
+         top: 70,
          className: "flash1s"
       });
       centerHorizontally(this.subTitle);
 
-      this.input = createInput({
-         placeholder: "",
-         maxlength: 6,
-         fontSize: 20,
-         top: 119,
-      });
-      centerHorizontally(this.input);
-
-      this.menu = new Menu({
+      this.flipCharacters = new FlipCharacters({
          input: this.ui.input,
-         top: 165,
-         menuItems: [
-            {
-               text: "Done",
-               onClick: this.handleCountdDownDone
-            },
-         ]
+         top: 130,
+         onDone: this.onEnteredName,
       });
-      this.menu.render();
+      this.flipCharacters.render();
    }
 
    public destroy() {
@@ -86,17 +71,13 @@ export class EnterHighscore implements IScene {
       this.subTitle?.remove();
       this.subTitle = undefined;
 
-      this.input?.remove();
-      this.input = undefined;
-      
-      this.menu?.destroy();
+      this.flipCharacters?.destroy();
    }
 
-   private handleCountdDownDone = () => {
+   private onEnteredName = (name: string) => {
       // Enter entry then go to Highscore screen.
       this.ui.highscoreService.registerNewEntry({
-         // TODO: Dont allow no name?
-         name: this.input?.value || "ANON",
+         name,
          score: this.ui.points.points
       });
       this.ui.SetActiveScene(this.ui.highscore, this.rank);

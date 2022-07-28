@@ -38,6 +38,7 @@ export const createText = (params: TCreateTextParams) => {
       element.style.fontSize = px(fontSize);
       element.style.whiteSpace = "pre";
       element.style.zIndex = zIndices.ui;
+      // TODO: Should prolly be something else than innerHTML such as content or text...
       element.innerHTML = text;
       element.className = className;
       element.onclick = onClick;

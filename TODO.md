@@ -91,5 +91,7 @@ lines of code.
 * I want to play a demo of the game in the background of the menu, but that's gonna take work
 to make it happen since I do not at all support any of that as of now.
 
+* KeyDowns should trigger KeyDown events that UI can listen to, because that would be an easier and more sensible way foir several UI components to listen to Input.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window
