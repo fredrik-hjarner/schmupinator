@@ -24,7 +24,7 @@
 ## Preliminary goals for the code
 
 * As few dependencies as possible. Fewer dependencies can increase the life span of a project since it will not rely on 1 000 dependences that ~~can~~ *will* break.
-* No canvas, every enemy, bullet, etc. is a div! It works better than one would think with a few tricks.
+* No canvas, every enemy, bullet, etc. is a div! It works better than one would think.
 
 ## How to clone, build and run *Schmupinator* locally?
 
