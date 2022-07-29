@@ -33,12 +33,14 @@ You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 ## How to clone, build and run *Schmupinator* locally?
 
 **Requirements:**
-- Install `git`.
+- Install `git` (optional but recommended).
 - Install `node` (use version 16 if you have problems with another version).
 
 **Steps**
 1. Create a directory for *Schmupinator*. Open the created directory in a terminal.
-2. Clone repository by running `git clone https://github.com/fredrik-hjarner/schmupinator.git .` in terminal.
+2. Download repository.
+   - Alt 1. Clone repository by running `git clone https://github.com/fredrik-hjarner/schmupinator.git .` in terminal.
+   - Alt 2. If you dont want to use git, then download zip-file [here](https://github.com/fredrik-hjarner/schmupinator/archive/refs/heads/vite-master-safe-always-working-not-broken.zip). Extract and open terminal in the exteracted directory.
 3. Run `npm install` in terminal.
 4. Run `npx zip` in terminal.
 5. Run `npm run dev` in terminal.
