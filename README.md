@@ -6,6 +6,8 @@
 
 ## Teasers
 
+You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
+
 `[Insert awesome animation here]`
 
 ## Current state
