@@ -5,7 +5,7 @@ silent: true
 tasks:
   zip:
     sources: [yaml/**/*]
-    cmds: [yarn zip]
+    cmds: [npm run zip]
 
   e2e:
     deps: [zip]
@@ -15,13 +15,13 @@ tasks:
     sources: [src/**/*.ts]
     cmds:
       - echo "eslint started"
-      - yarn tsc
-      - yarn --silent eslint --fix src
+      - npx tsc
+      - npx eslint --fix src
       - echo "eslint finished"
 
   lint-e2e-watch: task --parallel -w eslint e2e
 
-  serve: yarn --silent dev
+  serve: npm run dev
 
   start:
     deps: [serve, lint-e2e-watch]
