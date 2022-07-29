@@ -95,5 +95,7 @@ to make it happen since I do not at all support any of that as of now.
 
 * Remove the Back button from Highscore scene because it is prolly not needed.
 
+* The Init funcs of services should prolly be all awaited with Promise.All for spd improvement.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window

@@ -4,7 +4,6 @@ import type { IPoints, THistoryEntry } from "../IPoints";
 
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { Points } from "../Points";
-import { history } from "./history";
 
 type TConstructor = {
    app: App;
@@ -15,12 +14,11 @@ export class PointsTester implements IPoints {
    private readonly app: App;
    public readonly name: string;
    private pointsService: Points;
-   public history: Partial<{ [frame: number]: THistoryEntry }>;
+   public history!: Partial<{ [frame: number]: THistoryEntry }>;
 
    public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
-      this.history = history;
       this.pointsService = new Points({ app: this.app, name: "points" });
    }
 
@@ -28,8 +26,8 @@ export class PointsTester implements IPoints {
       return this.pointsService.points;
    }
 
-   // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async () => {
+      this.history = (await import("./pointsHistory")).recordedHistory;
       await this.pointsService.Init();
       // Subscribe to events after the original points service.
       this.app.events.subscribeToEvent(this.name, this.onEvent);

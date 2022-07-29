@@ -2,7 +2,9 @@ import type { IGameEvents } from "../../Events/IEvents";
 import type { TInitParams } from "../../IService";
 import type { ButtonsPressed, IInput } from "../IInput";
 
-import { replay } from "./replay";
+type THistory = {
+   inputs: Partial<{ [frame: number]: Partial<ButtonsPressed> }>
+};
 
 type TConstructor = {
    name: string;
@@ -22,6 +24,8 @@ export class ReplayerInput implements IInput {
     * service and NOT also have to grab FrameCount off the GameLoop service directly.
     */
    private frameCount = 0;
+   // From file. Pre-recorded.
+   private replay!: THistory;
 
    // deps/services
    private events!: IGameEvents;
@@ -30,8 +34,9 @@ export class ReplayerInput implements IInput {
       this.name = name;
    }
 
-   // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
+      this.replay = (await import("./replay")).replay as THistory;
+
       this.events = deps?.events as IGameEvents;
 
       this.events.subscribeToEvent(this.name, (event) => {
@@ -48,12 +53,12 @@ export class ReplayerInput implements IInput {
       const allFalse = {
          start: false, down: false, left: false, right: false, shoot: false, laser: false, up: false
       };
-      if(!(frame in replay.inputs)) {
+      if(!(frame in this.replay.inputs)) {
          return allFalse;
       }
       // @ts-ignore
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const buttonsPressed = {...allFalse, ...replay.inputs[frame]} as ButtonsPressed;
+      const buttonsPressed = {...allFalse, ...this.replay.inputs[frame]} as ButtonsPressed;
       return buttonsPressed;
    }
 }

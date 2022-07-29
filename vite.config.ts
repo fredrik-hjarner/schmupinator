@@ -1,6 +1,9 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 
 export default defineConfig({
-   assetsInclude: ['**/*.zip']
- })
- 
+  assetsInclude: ['**/*.zip'],
+  plugins: [splitVendorChunkPlugin()],
+  build: {
+    minify: 'terser'
+  }
+});

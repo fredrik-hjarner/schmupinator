@@ -3,7 +3,8 @@ import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
 
 import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
-import { history } from "./history";
+
+type THistory = Partial<{ [frame: number]: (TGameEvent | TPointsEvent)[] }>;
 
 type TConstructor = {
    name: string
@@ -18,7 +19,10 @@ export class E2eTest implements IE2eTest {
     * service and NOT also have to grab FrameCount off the GameLoop service directly.
     */
    private frameCount = 0;
-   private history: Partial<{ [frame: number]: (TGameEvent | TPointsEvent)[] }> = {};
+   // local history (what actually happened)
+   private history: THistory = {};
+   // From file that has been pre-recorded.
+   private recordedHistory!: THistory;
    private startTime = BrowserDriver.PerformanceNow();
 
    // deps/services
@@ -31,6 +35,8 @@ export class E2eTest implements IE2eTest {
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
+      this.recordedHistory = (await import("./e2ehistory")).recordedHistory as THistory;
+
       // TODO: Replace typecast with type guard.
       this.events = deps?.events as IGameEvents;
       this.eventsPoints = deps?.eventsPoints as IEventsPoints;
@@ -65,7 +71,9 @@ export class E2eTest implements IE2eTest {
 
          const lastFrame = event.frameNr - 1;
          //@ts-ignore
-         const expected = JSON.stringify(history[lastFrame] as TGameEvent[] | undefined);
+         const expected = JSON.stringify(
+            this.recordedHistory[lastFrame] as (TGameEvent | TPointsEvent)[] | undefined
+         );
          const actual = JSON.stringify(this.history[lastFrame]);
          if (expected !== actual) {
             BrowserDriver.Alert(

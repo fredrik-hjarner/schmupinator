@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-export const history = {
+export const recordedHistory = {
    "131": [
       {
          "type": "collisions",
