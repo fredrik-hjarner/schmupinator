@@ -6,6 +6,8 @@ import { loadAsync } from "jszip";
 
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
+//@ts-ignore: Dont know how to make ts not complain here.
+import gameZip from "../../../assets/game.zip";
 
 type TConstructor = {
    name: string
@@ -22,7 +24,7 @@ export class Yaml implements IService {
    }
 
    public Init = async () => {
-      const zipData = await BrowserDriver.FetchBinary("/game.zip");
+      const zipData = await BrowserDriver.FetchBinary(gameZip as string);
       const zip = await loadAsync(zipData);
 
       const commonFile = await zip.file("common.yaml")?.async("text");

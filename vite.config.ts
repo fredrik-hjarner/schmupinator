@@ -4,6 +4,7 @@ export default defineConfig({
   assetsInclude: ['**/*.zip'],
   plugins: [splitVendorChunkPlugin()],
   build: {
-    minify: 'terser'
-  }
+    minify: 'terser',
+    assetsInlineLimit: 0,
+  },
 });

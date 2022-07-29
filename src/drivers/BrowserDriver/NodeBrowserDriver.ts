@@ -50,11 +50,11 @@ export class NodeBrowserDriver implements IBrowserDriver {
       }
       catch(err) {
          /**
-          * Adding "public" to the url is a hack to get vite-node to find files in the "public"
-          * folder. Problem with v. 16.0.0.
+          * Adding "." to the url is a hack to get vite-node to find files in the "."
+          * folder, instead of /src on root. Problem with v. 16.0.0.
           * TODO: Maybe a later version of vite-node fixes this.
           */
-         buffer = await readFile("public" + path);
+         buffer = await readFile("." + path);
       }
       return buffer;
    };
