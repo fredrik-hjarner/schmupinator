@@ -5,6 +5,8 @@ import { createShade } from "./components/atoms/shade";
 import { centerHorizontally } from "./utils/centering";
 import { createText } from "./components/atoms/text";
 import { Menu } from "./components/molecules/Menu";
+import { fontSizes } from "./consts/fontSizes";
+import packageJson from "../../../../../package.json";
 
 type TConstructor = {
    ui: UI;
@@ -17,6 +19,7 @@ export class StartGame implements IScene {
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private menu?: Menu;
+   private version?: HTMLDivElement;
 
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -34,7 +37,7 @@ export class StartGame implements IScene {
 
       this.menu = new Menu({
          input: this.ui.input,
-         top: 112,
+         top: 108,
          menuItems: [
             { text: "start game", onClick: this.onStartGame },
             { text: "highscore", onClick: () => { this.ui.SetActiveScene(this.ui.highscore); } },
@@ -46,6 +49,15 @@ export class StartGame implements IScene {
          ]
       });
       this.menu.render();
+
+      this.version = createText({
+         text: packageJson.version,
+         fontSize: fontSizes.smallest,
+         top: 225,
+         // top: 0,
+         left: 333,
+         color: "rgba(255, 0, 0, 0.4)"
+      });
    }
 
    public destroy() {
@@ -56,6 +68,9 @@ export class StartGame implements IScene {
       this.title = undefined;
 
       this.menu?.destroy();
+
+      this.version?.remove();
+      this.version = undefined;
    }
 
    private onStartGame = () => {

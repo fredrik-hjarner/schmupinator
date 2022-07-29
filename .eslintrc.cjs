@@ -107,7 +107,11 @@ module.exports = {
     "import/no-nodejs-modules": "error",
     "import/no-duplicates": "error",
     "import/no-namespace": "error",
-    "import/extensions": ["error", "never"],
+    "import/extensions": [
+      "error",
+      "never",
+      { "json": "always" }
+    ],
     "import/no-default-export": "error",
     /**
      * Typescript
