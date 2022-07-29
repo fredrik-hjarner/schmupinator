@@ -84,7 +84,7 @@ export class Highscore implements IScene {
          menuItems: [
             {
                text: "continue",
-               onClick: () => { this.ui.SetActiveScene(this.ui.startGame); }
+               onClick: this.handleCountdDownDone
             },
          ]
       });
