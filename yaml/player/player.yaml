@@ -42,6 +42,8 @@ enemy:
       - { type: setMoveDirection, degrees: 0 }
       - { type: setAttribute, attribute: collisionType, value: player }
       - { type: setAttribute, attribute: boundToWindow, value: true }
+      # The following line are just a hack to hide the player initially.
+      - do: [{ type: gfxSetShape, shape: none}, wait: 1, { type: gfxSetShape, shape: diamondShield}]
       - fork:
         - forever:
           - { type: moveAccordingToInput }
