@@ -4,11 +4,13 @@
 
 > The ambition is to make a shoot 'em up maker with the ability for users create their own shoot 'em up stages.
 
-## Teasers
-
 You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
-`[Insert awesome animation here]`
+## Teasers
+
+| | | |
+|-|-|-|
+|![title](https://raw.githubusercontent.com/fredrik-hjarner/schmupinator/vite-master-safe-always-working-not-broken/githubAssets/title_screen.png) | ![Schmupinator](https://raw.githubusercontent.com/fredrik-hjarner/schmupinator/vite-master-safe-always-working-not-broken/githubAssets/game.png) | ![Schmupinator](https://raw.githubusercontent.com/fredrik-hjarner/schmupinator/vite-master-safe-always-working-not-broken/githubAssets/highscore.png)|
 
 ## Current state
 
