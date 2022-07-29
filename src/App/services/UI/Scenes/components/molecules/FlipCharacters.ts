@@ -99,7 +99,7 @@ export class FlipCharacters {
     * Get the string that the player has put in.
     */
    private getEnteredString = (): string => {
-      return this.charIndices.map(i => charList[i]).join("").replace("_", " ");
+      return this.charIndices.map(i => charList[i]).join("").replaceAll("_", " ");
    };
 
    private updateCurrChar = () => {
