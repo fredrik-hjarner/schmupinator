@@ -91,9 +91,8 @@ lines of code.
 * I want to play a demo of the game in the background of the menu, but that's gonna take work
 to make it happen since I do not at all support any of that as of now.
 
-* KeyDowns should trigger KeyDown events that UI can listen to, because that would be an easier and more sensible way foir several UI components to listen to Input.
-
-* Remove the Back button from Highscore scene because it is prolly not needed.
+* KeyDowns should trigger KeyDown events that UI can listen to, because that would be an easier and
+more sensible way for several UI components to listen to Input.
 
 * The Init funcs of services should prolly be all awaited with Promise.All for spd improvement.
 
@@ -102,5 +101,10 @@ It would help if I could get the game to play in full fullscreen which PWA might
 
 * Overflowing GameHiders cause problem on mobile/touch devices, you can still scroll!!
 
+* First char is not marked visually as selected to at first: Fix.
+
+* When something in UI is selected there should be a soft color animation that loops
+on the selected thing.
+
 * Last finishing touches:
-1. Hide the bullets on the left side of the game window
+1. Hide the bullets on the left side of the game window.
