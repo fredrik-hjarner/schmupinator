@@ -97,5 +97,10 @@ to make it happen since I do not at all support any of that as of now.
 
 * The Init funcs of services should prolly be all awaited with Promise.All for spd improvement.
 
+* I could make it work with touch devices but having the ship move in max speed towards the cursor.
+It would help if I could get the game to play in full fullscreen which PWA might help with??
+
+* Overflowing GameHiders cause problem on mobile/touch devices, you can still scroll!!
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window

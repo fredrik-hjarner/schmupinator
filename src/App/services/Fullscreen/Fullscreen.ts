@@ -29,6 +29,8 @@ export class Fullscreen implements IFullscreen {
       BrowserDriver.WithWindow(window => {
          window.removeEventListener("resize", this.setFullscreen);
          window.document.body.style.transform = "none";
+         window.document.body.style.width = "100%";
+         window.document.body.style.height = "100%";
       });
    };
 
@@ -38,17 +40,24 @@ export class Fullscreen implements IFullscreen {
          const windowWidth = window.document.documentElement.clientWidth;
          const windowHeight = window.document.documentElement.clientHeight;
          const windowAspectRatio = windowWidth / windowHeight;
+         let scale: number;
          if(windowAspectRatio > this.gameAspectRatio) {
             // will be extra space in x-wise
-            const scale = windowHeight / resolutionHeight;
+            scale = windowHeight / resolutionHeight;
             let translateX = 0;
             translateX = (windowWidth - resolutionWidth*scale) / 2;
             body.style.transform = `translateX(${translateX}px) scale(${scale})`;
          } else {
             // will be extra space in y-wise
-            const scale = windowWidth / resolutionWidth;
+            scale = windowWidth / resolutionWidth;
             body.style.transform = `scale(${scale})`;
          }
+         /**
+          * This width/height stuff is needed because for some reason on touch devices,
+          * overflow: hidden does not work.
+          */
+         body.style.width = `${100* (1/scale)}%`;
+         body.style.height = `${100* (1/scale)}%`;
       });
    };
 }
