@@ -26,5 +26,8 @@
   ],
   "jest.showTerminalOnLaunch": false,
   "yaml.format.enable": false,
-  "html.format.enable": false
+  "html.format.enable": false,
+  "[markdown]": {
+    "editor.formatOnSave": false,
+  }
 }
