@@ -101,8 +101,6 @@ It would help if I could get the game to play in full fullscreen which PWA might
 
 * Overflowing GameHiders cause problem on mobile/touch devices, you can still scroll!!
 
-* First char is not marked visually as selected to at first: Fix.
-
 * When something in UI is selected there should be a soft color animation that loops
 on the selected thing.
 

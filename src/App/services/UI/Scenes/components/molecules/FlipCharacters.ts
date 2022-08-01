@@ -59,7 +59,7 @@ export class FlipCharacters {
       });
 
       // set the first item as active by default/to begin with.
-      this.setCaretIndex(0);
+      this.setCaretIndex(0, true);
 
       // register onKey callback.
       this.input.onKeyUpCallback = key => {
@@ -123,13 +123,16 @@ export class FlipCharacters {
       this.updateCurrChar();
    };
 
-   private setCaretIndex = (index: number) => {
-      if(this.caretIndex !== index) {
-         this.charElements[this.caretIndex].classList.remove("activeMenuItem");
-         this.caretIndex = index;
-         const element = this.charElements[index];
-         element.classList.add("activeMenuItem");
+   private setCaretIndex = (index: number, force = false) => {
+      if(!force) {
+         if(this.caretIndex === index) {
+            return;
+         }
       }
+      this.charElements[this.caretIndex].classList.remove("activeMenuItem");
+      this.caretIndex = index;
+      const element = this.charElements[index];
+      element.classList.add("activeMenuItem");
    };
 
    private incrCaretIndex = () => {
