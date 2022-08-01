@@ -31,7 +31,10 @@ export class Yaml implements IService {
       // const commonDoc = commonFile ? parseDocument(commonFile, {merge: true}) : undefined;
       // if(commonDoc) { this.checkError(commonDoc); }
 
-      const files: string[] = Object.keys(zip.files);
+      const files: string[] = Object.keys(zip.files)
+         .filter(f => f.includes(".yaml"));
+
+      // console.log('files:', files);
 
       const allOtherFiles = await Promise.all(
          files
