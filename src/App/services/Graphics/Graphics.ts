@@ -9,6 +9,11 @@ import { px } from "../../../utils/px";
 import { guid } from "../../../utils/uuid";
 import { Vector as TVector } from "../../../math/bezier";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import circle from "../../../assets/images/circle.png";
+import square from "../../../assets/images/square.png";
+import triangle from "../../../assets/images/triangle.png";
+import diamondShield from "../../../assets/images/diamondShield.png";
+import octagon from "../../../assets/images/octagon.png";
 
 type TGraphicsElement = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
@@ -81,7 +86,7 @@ export class Graphics implements IGraphics {
 
    private reset = (ge: TGraphicsElement) => {
       const { x, y } = this.getRestingPlace(ge.index);
-      const color = "orange";
+      // const color = "orange";
       const diameter = 5;
       const radius = diameter/2;
 
@@ -93,7 +98,13 @@ export class Graphics implements IGraphics {
       /** TODO: Remove duplication */
       ge.element.style.position = "fixed";
       ge.element.style.boxSizing = "border-box";
-      ge.element.style.backgroundColor = color;
+      // ge.element.style.backgroundColor = color;
+
+      ge.element.style.backgroundSize = "contain";
+      ge.element.style.imageRendering = "pixelated";
+      ge.element.style.backgroundImage = `url('${circle}')`;
+      ge.element.style.filter = "none";
+
       ge.element.style.width = px(diameter);
       ge.element.style.height = px(diameter);
       ge.element.style.top = px(top);
@@ -104,7 +115,7 @@ export class Graphics implements IGraphics {
 
    private initOneElement = (i: number): TGraphicsElement => {
       const { x, y } = this.getRestingPlace(i);
-      const color = "orange";
+      // const color = "orange";
       const diameter = 5;
       const radius = diameter/2;
 
@@ -118,7 +129,13 @@ export class Graphics implements IGraphics {
          element.id = handle;
          element.style.position = "fixed";
          element.style.boxSizing = "border-box";
-         element.style.backgroundColor = color;
+         // element.style.backgroundColor = color;
+
+         element.style.backgroundSize = "contain";
+         element.style.imageRendering = "pixelated";
+         element.style.backgroundImage = `url('${circle}')`;
+         element.style.filter = "none";
+
          element.style.width = px(diameter);
          element.style.height = px(diameter);
          element.style.top = px(top);
@@ -209,7 +226,26 @@ export class Graphics implements IGraphics {
    private actionSetColor =
       ({ handle, color }: Omit<TGfx_SetColor,"type">): TResponse_Void => {
          const element = this.findExistingAndInUse(handle);
-         element.element.style.backgroundColor = color;
+         /**
+          * TODO: This switch case is ugly, should do this in some other way??
+          */
+         switch(color) {
+            case "red":
+               element.element.style.filter = "none";
+               break;
+            case "black":
+               element.element.style.filter = "brightness(0)";
+               break;
+            case "green":
+               element.element.style.filter = "hue-rotate(135deg) brightness(1.09)";
+               break;
+            case "aqua":
+               element.element.style.filter = "hue-rotate(180deg) brightness(3)";
+               break;
+            default:
+               BrowserDriver.Alert(`Graphics.actionSetColor: unknown color '${color}'`);
+               break;
+         }
          return { type: "responseVoid" };
       };
 
@@ -218,28 +254,26 @@ export class Graphics implements IGraphics {
          const element = this.findExistingAndInUse(handle);
          switch(shape) {
             case "none": {
-               element.element.style.clipPath = "circle(0%)";
+               element.element.style.backgroundImage = "none";
                break;
             }
             case "circle": {
-               element.element.style.clipPath = "circle(50%)";
+               element.element.style.backgroundImage = `url('${circle}')`;
                break;
             }
             case "square": {
-               element.element.style.clipPath = "none";
+               element.element.style.backgroundImage = `url('${square}')`;
                break;
             }
             case "triangle": {
-               element.element.style.clipPath = "polygon(50% 0%, 100% 100%, 0% 100%)";
+               element.element.style.backgroundImage = `url('${triangle}')`;
                break;
             }
             case "diamondShield":
-               element.element.style.clipPath =
-                  "polygon(50% 0%,100.00% 80.00%,50% 100%,0.00% 80.00%)";
+               element.element.style.backgroundImage = `url('${diamondShield}')`;
                break;
             case "octagon":
-               element.element.style.clipPath =
-                  "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)";
+               element.element.style.backgroundImage = `url('${octagon}')`;
                break;
          }
          element.shape = shape;

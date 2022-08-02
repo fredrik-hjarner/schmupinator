@@ -3,6 +3,7 @@ enemy:
     diameter: 20
     hp: 9999
     actions:
+      - { type: gfxSetShape, shape: none }
       - { spawn: shapeShifter, x: *c5, y: *r5 }
       - { spawn: healer, x: *c4, y: *r4 }
       - { spawn: dehealer, x: *c6, y: *r4 }
@@ -41,4 +42,6 @@ enemy:
     actions:
       - forever:
         - wait: 10
+        # TODO: eventually it gets so much negative hp that it gets negative
+        # It does not die automatically when it reaches 0 hp.
         - { type: "decr", attribute: "hp" }
