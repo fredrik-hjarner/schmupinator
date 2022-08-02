@@ -14,7 +14,7 @@ type TCreateButtonParams = {
 
 export const createButton = (params: TCreateButtonParams) => {
    const {
-      text, onClick=null, fontSize=fontSizes.smallest, left=0, top=0, padding="5px 10px"
+      text, onClick=null, fontSize=fontSizes.smallest, left=0, top=0, padding="3px 5px"
    } = params;
 
    return BrowserDriver.WithWindow(window => {

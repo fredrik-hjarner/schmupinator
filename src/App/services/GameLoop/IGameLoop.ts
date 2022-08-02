@@ -6,5 +6,7 @@ export interface IGameLoop extends IService {
    name: string;
    FrameCount: number;
 
-   Start(): void;
+   Start: () => void;
+   // Public because GameSpeed might want control over frames.
+   nextFrame: () => void;
 }

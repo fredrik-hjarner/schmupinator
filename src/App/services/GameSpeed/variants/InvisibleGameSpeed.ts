@@ -26,4 +26,8 @@ export class InvisibleGameSpeed implements IGameSpeed {
    public set GameSpeed(value: number) {
       this.gameSpeed = value;
    }
+
+   public destroy = () => {
+      // noop
+   };
 }

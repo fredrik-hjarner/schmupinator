@@ -253,7 +253,9 @@ export class App {
          events,
       });
       await this.events.Init();
-      await this.gameSpeed.Init();
+      await this.gameSpeed.Init({
+         gameLoop,
+      });
       await this.points.Init();
       await this.graphics.Init();
       await this.ui.Init({

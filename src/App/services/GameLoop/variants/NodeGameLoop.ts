@@ -31,16 +31,21 @@ export class NodeGameLoop implements IGameLoop {
       BrowserDriver.SetInterval(this.oneGameLoop, 0);
    };
 
+   // Public because GameSpeed might want control over frames.
+   public nextFrame = () => {
+      this.FrameCount++;
+      this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+   };
+
    /**
    * Private
    */
-   private nextFrame = () => {
+   private advanceFrames = () => {
       const gameSpeed = this.app.gameSpeed.GameSpeed;
       if(gameSpeed === 0) {
          return;
       }
-      this.FrameCount++;
-      this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+      this.nextFrame();
    };
 
    private oneGameLoop = () => {
@@ -48,6 +53,6 @@ export class NodeGameLoop implements IGameLoop {
       if(gameSpeed === 0) {
          return;
       }
-      this.nextFrame();
+      this.advanceFrames();
    };
 }

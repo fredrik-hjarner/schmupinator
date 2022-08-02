@@ -35,14 +35,19 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
       BrowserDriver.RequestAnimationFrame(this.oneGameLoop);
    };
 
+   // Public because GameSpeed might want control over frames.
+   public nextFrame = () => {
+      this.FrameCount++;
+      this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+   };
+
    /**
    * Private
    */
-   private nextFrame = () => {
+   private advanceFrames = () => {
       const gameSpeed = this.app.gameSpeed.GameSpeed;
       for(let i=0; i<gameSpeed; i++) {
-         this.FrameCount++;
-         this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+         this.nextFrame();
       }
    };
 
@@ -68,7 +73,7 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
       while (time >= this.nextFrameMillis) {
          // i++;
          this.nextFrameMillis += millisPerFrame;
-         this.nextFrame();
+         this.advanceFrames();
       }
       // console.log(i);
    };
