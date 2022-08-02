@@ -24,7 +24,7 @@ export class Settings implements IScene {
 
    public render() {
       const {
-         fullscreen, gameSpeedSlider, fpsStats, outsideHider
+         fullscreen, gameSpeedSlider, fpsStats, outsideHider, autoplay
       } = this.ui.settingsService.settings;
 
       this.shadeElement = createShade();
@@ -32,13 +32,13 @@ export class Settings implements IScene {
       this.title = createText({
          text: `<span class="flash3s"><span style="font-size: 76px;">S</span>ettings</span>`,
          fontSize: 60,
-         top: 38,
+         top: 25,
       });
       centerHorizontally(this.title);
 
       this.menu = new Menu({
          input: this.ui.input,
-         top: 105,
+         top: 85,
          menuItems: [
             {
                text: `fullscreen - ${fullscreen ? "on" : "off" }`,
@@ -55,6 +55,10 @@ export class Settings implements IScene {
             {
                text: `outsideHider - ${outsideHider ? "on" : "off" }`,
                onClick: () => { this.ui.settingsService.toggleSetting("outsideHider"); }
+            },
+            {
+               text: `autoplay - ${autoplay ? "on" : "off" }`,
+               onClick: () => { this.ui.settingsService.toggleSetting("autoplay"); }
             },
             {
                text: "back",

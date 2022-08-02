@@ -10,6 +10,7 @@ type TSettings = {
    gameSpeedSlider: boolean;
    fpsStats: boolean;
    outsideHider: boolean;
+   autoplay: boolean;
 };
 
 type TConstructor = {
@@ -24,6 +25,7 @@ export class Settings implements IService {
       gameSpeedSlider: false,
       fpsStats: false,
       outsideHider: true,
+      autoplay: false,
    };
 
    // deps/services

@@ -28,8 +28,6 @@ import { GameLoop } from "./services/GameLoop/GameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Fps } from "./services/Fps/Fps";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Input } from "./services/Input/Input";
 import { GamePad } from "./services/GamePad/GamePad";
 import { Collisions } from "./services/Collisions/Collisions";
@@ -58,8 +56,6 @@ import { OutsideHider } from "./services/OutsideHider/OutsideHider";
  * "Mocks"/Service variations
  */
 import { NoopService } from "./services/NoopService";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
 import { MockGraphics } from "./services/Graphics/MockGraphics";
 import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
@@ -120,15 +116,19 @@ export class App {
        * what services are going to be used, so it should be created first.
        */
       this.settings = new Settings({ app: this, name: "settings" });
-      const { fullscreen, gameSpeedSlider, fpsStats, outsideHider } = this.settings.settings;
+      const {
+         fullscreen, gameSpeedSlider, fpsStats, outsideHider, autoplay
+      } = this.settings.settings;
 
       this.e2eTest = IsBrowser() ?
          new NoopService({ name: "e2e" }) :
          new E2eTest({ name: "e2e" });
 
       this.input = IsBrowser() ?
-         new Input({ name: "input" }) :
-         // new ReplayerInput({ name: "input" }) :
+         (autoplay ?
+            new ReplayerInput({ name: "input" }) :
+            new Input({ name: "input" })
+         ) :
          new ReplayerInput({ name: "input" });
 
       this.gameLoop = IsBrowser() ?
