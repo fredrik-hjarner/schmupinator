@@ -104,5 +104,7 @@ It would help if I could get the game to play in full fullscreen which PWA might
 * When something in UI is selected there should be a soft color animation that loops
 on the selected thing.
 
+* Add Invincibility to Settings menu.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.
