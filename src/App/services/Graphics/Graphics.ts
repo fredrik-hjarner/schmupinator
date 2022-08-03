@@ -14,6 +14,7 @@ import square from "../../../assets/images/square.png";
 import triangle from "../../../assets/images/triangle.png";
 import diamondShield from "../../../assets/images/diamondShield.png";
 import octagon from "../../../assets/images/octagon.png";
+import roundExplosion from "../../../assets/images/roundExplosion.png";
 
 type TGraphicsElement = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
@@ -103,6 +104,8 @@ export class Graphics implements IGraphics {
       ge.element.style.backgroundSize = "contain";
       ge.element.style.imageRendering = "pixelated";
       ge.element.style.backgroundImage = `url('${circle}')`;
+      ge.element.style.backgroundRepeat = "no-repeat";
+      ge.element.style.backgroundPosition = "center";
       ge.element.style.filter = "none";
 
       ge.element.style.width = px(diameter);
@@ -134,6 +137,8 @@ export class Graphics implements IGraphics {
          element.style.backgroundSize = "contain";
          element.style.imageRendering = "pixelated";
          element.style.backgroundImage = `url('${circle}')`;
+         element.style.backgroundRepeat = "no-repeat";
+         element.style.backgroundPosition = "center";
          element.style.filter = "none";
 
          element.style.width = px(diameter);
@@ -275,6 +280,12 @@ export class Graphics implements IGraphics {
             case "octagon":
                element.element.style.backgroundImage = `url('${octagon}')`;
                break;
+            case "roundExplosion": {
+               // without the query string, all animations of same file were synced!!!
+               const q = `?id=${Math.floor(Math.random() * 100)}`;
+               element.element.style.backgroundImage = `url('${roundExplosion}${q}')`;
+               break;
+            }
          }
          element.shape = shape;
          return { type: "responseVoid" };

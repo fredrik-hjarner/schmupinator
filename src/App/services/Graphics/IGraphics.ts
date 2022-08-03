@@ -2,7 +2,14 @@ import type { IService } from "../IService";
 
 export type THandle = string;
 
-export type TShape = "none" | "circle" | "square" | "triangle" | "diamondShield" | "octagon";
+export type TShape =
+   "none" |
+   "circle" |
+   "square" |
+   "triangle" |
+   "diamondShield" |
+   "octagon" |
+   "roundExplosion";
 
 /***********
  * Actions *

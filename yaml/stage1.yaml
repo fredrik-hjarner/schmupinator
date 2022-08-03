@@ -44,6 +44,7 @@ enemy:
   name: nonShootingAimer
   hp: 4
   diameter: 22
+  onDeathAction: { spawn: explosion }
   actions: 
     - setSpeed: 1.60
     - parallelAll:
@@ -87,6 +88,7 @@ enemy:
   name: sinus
   hp: 3
   diameter: 24
+  onDeathAction: { spawn: explosion }
   actions:
   - setShotSpeed: 2
   - { attr: right, is: true, yes: [{ type: mirrorX, value: true }] }

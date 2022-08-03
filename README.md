@@ -54,6 +54,7 @@ You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
 * **Fredrik Hjärner**: Game engine/maker, stage, enemies, "graphics" ~~and also all bugs~~.
 
-## Acknowledgments
+## Acknowledgments and attributions
 
 * [**SpicyGame**](https://spicygame.itch.io/): For creating the `Micro Pixel` font that is used extensively in *Schmupinator*.
+* [**Will Tice**](https://untiedgames.com/): For creating free sample explosion animations.
