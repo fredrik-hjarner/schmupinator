@@ -119,5 +119,8 @@ explosions and such which is unnecessary outside of the screen.
 
 * Explain or show better how to enter highscore name.
 
+* There is something wrong with Points and testing and recording. Make a E2eTest variant that
+records the events, because part of it stems from eventsPoints now being a separate service.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.

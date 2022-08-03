@@ -48,6 +48,8 @@ import { UI } from "./services/UI/UI";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Fullscreen } from "./services/Fullscreen/Fullscreen";
 import { Parallax } from "./services/Parallax/Parallax";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { E2eTest } from "./services/E2eTest/E2eTest";
 import { Settings } from "./services/Settings/Settings";
 import { OutsideHider } from "./services/OutsideHider/OutsideHider";
@@ -122,6 +124,7 @@ export class App {
 
       this.e2eTest = IsBrowser() ?
          new NoopService({ name: "e2e" }) :
+         // new NoopService({ name: "e2e" });
          new E2eTest({ name: "e2e" });
 
       this.input = IsBrowser() ?
