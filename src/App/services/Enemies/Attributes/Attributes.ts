@@ -36,6 +36,7 @@ export class Attributes {
        * actions, but it may not hurt to have default values though, and also may serve as
        * reference of what "built-in" attrs exist.
        */
+      // how many points you get when this enemy collides.
       points:        { value: 10 },
       // how many points you get when this dies.
       pointsOnDeath: { value: 0 },
