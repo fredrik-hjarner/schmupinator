@@ -48,7 +48,7 @@ You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
 ## License
 
-100% open source.
+Open source except assets.
 
 ## Credits
 
