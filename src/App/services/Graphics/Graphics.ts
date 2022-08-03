@@ -281,8 +281,12 @@ export class Graphics implements IGraphics {
                element.element.style.backgroundImage = `url('${octagon}')`;
                break;
             case "roundExplosion": {
-               // without the query string, all animations of same file were synced!!!
-               const q = `?id=${Math.floor(Math.random() * 100)}`;
+               /**
+                * Without the query string, all animations of same file were synced like it was
+                * only one animation displayed on different places. Also the querystring must
+                * be different EVERY time so that's why I use `guid`.
+                */
+               const q = `?id=${guid()}`;
                element.element.style.backgroundImage = `url('${roundExplosion}${q}')`;
                break;
             }

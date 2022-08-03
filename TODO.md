@@ -109,7 +109,7 @@ on the selected thing.
 * Implement a frame-speed-schedule, so I can rerun specific parts of the game very fast,
 for example I might be interested in what happens in the frames 1000 to 1500.
 
-* Sometimes the onDeathAction explosion did not trigger, examine why and fix.
+* ~~Sometimes the onDeathAction explosion did not trigger, examine why and fix.~~ Solved with guid.
 
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.
