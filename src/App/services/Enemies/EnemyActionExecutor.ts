@@ -52,6 +52,18 @@ export class EnemyActionExecutor {
       this.generators = [this.makeGenerator(actions)];
    }
 
+   /**
+    * Execute one single actions by itself.
+    * Executes the action one frame then throws away the generator.
+    * Only useful for special cases.
+    * @returns true if done, else false.
+    */
+   public ExecuteOneAction = (action: TShortFormAction): boolean => {
+      const generator = this.makeGenerator([action]);
+      const { done } = generator.next();
+      return !!done;
+   };
+
    // TODO: Maybe I should clear up generators that have status `done`.
    // Return true when all generators have finished, i.e. no actions left ot execute.
    public ProgressOneFrame(): boolean {

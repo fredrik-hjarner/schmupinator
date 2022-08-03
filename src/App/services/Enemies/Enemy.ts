@@ -15,6 +15,7 @@ import { TShortFormAction } from "./actionTypesShortForms";
 import { Attributes } from "./Attributes/Attributes";
 import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
+import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 export class Enemy {
    public X: number;
@@ -34,6 +35,8 @@ export class Enemy {
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    public attrs = new Attributes();
    private name: string;
+   // One action that is executed immediately when an enemy dies.
+   private onDeathAction?: TShortFormAction;
 
    public constructor( enemies: Enemies, position: TVector, json: IEnemyJson ) {
       this.enemies = enemies;
@@ -50,11 +53,11 @@ export class Enemy {
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
+      this.onDeathAction = json.onDeathAction;
       // TODO: Attrs should be be set by an Action in future, right?
       this.hp = json.hp;
       this.maxHp = json.hp;
 
-      // New graphics engine code
       this.graphics = this.enemies.graphics;
       this.gfx = new EnemyGfx({
          diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
@@ -88,9 +91,7 @@ export class Enemy {
       // if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
       // if(done) { this.die(); }
 
-      /**
-       * Safest to do all the required updates n shit here, even if hp etc have not been changed.
-       */
+      // Safest to do all the required updates n shit here, even if hp etc have not been changed.
       if(this.attrs.GetAttribute("boundToWindow").value) {
          this.boundToWindow();
       }
@@ -134,7 +135,8 @@ export class Enemy {
       }
    };
 
-   private die = () => {
+   // unlike die despawn does NOT trigger onDeathAction
+   private despawn = () => {
       const enemies = this.enemies;
       // remove this enemy.
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
@@ -145,11 +147,24 @@ export class Enemy {
       }
 
       // TODO: Maybe publish a death event or something.
-      // Clear up graphics.
-      if(this.gfx) {
+      if(this.gfx) { // Clear up graphics.
          this.gfx.release();
          this.gfx = undefined;
       }
+   };
+
+   // unlike despawn die triggers onDeathAction
+   private die = () => {
+      if(this.onDeathAction) {
+         const done = this.actionExecutor.ExecuteOneAction(this.onDeathAction);
+         if(!done) {
+            BrowserDriver.Alert(
+               `Enemy '${this.id}'s onDeathAction required more than 1 frame to execute.
+               An onDeathAction must be able to finish execution after 1 frame.`
+            );
+         }
+      }
+      this.despawn();
    };
 
    /**
@@ -162,73 +177,56 @@ export class Enemy {
          case "shootDirection":
             this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
-
          case "setSpeed":
             this.speed = action.pixelsPerFrame;
             break;
-
          case "setShotSpeed":
             this.shotSpeed = action.pixelsPerFrame;
             break;
-
          case "set_position":
             this.SetPosition({ x: action.x, y: action.y });
             break;
-
          case "shoot_toward_player":
             this.ShootTowardPlayer();
             break;
-
          case "shoot_beside_player":
             this.ShootBesidePlayer(action.degrees);
             break;
-
          case "rotate_towards_player":
             this.RotateTowardsPlayer();
             break;
-
          case "setMoveDirection":
             this.setMoveDirection(action.degrees);
             break;
-
          case "move_according_to_speed_and_direction":
             this.moveAccordingToSpeedAndDirection();
             break;
-
          case "spawn": {
             const { enemy, x=0, y=0, actions } = action;
             this.spawn({ enemy, pos: { x, y }, actions });
             break;
          }
-
          case "mirrorX": 
             this.mirrorX = action.value;
             break;
-
          case "mirrorY": 
             this.mirrorY = action.value;
             break;
-
          case "moveDelta":
             this.moveDelta({ x: action.x, y: action.y });
             break;
-
          case "setAttribute":
             this.attrs.SetAttribute({ name: action.attribute, value: action.value });
             break;
-
          case "die":
             this.die();
             break;
-
          case "incr":
             this.attrs.incr(action.attribute);
             break;
-
          case "decr":
             this.attrs.decr(action.attribute);
             break;
-      
          default:
             this.gfx?.dispatch(action as TGraphicsActionWithoutHandle);
       }
@@ -344,7 +342,6 @@ export class Enemy {
       if(this.mirrorY) {
          y = resolutionHeight - y;
       }
-      
       return { x, y };
    };
 

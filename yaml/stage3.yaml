@@ -12,6 +12,7 @@ enemy:
     name: shapeShifter
     diameter: 30
     hp: 100
+    onDeathAction: { spawn: shapeShifter, y: -20 }
     actions:
       - forever:
         - { type: gfxSetShape, shape: circle }
