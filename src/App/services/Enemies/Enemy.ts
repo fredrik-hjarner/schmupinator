@@ -95,7 +95,7 @@ export class Enemy {
       if(this.attrs.GetAttribute("boundToWindow").value) {
          this.boundToWindow();
       }
-      this.updateDisplayHealth();
+      // this.updateDisplayHealth();
       this.gfx?.setPosition({ x: this.X, y: this.Y });
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
@@ -111,11 +111,7 @@ export class Enemy {
          this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
          this.hp -= 1;
 
-         /**
-          * Display damage. Starts filled with color,
-          * border gets successively thinner until they are gone.
-          */
-         this.updateDisplayHealth();
+         // this.updateDisplayHealth();
 
          if(this.hp < 1) { this.die(); }
       }
@@ -217,6 +213,9 @@ export class Enemy {
             break;
          case "setAttribute":
             this.attrs.SetAttribute({ name: action.attribute, value: action.value });
+            break;
+         case "despawn":
+            this.despawn();
             break;
          case "die":
             this.die();
@@ -349,8 +348,10 @@ export class Enemy {
       return this.attrs.attrExists(attr) && this.attrs.GetAttribute(attr).value;
    };
 
-   private updateDisplayHealth = () => {
-      const factorHealthLeft = this.hp / this.maxHp;
-      this.gfx?.updateDisplayHealth(factorHealthLeft);
-   };
+   // * TODO: Display health in some other way. Previously I cloned the enemy gfx bt black and
+   // * scaled that one inversely proporionally to hp/maxHp, but I think it might require too
+   // * much to have two div per Enemy so I scrapped it.
+   // private updateDisplayHealth = () => {
+   //    // const factorHealthLeft = this.hp / this.maxHp;
+   // };
 }

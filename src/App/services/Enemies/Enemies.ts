@@ -82,7 +82,7 @@ export class Enemies implements IService {
                fork: [
                   { type: "waitTilInsideScreen" },
                   { type: "waitTilOutsideScreen" },
-                  { type: "die" }
+                  { type: "despawn" }
                ]
             },
             ...prependActions,

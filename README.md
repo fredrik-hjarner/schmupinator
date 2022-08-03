@@ -56,5 +56,6 @@ Open source except assets.
 
 ## Acknowledgments and attributions
 
-* [**SpicyGame**](https://spicygame.itch.io/): For creating the `Micro Pixel` font that is used extensively in *Schmupinator*.
-* [**Will Tice**](https://untiedgames.com/): For creating free sample explosion animations.
+* [**SpicyGame**](https://spicygame.itch.io/sg-pixel-font-package): For creating the `Micro Pixel` font that is used extensively in *Schmupinator*.
+* [**Will Tice**](https://untiedgames.itch.io/five-free-pixel-explosions): For creating free sample explosion animations.
+* [**NYKNCK**](https://nyknck.itch.io/explosion): For creating free explosion animations.

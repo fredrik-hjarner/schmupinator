@@ -62,6 +62,8 @@ export type TMirrorY = { type: "mirrorY", value: boolean };
 export type TDo = { type: "do", acns: TSFAction[] };
 // Well, the enemy dies.
 export type TDie = { type: "die" };
+// Enemy despawns. Like "die" except onDeathAction is NOT triggered.
+export type TDespawn = { type: "despawn" };
 /**
  * Attributes can be either some predefined thing by me such as hp, points,
  * or it could be  end-user specified variable with any type.
@@ -139,6 +141,7 @@ export type TAction =
    */
    TSpawn |
    TDie |
+   TDespawn |
    TWaitTilOutsideScreen |
    TWaitTilInsideScreen |
    /**

@@ -1,7 +1,8 @@
 enemy:
   name: playerLaser
-  hp: 9999
+  hp: 1
   diameter: 5
+  onDeathAction: { spawn: explosion }
   actions:
     - { type: setAttribute, attribute: collisionType, value: playerBullet }
     # TODO: is points really necessary for this?
@@ -16,4 +17,4 @@ enemy:
           - { type: moveDelta, y: -30 }
           - { type: waitNextFrame }
       - - wait: 8
-        - { type: die }
+        - { type: despawn }
