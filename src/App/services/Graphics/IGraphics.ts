@@ -9,6 +9,7 @@ export type TShape =
    "triangle" |
    "diamondShield" |
    "octagon" |
+   "explosion" |
    "roundExplosion";
 
 /***********

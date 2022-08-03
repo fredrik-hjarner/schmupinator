@@ -14,6 +14,7 @@ import square from "../../../assets/images/square.png";
 import triangle from "../../../assets/images/triangle.png";
 import diamondShield from "../../../assets/images/diamondShield.png";
 import octagon from "../../../assets/images/octagon.png";
+import explosion from "../../../assets/images/explosion.png";
 import roundExplosion from "../../../assets/images/roundExplosion.png";
 
 type TGraphicsElement = {
@@ -280,13 +281,18 @@ export class Graphics implements IGraphics {
             case "octagon":
                element.element.style.backgroundImage = `url('${octagon}')`;
                break;
-            case "roundExplosion": {
+            case "explosion": {
                /**
                 * Without the query string, all animations of same file were synced like it was
                 * only one animation displayed on different places. Also the querystring must
-                * be different EVERY time so that's why I use `guid`.
+                * be different EVERY time so that's why I use `Date.now()`.
                 */
-               const q = `?id=${guid()}`;
+               const q = `?id=${Date.now()}`;
+               element.element.style.backgroundImage = `url('${explosion}${q}')`;
+               break;
+            }
+            case "roundExplosion": {
+               const q = `?id=${Date.now()}`;
                element.element.style.backgroundImage = `url('${roundExplosion}${q}')`;
                break;
             }

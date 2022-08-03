@@ -2,6 +2,7 @@ enemy:
   name: playerShot
   hp: 1
   diameter: 5
+  onDeathAction: { spawn: explosion }
   actions:
     - { type: setAttribute, attribute: collisionType, value: playerBullet }
     # TODO: is points really necessary for this?

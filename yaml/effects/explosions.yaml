@@ -1,5 +1,15 @@
 enemy:
     name: explosion
+    diameter: 18
+    hp: 9999
+    actions:
+      - { type: setAttribute, attribute: collisionType, value: none }
+      - { type: gfxSetShape, shape: explosion }
+      - wait: 40
+      - { type: die }
+---
+enemy:
+    name: roundExplosion
     diameter: 40
     hp: 9999
     actions:
