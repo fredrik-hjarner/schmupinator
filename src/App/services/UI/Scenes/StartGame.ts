@@ -26,6 +26,12 @@ export class StartGame implements IScene {
    }
 
    public render() {
+      if(this.ui.settingsService.settings.skipStartMenu) {
+         // Yea, just skip this start menu.
+         this.onStartGame();
+         return;
+      }
+
       this.shadeElement = createShade();
 
       this.title = createText({

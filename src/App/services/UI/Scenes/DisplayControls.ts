@@ -23,6 +23,12 @@ export class DisplayControls implements IScene {
    }
 
    public render() {
+      if(this.ui.settingsService.settings.skipStartMenu) {
+         // Yea, just skip this scene.
+         this.handleCountdDownDone();
+         return;
+      }
+
       this.shadeElement = createShade();
 
       this.countdown = new Countdown({

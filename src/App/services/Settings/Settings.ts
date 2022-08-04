@@ -10,7 +10,9 @@ type TSettings = {
    gameSpeedSlider: boolean;
    fpsStats: boolean;
    outsideHider: boolean;
+   /** If pre-recorded inputs should be used instead of manula input from player. */
    autoplay: boolean;
+   skipStartMenu: boolean;
 };
 
 type TConstructor = {
@@ -26,6 +28,7 @@ export class Settings implements IService {
       fpsStats: false,
       outsideHider: true,
       autoplay: false,
+      skipStartMenu: false,
    };
 
    // deps/services

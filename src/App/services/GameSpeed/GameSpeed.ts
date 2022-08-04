@@ -1,11 +1,12 @@
 import type { IGameSpeed } from "./IGameSpeed";
 import type { TInitParams } from "../IService";
+import type { GameLoop } from "../GameLoop/GameLoop";
+import type { Settings } from "../Settings/Settings";
 
 import { isHTMLInputElement } from "../../../utils/typeAssertions";
 import { initGameSpeedSlider } from "./components/gameSpeedSlider";
 import { Button } from "./components/button";
 import { resolutionHeight } from "../../../consts";
-import { GameLoop } from "../GameLoop/GameLoop";
 import { Destroyables } from "../../../utils/helperClasses/Destroyables";
 
 type TConstructor = {
@@ -21,6 +22,7 @@ export class GameSpeed implements IGameSpeed {
 
    // deps/services
    public gameLoop!: GameLoop;
+   public settings!: Settings;
 
    // elements
    private gameSpeedElement: unknown;
@@ -56,6 +58,7 @@ export class GameSpeed implements IGameSpeed {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.gameLoop = deps?.gameLoop as GameLoop;
+      this.settings = deps?.settings as Settings;
 
       this.destroyables.add(
          new Button({
@@ -77,6 +80,18 @@ export class GameSpeed implements IGameSpeed {
       this.createIncrFrameButton({ left: 128, frames: 5 });
       this.createIncrFrameButton({ left: 154, frames: 10 });
       this.createIncrFrameButton({ left: 185, frames: 100 });
+
+      const { skipStartMenu } =  this.settings.settings;
+      this.destroyables.add(
+         new Button({
+            text: skipStartMenu ? "unskip start menu" : "skip start menu",
+            left: 251,
+            top: resolutionHeight + 3,
+            onClick: () => {
+               this.settings.toggleSetting("skipStartMenu");
+            }}
+         )
+      );
    };
 
    // nr of frames per 1/60 seconds.
