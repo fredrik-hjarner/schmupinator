@@ -124,5 +124,13 @@ Solved with Date.Now().
 (currently called GameSpeed service), this debug menu should be toggled with a DebugMenu setting
 from the Settings scene.
 
+* I should probably move GameSpeed stuff into a GameLoop variant (some stuff should not be moved
+into a GameLoop though), since I would like to do a lot of stuff so maybe the extra coupling can
+help, for example I would like to fast-forward to specific frames as soon as the game starts to
+speed up development/debugging/testing of levels etc.
+
+* IService::TInitParams could be more typesafe tbh because I know that settings is of type Settings,
+etc.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.

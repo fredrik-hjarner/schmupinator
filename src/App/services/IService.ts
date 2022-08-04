@@ -1,4 +1,11 @@
-export type TInitParams = Partial<{ [serviceName: string]: IService }>;
+import type { Settings } from "./Settings/Settings";
+import type { IInput } from "./Input/IInput";
+
+export type TInitParams = Partial<{
+  settings: Settings;
+  input: IInput;
+  [serviceName: string]: IService;
+}>;
 
 export interface IService {
   name: string;
