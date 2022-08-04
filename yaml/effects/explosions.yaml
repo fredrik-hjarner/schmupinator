@@ -6,7 +6,7 @@ enemy:
       - { type: setAttribute, attribute: collisionType, value: none }
       - { type: gfxSetShape, shape: explosion }
       - wait: 40
-      - { type: die }
+      - { type: despawn }
 ---
 enemy:
     name: roundExplosion
@@ -16,5 +16,5 @@ enemy:
       - { type: setAttribute, attribute: collisionType, value: none }
       - { type: gfxSetShape, shape: roundExplosion }
       - wait: 75
-      - { type: die }
+      - { type: despawn }
 

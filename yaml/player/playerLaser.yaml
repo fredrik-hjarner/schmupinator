@@ -1,7 +1,6 @@
 enemy:
   name: playerLaser
-  # hp: 1
-  hp: 9999
+  hp: 1
   diameter: 5
   onDeathAction: { spawn: explosion }
   actions:
@@ -11,8 +10,6 @@ enemy:
     - { type: setAttribute, attribute: points, value: 0 }
     - { type: gfxSetShape, shape: square }
     - { type: gfxSetColor, color: aqua }
-    # - wait: 1
-    # - { type: die }
     - parallelRace:
       - - forever:
           - { type: moveDelta, y: -30 }

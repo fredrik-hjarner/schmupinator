@@ -70,17 +70,18 @@ export class Collisions implements IService {
 
       const playerWasHit =
          this.calcCollisions({ circle: player, shots: killsPlayerOnCollision }).collided;
+      // TODO: This assumes that the player has only one hp, which might not be true.
       if(playerWasHit && !playerInvincible) {
          // TODO: This is a bit ugly.
          this.events.dispatchEvent({ type: "player_died" });
       }
       
-      // TODO: Also remove the bullets that collided here.
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
          const collision = this.calcCollisions({
             circle: enemy,
             shots: playerBullets
          });
+         // adds both the "enemy" and what it collides with (for example a playerBullet).
          return collision.collided ? [...acc, enemy.id, collision.collidedWithId] : acc;
       }, []);
 
@@ -91,6 +92,11 @@ export class Collisions implements IService {
       }
    };
 
+   /**
+    * TODO: cirlce and shots are outdated names.
+    * What is checked is if "circle" collides with any of the "shots", if so the return which "shot"
+    * "circle" collided with.
+    */
    private calcCollisions = (
       { circle, shots }: { circle: PosAndRadiusAndId, shots: PosAndRadiusAndId[] }
    ): TCalcCollisionsResult => {

@@ -553,15 +553,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "683": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "685": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "686": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "689": {
@@ -625,15 +625,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "783": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "784": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "786": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "787": {
@@ -677,15 +677,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "817": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "819": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "820": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "823": {
@@ -841,15 +841,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "936": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "937": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "939": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "940": {
@@ -909,15 +909,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "982": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "984": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "985": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "988": {
@@ -985,15 +985,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1036": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1038": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1039": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1042": {
@@ -1069,15 +1069,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1096": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1098": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1099": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1102": {
@@ -1177,15 +1177,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1174": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1176": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1177": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1180": {
@@ -1317,15 +1317,15 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1275": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1276": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1278": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1279": {
@@ -1493,11 +1493,11 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1498": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1499": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1500": {
@@ -1509,7 +1509,7 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1502": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1503": {
@@ -1517,11 +1517,11 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1504": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1505": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1506": {
@@ -1529,7 +1529,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1507": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1508": {
@@ -1545,11 +1545,11 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1519": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1520": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1521": {
@@ -1557,19 +1557,19 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1522": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1523": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1525": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1526": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1528": {
@@ -1581,19 +1581,15 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1532": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1533": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1535": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1536": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1538": {
@@ -1605,19 +1601,19 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1542": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1543": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1545": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1546": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1547": {
@@ -1625,11 +1621,11 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1548": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1549": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1550": {
@@ -1637,11 +1633,11 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1551": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1552": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1555": {
@@ -1649,23 +1645,19 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1557": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1558": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1559": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1560": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1561": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1562": {
@@ -1673,11 +1665,11 @@ export const recordedHistory = {
       "reason": "playerShot"
    },
    "1563": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1564": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1565": {
@@ -1689,19 +1681,19 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1569": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1570": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1572": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1573": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1574": {
@@ -1953,7 +1945,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1891": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1893": {
@@ -1961,11 +1953,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1894": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1895": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1896": {
@@ -1973,11 +1961,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1897": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1898": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1899": {
@@ -1985,27 +1969,23 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1900": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1901": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1902": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1903": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1905": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1906": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1908": {
@@ -2065,7 +2045,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1949": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1950": {
@@ -2073,11 +2053,11 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1951": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1952": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1953": {
@@ -2085,11 +2065,11 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1954": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1955": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1956": {
@@ -2097,11 +2077,11 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1957": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1958": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1959": {
@@ -2109,11 +2089,11 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1960": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1961": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1962": {
@@ -2121,11 +2101,11 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1963": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1964": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1965": {
@@ -2133,11 +2113,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1966": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1967": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1968": {
@@ -2145,11 +2121,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1969": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1970": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1971": {
@@ -2157,71 +2129,47 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1972": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1973": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1974": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1975": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1976": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1977": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1978": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1979": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1980": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1981": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1982": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1983": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1984": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1985": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1986": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1987": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1988": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1989": {
@@ -2229,11 +2177,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1990": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1991": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1992": {
@@ -2241,11 +2185,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1993": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1994": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1995": {
@@ -2253,11 +2193,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1996": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "1997": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "1998": {
@@ -2265,11 +2201,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "1999": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "2000": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2001": {
@@ -2277,11 +2209,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "2002": {
-      "points": 0,
-      "reason": "playerLaser"
-   },
-   "2003": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2004": {
@@ -2289,7 +2217,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "2005": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2007": {
@@ -2297,7 +2225,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "2008": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2010": {
@@ -2305,7 +2233,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "2011": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2013": {
@@ -2313,7 +2241,7 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "2014": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2016": {
@@ -2413,31 +2341,31 @@ export const recordedHistory = {
       "reason": "playerLaser"
    },
    "2086": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2088": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2089": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2091": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2092": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2094": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    },
    "2095": {
-      "points": 0,
+      "points": -0.2,
       "reason": "playerLaser"
    }
 };

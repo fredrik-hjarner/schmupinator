@@ -4040,6 +4040,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "685": [
@@ -4061,19 +4066,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "686": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -4142,29 +4142,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "689": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -5079,7 +5064,33 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-501",
+               "sinus-504",
+               "playerLaser-558"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "sinus"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      }
+   ],
+   "784": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "sinus-504",
                "playerLaser-555"
             ]
          }
@@ -5093,27 +5104,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "784": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "sinus-501",
-               "playerLaser-552"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "sinus"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "786": [
@@ -5121,8 +5116,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-501",
-               "playerLaser-561"
+               "sinus-504",
+               "playerLaser-564"
             ]
          }
       },
@@ -5135,6 +5130,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "787": [
@@ -5177,39 +5177,9 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "790": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -5822,8 +5792,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-551",
-               "playerLaser-620"
+               "sinus-554",
+               "playerLaser-626"
             ]
          }
       },
@@ -5836,6 +5806,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "819": [
@@ -5843,8 +5818,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-551",
-               "playerLaser-631"
+               "sinus-554",
+               "playerLaser-637"
             ]
          }
       },
@@ -5857,6 +5832,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "820": [
@@ -5911,21 +5891,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-551",
-               "playerLaser-626"
+               "sinus-554",
+               "playerLaser-632"
             ]
          }
       },
@@ -5938,29 +5908,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "823": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -8301,8 +8256,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-681",
-               "playerLaser-867"
+               "sinus-690",
+               "playerLaser-876"
             ]
          }
       },
@@ -8315,6 +8270,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "937": [
@@ -8382,8 +8342,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-681",
-               "playerLaser-865"
+               "sinus-690",
+               "playerLaser-874"
             ]
          }
       },
@@ -8396,6 +8356,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "939": [
@@ -8403,8 +8368,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-681",
-               "playerLaser-875"
+               "sinus-690",
+               "playerLaser-884"
             ]
          }
       },
@@ -8417,6 +8382,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "940": [
@@ -8459,39 +8429,9 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "943": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -9352,8 +9292,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-821",
-               "playerLaser-956"
+               "sinus-830",
+               "playerLaser-968"
             ]
          }
       },
@@ -9366,6 +9306,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "984": [
@@ -9373,8 +9318,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-821",
-               "playerLaser-966"
+               "sinus-830",
+               "playerLaser-978"
             ]
          }
       },
@@ -9387,6 +9332,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "985": [
@@ -9441,21 +9391,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-821",
-               "playerLaser-962"
+               "sinus-830",
+               "playerLaser-974"
             ]
          }
       },
@@ -9468,29 +9408,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "988": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -10527,8 +10452,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-968",
-               "playerLaser-1067"
+               "sinus-980",
+               "playerLaser-1082"
             ]
          }
       },
@@ -10541,6 +10466,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1038": [
@@ -10548,8 +10478,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-968",
-               "playerLaser-1078"
+               "sinus-980",
+               "playerLaser-1093"
             ]
          }
       },
@@ -10562,6 +10492,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1039": [
@@ -10616,21 +10551,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-968",
-               "playerLaser-1073"
+               "sinus-980",
+               "playerLaser-1088"
             ]
          }
       },
@@ -10643,29 +10568,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1042": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -11826,8 +11736,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1110",
-               "playerLaser-1190"
+               "sinus-1128",
+               "playerLaser-1208"
             ]
          }
       },
@@ -11840,6 +11750,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1098": [
@@ -11847,8 +11762,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1110",
-               "playerLaser-1201"
+               "sinus-1128",
+               "playerLaser-1219"
             ]
          }
       },
@@ -11861,6 +11776,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1099": [
@@ -11915,21 +11835,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1110",
-               "playerLaser-1196"
+               "sinus-1128",
+               "playerLaser-1214"
             ]
          }
       },
@@ -11942,29 +11852,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1102": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -13497,8 +13392,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1251",
-               "playerLaser-1349"
+               "sinus-1272",
+               "playerLaser-1370"
             ]
          }
       },
@@ -13511,6 +13406,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1176": [
@@ -13518,8 +13418,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1251",
-               "playerLaser-1360"
+               "sinus-1272",
+               "playerLaser-1381"
             ]
          }
       },
@@ -13532,6 +13432,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1177": [
@@ -13586,21 +13491,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1251",
-               "playerLaser-1355"
+               "sinus-1272",
+               "playerLaser-1376"
             ]
          }
       },
@@ -13613,29 +13508,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1180": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -15604,8 +15484,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1398",
-               "playerLaser-1559"
+               "sinus-1422",
+               "playerLaser-1583"
             ]
          }
       },
@@ -15618,6 +15498,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1276": [
@@ -15685,8 +15570,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1398",
-               "playerLaser-1556"
+               "sinus-1422",
+               "playerLaser-1580"
             ]
          }
       },
@@ -15699,6 +15584,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1278": [
@@ -15706,8 +15596,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1398",
-               "playerLaser-1565"
+               "sinus-1422",
+               "playerLaser-1589"
             ]
          }
       },
@@ -15720,6 +15610,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1279": [
@@ -15762,39 +15657,9 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "1282": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17306,8 +17171,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1722"
+               "firstMiniboss-1759",
+               "playerShot-1749"
             ]
          }
       },
@@ -17344,8 +17209,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1725"
+               "firstMiniboss-1759",
+               "playerShot-1752"
             ]
          }
       },
@@ -17382,8 +17247,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1728"
+               "firstMiniboss-1759",
+               "playerShot-1755"
             ]
          }
       },
@@ -17420,8 +17285,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1733"
+               "firstMiniboss-1759",
+               "playerShot-1760"
             ]
          }
       },
@@ -17458,8 +17323,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1737"
+               "firstMiniboss-1759",
+               "playerShot-1764"
             ]
          }
       },
@@ -17484,8 +17349,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1753"
+               "firstMiniboss-1759",
+               "playerLaser-1780"
             ]
          }
       },
@@ -17498,6 +17363,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1499": [
@@ -17515,8 +17385,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1749"
+               "firstMiniboss-1759",
+               "playerLaser-1776"
             ]
          }
       },
@@ -17529,24 +17399,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1500": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17588,8 +17448,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1741"
+               "firstMiniboss-1759",
+               "playerShot-1768"
             ]
          }
       },
@@ -17614,8 +17474,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1756"
+               "firstMiniboss-1759",
+               "playerLaser-1783"
             ]
          }
       },
@@ -17628,14 +17488,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1503": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "1503": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17687,8 +17547,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1764"
+               "firstMiniboss-1759",
+               "playerLaser-1791"
             ]
          }
       },
@@ -17701,6 +17561,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1505": [
@@ -17708,8 +17573,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1762"
+               "firstMiniboss-1759",
+               "playerLaser-1789"
             ]
          }
       },
@@ -17722,24 +17587,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1506": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17791,8 +17646,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1769"
+               "firstMiniboss-1759",
+               "playerLaser-1798"
             ]
          }
       },
@@ -17805,6 +17660,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1508": [
@@ -17812,8 +17672,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1745"
+               "firstMiniboss-1759",
+               "playerShot-1772"
             ]
          }
       },
@@ -17878,11 +17738,6 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "1515": [
@@ -17902,8 +17757,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1786"
+               "firstMiniboss-1759",
+               "playerLaser-1819"
             ]
          }
       },
@@ -17916,6 +17771,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1520": [
@@ -17923,8 +17783,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1782"
+               "firstMiniboss-1759",
+               "playerLaser-1815"
             ]
          }
       },
@@ -17937,6 +17797,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1521": [
@@ -17944,8 +17809,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1775"
+               "firstMiniboss-1759",
+               "playerShot-1804"
             ]
          }
       },
@@ -18002,26 +17867,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1791"
+               "firstMiniboss-1759",
+               "playerLaser-1824"
             ]
          }
       },
@@ -18034,6 +17884,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1523": [
@@ -18041,8 +17896,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1788"
+               "firstMiniboss-1759",
+               "playerLaser-1821"
             ]
          }
       },
@@ -18055,6 +17910,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1525": [
@@ -18094,26 +17954,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1796"
+               "firstMiniboss-1759",
+               "playerLaser-1830"
             ]
          }
       },
@@ -18126,6 +17971,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1526": [
@@ -18133,8 +17983,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1794"
+               "firstMiniboss-1759",
+               "playerLaser-1828"
             ]
          }
       },
@@ -18147,6 +17997,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1528": [
@@ -18186,26 +18041,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1779"
+               "firstMiniboss-1759",
+               "playerShot-1812"
             ]
          }
       },
@@ -18242,8 +18082,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1804"
+               "firstMiniboss-1759",
+               "playerLaser-1843"
             ]
          }
       },
@@ -18256,6 +18096,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1533": [
@@ -18263,8 +18108,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1804"
+               "firstMiniboss-1759",
+               "playerLaser-1844"
             ]
          }
       },
@@ -18277,6 +18122,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1535": [
@@ -18321,21 +18171,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1811"
+               "firstMiniboss-1759",
+               "playerLaser-1850"
             ]
          }
       },
@@ -18348,27 +18188,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1536": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1811"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1538": [
@@ -18418,16 +18242,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1800"
+               "firstMiniboss-1759",
+               "playerShot-1835"
             ]
          }
       },
@@ -18464,8 +18283,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1825"
+               "firstMiniboss-1759",
+               "playerLaser-1867"
             ]
          }
       },
@@ -18478,6 +18297,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1543": [
@@ -18485,8 +18309,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1822"
+               "firstMiniboss-1759",
+               "playerLaser-1864"
             ]
          }
       },
@@ -18499,6 +18323,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1545": [
@@ -18506,8 +18335,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1833"
+               "firstMiniboss-1759",
+               "playerLaser-1875"
             ]
          }
       },
@@ -18520,6 +18349,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1546": [
@@ -18559,26 +18393,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1831"
+               "firstMiniboss-1759",
+               "playerLaser-1873"
             ]
          }
       },
@@ -18591,6 +18410,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1547": [
@@ -18598,8 +18422,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1817"
+               "firstMiniboss-1759",
+               "playerShot-1856"
             ]
          }
       },
@@ -18624,8 +18448,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1840"
+               "firstMiniboss-1759",
+               "playerLaser-1884"
             ]
          }
       },
@@ -18638,6 +18462,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1549": [
@@ -18677,26 +18506,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1839"
+               "firstMiniboss-1759",
+               "playerLaser-1883"
             ]
          }
       },
@@ -18709,6 +18523,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1550": [
@@ -18728,8 +18547,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1846"
+               "firstMiniboss-1759",
+               "playerLaser-1892"
             ]
          }
       },
@@ -18742,6 +18561,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1552": [
@@ -18786,21 +18610,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1845"
+               "firstMiniboss-1759",
+               "playerLaser-1891"
             ]
          }
       },
@@ -18813,19 +18627,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1555": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18872,8 +18681,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1860"
+               "firstMiniboss-1759",
+               "playerLaser-1910"
             ]
          }
       },
@@ -18886,6 +18695,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1558": [
@@ -18893,8 +18707,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1855"
+               "firstMiniboss-1759",
+               "playerLaser-1905"
             ]
          }
       },
@@ -18907,27 +18721,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1559": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1855"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1560": [
@@ -18935,8 +18733,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1866"
+               "firstMiniboss-1759",
+               "playerLaser-1916"
             ]
          }
       },
@@ -18949,6 +18747,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1561": [
@@ -18966,8 +18769,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1861"
+               "firstMiniboss-1759",
+               "playerLaser-1911"
             ]
          }
       },
@@ -18980,6 +18783,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1562": [
@@ -19019,26 +18827,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1852"
+               "firstMiniboss-1759",
+               "playerShot-1898"
             ]
          }
       },
@@ -19063,8 +18856,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1871"
+               "firstMiniboss-1759",
+               "playerLaser-1923"
             ]
          }
       },
@@ -19077,6 +18870,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1564": [
@@ -19084,8 +18882,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1867"
+               "firstMiniboss-1759",
+               "playerLaser-1919"
             ]
          }
       },
@@ -19098,24 +18896,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1565": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -19187,21 +18975,6 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "1569": [
@@ -19209,8 +18982,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1881"
+               "firstMiniboss-1759",
+               "playerLaser-1937"
             ]
          }
       },
@@ -19223,6 +18996,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1570": [
@@ -19230,8 +19008,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1877"
+               "firstMiniboss-1759",
+               "playerLaser-1933"
             ]
          }
       },
@@ -19244,6 +19022,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1572": [
@@ -19251,8 +19034,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1887"
+               "firstMiniboss-1759",
+               "playerLaser-1943"
             ]
          }
       },
@@ -19265,6 +19048,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1573": [
@@ -19272,8 +19060,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-1883"
+               "firstMiniboss-1759",
+               "playerLaser-1939"
             ]
          }
       },
@@ -19286,6 +19074,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1574": [
@@ -19325,26 +19118,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1873"
+               "firstMiniboss-1759",
+               "playerShot-1926"
             ]
          }
       },
@@ -19369,8 +19147,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1875"
+               "firstMiniboss-1759",
+               "playerShot-1928"
             ]
          }
       },
@@ -19435,21 +19213,6 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "1583": [
@@ -19457,8 +19220,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1891"
+               "firstMiniboss-1759",
+               "playerShot-1949"
             ]
          }
       },
@@ -19490,8 +19253,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1896"
+               "firstMiniboss-1759",
+               "playerShot-1956"
             ]
          }
       },
@@ -19526,8 +19289,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1900"
+               "firstMiniboss-1759",
+               "playerShot-1960"
             ]
          }
       },
@@ -19608,8 +19371,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1920"
+               "firstMiniboss-1759",
+               "playerShot-1980"
             ]
          }
       },
@@ -19634,8 +19397,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1923"
+               "firstMiniboss-1759",
+               "playerShot-1983"
             ]
          }
       },
@@ -19677,8 +19440,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1927"
+               "firstMiniboss-1759",
+               "playerShot-1987"
             ]
          }
       },
@@ -19715,8 +19478,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerShot-1931"
+               "firstMiniboss-1759",
+               "playerShot-1991"
             ]
          }
       },
@@ -21558,8 +21321,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2160"
+               "firstMiniboss-1759",
+               "playerLaser-2220"
             ]
          }
       },
@@ -21572,19 +21335,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1893": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21641,8 +21399,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2165"
+               "firstMiniboss-1759",
+               "playerLaser-2225"
             ]
          }
       },
@@ -21655,35 +21413,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1895": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2165"
-            ]
-         }
       },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
-      }
-   ],
-   "1896": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "1896": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21740,8 +21477,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2171"
+               "firstMiniboss-1759",
+               "playerLaser-2231"
             ]
          }
       },
@@ -21754,35 +21491,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1898": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2171"
-            ]
-         }
       },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
-      }
-   ],
-   "1899": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "1899": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21834,8 +21550,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2177"
+               "firstMiniboss-1759",
+               "playerLaser-2238"
             ]
          }
       },
@@ -21848,27 +21564,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1901": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2177"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1902": [
@@ -21918,16 +21618,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2187"
+               "firstMiniboss-1759",
+               "playerLaser-2249"
             ]
          }
       },
@@ -21940,6 +21635,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1903": [
@@ -21947,8 +21647,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2183"
+               "firstMiniboss-1759",
+               "playerLaser-2245"
             ]
          }
       },
@@ -21961,6 +21661,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1905": [
@@ -22000,26 +21705,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2193"
+               "firstMiniboss-1759",
+               "playerLaser-2256"
             ]
          }
       },
@@ -22032,6 +21722,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1906": [
@@ -22039,8 +21734,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2189"
+               "firstMiniboss-1759",
+               "playerLaser-2252"
             ]
          }
       },
@@ -22053,24 +21748,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1908": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22788,8 +22473,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2285"
+               "firstMiniboss-1759",
+               "playerLaser-2353"
             ]
          }
       },
@@ -22802,6 +22487,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1950": [
@@ -22861,8 +22551,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2295"
+               "firstMiniboss-1759",
+               "playerLaser-2363"
             ]
          }
       },
@@ -22875,6 +22565,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1952": [
@@ -22882,8 +22577,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2291"
+               "firstMiniboss-1759",
+               "playerLaser-2359"
             ]
          }
       },
@@ -22896,14 +22591,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1953": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "1953": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22955,8 +22650,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2300"
+               "firstMiniboss-1759",
+               "playerLaser-2369"
             ]
          }
       },
@@ -22969,6 +22664,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1955": [
@@ -22976,8 +22676,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2297"
+               "firstMiniboss-1759",
+               "playerLaser-2366"
             ]
          }
       },
@@ -22990,24 +22690,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1956": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23049,8 +22739,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2305"
+               "firstMiniboss-1759",
+               "playerLaser-2376"
             ]
          }
       },
@@ -23063,6 +22753,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1958": [
@@ -23070,8 +22765,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2303"
+               "firstMiniboss-1759",
+               "playerLaser-2374"
             ]
          }
       },
@@ -23084,24 +22779,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1959": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23143,8 +22828,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2310"
+               "firstMiniboss-1759",
+               "playerLaser-2383"
             ]
          }
       },
@@ -23157,6 +22842,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1961": [
@@ -23164,8 +22854,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2309"
+               "firstMiniboss-1759",
+               "playerLaser-2382"
             ]
          }
       },
@@ -23178,24 +22868,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1962": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23237,8 +22917,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2315"
+               "firstMiniboss-1759",
+               "playerLaser-2390"
             ]
          }
       },
@@ -23251,6 +22931,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1964": [
@@ -23258,8 +22943,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2315"
+               "firstMiniboss-1759",
+               "playerLaser-2391"
             ]
          }
       },
@@ -23272,19 +22957,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1965": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23331,8 +23011,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2321"
+               "firstMiniboss-1759",
+               "playerLaser-2398"
             ]
          }
       },
@@ -23345,40 +23025,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1967": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2321"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1968": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23425,8 +23079,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2327"
+               "firstMiniboss-1759",
+               "playerLaser-2406"
             ]
          }
       },
@@ -23439,35 +23093,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1970": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2327"
-            ]
-         }
       },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
-      }
-   ],
-   "1971": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "1971": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23519,8 +23152,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2333"
+               "firstMiniboss-1759",
+               "playerLaser-2413"
             ]
          }
       },
@@ -23533,27 +23166,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1973": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2333"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1974": [
@@ -23603,16 +23220,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2344"
+               "firstMiniboss-1759",
+               "playerLaser-2425"
             ]
          }
       },
@@ -23625,6 +23237,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1975": [
@@ -23632,8 +23249,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2339"
+               "firstMiniboss-1759",
+               "playerLaser-2420"
             ]
          }
       },
@@ -23646,27 +23263,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1976": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2339"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1977": [
@@ -23716,16 +23317,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2350"
+               "firstMiniboss-1759",
+               "playerLaser-2433"
             ]
          }
       },
@@ -23738,6 +23334,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1978": [
@@ -23745,8 +23346,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2345"
+               "firstMiniboss-1759",
+               "playerLaser-2428"
             ]
          }
       },
@@ -23759,27 +23360,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1979": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2345"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1980": [
@@ -23819,26 +23404,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2356"
+               "firstMiniboss-1759",
+               "playerLaser-2441"
             ]
          }
       },
@@ -23851,6 +23421,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1981": [
@@ -23858,8 +23433,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2351"
+               "firstMiniboss-1759",
+               "playerLaser-2436"
             ]
          }
       },
@@ -23872,27 +23447,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1982": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2351"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1983": [
@@ -23932,26 +23491,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2362"
+               "firstMiniboss-1759",
+               "playerLaser-2449"
             ]
          }
       },
@@ -23964,6 +23508,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1984": [
@@ -23971,8 +23520,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2357"
+               "firstMiniboss-1759",
+               "playerLaser-2444"
             ]
          }
       },
@@ -23985,27 +23534,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1985": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2357"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1986": [
@@ -24045,26 +23578,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2374"
+               "firstMiniboss-1759",
+               "playerLaser-2463"
             ]
          }
       },
@@ -24077,6 +23595,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1987": [
@@ -24084,8 +23607,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2369"
+               "firstMiniboss-1759",
+               "playerLaser-2458"
             ]
          }
       },
@@ -24098,45 +23621,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1988": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2369"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1989": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24178,8 +23670,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2375"
+               "firstMiniboss-1759",
+               "playerLaser-2466"
             ]
          }
       },
@@ -24192,45 +23684,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1991": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2375"
-            ]
-         }
       },
       {
          "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1992": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24272,8 +23733,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2381"
+               "firstMiniboss-1759",
+               "playerLaser-2473"
             ]
          }
       },
@@ -24286,35 +23747,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1994": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2381"
-            ]
-         }
       },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
-      }
-   ],
-   "1995": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "1995": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24366,8 +23806,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2387"
+               "firstMiniboss-1759",
+               "playerLaser-2480"
             ]
          }
       },
@@ -24380,35 +23820,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "1997": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2387"
-            ]
-         }
       },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
-      }
-   ],
-   "1998": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "1998": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24460,8 +23879,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2393"
+               "firstMiniboss-1759",
+               "playerLaser-2487"
             ]
          }
       },
@@ -24474,35 +23893,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "2000": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2393"
-            ]
-         }
       },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
-      }
-   ],
-   "2001": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "2001": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24554,8 +23952,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2399"
+               "firstMiniboss-1759",
+               "playerLaser-2494"
             ]
          }
       },
@@ -24568,35 +23966,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "2003": [
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2399"
-            ]
-         }
       },
-      {
-         "type": "add_points",
-         "points": 10,
-         "enemy": "firstMiniboss"
-      },
-      {
-         "type": "add_points",
-         "points": 0,
-         "enemy": "playerLaser"
-      }
-   ],
-   "2004": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "2004": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24648,8 +24025,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2405"
+               "firstMiniboss-1759",
+               "playerLaser-2501"
             ]
          }
       },
@@ -24662,14 +24039,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "2007": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "2007": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24721,8 +24098,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2412"
+               "firstMiniboss-1759",
+               "playerLaser-2509"
             ]
          }
       },
@@ -24735,14 +24112,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "2010": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "2010": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24794,8 +24171,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2418"
+               "firstMiniboss-1759",
+               "playerLaser-2516"
             ]
          }
       },
@@ -24808,14 +24185,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      }
-   ],
-   "2013": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
+      }
+   ],
+   "2013": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24867,8 +24244,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2425"
+               "firstMiniboss-1759",
+               "playerLaser-2524"
             ]
          }
       },
@@ -24881,6 +24258,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2016": [
@@ -24928,24 +24310,9 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "2019": [
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -26136,8 +25503,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2573"
+               "firstMiniboss-1759",
+               "playerLaser-2674"
             ]
          }
       },
@@ -26150,6 +25517,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2088": [
@@ -26207,8 +25579,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2583"
+               "firstMiniboss-1759",
+               "playerLaser-2684"
             ]
          }
       },
@@ -26221,6 +25593,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2089": [
@@ -26228,8 +25605,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2579"
+               "firstMiniboss-1759",
+               "playerLaser-2680"
             ]
          }
       },
@@ -26242,6 +25619,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2091": [
@@ -26291,16 +25673,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2587"
+               "firstMiniboss-1759",
+               "playerLaser-2690"
             ]
          }
       },
@@ -26313,6 +25690,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2092": [
@@ -26320,8 +25702,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2585"
+               "firstMiniboss-1759",
+               "playerLaser-2688"
             ]
          }
       },
@@ -26334,6 +25716,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2094": [
@@ -26373,26 +25760,11 @@ export const recordedHistory = {
          "points": -0.2
       },
       {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2593"
+               "firstMiniboss-1759",
+               "playerLaser-2698"
             ]
          }
       },
@@ -26405,6 +25777,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2095": [
@@ -26412,8 +25789,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1732",
-               "playerLaser-2591"
+               "firstMiniboss-1759",
+               "playerLaser-2696"
             ]
          }
       },
@@ -26426,6 +25803,11 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "2096": [
