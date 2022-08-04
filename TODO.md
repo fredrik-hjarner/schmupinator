@@ -118,5 +118,7 @@ Solved with Date.Now().
 
 * Rename GameSpeed service to GameLoopControlUI or something like that.
 
+* Instead of having a GameSpeedSlider I should have 0x, x1, x2 etc Buttons.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.
