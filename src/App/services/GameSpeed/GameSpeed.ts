@@ -3,9 +3,10 @@ import type { TInitParams } from "../IService";
 
 import { isHTMLInputElement } from "../../../utils/typeAssertions";
 import { initGameSpeedSlider } from "./components/gameSpeedSlider";
-import { createButton } from "../UI/Scenes/components/atoms/button";
+import { Button } from "./components/button";
 import { resolutionHeight } from "../../../consts";
 import { GameLoop } from "../GameLoop/GameLoop";
+import { Destroyables } from "../../../utils/helperClasses/Destroyables";
 
 type TConstructor = {
    name: string;
@@ -14,34 +15,31 @@ type TConstructor = {
 type TCreateIncrFrameButtonParams =  { frames: number, left: number };
 
 export class GameSpeed implements IGameSpeed {
+   // vars
    public readonly name: string;
+   private destroyables: Destroyables;
 
    // deps/services
    public gameLoop!: GameLoop;
 
    // elements
    private gameSpeedElement: unknown;
-   private pausePlayButton?: HTMLButtonElement;
-   private fwd1Frame?: HTMLButtonElement;
-   private fwd2Frames?: HTMLButtonElement;
-   private fwd5Frames?: HTMLButtonElement;
-   private fwd10Frames?: HTMLButtonElement;
-   private fwd100Frames?: HTMLButtonElement;
 
    /**
    * Public
    */
    public constructor({ name }: TConstructor) {
       this.name = name;
+      this.destroyables = new Destroyables();
       this.gameSpeedElement = initGameSpeedSlider();
    }
 
    /**
-    * Util to create the incr frames buttons.
+    * Util to create the incr frames buttons, and adds it to this.destroyables.
     */
-   private createIncrFrameButton = (params: TCreateIncrFrameButtonParams): HTMLButtonElement => {
+   private createIncrFrameButton = (params: TCreateIncrFrameButtonParams) => {
       const { frames, left } = params;
-      return createButton({
+      const button = new Button({
          text: `+${frames}`,
          left,
          top: resolutionHeight + 55,
@@ -51,30 +49,34 @@ export class GameSpeed implements IGameSpeed {
             }
          }}
       );
+      // auto-add this to destroyables.
+      this.destroyables.add(button);
    };
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.gameLoop = deps?.gameLoop as GameLoop;
 
-      this.pausePlayButton = createButton({
-         text: "Pause/Play",
-         left: 5,
-         top: resolutionHeight + 55,
-         onClick: () => {
-            if(this.GameSpeed === 0) {
-               this.GameSpeed = 1;
-            } else {
-               this.GameSpeed = 0;
-            }
-         }}
+      this.destroyables.add(
+         new Button({
+            text: "Pause/Play",
+            left: 5,
+            top: resolutionHeight + 55,
+            onClick: () => {
+               if(this.GameSpeed === 0) {
+                  this.GameSpeed = 1;
+               } else {
+                  this.GameSpeed = 0;
+               }
+            }}
+         )
       );
 
-      this.fwd1Frame = this.createIncrFrameButton({ left: 76, frames: 1 });
-      this.fwd2Frames = this.createIncrFrameButton({ left: 102, frames: 2 });
-      this.fwd5Frames = this.createIncrFrameButton({ left: 128, frames: 5 });
-      this.fwd10Frames = this.createIncrFrameButton({ left: 154, frames: 10 });
-      this.fwd100Frames = this.createIncrFrameButton({ left: 185, frames: 100 });
+      this.createIncrFrameButton({ left: 76, frames: 1 });
+      this.createIncrFrameButton({ left: 102, frames: 2 });
+      this.createIncrFrameButton({ left: 128, frames: 5 });
+      this.createIncrFrameButton({ left: 154, frames: 10 });
+      this.createIncrFrameButton({ left: 185, frames: 100 });
    };
 
    // nr of frames per 1/60 seconds.
@@ -99,22 +101,6 @@ export class GameSpeed implements IGameSpeed {
        * instead of being in index.html file.
        */
 
-      this.pausePlayButton?.remove();
-      this.pausePlayButton = undefined;
-
-      this.fwd1Frame?.remove();
-      this.fwd1Frame = undefined;
-
-      this.fwd2Frames?.remove();
-      this.fwd2Frames = undefined;
-
-      this.fwd5Frames?.remove();
-      this.fwd5Frames = undefined;
-
-      this.fwd10Frames?.remove();
-      this.fwd10Frames = undefined;
-
-      this.fwd100Frames?.remove();
-      this.fwd100Frames = undefined;
+      this.destroyables.destroy();
    };
 }

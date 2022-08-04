@@ -109,18 +109,14 @@ on the selected thing.
 * Implement a frame-speed-schedule, so I can rerun specific parts of the game very fast,
 for example I might be interested in what happens in the frames 1000 to 1500.
 
-* ~~Sometimes the onDeathAction explosion did not trigger, examine why and fix.~~ Solved with guid.
-No, it still seems to happen sometimes.
-
-* Make it so that Enemies that get outside window "despawn" instead of "die", as death can trigger
-explosions and such which is unnecessary outside of the screen.
+* ~~Sometimes the onDeathAction explosion did not trigger, examine why and fix.~~
+Solved with Date.Now().
 
 * A "disableAutomaticOutsideOfScreenBehaviour" setting on enemies in case you dont want it.
 
 * Explain or show better how to enter highscore name.
 
-* There is something wrong with Points and testing and recording. Make a E2eTest variant that
-records the events, because part of it stems from eventsPoints now being a separate service.
+* Rename GameSpeed service to GameLoopControlUI or something like that.
 
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.
