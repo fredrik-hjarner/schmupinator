@@ -1,6 +1,7 @@
 enemy:
   name: playerLaser
-  hp: 1
+  # hp: 1
+  hp: 9999
   diameter: 5
   onDeathAction: { spawn: explosion }
   actions:

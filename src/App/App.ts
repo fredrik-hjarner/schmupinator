@@ -67,11 +67,9 @@ import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameG
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { PointsTester } from "./services/Points/mocks/PointsTester";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { RecordGameEvents } from "./services/Events/mocks/RecordGameEvents";
 import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 import { MockFps } from "./services/Fps/variants/MockFps";
+import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents";
 
 /**
  * Other
@@ -123,8 +121,8 @@ export class App {
       } = this.settings.settings;
 
       this.e2eTest = IsBrowser() ?
-         new NoopService({ name: "e2e" }) :
-         // new NoopService({ name: "e2e" });
+         // new NoopService({ name: "e2e" }) :
+         new E2eRecordEvents({ name: "e2e" }) :
          new E2eTest({ name: "e2e" });
 
       this.input = IsBrowser() ?
@@ -154,8 +152,6 @@ export class App {
 
       this.events =  IsBrowser() ?
          new Events<TGameEvent>({ app: this, name: "events" }) :
-         // new RecordGameEvents({ app: this, name: "events" }) :
-         // new Events({ app: this, name: "events" }) :
          new Events<TGameEvent>({ app: this, name: "events" });
 
       this.eventsUi = new Events<TUiEvent>({ app: this, name: "eventsUi" });
