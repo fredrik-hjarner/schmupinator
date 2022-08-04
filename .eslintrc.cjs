@@ -5,7 +5,11 @@ module.exports = {
     "jest.config.cjs",
     ".eslintrc.cjs",
     "dist/**/*",
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
+    // "auto-generated" files
+    "e2ehistory.ts",
+    "pointsHistory.ts",
+    "src/**/mocks/replay.ts",
   ],
   parserOptions: {
     tsconfigRootDir: __dirname,
