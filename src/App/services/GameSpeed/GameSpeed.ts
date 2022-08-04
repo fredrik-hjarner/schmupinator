@@ -11,6 +11,8 @@ type TConstructor = {
    name: string;
 }
 
+type TCreateIncrFrameButtonParams =  { frames: number, left: number };
+
 export class GameSpeed implements IGameSpeed {
    public readonly name: string;
 
@@ -23,6 +25,8 @@ export class GameSpeed implements IGameSpeed {
    private fwd1Frame?: HTMLButtonElement;
    private fwd2Frames?: HTMLButtonElement;
    private fwd5Frames?: HTMLButtonElement;
+   private fwd10Frames?: HTMLButtonElement;
+   private fwd100Frames?: HTMLButtonElement;
 
    /**
    * Public
@@ -31,6 +35,23 @@ export class GameSpeed implements IGameSpeed {
       this.name = name;
       this.gameSpeedElement = initGameSpeedSlider();
    }
+
+   /**
+    * Util to create the incr frames buttons.
+    */
+   private createIncrFrameButton = (params: TCreateIncrFrameButtonParams): HTMLButtonElement => {
+      const { frames, left } = params;
+      return createButton({
+         text: `+${frames}`,
+         left,
+         top: resolutionHeight + 55,
+         onClick: () => {
+            for(let i=0; i<frames; i++) {
+               this.gameLoop.nextFrame();
+            }
+         }}
+      );
+   };
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
@@ -49,33 +70,11 @@ export class GameSpeed implements IGameSpeed {
          }}
       );
 
-      this.fwd1Frame = createButton({
-         text: "+1 frame",
-         left: 76,
-         top: resolutionHeight + 55,
-         onClick: () => { this.gameLoop.nextFrame(); }}
-      );
-
-      this.fwd2Frames = createButton({
-         text: "+2 frames",
-         left: 137,
-         top: resolutionHeight + 55,
-         onClick: () => {
-            this.gameLoop.nextFrame();
-            this.gameLoop.nextFrame();
-         }}
-      );
-
-      this.fwd5Frames = createButton({
-         text: "+5 frames",
-         left: 204,
-         top: resolutionHeight + 55,
-         onClick: () => {
-            for(let i=0; i<5; i++) {
-               this.gameLoop.nextFrame();
-            }
-         }}
-      );
+      this.fwd1Frame = this.createIncrFrameButton({ left: 76, frames: 1 });
+      this.fwd2Frames = this.createIncrFrameButton({ left: 102, frames: 2 });
+      this.fwd5Frames = this.createIncrFrameButton({ left: 128, frames: 5 });
+      this.fwd10Frames = this.createIncrFrameButton({ left: 154, frames: 10 });
+      this.fwd100Frames = this.createIncrFrameButton({ left: 185, frames: 100 });
    };
 
    // nr of frames per 1/60 seconds.
@@ -111,5 +110,11 @@ export class GameSpeed implements IGameSpeed {
 
       this.fwd5Frames?.remove();
       this.fwd5Frames = undefined;
+
+      this.fwd10Frames?.remove();
+      this.fwd10Frames = undefined;
+
+      this.fwd100Frames?.remove();
+      this.fwd100Frames = undefined;
    };
 }
