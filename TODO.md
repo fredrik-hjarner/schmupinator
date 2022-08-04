@@ -120,5 +120,9 @@ Solved with Date.Now().
 
 * Instead of having a GameSpeedSlider I should have 0x, x1, x2 etc Buttons.
 
+* Some/many of the setting in Settings scene should be moved to a non-game-UI debug menu
+(currently called GameSpeed service), this debug menu should be toggled with a DebugMenu setting
+from the Settings scene.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.
