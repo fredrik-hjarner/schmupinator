@@ -3,6 +3,7 @@ import type {
 } from "../Events/IEvents";
 import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
+import type { Collisions } from "../Collisions/Collisions";
 
 import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
 
@@ -28,6 +29,7 @@ export class E2eTest implements IE2eTest {
    private startTime = BrowserDriver.PerformanceNow();
 
    // deps/services
+   private collisions!: Collisions;
    private events!: IGameEvents;
    private eventsCollisions!: IEventsCollisions;
    private eventsPoints!: IEventsPoints;
@@ -41,6 +43,7 @@ export class E2eTest implements IE2eTest {
       this.recordedHistory = (await import("./e2ehistory")).recordedHistory as THistory;
 
       // TODO: Replace typecast with type guard.
+      this.collisions = deps?.collisions as Collisions;
       this.events = deps?.events as IGameEvents;
       this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
       this.eventsPoints = deps?.eventsPoints as IEventsPoints;
@@ -57,6 +60,7 @@ export class E2eTest implements IE2eTest {
          console.log("E2eTest: Test succeeded.");
          const seconds = (BrowserDriver.PerformanceNow() - this.startTime)/1000;
          console.log(`E2eTest: Took ${seconds} seconds to run test.`);
+         console.log(`E2eTest: Collision detection took ${this.collisions.accumulatedTime} ms.`);
          if (!IsBrowser()) {
             // eslint-disable-next-line no-undef
             process.exit(0);

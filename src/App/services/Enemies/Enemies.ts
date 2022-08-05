@@ -97,7 +97,6 @@ export class Enemies implements IService {
       this.enemies.push(new Enemy(this, position, newEnemyJson));
    };
 
-   // TODO: This could probably be optimized as now it has to find the Player every single time.
    public get player(): Enemy {
       if(this.memoizedPlayer !== undefined) {
          return this.memoizedPlayer;

@@ -201,6 +201,7 @@ export class App {
     */
    public Init = async () => {
       const {
+         collisions,
          enemies,
          events, eventsCollisions, eventsPoints, eventsUi,
          gameLoop, gamepad, gameSpeed, graphics,
@@ -220,6 +221,7 @@ export class App {
 
       await settings.Init();
       await this.e2eTest.Init({
+         collisions, // only to be able to write out performance stats.
          events,
          eventsCollisions,
          eventsPoints,

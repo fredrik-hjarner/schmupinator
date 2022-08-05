@@ -1,4 +1,6 @@
 /* eslint-disable import/no-nodejs-modules */
+// import { performance } from "perf_hooks"; // only uncomment when run in node for extra precision
+
 import { IBrowserDriver } from "./IBrowserDriver";
 
 export class NodeBrowserDriver implements IBrowserDriver {
@@ -17,7 +19,8 @@ export class NodeBrowserDriver implements IBrowserDriver {
    }
 
    public PerformanceNow = (): number => {
-      return Date.now();
+      // return performance.now(); // only uncomment when running in node for extra precision.
+      return Date.now(); // uncomment when code is supposed to run in browser.
    };
 
    public SetInterval = (callback: () => void, _: number): number => {
