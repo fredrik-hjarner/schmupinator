@@ -5,6 +5,11 @@ export default defineConfig({
   plugins: [splitVendorChunkPlugin()],
   build: {
     minify: 'terser',
+    terserOptions: {
+      compress: {
+        passes: 2, // barely does any difference
+      }
+    },
     assetsInlineLimit: 0,
   },
 });
