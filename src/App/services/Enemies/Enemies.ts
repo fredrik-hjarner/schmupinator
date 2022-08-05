@@ -2,7 +2,9 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IService, TInitParams } from "../IService";
 import type { Yaml } from "../Yaml/Yaml";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { IEventsPoints, IGameEvents, TGameEvent } from "../Events/IEvents";
+import type {
+   IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent
+} from "../Events/IEvents";
 import type { TShortFormAction } from "./actionTypesShortForms";
 import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
@@ -20,6 +22,7 @@ export class Enemies implements IService {
    // deps/services
    private yaml!: Yaml;
    public events!: IGameEvents;
+   public eventsCollisions!: IEventsCollisions;
    public eventsPoints!: IEventsPoints;
    public graphics!: IGraphics;
    public input!: IInput;
@@ -42,6 +45,7 @@ export class Enemies implements IService {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
+      this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
       this.eventsPoints = deps?.eventsPoints as IEventsPoints;
       this.yaml = deps?.yaml as Yaml;
       this.graphics = deps?.graphics as IGraphics;
@@ -57,6 +61,7 @@ export class Enemies implements IService {
       this.Spawn({ enemy: "spawner", position: { x:0, y: 0 } });
 
       this.events.subscribeToEvent(this.name, this.handleEvent);
+      this.eventsCollisions.subscribeToEvent(this.name, this.handleEvent);
    };
 
    public Spawn = (
@@ -109,7 +114,7 @@ export class Enemies implements IService {
    }
 
    // TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private
-   private handleEvent = (event: TGameEvent) => {
+   private handleEvent = (event: TGameEvent | TCollisionsEvent) => {
       switch(event.type) {
          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
          case "frame_tick": {

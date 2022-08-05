@@ -1,5 +1,5 @@
 import type { Enemies } from "../Enemies/Enemies";
-import type { IGameEvents } from "../Events/IEvents";
+import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
 
 import { playerInvincible } from "../../../consts";
@@ -25,6 +25,7 @@ export class Collisions implements IService {
    
    // deps/services
    private events!: IGameEvents;
+   private eventsCollisions!: IEventsCollisions;
    private enemies!: Enemies;
 
    /**
@@ -43,6 +44,7 @@ export class Collisions implements IService {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
+      this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
       this.enemies = deps?.enemies as Enemies;
       
       this.events.subscribeToEvent(
@@ -88,7 +90,7 @@ export class Collisions implements IService {
       // Only send event if there were collisions.
       if (enemiesThatWereHit.length > 0) {
          const collisions = { enemiesThatWereHit };
-         this.events.dispatchEvent({ type: "collisions", collisions });
+         this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
    };
 

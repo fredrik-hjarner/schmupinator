@@ -25,11 +25,9 @@ export interface IEvents<TEvent> extends IService {
  **************/
 
 type TEventFrameTick = { type: "frame_tick", frameNr: number };
-type TEventCollisions = { type: "collisions", collisions: TCollisions };
 
 export type TGameEvent =
    TEventFrameTick | // signals next frame has come.
-   TEventCollisions | // when collisions happen.
    { type: "player_died" }; // when player dies.
 
 export type TGameEventCallback =  TEventCallback<TGameEvent>;
@@ -60,3 +58,15 @@ export type TPointsEvent =
 export type TPointsEventCallback =  TEventCallback<TPointsEvent>;
 export type TPointsEventSubscribers = TEventSubscribers<TPointsEvent>;
 export type IEventsPoints = IEvents<TPointsEvent>;
+
+/********************
+ * EventsCollisions *
+ ********************/
+
+export type TCollisionsEvent =
+   // when collisions happen.
+   { type: "collisions", collisions: TCollisions };
+
+export type TCollisionsEventCallback =  TEventCallback<TCollisionsEvent>;
+export type TCollisionsEventSubscribers = TEventSubscribers<TCollisionsEvent>;
+export type IEventsCollisions = IEvents<TCollisionsEvent>;

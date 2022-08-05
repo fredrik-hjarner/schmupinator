@@ -1,10 +1,12 @@
-import type { IEventsPoints, IGameEvents, TGameEvent, TPointsEvent } from "../Events/IEvents";
+import type {
+   IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent, TPointsEvent
+} from "../Events/IEvents";
 import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
 
 import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
 
-type THistory = Partial<{ [frame: number]: (TGameEvent | TPointsEvent)[] }>;
+type THistory = Partial<{ [frame: number]: (TGameEvent | TPointsEvent | TCollisionsEvent)[] }>;
 
 type TConstructor = {
    name: string
@@ -27,6 +29,7 @@ export class E2eTest implements IE2eTest {
 
    // deps/services
    private events!: IGameEvents;
+   private eventsCollisions!: IEventsCollisions;
    private eventsPoints!: IEventsPoints;
 
    public constructor({ name }: TConstructor) {
@@ -39,14 +42,16 @@ export class E2eTest implements IE2eTest {
 
       // TODO: Replace typecast with type guard.
       this.events = deps?.events as IGameEvents;
+      this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
       this.eventsPoints = deps?.eventsPoints as IEventsPoints;
 
       // TODO: These are not unsubscribed to.
       this.events.subscribeToEvent(this.name, this.onEvent);
+      this.eventsCollisions.subscribeToEvent(this.name, this.onEvent);
       this.eventsPoints.subscribeToEvent(this.name, this.onEvent);
    };
 
-   private onEvent = (event: TGameEvent | TPointsEvent) => {
+   private onEvent = (event: TGameEvent | TPointsEvent | TCollisionsEvent) => {
       if (event.type === "player_died") {
          // This should actually trigger for very kind of END OF GAME scenario.
          console.log("E2eTest: Test succeeded.");

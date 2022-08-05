@@ -8,9 +8,8 @@ import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
 import type {
-   //@ts-ignore
-   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-   IEventsPoints, IGameEvents, IUiEvents, TGameEvent, TPointsEvent, TUiEvent
+   IEventsCollisions,
+   IEventsPoints, IGameEvents, IUiEvents, TCollisionsEvent, TGameEvent, TPointsEvent, TUiEvent
 } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
@@ -88,6 +87,7 @@ export class App {
    public gamepad: GamePad;
    public collisions: Collisions;
    public events: IGameEvents;
+   public eventsCollisions: IEventsCollisions;
    /**
     * only listened to by the UI & UI Scenes,
     * other services send messages over eventsUi so that the UI know when to update.
@@ -150,13 +150,10 @@ export class App {
 
       this.collisions = new Collisions({ name: "collisions" });
 
-      this.events =  IsBrowser() ?
-         new Events<TGameEvent>({ app: this, name: "events" }) :
-         new Events<TGameEvent>({ app: this, name: "events" });
-
-      this.eventsUi = new Events<TUiEvent>({ app: this, name: "eventsUi" });
-
-      this.eventsPoints = new Events<TPointsEvent>({ app: this, name: "eventsPoints" });
+      this.events =           new Events<TGameEvent>({ app: this, name: "events" });
+      this.eventsCollisions = new Events<TCollisionsEvent>({ app: this, name: "eventsCollisions" });
+      this.eventsUi =         new Events<TUiEvent>({ app: this, name: "eventsUi" });
+      this.eventsPoints =     new Events<TPointsEvent>({ app: this, name: "eventsPoints" });
 
       this.gameSpeed = IsBrowser() ?
          (gameSpeedSlider ?
@@ -212,7 +209,7 @@ export class App {
    public Init = async () => {
       const {
          enemies,
-         events, eventsPoints, eventsUi,
+         events, eventsCollisions, eventsPoints, eventsUi,
          gameLoop, gamepad, gameSpeed, graphics,
          highscore,
          input,
@@ -226,32 +223,38 @@ export class App {
        * Unfortunately Yaml has to init early since it needs to, right now, fetch
        * yaml async. Enemies needs to be available at least when Enemies service tries to use them.
        */
-      await this.yaml.Init();
+      await yaml.Init();
 
-      await this.settings.Init();
+      await settings.Init();
       await this.e2eTest.Init({
          events,
-         eventsPoints
+         eventsCollisions,
+         eventsPoints,
       });
-      await this.input.Init({
+      await input.Init({
          events
       });
-      await this.gameLoop.Init();
+      await gameLoop.Init();
       await this.fps.Init();
-      await this.enemies.Init({
+      await enemies.Init({
          events,
+         eventsCollisions,
          eventsPoints,
          graphics,
          yaml,
          input,
          gamepad
       });
-      await this.gamepad.Init();
+      await gamepad.Init();
       await this.collisions.Init({
          enemies,
          events,
+         eventsCollisions,
       });
       await this.events.Init();
+      await this.eventsCollisions.Init();
+      await this.eventsPoints.Init();
+      await this.eventsUi.Init();
       await this.gameSpeed.Init({
          gameLoop,
          settings,
