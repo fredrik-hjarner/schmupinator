@@ -46,9 +46,6 @@ Nah, it might be better to have every event in it's own service (i.e. event chan
 
 * Yaml: Maybe do so all files starting with _ are prepended to every file.
 
-* PointsTester is unsafe. It should take more control and FORCE Points to resond to events before
-PointsTester.
-
 * When an emepy has spawned it should probably execute it's EnemyExecutor (generators) once,
 otherwise, if the enemy has setup actions, then it might exist for one frame in an uninitialized
 state.

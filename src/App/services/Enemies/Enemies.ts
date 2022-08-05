@@ -129,8 +129,12 @@ export class Enemies implements IService {
             break;
          }
          case "collisions":
-            this.enemies.forEach(enemy => {
-               enemy.OnCollisions(event.collisions);
+            event.collisions.enemiesThatWereHit.forEach(enemyId => {
+               // TODO: I would not have to "find" if enemies was obj keyed by enemy.id
+               const enemy = this.enemies.find(e => e.id === enemyId);
+               if(enemy) {
+                  enemy.OnCollision();
+               }
             });
             break;
       }

@@ -1,6 +1,5 @@
 import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
-import type { TCollisions } from "../Collisions/Collisions";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 
@@ -100,21 +99,18 @@ export class Enemy {
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
 
-   public OnCollisions = (collisions: TCollisions) => {
-      /**
-       * Check if got hit
-       */
-      const { enemiesThatWereHit } = collisions;
-      if(enemiesThatWereHit.includes(this.id)) {
-         const points = assertNumber(this.attrs.GetAttribute("points").value);
+   /**
+    * When this enemy collided.
+    */
+   public OnCollision = () => {
+      const points = assertNumber(this.attrs.GetAttribute("points").value);
 
-         this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
-         this.hp -= 1;
+      this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
+      this.hp -= 1;
 
-         // this.updateDisplayHealth();
+      // this.updateDisplayHealth();
 
-         if(this.hp < 1) { this.die(); }
-      }
+      if(this.hp < 1) { this.die(); }
    };
 
    private boundToWindow = () => {
