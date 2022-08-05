@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "release": "tsc && vite build --base=/schmupinator/",
     "preview": "vite preview --port 3000",
-    "zip": "cd yaml/ && bestzip ../src/assets/game.zip *"
+    "zip": "cd gameData/ && bestzip ../src/assets/game.zip *"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",
