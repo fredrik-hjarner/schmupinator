@@ -2,15 +2,15 @@ import type { TAction } from "./actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
+import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
+import type { TShortFormAction } from "./actionTypesShortForms";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
-import { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
-import { TShortFormAction } from "./actionTypesShortForms";
 import { Attributes } from "./Attributes/Attributes";
 import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
