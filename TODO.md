@@ -129,8 +129,5 @@ into a GameLoop though), since I would like to do a lot of stuff so maybe the ex
 help, for example I would like to fast-forward to specific frames as soon as the game starts to
 speed up development/debugging/testing of levels etc.
 
-* IService::TInitParams could be more typesafe tbh because I know that settings is of type Settings,
-etc.
-
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.
