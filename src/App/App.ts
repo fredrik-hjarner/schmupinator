@@ -23,9 +23,6 @@ import type { IOutsideHider } from "./services/OutsideHider/IOutsideHider";
 import { Enemies } from "./services/Enemies/Enemies";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { GameLoop } from "./services/GameLoop/GameLoop";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Fps } from "./services/Fps/Fps";
 import { Input } from "./services/Input/Input";
 import { GamePad } from "./services/GamePad/GamePad";
@@ -130,7 +127,6 @@ export class App {
          new ReplayerInput({ name: "input" });
 
       this.gameLoop = IsBrowser() ?
-         // new GameLoop({ app: this, name: "gameLoop" }) :
          new ReqAnimFrameGameLoop({ app: this, name: "gameLoop" }) :
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
 

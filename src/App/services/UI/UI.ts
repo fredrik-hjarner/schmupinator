@@ -1,7 +1,7 @@
 import type { IUI } from "./IUI";
 import type { IScene } from "./Scenes/types/IScene";
 import type { IGameEvents, IUiEvents, TGameEvent } from "../Events/IEvents";
-import type { GameLoop } from "../GameLoop/GameLoop";
+import type { IGameLoop } from "../GameLoop/IGameLoop";
 import type { GameSpeed } from "../GameSpeed/GameSpeed";
 import type { TInitParams } from "../IService";
 import type { Highscore as THighscoreService } from "../Highscore/Highscore";
@@ -28,7 +28,7 @@ export class UI implements IUI {
    // deps/services
    public events!: IGameEvents;
    public eventsUi!: IUiEvents;
-   public gameLoop!: GameLoop;
+   public gameLoop!: IGameLoop;
    public gameSpeed!: GameSpeed;
    public highscoreService!: THighscoreService;
    public points!: IPoints;
@@ -65,7 +65,7 @@ export class UI implements IUI {
    public Init = async (deps?: TInitParams) => {
       this.events = deps?.events as IGameEvents;
       this.eventsUi = deps?.eventsUi as IUiEvents;
-      this.gameLoop = deps?.gameLoop as GameLoop;
+      this.gameLoop = deps?.gameLoop as IGameLoop;
       this.gameSpeed = deps?.gameSpeed as GameSpeed;
       this.highscoreService = deps?.highscore as THighscoreService;
       this.points = deps?.points as IPoints;

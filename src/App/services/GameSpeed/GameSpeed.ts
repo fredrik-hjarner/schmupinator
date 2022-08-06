@@ -1,6 +1,6 @@
 import type { IGameSpeed } from "./IGameSpeed";
 import type { TInitParams } from "../IService";
-import type { GameLoop } from "../GameLoop/GameLoop";
+import type { IGameLoop } from "../GameLoop/IGameLoop";
 import type { Settings } from "../Settings/Settings";
 
 import { isHTMLInputElement } from "../../../utils/typeAssertions";
@@ -21,7 +21,7 @@ export class GameSpeed implements IGameSpeed {
    private destroyables: Destroyables;
 
    // deps/services
-   public gameLoop!: GameLoop;
+   public gameLoop!: IGameLoop;
    public settings!: Settings;
 
    // elements
@@ -57,7 +57,7 @@ export class GameSpeed implements IGameSpeed {
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.gameLoop = deps?.gameLoop as GameLoop;
+      this.gameLoop = deps?.gameLoop as IGameLoop;
       this.settings = deps?.settings as Settings;
 
       this.destroyables.add(
