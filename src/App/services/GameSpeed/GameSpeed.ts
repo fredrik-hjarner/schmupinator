@@ -12,6 +12,7 @@ type TConstructor = {
 }
 
 type TCreateIncrFrameButtonParams =  { frames: number, left: number };
+type TCreateFrameMultiplierButtonParams =  { multiplier: number, left: number };
 
 export class GameSpeed implements IGameSpeed {
    // vars
@@ -51,31 +52,42 @@ export class GameSpeed implements IGameSpeed {
       this.destroyables.add(button);
    };
 
+   /**
+    * Util to create the frame multiplier buttons, and adds it to this.destroyables.
+    */
+   private createFrameMultiplierButton = (params: TCreateFrameMultiplierButtonParams) => {
+      const { multiplier, left } = params;
+      const button = new Button({
+         text: `${multiplier}x`,
+         left,
+         top: resolutionHeight + 79,
+         onClick: () => {
+            this.gameLoop.frameSpeedMultiplier = multiplier;
+         }}
+      );
+      // auto-add this to destroyables.
+      this.destroyables.add(button);
+   };
+
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.gameLoop = deps?.gameLoop as IGameLoop;
       this.settings = deps?.settings as Settings;
 
-      this.destroyables.add(
-         new Button({
-            text: "Pause/Play",
-            left: 5,
-            top: resolutionHeight + 55,
-            onClick: () => {
-               if(this.gameLoop.frameSpeedMultiplier === 0) {
-                  this.gameLoop.frameSpeedMultiplier = 1;
-               } else {
-                  this.gameLoop.frameSpeedMultiplier = 0;
-               }
-            }}
-         )
-      );
+      const inDiff = 26;
+      this.createIncrFrameButton({ left: 5+inDiff*0, frames: 1 });
+      this.createIncrFrameButton({ left: 5+inDiff*1, frames: 2 });
+      this.createIncrFrameButton({ left: 5+inDiff*2, frames: 5 });
+      this.createIncrFrameButton({ left: 5+inDiff*3, frames: 10 });
+      this.createIncrFrameButton({ left: 115, frames: 100 });
 
-      this.createIncrFrameButton({ left: 76, frames: 1 });
-      this.createIncrFrameButton({ left: 102, frames: 2 });
-      this.createIncrFrameButton({ left: 128, frames: 5 });
-      this.createIncrFrameButton({ left: 154, frames: 10 });
-      this.createIncrFrameButton({ left: 185, frames: 100 });
+      const frDiff = 27;
+      this.createFrameMultiplierButton({ left: 5+frDiff*0, multiplier: 0 });
+      this.createFrameMultiplierButton({ left: 5+frDiff*1, multiplier: 1 });
+      this.createFrameMultiplierButton({ left: 5+frDiff*2, multiplier: 2 });
+      this.createFrameMultiplierButton({ left: 5+frDiff*3, multiplier: 3 });
+      this.createFrameMultiplierButton({ left: 5+frDiff*4, multiplier: 4 });
+      this.createFrameMultiplierButton({ left: 5+frDiff*5, multiplier: 5 });
 
       const { skipStartMenu } =  this.settings.settings;
       this.destroyables.add(
