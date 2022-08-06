@@ -7,11 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="./reset.css" />
   <style>
-    @font-face {
-      font-family: "PixelMicro";
-      src: url("/src/assets/fonts/PixelMicro.ttf");
-    }
-
     * {
       font-family: "PixelMicro" !important;
       text-transform: uppercase;
@@ -74,6 +69,11 @@
   <div id="layer3"></div>
   <div id="gameHideRight"></div>
   <div id="gameHideBottom"></div>
+  <!--
+  For some reason removing input#speedUp causes problems with all offsetWidths of elements.
+  timing issue
+  -->
+  <!-- <input id="speedUp" type="range" min="0" max="4" value="1" /> -->
   <div id="frameCounter"></div>
   <div id="elapsedTimeDiv"></div>
   <div id="fpsDiv"></div>

@@ -1,4 +1,6 @@
 import { IBrowserDriver } from "./IBrowserDriver";
+import pixelMicro from "../../assets/fonts/PixelMicro.ttf";
+import { BrowserDriver } from ".";
 
 export class RealBrowserDriver implements IBrowserDriver {
    public WithWindow = <T>(callback: (window: Window) => T): T => {
@@ -11,10 +13,37 @@ export class RealBrowserDriver implements IBrowserDriver {
       window.alert(message);
    };
 
+   /**
+    * This does actually not even use window.onload.
+    * Assumably Vite uses window.onload (??) but if I would move to some other bundler I may have to
+    * change this.
+    */
    // eslint-disable-next-line no-undef
    public OnLoad(callback: () => unknown){
-      // eslint-disable-next-line no-undef
-      window.onload = callback;
+      // console.log("BrowserDriver.OnLoad");
+      /**
+       * I added some code to make sure thta PixelMicro font has loaded.
+       */
+      /* eslint-disable no-undef */
+      const font = new FontFace("PixelMicro", `url("${pixelMicro}")`);
+
+      font.load()
+         .then(() => {
+            // console.log("BrowserDriver.OnLoad: font.load.then");
+            //@ts-ignore: typescript does not understand that `add` exists??
+            document.fonts.add(font); // eslint-disable-line
+            // console.log("BrowserDriver.OnLoad: font.load.then: document.fonts.add(font)");
+            callback();
+            // window.onload = () => {
+            //    console.log("window.onload triggered");
+            //    callback();
+            // };
+         })
+         .catch(() => {
+            BrowserDriver.Alert("Failed to load PixelMicro font.");
+            callback(); // start anyway, but will look like thit.
+         });
+      /* eslint-enable no-undef */
    }
 
    public PerformanceNow = (): number => {
