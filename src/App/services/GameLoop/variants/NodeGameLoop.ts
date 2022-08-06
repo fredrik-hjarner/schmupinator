@@ -9,9 +9,13 @@ type TConstructor = {
 };
 
 export class NodeGameLoop implements IGameLoop {
-   public app: App;
+   // vars
    public name: string;
    public FrameCount: number;
+   public frameSpeedMultiplier: number; // 1 = normal spd. 0 = paused. 2 = twice spd etc.
+
+   // deps/services
+   public app: App;
 
    /**
    * Public
@@ -21,6 +25,7 @@ export class NodeGameLoop implements IGameLoop {
       this.name = name;
 
       this.FrameCount = 0;
+      this.frameSpeedMultiplier = 1;
    }
 
    public Init = async () => {
@@ -29,6 +34,10 @@ export class NodeGameLoop implements IGameLoop {
 
    public Start = () => {
       BrowserDriver.SetInterval(this.oneGameLoop, 0);
+   };
+
+   public pause = () => {
+      this.frameSpeedMultiplier = 0;
    };
 
    // Public because GameSpeed might want control over frames.
@@ -41,16 +50,14 @@ export class NodeGameLoop implements IGameLoop {
    * Private
    */
    private advanceFrames = () => {
-      const gameSpeed = this.app.gameSpeed.GameSpeed;
-      if(gameSpeed === 0) {
+      if(this.frameSpeedMultiplier === 0) {
          return;
       }
       this.nextFrame();
    };
 
    private oneGameLoop = () => {
-      const gameSpeed = this.app.gameSpeed.GameSpeed;
-      if(gameSpeed === 0) {
+      if(this.frameSpeedMultiplier === 0) {
          return;
       }
       this.advanceFrames();

@@ -2,7 +2,6 @@ import type { IUI } from "./IUI";
 import type { IScene } from "./Scenes/types/IScene";
 import type { IGameEvents, IUiEvents, TGameEvent } from "../Events/IEvents";
 import type { IGameLoop } from "../GameLoop/IGameLoop";
-import type { GameSpeed } from "../GameSpeed/GameSpeed";
 import type { TInitParams } from "../IService";
 import type { Highscore as THighscoreService } from "../Highscore/Highscore";
 import type { IPoints } from "../Points/IPoints";
@@ -29,7 +28,6 @@ export class UI implements IUI {
    public events!: IGameEvents;
    public eventsUi!: IUiEvents;
    public gameLoop!: IGameLoop;
-   public gameSpeed!: GameSpeed;
    public highscoreService!: THighscoreService;
    public points!: IPoints;
    public settingsService!: TSettingsService;
@@ -66,7 +64,6 @@ export class UI implements IUI {
       this.events = deps?.events as IGameEvents;
       this.eventsUi = deps?.eventsUi as IUiEvents;
       this.gameLoop = deps?.gameLoop as IGameLoop;
-      this.gameSpeed = deps?.gameSpeed as GameSpeed;
       this.highscoreService = deps?.highscore as THighscoreService;
       this.points = deps?.points as IPoints;
       this.settingsService = deps?.settings as TSettingsService;
@@ -99,13 +96,13 @@ export class UI implements IUI {
       switch(event.type) {
          case "frame_tick": {
             if(this.gameLoop.FrameCount >= 3200) {
-               this.gameSpeed.GameSpeed = 0;
+               this.gameLoop.pause();
                this.SetActiveScene(this.gameOver);
             }
             break;
          }
          case "player_died": {
-            this.gameSpeed.GameSpeed = 0;
+            this.gameLoop.pause();
             this.SetActiveScene(this.gameOver);
             break;
          }

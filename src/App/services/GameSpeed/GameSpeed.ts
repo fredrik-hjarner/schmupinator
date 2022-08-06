@@ -3,8 +3,6 @@ import type { TInitParams } from "../IService";
 import type { IGameLoop } from "../GameLoop/IGameLoop";
 import type { Settings } from "../Settings/Settings";
 
-import { isHTMLInputElement } from "../../../utils/typeAssertions";
-import { initGameSpeedSlider } from "./components/gameSpeedSlider";
 import { Button } from "./components/button";
 import { resolutionHeight } from "../../../consts";
 import { Destroyables } from "../../../utils/helperClasses/Destroyables";
@@ -25,7 +23,6 @@ export class GameSpeed implements IGameSpeed {
    public settings!: Settings;
 
    // elements
-   private gameSpeedElement: unknown;
 
    /**
    * Public
@@ -33,7 +30,6 @@ export class GameSpeed implements IGameSpeed {
    public constructor({ name }: TConstructor) {
       this.name = name;
       this.destroyables = new Destroyables();
-      this.gameSpeedElement = initGameSpeedSlider();
    }
 
    /**
@@ -66,10 +62,10 @@ export class GameSpeed implements IGameSpeed {
             left: 5,
             top: resolutionHeight + 55,
             onClick: () => {
-               if(this.GameSpeed === 0) {
-                  this.GameSpeed = 1;
+               if(this.gameLoop.frameSpeedMultiplier === 0) {
+                  this.gameLoop.frameSpeedMultiplier = 1;
                } else {
-                  this.GameSpeed = 0;
+                  this.gameLoop.frameSpeedMultiplier = 0;
                }
             }}
          )
@@ -93,22 +89,6 @@ export class GameSpeed implements IGameSpeed {
          )
       );
    };
-
-   // nr of frames per 1/60 seconds.
-   public get GameSpeed() {
-      if(isHTMLInputElement(this.gameSpeedElement)) {
-         const value = this.gameSpeedElement.value;
-         return parseInt(value, 10);
-      }
-      return 1;
-   }
-
-   // nr of frames per 1/60 seconds.
-   public set GameSpeed(value: number) {
-      if(isHTMLInputElement(this.gameSpeedElement)) {
-         this.gameSpeedElement.value = `${value}`;
-      }
-   }
 
    public destroy = () => {
       /**

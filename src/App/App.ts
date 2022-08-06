@@ -60,7 +60,6 @@ import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop";
-import { InvisibleGameSpeed } from "./services/GameSpeed/variants/InvisibleGameSpeed";
 import { MockFps } from "./services/Fps/variants/MockFps";
 import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents";
 
@@ -151,9 +150,9 @@ export class App {
       this.gameSpeed = IsBrowser() ?
          (gameSpeedSlider ?
             new GameSpeed({ name: "gameSpeed" }) :
-            new InvisibleGameSpeed({ name: "gameSpeed" })
+            new NoopService({ name: "gameSpeed" })
          ) :
-         new InvisibleGameSpeed({ name: "gameSpeed" });
+         new NoopService({ name: "gameSpeed" });
 
       this.points = new Points({ app: this, name: "points" });
 
@@ -200,7 +199,7 @@ export class App {
          collisions,
          enemies,
          events, eventsCollisions, eventsPoints, eventsUi,
-         gameLoop, gamepad, gameSpeed, graphics,
+         gameLoop, gamepad, graphics,
          highscore,
          input,
          points,
@@ -256,7 +255,6 @@ export class App {
          events,
          eventsUi,
          gameLoop,
-         gameSpeed,
          highscore,
          input,
          points,

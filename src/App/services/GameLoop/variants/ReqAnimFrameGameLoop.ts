@@ -10,10 +10,14 @@ type TConstructor = {
 };
 
 export class ReqAnimFrameGameLoop implements IGameLoop {
-   public app: App;
+   // vars
    public name: string;
-   public FrameCount: number;
+   public FrameCount: number; // TODO: Make private.
    private nextFrameMillis: number | null;
+   public frameSpeedMultiplier: number; // 1 = normal spd. 0 = paused. 2 = twice spd etc.
+
+   // deps/services
+   public app: App;
 
    /**
    * Public
@@ -24,6 +28,8 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
 
       this.FrameCount = 0;
       this.nextFrameMillis = null;
+      // TODO: Questionable if this should start as 1, but that's how it was.
+      this.frameSpeedMultiplier = 1;
    }
 
    public Init = async () => {
@@ -33,6 +39,10 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    public Start = () => {
       this.nextFrameMillis = BrowserDriver.PerformanceNow() + millisPerFrame;
       BrowserDriver.RequestAnimationFrame(this.oneGameLoop);
+   };
+
+   public pause = () => {
+      this.frameSpeedMultiplier = 0;
    };
 
    // Public because GameSpeed might want control over frames.
@@ -45,8 +55,7 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    * Private
    */
    private advanceFrames = () => {
-      const gameSpeed = this.app.gameSpeed.GameSpeed;
-      for(let i=0; i<gameSpeed; i++) {
+      for(let i=0; i<this.frameSpeedMultiplier; i++) {
          this.nextFrame();
       }
    };
