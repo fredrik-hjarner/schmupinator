@@ -93,8 +93,8 @@ export class GameSpeed implements IGameSpeed {
       this.destroyables.add(
          new Button({
             text: skipStartMenu ? "unskip start menu" : "skip start menu",
-            left: 251,
-            top: resolutionHeight + 3,
+            left: 5,
+            top: resolutionHeight + 30,
             onClick: () => {
                this.settings.toggleSetting("skipStartMenu");
             }}

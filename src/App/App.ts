@@ -110,7 +110,7 @@ export class App {
        */
       this.settings = new Settings({ app: this, name: "settings" });
       const {
-         fullscreen, gameSpeedSlider, fpsStats, outsideHider, autoplay
+         gameSpeedSlider, fpsStats, outsideHider, autoplay
       } = this.settings.settings;
 
       this.e2eTest = IsBrowser() ?
@@ -168,12 +168,7 @@ export class App {
          new UI({ name: "ui" }) :
          new NoopService({ name: "mockUi" });
 
-      this.fullscreen = IsBrowser() ?
-         (fullscreen ?
-            new Fullscreen({ name: "fullscreen" }) :
-            new NoopService({ name: "fullscreen" })
-         ) :
-         new NoopService({ name: "fullscreen" });
+      this.fullscreen = this.construct.fullscreen();
 
       this.parallax = IsBrowser() ?
          new Parallax({ name: "parallax" }) :
@@ -186,6 +181,22 @@ export class App {
          ) :
          new NoopService({ name: "hider" });
    }
+
+   /**
+    * Contains construction functions keyed by service.
+    */
+   public construct = {
+      fullscreen: (): IFullscreen => {
+         const { fullscreen } = this.settings.settings; // assumes settings has been initialized.
+   
+         return IsBrowser() ?
+            (fullscreen ?
+               new Fullscreen({ name: "fullscreen" }) :
+               new NoopService({ name: "fullscreen" })
+            ) :
+            new NoopService({ name: "fullscreen" });
+      }
+   };
 
    /**
     * Step 2 of initialization.

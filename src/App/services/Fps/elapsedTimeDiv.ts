@@ -7,8 +7,8 @@ export const initElapsedTimeDiv = () => {
       const element: HTMLDivElement =
          window.document.querySelector("#elapsedTimeDiv") as HTMLDivElement;
       element.style.position = "fixed";
-      element.style.top = px(resolutionHeight + 20);
-      element.style.left = "5px";
+      element.style.top = px(resolutionHeight);
+      element.style.left = "75px";
       element.style.zIndex = zIndices.controlsAndLogs;
       return element;
    });

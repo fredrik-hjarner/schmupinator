@@ -22,7 +22,7 @@ export class Fullscreen implements IFullscreen {
    }
 
    public Init = async () => {
-      //
+      // noop
    };
 
    public destroy = () => {

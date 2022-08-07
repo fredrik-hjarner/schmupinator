@@ -126,5 +126,8 @@ into a GameLoop though), since I would like to do a lot of stuff so maybe the ex
 help, for example I would like to fast-forward to specific frames as soon as the game starts to
 speed up development/debugging/testing of levels etc.
 
+* all the names should actually not need to be input via contructor to a Service but can be a 
+public/private field on respective service.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.

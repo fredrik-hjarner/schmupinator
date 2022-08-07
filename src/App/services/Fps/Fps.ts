@@ -7,7 +7,6 @@ import { initElapsedTimeDiv } from "./elapsedTimeDiv";
 import { initFpsDiv } from "./fpsDiv";
 import { initFrameCounterDiv } from "./frameCounterDiv";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { isHTMLDivElement } from "../../../utils/typeAssertions";
 
 type TConstructor = {
    app: App;
@@ -20,9 +19,9 @@ export class Fps implements IFps {
    private startTime: number | null;
 
    //elements
-   private readonly framCounterDiv: unknown;
-   private readonly elapsedTimeDiv: unknown;
-   private readonly fpsDiv: unknown;
+   private readonly framCounterDiv: HTMLDivElement;
+   private readonly elapsedTimeDiv: HTMLDivElement;
+   private readonly fpsDiv: HTMLDivElement;
 
    /**
     * Public
@@ -31,9 +30,9 @@ export class Fps implements IFps {
       this.app = app;
       this.name = name;
 
-      this.framCounterDiv = initFrameCounterDiv();
-      this.elapsedTimeDiv = initElapsedTimeDiv();
-      this.fpsDiv = initFpsDiv();
+      this.framCounterDiv = initFrameCounterDiv() as HTMLDivElement;
+      this.elapsedTimeDiv = initElapsedTimeDiv() as HTMLDivElement;
+      this.fpsDiv = initFpsDiv() as HTMLDivElement;
       this.startTime = null;
    }
 
@@ -41,6 +40,11 @@ export class Fps implements IFps {
    public Init = async () => {
       // TODO: Never unsubscribes to this !!!
       this.app.events.subscribeToEvent(this.name, this.handleEvent);
+
+      // TODO: remove duplication. Have common/duped code in common function.
+      this.elapsedTimeDiv.innerHTML = `elapsed: 0s`;
+      this.framCounterDiv.innerHTML = `frames: 0`;
+      this.fpsDiv.innerHTML = `fps: 0`;
    };
 
    /**
@@ -57,15 +61,10 @@ export class Fps implements IFps {
       
       // Display stats.
       const elapsed = BrowserDriver.PerformanceNow() - this.startTime;
-      if(
-         isHTMLDivElement(this.elapsedTimeDiv) &&
-         isHTMLDivElement(this.framCounterDiv) &&
-         isHTMLDivElement(this.fpsDiv)
-      ) {
-         const frame = event.frameNr;
-         this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
-         this.framCounterDiv.innerHTML = `frames: ${frame}`;
-         this.fpsDiv.innerHTML = `fps: ${Math.round(frame / (elapsed / 1000))}`;
-      }
+
+      const frame = event.frameNr;
+      this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
+      this.framCounterDiv.innerHTML = `frames: ${frame}`;
+      this.fpsDiv.innerHTML = `fps: ${Math.round(frame / (elapsed / 1000))}`;
    };
 }

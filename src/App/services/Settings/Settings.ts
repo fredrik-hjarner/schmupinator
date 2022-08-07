@@ -64,9 +64,6 @@ export class Settings implements IService {
    public toggleSetting = (setting: keyof TSettings) => {
       const oldValue = this.settings[setting];
       this.settings[setting] = !oldValue;
-      if(setting === "fullscreen") {
-         // TODO: Switch Fullscreen servive here.
-      }
 
       // Write settings of this object to localStorage.
       BrowserDriver.WithWindow(window => {
@@ -75,7 +72,21 @@ export class Settings implements IService {
 
       // TODO: reload just because app does not clear up by itself yet.
       BrowserDriver.WithWindow(window => {
-         window.location.reload();
+         // Some settings need to reload for changes to apply
+         switch(setting) {
+            case "fullscreen":
+               /**
+                * TODO: This is not optimal. I would need lots of smart code to do this well.
+                */
+               this.app.fullscreen.destroy();
+               this.app.fullscreen = this.app.construct.fullscreen();
+               // eslint-disable-next-line @typescript-eslint/no-floating-promises
+               this.app.fullscreen.Init(); // TODO: Warning this is a Promise.
+               break;
+            default:
+               window.location.reload();
+               break;
+         }
       });
    };
 }
