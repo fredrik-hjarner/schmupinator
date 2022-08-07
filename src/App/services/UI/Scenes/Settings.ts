@@ -1,5 +1,6 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
+import type { TSettings } from "../../Settings/Settings";
 
 import { createShade } from "./components/atoms/shade";
 import { centerHorizontally } from "./utils/centering";
@@ -42,23 +43,23 @@ export class Settings implements IScene {
          menuItems: [
             {
                text: `fullscreen - ${fullscreen ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("fullscreen"); }
+               onClick: () => { this.toggleSetting("fullscreen"); }
             },
             {
                text: `fpsStats - ${fpsStats ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("fpsStats"); }
+               onClick: () => { this.toggleSetting("fpsStats"); }
             },
             {
                text: `gameSpeedSlider - ${gameSpeedSlider ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("gameSpeedSlider"); }
+               onClick: () => { this.toggleSetting("gameSpeedSlider"); }
             },
             {
                text: `outsideHider - ${outsideHider ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("outsideHider"); }
+               onClick: () => { this.toggleSetting("outsideHider"); }
             },
             {
                text: `autoplay - ${autoplay ? "on" : "off" }`,
-               onClick: () => { this.ui.settingsService.toggleSetting("autoplay"); }
+               onClick: () => { this.toggleSetting("autoplay"); }
             },
             {
                text: "back",
@@ -78,4 +79,18 @@ export class Settings implements IScene {
 
       this.menu?.destroy();
    }
+
+   private toggleSetting = (setting: keyof TSettings) => {
+      this.ui.settingsService.toggleSetting(setting);
+      this.refresh(); // refresh to values are up-to-date.
+   };
+
+   /**
+    * When I have updated a setting I need to refresh so that new values can be seen,
+    * so that the values are up-to-date.
+    */
+   private refresh = () => {
+      this.destroy();
+      this.render();
+   };
 }

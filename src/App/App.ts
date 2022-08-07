@@ -60,7 +60,6 @@ import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop";
-import { MockFps } from "./services/Fps/variants/MockFps";
 import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents";
 
 /**
@@ -109,12 +108,10 @@ export class App {
        * what services are going to be used, so it should be created first.
        */
       this.settings = new Settings({ app: this, name: "settings" });
-      const {
-         gameSpeedSlider, fpsStats, outsideHider, autoplay
-      } = this.settings.settings;
+      const { autoplay } = this.settings.settings;
 
       this.e2eTest = IsBrowser() ?
-         // new NoopService({ name: "e2e" }) :
+         // new NoopService() :
          new E2eRecordEvents({ name: "e2e" }) :
          new E2eTest({ name: "e2e" });
 
@@ -129,12 +126,7 @@ export class App {
          new ReqAnimFrameGameLoop({ app: this, name: "gameLoop" }) :
          new NodeGameLoop({ app: this, name: "nodeGameLoop" });
 
-      this.fps = IsBrowser() ?
-         (fpsStats ?
-            new Fps({ app: this, name: "fps" }) :
-            new MockFps({ app: this, name: "fps" })
-         ) :
-         new MockFps({ app: this, name: "fps" });
+      this.fps = this.construct.fps();
 
       this.enemies = new Enemies({ name: "enemies" });
 
@@ -147,12 +139,7 @@ export class App {
       this.eventsUi =         new Events<TUiEvent>({ app: this, name: "eventsUi" });
       this.eventsPoints =     new Events<TPointsEvent>({ app: this, name: "eventsPoints" });
 
-      this.gameSpeed = IsBrowser() ?
-         (gameSpeedSlider ?
-            new GameSpeed({ name: "gameSpeed" }) :
-            new NoopService({ name: "gameSpeed" })
-         ) :
-         new NoopService({ name: "gameSpeed" });
+      this.gameSpeed = this.construct.gameSpeed();
 
       this.points = new Points({ app: this, name: "points" });
 
@@ -164,37 +151,43 @@ export class App {
          new Graphics({ name: "graphics" }) :
          new MockGraphics({ name: "mockGraphics" });
 
-      this.ui = IsBrowser() ?
-         new UI({ name: "ui" }) :
-         new NoopService({ name: "mockUi" });
+      this.ui = IsBrowser() ? new UI({ name: "ui" }) : new NoopService();
 
       this.fullscreen = this.construct.fullscreen();
 
-      this.parallax = IsBrowser() ?
-         new Parallax({ name: "parallax" }) :
-         new NoopService({ name: "parallax" });
+      this.parallax = IsBrowser() ? new Parallax({ name: "parallax" }) : new NoopService();
 
-      this.outsideHider = IsBrowser() ?
-         (outsideHider ?
-            new OutsideHider({ name: "hider" }) :
-            new NoopService({ name: "hider" })
-         ) :
-         new NoopService({ name: "hider" });
+      this.outsideHider = this.construct.outsideHider();
    }
 
    /**
     * Contains construction functions keyed by service.
+    * TODO: Force sort this object alphabetically.
     */
    public construct = {
+      fps: (): IFps => {
+         const { fpsStats } = this.settings.settings; // assumes settings has been initialized.
+         return IsBrowser() ?
+            (fpsStats ? new Fps({ app: this, name: "fps" }) : new NoopService()) :
+            new NoopService();
+      },
       fullscreen: (): IFullscreen => {
          const { fullscreen } = this.settings.settings; // assumes settings has been initialized.
-   
          return IsBrowser() ?
-            (fullscreen ?
-               new Fullscreen({ name: "fullscreen" }) :
-               new NoopService({ name: "fullscreen" })
-            ) :
-            new NoopService({ name: "fullscreen" });
+            (fullscreen ? new Fullscreen({ name: "fullscreen" }) : new NoopService()) :
+            new NoopService();
+      },
+      gameSpeed: () => {
+         const { gameSpeedSlider } = this.settings.settings; // assumes settings has been init:ed.
+         return IsBrowser() ?
+            (gameSpeedSlider ? new GameSpeed({ name: "gameSpeed" }) : new NoopService()) :
+            new NoopService();
+      },
+      outsideHider: (): IOutsideHider => {
+         const { outsideHider } = this.settings.settings; // assumes settings has been initialized.
+         return IsBrowser() ?
+            (outsideHider ? new OutsideHider({ name: "hider" }) : new NoopService()) :
+            new NoopService();
       }
    };
 
@@ -236,7 +229,7 @@ export class App {
          events
       });
       await gameLoop.Init();
-      await this.fps.Init();
+      await this.init.fps();
       await enemies.Init({
          events,
          eventsCollisions,
@@ -256,10 +249,7 @@ export class App {
       await this.eventsCollisions.Init();
       await this.eventsPoints.Init();
       await this.eventsUi.Init();
-      await this.gameSpeed.Init({
-         gameLoop,
-         settings,
-      });
+      await this.init.gameSpeed();
       await this.points.Init();
       await this.graphics.Init();
       await this.ui.Init({
@@ -272,10 +262,33 @@ export class App {
          settings,
       });
       await this.highscore.Init();
-      await this.fullscreen.Init();
+      await this.init.fullscreen();
       await this.parallax.Init({
          events,
       });
-      await this.outsideHider.Init();
+      await this.init.outsideHider();
+   };
+
+   /**
+    * Contains init functions keyed by service.
+    * TODO: Force sort this object alphabetically.
+    */
+   public init = {
+      fps: async (): Promise<void> => {
+         await this.fps.Init();
+      },
+      fullscreen: async (): Promise<void> => {
+         await this.fullscreen.Init();
+      },
+      gameSpeed: async (): Promise<void> => {
+         const { gameLoop, settings } = this;
+         await this.gameSpeed.Init({
+            gameLoop,
+            settings,
+         });
+      },
+      outsideHider: async (): Promise<void> => {
+         await this.outsideHider.Init();
+      }
    };
 }

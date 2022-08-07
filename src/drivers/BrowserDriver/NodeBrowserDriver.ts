@@ -4,8 +4,9 @@
 import { IBrowserDriver } from "./IBrowserDriver";
 
 export class NodeBrowserDriver implements IBrowserDriver {
-   public WithWindow = <T>(_: (window: Window) => T): void => {
+   public WithWindow = <T>(_: (window: Window) => T): undefined => {
       // noop. Don't execute whatever is in the callback.
+      return undefined;
    };
 
    public Alert = (message: string): void => {

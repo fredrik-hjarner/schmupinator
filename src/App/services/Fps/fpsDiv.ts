@@ -4,11 +4,14 @@ import { px } from "../../../utils/px";
 
 export const initFpsDiv = () => {
    return BrowserDriver.WithWindow(window => {
-      const element: HTMLDivElement = window.document.querySelector("#fpsDiv") as HTMLDivElement;
+      const element = window.document.createElement("div");
       element.style.position = "fixed";
       element.style.top = px(resolutionHeight);
       element.style.left = "155px";
-      element.style.zIndex = zIndices.controlsAndLogs;
+      element.style.zIndex = zIndices.ui;
+
+      window.document.body.appendChild(element);
+
       return element;
    });
 };

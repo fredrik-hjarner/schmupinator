@@ -1,6 +1,6 @@
 ![Schmupinator](https://raw.githubusercontent.com/fredrik-hjarner/schmupinator/vite-master-safe-always-working-not-broken/githubAssets/schmupinator.gif)
 
-**Work in progress! Code can break backward compatability at any time. Code will most likely not stabilize before 2023, if I even get it to a stable state at all.**
+**Work in progress! Code can break backward compatibility at any time. Code will most likely not stabilize before 2023, if I even get it to a stable state at all.**
 
 > The ambition is to make a shoot 'em up maker with the ability for users create their own shoot 'em up stages.
 

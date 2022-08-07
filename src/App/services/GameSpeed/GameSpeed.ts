@@ -74,6 +74,14 @@ export class GameSpeed implements IGameSpeed {
       this.gameLoop = deps?.gameLoop as IGameLoop;
       this.settings = deps?.settings as Settings;
 
+      this.render();
+   };
+
+   public destroy = () => {
+      this.destroyables.destroy();
+   };
+
+   private render = () => {
       const inDiff = 26;
       this.createIncrFrameButton({ left: 5+inDiff*0, frames: 1 });
       this.createIncrFrameButton({ left: 5+inDiff*1, frames: 2 });
@@ -97,17 +105,18 @@ export class GameSpeed implements IGameSpeed {
             top: resolutionHeight + 30,
             onClick: () => {
                this.settings.toggleSetting("skipStartMenu");
+               this.refresh();  // refresh to values are up-to-date.
             }}
          )
       );
    };
 
-   public destroy = () => {
-      /**
-       * TODO: Also destroy gameSpeedElement here, but first gameSpeedElement must be created here
-       * instead of being in index.html file.
-       */
-
-      this.destroyables.destroy();
+   /**
+    * When I have updated a setting I need to refresh so that new values can be seen,
+    * so that the values are up-to-date.
+    */
+   private refresh = () => {
+      this.destroy();
+      this.render();
    };
 }

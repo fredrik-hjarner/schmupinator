@@ -14,6 +14,8 @@ export class OutsideHider implements IOutsideHider {
    // deps/services
 
    // elements
+   private gameHideBottom?: HTMLDivElement;
+   private gameHideRight?: HTMLDivElement;
 
    /**
    * Public
@@ -21,11 +23,19 @@ export class OutsideHider implements IOutsideHider {
    public constructor({ name }: TConstructor) {
       this.name = name;
 
-      initGameHideBottom();
-      initGameHideRight();
+      this.gameHideBottom = initGameHideBottom();
+      this.gameHideRight = initGameHideRight();
    }
 
    public Init = async (_deps?: TInitParams) => {
       // noop
+   };
+
+   public destroy = () => {
+      this.gameHideBottom?.remove();
+      this.gameHideBottom = undefined;
+
+      this.gameHideRight?.remove();
+      this.gameHideRight = undefined;
    };
 }

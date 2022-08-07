@@ -5,7 +5,7 @@ import { App } from "../../App";
 
 const localStorageKey = "__settings";
 
-type TSettings = {
+export type TSettings = {
    fullscreen: boolean;
    gameSpeedSlider: boolean;
    fpsStats: boolean;
@@ -72,16 +72,38 @@ export class Settings implements IService {
 
       // TODO: reload just because app does not clear up by itself yet.
       BrowserDriver.WithWindow(window => {
-         // Some settings need to reload for changes to apply
+         // Some settings need to reload the window for changes to apply.
          switch(setting) {
+            case "fpsStats":
+               this.app.fps.destroy();
+               this.app.fps = this.app.construct.fps();
+               // eslint-disable-next-line @typescript-eslint/no-floating-promises
+               this.app.init.fps(); // TODO: Warning this is a Promise.
+               break;
             case "fullscreen":
                /**
                 * TODO: This is not optimal. I would need lots of smart code to do this well.
+                * TODO: Create a this.app.restart/reload to shorten the code here.
                 */
                this.app.fullscreen.destroy();
                this.app.fullscreen = this.app.construct.fullscreen();
                // eslint-disable-next-line @typescript-eslint/no-floating-promises
-               this.app.fullscreen.Init(); // TODO: Warning this is a Promise.
+               this.app.init.fullscreen(); // TODO: Warning this is a Promise.
+               break;
+            case "gameSpeedSlider":
+               this.app.gameSpeed.destroy();
+               this.app.gameSpeed = this.app.construct.gameSpeed();
+               // eslint-disable-next-line @typescript-eslint/no-floating-promises
+               this.app.init.gameSpeed(); // TODO: Warning this is a Promise.
+               break;
+            case "outsideHider":
+               this.app.outsideHider.destroy();
+               this.app.outsideHider = this.app.construct.outsideHider();
+               // eslint-disable-next-line @typescript-eslint/no-floating-promises
+               this.app.init.outsideHider(); // TODO: Warning this is a Promise.
+               break;
+            case "skipStartMenu":
+               // TODO: Do I need to do something here? Maybe restart UI service?
                break;
             default:
                window.location.reload();

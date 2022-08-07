@@ -4,8 +4,7 @@ import { px } from "../../../utils/px";
 
 export const initGameHideBottom = () => {
    return BrowserDriver.WithWindow(window => {
-      const element: HTMLDivElement =
-         window.document.querySelector("#gameHideBottom") as HTMLDivElement;
+      const element = window.document.createElement("div");
       element.style.height = px(1000);
       element.style.width = px(resolutionWidth);
       element.style.position = "fixed";
@@ -13,14 +12,16 @@ export const initGameHideBottom = () => {
       element.style.left = px(0);
       element.style.backgroundColor = "white";
       element.style.zIndex = zIndices.gameHide;
+
+      window.document.body.appendChild(element);
+
       return element;
    });
 };
 
 export const initGameHideRight = () => {
    return BrowserDriver.WithWindow(window => {
-      const element: HTMLDivElement =
-         window.document.querySelector("#gameHideRight") as HTMLDivElement;
+      const element = window.document.createElement("div");
       element.style.height = px(1000);
       element.style.width = px(1000);
       element.style.position = "fixed";
@@ -28,6 +29,9 @@ export const initGameHideRight = () => {
       element.style.left = px(resolutionWidth);
       element.style.backgroundColor = "white";
       element.style.zIndex = zIndices.gameHide;
+
+      window.document.body.appendChild(element);
+
       return element;
    });
 };

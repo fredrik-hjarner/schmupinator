@@ -9,6 +9,7 @@ import { initFrameCounterDiv } from "./frameCounterDiv";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 type TConstructor = {
+   // TODO: remove app here. should be super simple as fps is only dependent on app.events.
    app: App;
    name: string;
 };
@@ -19,9 +20,9 @@ export class Fps implements IFps {
    private startTime: number | null;
 
    //elements
-   private readonly framCounterDiv: HTMLDivElement;
-   private readonly elapsedTimeDiv: HTMLDivElement;
-   private readonly fpsDiv: HTMLDivElement;
+   private framCounterDiv?: HTMLDivElement;
+   private elapsedTimeDiv?: HTMLDivElement;
+   private fpsDiv?: HTMLDivElement;
 
    /**
     * Public
@@ -30,9 +31,9 @@ export class Fps implements IFps {
       this.app = app;
       this.name = name;
 
-      this.framCounterDiv = initFrameCounterDiv() as HTMLDivElement;
-      this.elapsedTimeDiv = initElapsedTimeDiv() as HTMLDivElement;
-      this.fpsDiv = initFpsDiv() as HTMLDivElement;
+      this.framCounterDiv = initFrameCounterDiv();
+      this.elapsedTimeDiv = initElapsedTimeDiv();
+      this.fpsDiv = initFpsDiv();
       this.startTime = null;
    }
 
@@ -42,9 +43,33 @@ export class Fps implements IFps {
       this.app.events.subscribeToEvent(this.name, this.handleEvent);
 
       // TODO: remove duplication. Have common/duped code in common function.
-      this.elapsedTimeDiv.innerHTML = `elapsed: 0s`;
-      this.framCounterDiv.innerHTML = `frames: 0`;
-      this.fpsDiv.innerHTML = `fps: 0`;
+      this.elapsedTimeDiv && (this.elapsedTimeDiv.innerHTML = `elapsed: 0s`);
+      this.framCounterDiv && (this.framCounterDiv.innerHTML = `frames: 0`);
+      this.fpsDiv && (this.fpsDiv.innerHTML = `fps: 0`);
+   };
+
+   public destroy = () => {
+      /**
+       * Unsubscribe from events.
+       */
+      this.app.events.unsubscribeToEvent(this.name);
+      
+      /**
+       * reset vars
+       */
+      this.startTime = null;
+
+      /**
+       * Destroy elements
+       */
+      this.framCounterDiv?.remove();
+      this.framCounterDiv = undefined;
+
+      this.elapsedTimeDiv?.remove();
+      this.elapsedTimeDiv = undefined;
+
+      this.fpsDiv?.remove();
+      this.fpsDiv = undefined;
    };
 
    /**
@@ -63,8 +88,8 @@ export class Fps implements IFps {
       const elapsed = BrowserDriver.PerformanceNow() - this.startTime;
 
       const frame = event.frameNr;
-      this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`;
-      this.framCounterDiv.innerHTML = `frames: ${frame}`;
-      this.fpsDiv.innerHTML = `fps: ${Math.round(frame / (elapsed / 1000))}`;
+      this.elapsedTimeDiv && (this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`);
+      this.framCounterDiv && (this.framCounterDiv.innerHTML = `frames: ${frame}`);
+      this.fpsDiv && (this.fpsDiv.innerHTML = `fps: ${Math.round(frame / (elapsed / 1000))}`);
    };
 }

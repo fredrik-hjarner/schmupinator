@@ -129,5 +129,10 @@ speed up development/debugging/testing of levels etc.
 * all the names should actually not need to be input via contructor to a Service but can be a 
 public/private field on respective service.
 
+* Move Fps stats into GameSpeed service, then remove Fps stats service.
+
+* I should have warning come up if trying to sub when already subbed.
+I should have warning come up if trying to unsub when not subbed.
+
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.

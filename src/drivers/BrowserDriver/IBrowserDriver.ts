@@ -1,5 +1,5 @@
 export interface IBrowserDriver {
-   WithWindow: <T>(callback: (window: Window) => T) => T | void;
+   WithWindow: <T>(callback: (window: Window) => T) => T | undefined;
 
    Alert(message: string): void;
 

@@ -22,10 +22,12 @@ export class Events<TEvent> implements IEvents<TEvent> {
    };
 
    public subscribeToEvent = (nameOfSubscriber: string, callback: TEventCallback<TEvent>) => {
+      // TODO: I should have warning come up if trying to sub when already subbed.
       this.subscribers[nameOfSubscriber] = callback;
    };
 
    public unsubscribeToEvent = (nameOfSubscriber: string) => {
+      // TODO: I should have warning come up if trying to unsub when not subbed.
       delete this.subscribers[nameOfSubscriber];
    };
 

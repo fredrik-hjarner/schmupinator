@@ -1,3 +1,6 @@
 import type { IService } from "../IService";
+import type { IDestroyable } from "../../../utils/types/IDestroyable";
 
-export type IOutsideHider = IService;
+export interface IOutsideHider extends IService, IDestroyable {
+   //
+}
