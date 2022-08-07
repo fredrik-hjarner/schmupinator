@@ -136,3 +136,30 @@ I should have warning come up if trying to unsub when not subbed.
 
 * Last finishing touches:
 1. Hide the bullets on the left side of the game window.
+
+---
+
+**Make Enemy multi-threaded**
+
+It might be good to make Enemy class multi-threaded, since it seems like that class is what takes
+most time to run.
+
+A thread would run a number of enemies, say if I had 3 threads one way would be to have
+enemy1 on thread1, enemy2 on thread2, enemy3 on thread3, enemy4 on thread1, enemy2 on thread2 etc.
+Or perhaps I need some count, the thread that has least enemies gets a newly spawned enemy.
+
+It might be tricky to make it multi-threaded, but I can make it easier by preparing the code and
+putting it into a state that will make it easier to make it multi-threaded.
+
+Enemy communicates with `Graphics` service and also with `Enemies` service, prolly some more.
+
+In order to make it multi-threaded I would have to run the `Enemy.OnFrameTick` function in a
+WebWorker. Everything that `Enemy.OnFrameTick` want to do/affect, outside of itself,
+it has to accumulate and send a message with all that stuff in the end to the main thread that will
+execute all those things.
+
+It is also important that the order is intact/consistent. So I would have to run every
+Enemy WebWorker first and the when they are ALL done then execute what they wanted to do in the
+same order as the enemies come in the enemies array.
+
+---
