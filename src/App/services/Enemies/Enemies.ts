@@ -11,7 +11,6 @@ import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
 
 import { Enemy } from "./Enemy";
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 export class Enemies implements IService {
    public readonly name: string;
@@ -70,10 +69,6 @@ export class Enemies implements IService {
    ) => {
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = this.yaml.GetEnemy(enemy);
-      if(!enemyJson) {
-         BrowserDriver.Alert(`Unknown enemy "${enemy}".`);
-         throw new Error(`Unknown enemy "${enemy}".`);
-      }
       /**
        * prepend the actions that the parent sent. this allow parent some control over it's spawn.
        * also add die-when-outside-screen behaviour too all spawns.

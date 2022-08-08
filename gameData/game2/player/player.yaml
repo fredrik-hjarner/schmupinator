@@ -1,0 +1,58 @@
+x-trippleShot: &trippleShot
+  - spawn: playerShot
+    actions:
+      - fork:
+        - forever:
+          - { type: moveDelta, x: 0, y: -9 }
+          - { type: waitNextFrame }
+  - spawn: playerShot
+    actions:
+      - fork:
+        - forever:
+          - { type: moveDelta, x: 1.5, y: -9 }
+          - { type: waitNextFrame }
+  - spawn: playerShot
+    actions:
+      - fork:
+        - forever:
+          - { type: moveDelta, x: -1.5, y: -9 }
+          - { type: waitNextFrame }
+  - wait: 8
+
+x-laser: &laser
+  - { spawn: playerLaser, y: 15 }
+  - { spawn: playerLaser, y: 10 }
+  - { spawn: playerLaser, y: 5 }
+  - { spawn: playerLaser, y: 0 }
+  - { spawn: playerLaser, y: -5 }
+  - { spawn: playerLaser, y: -10 }
+  - wait: 3
+
+enemy:
+    name: player
+    diameter: 20
+    hp: 1
+    actions:
+      - { type: gfxSetColor, color: aqua }
+      # TODO: setMoveDirection might be a stupid name for the
+      # action and the way it works might also be stupid.
+      # cuz every tick the gfx rotation is set to moveDirection,
+      # which is contra-intuitive. Should prolly not be set
+      # automaticallt on tick, but need to be set explicitly.
+      - { type: setMoveDirection, degrees: 0 }
+      - { type: setAttribute, attribute: collisionType, value: player }
+      - { type: setAttribute, attribute: boundToWindow, value: true }
+      # The following line is just a hack to hide the player initially.
+      - do: [{ type: gfxSetShape, shape: none}, wait: 1, { type: gfxSetShape, shape: diamondShield}]
+      - fork:
+        - forever:
+          - { type: moveAccordingToInput }
+          - type: waitNextFrame
+      - fork:
+        - forever:
+          - { type: waitInputShoot }
+          - do: *trippleShot
+      - fork:
+        - forever:
+          - { type: waitInputLaser }
+          - do: *laser

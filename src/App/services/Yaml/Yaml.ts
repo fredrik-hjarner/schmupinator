@@ -6,8 +6,14 @@ import { loadAsync } from "jszip";
 
 import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-//@ts-ignore: Dont know how to make ts not complain here.
-import gameZip from "../../../assets/game.zip";
+//@ts-ignore: Dont know how to make ts not complain here where importing a zip.
+import game1 from "../../../assets/game1.zip";
+//@ts-ignore: Dont know how to make ts not complain here where importing a zip.
+import game2 from "../../../assets/game2.zip";
+
+type TEnemyJsons = Partial<{ [enemyName: string]: IEnemyJson }>;
+
+type TGames = Partial<{ [gameName: string]: TEnemyJsons }>
 
 type TConstructor = {
    name: string
@@ -15,16 +21,50 @@ type TConstructor = {
 
 export class Yaml implements IService {
    public readonly name: string;
-   private EnemyJsons: Partial<{ [enemyName: string]: IEnemyJson }>;
+   /**
+    * "games" are zip-files. games can contain levels, at least that's the idea later.
+    */
+   private games: TGames;
+   /**
+    * Keeps track of which "game" (zip-file) is active.
+    */
+   private activeGame?: string;
    
-
    public constructor({ name }: TConstructor) {
       this.name = name;
-      this.EnemyJsons = {};
+      this.games = {};
+      /**
+       * TODO: activeGame should probably be undefined at the beginning??
+       * I set it to "game1" just to make e2e tests in node to work faster.
+       */
+      this.activeGame = "game1";
    }
 
    public Init = async () => {
-      const zipData = await BrowserDriver.FetchBinary(gameZip as string);
+      this.games["game1"] = await this.loadZip(game1 as string);
+      this.games["game2"] = await this.loadZip(game2 as string);
+   };
+
+   public setActiveGame = (game: string) => {
+      this.activeGame = game;
+   };
+
+   public GetEnemy = (enemyName: string): IEnemyJson  => {
+      if(!this.activeGame) {
+         throw new Error("Yaml.GetEnemy: Error activeGame is not set.");
+      }
+      const enemyJson =  this.games[this.activeGame]?.[enemyName];
+      if(!enemyJson) {
+         throw new Error(`Yaml.GetEnemy: Unknown enemy "${enemyName}".`);
+      }
+      return enemyJson;
+   };
+
+   /**
+    * Private
+    */
+   private loadZip = async (zipUrl: string): Promise<TEnemyJsons> => {
+      const zipData = await BrowserDriver.FetchBinary(zipUrl);
       const zip = await loadAsync(zipData);
 
       const commonFile = await zip.file("common.yaml")?.async("text");
@@ -67,6 +107,8 @@ export class Yaml implements IService {
       // Check errors
       // yamlDocuments.forEach(this.checkError);
 
+      const result: TEnemyJsons = {};
+
       // Populate enemies data structure.
       yamlDocuments.forEach((yamlsDocument: { toJS: () => { enemy: IEnemyJson } }) => {
          // console.log('yamlsDocument:', yamlsDocument);
@@ -76,19 +118,13 @@ export class Yaml implements IService {
             console.error(`Error: Yaml service: Trying to add an empty enemy. Skipping.`);
             return;
          }
-         this.EnemyJsons[yaml.enemy.name] = yaml.enemy as IEnemyJson;
+         result[yaml.enemy.name] = yaml.enemy as IEnemyJson;
       });
 
       // console.log("this.EnemyJsons:", this.EnemyJsons);
+      return result;
    };
 
-   public GetEnemy = (enemyName: string): IEnemyJson | undefined  => {
-      return this.EnemyJsons[enemyName];
-   };
-
-   /**
-    * Private
-    */
    private checkError = (yamlDocument: Document) => {
       const { errors } = yamlDocument;
       if(errors.length > 0) {

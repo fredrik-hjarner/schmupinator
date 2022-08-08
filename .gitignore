@@ -2,5 +2,5 @@ node_modules
 dist
 .task
 tsconfig.tsbuildinfo
-game.zip
+*.zip
 .VSCodeCounter
