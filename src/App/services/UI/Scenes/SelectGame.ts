@@ -5,21 +5,18 @@ import { createShade } from "./components/atoms/shade";
 import { centerHorizontally } from "./utils/centering";
 import { createText } from "./components/atoms/text";
 import { Menu } from "./components/molecules/Menu";
-import { fontSizes } from "./consts/fontSizes";
-import packageJson from "../../../../../package.json";
 
 type TConstructor = {
    ui: UI;
 }
 
-export class StartGame implements IScene {
+export class SelectGame implements IScene {
    public readonly ui: UI;
 
    // elements
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private menu?: Menu;
-   private version?: HTMLDivElement;
 
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -27,43 +24,42 @@ export class StartGame implements IScene {
 
    public render() {
       if(this.ui.settingsService.settings.skipStartMenu) {
-         // Yea, just skip this start menu.
-         this.onStartGame();
+         // Yea, just skip this menu.
+         this.onSelectGame("game1");
          return;
       }
 
       this.shadeElement = createShade();
 
       this.title = createText({
-         text: `<span class="flash3s"><span style="font-size: 76px;">S</span>chmupinator</span>`,
+         text: `<span class="flash3s"><span style="font-size: 76px;">S</span>elect game</span>`,
          fontSize: 60,
          top: 36,
       });
       centerHorizontally(this.title);
 
+      const games = this.ui.yaml.getGames()
+         .map(game => (
+            {
+               text: game,
+               onClick: () => {
+                  this.onSelectGame(game);
+               }
+            }
+         ));
+
       this.menu = new Menu({
          input: this.ui.input,
          top: 108,
          menuItems: [
-            { text: "start game", onClick: this.onStartGame },
-            { text: "highscore", onClick: () => { this.ui.SetActiveScene(this.ui.highscore); } },
+            ...games,
             {
-               text: "controls",
-               onClick: () => { this.ui.SetActiveScene(this.ui.settingsControls); }
+               text: "back",
+               onClick: () => { this.ui.SetActiveScene(this.ui.startGame); }
             },
-            { text: "settings", onClick: () => { this.ui.SetActiveScene(this.ui.settings); }},
          ]
       });
       this.menu.render();
-
-      this.version = createText({
-         text: packageJson.version,
-         fontSize: fontSizes.smallest,
-         top: 225,
-         // top: 0,
-         left: 333,
-         color: "rgba(255, 0, 0, 0.4)"
-      });
    }
 
    public destroy() {
@@ -74,12 +70,11 @@ export class StartGame implements IScene {
       this.title = undefined;
 
       this.menu?.destroy();
-
-      this.version?.remove();
-      this.version = undefined;
    }
 
-   private onStartGame = () => {
-      this.ui.SetActiveScene(this.ui.selectGame);
+   private onSelectGame = (gameName: string) => {
+      this.ui.yaml.setActiveGame(gameName);
+      this.ui.SetActiveScene(this.ui.game);
+      this.ui.gameLoop.Start();
    };
 }

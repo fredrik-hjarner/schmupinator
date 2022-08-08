@@ -260,6 +260,7 @@ export class App {
          input,
          points,
          settings,
+         yaml
       });
       await this.highscore.Init();
       await this.init.fullscreen();

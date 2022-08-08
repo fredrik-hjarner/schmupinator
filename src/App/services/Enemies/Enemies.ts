@@ -51,14 +51,6 @@ export class Enemies implements IService {
       this.input = deps?.input as IInput;
       this.gamepad = deps?.gamepad as GamePad;
 
-      /**
-       * The "spawner" enemy is not a normal enemy.
-       * It can do everything that an enemy can do, but it's
-       * primary purpose is to auto-spawn at [0, 0] and
-       * be resposible for spawning enemies.
-       */
-      this.Spawn({ enemy: "spawner", position: { x:0, y: 0 } });
-
       this.events.subscribeToEvent(this.name, this.handleEvent);
       this.eventsCollisions.subscribeToEvent(this.name, this.handleEvent);
    };
@@ -112,6 +104,19 @@ export class Enemies implements IService {
       switch(event.type) {
          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
          case "frame_tick": {
+            /**
+             * Spawn the spawner on the first frame
+             */
+            if(event.frameNr === 1) {
+               /**
+                * The "spawner" enemy is not a normal enemy.
+                * It can do everything that an enemy can do, but it's
+                * primary purpose is to auto-spawn at [0, 0] and
+                * be resposible for spawning enemies.
+                */
+               this.Spawn({ enemy: "spawner", position: { x:0, y: 0 } });
+            }
+
             /**
              * TODO: Here we see that the first tick happens immediately at spawn so I could,
              * if I wanted to, actually set everything in the actions as actions such as set

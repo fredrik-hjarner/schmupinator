@@ -16,6 +16,8 @@ import { EnterHighscore } from "./Scenes/EnterHighscore";
 import { Settings } from "./Scenes/Settings";
 import { SettingsControls } from "./Scenes/SettingsControls";
 import { DisplayControls } from "./Scenes/DisplayControls";
+import { SelectGame } from "./Scenes/SelectGame";
+import { Yaml } from "../Yaml/Yaml";
 
 type TConstructor = {
    name: string
@@ -32,9 +34,11 @@ export class UI implements IUI {
    public points!: IPoints;
    public settingsService!: TSettingsService;
    public input!: IInput;
+   public yaml!: Yaml;
 
    // Scenes
    public startGame: IScene;
+   public selectGame: IScene;
    public settings: IScene;
    public game: IScene;
    public gameOver: IScene;
@@ -50,6 +54,7 @@ export class UI implements IUI {
       this.name = name;
 
       this.startGame = new StartGame({ ui: this });
+      this.selectGame = new SelectGame({ ui: this });
       this.settings = new Settings({ ui: this });
       this.game = new Game({ ui: this });
       this.gameOver = new GameOver({ ui: this });
@@ -68,6 +73,7 @@ export class UI implements IUI {
       this.points = deps?.points as IPoints;
       this.settingsService = deps?.settings as TSettingsService;
       this.input = deps?.input as IInput;
+      this.yaml = deps?.yaml as Yaml;
 
       this.events.subscribeToEvent(this.name, this.onEvent);
 

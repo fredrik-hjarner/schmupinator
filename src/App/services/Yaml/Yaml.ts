@@ -49,6 +49,13 @@ export class Yaml implements IService {
       this.activeGame = game;
    };
 
+   /**
+    * get list of games such as ["game1", "game2", "game3"]
+    */
+   public getGames = (): string[] => {
+      return Object.keys(this.games);
+   };
+
    public GetEnemy = (enemyName: string): IEnemyJson  => {
       if(!this.activeGame) {
          throw new Error("Yaml.GetEnemy: Error activeGame is not set.");
