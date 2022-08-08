@@ -9,8 +9,6 @@ SIMPLE actions. SIMPLE actions are executed by the game engine and the ADVANCED 
 If I had simple actions such as NOOP which would just wait a frame, then I think it would be
 easier to do some kind of RUN AHEAD functionality.
 
-* Create Skip 30 frames and Skip 60 frames buttons, to advance time.
-
 * Maybe have a ActionPreprocessor that simplifies actions, for example expands repeat actions, or
 turns all rotate around point actions into individual set_position actions, or turns all absolute
 moves into relative moves (dunno, can maybe simplify things, maybe.)
@@ -28,12 +26,7 @@ that would make relative/absolute positioning actions more coherent.
 
 * Add max number of lines in eslint.
 
-* Shots could be Enemy. Player could be Enemy. Powerups could be Enemy. The power!
-
-* Now when Shots are Enemy, I could do the maxShots limitation with a thing like maxChildren,
-maxChildren would be the max number of spawns. I would need to implement parent-spawn relations.
-
-* Improve my "end-to-end" test so that it is more reliable.
+* Rename Enemy to GameObject, and Enemies to GameObjectManager.
 
 * Make simple Type Guards for integers. booleans, strings and place them in some util folder.
 
@@ -151,7 +144,9 @@ Or perhaps I need some count, the thread that has least enemies gets a newly spa
 It might be tricky to make it multi-threaded, but I can make it easier by preparing the code and
 putting it into a state that will make it easier to make it multi-threaded.
 
-Enemy communicates with `Graphics` service and also with `Enemies` service, prolly some more.
+Enemy communicates with `Graphics` service and also with `Enemies` service and `Yaml`
+(to get EnemyJson:s) (but communication with `Yaml` could maybe be made indirect somehow),
+prolly some more.
 
 In order to make it multi-threaded I would have to run the `Enemy.OnFrameTick` function in a
 WebWorker. Everything that `Enemy.OnFrameTick` want to do/affect, outside of itself,
@@ -162,7 +157,29 @@ It is also important that the order is intact/consistent. So I would have to run
 Enemy WebWorker first and the when they are ALL done then execute what they wanted to do in the
 same order as the enemies come in the enemies array.
 
+When a new enemy needs to spawn, the WebWorker has to sendMessage with spawn type, the from outside
+of the WebWorke there will be send in an EnemyJson into the WebWorker.
+
+Input from `Input` and `GamePad` has to be sent in to the WebWorker before/on next frame when the
+WebWorker starts it's stuff.
+
+If collisions could be calculated before `Enemies` then they could also be sent in as input to the
+WebWorker. Maybe I need to add a priority when subscribing to frame_tick so I have control over
+order of execution.
+
+The input to the WebWorker could be stored on a private class object IputToWebWorker or something.
+
+One problem is how to handle the "player" as the player is somewhat magical and it has to be reached
+by all WebWorkers.
+
 ---
 
 * I temporary removed the DisplayControls scene, I should probably bring it back somehow.
 
+* I must also make it so that the highscore is per "game"/zip.
+
+* StartGame scene should change name to StartMenu.
+
+* Now when you click Highscore, then select game, the button says "CONTINUE" and that reloads
+page in the browser, that is not optimal UI or behaviour. It should prolly say "BACK" and there
+should not be any reload in that case.

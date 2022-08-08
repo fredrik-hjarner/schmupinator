@@ -17,6 +17,7 @@ import { Settings } from "./Scenes/Settings";
 import { SettingsControls } from "./Scenes/SettingsControls";
 import { DisplayControls } from "./Scenes/DisplayControls";
 import { SelectGame } from "./Scenes/SelectGame";
+import { SelectGameForHighscore } from "./Scenes/SelectGameForHighscore";
 import { Yaml } from "../Yaml/Yaml";
 
 type TConstructor = {
@@ -43,6 +44,7 @@ export class UI implements IUI {
    public game: IScene;
    public gameOver: IScene;
    public highscore: IScene;
+   public selectGameForHighscore: IScene;
    public enterHighscore: IScene;
    public settingsControls: IScene;
    public displayControls: IScene;
@@ -59,6 +61,7 @@ export class UI implements IUI {
       this.game = new Game({ ui: this });
       this.gameOver = new GameOver({ ui: this });
       this.highscore = new Highscore({ ui: this });
+      this.selectGameForHighscore = new SelectGameForHighscore({ ui: this });
       this.enterHighscore = new EnterHighscore({ ui: this });
       this.settingsControls = new SettingsControls({ ui: this });
       this.displayControls = new DisplayControls({ ui: this });
