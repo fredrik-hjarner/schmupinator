@@ -3,19 +3,24 @@ import type { TQualifiedForTop10 } from '../Highscore';
 import { Highscore } from '../Highscore';
 
 describe("qualifiedForTop10", () => {
-   const top10 = [
-      { name: "A", score: 10 },
-      { name: "B", score: 9 },
-      { name: "C", score: 8 },
-      { name: "D", score: 7 },
-      { name: "E", score: 6 },
-      { name: "F", score: 5 },
-      { name: "G", score: 4 },
-      { name: "H", score: 3 },
-      { name: "I", score: 2 },
-      { name: "J", score: 1 },
-   ];
-   const hs = new Highscore({ name: "hs", top10 });
+   const highscores = {
+      version: 1,
+      games: {
+         game1: [
+            { name: "A", score: 10 },
+            { name: "B", score: 9 },
+            { name: "C", score: 8 },
+            { name: "D", score: 7 },
+            { name: "E", score: 6 },
+            { name: "F", score: 5 },
+            { name: "G", score: 4 },
+            { name: "H", score: 3 },
+            { name: "I", score: 2 },
+            { name: "J", score: 1 },
+         ]
+      },
+   };;
+   const hs = new Highscore({ name: "hs", highscores });
    it("dont qualify for top10", () => {
       const expected: TQualifiedForTop10 = {
          qualifiedForTop10: false,

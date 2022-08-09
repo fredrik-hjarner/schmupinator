@@ -48,6 +48,15 @@ export class GameData implements IService {
    public setActiveGame = (game: string) => {
       this.activeGame = game;
    };
+   public getActiveGame = () => {
+      return this.activeGame;
+   };
+   public getAndAssertActiveGame = () => {
+      if(this.activeGame === undefined) {
+         throw new Error("GameData.getAndAssertActiveGame: activeGame is undefined.");
+      }
+      return this.activeGame;
+   };
 
    /**
     * get list of games such as ["game1", "game2", "game3"]

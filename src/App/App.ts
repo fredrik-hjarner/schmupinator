@@ -262,7 +262,9 @@ export class App {
          settings,
          gameData,
       });
-      await this.highscore.Init();
+      await this.highscore.Init({
+         gameData,
+      });
       await this.init.fullscreen();
       await this.parallax.Init({
          events,

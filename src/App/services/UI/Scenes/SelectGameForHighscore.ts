@@ -66,7 +66,8 @@ export class SelectGameForHighscore implements IScene {
       this.menu?.destroy();
    }
 
-   private onSelectGame = (_gameName: string) => {
+   private onSelectGame = (gameName: string) => {
+      this.ui.gameData.setActiveGame(gameName);
       this.ui.SetActiveScene(this.ui.highscore, { backButton: true });
    };
 }

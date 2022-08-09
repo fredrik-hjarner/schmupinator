@@ -189,3 +189,5 @@ to prefix all logs in for example the GameData service.
 * I should probably remove `collisionType` and change it's name to only `type` I think that's a more
 fitting name since otherwise I might end up using `collisionType` for things that are not even
 collision related. At some point I might want to filter by type for example too.
+
+* Fix highscore tests.

@@ -1,20 +1,25 @@
 import { Highscore } from '../Highscore';
 
 const createHighscoreFixture = (): Highscore => {
-   const top10 = [
-      { name: "A", score: 10 },
-      { name: "B", score: 9 },
-      { name: "C", score: 8 },
-      { name: "D", score: 7 },
-      { name: "E", score: 6 },
-      { name: "F", score: 5 },
-      { name: "G", score: 4 },
-      { name: "H", score: 3 },
-      { name: "I", score: 2 },
-      { name: "J", score: 1 },
-   ];
+   const highscores = {
+      version: 1,
+      games: {
+         game1: [
+            { name: "A", score: 10 },
+            { name: "B", score: 9 },
+            { name: "C", score: 8 },
+            { name: "D", score: 7 },
+            { name: "E", score: 6 },
+            { name: "F", score: 5 },
+            { name: "G", score: 4 },
+            { name: "H", score: 3 },
+            { name: "I", score: 2 },
+            { name: "J", score: 1 },
+         ]
+      },
+   };
 
-   return new Highscore({ name: "hs", top10 });
+   return new Highscore({ name: "hs", highscores });
 }
 
 describe("registerNewEntry", () => {
