@@ -38,7 +38,7 @@ export class SelectGame implements IScene {
       });
       centerHorizontally(this.title);
 
-      const games = this.ui.yaml.getGames()
+      const games = this.ui.gameData.getGames()
          .map(game => (
             {
                text: game,
@@ -73,7 +73,7 @@ export class SelectGame implements IScene {
    }
 
    private onSelectGame = (gameName: string) => {
-      this.ui.yaml.setActiveGame(gameName);
+      this.ui.gameData.setActiveGame(gameName);
       this.ui.SetActiveScene(this.ui.game);
       this.ui.gameLoop.Start();
    };

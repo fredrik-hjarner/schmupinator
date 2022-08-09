@@ -18,7 +18,7 @@ import { SettingsControls } from "./Scenes/SettingsControls";
 import { DisplayControls } from "./Scenes/DisplayControls";
 import { SelectGame } from "./Scenes/SelectGame";
 import { SelectGameForHighscore } from "./Scenes/SelectGameForHighscore";
-import { Yaml } from "../Yaml/Yaml";
+import { GameData } from "../GamaData/GameData";
 
 type TConstructor = {
    name: string
@@ -35,7 +35,7 @@ export class UI implements IUI {
    public points!: IPoints;
    public settingsService!: TSettingsService;
    public input!: IInput;
-   public yaml!: Yaml;
+   public gameData!: GameData;
 
    // Scenes
    public startGame: IScene;
@@ -76,7 +76,7 @@ export class UI implements IUI {
       this.points = deps?.points as IPoints;
       this.settingsService = deps?.settings as TSettingsService;
       this.input = deps?.input as IInput;
-      this.yaml = deps?.yaml as Yaml;
+      this.gameData = deps?.gameData as GameData;
 
       this.events.subscribeToEvent(this.name, this.onEvent);
 

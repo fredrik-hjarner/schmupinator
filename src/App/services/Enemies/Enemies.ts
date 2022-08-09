@@ -1,6 +1,6 @@
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IService, TInitParams } from "../IService";
-import type { Yaml } from "../Yaml/Yaml";
+import type { GameData } from "../GamaData/GameData";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import type {
    IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent
@@ -19,7 +19,7 @@ export class Enemies implements IService {
    private memoizedPlayer?: Enemy;
 
    // deps/services
-   private yaml!: Yaml;
+   private gameData!: GameData;
    public events!: IGameEvents;
    public eventsCollisions!: IEventsCollisions;
    public eventsPoints!: IEventsPoints;
@@ -46,7 +46,7 @@ export class Enemies implements IService {
       this.events = deps?.events as IGameEvents;
       this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
       this.eventsPoints = deps?.eventsPoints as IEventsPoints;
-      this.yaml = deps?.yaml as Yaml;
+      this.gameData = deps?.gameData as GameData;
       this.graphics = deps?.graphics as IGraphics;
       this.input = deps?.input as IInput;
       this.gamepad = deps?.gamepad as GamePad;
@@ -60,7 +60,7 @@ export class Enemies implements IService {
       { enemy: string, position: TVector, prependActions?: TShortFormAction[] }
    ) => {
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
-      const enemyJson = this.yaml.GetEnemy(enemy);
+      const enemyJson = this.gameData.GetEnemy(enemy);
       /**
        * prepend the actions that the parent sent. this allow parent some control over it's spawn.
        * also add die-when-outside-screen behaviour too all spawns.

@@ -19,7 +19,7 @@ type TConstructor = {
    name: string
 }
 
-export class Yaml implements IService {
+export class GameData implements IService {
    public readonly name: string;
    /**
     * "games" are zip-files. games can contain levels, at least that's the idea later.
@@ -58,11 +58,11 @@ export class Yaml implements IService {
 
    public GetEnemy = (enemyName: string): IEnemyJson  => {
       if(!this.activeGame) {
-         throw new Error("Yaml.GetEnemy: Error activeGame is not set.");
+         throw new Error("GameData.GetEnemy: Error activeGame is not set.");
       }
       const enemyJson =  this.games[this.activeGame]?.[enemyName];
       if(!enemyJson) {
-         throw new Error(`Yaml.GetEnemy: Unknown enemy "${enemyName}".`);
+         throw new Error(`GameData.GetEnemy: Unknown enemy "${enemyName}".`);
       }
       return enemyJson;
    };
@@ -89,7 +89,7 @@ export class Yaml implements IService {
             .map(async (f) => {
                const yml = await zip.file(f)?.async("text");
                if(!yml) {
-                  const err = `Yaml: Failed to unzip ${f}`;
+                  const err = `GameData: Failed to unzip ${f}`;
                   BrowserDriver.Alert(err);
                   throw new Error(err);
                }
@@ -122,7 +122,7 @@ export class Yaml implements IService {
          const yaml = yamlsDocument.toJS();
          // console.log('yaml:', yaml);
          if(!yaml?.enemy) {
-            console.error(`Error: Yaml service: Trying to add an empty enemy. Skipping.`);
+            console.error(`Error: GameData service: Trying to add an empty enemy. Skipping.`);
             return;
          }
          result[yaml.enemy.name] = yaml.enemy as IEnemyJson;

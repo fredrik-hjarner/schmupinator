@@ -37,7 +37,7 @@ import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Points } from "./services/Points/Points";
 import { Highscore } from "./services/Highscore/Highscore";
-import { Yaml } from "./services/Yaml/Yaml";
+import { GameData } from "./services/GamaData/GameData";
 import { Graphics } from "./services/Graphics/Graphics";
 import { UI } from "./services/UI/UI";
 //@ts-ignore
@@ -89,7 +89,7 @@ export class App {
    public gameSpeed: IGameSpeed;
    public points: IPoints;
    public highscore: Highscore;
-   public yaml: Yaml;
+   public gameData: GameData;
    public graphics: IGraphics;
    public ui: IUI;
    public fullscreen: IFullscreen;
@@ -145,7 +145,7 @@ export class App {
 
       this.highscore = new Highscore({ name: "highscore" });
 
-      this.yaml = new Yaml({ name: "yaml" });
+      this.gameData = new GameData({ name: "gameData" });
 
       this.graphics = IsBrowser() ?
          new Graphics({ name: "graphics" }) :
@@ -207,16 +207,16 @@ export class App {
          highscore,
          input,
          points,
-         yaml,
+         gameData,
          settings,
       } = this;
 
       /**
        * Order of initialization usually don't matter.
-       * Unfortunately Yaml has to init early since it needs to, right now, fetch
+       * Unfortunately GamaData has to init early since it needs to, right now, fetch
        * yaml async. Enemies needs to be available at least when Enemies service tries to use them.
        */
-      await yaml.Init();
+      await gameData.Init();
 
       await settings.Init();
       await this.e2eTest.Init({
@@ -235,7 +235,7 @@ export class App {
          eventsCollisions,
          eventsPoints,
          graphics,
-         yaml,
+         gameData,
          input,
          gamepad
       });
@@ -260,7 +260,7 @@ export class App {
          input,
          points,
          settings,
-         yaml
+         gameData,
       });
       await this.highscore.Init();
       await this.init.fullscreen();

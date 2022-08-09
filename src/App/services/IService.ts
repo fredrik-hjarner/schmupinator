@@ -10,7 +10,7 @@ import type { Collisions } from "./Collisions/Collisions";
 import type { IGameSpeed } from "./GameSpeed/IGameSpeed";
 import type { IPoints } from "./Points/IPoints";
 import type { Highscore } from "./Highscore/Highscore";
-import type { Yaml } from "./Yaml/Yaml";
+import type { GameData } from "./GamaData/GameData";
 import type { IGraphics } from "./Graphics/IGraphics";
 import type { IUI } from "./UI/IUI";
 import type { IFullscreen } from "./Fullscreen/IFullscreen";
@@ -33,7 +33,7 @@ export type TInitParams = Partial<{
   gameSpeed: IGameSpeed;
   points: IPoints;
   highscore: Highscore;
-  yaml: Yaml;
+  gameData: GameData;
   graphics: IGraphics;
   ui: IUI;
   fullscreen: IFullscreen;

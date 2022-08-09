@@ -144,8 +144,8 @@ Or perhaps I need some count, the thread that has least enemies gets a newly spa
 It might be tricky to make it multi-threaded, but I can make it easier by preparing the code and
 putting it into a state that will make it easier to make it multi-threaded.
 
-Enemy communicates with `Graphics` service and also with `Enemies` service and `Yaml`
-(to get EnemyJson:s) (but communication with `Yaml` could maybe be made indirect somehow),
+Enemy communicates with `Graphics` service and also with `Enemies` service and `GameData`
+(to get EnemyJson:s) (but communication with `GameData` could maybe be made indirect somehow),
 prolly some more.
 
 In order to make it multi-threaded I would have to run the `Enemy.OnFrameTick` function in a
@@ -182,3 +182,10 @@ by all WebWorkers.
 
 * Maybe the Parallax Service could be a GameObject!!! That would solve some issues, for example how
 you could change the speed or direction and so on for the background.
+
+* It would be nice to have a better logger so you could do `log = new Log().WithPrefix("GameData")`
+to prefix all logs in for example the GameData service.
+
+* I should probably remove `collisionType` and change it's name to only `type` I think that's a more
+fitting name since otherwise I might end up using `collisionType` for things that are not even
+collision related. At some point I might want to filter by type for example too.

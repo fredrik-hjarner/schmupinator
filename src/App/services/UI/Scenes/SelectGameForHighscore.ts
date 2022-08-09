@@ -32,7 +32,7 @@ export class SelectGameForHighscore implements IScene {
       });
       centerHorizontally(this.title);
 
-      const games = this.ui.yaml.getGames()
+      const games = this.ui.gameData.getGames()
          .map(game => (
             {
                text: game,
