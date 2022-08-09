@@ -5,7 +5,7 @@ import { createShade } from "./components/atoms/shade";
 import { createText } from "./components/atoms/text";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { Countdown } from "./components/molecules/Countdown";
-import { isNumber } from "../../../../utils/typeAssertions";
+import { isBoolean, isNumber, isObject } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
 import { pad } from "../../../../utils/formatting/pad";
@@ -20,7 +20,14 @@ export class Highscore implements IScene {
    public readonly ui: UI;
 
    // vars
+   /**
+    * rank to flash, your score.
+    */
    private rank?: number;
+   /**
+    * If the button in the bottom should be a "back" button instead of "continue" button.
+    */
+   private backButton = false;
 
    // elements
    private shadeElement?: HTMLDivElement;
@@ -51,9 +58,14 @@ export class Highscore implements IScene {
    };
 
    // if rank is a number it intructs to highlight that rank in the top10 list.
-   public render(rank: unknown) {
-      if(isNumber(rank)) {
-         this.rank = rank;
+   public render(props: unknown) {
+      if(isObject(props)) {
+         if(isNumber(props?.rank)) {
+            this.rank = props.rank;
+         }
+         if(isBoolean(props?.backButton)) {
+            this.backButton = props?.backButton;
+         }
       }
       this.shadeElement = createShade();
 
@@ -83,7 +95,7 @@ export class Highscore implements IScene {
          top: 207,
          menuItems: [
             {
-               text: "continue",
+               text: this.backButton ? "back" : "continue",
                onClick: this.handleCountdDownDone
             },
          ]
@@ -108,6 +120,11 @@ export class Highscore implements IScene {
    }
 
    private handleCountdDownDone = () => {
+      if(this.backButton) {
+         this.ui.SetActiveScene(this.ui.startGame);
+         return;
+      }
+
       BrowserDriver.WithWindow(window => {
          // TODO: reload just because app does not clear up by itself yet.
          window.location.reload();

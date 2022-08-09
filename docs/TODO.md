@@ -180,6 +180,5 @@ by all WebWorkers.
 
 * StartGame scene should change name to StartMenu.
 
-* Now when you click Highscore, then select game, the button says "CONTINUE" and that reloads
-page in the browser, that is not optimal UI or behaviour. It should prolly say "BACK" and there
-should not be any reload in that case.
+* Maybe the Parallax Service could be a GameObject!!! That would solve some issues, for example how
+you could change the speed or direction and so on for the background.

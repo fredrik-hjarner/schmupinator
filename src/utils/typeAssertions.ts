@@ -1,7 +1,13 @@
 import { BrowserDriver, IsBrowser } from "../drivers/BrowserDriver";
 
+export const isObject = (value: unknown): value is Partial<Record<string, unknown>> => {
+   return typeof value === "object";
+};
 export const isNumber = (value: unknown): value is number => {
    return typeof value === "number";
+};
+export const isBoolean = (value: unknown): value is boolean => {
+   return typeof value === "boolean";
 };
 export const assertNumber = (value: unknown): number => {
    if(!isNumber(value)) {

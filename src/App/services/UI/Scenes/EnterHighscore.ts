@@ -80,6 +80,6 @@ export class EnterHighscore implements IScene {
          name,
          score: this.ui.points.points
       });
-      this.ui.SetActiveScene(this.ui.highscore, this.rank);
+      this.ui.SetActiveScene(this.ui.highscore, { rank: this.rank });
    };
 }
