@@ -201,3 +201,5 @@ be different colors that explode in different directions. For example blue 4 in 
 blue in diagonal and red in all 8.
 I can record Neo XYX pacifist pattern and then just do something similar, by making sure that
 enemies will not "cross" that path.
+
+* Make E2eTester able to record per game as well, and ReplayerInput able to do so too.

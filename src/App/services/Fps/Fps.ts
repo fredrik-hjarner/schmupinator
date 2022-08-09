@@ -3,10 +3,10 @@ import type { IFps } from "./IFps";
 import type { TGameEvent } from "../Events/IEvents";
 
 import { round } from "../../../utils/round";
-import { initElapsedTimeDiv } from "./elapsedTimeDiv";
-import { initFpsDiv } from "./fpsDiv";
-import { initFrameCounterDiv } from "./frameCounterDiv";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { initElapsedTimeDiv } from "./elapsedTimeDiv";
+import { initFpsDiv, initMaxWebWorkersDiv } from "./fpsDiv";
+import { initFrameCounterDiv } from "./frameCounterDiv";
 
 type TConstructor = {
    // TODO: remove app here. should be super simple as fps is only dependent on app.events.
@@ -23,18 +23,24 @@ export class Fps implements IFps {
    private framCounterDiv?: HTMLDivElement;
    private elapsedTimeDiv?: HTMLDivElement;
    private fpsDiv?: HTMLDivElement;
+   private maxWebWorkers?: HTMLDivElement;
 
    /**
     * Public
     */
    public constructor({ app, name }: TConstructor) {
-      this.app = app;
+      // vars
       this.name = name;
+      this.startTime = null;
+      
+      // deps/services
+      this.app = app;
 
+      // elements
       this.framCounterDiv = initFrameCounterDiv();
       this.elapsedTimeDiv = initElapsedTimeDiv();
       this.fpsDiv = initFpsDiv();
-      this.startTime = null;
+      this.maxWebWorkers = initMaxWebWorkersDiv();
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
@@ -46,6 +52,10 @@ export class Fps implements IFps {
       this.elapsedTimeDiv && (this.elapsedTimeDiv.innerHTML = `elapsed: 0s`);
       this.framCounterDiv && (this.framCounterDiv.innerHTML = `frames: 0`);
       this.fpsDiv && (this.fpsDiv.innerHTML = `fps: 0`);
+      BrowserDriver.WithWindow(window => {
+         const max = window.navigator.hardwareConcurrency;
+         this.maxWebWorkers && (this.maxWebWorkers.innerHTML = `maxWebWorkers: ${max}`);
+      });
    };
 
    public destroy = () => {
@@ -70,6 +80,9 @@ export class Fps implements IFps {
 
       this.fpsDiv?.remove();
       this.fpsDiv = undefined;
+
+      this.maxWebWorkers?.remove();
+      this.maxWebWorkers = undefined;
    };
 
    /**
