@@ -203,3 +203,7 @@ I can record Neo XYX pacifist pattern and then just do something similar, by mak
 enemies will not "cross" that path.
 
 * Make E2eTester able to record per game as well, and ReplayerInput able to do so too.
+
+* Update Controls scene to explain that keys vary by game but in general:
+Weapons - W, A, S, D keys
+Movement - Arrow keys
