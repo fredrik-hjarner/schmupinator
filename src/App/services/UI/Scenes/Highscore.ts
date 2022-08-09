@@ -104,6 +104,12 @@ export class Highscore implements IScene {
    }
 
    public destroy() {
+      // reset vars
+      this.rank = undefined;
+      this.backButton = false;
+
+      // remove elements
+
       this.shadeElement?.remove();
       this.shadeElement = undefined;
 

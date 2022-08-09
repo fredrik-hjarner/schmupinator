@@ -191,3 +191,13 @@ fitting name since otherwise I might end up using `collisionType` for things tha
 collision related. At some point I might want to filter by type for example too.
 
 * Fix highscore tests.
+
+* It would be better if the Scene:s where created anew with `new` on Scene swapping, maybe, because
+then some vars would reset automatically. I had a problem with one var not having been reset in
+destroy.
+
+* Stage2 could be a pacifist run. You have a weapon, but every enemy you shoot explodes. There can
+be different colors that explode in different directions. For example blue 4 in cardinal directions,
+blue in diagonal and red in all 8.
+I can record Neo XYX pacifist pattern and then just do something similar, by making sure that
+enemies will not "cross" that path.
