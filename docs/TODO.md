@@ -205,3 +205,9 @@ enemies will not "cross" that path.
 * Update Controls scene to explain that keys vary by game but in general:
 Weapons - W, A, S, D keys
 Movement - Arrow keys
+
+* rename the magical enemy `shot` to `defaultShot` because that is more explicit.
+
+* I prolly should have an action to configure which shot is used when using the shooting actions,
+for example one GameObject migh want to use the default `shot` but another one might want to use
+another one.

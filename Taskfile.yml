@@ -4,7 +4,7 @@ silent: true
 
 tasks:
   zip:
-    sources: [yaml/**/*]
+    sources: [gameData/**/*]
     cmds: [npm run zip]
 
   e2e:

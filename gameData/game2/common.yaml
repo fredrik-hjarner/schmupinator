@@ -27,3 +27,5 @@ x-rows:
   - &r9 216
   - &r10 240
   - &r11 264
+
+x-kamikazeShotSpeed: &kamikazeShotSpeed 0.9
