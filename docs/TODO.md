@@ -94,8 +94,6 @@ It would help if I could get the game to play in full fullscreen which PWA might
 * When something in UI is selected there should be a soft color animation that loops
 on the selected thing.
 
-* Add Invincibility to Settings menu.
-
 * Implement a frame-speed-schedule, so I can rerun specific parts of the game very fast,
 for example I might be interested in what happens in the frames 1000 to 1500.
 

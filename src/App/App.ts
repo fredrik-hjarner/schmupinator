@@ -244,6 +244,7 @@ export class App {
          enemies,
          events,
          eventsCollisions,
+         settings,
       });
       await this.events.Init();
       await this.eventsCollisions.Init();

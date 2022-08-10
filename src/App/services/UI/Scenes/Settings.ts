@@ -25,7 +25,7 @@ export class Settings implements IScene {
 
    public render() {
       const {
-         fullscreen, gameSpeedSlider, fpsStats, outsideHider, autoplay
+         fullscreen, gameSpeedSlider, fpsStats, outsideHider, autoplay, invincibility
       } = this.ui.settingsService.settings;
 
       this.shadeElement = createShade();
@@ -33,13 +33,13 @@ export class Settings implements IScene {
       this.title = createText({
          text: `<span class="flash3s"><span style="font-size: 76px;">S</span>ettings</span>`,
          fontSize: 60,
-         top: 25,
+         top: 0,
       });
       centerHorizontally(this.title);
 
       this.menu = new Menu({
          input: this.ui.input,
-         top: 85,
+         top: 60,
          menuItems: [
             {
                text: `fullscreen - ${fullscreen ? "on" : "off" }`,
@@ -60,6 +60,10 @@ export class Settings implements IScene {
             {
                text: `autoplay - ${autoplay ? "on" : "off" }`,
                onClick: () => { this.toggleSetting("autoplay"); }
+            },
+            {
+               text: `invincibility - ${invincibility ? "on" : "off" }`,
+               onClick: () => { this.toggleSetting("invincibility"); }
             },
             {
                text: "back",

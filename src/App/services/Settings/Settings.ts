@@ -13,6 +13,7 @@ export type TSettings = {
    /** If pre-recorded inputs should be used instead of manula input from player. */
    autoplay: boolean;
    skipStartMenu: boolean;
+   invincibility: boolean;
 };
 
 type TConstructor = {
@@ -29,6 +30,7 @@ export class Settings implements IService {
       outsideHider: true,
       autoplay: false,
       skipStartMenu: false,
+      invincibility: false,
    };
 
    // deps/services
