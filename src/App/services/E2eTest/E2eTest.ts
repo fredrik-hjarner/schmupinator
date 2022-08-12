@@ -26,7 +26,12 @@ export class E2eTest implements IE2eTest {
    private history: THistory = {};
    // From file that has been pre-recorded.
    private recordedHistory!: THistory;
-   private startTime = BrowserDriver.PerformanceNow();
+   private startTime = 0;
+   /**
+    * Set startTime to performanceNow if you want to measure including
+    * stuff that happens before the first frame.
+    */
+   // private startTime = BrowserDriver.PerformanceNow();
 
    // deps/services
    private collisions!: Collisions;
@@ -75,6 +80,10 @@ export class E2eTest implements IE2eTest {
          this.history[frame]?.push(event); // record event in history/
       }
       if (event.type === "frame_tick") {
+         if(this.startTime === 0) {
+            // start counting from the first frame.
+            this.startTime = BrowserDriver.PerformanceNow();
+         }
          // Crucial that we keep track of the current frame!!
          this.frameCount = event.frameNr;
 
