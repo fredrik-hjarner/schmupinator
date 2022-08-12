@@ -1,59 +1,63 @@
 import type {
    TAction, TDo, TAttr, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait, TFork
 } from "./actionTypes";
-import type { Vector as TVector } from "../../../math/bezier";
-import type { TAttributeValue } from "./Attributes/Attributes";
+import type { Vector as TVector } from "../../../../math/bezier";
+import type { TAttributeValue } from "../Attributes/Attributes";
 
 export type TShortFormWait = { wait: number };
-const isShortFormWait = (action: TShortFormAction): action is TShortFormWait => {
+const isShortFormWait = (action: (TAction|TShortFormAction)): action is TShortFormWait => {
    return (action as TShortFormWait).wait !== undefined;
 };
 
 export type TShortFormSpawn = { 
-   spawn: string, x?: number, y?: number, actions?: TShortFormAction[]
+   spawn: string, x?: number, y?: number, actions?: (TShortFormAction)[]
 };
-const isShortFormSpawn = (action: TShortFormAction): action is TShortFormSpawn => {
+const isShortFormSpawn = (action: (TAction|TShortFormAction)): action is TShortFormSpawn => {
    return (action as TShortFormSpawn).spawn !== undefined;
 };
 
 export type TShortFormRepeat = { repeat: number, actions: TShortFormAction[] };
-const isShortFormRepeat = (action: TShortFormAction): action is TShortFormRepeat => {
+const isShortFormRepeat = (action: (TAction|TShortFormAction)): action is TShortFormRepeat => {
    return (action as TShortFormRepeat).repeat !== undefined;
 };
 
 export type TShortFormparallelAll = { parallelAll: TShortFormAction[][] };
-const isShortFormparallelAll = (action: TShortFormAction): action is TShortFormparallelAll => {
-   return (action as TShortFormparallelAll).parallelAll !== undefined;
-};
+const isShortFormparallelAll =
+   (action: (TAction|TShortFormAction)): action is TShortFormparallelAll => {
+      return (action as TShortFormparallelAll).parallelAll !== undefined;
+   };
 
 export type TShortFormparallelRace = { parallelRace: TShortFormAction[][] };
-const isShortFormparallelRace = (action: TShortFormAction): action is TShortFormparallelRace => {
-   return (action as TShortFormparallelRace).parallelRace !== undefined;
-};
+const isShortFormparallelRace =
+   (action: (TAction|TShortFormAction)): action is TShortFormparallelRace => {
+      return (action as TShortFormparallelRace).parallelRace !== undefined;
+   };
 
 export type TShortFormAttr =
    { attr: string, is: TAttributeValue, yes?: TShortFormAction[], no?: TShortFormAction[] };
-const iShortFormAttr = (action: TShortFormAction): action is TShortFormAttr => {
+const iShortFormAttr = (action: (TAction|TShortFormAction)): action is TShortFormAttr => {
    return (action as TShortFormAttr).attr !== undefined;
 };
 
 export type TShortFormSetShotSpeed = { setShotSpeed: number };
-const isShortFormSetShotSpeed = (action: TShortFormAction): action is TShortFormSetShotSpeed => {
-   return (action as TShortFormSetShotSpeed).setShotSpeed !== undefined;
-};
+const isShortFormSetShotSpeed =
+   (action: (TAction|TShortFormAction)): action is TShortFormSetShotSpeed => {
+      return (action as TShortFormSetShotSpeed).setShotSpeed !== undefined;
+   };
 
 export type TShortFormMoveToAbsolute = { moveToAbsolute: Partial<TVector>, frames: number };
-const isShortFormMoveToAbsolute = (acn: TShortFormAction): acn is TShortFormMoveToAbsolute => {
-   return (acn as TShortFormMoveToAbsolute).moveToAbsolute !== undefined;
-};
+const isShortFormMoveToAbsolute =
+   (acn: (TAction|TShortFormAction)): acn is TShortFormMoveToAbsolute => {
+      return (acn as TShortFormMoveToAbsolute).moveToAbsolute !== undefined;
+   };
 
 export type TShortFormDo = { do: TShortFormAction[] };
-const isShortFormDo = (acn: TShortFormAction): acn is TShortFormDo => {
+const isShortFormDo = (acn: (TAction|TShortFormAction)): acn is TShortFormDo => {
    return (acn as TShortFormDo).do !== undefined;
 };
 
 export type TShortFormSetSpeed = { setSpeed: number };
-const isShortFormSetSpeed = (acn: TShortFormAction): acn is TShortFormSetSpeed => {
+const isShortFormSetSpeed = (acn: (TAction|TShortFormAction)): acn is TShortFormSetSpeed => {
    return (acn as TShortFormSetSpeed).setSpeed !== undefined;
 };
 
@@ -63,32 +67,32 @@ const isShortFormSetSpeed = (acn: TShortFormAction): acn is TShortFormSetSpeed =
  * Essentially it flattens the array of arrays
  */
 export type TSequence = { seq: TShortFormAction[][] };
-const isSequence = (acn: TShortFormAction): acn is TSequence => {
+const isSequence = (acn: (TAction|TShortFormAction)): acn is TSequence => {
    return (acn as TSequence).seq !== undefined;
 };
 
 // Infinite repeat of list of actions.
 export type TForever = { forever: TShortFormAction[] };
-const isForever = (acn: TShortFormAction): acn is TForever => {
+const isForever = (acn: (TAction|TShortFormAction)): acn is TForever => {
    return (acn as TForever).forever !== undefined;
 };
 
 export type TTwice = { twice: TShortFormAction[] };
-const isTwice = (acn: TShortFormAction): acn is TTwice => {
+const isTwice = (acn: (TAction|TShortFormAction)): acn is TTwice => {
    return (acn as TTwice).twice !== undefined;
 };
 
 export type TThrice = { thrice: TShortFormAction[] };
-const isThrice = (acn: TShortFormAction): acn is TThrice => {
+const isThrice = (acn: (TAction|TShortFormAction)): acn is TThrice => {
    return (acn as TThrice).thrice !== undefined;
 };
 
 export type TShortFormFork = { fork: TShortFormAction[] };
-const isShortFormFork = (acn: TShortFormAction): acn is TShortFormFork => {
+const isShortFormFork = (acn: (TAction|TShortFormAction)): acn is TShortFormFork => {
    return (acn as TShortFormFork).fork !== undefined;
 };
 
-export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
+export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TAction => {
    if(isShortFormWait(shortForm)) {
       const { wait } = shortForm;
       return { type: "wait", frames: wait };
@@ -130,6 +134,24 @@ export const ShortFormToLongForm = (shortForm: TShortFormAction): TAction => {
    }
    return shortForm;
 };
+
+export function isShortFormAction(action: TAction|TShortFormAction): boolean {
+   return isShortFormWait(action) ||
+         isShortFormSpawn(action) ||
+         isShortFormRepeat(action) ||
+         isShortFormparallelAll(action) ||
+         isShortFormparallelRace(action) ||
+         iShortFormAttr(action) ||
+         isShortFormSetShotSpeed(action) ||
+         isShortFormMoveToAbsolute(action) ||
+         isShortFormDo(action) ||
+         isSequence(action) ||
+         isShortFormSetSpeed(action) ||
+         isForever(action) ||
+         isTwice(action) ||
+         isThrice(action) ||
+         isShortFormFork(action);
+}
 
 export type TShortFormAction =
    Exclude<

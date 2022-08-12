@@ -1,15 +1,15 @@
 import type {
    TAction, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
-} from "./actionTypes";
+} from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { TAttributeValue } from "./Attributes/Attributes";
 import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
+import type { TShortFormAction } from "./actions/actionTypesShortForms";
 
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
-import { ShortFormToLongForm, TShortFormAction } from "./actionTypesShortForms";
 import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../consts";
 
 type TActionHandler = (action: TAction) => void;
@@ -20,7 +20,7 @@ type TEnemyActionExecutorArgs = {
    * Executes them in sequence.
    * You can execute things in parallel with special compound actions like parallelRace.
    */
-   actions: TShortFormAction[];
+   actions: (TAction|TShortFormAction)[];
    actionHandler: TActionHandler;
    getPosition: () => TVector;
    getAttr: (attr: string) => TAttributeValue;
@@ -68,7 +68,7 @@ export class EnemyActionExecutor {
    // Return true when all generators have finished, i.e. no actions left ot execute.
    public ProgressOneFrame(): boolean {
       // TODO: Die/kill self/explode when done!
-      const prevGeneratorsLength =  this.generators.length;
+      const prevGeneratorsLength = this.generators.length;
       const nexts = this.generators.map(g => {
          return g.next();
       });
@@ -78,6 +78,8 @@ export class EnemyActionExecutor {
           * During the execution more generators can be added,
           * so only if the number has not been changed can we make assumptions about all generators
           * having finished or not.
+          * 
+          * But... couldn't one generator be added and another one deleted, +1 -1 = 0 ??
           */
          const allDone = nexts.every(next => next.done);
          return allDone;
@@ -92,8 +94,11 @@ export class EnemyActionExecutor {
    private shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
    private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
 
-   private *makeGenerator(shortFormActions: TShortFormAction[] = []): Generator<void, void, void> {
-      const actions = shortFormActions.map(ShortFormToLongForm);
+   private *makeGenerator(
+      shortFormActions: (TAction|TShortFormAction)[] = []
+   ): Generator<void, void, void> {
+      // const actions = shortFormActions.map(ShortFormToLongForm);
+      const actions = shortFormActions as TAction[]; // TODO: This typecase is a hack. remove.
       let currIndex = 0;
       const nrActions = actions.length;
 

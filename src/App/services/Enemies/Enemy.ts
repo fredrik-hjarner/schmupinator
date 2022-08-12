@@ -1,9 +1,9 @@
-import type { TAction } from "./actionTypes";
+import type { TAction } from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { TShortFormAction } from "./actionTypesShortForms";
+import type { TShortFormAction } from "./actions/actionTypesShortForms";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -244,9 +244,12 @@ export class Enemy {
          pos: { x: 0, y: 0 },
          actions:  [
             {
-               fork: [
+               type: "fork",
+               actions: [
                   {
-                     forever: [
+                     type: "repeat",
+                     times: 99999,
+                     actions: [
                         /**
                          * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
                          * and then in yaml file a `moveAccordingToDirAndSpeed` action.
@@ -254,7 +257,7 @@ export class Enemy {
                         { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
                         { type: "waitNextFrame" }
                      ]},
-               ]
+               ] as unknown as TShortFormAction[]
             }
          ]
       });
@@ -317,7 +320,7 @@ export class Enemy {
 
    private spawn = (
       { enemy, pos, actions }:
-      { enemy: string, pos: TVector, actions?: TShortFormAction[] }
+      { enemy: string, pos: TVector, actions?: (TAction|TShortFormAction)[] }
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };

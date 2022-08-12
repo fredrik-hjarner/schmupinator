@@ -1,7 +1,7 @@
-import type { Vector } from "../../../math/bezier";
-import type { TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
+import type { Vector } from "../../../../math/bezier";
+import type { TGraphicsActionWithoutHandle } from "../../Graphics/IGraphics";
 import type { TShortFormAction as TSFAction } from "./actionTypesShortForms";
-import type { TAttributeValue } from "./Attributes/Attributes";
+import type { TAttributeValue } from "../Attributes/Attributes";
 
 export type TWait =                { type: "wait", frames: number };
 export type TWaitNextFrame =       { type: "waitNextFrame" };

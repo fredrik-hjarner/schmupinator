@@ -10,6 +10,7 @@ import { BrowserDriver } from "../../../drivers/BrowserDriver";
 import game1 from "../../../assets/game1.zip";
 //@ts-ignore: Dont know how to make ts not complain here where importing a zip.
 import game2 from "../../../assets/game2.zip";
+import { transformActions } from "../Enemies/actions/transform";
 
 type TEnemyJsons = Partial<{ [enemyName: string]: IEnemyJson }>;
 
@@ -134,7 +135,19 @@ export class GameData implements IService {
             console.error(`Error: GameData service: Trying to add an empty enemy. Skipping.`);
             return;
          }
-         result[yaml.enemy.name] = yaml.enemy as IEnemyJson;
+         const enemyJson = yaml.enemy as IEnemyJson;
+         result[yaml.enemy.name] = enemyJson;
+         /**
+          * transform all actions to, so called, long form actions.
+          * This transformation happens here because this is the entry point
+          * no TShortFormAction lives after this point, only TAction.
+          */
+         if(enemyJson.actions !== undefined) {
+            transformActions(enemyJson.actions);
+         }
+         if(enemyJson.onDeathAction !== undefined) {
+            transformActions([enemyJson.onDeathAction]);
+         }
       });
 
       // console.log("this.EnemyJsons:", this.EnemyJsons);

@@ -54,7 +54,9 @@ export class EnemyGfx {
             break;
          default:
             BrowserDriver.Alert(
-               `${(action as {type: string}).type} not handled in EnemyGfx.dispatch!`
+               `${(action as {type: string}).type} not handled in EnemyGfx.dispatch!\n` +
+               `The full offending action:\n` +
+               `${JSON.stringify(action, null, 2)}`
             );
       }
    };

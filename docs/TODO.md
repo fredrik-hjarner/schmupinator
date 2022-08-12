@@ -211,3 +211,5 @@ Movement - Arrow keys
 * I prolly should have an action to configure which shot is used when using the shooting actions,
 for example one GameObject migh want to use the default `shot` but another one might want to use
 another one.
+
+* Replace TAction|TShortFormAction with TAllActionTypes
