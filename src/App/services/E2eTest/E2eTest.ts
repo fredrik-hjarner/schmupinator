@@ -26,7 +26,7 @@ export class E2eTest implements IE2eTest {
    private history: THistory = {};
    // From file that has been pre-recorded.
    private recordedHistory!: THistory;
-   private startTime = BrowserDriver.PerformanceNow();
+   private startTime = 0;
 
    // deps/services
    private collisions!: Collisions;
@@ -58,8 +58,8 @@ export class E2eTest implements IE2eTest {
       if (event.type === "player_died") {
          // This should actually trigger for very kind of END OF GAME scenario.
          console.log("E2eTest: Test succeeded.");
-         const seconds = (BrowserDriver.PerformanceNow() - this.startTime)/1000;
-         console.log(`E2eTest: Took ${seconds} seconds to run test.`);
+         const millis = (BrowserDriver.PerformanceNow() - this.startTime);
+         console.log(`E2eTest: Took ${millis} ms to run test.`);
          console.log(`E2eTest: Collision detection took ${this.collisions.accumulatedTime} ms.`);
          if (!IsBrowser()) {
             // eslint-disable-next-line no-undef
@@ -75,6 +75,9 @@ export class E2eTest implements IE2eTest {
          this.history[frame]?.push(event); // record event in history/
       }
       if (event.type === "frame_tick") {
+         if(this.startTime === 0) {
+            this.startTime = BrowserDriver.PerformanceNow();
+         }
          // Crucial that we keep track of the current frame!!
          this.frameCount = event.frameNr;
 
