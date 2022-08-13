@@ -72,7 +72,7 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
          BrowserDriver.Alert("this.nextFrameMillis === null");
          throw new Error("this.nextFrameMillis === null");
       }
-      // let i = 0;
+      let i = 0;
       /**
        * uncomment to log the "drift". if requestAnimationFrame is faster or slower than 60 hz
        * (and also not an even multiple) then the number will increase or decrease, if 60hx exactly
@@ -80,10 +80,13 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
        */
       // console.log(time - this.nextFrameMillis);
       while (time >= this.nextFrameMillis) {
-         // i++;
+         i++;
          this.nextFrameMillis += millisPerFrame;
          this.advanceFrames();
       }
-      // console.log(i);
+      if(i > 1) {
+         // TODO: Only show this warning on debug, right?
+         console.log(`Warning: skipped ${i-1} frames!`);
+      }
    };
 }

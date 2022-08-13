@@ -23,16 +23,22 @@ type TGraphicsElement = {
    element: HTMLDivElement;
    scale: number;
    rotation: number; // degrees
+   /**
+    * I think only needed for calculating "resting place" i.e. where they are placed when not used.
+    * Should probably not be used/have any affect in production.
+    */
    index: number;
    shape: TShape;
    diameter: number;
 }
 
+type TElementPool = Partial<{ [handle: string]: TGraphicsElement }>;
+
 type TConstructor = { name: string };
 
 export class Graphics implements IGraphics {
    public name: string;
-   private elementPool: TGraphicsElement[];
+   private elementPool: TElementPool;
    private static poolSize = 100;
 
    public constructor({ name }: TConstructor) {
@@ -80,10 +86,14 @@ export class Graphics implements IGraphics {
       return { x, y };
    };
 
-   private initElementPool = (): TGraphicsElement[] => {
-      return Array(Graphics.poolSize).fill(0).map((_, i) =>
-         this.initOneElement(i)
-      );
+   private initElementPool = (): TElementPool => {
+      const arr100 = Array(Graphics.poolSize).fill(0);
+      const result: TElementPool = {};
+      arr100.forEach((_, i) => {
+         const element = this.initOneElement(i);
+         result[element.handle] = element;
+      });
+      return result;
    };
 
    private reset = (ge: TGraphicsElement) => {
@@ -166,7 +176,7 @@ export class Graphics implements IGraphics {
 
    // Helper that finds and assert that an element exists and is in use.
    private findExistingAndInUse = (handle: THandle): TGraphicsElement => {
-      const element = this.elementPool.find(element => element.handle === handle);
+      const element = this.elementPool[handle];
       if(!element) {
          BrowserDriver.Alert(`Graphics: No GraphicsElement with handle "${handle}"!`);
          throw new Error(`Graphics: No GraphicsElement with handle "${handle}"!`);
@@ -179,7 +189,8 @@ export class Graphics implements IGraphics {
    };
 
    private actionAskForElement = (): TResponse_AskForElement => {
-      const unusedElement = this.elementPool.find(element => !element.inUse);
+      const unusedElement = Object.values(this.elementPool)
+         .find((element) => !(element as TGraphicsElement).inUse);
       if(unusedElement) {
          unusedElement.inUse = true;
          return { type: "responseAskForElement", handle: unusedElement.handle };

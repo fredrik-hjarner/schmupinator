@@ -38,6 +38,8 @@ import { GameSpeed } from "./services/GameSpeed/GameSpeed";
 import { Points } from "./services/Points/Points";
 import { Highscore } from "./services/Highscore/Highscore";
 import { GameData } from "./services/GamaData/GameData";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Graphics } from "./services/Graphics/Graphics";
 import { UI } from "./services/UI/UI";
 //@ts-ignore
@@ -149,6 +151,7 @@ export class App {
 
       this.graphics = IsBrowser() ?
          new Graphics({ name: "graphics" }) :
+         // new MockGraphics({ name: "mockGraphics" }) :
          new MockGraphics({ name: "mockGraphics" });
 
       this.ui = IsBrowser() ? new UI({ name: "ui" }) : new NoopService();
