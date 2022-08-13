@@ -1,10 +1,11 @@
-import type { TShortFormAction } from "../actionTypesShortForms";
+import type { TAction } from "../actions/actionTypes";
+import type { TShortFormAction } from "../actions/actionTypesShortForms";
 
 export interface IEnemyJson {
   name: string;
   hp: number; // actually maxHp
   diameter: number;
-  actions: TShortFormAction[];
+  actions: (TAction|TShortFormAction)[];
   /**
    * One action that is executed immediately when an enemy dies.
    * MUST take at most 1 frame to execute.

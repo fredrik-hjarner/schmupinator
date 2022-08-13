@@ -63,8 +63,8 @@ export class E2eTest implements IE2eTest {
       if (event.type === "player_died") {
          // This should actually trigger for very kind of END OF GAME scenario.
          console.log("E2eTest: Test succeeded.");
-         const seconds = (BrowserDriver.PerformanceNow() - this.startTime)/1000;
-         console.log(`E2eTest: Took ${seconds} seconds to run test.`);
+         const millis = (BrowserDriver.PerformanceNow() - this.startTime);
+         console.log(`E2eTest: Took ${millis} ms to run test.`);
          console.log(`E2eTest: Collision detection took ${this.collisions.accumulatedTime} ms.`);
          if (!IsBrowser()) {
             // eslint-disable-next-line no-undef

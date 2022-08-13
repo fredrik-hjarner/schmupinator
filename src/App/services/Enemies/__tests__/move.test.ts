@@ -1,4 +1,4 @@
-import type { TAction, TSetPosition } from '../actionTypes';
+import type { TAction, TSetPosition } from '../actions/actionTypes';
 import type { Vector as TVector } from '../../../../math/bezier';
 
 import { EnemyActionExecutor } from '../EnemyActionExecutor';
