@@ -13,6 +13,6 @@ enemy:
     - parallelRace:
       - - forever:
           - { type: moveDelta, y: -30 }
-          - { type: waitNextFrame }
+          - type: waitNextFrame
       - - wait: 8
-        - { type: despawn }
+        - type: despawn
