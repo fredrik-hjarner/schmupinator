@@ -130,28 +130,34 @@ export class GraphicsElement {
       element.style.transform = `rotate(0deg) scale(1)`;
    };
 
-   /**
-    * TODO: Maybe I should split this up in setX and setY methods?
-    */
-   public setPosition = (x?: number, y?: number) => {
+   public setX = (x: number) => {
       if(this.element === undefined) {
-         this.logError("Tried to setPosition of undefined element");
+         this.logError("Tried to setX of undefined element");
          return;
       }
-      if(this.vars.x === x && this.vars.y === y) {
-         this.logWarn(`Tried to setPosition to [${x},${y}] when it was already [${x},${y}]`);
+      if(this.vars.x === x) {
+         this.logWarn(`Tried to setX to ${x} when it was already ${x}`);
          return;
       }
       
       const radius = this.vars.diameter/2;
-      if(x !== undefined) {
-         this.vars.x = x;
-         this.element.style.left = px(x - radius);
+      this.vars.x = x;
+      this.element.style.left = px(x - radius);
+   };
+
+   public setY = (y: number) => {
+      if(this.element === undefined) {
+         this.logError("Tried to setY of undefined element");
+         return;
       }
-      if(y !== undefined) {
-         this.vars.y = y;
-         this.element.style.top = px(y - radius);
+      if(this.vars.y === y) {
+         this.logWarn(`Tried to setY to ${y} when it was already ${y}`);
+         return;
       }
+      
+      const radius = this.vars.diameter/2;
+      this.vars.y = y;
+      this.element.style.top = px(y - radius);
    };
 
    public setDiameter = (diameter: number) => {

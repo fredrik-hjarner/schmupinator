@@ -123,7 +123,12 @@ export class Graphics implements IGraphics {
    private actionSetPosition =
       ({ handle, x, y }: Omit<TGfx_SetPosition,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.setPosition(x, y);
+         if(x !== undefined) {
+            gfxEntry.element.setX(x);
+         }
+         if(y !== undefined) {
+            gfxEntry.element.setY(y);
+         }
          return { type: "responseVoid" };
       };
 
