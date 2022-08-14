@@ -3,6 +3,7 @@ import type { TShape } from "./IGraphics";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 import { px } from "../../../utils/px";
 import { zIndices } from "../../../consts";
+// resources
 import circle from "../../../assets/images/circle.png";
 import square from "../../../assets/images/square.png";
 import triangle from "../../../assets/images/triangle.png";
@@ -33,6 +34,23 @@ export class GraphicsElement {
    // TODO: Not sure if this should be nullable. Nullable needs if case everywhere. Prolly remove ?
    private element?: HTMLDivElement;
 
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   private logError = (...params: any[]) => {
+      console.error(
+         "GraphicsElement:",
+         ...params // eslint-disable-line @typescript-eslint/no-unsafe-argument
+      );
+   };
+
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   private logWarn = (..._params: any[]) => {
+      // uncommented not to spam warnings.
+      // console.warn(
+      //    "GraphicsElement:",
+      //    ...params // eslint-disable-line @typescript-eslint/no-unsafe-argument
+      // );
+   };
+
    /**
     * 
     * @param x restingPlace x TODO: remove this param. will be necessary when I have this.commit.
@@ -43,7 +61,7 @@ export class GraphicsElement {
          const element = window.document.createElement("div");
 
          this.applyUnchangingDefaults(element);
-         this.reset(x, y);
+         this.resetElement(x, y, element);
 
          window.document.body.appendChild(element);
          return element;
@@ -72,10 +90,18 @@ export class GraphicsElement {
     */
    public reset = (x: number, y: number) => {
       if(this.element === undefined) {
-         console.error("GraphicsElement: Tried to reset an undefined element");
+         this.logError("Tried to reset an undefined element");
          return;
       }
+      this.resetElement(x, y, this.element);
+   };
 
+   /**
+    * 
+    * @param x restingPlace x TODO: remove this param. will be necessary when I have this.commit.
+    * @param y restingPlace y TODO: remove this param. will be necessary when I have this.commit.
+    */
+   private resetElement = (x: number, y: number, element: HTMLDivElement) => {
       this.vars = {
          color: "red",
          diameter: 5,
@@ -95,13 +121,13 @@ export class GraphicsElement {
        * TODO: These could all be derived from values in this.vars,
        * I should do that in a this.commit method!
        */
-      this.element.style.backgroundImage = `url('${circle}')`;
-      this.element.style.filter = "none";
-      this.element.style.width = px(this.vars.diameter);
-      this.element.style.height = px(this.vars.diameter);
-      this.element.style.top = px(top);
-      this.element.style.left = px(left);
-      this.element.style.transform = `rotate(0deg) scale(1)`;
+      element.style.backgroundImage = `url('${circle}')`;
+      element.style.filter = "none";
+      element.style.width = px(this.vars.diameter);
+      element.style.height = px(this.vars.diameter);
+      element.style.top = px(top);
+      element.style.left = px(left);
+      element.style.transform = `rotate(0deg) scale(1)`;
    };
 
    /**
@@ -109,13 +135,11 @@ export class GraphicsElement {
     */
    public setPosition = (x?: number, y?: number) => {
       if(this.element === undefined) {
-         console.error("GraphicsElement: Tried to setPosition of undefined element");
+         this.logError("Tried to setPosition of undefined element");
          return;
       }
       if(this.vars.x === x && this.vars.y === y) {
-         console.warn(
-            `GraphicsElement: Tried to setPosition to [${x},${y}] when it was already [${x},${y}]`
-         );
+         this.logWarn(`Tried to setPosition to [${x},${y}] when it was already [${x},${y}]`);
          return;
       }
       
@@ -132,13 +156,11 @@ export class GraphicsElement {
 
    public setDiameter = (diameter: number) => {
       if(this.element === undefined) {
-         console.error("GraphicsElement: Tried to setDiameter of undefined element");
+         this.logError("Tried to setDiameter of undefined element");
          return;
       }
       if(this.vars.diameter === diameter) {
-         console.warn(
-            `GraphicsElement: Tried to setDiameter to ${diameter} when it was already ${diameter}`
-         );
+         this.logWarn(`Tried to setDiameter to ${diameter} when it was already ${diameter}`);
          return;
       }
       this.vars.diameter = diameter;
@@ -155,13 +177,11 @@ export class GraphicsElement {
 
    public setColor = (color: string) => {
       if(this.element === undefined) {
-         console.error("GraphicsElement: Tried to setColor of undefined element");
+         this.logError("Tried to setColor of undefined element");
          return;
       }
       if(this.vars.color === color) {
-         console.warn(
-            `GraphicsElement: Tried to setColor to ${color} when it was already ${color}`
-         );
+         this.logWarn(`Tried to setColor to ${color} when it was already ${color}`);
          return;
       }
       this.vars.color = color;
@@ -189,13 +209,11 @@ export class GraphicsElement {
 
    public setShape = (shape: TShape) => {
       if(this.element === undefined) {
-         console.error("GraphicsElement: Tried to setShape of undefined element");
+         this.logError("Tried to setShape of undefined element");
          return;
       }
       if(this.vars.shape === shape) {
-         console.warn(
-            `GraphicsElement: Tried to setShape to ${shape} when it was already ${shape}`
-         );
+         this.logWarn(`Tried to setShape to ${shape} when it was already ${shape}`);
          return;
       }
       this.vars.shape = shape;
@@ -243,13 +261,11 @@ export class GraphicsElement {
 
    public setRotation = (rotation: number) => {
       if(this.element === undefined) {
-         console.error("GraphicsElement: Tried to setRotation of undefined element");
+         this.logError("Tried to setRotation of undefined element");
          return;
       }
       if(this.vars.rotation === rotation) {
-         console.warn(
-            `GraphicsElement: Tried to setRotation to ${rotation} when it was already ${rotation}`
-         );
+         this.logWarn(`Tried to setRotation to ${rotation} when it was already ${rotation}`);
          return;
       }
       this.vars.rotation = rotation;
@@ -259,13 +275,11 @@ export class GraphicsElement {
 
    public setScale = (scale: number) => {
       if(this.element === undefined) {
-         console.error("GraphicsElement: Tried to setScale of undefined element");
+         this.logError("Tried to setScale of undefined element");
          return;
       }
       if(this.vars.scale === scale) {
-         console.warn(
-            `GraphicsElement: Tried to setScale to ${scale} when it was already ${scale}`
-         );
+         this.logWarn(`Tried to setScale to ${scale} when it was already ${scale}`);
          return;
       }
       this.vars.scale = scale;

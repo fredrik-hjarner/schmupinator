@@ -1,44 +1,33 @@
 import type {
    IGraphics, TGfx_Release, TGfx_SetColor, TGfx_SetDiameter, TGfx_SetPosition, TGfx_SetRotation,
    TGfx_SetScale, TGfx_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
-   TResponse_AskForElement, TResponse_Void, TShape
+   TResponse_AskForElement, TResponse_Void
 } from "./IGraphics";
 
-import { resolutionWidth, zIndices } from "../../../consts";
-import { px } from "../../../utils/px";
+import { resolutionWidth } from "../../../consts";
 import { guid } from "../../../utils/uuid";
 import { Vector as TVector } from "../../../math/bezier";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import circle from "../../../assets/images/circle.png";
-import square from "../../../assets/images/square.png";
-import triangle from "../../../assets/images/triangle.png";
-import diamondShield from "../../../assets/images/diamondShield.png";
-import octagon from "../../../assets/images/octagon.png";
-import explosion from "../../../assets/images/explosion.png";
-import roundExplosion from "../../../assets/images/roundExplosion.png";
+import { GraphicsElement } from "./GraphicsElement";
 
-type TGraphicsElement = {
+type TGfxPoolEntry = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
    inUse: boolean // If the GraphicsElement is in use, or if it is free to give away.
-   element: HTMLDivElement;
-   scale: number;
-   rotation: number; // degrees
+   element: GraphicsElement;
    /**
     * I think only needed for calculating "resting place" i.e. where they are placed when not used.
     * Should probably not be used/have any affect in production.
     */
    index: number;
-   shape: TShape;
-   diameter: number;
 }
 
-type TElementPool = Partial<{ [handle: string]: TGraphicsElement }>;
+type TGfxPool = Partial<{ [handle: string]: TGfxPoolEntry }>;
 
 type TConstructor = { name: string };
 
 export class Graphics implements IGraphics {
    public name: string;
-   private elementPool: TElementPool;
+   private elementPool: TGfxPool;
    private static poolSize = 100;
 
    public constructor({ name }: TConstructor) {
@@ -86,9 +75,9 @@ export class Graphics implements IGraphics {
       return { x, y };
    };
 
-   private initElementPool = (): TElementPool => {
+   private initElementPool = (): TGfxPool => {
       const arr100 = Array(Graphics.poolSize).fill(0);
-      const result: TElementPool = {};
+      const result: TGfxPool = {};
       arr100.forEach((_, i) => {
          const element = this.initOneElement(i);
          result[element.handle] = element;
@@ -96,86 +85,18 @@ export class Graphics implements IGraphics {
       return result;
    };
 
-   private reset = (ge: TGraphicsElement) => {
-      const { x, y } = this.getRestingPlace(ge.index);
-      // const color = "orange";
-      const diameter = 5;
-      const radius = diameter/2;
-
-      const top = y - radius;
-      const left = x - radius;
-   
-      ge.rotation = 0;
-      ge.scale = 1;
-      /** TODO: Remove duplication */
-      ge.element.style.position = "fixed";
-      ge.element.style.boxSizing = "border-box";
-      // ge.element.style.backgroundColor = color;
-
-      ge.element.style.backgroundSize = "contain";
-      ge.element.style.imageRendering = "pixelated";
-      ge.element.style.backgroundImage = `url('${circle}')`;
-      ge.element.style.backgroundRepeat = "no-repeat";
-      ge.element.style.backgroundPosition = "center";
-      ge.element.style.filter = "none";
-
-      ge.element.style.width = px(diameter);
-      ge.element.style.height = px(diameter);
-      ge.element.style.top = px(top);
-      ge.element.style.left = px(left);
-      ge.element.style.zIndex = zIndices.graphicsEngineElements;
-      ge.element.style.transform = `rotate(0deg) scale(1)`;
-   };
-
-   private initOneElement = (i: number): TGraphicsElement => {
+   private initOneElement = (i: number): TGfxPoolEntry => {
       const { x, y } = this.getRestingPlace(i);
-      // const color = "orange";
-      const diameter = 5;
-      const radius = diameter/2;
-
-      const handle = `${guid()}`;
-      const top = y - radius;
-      const left = x - radius;
-   
-      /** TODO: Remove duplication */
-      const element = BrowserDriver.WithWindow(window => {
-         const element = window.document.createElement("div");
-         element.id = handle;
-         element.style.position = "fixed";
-         element.style.boxSizing = "border-box";
-         // element.style.backgroundColor = color;
-
-         element.style.backgroundSize = "contain";
-         element.style.imageRendering = "pixelated";
-         element.style.backgroundImage = `url('${circle}')`;
-         element.style.backgroundRepeat = "no-repeat";
-         element.style.backgroundPosition = "center";
-         element.style.filter = "none";
-
-         element.style.width = px(diameter);
-         element.style.height = px(diameter);
-         element.style.top = px(top);
-         element.style.left = px(left);
-         element.style.zIndex = zIndices.graphicsEngineElements;
-         element.style.transform = `rotate(0deg) scale(1)`;
-         window.document.body.appendChild(element);
-         return element;
-      }) as HTMLDivElement;
-
       return {
-         handle,
+         handle: `${guid()}`,
          inUse: false,
-         element,
+         element: new GraphicsElement(x, y),
          index: i,
-         shape: "circle",
-         diameter: 5,
-         scale: 1,
-         rotation: 0
       };
    };
 
    // Helper that finds and assert that an element exists and is in use.
-   private findExistingAndInUse = (handle: THandle): TGraphicsElement => {
+   private findExistingAndInUse = (handle: THandle): TGfxPoolEntry => {
       const element = this.elementPool[handle];
       if(!element) {
          BrowserDriver.Alert(`Graphics: No GraphicsElement with handle "${handle}"!`);
@@ -190,7 +111,7 @@ export class Graphics implements IGraphics {
 
    private actionAskForElement = (): TResponse_AskForElement => {
       const unusedElement = Object.values(this.elementPool)
-         .find((element) => !(element as TGraphicsElement).inUse);
+         .find((element) => !(element as TGfxPoolEntry).inUse);
       if(unusedElement) {
          unusedElement.inUse = true;
          return { type: "responseAskForElement", handle: unusedElement.handle };
@@ -201,132 +122,54 @@ export class Graphics implements IGraphics {
 
    private actionSetPosition =
       ({ handle, x, y }: Omit<TGfx_SetPosition,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
-         const diameter = parseFloat(element.element.style.width);
-         const radius = diameter/2;
-         if(x !== undefined) {
-            element.element.style.left = px(x - radius);
-         }
-         if(y !== undefined) {
-            element.element.style.top = px(y - radius);
-         }
+         const gfxEntry = this.findExistingAndInUse(handle);
+         gfxEntry.element.setPosition(x, y);
          return { type: "responseVoid" };
       };
 
    private actionSetDiameter =
       ({ handle, diameter }: Omit<TGfx_SetDiameter,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
-         const oldRadius = element.diameter/2;
-         const radius = diameter/2;
-         const delta = radius - oldRadius;
-         const style = element.element.style;
-         style.width = px(diameter);
-         style.height = px(diameter);
-         style.left = px(parseFloat(style.left) - delta);
-         style.top = px(parseFloat(style.top) - delta);
-
-         element.diameter = diameter;
+         const gfxEntry = this.findExistingAndInUse(handle);
+         gfxEntry.element.setDiameter(diameter);
          return { type: "responseVoid" };
       };
 
    private actionRelease =
       ({ handle }: Omit<TGfx_Release,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
+         const gfxEntry = this.findExistingAndInUse(handle);
 
          // Put back in resting position and reset styles.
-         this.reset(element);
-         
-         element.inUse = false;
+         const { x, y } = this.getRestingPlace(gfxEntry.index);
+         gfxEntry.element.reset(x, y);
+         gfxEntry.inUse = false;
          return { type: "responseVoid" };
       };
    
    private actionSetColor =
       ({ handle, color }: Omit<TGfx_SetColor,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
-         /**
-          * TODO: This switch case is ugly, should do this in some other way??
-          */
-         switch(color) {
-            case "red":
-               element.element.style.filter = "none";
-               break;
-            case "black":
-               element.element.style.filter = "brightness(0)";
-               break;
-            case "green":
-               element.element.style.filter = "hue-rotate(135deg) brightness(1.09)";
-               break;
-            case "aqua":
-               element.element.style.filter = "hue-rotate(180deg) brightness(3)";
-               break;
-            default:
-               BrowserDriver.Alert(`Graphics.actionSetColor: unknown color '${color}'`);
-               break;
-         }
+         const gfxEntry = this.findExistingAndInUse(handle);
+         gfxEntry.element.setColor(color);
          return { type: "responseVoid" };
       };
 
    private actionSetShape =
       ({ handle, shape }: Omit<TGfx_SetShape,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
-         switch(shape) {
-            case "none": {
-               element.element.style.backgroundImage = "none";
-               break;
-            }
-            case "circle": {
-               element.element.style.backgroundImage = `url('${circle}')`;
-               break;
-            }
-            case "square": {
-               element.element.style.backgroundImage = `url('${square}')`;
-               break;
-            }
-            case "triangle": {
-               element.element.style.backgroundImage = `url('${triangle}')`;
-               break;
-            }
-            case "diamondShield":
-               element.element.style.backgroundImage = `url('${diamondShield}')`;
-               break;
-            case "octagon":
-               element.element.style.backgroundImage = `url('${octagon}')`;
-               break;
-            case "explosion": {
-               /**
-                * Without the query string, all animations of same file were synced like it was
-                * only one animation displayed on different places. Also the querystring must
-                * be different EVERY time so that's why I use `Date.now()`.
-                */
-               const q = `?id=${Date.now()}`;
-               element.element.style.backgroundImage = `url('${explosion}${q}')`;
-               break;
-            }
-            case "roundExplosion": {
-               const q = `?id=${Date.now()}`;
-               element.element.style.backgroundImage = `url('${roundExplosion}${q}')`;
-               break;
-            }
-         }
-         element.shape = shape;
+         const gfxEntry = this.findExistingAndInUse(handle);
+         gfxEntry.element.setShape(shape);
          return { type: "responseVoid" };
       };
 
    private actionSetRotation =
       ({ handle, degrees }: Omit<TGfx_SetRotation,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
-         element.rotation = degrees;
-         element.element.style.transform =
-            `rotate(${element.rotation}deg) scale(${element.scale})`;
+         const gfxEntry = this.findExistingAndInUse(handle);
+         gfxEntry.element.setRotation(degrees);
          return { type: "responseVoid" };
       };
 
    private actionSetScale =
       ({ handle, scale }: Omit<TGfx_SetScale,"type">): TResponse_Void => {
-         const element = this.findExistingAndInUse(handle);
-         element.scale = scale;
-         element.element.style.transform =
-            `rotate(${element.rotation}deg) scale(${element.scale})`;
+         const gfxEntry = this.findExistingAndInUse(handle);
+         gfxEntry.element.setScale(scale);
          return { type: "responseVoid" };
       };
 }
