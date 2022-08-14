@@ -169,9 +169,11 @@ export class GraphicsElement {
          this.logWarn(`Tried to setDiameter to ${diameter} when it was already ${diameter}`);
          return;
       }
+   
+      const oldRadius = this.vars.diameter/2;
+   
       this.vars.diameter = diameter;
 
-      const oldRadius = this.vars.diameter/2;
       const radius = diameter/2;
       const delta = radius - oldRadius;
       const style = this.element.style;
