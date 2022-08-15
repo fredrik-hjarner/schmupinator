@@ -61,6 +61,11 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    };
 
    /**
+    * Number of frames that took too long time to execute.
+    */
+   private tooSlowFrames = 0;
+
+   /**
    * This may not actually progress the game one frame.
    * Idea is to run these as fast as possible and to only progress a frame
    * when one frame has passed.
@@ -85,8 +90,9 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
          this.advanceFrames();
       }
       if(i > 1) {
+         this.tooSlowFrames += (i-1);
          // TODO: Only show this warning on debug, right?
-         console.log(`Warning: skipped ${i-1} frames!`);
+         console.log(`A total of ${this.tooSlowFrames} frames executed too slow!`);
       }
    };
 }
