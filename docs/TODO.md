@@ -212,4 +212,8 @@ Movement - Arrow keys
 for example one GameObject migh want to use the default `shot` but another one might want to use
 another one.
 
-* Replace TAction|TShortFormAction with TAllActionTypes
+* Replace TAction|TShortFormAction with TAllActionTypes. Also clean up in actionTypes.ts so that
+that file only contains TActions: and not any TShortFormAction:s.
+
+* Experiment with GraphicsElement.commit and Graphics.commit to see if that make any difference
+performance-wise.
