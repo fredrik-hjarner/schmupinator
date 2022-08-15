@@ -170,17 +170,15 @@ export class GraphicsElement {
          return;
       }
    
-      const oldRadius = this.vars.diameter/2;
-   
       this.vars.diameter = diameter;
 
       const radius = diameter/2;
-      const delta = radius - oldRadius;
+
       const style = this.element.style;
       style.width = px(diameter);
       style.height = px(diameter);
-      style.left = px(parseFloat(style.left) - delta);
-      style.top = px(parseFloat(style.top) - delta);
+      style.left = px(this.vars.x - radius);
+      style.top = px(this.vars.y - radius);
    };
 
    public setColor = (color: string) => {
