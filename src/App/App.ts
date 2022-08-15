@@ -8,8 +8,8 @@ import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
 import type {
-   IEventsCollisions,
-   IEventsPoints, IGameEvents, IUiEvents, TCollisionsEvent, TGameEvent, TPointsEvent, TUiEvent
+   IEventsCollisions, IEventsEndOfFrame, IEventsPoints, IGameEvents, IUiEvents, TCollisionsEvent,
+   TEndOfFrameEvent, TGameEvent, TPointsEvent, TUiEvent
 } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
@@ -82,6 +82,7 @@ export class App {
    public collisions: Collisions;
    public events: IGameEvents;
    public eventsCollisions: IEventsCollisions;
+   public eventsEndOfFrame: IEventsEndOfFrame;
    /**
     * only listened to by the UI & UI Scenes,
     * other services send messages over eventsUi so that the UI know when to update.
@@ -138,6 +139,7 @@ export class App {
 
       this.events =           new Events<TGameEvent>({ app: this, name: "events" });
       this.eventsCollisions = new Events<TCollisionsEvent>({ app: this, name: "eventsCollisions" });
+      this.eventsEndOfFrame = new Events<TEndOfFrameEvent>({ app: this, name: "eventsEndOfFrame" });
       this.eventsUi =         new Events<TUiEvent>({ app: this, name: "eventsUi" });
       this.eventsPoints =     new Events<TPointsEvent>({ app: this, name: "eventsPoints" });
 
@@ -205,7 +207,7 @@ export class App {
       const {
          collisions,
          enemies,
-         events, eventsCollisions, eventsPoints, eventsUi,
+         events, /* eventsEndOfFrame, */ eventsCollisions, eventsPoints, eventsUi,
          gameLoop, gamepad, graphics,
          highscore,
          input,
@@ -255,7 +257,9 @@ export class App {
       await this.eventsUi.Init();
       await this.init.gameSpeed();
       await this.points.Init();
-      await this.graphics.Init();
+      await this.graphics.Init(
+         // eventsEndOfFrame
+      );
       await this.ui.Init({
          events,
          eventsUi,

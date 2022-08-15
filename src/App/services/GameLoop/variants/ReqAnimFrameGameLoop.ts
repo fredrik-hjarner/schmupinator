@@ -49,6 +49,10 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    public nextFrame = () => {
       this.FrameCount++;
       this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+      this.app.eventsEndOfFrame.dispatchEvent({
+         type: "end_of_frame",
+         frameNr: this.FrameCount
+      });
    };
 
    /**
