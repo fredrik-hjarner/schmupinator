@@ -216,4 +216,5 @@ another one.
 that file only contains TActions: and not any TShortFormAction:s.
 
 * Experiment with GraphicsElement.commit and Graphics.commit to see if that make any difference
-performance-wise.
+performance-wise. with cssText probably. I am probably gonna need a commit if I am going to do
+something with canvas.
