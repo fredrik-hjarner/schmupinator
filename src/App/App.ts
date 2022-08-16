@@ -41,6 +41,9 @@ import { GameData } from "./services/GamaData/GameData";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Graphics } from "./services/Graphics/Graphics";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx";
 import { UI } from "./services/UI/UI";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -57,7 +60,7 @@ import { OutsideHider } from "./services/OutsideHider/OutsideHider";
  */
 import { NoopService } from "./services/NoopService";
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
-import { MockGraphics } from "./services/Graphics/MockGraphics";
+import { MockGraphics } from "./services/Graphics/variants/MockGraphics";
 import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -152,7 +155,8 @@ export class App {
       this.gameData = new GameData({ name: "gameData" });
 
       this.graphics = IsBrowser() ?
-         new Graphics({ name: "graphics" }) :
+         // new Graphics({ name: "graphics" }) :
+         new CanvasGfx({ name: "graphics" }) :
          // new MockGraphics({ name: "mockGraphics" }) :
          new MockGraphics({ name: "mockGraphics" });
 
@@ -207,7 +211,7 @@ export class App {
       const {
          collisions,
          enemies,
-         events, /* eventsEndOfFrame, */ eventsCollisions, eventsPoints, eventsUi,
+         events, eventsEndOfFrame, eventsCollisions, eventsPoints, eventsUi,
          gameLoop, gamepad, graphics,
          highscore,
          input,
@@ -257,9 +261,9 @@ export class App {
       await this.eventsUi.Init();
       await this.init.gameSpeed();
       await this.points.Init();
-      await this.graphics.Init(
-         // eventsEndOfFrame
-      );
+      await this.graphics.Init({
+         eventsEndOfFrame,
+      });
       await this.ui.Init({
          events,
          eventsUi,

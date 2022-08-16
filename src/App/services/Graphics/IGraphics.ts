@@ -39,6 +39,7 @@ export type TGfx_SetRotation = {
    type: "gfxSetRotation",
    handle: THandle, degrees: number
 };
+// TODO: This seems to be unused. Unclear purpose.
 export type TGfx_SetScale = {
    type: "gfxSetScale",
    handle: THandle, scale: number

@@ -1,4 +1,4 @@
-import type { IGraphics, TGraphicsAction, TGraphicsResponse } from "./IGraphics";
+import type { IGraphics, TGraphicsAction, TGraphicsResponse } from "../IGraphics";
 
 type TConstructor = { name: string };
 
