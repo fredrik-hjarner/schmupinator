@@ -75,7 +75,7 @@ export class CanvasGfxElement {
     * If the gfxElemet has not changed then caching may be possible.
     */
    // @ts-ignore: It is unused but I will (hopefully) use it.
-   private unrenderedChanges = 0;
+   private unrenderedChanges = 1;
 
    public constructor(canvasContext?: CanvasRenderingContext2D) {
       this.context = canvasContext;

@@ -218,3 +218,8 @@ that file only contains TActions: and not any TShortFormAction:s.
 * Experiment with GraphicsElement.commit and Graphics.commit to see if that make any difference
 performance-wise. with cssText probably. I am probably gonna need a commit if I am going to do
 something with canvas.
+
+* Maybe I should have a GfxElementRenderer class that takes the data from the GfxElement and throws,
+it also would need the context. That way I could maybe create several renderers or something.
+I could have the "normal" renderer, but also a cached-OffscreenCanvas-renderer that keeps a cache
+with keyed by stringified this.vars for all GameObjects.
