@@ -6,6 +6,8 @@ import type {
 import type { TInitParams } from "../../../IService";
 import type { IEventsEndOfFrame } from "../../../Events/IEvents";
 
+import { Renderer } from "./Renderer";
+
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts";
 import { guid } from "../../../../../utils/uuid";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
@@ -25,14 +27,16 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
    // vars
    public name: string;
    private gfxElements: TGfxPool = {};
-   private canvasContext?: CanvasRenderingContext2D;
+   private canvasContext: CanvasRenderingContext2D;
 
    // deps/services
    private eventsEndOfFrame!: IEventsEndOfFrame;
+   private renderer: Renderer; // TODO: Isn't exactly a service, don't know if it should be.
 
    public constructor({ name }: TConstructor) {
       this.name = name;
-      const maybeContext = BrowserDriver.WithWindow(window => {
+      this.renderer = new Renderer();
+      this.canvasContext = BrowserDriver.WithWindow(window => {
          const canvas = window.document.createElement("canvas");
          canvas.width = resolutionWidth;
          canvas.height = resolutionHeight;
@@ -45,10 +49,7 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
          window.document.body.appendChild(canvas);
    
          return canvas.getContext("2d");
-      });
-      if(maybeContext !== null && maybeContext !== undefined){
-         this.canvasContext = maybeContext;
-      }
+      }) as CanvasRenderingContext2D;
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
@@ -60,9 +61,7 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
 
    private render = () => {
       // clear canvas.
-      if(this.canvasContext !== undefined) {
-         this.canvasContext.clearRect(0, 0, resolutionWidth, resolutionHeight);
-      }
+      this.canvasContext.clearRect(0, 0, resolutionWidth, resolutionHeight);
       // render/commit all gfxElements.
       Object.values(this.gfxElements).forEach(gfx => {
          if(gfx === undefined) {
@@ -114,7 +113,7 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
       const handle = `${guid()}`;
       this.gfxElements[handle] = {
          handle,
-         element: new CanvasGfxElement(this.canvasContext)
+         element: new CanvasGfxElement({ ctx: this.canvasContext, renderer: this.renderer })
       };
       return { type: "responseAskForElement", handle };
    };
