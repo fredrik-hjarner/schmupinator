@@ -90,7 +90,11 @@ export class Renderer {
 
       // @ts-ignore: TS thinks OffscreenCanvas is experimental.
       // eslint-disable-next-line
-      const offscreenCanvas = new OffscreenCanvas(diameterOfCanvas, diameterOfCanvas) as HTMLCanvasElement;
+      const offscreenCanvas = document.createElement("canvas");
+      // const offscreenCanvas =
+      // new OffscreenCanvas(diameterOfCanvas, diameterOfCanvas) as HTMLCanvasElement;
+      offscreenCanvas.width = diameterOfCanvas;
+      offscreenCanvas.height = diameterOfCanvas;
       const newCtx = offscreenCanvas.getContext("2d") as CanvasRenderingContext2D;
       
       // Note: I think even numbers can be problematic here and make a rotated image not be exact.
