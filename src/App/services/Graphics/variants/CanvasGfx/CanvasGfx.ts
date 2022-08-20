@@ -11,12 +11,12 @@ import { Renderer } from "./Renderer";
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts";
 import { guid } from "../../../../../utils/uuid";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
-import { CanvasGfxElement } from "./CanvasGfxElement";
+import { GfxElementData } from "./GfxElementData";
 import { px } from "../../../../../utils/px";
 
 type TGfxPoolEntry = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.
-   element: CanvasGfxElement;
+   element: GfxElementData;
 }
 
 type TGfxPool = Partial<{ [handle: string]: TGfxPoolEntry }>;
@@ -67,7 +67,7 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
          if(gfx === undefined) {
             throw new Error("CanvasGfx: gfx is undefined");
          }
-         gfx.element.render();
+         this.renderer.render({ ctx: this.canvasContext, data: gfx.element });
       });
    };
 
@@ -113,7 +113,7 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
       const handle = `${guid()}`;
       this.gfxElements[handle] = {
          handle,
-         element: new CanvasGfxElement({ ctx: this.canvasContext, renderer: this.renderer })
+         element: new GfxElementData()
       };
       return { type: "responseAskForElement", handle };
    };
@@ -122,10 +122,10 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
       ({ handle, x, y }: Omit<TGfx_SetPosition,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
          if(x !== undefined) {
-            gfxEntry.element.setVar({ var: "x", value: x });
+            gfxEntry.element.x = x;
          }
          if(y !== undefined) {
-            gfxEntry.element.setVar({ var: "y", value: y });
+            gfxEntry.element.y = y;
          }
          return { type: "responseVoid" };
       };
@@ -133,7 +133,7 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
    private actionSetDiameter =
       ({ handle, diameter }: Omit<TGfx_SetDiameter,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.setVar({var: "diameter", value: diameter});
+         gfxEntry.element.diameter = diameter;
          return { type: "responseVoid" };
       };
 
@@ -148,28 +148,28 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
    private actionSetColor =
       ({ handle, color }: Omit<TGfx_SetColor,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.setVar({ var : "color", value:color });
+         gfxEntry.element.color = color;
          return { type: "responseVoid" };
       };
 
    private actionSetShape =
       ({ handle, shape }: Omit<TGfx_SetShape,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.setVar({ var: "shape", value: shape });
+         gfxEntry.element.shape = shape;
          return { type: "responseVoid" };
       };
 
    private actionSetRotation =
       ({ handle, degrees }: Omit<TGfx_SetRotation,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.setVar({ var: "rotation", value: degrees });
+         gfxEntry.element.rotation = degrees;
          return { type: "responseVoid" };
       };
 
    private actionSetScale =
       ({ handle, scale }: Omit<TGfx_SetScale,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.setVar({ var: "scale", value: scale });
+         gfxEntry.element.scale = scale;
          return { type: "responseVoid" };
       };
 }

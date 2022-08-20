@@ -1,4 +1,4 @@
-import type { TGfxElementVars } from "./CanvasGfxElement";
+import type { GfxElementData } from "./GfxElementData";
 
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
 // resources
@@ -12,7 +12,7 @@ import roundExplosion from "../../../../../assets/images/roundExplosion.png";
 
 type TRenderParams = {
    ctx?: CanvasRenderingContext2D;
-   gfxElement: TGfxElementVars;
+   data: GfxElementData;
 }
 
 // TODO: Fix eslint problem with Image being undefined.
@@ -60,7 +60,7 @@ export class Renderer {
 
    // Util to help with image, mostly because canvas rotation is awkward.
    private drawImage = (img: CanvasImageSource, params: TRenderParams) => {
-      const { ctx, gfxElement } = params;
+      const { ctx, data: gfxElement } = params;
       const { color, rotation, diameter } = gfxElement;
    
       if(ctx === undefined) { return; }
@@ -86,7 +86,7 @@ export class Renderer {
     * Read the state and render.
     */
    public render = (params: TRenderParams) => {
-      const { ctx, gfxElement: { shape } } = params;
+      const { ctx, data: { shape } } = params;
    
       if(ctx === undefined) { return; }
 
@@ -106,7 +106,7 @@ export class Renderer {
             break;
          default:
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-            throw new Error(`CanvasGfxElement: unhandles shape '${shape}'`);
+            throw new Error(`CanvasGfxElement: unhandled shape '${shape}'`);
       }
    };
 }
