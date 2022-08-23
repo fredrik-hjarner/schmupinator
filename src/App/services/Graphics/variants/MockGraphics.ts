@@ -17,4 +17,8 @@ export class MockGraphics implements IGraphics {
       // noop
       return { type: "responseVoid" };
    };
+
+   public destroy = () => {
+      // noop
+   };
 }

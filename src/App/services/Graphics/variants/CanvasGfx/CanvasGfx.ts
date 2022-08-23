@@ -7,7 +7,6 @@ import type { TInitParams } from "../../../IService";
 import type { IEventsEndOfFrame } from "../../../Events/IEvents";
 
 import { Renderer } from "./Renderer";
-
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts";
 import { guid } from "../../../../../utils/uuid";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
@@ -23,11 +22,11 @@ type TGfxPool = Partial<{ [handle: string]: TGfxPoolEntry }>;
 
 type TConstructor = { name: string };
 
-export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
+export class CanvasGfx implements IGraphics {
    // vars
-   public name: string;
+   public readonly name: string;
    private gfxElements: TGfxPool = {};
-   private canvasContext: CanvasRenderingContext2D;
+   private canvasContext?: CanvasRenderingContext2D;
 
    // deps/services
    private eventsEndOfFrame!: IEventsEndOfFrame;
@@ -52,6 +51,27 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
       }) as CanvasRenderingContext2D;
    }
 
+   public destroy = () => {
+      /**
+       * Unsubscribe from events.
+       */
+      this.eventsEndOfFrame.unsubscribeToEvent(this.name);
+      
+      /**
+        * reset vars
+        */
+      this.gfxElements = {};
+
+      /**
+        * Destroy elements
+        */
+      if(this.canvasContext !== undefined) {
+         this.canvasContext.canvas.remove();
+         this.canvasContext = undefined;
+      }
+      this.renderer = new Renderer();
+   };
+
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       this.eventsEndOfFrame = deps?.eventsEndOfFrame as IEventsEndOfFrame;
@@ -60,6 +80,11 @@ export class CanvasGfx implements IGraphics /*, IDestroyable*/ {
    };
 
    private render = () => {
+      if(this.canvasContext === undefined) {
+         const errMsg = "CanvasGfx.render: this.canvasContext was undefined";
+         console.error(errMsg);
+         throw new Error(errMsg);
+      }
       // clear canvas.
       this.canvasContext.clearRect(0, 0, resolutionWidth, resolutionHeight);
       // render/commit all gfxElements.

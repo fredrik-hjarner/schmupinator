@@ -1,4 +1,5 @@
 import type { TShape } from "./IGraphics";
+import type { IDestroyable } from "../../../utils/types/IDestroyable";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 import { px } from "../../../utils/px";
@@ -17,7 +18,7 @@ import roundExplosion from "../../../assets/images/roundExplosion.png";
  * radius could be a private field that is getting updated whenever diameter is updated.
  */
 
-export class GraphicsElement {
+export class GraphicsElement implements IDestroyable {
    // vars
    // These values will be overwitten in this.reset anyway
    private vars = {
@@ -67,6 +68,24 @@ export class GraphicsElement {
          return element;
       });
    }
+
+   public destroy = () => {
+      /**
+       * Unsubscribe from events.
+       */
+      
+      /**
+        * reset vars
+        */
+
+      /**
+        * Destroy elements
+        */
+      if(this.element !== undefined) {
+         this.element.remove();
+         this.element = undefined;
+      }
+   };
 
    // These styles values never change, are always the same.
    private applyUnchangingDefaults(element: HTMLDivElement){

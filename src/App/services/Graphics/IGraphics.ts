@@ -1,4 +1,5 @@
 import type { IService } from "../IService";
+import type { IDestroyable } from "../../../utils/types/IDestroyable";
 
 export type THandle = string;
 
@@ -75,6 +76,6 @@ export type TResponse_Void = { type: "responseVoid" };
 
 export type TGraphicsResponse = TResponse_AskForElement | TResponse_Void;
 
-export interface IGraphics extends IService {
+export interface IGraphics extends IService, IDestroyable {
    Dispatch(action: TGraphicsAction): TGraphicsResponse;
 }

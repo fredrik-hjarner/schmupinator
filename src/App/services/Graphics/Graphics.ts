@@ -26,14 +26,34 @@ type TGfxPool = Partial<{ [handle: string]: TGfxPoolEntry }>;
 type TConstructor = { name: string };
 
 export class Graphics implements IGraphics {
-   public name: string;
+   public readonly name: string;
    private elementPool: TGfxPool;
-   private static poolSize = 100;
+   private static readonly poolSize = 100;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
       this.elementPool = this.initElementPool();
    }
+
+   public destroy = () => {
+      /**
+       * Unsubscribe from events.
+       */
+      
+      /**
+        * reset vars
+        */
+      Object.values(this.elementPool).forEach(element => {
+         if(element !== undefined) {
+            element.element.destroy();
+         }
+      });
+      this.elementPool = {};
+
+      /**
+        * Destroy elements
+        */
+   };
 
    public Init = async () => {
       // noop
