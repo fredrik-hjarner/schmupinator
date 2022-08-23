@@ -41,9 +41,6 @@ import { GameData } from "./services/GamaData/GameData";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Graphics } from "./services/Graphics/Graphics";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx";
 import { UI } from "./services/UI/UI";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -66,6 +63,12 @@ import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop";
 import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx";
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx";
 
 /**
  * Other
@@ -155,8 +158,9 @@ export class App {
       this.gameData = new GameData({ name: "gameData" });
 
       this.graphics = IsBrowser() ?
-         // new Graphics({ name: "graphics" }) :
-         new CanvasGfx({ name: "graphics" }) :
+         new Graphics({ name: "graphics" }) :
+         // new CanvasGfx({ name: "graphics" }) :
+         // new CachedCanvasGfx({ name: "graphics" }) :
          // new MockGraphics({ name: "mockGraphics" }) :
          new MockGraphics({ name: "mockGraphics" });
 
