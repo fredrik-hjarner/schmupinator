@@ -62,7 +62,11 @@ export type TMirrorY = { type: "mirrorY", value: boolean };
 export type TDo = { type: "do", acns: TSFAction[] };
 // Well, the enemy dies.
 export type TDie = { type: "die" };
-// Enemy despawns. Like "die" except onDeathAction is NOT triggered.
+/**
+ * Enemy despawns. Like "die" except onDeathAction is NOT triggered.
+ * An example of when this should be used is when an enemy despawns outside of the screen,
+ * you probably don't want to trigger an onDeath with explodes the enemy into bullets.
+ */
 export type TDespawn = { type: "despawn" };
 /**
  * Attributes can be either some predefined thing by me such as hp, points,
@@ -97,6 +101,9 @@ export type TWaitUntilAttrIs = { type: "waitUntilAttrIs", attr: string, is: TAtt
 export type TMoveAccordingToInput = { type: "moveAccordingToInput" };
 export type TWaitInputShoot = { type: "waitInputShoot" };
 export type TWaitInputLaser = { type: "waitInputLaser" };
+
+// Signals that the level has been finished, so trigger this when end boss dies or something similar
+export type TFinishLevel = { type: "finishLevel" };
 
 export type TAction =
    /**
@@ -152,6 +159,7 @@ export type TAction =
    TIncrement |
    TDecrement |
    TWaitUntilAttrIs |
+   TFinishLevel |
    /**
     * Mirroring
     */

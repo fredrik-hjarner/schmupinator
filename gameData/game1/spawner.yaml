@@ -3,6 +3,9 @@ enemy:
     diameter: 20
     hp: 9999
     actions:
+      - fork:
+        - wait: 3200
+        - type: finishLevel
       - { type: setAttribute, attribute: collisionType, value: none }
       - { type: gfxSetShape, shape: none }
       # - wait: 1

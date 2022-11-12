@@ -223,3 +223,9 @@ something with canvas.
 it also would need the context. That way I could maybe create several renderers or something.
 I could have the "normal" renderer, but also a cached-OffscreenCanvas-renderer that keeps a cache
 with keyed by stringified this.vars for all GameObjects.
+
+* Invincibility should be set via attribute, that way an Enemy can manage it's own invincibility
+frames if I also make a onHit callback action that can toggle invincibility on/off.
+
+* In the future I would probably want more specific actions to end the game for example end it
+in a success way but now I only have one type of "end of game" and that is Game Over.

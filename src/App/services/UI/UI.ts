@@ -103,13 +103,6 @@ export class UI implements IUI {
 
    private onEvent = (event: TGameEvent) => {
       switch(event.type) {
-         case "frame_tick": {
-            if(this.gameLoop.FrameCount >= 3200) {
-               this.gameLoop.pause();
-               this.SetActiveScene(this.gameOver);
-            }
-            break;
-         }
          case "player_died": {
             this.gameLoop.pause();
             this.SetActiveScene(this.gameOver);
