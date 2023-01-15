@@ -229,3 +229,7 @@ frames if I also make a onHit callback action that can toggle invincibility on/o
 
 * In the future I would probably want more specific actions to end the game for example end it
 in a success way but now I only have one type of "end of game" and that is Game Over.
+
+* Shouldn't I be able to use JS instead of YAML for game-object configs etc? The JS could be
+executed and it needs to return a JSON of correct/expected format. Well then I run into security
+problems again though.
