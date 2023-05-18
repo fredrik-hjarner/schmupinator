@@ -2,7 +2,6 @@ import type { Enemies } from "../Enemies/Enemies";
 import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
 import type { Enemy } from "../Enemies/Enemy";
-import type { Settings } from "../Settings/Settings";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
@@ -31,7 +30,6 @@ export class Collisions implements IService {
    private events!: IGameEvents;
    private eventsCollisions!: IEventsCollisions;
    private enemies!: Enemies;
-   private settings!: Settings;
 
    /**
    * Public
@@ -51,7 +49,6 @@ export class Collisions implements IService {
       this.events = deps?.events as IGameEvents;
       this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
       this.enemies = deps?.enemies as Enemies;
-      this.settings = deps?.settings as Settings;
       
       this.events.subscribeToEvent(
          this.name,
@@ -97,10 +94,10 @@ export class Collisions implements IService {
             doesThis: player,
             collideWithThese: killsPlayerOnCollision
          }).collided;
-      // TODO: This assumes that the player has only one hp, which might not be true.
-      if(playerWasHit && !this.settings.settings.invincibility) {
-         // TODO: This is a bit ugly.
-         this.events.dispatchEvent({ type: "player_died" });
+
+      if(playerWasHit) {
+         const collisions = { enemiesThatWereHit: [player.id] };
+         this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
       
       const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {

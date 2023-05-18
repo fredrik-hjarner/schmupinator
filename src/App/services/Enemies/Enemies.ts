@@ -9,6 +9,7 @@ import type { TShortFormAction } from "./actions/actionTypesShortForms";
 import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
+import type { Settings } from "../Settings/Settings";
 
 import { Enemy } from "./Enemy";
 import { TAction } from "./actions/actionTypes";
@@ -27,6 +28,7 @@ export class Enemies implements IService {
    public graphics!: IGraphics;
    public input!: IInput;
    public gamepad!: GamePad;
+   public settings!: Settings;
 
    /**
     * Public
@@ -51,6 +53,7 @@ export class Enemies implements IService {
       this.graphics = deps?.graphics as IGraphics;
       this.input = deps?.input as IInput;
       this.gamepad = deps?.gamepad as GamePad;
+      this.settings = deps?.settings as Settings;
 
       this.events.subscribeToEvent(this.name, this.handleEvent);
       this.eventsCollisions.subscribeToEvent(this.name, this.handleEvent);

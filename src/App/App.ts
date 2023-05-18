@@ -250,14 +250,14 @@ export class App {
          graphics,
          gameData,
          input,
-         gamepad
+         gamepad,
+         settings,
       });
       await gamepad.Init();
       await this.collisions.Init({
          enemies,
          events,
          eventsCollisions,
-         settings,
       });
       await this.events.Init();
       await this.eventsCollisions.Init();

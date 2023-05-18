@@ -33,6 +33,8 @@ enemy:
     diameter: 20
     hp: 1
     actions:
+      # set points to 0, otherwise you get points when the player dies since default is 10 currently
+      - { type: setAttribute, attribute: points, value: 0 }
       - { type: gfxSetColor, color: aqua }
       # TODO: setMoveDirection might be a stupid name for the
       # action and the way it works might also be stupid.

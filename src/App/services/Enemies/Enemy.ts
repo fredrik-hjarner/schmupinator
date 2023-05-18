@@ -62,11 +62,9 @@ export class Enemy {
          diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
       });
 
-      /**
-       * Execute one frame. This important if the enemy has some initialization that it needs have
-       * to have run, otherwise initialization (with actions) would be delayed one frame from
-       * being constructed/added via constructor.
-       */
+      // Execute one frame. This important if the enemy has some initialization that it needs have
+      // to have run, otherwise initialization (with actions) would be delayed one frame from
+      // being constructed/added via constructor.
       this.OnFrameTick();
    }
 
@@ -94,7 +92,6 @@ export class Enemy {
       if(this.attrs.GetAttribute("boundToWindow").value) {
          this.boundToWindow();
       }
-      // this.updateDisplayHealth();
       this.gfx?.setPosition({ x: this.X, y: this.Y });
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
@@ -103,12 +100,16 @@ export class Enemy {
     * When this enemy collided.
     */
    public OnCollision = () => {
+      /**
+       * TODO: If points is zero then it should not dispatch a add_points event!
+       */
       const points = assertNumber(this.attrs.GetAttribute("points").value);
 
+      /**
+       * TODO: add_points is a bad name. Should be names pointsOnHit.
+       */
       this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
       this.hp -= 1;
-
-      // this.updateDisplayHealth();
 
       if(this.hp < 1) { this.die(); }
    };
@@ -143,10 +144,17 @@ export class Enemy {
          this.gfx.release();
          this.gfx = undefined;
       }
+
+      if(this === this.enemies.player && !this.enemies.settings.settings.invincibility) {
+         this.enemies.events.dispatchEvent({ type: "player_died" });
+      }
    };
 
    // unlike despawn die triggers onDeathAction
    private die = () => {
+      if(this === this.enemies.player && this.enemies.settings.settings.invincibility) {
+         return; // Don't kill player if invincible. TODO: Mayb this should b in OnCollision instead
+      }
       if(this.onDeathAction) {
          const done = this.actionExecutor.ExecuteOneAction(this.onDeathAction);
          if(!done) {
@@ -221,6 +229,9 @@ export class Enemy {
             break;
          case "decr":
             this.attrs.decr(action.attribute);
+            break;
+         case "finishLevel": // TODO: dispatch some new "finishLevel" event instead.
+            this.enemies.events.dispatchEvent({ type: "player_died" }); 
             break;
          default:
             this.gfx?.dispatch(action as TGraphicsActionWithoutHandle);
@@ -346,11 +357,4 @@ export class Enemy {
    private getAttr = (attr: string) => {
       return this.attrs.attrExists(attr) && this.attrs.GetAttribute(attr).value;
    };
-
-   // * TODO: Display health in some other way. Previously I cloned the enemy gfx bt black and
-   // * scaled that one inversely proporionally to hp/maxHp, but I think it might require too
-   // * much to have two div per Enemy so I scrapped it.
-   // private updateDisplayHealth = () => {
-   //    // const factorHealthLeft = this.hp / this.maxHp;
-   // };
 }

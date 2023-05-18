@@ -74,7 +74,10 @@ export class SelectGame implements IScene {
 
    private onSelectGame = (gameName: string) => {
       this.ui.gameData.setActiveGame(gameName);
-      this.ui.SetActiveScene(this.ui.game);
-      this.ui.gameLoop.Start();
+      /**
+       * TODO: Should display controls for the current game,
+       * but currently I have no support for such game specific control screens.
+       */
+      this.ui.SetActiveScene(this.ui.displayControls);
    };
 }
