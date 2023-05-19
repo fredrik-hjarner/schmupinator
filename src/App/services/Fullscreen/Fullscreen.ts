@@ -9,10 +9,12 @@ type TConstructor = {
 
 export class Fullscreen implements IFullscreen {
    public readonly name: string;
+   public scale: number;
    private gameAspectRatio = resolutionWidth / resolutionHeight;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
+      this.scale = 1;
 
       this.setFullscreen();
       // TODO: THis is never cleared !!!
@@ -40,24 +42,23 @@ export class Fullscreen implements IFullscreen {
          const windowWidth = window.document.documentElement.clientWidth;
          const windowHeight = window.document.documentElement.clientHeight;
          const windowAspectRatio = windowWidth / windowHeight;
-         let scale: number;
          if(windowAspectRatio > this.gameAspectRatio) {
             // will be extra space in x-wise
-            scale = windowHeight / resolutionHeight;
+            this.scale = windowHeight / resolutionHeight;
             let translateX = 0;
-            translateX = (windowWidth - resolutionWidth*scale) / 2;
-            body.style.transform = `translateX(${translateX}px) scale(${scale})`;
+            translateX = (windowWidth - resolutionWidth*this.scale) / 2;
+            body.style.transform = `translateX(${translateX}px) scale(${this.scale})`;
          } else {
             // will be extra space in y-wise
-            scale = windowWidth / resolutionWidth;
-            body.style.transform = `scale(${scale})`;
+            this.scale = windowWidth / resolutionWidth;
+            body.style.transform = `scale(${this.scale})`;
          }
          /**
           * This width/height stuff is needed because for some reason on touch devices,
           * overflow: hidden does not work.
           */
-         body.style.width = `${100* (1/scale)}%`;
-         body.style.height = `${100* (1/scale)}%`;
+         body.style.width = `${100* (1/this.scale)}%`;
+         body.style.height = `${100* (1/this.scale)}%`;
       });
    };
 }

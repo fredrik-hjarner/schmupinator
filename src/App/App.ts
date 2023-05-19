@@ -16,10 +16,12 @@ import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
 import type { IParallax } from "./services/Parallax/IParallax";
 import type { IE2eTest } from "./services/E2eTest/IE2eTest";
 import type { IOutsideHider } from "./services/OutsideHider/IOutsideHider";
+import type { ICursorShowGamePos } from "./services/CursorShowGamePos/ICursorShowGamePos";
 
 /**
  * Services
  */
+import { CursorShowGamePos } from "./services/CursorShowGamePos/CursorShowGamePos";
 import { Enemies } from "./services/Enemies/Enemies";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -57,6 +59,7 @@ import { OutsideHider } from "./services/OutsideHider/OutsideHider";
  */
 import { NoopService } from "./services/NoopService";
 import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
+import { MockFullscreen } from "./services/Fullscreen/MockFullscreen";
 import { MockGraphics } from "./services/Graphics/variants/MockGraphics";
 import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
 //@ts-ignore
@@ -78,9 +81,13 @@ import { IsBrowser } from "../drivers/BrowserDriver";
 export class App {
    // types here should not be IService but rather something that implements IService.
    // TODO: also all types should NOT be concrete types, but interfaces.
-   public e2eTest: IE2eTest;
-   public settings: Settings;
-   public input: IInput;
+   // TODO: I think the goal was to make all services on App be private, so it's not wild west and
+   // every service can access every other service and it's thus impossible to know what service has
+   // what service as a dependencies.
+   private cursorShowGamePos: ICursorShowGamePos;
+   private e2eTest: IE2eTest;
+   private settings: Settings;
+   private input: IInput;
    public gameLoop: IGameLoop;
    public fps: IFps;
    public enemies: Enemies;
@@ -118,6 +125,8 @@ export class App {
        */
       this.settings = new Settings({ app: this, name: "settings" });
       const { autoplay } = this.settings.settings;
+
+      this.cursorShowGamePos = this.construct.cursorShowGamePos();
 
       this.e2eTest = IsBrowser() ?
          // new NoopService() :
@@ -178,6 +187,11 @@ export class App {
     * TODO: Force sort this object alphabetically.
     */
    public construct = {
+      cursorShowGamePos: (): ICursorShowGamePos => {
+         return IsBrowser() ?
+            new CursorShowGamePos({ name: "cursorShowGamePos" }) :
+            new NoopService();
+      },
       fps: (): IFps => {
          const { fpsStats } = this.settings.settings; // assumes settings has been initialized.
          return IsBrowser() ?
@@ -187,8 +201,10 @@ export class App {
       fullscreen: (): IFullscreen => {
          const { fullscreen } = this.settings.settings; // assumes settings has been initialized.
          return IsBrowser() ?
-            (fullscreen ? new Fullscreen({ name: "fullscreen" }) : new NoopService()) :
-            new NoopService();
+            (fullscreen ?
+               new Fullscreen({ name: "fullscreen" }) :
+               new MockFullscreen({ name: "mockFullscreen" })) :
+            new MockFullscreen({ name: "mockFullscreen" });
       },
       gameSpeed: () => {
          const { gameSpeedSlider } = this.settings.settings; // assumes settings has been init:ed.
@@ -201,7 +217,7 @@ export class App {
          return IsBrowser() ?
             (outsideHider ? new OutsideHider({ name: "hider" }) : new NoopService()) :
             new NoopService();
-      }
+      },
    };
 
    /**
@@ -231,6 +247,7 @@ export class App {
        */
       await gameData.Init();
 
+      await this.init.cursorShowGamePos();
       await settings.Init();
       await this.e2eTest.Init({
          collisions, // only to be able to write out performance stats.
@@ -290,9 +307,16 @@ export class App {
 
    /**
     * Contains init functions keyed by service.
+    * I think I have this public object here so that the init become exposed to the outside world.
     * TODO: Force sort this object alphabetically.
     */
    public init = {
+      cursorShowGamePos: async (): Promise<void> => {
+         const { fullscreen } = this;
+         await this.cursorShowGamePos.Init({
+            fullscreen,
+         });
+      },
       fps: async (): Promise<void> => {
          await this.fps.Init();
       },

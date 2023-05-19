@@ -232,4 +232,12 @@ in a success way but now I only have one type of "end of game" and that is Game 
 
 * Shouldn't I be able to use JS instead of YAML for game-object configs etc? The JS could be
 executed and it needs to return a JSON of correct/expected format. Well then I run into security
-problems again though.
+problems again though. Security problems will not be an issue since node 20 introduced permissions,
+otherwise I could do that transformation with deno.
+
+* ~~The things I have with short form and long form actions is confusing. The types get complicated,
+the types are complicatedetc. I should probably remove the short form actions and only have the long
+form actions. The short form actions serve the function of making it easier to write actions, but
+I think it's better to have the long form actions and then use JSONNET in which I can create my own
+short form actions as JSONNET functions. This way the code of the actual program can become simpler
+and more uniform/consistent.~~
