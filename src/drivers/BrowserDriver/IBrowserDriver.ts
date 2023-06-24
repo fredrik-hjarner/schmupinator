@@ -15,4 +15,7 @@ export interface IBrowserDriver {
 
    // eslint-disable-next-line no-undef
    FetchBinary(path: string): Promise<Buffer | Blob>;
+
+   // save file to disk (obviously a noop in the browser)
+   SaveFile: (path: string, data: string) => Promise<void>;
 }

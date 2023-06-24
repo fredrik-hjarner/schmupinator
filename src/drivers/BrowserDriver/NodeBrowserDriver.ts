@@ -62,4 +62,14 @@ export class NodeBrowserDriver implements IBrowserDriver {
       }
       return buffer;
    };
+
+   public SaveFile = async (path: string, data: string) => {
+      const { writeFile } = await import("fs");
+      writeFile(path, data, (err: Error | null) => {
+         if(err) {
+            throw err;
+         }
+         console.log("File saved.");
+      });
+   };
 }

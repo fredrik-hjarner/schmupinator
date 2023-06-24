@@ -2,8 +2,6 @@
 Both functions that the original state first and saves it, then measures progess then sends the
 original state and the progress to Enemy (that iself executes the stuff).
 
-* Add so that I can hover with mouse to see x, y positions in absolute x,y on gameDiv.
-
 * Maybe I could have ADVANCED and SIMPLE actions, where ADVANCED actions are transformed into
 SIMPLE actions. SIMPLE actions are executed by the game engine and the ADVANCED actions are "utils".
 If I had simple actions such as NOOP which would just wait a frame, then I think it would be
@@ -241,3 +239,6 @@ form actions. The short form actions serve the function of making it easier to w
 I think it's better to have the long form actions and then use JSONNET in which I can create my own
 short form actions as JSONNET functions. This way the code of the actual program can become simpler
 and more uniform/consistent.~~
+
+* The shooting actions should prolly have to specify which shot to use instead of using the default
+shot, since the default shot is a bit "magical".

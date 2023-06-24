@@ -72,4 +72,8 @@ export class RealBrowserDriver implements IBrowserDriver {
       const res = await window.fetch(input);
       return await res.blob();
    };
+
+   public SaveFile = async (_path: string, _data: string) => {
+      // noop
+   };
 }
