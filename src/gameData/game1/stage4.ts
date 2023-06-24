@@ -96,9 +96,9 @@ export const stage4 = {
       // - wait: 240
       // - do: *wave2
       // - wait: 240
-      { type: "do", acns: wave3 },
+      ...wave3,
       { type: "wait", frames: 240 },
-      { type: "do", acns: wave4 },
+      ...wave4,
    ],
 };
 

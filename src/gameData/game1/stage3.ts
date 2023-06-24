@@ -1,3 +1,4 @@
+import { wait } from "../utils";
 import { col, row } from "./common";
 
 export const stage3 = {
@@ -21,15 +22,15 @@ export const shapeShifter = {
       {
          forever: [
             { type: "gfxSetShape", shape: "circle" },
-            { wait: 60 },
+            wait(60),
             { type: "gfxSetShape", shape: "square" },
-            { wait: 60 },
+            wait(60),
             { type: "gfxSetShape", shape: "triangle" },
-            { wait: 60 },
+            wait(60),
             { type: "gfxSetShape", shape: "diamondShield" },
-            { wait: 60 },
+            wait(60),
             { type: "gfxSetShape", shape: "octagon" },
-            { wait: 60 },
+            wait(60),
          ]
       }
    ]
@@ -43,7 +44,7 @@ export const healer = {
       { type: "setAttribute", attribute: "hp", value: 25 },
       {
          forever: [
-            { wait: 10 },
+            wait(10),
             {
                attr: "hp",
                is: 50,
@@ -61,7 +62,7 @@ export const dehealer = {
    actions: [
       {
          forever: [
-            { wait: 10 },
+            wait(10),
             { type: "decr", attribute: "hp" }
          ]
       }

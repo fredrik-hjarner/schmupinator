@@ -1,5 +1,7 @@
 import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
+import { wait } from "../../utils";
+
 export const explosion: IEnemyJson = {
    name: "explosion",
    diameter: 18,
@@ -7,7 +9,7 @@ export const explosion: IEnemyJson = {
    actions: [
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "explosion" },
-      { wait: 40 },
+      wait(40),
       // { type: "wait", frames: 40 },
       { type: "despawn" },
    ],
@@ -20,7 +22,7 @@ export const roundExplosion: IEnemyJson = {
    actions: [
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "roundExplosion" },
-      { wait: 75 },
+      wait(75),
       // { type: "wait", frames: 75 },
       { type: "despawn" },
    ],

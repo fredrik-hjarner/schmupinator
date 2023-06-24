@@ -1,5 +1,7 @@
 import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
+import { wait } from "../../utils";
+
 export const playerLaser: IEnemyJson = {
    name: "playerLaser",
    hp: 1,
@@ -16,12 +18,16 @@ export const playerLaser: IEnemyJson = {
          parallelRace: [
             [{
                forever: [
+                  // @ts-ignore
                   { type: "moveDelta", y: -30 },
+                  // @ts-ignore
                   { type: "waitNextFrame" },
                ]
             }],
             [
-               { wait: 8 },
+               // @ts-ignore
+               wait(8),
+               // @ts-ignore
                { type: "despawn" }
             ]
          ]

@@ -242,3 +242,7 @@ and more uniform/consistent.~~
 
 * The shooting actions should prolly have to specify which shot to use instead of using the default
 shot, since the default shot is a bit "magical".
+
+* Replace Jest with Vitest.
+
+* Add @ alias for src folder.

@@ -1,5 +1,7 @@
 import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
+import { wait } from "../utils";
+
 export const spawner: IEnemyJson = {
    name: "spawner",
    diameter: 20,
@@ -7,7 +9,8 @@ export const spawner: IEnemyJson = {
    actions: [
       {
          fork: [
-            { wait: 100 },
+            // @ts-ignore
+            wait(100),
             { type: "finishLevel" }
          ]
       },

@@ -1,3 +1,5 @@
+import { wait } from "../../utils";
+
 const moveLeft = {
    type: "move",
    frames: 80,
@@ -23,7 +25,7 @@ const rotateRight = {
 };
 
 const shootWhileRotation = [
-   { wait: 16 },
+   wait(16),
    { type: "shoot_toward_player" },
 ];
 

@@ -3,6 +3,8 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
+import { wait } from "../utils";
+
 const aimerLeft = { spawn: "nonShootingAimer", x: 128.5, y: -22 };
 const aimerRight = { spawn: "nonShootingAimer", x: 228.5, y: -22 };
 
@@ -24,16 +26,14 @@ const rightMiniBoss = {
 
 const aimers = [{
    repeat: 8,
-   actions: [aimerLeft, aimerRight, { wait: 40 }]
+   actions: [aimerLeft, aimerRight, wait(40)]
 }];
 
 const sinuses = [{
    repeat: 5,
    actions: [
-      // sinusLeft,  { wait: 70 },
-      // sinusRight, { wait: 70 },
-      { type: "do", acns: [sinusLeft , { wait: 70 }]},
-      { type: "do", acns: [sinusRight, { wait: 70 }]}
+      sinusLeft,  wait(70),
+      sinusRight, wait(70),
    ]
 }];
 
@@ -44,21 +44,22 @@ export const stage1: IEnemyJson = {
    actions: [
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
-      { wait: 120 },
+      wait(120),
       // @ts-ignore
       ...aimers,
       // @ts-ignore
-      { wait: 120 },
+      wait(120),
       // @ts-ignore
       ...sinuses,
       // @ts-ignore
-      { wait: 200 },
+      wait(200),
       // @ts-ignore
       // leftMiniBoss,
       // @ts-ignore
       // rightMiniBoss,
+      leftMiniBoss,
       // @ts-ignore
-      { type: "do", acns: [leftMiniBoss, rightMiniBoss] },
+      rightMiniBoss,
    ]
 };
 
@@ -77,14 +78,18 @@ export const nonShootingAimer: IEnemyJson = {
                // @ts-ignore
                repeat: 26.25,
                actions: [
+                  // @ts-ignore
                   { type: "rotate_towards_player" },
-                  { wait: 8 }
+                  // @ts-ignore
+                  wait(8)
                ]
             }],
             [{
                // @ts-ignore
                forever: [
+                  // @ts-ignore
                   { type: "move_according_to_speed_and_direction" },
+                  // @ts-ignore
                   { type: "waitNextFrame" }
                ]
             }]
@@ -107,7 +112,7 @@ const rotateLeft: TAction | TShortFormAction = {
 const rotateRight: TAction | TShortFormAction = { ...rotateLeft, degrees: 180 };
 
 const shootWhileRotation: (TAction | TShortFormAction)[] = [
-   { wait: 16 },
+   wait(16),
    { type: "shoot_toward_player" }
 ];
 
@@ -127,6 +132,7 @@ export const sinus: IEnemyJson = {
    onDeathAction: { spawn: "roundExplosion" },
    actions: [
       { setShotSpeed: 2 },
+      // @ts-ignore
       { attr: "right", is: true, yes: [{ type: "mirrorX", value: true }] },
       {
          twice: [ // TODO: remove `twice` from core game code and let it be a "util"
@@ -148,19 +154,19 @@ export const sinus: IEnemyJson = {
 const shootDown = { type: "shootDirection", x: 0, y: 1 };
 
 const shootingPattern = [
-   { wait: 75 },
+   wait(75),
    {
       forever: [
          { setShotSpeed: 2.6 },
-         { thrice: [shootDown, { wait: 3 }] }, // TODO: replace with { repeat: 3, actions: ... }
-         { wait: 55 },
+         { thrice: [shootDown, wait(3)] }, // TODO: replace with { repeat: 3, actions: ... }
+         wait(55),
          { setShotSpeed: 2.2 },
          {
             twice: [ // TODO: replace with { repeat: 2, actions: ... }
                { type: "shoot_toward_player" },
                { type: "shoot_beside_player", degrees: 25 },
                { type: "shoot_beside_player", degrees: -25 },
-               { wait: 64 }
+               wait(64)
             ]
          }
       ]
@@ -187,23 +193,21 @@ const movementPattern = [
    intoScreen,
    down1,
 
-   { type: "do", acns: [
-      quarterCircleDownIn,  { wait: 25 },
-      quarterCircleDownOut, { wait: 25 },
-      in1,                  { wait: 25 },
-      up1,                  { wait: 25 },
-      halfCircleLeftDown,   { wait: 25 },
-      out1,                 { wait: 25 },
-      down2,                { wait: 25 },
-      up2,                  { wait: 25 },
-      downIn,               { wait: 25 },
-   ]},
+   quarterCircleDownIn,  wait(25),
+   quarterCircleDownOut, wait(25),
+   in1,                  wait(25),
+   up1,                  wait(25),
+   halfCircleLeftDown,   wait(25),
+   out1,                 wait(25),
+   down2,                wait(25),
+   up2,                  wait(25),
+   downIn,               wait(25),
 
    { attr: "right", is: true, yes: [{ type: "mirrorY", value: true }] },
-   rotateClockwise,      { wait: 25 },
+   rotateClockwise,      wait(25),
    rotateAntiClockwise,
    { attr: "right", is: true, yes: [{ type: "mirrorY", value: false }] },
-   { wait: 25 },
+   wait(25),
    downOutOfScreen
 ];
 

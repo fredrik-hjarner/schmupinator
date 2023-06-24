@@ -2,6 +2,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
+import { wait } from "../../utils";
+
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 
 const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs) => ({
@@ -20,7 +22,7 @@ const trippleShot: any = [
    createShot({ moveDeltaX: 0, moveDeltaY: -9 }),
    createShot({ moveDeltaX: 1.5, moveDeltaY: -9 }),
    createShot({ moveDeltaX: -1.5, moveDeltaY: -9 }),
-   { wait: 8 },
+   wait(8),
 ];
 
 const laser = [
@@ -30,7 +32,7 @@ const laser = [
    { spawn: "playerLaser", y: 0 },
    { spawn: "playerLaser", y: -5 },
    { spawn: "playerLaser", y: -10 },
-   { wait: 3 },
+   wait(3),
 ];
 
 export const player: IEnemyJson = {
@@ -50,11 +52,9 @@ export const player: IEnemyJson = {
       { type: "setAttribute", attribute: "collisionType", value: "player" },
       { type: "setAttribute", attribute: "boundToWindow", value: true },
       // The following line is just a hack to hide the player initially.
-      { type: "do", acns: [
-         { type: "gfxSetShape", shape: "none" },
-         { wait: 1 },
-         { type: "gfxSetShape", shape: "diamondShield" },
-      ]},
+      { type: "gfxSetShape", shape: "none" },
+      wait(1),
+      { type: "gfxSetShape", shape: "diamondShield" },
       {
          fork: [{
             forever: [
@@ -67,10 +67,7 @@ export const player: IEnemyJson = {
          fork: [{
             forever: [
                { type: "waitInputShoot" },
-               // { type: 'do', actions: trippleShot } // TODO: I don't need the `do` rule.
-               // ...trippleShot,
-               // @ts-ignore
-               { type: "do", acns: trippleShot },
+               ...trippleShot,
             ]
          }],
       },
@@ -78,10 +75,7 @@ export const player: IEnemyJson = {
          fork: [{
             forever: [
                { type: "waitInputLaser" },
-               // { type: 'do', actions: laser } // TODO: I don't need the `do` rule.
-               // ...laser,
-               // @ts-ignore
-               { type: "do", acns: laser },
+               ...laser
             ]
          }],
       },

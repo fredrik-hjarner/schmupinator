@@ -14,7 +14,9 @@ describe("parallelRace", () => {
 
   it("empty actions list. exect no exception. expect done", () => {
     const recordedActions: TAction[] = [];
-    const actionHandler = (action: TAction) => { recordedActions.push(action) };
+    const actionHandler = (action: TAction) => {
+      recordedActions.push(action);
+    };
 
     const generator = new EnemyActionExecutor({
       getPosition,
@@ -23,7 +25,8 @@ describe("parallelRace", () => {
       input,
       gamepad,
       actions: [{
-        parallelRace: [[]]
+        type: 'parallelRace',
+        actionsLists: [[]]
       }]
     }).generators[0];
 
@@ -42,7 +45,8 @@ describe("parallelRace", () => {
       input,
       gamepad,
       actions: [{
-        parallelRace: [
+        type: 'parallelRace',
+        actionsLists: [
           [],
           [{ setSpeed: 1 }]
         ]
@@ -64,7 +68,8 @@ describe("parallelRace", () => {
       input,
       gamepad,
       actions: [{
-        parallelRace: [[
+        type: 'parallelRace',
+        actionsLists: [[
           { setSpeed: 1 }
         ], [
           { type: 'waitNextFrame' },
@@ -88,7 +93,8 @@ describe("parallelRace", () => {
       input,
       gamepad,
       actions: [{
-        parallelRace: [[
+        type: 'parallelRace',
+        actionsLists: [[
           { type: 'waitNextFrame' },
           { setSpeed: 1 }
         ], [

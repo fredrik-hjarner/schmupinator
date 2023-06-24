@@ -1,13 +1,8 @@
 import type {
-   TAction, TDo, TAttr, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait, TFork
+   TAction, TAttr, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed, TSpawn, TWait, TFork
 } from "./actionTypes";
 import type { Vector as TVector } from "../../../../math/bezier";
 import type { TAttributeValue } from "../Attributes/Attributes";
-
-export type TShortFormWait = { wait: number };
-const isShortFormWait = (action: (TAction|TShortFormAction)): action is TShortFormWait => {
-   return (action as TShortFormWait).wait !== undefined;
-};
 
 export type TShortFormSpawn = { 
    spawn: string, x?: number, y?: number, actions?: (TShortFormAction)[]
@@ -51,24 +46,9 @@ const isShortFormMoveToAbsolute =
       return (acn as TShortFormMoveToAbsolute).moveToAbsolute !== undefined;
    };
 
-export type TShortFormDo = { do: TShortFormAction[] };
-const isShortFormDo = (acn: (TAction|TShortFormAction)): acn is TShortFormDo => {
-   return (acn as TShortFormDo).do !== undefined;
-};
-
 export type TShortFormSetSpeed = { setSpeed: number };
 const isShortFormSetSpeed = (acn: (TAction|TShortFormAction)): acn is TShortFormSetSpeed => {
    return (acn as TShortFormSetSpeed).setSpeed !== undefined;
-};
-
-/**
- * Just another (useless) helper action.
- * All it does is execute all actions is gets into it.
- * Essentially it flattens the array of arrays
- */
-export type TSequence = { seq: TShortFormAction[][] };
-const isSequence = (acn: (TAction|TShortFormAction)): acn is TSequence => {
-   return (acn as TSequence).seq !== undefined;
 };
 
 // Infinite repeat of list of actions.
@@ -93,10 +73,7 @@ const isShortFormFork = (acn: (TAction|TShortFormAction)): acn is TShortFormFork
 };
 
 export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TAction => {
-   if(isShortFormWait(shortForm)) {
-      const { wait } = shortForm;
-      return { type: "wait", frames: wait };
-   } else if(isShortFormSpawn(shortForm)) {
+   if(isShortFormSpawn(shortForm)) {
       const { spawn, x, y, actions } = shortForm;
       return { type: "spawn", enemy: spawn, x, y, actions };
    } else if(isShortFormRepeat(shortForm)) {
@@ -117,10 +94,6 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
    }else if(isShortFormMoveToAbsolute(shortForm)) {
       const { moveToAbsolute, frames } = shortForm;
       return { type: "moveToAbsolute", moveTo: moveToAbsolute, frames };
-   }else if(isShortFormDo(shortForm)) {
-      return { type: "do", acns: shortForm.do };
-   }else if(isSequence(shortForm)) {
-      return { type: "do", acns: shortForm.seq.flat() };
    }else if(isShortFormSetSpeed(shortForm)) {
       return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
    }else if(isForever(shortForm)) {
@@ -136,16 +109,13 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
 };
 
 export function isShortFormAction(action: TAction|TShortFormAction): boolean {
-   return isShortFormWait(action) ||
-         isShortFormSpawn(action) ||
+   return isShortFormSpawn(action) ||
          isShortFormRepeat(action) ||
          isShortFormparallelAll(action) ||
          isShortFormparallelRace(action) ||
          iShortFormAttr(action) ||
          isShortFormSetShotSpeed(action) ||
          isShortFormMoveToAbsolute(action) ||
-         isShortFormDo(action) ||
-         isSequence(action) ||
          isShortFormSetSpeed(action) ||
          isForever(action) ||
          isTwice(action) ||
@@ -156,19 +126,16 @@ export function isShortFormAction(action: TAction|TShortFormAction): boolean {
 export type TShortFormAction =
    Exclude<
       TAction,
-      TWait | TSpawn | TRepeat | TAttr | TSetShotSpeed | TMoveToAbsolute | TDo | TSetSpeed |
+      TWait | TSpawn | TRepeat | TAttr | TSetShotSpeed | TMoveToAbsolute | TSetSpeed |
       { type: "parallelAll" } | { type: "parallelRace" } | TFork
    > |
 
-   TShortFormWait |
    TShortFormSpawn |
    TShortFormRepeat |
    TShortFormparallelAll |
    TShortFormAttr |
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
-   TShortFormDo |
-   TSequence |
    TShortFormSetSpeed |
    TShortFormparallelRace |
    TForever |

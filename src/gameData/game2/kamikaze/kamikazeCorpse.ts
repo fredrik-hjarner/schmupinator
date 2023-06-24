@@ -1,3 +1,5 @@
+import { wait } from "../../utils";
+
 export const kamikaze = {
    name: "kamikaze",
    diameter: 20,
@@ -6,7 +8,7 @@ export const kamikaze = {
    actions: [
       { type: "gfxSetShape", shape: "octagon" },
       { type: "gfxSetColor", color: "red" },
-      { wait: 90 },
+      wait(90),
       // { type: "die" },
    ],
 };

@@ -1,3 +1,5 @@
+import { wait } from "../utils";
+
 const sinusLeft = {
    spawn: "sinus",
    x: 75,
@@ -16,8 +18,8 @@ const sinusRight = {
 const sinuses = {
    repeat: 5,
    actions: [
-      { do: [sinusLeft, { wait: 70 }] },
-      { do: [sinusRight, { wait: 70 }] },
+      { do: [sinusLeft, wait(70)] },
+      { do: [sinusRight, wait(70)] },
    ],
 };
 

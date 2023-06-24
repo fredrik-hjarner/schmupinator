@@ -1,3 +1,4 @@
+import { wait } from "../utils";
 import { col } from "./common";
 
 export const stage2 = {
@@ -6,11 +7,9 @@ export const stage2 = {
    hp: 9999,
    actions: [
       { spawn: "cloner", x: col[5], y: -20 },
-      { wait: 270 },
-      { type: "do", acns: [
-         { spawn: "cloner", x: col[2], y: -20 },
-         { spawn: "cloner", x: col[8], y: -20 },
-      ]}
+      wait(270),
+      { spawn: "cloner", x: col[2], y: -20 },
+      { spawn: "cloner", x: col[8], y: -20 },
    ]
 };
 
@@ -20,12 +19,12 @@ export const cloner = {
    diameter: 29,
    actions: [
       { moveToAbsolute: { y: 45 }, frames: 150 },
-      { wait: 30 },
+      wait(30),
       { spawn: "clonerChild" },
       { spawn: "clonerChild", actions: [
          { type: "setAttribute", attribute: "mirrorX", value: true }
       ] },
-      { wait: 80 },
+      wait(80),
       { spawn: "clonerChild", actions: [
          { type: "setAttribute", attribute: "mirrorY", value: true }
       ] },
@@ -49,10 +48,10 @@ export const clonerChild = {
             { type: "move", x: -45, y: -20, frames: 65 },
          ],
          [
-            { wait: 60 },
+            wait(60),
             { forever: [
                { type: "shootDirection", x: 0, y: 1},
-               { wait: 40 }
+               wait(40)
             ]},
          ],
       ]}

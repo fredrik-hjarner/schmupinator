@@ -1,7 +1,5 @@
 import type { IService } from "../IService";
-
-import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
-// import { loadYamlZip } from "./loadZip"; // TODO: remove the corresponding code from loadZip.ts
+import type { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 
 import game1js from "../../../gameData/game1/index";
 import game2js from "../../../gameData/game2/index";
@@ -49,6 +47,7 @@ export class GameData implements IService {
       /**
        * Game 2
        */
+      // key all enemies by name
       this.games["game2"] = game2js.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
          acc[enemyJson.name] = transformEnemy(enemyJson);
          return acc;

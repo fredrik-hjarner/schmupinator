@@ -163,11 +163,6 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "do": { // flatten essentially.
-               yield* this.makeGenerator(currAction.acns);
-               break;
-            }
-
             case "parallelRace": {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
                yield* GeneratorUtils.parallelRace(generators);
