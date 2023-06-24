@@ -1,4 +1,4 @@
-import { wait } from "../utils";
+import { parallelAll, wait } from "../utils";
 import { col } from "./common";
 
 export const stage2 = {
@@ -43,17 +43,16 @@ export const clonerChild = {
       { attr: "mirrorX", is: true, yes: [{ type: "mirrorX", value: true }] },
       { attr: "mirrorY", is: true, yes: [{ type: "mirrorY", value: true }] },
       { setShotSpeed: 1.5 },
-      { parallelAll: [
-         [
-            { type: "move", x: -45, y: -20, frames: 65 },
-         ],
+      parallelAll(
+         { type: "move", x: -45, y: -20, frames: 65 },
          [
             wait(60),
+            // @ts-ignore
             { forever: [
                { type: "shootDirection", x: 0, y: 1},
                wait(40)
             ]},
          ],
-      ]}
+      )
    ]
 };

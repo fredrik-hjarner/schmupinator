@@ -3,7 +3,7 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { repeat, spawn, wait } from "../utils";
+import { parallelAll, repeat, spawn, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -66,26 +66,21 @@ export const nonShootingAimer: IEnemyJson = {
    onDeathAction: spawn("roundExplosion"),
    actions: [
       { setSpeed: 1.6 },
-      {
-         parallelAll: [
-            [
+      parallelAll(
+         repeat(26.25, [
+            { type: "rotate_towards_player" },
+            wait(8)
+         ]),
+         {
+            // @ts-ignore
+            forever: [
                // @ts-ignore
-               repeat(26.25, [
-                  { type: "rotate_towards_player" },
-                  wait(8)
-               ])
-            ],
-            [{
+               { type: "move_according_to_speed_and_direction" },
                // @ts-ignore
-               forever: [
-                  // @ts-ignore
-                  { type: "move_according_to_speed_and_direction" },
-                  // @ts-ignore
-                  { type: "waitNextFrame" }
-               ]
-            }]
-         ]
-      }
+               { type: "waitNextFrame" }
+            ]
+         }
+      )
    ]
 };
 
@@ -102,19 +97,20 @@ const rotateLeft: TAction | TShortFormAction = {
 };
 const rotateRight: TAction | TShortFormAction = { ...rotateLeft, degrees: 180 };
 
-const shootWhileRotation: (TAction | TShortFormAction)[] = [
+const shootWhileRotation: TAction[] = [
    wait(16),
    { type: "shoot_toward_player" }
 ];
 
-const rotateLeftAndShoot = {
-   parallelAll: [[rotateLeft], shootWhileRotation]
-};
+const rotateLeftAndShoot = parallelAll(
+   rotateLeft,
+   shootWhileRotation
+);
 
-const rotateRightAndShoot: TAction | TShortFormAction = {
-   // @ts-ignore
-   parallelAll: [[rotateRight], shootWhileRotation]
-};
+const rotateRightAndShoot = parallelAll(
+   rotateRight,
+   shootWhileRotation
+);
 
 export const sinus: IEnemyJson = {
    name: "sinus",

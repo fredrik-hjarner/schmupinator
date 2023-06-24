@@ -1,4 +1,12 @@
-import type { TAction, TRepeat, TSpawn, TWait } from "../App/services/Enemies/actions/actionTypes";
+import type {
+   TAction, TRepeat, TSpawn, TWait, TparallelAll
+} from "../App/services/Enemies/actions/actionTypes";
+
+export const parallelAll = (...actions: (TAction|TAction[])[]): TparallelAll => ({
+   type: "parallelAll",
+   // @ts-ignore: TODO: fix type
+   actionsLists: actions.map(acn => Array.isArray(acn) ? acn : [acn])
+}); 
 
 export const repeat = (times: number, actions: TAction[]): TRepeat => ({
    type: "repeat",

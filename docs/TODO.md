@@ -246,3 +246,5 @@ shot, since the default shot is a bit "magical".
 * Replace Jest with Vitest.
 
 * Add @ alias for src folder.
+
+* Remove TDo action, it's not needed. It is used but I think all those can be removed/replaced.

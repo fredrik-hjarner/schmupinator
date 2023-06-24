@@ -1,4 +1,5 @@
-import { wait } from "../../utils";
+import { TAction } from "../../../App/services/Enemies/actions/actionTypes";
+import { parallelAll, wait } from "../../utils";
 
 const moveLeft = {
    type: "move",
@@ -12,7 +13,7 @@ const moveRight = {
    x: 205,
 };
 
-const rotateLeft = {
+const rotateLeft: TAction = {
    type: "rotate_around_relative_point",
    degrees: -180,
    frames: 35,
@@ -24,18 +25,20 @@ const rotateRight = {
    degrees: 180,
 };
 
-const shootWhileRotation = [
+const shootWhileRotation: TAction[] = [
    wait(16),
    { type: "shoot_toward_player" },
 ];
 
-const rotateLeftAndShoot = {
-   parallelAll: [[rotateLeft], shootWhileRotation],
-};
+const rotateLeftAndShoot = parallelAll(
+   rotateLeft,
+   shootWhileRotation
+);
 
-const rotateRightAndShoot = {
-   parallelAll: [[rotateRight], shootWhileRotation],
-};
+const rotateRightAndShoot = parallelAll(
+   rotateRight,
+   shootWhileRotation
+);
 
 export const sinus = {
    name: "sinus",

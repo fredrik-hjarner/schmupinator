@@ -4,12 +4,6 @@ import type {
 import type { Vector as TVector } from "../../../../math/bezier";
 import type { TAttributeValue } from "../Attributes/Attributes";
 
-export type TShortFormparallelAll = { parallelAll: TShortFormAction[][] };
-const isShortFormparallelAll =
-   (action: (TAction|TShortFormAction)): action is TShortFormparallelAll => {
-      return (action as TShortFormparallelAll).parallelAll !== undefined;
-   };
-
 export type TShortFormparallelRace = { parallelRace: TShortFormAction[][] };
 const isShortFormparallelRace =
    (action: (TAction|TShortFormAction)): action is TShortFormparallelRace => {
@@ -61,10 +55,7 @@ const isShortFormFork = (acn: (TAction|TShortFormAction)): acn is TShortFormFork
 };
 
 export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TAction => {
-   if(isShortFormparallelAll(shortForm)) {
-      const { parallelAll } = shortForm;
-      return { type: "parallelAll", actionsLists: parallelAll };
-   } else if(isShortFormparallelRace(shortForm)) {
+   if(isShortFormparallelRace(shortForm)) {
       const { parallelRace } = shortForm;
       return { type: "parallelRace", actionsLists: parallelRace };
    } else if(iShortFormAttr(shortForm)) {
@@ -91,8 +82,7 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
 };
 
 export function isShortFormAction(action: TAction|TShortFormAction): boolean {
-   return isShortFormparallelAll(action) ||
-         isShortFormparallelRace(action) ||
+   return isShortFormparallelRace(action) ||
          iShortFormAttr(action) ||
          isShortFormSetShotSpeed(action) ||
          isShortFormMoveToAbsolute(action) ||
@@ -110,7 +100,6 @@ export type TShortFormAction =
       { type: "parallelAll" } | { type: "parallelRace" } | TFork
    > |
 
-   TShortFormparallelAll |
    TShortFormAttr |
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
