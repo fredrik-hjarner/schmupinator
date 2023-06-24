@@ -6,10 +6,10 @@ export const stage2 = {
    diameter: 20,
    hp: 9999,
    actions: [
-      { spawn: "cloner", x: col[5], y: -20 },
+      { type: "spawn", enemy: "cloner", x: col[5], y: -20 },
       wait(270),
-      { spawn: "cloner", x: col[2], y: -20 },
-      { spawn: "cloner", x: col[8], y: -20 },
+      { type: "spawn", enemy: "cloner", x: col[2], y: -20 },
+      { type: "spawn", enemy: "cloner", x: col[8], y: -20 },
    ]
 };
 
@@ -20,15 +20,15 @@ export const cloner = {
    actions: [
       { moveToAbsolute: { y: 45 }, frames: 150 },
       wait(30),
-      { spawn: "clonerChild" },
-      { spawn: "clonerChild", actions: [
+      { type: "spawn", enemy: "clonerChild" },
+      { type: "spawn", enemy: "clonerChild", actions: [
          { type: "setAttribute", attribute: "mirrorX", value: true }
       ] },
       wait(80),
-      { spawn: "clonerChild", actions: [
+      { type: "spawn", enemy: "clonerChild", actions: [
          { type: "setAttribute", attribute: "mirrorY", value: true }
       ] },
-      { spawn: "clonerChild", actions: [
+      { type: "spawn", enemy: "clonerChild", actions: [
          { type: "setAttribute", attribute: "mirrorX", value: true },
          { type: "setAttribute", attribute: "mirrorY", value: true }
       ]},

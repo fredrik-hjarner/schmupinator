@@ -4,13 +4,6 @@ import type {
 import type { Vector as TVector } from "../../../../math/bezier";
 import type { TAttributeValue } from "../Attributes/Attributes";
 
-export type TShortFormSpawn = { 
-   spawn: string, x?: number, y?: number, actions?: (TShortFormAction)[]
-};
-const isShortFormSpawn = (action: (TAction|TShortFormAction)): action is TShortFormSpawn => {
-   return (action as TShortFormSpawn).spawn !== undefined;
-};
-
 export type TShortFormRepeat = { repeat: number, actions: TShortFormAction[] };
 const isShortFormRepeat = (action: (TAction|TShortFormAction)): action is TShortFormRepeat => {
    return (action as TShortFormRepeat).repeat !== undefined;
@@ -73,10 +66,7 @@ const isShortFormFork = (acn: (TAction|TShortFormAction)): acn is TShortFormFork
 };
 
 export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TAction => {
-   if(isShortFormSpawn(shortForm)) {
-      const { spawn, x, y, actions } = shortForm;
-      return { type: "spawn", enemy: spawn, x, y, actions };
-   } else if(isShortFormRepeat(shortForm)) {
+   if(isShortFormRepeat(shortForm)) {
       const { repeat, actions } = shortForm;
       return { type: "repeat", times: repeat, actions };
    } else if(isShortFormparallelAll(shortForm)) {
@@ -109,8 +99,7 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
 };
 
 export function isShortFormAction(action: TAction|TShortFormAction): boolean {
-   return isShortFormSpawn(action) ||
-         isShortFormRepeat(action) ||
+   return isShortFormRepeat(action) ||
          isShortFormparallelAll(action) ||
          isShortFormparallelRace(action) ||
          iShortFormAttr(action) ||
@@ -130,7 +119,6 @@ export type TShortFormAction =
       { type: "parallelAll" } | { type: "parallelRace" } | TFork
    > |
 
-   TShortFormSpawn |
    TShortFormRepeat |
    TShortFormparallelAll |
    TShortFormAttr |

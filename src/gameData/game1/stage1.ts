@@ -3,26 +3,24 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { wait } from "../utils";
+import { spawn, wait } from "../utils";
 
-const aimerLeft = { spawn: "nonShootingAimer", x: 128.5, y: -22 };
-const aimerRight = { spawn: "nonShootingAimer", x: 228.5, y: -22 };
+const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
+const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
 
-const sinusLeft = { spawn: "sinus", x: 75, y: -20 };
-const sinusRight = {
-   spawn: "sinus",
+const sinusLeft = spawn("sinus", { x: 75, y: -20 });
+const sinusRight = spawn("sinus", {
    x: 280,
    y: -20,
    actions: [{ type: "setAttribute", attribute: "right", value: true }]
-};
+});
 
-const leftMiniBoss = { spawn: "firstMiniboss", x: 118.881, y: -20 };
-const rightMiniBoss = {
-   spawn: "firstMiniboss",
+const leftMiniBoss = spawn("firstMiniboss", { x: 118.881, y: -20 });
+const rightMiniBoss = spawn("firstMiniboss", {
    x: 237.762,
    y: -20,
    actions: [{ type: "setAttribute", attribute: "right", value: true }]
-};
+});
 
 const aimers = [{
    repeat: 8,
@@ -69,7 +67,8 @@ export const nonShootingAimer: IEnemyJson = {
    name: "nonShootingAimer",
    hp: 4,
    diameter: 22,
-   onDeathAction: { spawn: "roundExplosion" },
+   // @ts-ignore
+   onDeathAction: spawn("roundExplosion"),
    actions: [
       { setSpeed: 1.6 },
       {
@@ -129,7 +128,8 @@ export const sinus: IEnemyJson = {
    name: "sinus",
    hp: 3,
    diameter: 24,
-   onDeathAction: { spawn: "roundExplosion" },
+   // @ts-ignore
+   onDeathAction: spawn("roundExplosion"),
    actions: [
       { setShotSpeed: 2 },
       // @ts-ignore

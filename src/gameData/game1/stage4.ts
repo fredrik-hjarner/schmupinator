@@ -1,7 +1,7 @@
 import { col, row } from "./common";
 
 const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}) => ({
-   spawn: "easyFlyer",
+   type: "spawn", enemy: "easyFlyer",
    x,
    y,
 });
@@ -47,23 +47,23 @@ const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}) => ({
 // ];
 
 const wave3 = [
-   { spawn: "easyFlyer", x: -100, y: 0, actions: [
+   { type: "spawn", enemy: "easyFlyer", x: -100, y: 0, actions: [
       { type: "setMoveDirection", degrees: 140 }
    ] },
-   { spawn: "easyFlyer", x: -50, y: -50, actions: [
+   { type: "spawn", enemy: "easyFlyer", x: -50, y: -50, actions: [
       { type: "setMoveDirection", degrees: 135 }
    ] },
-   { spawn: "easyFlyer", x: 0, y: -100, actions: [
+   { type: "spawn", enemy: "easyFlyer", x: 0, y: -100, actions: [
       { type: "setMoveDirection", degrees: 135 }
    ] },
    { type: "wait", frames: 30 },
-   { spawn: "easyFlyer", x: col[9], y: row[-1], actions: [
+   { type: "spawn", enemy: "easyFlyer", x: col[9], y: row[-1], actions: [
       { type: "setMoveDirection", degrees: -135 }
    ] },
-   { spawn: "easyFlyer", x: col[10], y: row[0], actions: [
+   { type: "spawn", enemy: "easyFlyer", x: col[10], y: row[0], actions: [
       { type: "setMoveDirection", degrees: -135 }
    ] },
-   { spawn: "easyFlyer", x: col[11], y: row[1], actions: [
+   { type: "spawn", enemy: "easyFlyer", x: col[11], y: row[1], actions: [
       { type: "setMoveDirection", degrees: -135 }
    ] },
    { type: "wait", frames: 60 },

@@ -7,7 +7,7 @@ import { wait } from "../../utils";
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 
 const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs) => ({
-   spawn: "playerShot",
+   type: "spawn", enemy: "playerShot",
    actions: [{
       fork: [{
          forever: [
@@ -26,12 +26,12 @@ const trippleShot: any = [
 ];
 
 const laser = [
-   { spawn: "playerLaser", y: 15 },
-   { spawn: "playerLaser", y: 10 },
-   { spawn: "playerLaser", y: 5 },
-   { spawn: "playerLaser", y: 0 },
-   { spawn: "playerLaser", y: -5 },
-   { spawn: "playerLaser", y: -10 },
+   { type: "spawn", enemy: "playerLaser", y: 15 },
+   { type: "spawn", enemy: "playerLaser", y: 10 },
+   { type: "spawn", enemy: "playerLaser", y: 5 },
+   { type: "spawn", enemy: "playerLaser", y: 0 },
+   { type: "spawn", enemy: "playerLaser", y: -5 },
+   { type: "spawn", enemy: "playerLaser", y: -10 },
    wait(3),
 ];
 

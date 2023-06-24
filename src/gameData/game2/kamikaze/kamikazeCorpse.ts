@@ -4,7 +4,7 @@ export const kamikaze = {
    name: "kamikaze",
    diameter: 20,
    hp: 1,
-   onDeathAction: { spawn: "kamikazeCorpse" },
+   onDeathAction: { type: "spawn", enemy: "kamikazeCorpse" },
    actions: [
       { type: "gfxSetShape", shape: "octagon" },
       { type: "gfxSetColor", color: "red" },

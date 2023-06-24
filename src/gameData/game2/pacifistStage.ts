@@ -1,13 +1,13 @@
 import { wait } from "../utils";
 
 const sinusLeft = {
-   spawn: "sinus",
+   type: "spawn", enemy: "sinus",
    x: 75,
    y: -20,
 };
 
 const sinusRight = {
-   spawn: "sinus",
+   type: "spawn", enemy: "sinus",
    x: 280,
    y: -20,
    actions: [

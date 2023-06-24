@@ -55,7 +55,11 @@ export type TDecrement =
  */
 export type TMirrorX = { type: "mirrorX", value: boolean };
 export type TMirrorY = { type: "mirrorY", value: boolean };
-
+/**
+ * The only purpose for this is to "flatten" arrays in YAML.
+ * The action simple executes the actions sent to it. As simple as that.
+ */
+export type TDo = { type: "do", acns: TSFAction[] };
 // Well, the enemy dies.
 export type TDie = { type: "die" };
 /**
@@ -111,6 +115,7 @@ export type TAction =
    TRepeat |
    TparallelRace |
    TparallelAll |
+   TDo |
    TFork |
    /**
    * Shooting

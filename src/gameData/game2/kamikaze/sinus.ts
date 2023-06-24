@@ -43,8 +43,8 @@ export const sinus = {
    diameter: 24,
    onDeathAction: {
       do: [
-         { spawn: "roundExplosion" },
-         { spawn: "kamikazeCorpse" },
+         { type: "spawn", enemy: "roundExplosion" },
+         { type: "spawn", enemy: "kamikazeCorpse" },
       ],
    },
    actions: [

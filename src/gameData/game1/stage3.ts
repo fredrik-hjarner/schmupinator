@@ -7,9 +7,9 @@ export const stage3 = {
    hp: 9999,
    actions: [
       { type: "gfxSetShape", shape: "none" },
-      { spawn: "shapeShifter", x: col[5], y: row[5] },
-      { spawn: "healer", x: col[4], y: row[4] },
-      { spawn: "dehealer", x: col[6], y: row[4] },
+      { type: "spawn", enemy: "shapeShifter", x: col[5], y: row[5] },
+      { type: "spawn", enemy: "healer", x: col[4], y: row[4] },
+      { type: "spawn", enemy: "dehealer", x: col[6], y: row[4] },
    ]
 };
 
@@ -17,7 +17,7 @@ export const shapeShifter = {
    name: "shapeShifter",
    diameter: 30,
    hp: 100,
-   onDeathAction: { spawn: "shapeShifter", y: -20 },
+   onDeathAction: { type: "spawn", enemy: "shapeShifter", y: -20 },
    actions: [
       {
          forever: [

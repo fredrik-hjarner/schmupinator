@@ -1,12 +1,13 @@
 import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
-import { wait } from "../../utils";
+import { spawn, wait } from "../../utils";
 
 export const playerLaser: IEnemyJson = {
    name: "playerLaser",
    hp: 1,
    diameter: 5,
-   onDeathAction: { spawn: "explosion" },
+   // @ts-ignore
+   onDeathAction: spawn("explosion"),
    actions: [
       { type: "setAttribute", attribute: "collisionType", value: "playerBullet" },
       // TODO: is points really necessary for this?

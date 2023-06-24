@@ -1,6 +1,6 @@
 import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
-import { wait } from "../utils";
+import { spawn, wait } from "../utils";
 
 export const spawner: IEnemyJson = {
    name: "spawner",
@@ -17,10 +17,10 @@ export const spawner: IEnemyJson = {
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
       // { wait: 1 },
-      { spawn: "player", x: 178.5, y: 220 },
-      { spawn: "stage1" },
-      // { spawn: 'stage2' },
-      // { spawn: 'stage3' },
-      // { spawn: 'stage4' },
+      spawn("player", { x: 178.5, y: 220 }),
+      spawn("stage1"),
+      // { type: "spawn", enemy: 'stage2' },
+      // { type: "spawn", enemy: 'stage3' },
+      // { type: "spawn", enemy: 'stage4' },
    ],
 };
