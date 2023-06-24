@@ -1,4 +1,4 @@
-import { wait } from "../utils";
+import { repeat, wait } from "../utils";
 
 const sinusLeft = {
    type: "spawn", enemy: "sinus",
@@ -15,13 +15,12 @@ const sinusRight = {
    ],
 };
 
-const sinuses = {
-   repeat: 5,
-   actions: [
-      { do: [sinusLeft, wait(70)] },
-      { do: [sinusRight, wait(70)] },
-   ],
-};
+const sinuses = repeat(5, [
+   // @ts-ignore
+   { do: [sinusLeft, wait(70)] },
+   // @ts-ignore
+   { do: [sinusRight, wait(70)] },
+]);
 
 export const pacifistStage = {
    name: "pacifistStage",

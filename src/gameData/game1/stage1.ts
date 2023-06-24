@@ -3,7 +3,7 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { spawn, wait } from "../utils";
+import { repeat, spawn, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -22,18 +22,18 @@ const rightMiniBoss = spawn("firstMiniboss", {
    actions: [{ type: "setAttribute", attribute: "right", value: true }]
 });
 
-const aimers = [{
-   repeat: 8,
-   actions: [aimerLeft, aimerRight, wait(40)]
-}];
+const aimers = repeat(8, [
+   aimerLeft,
+   aimerRight,
+   wait(40)
+]);
 
-const sinuses = [{
-   repeat: 5,
-   actions: [
-      sinusLeft,  wait(70),
-      sinusRight, wait(70),
-   ]
-}];
+const sinuses = repeat(5, [
+   sinusLeft,
+   wait(70),
+   sinusRight,
+   wait(70),
+]);
 
 export const stage1: IEnemyJson = {
    name: "stage1",
@@ -43,20 +43,15 @@ export const stage1: IEnemyJson = {
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
       wait(120),
-      // @ts-ignore
-      ...aimers,
-      // @ts-ignore
+      aimers,
       wait(120),
-      // @ts-ignore
-      ...sinuses,
-      // @ts-ignore
+      sinuses,
       wait(200),
       // @ts-ignore
       // leftMiniBoss,
       // @ts-ignore
       // rightMiniBoss,
       leftMiniBoss,
-      // @ts-ignore
       rightMiniBoss,
    ]
 };
@@ -73,16 +68,13 @@ export const nonShootingAimer: IEnemyJson = {
       { setSpeed: 1.6 },
       {
          parallelAll: [
-            [{
+            [
                // @ts-ignore
-               repeat: 26.25,
-               actions: [
-                  // @ts-ignore
+               repeat(26.25, [
                   { type: "rotate_towards_player" },
-                  // @ts-ignore
                   wait(8)
-               ]
-            }],
+               ])
+            ],
             [{
                // @ts-ignore
                forever: [
