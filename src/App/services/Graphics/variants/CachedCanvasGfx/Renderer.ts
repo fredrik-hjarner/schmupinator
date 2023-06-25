@@ -88,7 +88,6 @@ export class Renderer {
        * Render
        */
 
-      // @ts-ignore: TS thinks OffscreenCanvas is experimental.
       // eslint-disable-next-line
       const offscreenCanvas = document.createElement("canvas");
       // const offscreenCanvas =

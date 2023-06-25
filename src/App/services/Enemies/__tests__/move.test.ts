@@ -4,9 +4,7 @@ import type { Vector as TVector } from '../../../../math/bezier';
 import { EnemyActionExecutor } from '../EnemyActionExecutor';
 
 const getAttr = (_: string) => false;
-//@ts-ignore
 const input: any = undefined;
-//@ts-ignore
 const gamepad: any = undefined;
 
 describe("move", () => {

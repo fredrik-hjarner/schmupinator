@@ -4,9 +4,7 @@ import type { Vector as TVector } from '../../../../math/bezier';
 import { EnemyActionExecutor } from '../EnemyActionExecutor';
 
 const getAttr = (_: string) => false;
-//@ts-ignore
 const input: any = undefined;
-//@ts-ignore
 const gamepad: any = undefined;
 
 describe("parallelRace", () => {
@@ -49,7 +47,6 @@ describe("parallelRace", () => {
         actionsLists: [
           [],
           [
-            // @ts-ignore
             { type: "setSpeed", pixelsPerFrame: 1 }
           ]
         ]
@@ -73,11 +70,9 @@ describe("parallelRace", () => {
       actions: [{
         type: 'parallelRace',
         actionsLists: [[
-          // @ts-ignore
           { type: "setSpeed", pixelsPerFrame: 1 }
         ], [
           { type: 'waitNextFrame' },
-          // @ts-ignore
           { type: "setSpeed", pixelsPerFrame: 1 }
         ]]
       }]
@@ -101,12 +96,10 @@ describe("parallelRace", () => {
         type: 'parallelRace',
         actionsLists: [[
           { type: 'waitNextFrame' },
-          // @ts-ignore
           { type: "setSpeed", pixelsPerFrame: 1 }
         ], [
           { type: 'waitNextFrame' },
           { type: 'waitNextFrame' },
-          // @ts-ignore
           { type: "setSpeed", pixelsPerFrame: 1 }
         ]]
       }]
