@@ -5,14 +5,13 @@ import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
 import type {
    IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent
 } from "../Events/IEvents";
-import type { TShortFormAction } from "./actions/actionTypesShortForms";
 import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
 import type { Settings } from "../Settings/Settings";
+import type { TAction } from "./actions/actionTypes";
 
 import { Enemy } from "./Enemy";
-import { TAction } from "./actions/actionTypes";
 
 export class Enemies implements IService {
    public readonly name: string;
@@ -61,7 +60,7 @@ export class Enemies implements IService {
 
    public Spawn = (
       { enemy, position, prependActions=[] }:
-      { enemy: string, position: TVector, prependActions?: (TAction|TShortFormAction)[] }
+      { enemy: string, position: TVector, prependActions?: TAction[] }
    ) => {
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = this.gameData.GetEnemy(enemy);

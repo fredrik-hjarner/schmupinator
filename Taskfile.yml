@@ -3,12 +3,8 @@ version: 3
 silent: true
 
 tasks:
-  zip:
-    sources: [gameData/**/*]
-    cmds: [npm run zip]
-
   e2e:
-    deps: [zip]
+    sources: [src/**/*.ts]
     cmds: [npx vite-node ./src/main.ts]
 
   eslint:

@@ -1,16 +1,8 @@
 import type { IService } from "../IService";
-import type { Document } from "yaml";
+import type { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 
-import { parseDocument } from "yaml";
-import { loadAsync } from "jszip";
-
-import { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-//@ts-ignore: Dont know how to make ts not complain here where importing a zip.
-import game1 from "../../../assets/game1.zip";
-//@ts-ignore: Dont know how to make ts not complain here where importing a zip.
-import game2 from "../../../assets/game2.zip";
-import { transformActions } from "../Enemies/actions/transform";
+import game1js from "../../../gameData/game1/index";
+import game2js from "../../../gameData/game2/index";
 
 type TEnemyJsons = Partial<{ [enemyName: string]: IEnemyJson }>;
 
@@ -41,9 +33,26 @@ export class GameData implements IService {
       this.activeGame = "game1";
    }
 
-   public Init = async () => {
-      this.games["game1"] = await this.loadZip(game1 as string);
-      this.games["game2"] = await this.loadZip(game2 as string);
+   public Init = () => {
+      /**
+       * Game 1
+       */
+      // key all enemies by name
+      this.games["game1"] = game1js.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+         acc[enemyJson.name] = enemyJson;
+         return acc;
+      }, {});
+
+      /**
+       * Game 2
+       */
+      // key all enemies by name
+      this.games["game2"] = game2js.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+         acc[enemyJson.name] = enemyJson;
+         return acc;
+      }, {});
+
+      return Promise.resolve(); // just to make typescript happy.
    };
 
    public setActiveGame = (game: string) => {
@@ -75,90 +84,5 @@ export class GameData implements IService {
          throw new Error(`GameData.GetEnemy: Unknown enemy "${enemyName}".`);
       }
       return enemyJson;
-   };
-
-   /**
-    * Private
-    */
-   private loadZip = async (zipUrl: string): Promise<TEnemyJsons> => {
-      const zipData = await BrowserDriver.FetchBinary(zipUrl);
-      const zip = await loadAsync(zipData);
-
-      const commonFile = await zip.file("common.yaml")?.async("text");
-      // const commonDoc = commonFile ? parseDocument(commonFile, {merge: true}) : undefined;
-      // if(commonDoc) { this.checkError(commonDoc); }
-
-      const files: string[] = Object.keys(zip.files)
-         .filter(f => f.includes(".yaml"));
-
-      // console.log('files:', files);
-
-      const allOtherFiles = await Promise.all(
-         files
-            .filter(f => f !== "common.yaml")
-            .map(async (f) => {
-               const yml = await zip.file(f)?.async("text");
-               if(!yml) {
-                  const err = `GameData: Failed to unzip ${f}`;
-                  BrowserDriver.Alert(err);
-                  throw new Error(err);
-               }
-               return yml;
-            })
-      );
-
-      const enemyYaml = allOtherFiles.reduce<string[]>((acc, f) => {
-         return [...acc, ...f.split("---")];
-      }, []);
-      // console.log("enemyYaml:", enemyYaml);
-      // console.log("enemyYaml.length:", enemyYaml.length);
-      const yamlDocuments = enemyYaml.map(yaml => {
-         const withCommon = commonFile ? `${commonFile}\n${yaml}` : yaml;
-         // console.log("withCommon:", withCommon);
-         // console.log("//////////////////////////\n\n\n\n\n\n:");
-         const yamlDocument = parseDocument(withCommon, {merge: true});
-         this.checkError(yamlDocument);
-         return parseDocument(withCommon, {merge: true});
-      });
-
-      // Check errors
-      // yamlDocuments.forEach(this.checkError);
-
-      const result: TEnemyJsons = {};
-
-      // Populate enemies data structure.
-      yamlDocuments.forEach((yamlsDocument: { toJS: () => { enemy: IEnemyJson } }) => {
-         // console.log('yamlsDocument:', yamlsDocument);
-         const yaml = yamlsDocument.toJS();
-         // console.log('yaml:', yaml);
-         if(!yaml?.enemy) {
-            console.error(`Error: GameData service: Trying to add an empty enemy. Skipping.`);
-            return;
-         }
-         const enemyJson = yaml.enemy as IEnemyJson;
-         result[yaml.enemy.name] = enemyJson;
-         /**
-          * transform all actions to, so called, long form actions.
-          * This transformation happens here because this is the entry point
-          * no TShortFormAction lives after this point, only TAction.
-          */
-         if(enemyJson.actions !== undefined) {
-            transformActions(enemyJson.actions);
-         }
-         if(enemyJson.onDeathAction !== undefined) {
-            transformActions([enemyJson.onDeathAction]);
-         }
-      });
-
-      // console.log("this.EnemyJsons:", this.EnemyJsons);
-      return result;
-   };
-
-   private checkError = (yamlDocument: Document) => {
-      const { errors } = yamlDocument;
-      if(errors.length > 0) {
-         BrowserDriver.Alert(JSON.stringify(errors, null, 2));
-         throw errors;
-      }
    };
 }

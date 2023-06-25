@@ -1,9 +1,9 @@
 import type { IGameEvents, TGameEvent } from "../Events/IEvents";
 import type { TInitParams } from "../IService";
+import type { IParallax } from "./IParallax";
 
 import { initLayer1Element, initLayer2Element, initLayer3Element } from "./divs";
 import { px } from "../../../utils/px";
-import { IParallax } from "./IParallax";
 import { isHTMLDivElement } from "../../../utils/typeAssertions";
 
 type TConstructor = {

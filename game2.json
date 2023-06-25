@@ -1,0 +1,673 @@
+{
+   "explosion": {
+      "name": "explosion",
+      "diameter": 18,
+      "hp": 9999,
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "none"
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "explosion"
+         },
+         {
+            "type": "wait",
+            "frames": 40
+         },
+         {
+            "type": "despawn"
+         }
+      ]
+   },
+   "roundExplosion": {
+      "name": "roundExplosion",
+      "diameter": 40,
+      "hp": 9999,
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "none"
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "roundExplosion"
+         },
+         {
+            "type": "wait",
+            "frames": 75
+         },
+         {
+            "type": "despawn"
+         }
+      ]
+   },
+   "kamikaze": {
+      "name": "kamikaze",
+      "diameter": 20,
+      "hp": 1,
+      "onDeathAction": {
+         "type": "spawn",
+         "enemy": "kamikazeCorpse"
+      },
+      "actions": [
+         {
+            "type": "gfxSetShape",
+            "shape": "octagon"
+         },
+         {
+            "type": "gfxSetColor",
+            "color": "red"
+         },
+         {
+            "type": "wait",
+            "frames": 90
+         }
+      ]
+   },
+   "kamikazeCorpse": {
+      "name": "kamikazeCorpse",
+      "diameter": 20,
+      "hp": 1,
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "none"
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "none"
+         },
+         {
+            "type": "setShotSpeed",
+            "pixelsPerFrame": 0.9
+         },
+         {
+            "type": "shootDirection",
+            "x": 1,
+            "y": -1
+         },
+         {
+            "type": "shootDirection",
+            "x": 1,
+            "y": 0
+         },
+         {
+            "type": "shootDirection",
+            "x": 1,
+            "y": 1
+         },
+         {
+            "type": "shootDirection",
+            "x": 0,
+            "y": 1
+         },
+         {
+            "type": "shootDirection",
+            "x": -1,
+            "y": 1
+         },
+         {
+            "type": "shootDirection",
+            "x": -1,
+            "y": 0
+         },
+         {
+            "type": "shootDirection",
+            "x": -1,
+            "y": -1
+         },
+         {
+            "type": "shootDirection",
+            "x": 0,
+            "y": -1
+         },
+         {
+            "type": "despawn"
+         }
+      ]
+   },
+   "sinus": {
+      "name": "sinus",
+      "hp": 1,
+      "diameter": 24,
+      "onDeathAction": {
+         "type": "do",
+         "acns": [
+            {
+               "type": "spawn",
+               "enemy": "roundExplosion"
+            },
+            {
+               "type": "spawn",
+               "enemy": "kamikazeCorpse"
+            }
+         ]
+      },
+      "actions": [
+         {
+            "type": "gfxSetShape",
+            "shape": "octagon"
+         },
+         {
+            "type": "setShotSpeed",
+            "pixelsPerFrame": 1.5
+         },
+         {
+            "type": "attr",
+            "attrName": "right",
+            "is": true,
+            "yes": [
+               {
+                  "type": "mirrorX",
+                  "value": true
+               }
+            ]
+         },
+         {
+            "type": "repeat",
+            "times": 2,
+            "actions": [
+               {
+                  "type": "parallelAll",
+                  "actionsLists": [
+                     [
+                        {
+                           "type": "rotate_around_relative_point",
+                           "degrees": -180,
+                           "frames": 35,
+                           "point": {
+                              "y": 31
+                           }
+                        }
+                     ],
+                     [
+                        {
+                           "type": "wait",
+                           "frames": 16
+                        },
+                        {
+                           "type": "shoot_toward_player"
+                        }
+                     ]
+                  ]
+               },
+               {
+                  "type": "move",
+                  "frames": 80,
+                  "x": 205,
+                  "y": 30
+               },
+               {
+                  "type": "parallelAll",
+                  "actionsLists": [
+                     [
+                        {
+                           "type": "rotate_around_relative_point",
+                           "degrees": 180,
+                           "frames": 35,
+                           "point": {
+                              "y": 31
+                           }
+                        }
+                     ],
+                     [
+                        {
+                           "type": "wait",
+                           "frames": 16
+                        },
+                        {
+                           "type": "shoot_toward_player"
+                        }
+                     ]
+                  ]
+               },
+               {
+                  "type": "move",
+                  "frames": 80,
+                  "x": -205,
+                  "y": 30
+               }
+            ]
+         }
+      ]
+   },
+   "pacifistStage": {
+      "name": "pacifistStage",
+      "diameter": 20,
+      "hp": 9999,
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "none"
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "none"
+         },
+         {
+            "type": "wait",
+            "frames": 120
+         },
+         {
+            "type": "repeat",
+            "times": 5,
+            "actions": [
+               {
+                  "type": "do",
+                  "acns": [
+                     {
+                        "type": "spawn",
+                        "enemy": "sinus",
+                        "x": 75,
+                        "y": -20
+                     },
+                     {
+                        "type": "wait",
+                        "frames": 70
+                     }
+                  ]
+               },
+               {
+                  "type": "do",
+                  "acns": [
+                     {
+                        "type": "spawn",
+                        "enemy": "sinus",
+                        "x": 280,
+                        "y": -20,
+                        "actions": [
+                           {
+                              "type": "setAttribute",
+                              "attribute": "right",
+                              "value": true
+                           }
+                        ]
+                     },
+                     {
+                        "type": "wait",
+                        "frames": 70
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   },
+   "player": {
+      "name": "player",
+      "diameter": 20,
+      "hp": 1,
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "points",
+            "value": 0
+         },
+         {
+            "type": "gfxSetColor",
+            "color": "aqua"
+         },
+         {
+            "type": "setMoveDirection",
+            "degrees": 0
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "player"
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "boundToWindow",
+            "value": true
+         },
+         {
+            "type": "do",
+            "acns": [
+               {
+                  "type": "gfxSetShape",
+                  "shape": "none"
+               },
+               {
+                  "type": "wait",
+                  "frames": 1
+               },
+               {
+                  "type": "gfxSetShape",
+                  "shape": "diamondShield"
+               }
+            ]
+         },
+         {
+            "type": "fork",
+            "actions": [
+               {
+                  "type": "repeat",
+                  "times": 100000000,
+                  "actions": [
+                     {
+                        "type": "moveAccordingToInput"
+                     },
+                     {
+                        "type": "waitNextFrame"
+                     }
+                  ]
+               }
+            ]
+         },
+         {
+            "type": "fork",
+            "actions": [
+               {
+                  "type": "repeat",
+                  "times": 100000000,
+                  "actions": [
+                     {
+                        "type": "waitInputShoot"
+                     },
+                     {
+                        "type": "do",
+                        "acns": [
+                           {
+                              "type": "spawn",
+                              "enemy": "playerShot",
+                              "actions": [
+                                 {
+                                    "type": "fork",
+                                    "actions": [
+                                       {
+                                          "type": "repeat",
+                                          "times": 100000000,
+                                          "actions": [
+                                             {
+                                                "type": "moveDelta",
+                                                "x": 0,
+                                                "y": -9
+                                             },
+                                             {
+                                                "type": "waitNextFrame"
+                                             }
+                                          ]
+                                       }
+                                    ]
+                                 }
+                              ]
+                           },
+                           {
+                              "type": "spawn",
+                              "enemy": "playerShot",
+                              "actions": [
+                                 {
+                                    "type": "fork",
+                                    "actions": [
+                                       {
+                                          "type": "repeat",
+                                          "times": 100000000,
+                                          "actions": [
+                                             {
+                                                "type": "moveDelta",
+                                                "x": 1.5,
+                                                "y": -9
+                                             },
+                                             {
+                                                "type": "waitNextFrame"
+                                             }
+                                          ]
+                                       }
+                                    ]
+                                 }
+                              ]
+                           },
+                           {
+                              "type": "spawn",
+                              "enemy": "playerShot",
+                              "actions": [
+                                 {
+                                    "type": "fork",
+                                    "actions": [
+                                       {
+                                          "type": "repeat",
+                                          "times": 100000000,
+                                          "actions": [
+                                             {
+                                                "type": "moveDelta",
+                                                "x": -1.5,
+                                                "y": -9
+                                             },
+                                             {
+                                                "type": "waitNextFrame"
+                                             }
+                                          ]
+                                       }
+                                    ]
+                                 }
+                              ]
+                           },
+                           {
+                              "type": "wait",
+                              "frames": 8
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         },
+         {
+            "type": "fork",
+            "actions": [
+               {
+                  "type": "repeat",
+                  "times": 100000000,
+                  "actions": [
+                     {
+                        "type": "waitInputLaser"
+                     },
+                     {
+                        "type": "do",
+                        "acns": [
+                           {
+                              "type": "spawn",
+                              "enemy": "playerLaser",
+                              "y": 15
+                           },
+                           {
+                              "type": "spawn",
+                              "enemy": "playerLaser",
+                              "y": 10
+                           },
+                           {
+                              "type": "spawn",
+                              "enemy": "playerLaser",
+                              "y": 5
+                           },
+                           {
+                              "type": "spawn",
+                              "enemy": "playerLaser",
+                              "y": 0
+                           },
+                           {
+                              "type": "spawn",
+                              "enemy": "playerLaser",
+                              "y": -5
+                           },
+                           {
+                              "type": "spawn",
+                              "enemy": "playerLaser",
+                              "y": -10
+                           },
+                           {
+                              "type": "wait",
+                              "frames": 3
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ]
+   },
+   "playerLaser": {
+      "name": "playerLaser",
+      "hp": 1,
+      "diameter": 5,
+      "onDeathAction": {
+         "type": "spawn",
+         "enemy": "explosion"
+      },
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "playerBullet"
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "pointsOnDeath",
+            "value": -0.2
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "points",
+            "value": 0
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "square"
+         },
+         {
+            "type": "gfxSetColor",
+            "color": "aqua"
+         },
+         {
+            "type": "parallelRace",
+            "actionsLists": [
+               [
+                  {
+                     "type": "repeat",
+                     "times": 100000000,
+                     "actions": [
+                        {
+                           "type": "moveDelta",
+                           "y": -30
+                        },
+                        {
+                           "type": "waitNextFrame"
+                        }
+                     ]
+                  }
+               ],
+               [
+                  {
+                     "type": "wait",
+                     "frames": 8
+                  },
+                  {
+                     "type": "despawn"
+                  }
+               ]
+            ]
+         }
+      ]
+   },
+   "playerShot": {
+      "name": "playerShot",
+      "hp": 1,
+      "diameter": 5,
+      "onDeathAction": {
+         "type": "spawn",
+         "enemy": "explosion"
+      },
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "playerBullet"
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "pointsOnDeath",
+            "value": -1
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "points",
+            "value": 0
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "circle"
+         },
+         {
+            "type": "gfxSetColor",
+            "color": "aqua"
+         }
+      ]
+   },
+   "shot": {
+      "name": "shot",
+      "hp": 9999,
+      "diameter": 5,
+      "actions": [
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "enemyBullet"
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "points",
+            "value": 0
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "circle"
+         }
+      ]
+   },
+   "spawner": {
+      "name": "spawner",
+      "diameter": 20,
+      "hp": 9999,
+      "actions": [
+         {
+            "type": "fork",
+            "actions": [
+               {
+                  "type": "wait",
+                  "frames": 100
+               },
+               {
+                  "type": "finishLevel"
+               }
+            ]
+         },
+         {
+            "type": "setAttribute",
+            "attribute": "collisionType",
+            "value": "none"
+         },
+         {
+            "type": "gfxSetShape",
+            "shape": "none"
+         },
+         {
+            "type": "spawn",
+            "enemy": "player",
+            "x": 178.5,
+            "y": 220
+         },
+         {
+            "type": "spawn",
+            "enemy": "pacifistStage"
+         }
+      ]
+   }
+}

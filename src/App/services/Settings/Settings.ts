@@ -1,7 +1,7 @@
 import type { IService, TInitParams } from "../IService";
+import type { App } from "../../App";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { App } from "../../App";
 
 const localStorageKey = "__settings";
 
@@ -34,7 +34,7 @@ export class Settings implements IService {
    };
 
    // deps/services
-   //@ts-ignore: TODO: I inted to use app to replace services without location.reload().
+   // TODO: I inted to use app to replace services without location.reload().
    private app: App;
 
    public constructor({ app, name }: TConstructor) {

@@ -7,6 +7,7 @@ import type { Highscore as THighscoreService } from "../Highscore/Highscore";
 import type { IPoints } from "../Points/IPoints";
 import type { Settings as TSettingsService } from "../Settings/Settings";
 import type { IInput } from "../Input/IInput";
+import type { GameData } from "../GamaData/GameData";
 
 import { StartGame } from "./Scenes/StartGame";
 import { Game } from "./Scenes/Game";
@@ -18,7 +19,6 @@ import { SettingsControls } from "./Scenes/SettingsControls";
 import { DisplayControls } from "./Scenes/DisplayControls";
 import { SelectGame } from "./Scenes/SelectGame";
 import { SelectGameForHighscore } from "./Scenes/SelectGameForHighscore";
-import { GameData } from "../GamaData/GameData";
 
 type TConstructor = {
    name: string

@@ -1,8 +1,10 @@
-import type { TQualifiedForTop10 } from '../Highscore';
+import type { TQualifiedForTop10 } from "../Highscore";
 
-import { Highscore } from '../Highscore';
+import { describe, it, expect } from "vitest";
 
-describe("qualifiedForTop10", () => {
+import { Highscore } from "../Highscore";
+
+describe("qualifiedForTop10", async () => {
    const highscores = {
       version: 1,
       games: {
@@ -19,13 +21,18 @@ describe("qualifiedForTop10", () => {
             { name: "J", score: 1 },
          ]
       },
-   };;
+   };
    const hs = new Highscore({ name: "hs", highscores });
+
+   // @ts-ignorec
+   // eslint-disable-next-line
+   await hs.Init({ gameData: { getAndAssertActiveGame: () => "game1" } as any });
+
    it("dont qualify for top10", () => {
       const expected: TQualifiedForTop10 = {
          qualifiedForTop10: false,
          rank: undefined
-      }
+      };
       const actual = hs.qualifiedForTop10(0);
       expect(actual).toEqual(expected);
    });
@@ -33,7 +40,7 @@ describe("qualifiedForTop10", () => {
       const expected: TQualifiedForTop10 = {
          qualifiedForTop10: true,
          rank: 0
-      }
+      };
       const actual = hs.qualifiedForTop10(11);
       expect(actual).toEqual(expected);
    });
@@ -41,7 +48,7 @@ describe("qualifiedForTop10", () => {
       const expected: TQualifiedForTop10 = {
          qualifiedForTop10: true,
          rank: 9
-      }
+      };
       const actual = hs.qualifiedForTop10(2);
       expect(actual).toEqual(expected);
    });
@@ -49,7 +56,7 @@ describe("qualifiedForTop10", () => {
       const expected: TQualifiedForTop10 = {
          qualifiedForTop10: true,
          rank: 1
-      }
+      };
       const actual = hs.qualifiedForTop10(10);
       expect(actual).toEqual(expected);
    });

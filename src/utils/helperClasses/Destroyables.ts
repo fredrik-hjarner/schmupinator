@@ -1,4 +1,4 @@
-import { IDestroyable } from "../types/IDestroyable";
+import type { IDestroyable } from "../types/IDestroyable";
 
 /**
  * A helper class to make it a bit easier to work with destroyables.

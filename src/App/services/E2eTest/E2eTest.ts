@@ -88,7 +88,6 @@ export class E2eTest implements IE2eTest {
          this.frameCount = event.frameNr;
 
          const lastFrame = event.frameNr - 1;
-         //@ts-ignore
          const expected = JSON.stringify(
             this.recordedHistory[lastFrame] as (TGameEvent | TPointsEvent)[] | undefined
          );

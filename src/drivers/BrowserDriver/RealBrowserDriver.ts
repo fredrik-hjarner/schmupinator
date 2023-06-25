@@ -1,4 +1,5 @@
-import { IBrowserDriver } from "./IBrowserDriver";
+import type { IBrowserDriver } from "./IBrowserDriver";
+
 import pixelMicro from "../../assets/fonts/PixelMicro.ttf";
 import { BrowserDriver } from ".";
 
@@ -71,5 +72,9 @@ export class RealBrowserDriver implements IBrowserDriver {
       // eslint-disable-next-line no-undef
       const res = await window.fetch(input);
       return await res.blob();
+   };
+
+   public SaveFile = async (_path: string, _data: string) => {
+      // noop
    };
 }

@@ -3,7 +3,6 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { TShortFormAction } from "./actions/actionTypesShortForms";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -35,7 +34,7 @@ export class Enemy {
    public attrs = new Attributes();
    private name: string;
    // One action that is executed immediately when an enemy dies.
-   private onDeathAction?: TShortFormAction;
+   private onDeathAction?: TAction;
 
    public constructor( enemies: Enemies, position: TVector, json: IEnemyJson ) {
       this.enemies = enemies;
@@ -268,7 +267,7 @@ export class Enemy {
                         { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
                         { type: "waitNextFrame" }
                      ]},
-               ] as unknown as TShortFormAction[]
+               ]
             }
          ]
       });
@@ -331,7 +330,7 @@ export class Enemy {
 
    private spawn = (
       { enemy, pos, actions }:
-      { enemy: string, pos: TVector, actions?: (TAction|TShortFormAction)[] }
+      { enemy: string, pos: TVector, actions?: TAction[] }
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };

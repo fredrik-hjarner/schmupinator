@@ -58,7 +58,7 @@ export class ReplayerInput implements IInput {
       }
       // @ts-ignore
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const buttonsPressed = {...allFalse, ...this.replay.inputs[frame]} as ButtonsPressed;
+      const buttonsPressed: ButtonsPressed = {...allFalse, ...this.replay.inputs[frame]};
       return buttonsPressed;
    }
 }
