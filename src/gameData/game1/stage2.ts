@@ -1,4 +1,4 @@
-import { forever, parallelAll, wait } from "../utils";
+import { forever, moveToAbsolute, parallelAll, wait } from "../utils";
 import { col } from "./common";
 
 export const stage2 = {
@@ -18,7 +18,7 @@ export const cloner = {
    hp: 25,
    diameter: 29,
    actions: [
-      { moveToAbsolute: { y: 45 }, frames: 150 },
+      moveToAbsolute({ y: 45, frames: 150 }),
       wait(30),
       { type: "spawn", enemy: "clonerChild" },
       { type: "spawn", enemy: "clonerChild", actions: [

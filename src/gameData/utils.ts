@@ -1,5 +1,5 @@
 import type {
-   TAction, TFork, TRepeat, TSetSpeed, TSpawn, TWait, TparallelAll, TparallelRace
+   TAction, TFork, TMoveToAbsolute, TRepeat, TSetSpeed, TSpawn, TWait, TparallelAll, TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
 
 export const forever = (...actions: TAction[]): TRepeat => ({
@@ -13,6 +13,13 @@ export const fork = (...actions: TAction[]): TFork => ({
    type: "fork",
    // @ts-ignore: TODO: fix type
    actions
+});
+
+type TMoveToAbsParams = { x?: number, y?: number, frames: number};
+export const moveToAbsolute = ({ x, y, frames }: TMoveToAbsParams): TMoveToAbsolute => ({
+   type: "moveToAbsolute",
+   moveTo: { x, y },
+   frames
 });
 
 export const parallelAll = (...actions: (TAction|TAction[])[]): TparallelAll => ({

@@ -3,7 +3,7 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction, TMove, TShootDirection } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { forever, parallelAll, parallelRace, repeat, setSpeed, spawn, thrice, twice, wait } from "../utils";
+import { forever, moveToAbsolute, parallelAll, parallelRace, repeat, setSpeed, spawn, thrice, twice, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -150,20 +150,20 @@ const shootingPattern = [
    )
 ];
 
-const intoScreen =            { moveToAbsolute: { x: 116, y: 0 }, frames: 40 };
-const down1 =                 { moveToAbsolute: { y: 75 }, frames: 52 };
+const intoScreen =            moveToAbsolute({ x: 116, y: 0 , frames: 40 });
+const down1 =                 moveToAbsolute({ y: 75 , frames: 52 });
 const quarterCircleDownIn =   { type: "rotate_around_relative_point", degrees: -90, frames: 39, point: { x: 25, y: -5 } };
 const quarterCircleDownOut =  { type: "rotate_around_relative_point", degrees: 90, frames: 39, point: { x: -20, y: -11 } };
-const in1 =                   { moveToAbsolute: { x: 139.5 }, frames: 47};
-const up1 =                   { moveToAbsolute: { y: 11 }, frames: 100 };
+const in1 =                   moveToAbsolute({ x: 139.5 , frames: 47});
+const up1 =                   moveToAbsolute({ y: 11 , frames: 100 });
 const halfCircleLeftDown =    { type: "rotate_around_absolute_point", point: { y: 61 }, degrees: -180, frames: 100 };
-const out1 =                  { moveToAbsolute: { x: 99.5 }, frames: 50 };
-const down2 =                 { moveToAbsolute: { y: 141 }, frames: 30 };
-const up2 =                   { moveToAbsolute: { y: 61 }, frames: 80 };
-const downIn =                { moveToAbsolute: { x: 138.5, y: 105 }, frames: 40 };
+const out1 =                  moveToAbsolute({ x: 99.5, frames: 50 });
+const down2 =                 moveToAbsolute({ y: 141, frames: 30 });
+const up2 =                   moveToAbsolute({ y: 61, frames: 80 });
+const downIn =                moveToAbsolute({ x: 138.5, y: 105, frames: 40 });
 const rotateClockwise =       { type: "rotate_around_absolute_point", point: { x: 178.5 }, degrees: 360, frames: 240 };
 const rotateAntiClockwise =   { type: "rotate_around_absolute_point", point: { x: 178.5 }, degrees: -360, frames: 240 };
-const downOutOfScreen =       { moveToAbsolute: { x: 98.5, y: 290 }, frames: 210 };
+const downOutOfScreen =       moveToAbsolute({ x: 98.5, y: 290, frames: 210 });
 
 const movementPattern = [
    { attr: "right", is: true, yes: [{ type: "mirrorX", value: true }] },
