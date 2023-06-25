@@ -1,10 +1,16 @@
 import type {
-   TAction, TRepeat, TSpawn, TWait, TparallelAll, TparallelRace
+   TAction, TFork, TRepeat, TSpawn, TWait, TparallelAll, TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
 
 export const forever = (...actions: TAction[]): TRepeat => ({
    type: "repeat",
    times: 100_000_000,
+   // @ts-ignore: TODO: fix type
+   actions
+});
+
+export const fork = (...actions: TAction[]): TFork => ({
+   type: "fork",
    // @ts-ignore: TODO: fix type
    actions
 });

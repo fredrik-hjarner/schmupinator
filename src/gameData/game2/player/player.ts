@@ -4,21 +4,19 @@ import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEne
 
 import { TAction } from "../../../App/services/Enemies/actions/actionTypes";
 
-import { forever, wait } from "../../utils";
+import { forever, fork, wait } from "../../utils";
 
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 
 const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs): TAction => ({
    type: "spawn", enemy: "playerShot",
-   actions: [{
-      fork: [
-         // @ts-ignore
-         forever(
-            { type: "moveDelta", x: moveDeltaX, y: moveDeltaY },
-            { type: "waitNextFrame" }
-         )
-      ]
-   }]
+   actions: [
+      // @ts-ignore
+      fork(forever(
+         { type: "moveDelta", x: moveDeltaX, y: moveDeltaY },
+         { type: "waitNextFrame" }
+      ))
+   ]
 });
 
 const trippleShot: TAction[] = [
@@ -58,32 +56,17 @@ export const player: IEnemyJson = {
       { type: "gfxSetShape", shape: "none" },
       wait(1),
       { type: "gfxSetShape", shape: "diamondShield" },
-      {
-         fork: [
-            // @ts-ignore
-            forever(
-               { type: "moveAccordingToInput" },
-               { type: "waitNextFrame" }
-            )
-         ],
-      },
-      {
-         fork: [
-            // @ts-ignore
-            forever(
-               { type: "waitInputShoot" },
-               ...trippleShot,
-            )
-         ],
-      },
-      {
-         fork: [
-            // @ts-ignore
-            forever(
-               { type: "waitInputLaser" },
-               ...laser,
-            )
-         ],
-      },
+      fork(forever(
+         { type: "moveAccordingToInput" },
+         { type: "waitNextFrame" }
+      )),
+      fork(forever(
+         { type: "waitInputShoot" },
+         ...trippleShot,
+      )),
+      fork(forever(
+         { type: "waitInputLaser" },
+         ...laser,
+      )),
    ]
 };

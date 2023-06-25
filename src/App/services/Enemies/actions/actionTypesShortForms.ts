@@ -37,11 +37,6 @@ const isThrice = (acn: (TAction|TShortFormAction)): acn is TThrice => {
    return (acn as TThrice).thrice !== undefined;
 };
 
-export type TShortFormFork = { fork: TShortFormAction[] };
-const isShortFormFork = (acn: (TAction|TShortFormAction)): acn is TShortFormFork => {
-   return (acn as TShortFormFork).fork !== undefined;
-};
-
 export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TAction => {
    if(iShortFormAttr(shortForm)) {
       const { attr, is, yes, no } = shortForm;
@@ -58,8 +53,6 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
       return { type: "repeat", times: 2, actions: shortForm.twice };
    }else if(isThrice(shortForm)) {
       return { type: "repeat", times: 3, actions: shortForm.thrice };
-   } else if(isShortFormFork(shortForm)) {
-      return { type: "fork", actions: shortForm.fork };
    }
    return shortForm;
 };
@@ -70,8 +63,7 @@ export function isShortFormAction(action: TAction|TShortFormAction): boolean {
          isShortFormMoveToAbsolute(action) ||
          isShortFormSetSpeed(action) ||
          isTwice(action) ||
-         isThrice(action) ||
-         isShortFormFork(action);
+         isThrice(action);
 }
 
 export type TShortFormAction =
@@ -86,5 +78,4 @@ export type TShortFormAction =
    TShortFormMoveToAbsolute |
    TShortFormSetSpeed |
    TTwice |
-   TThrice |
-   TShortFormFork
+   TThrice;
