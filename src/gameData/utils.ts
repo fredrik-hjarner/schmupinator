@@ -48,4 +48,6 @@ export const spawn = (enemy: string, params?: TSpawnParams): TSpawn => ({
    actions: params?.actions
 });
 
+export const twice = (...actions: TAction[]): TRepeat => repeat(2, actions);
+
 export const wait = (frames: number): TWait => ({ type: "wait", frames });

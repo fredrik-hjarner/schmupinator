@@ -1,14 +1,14 @@
-import { TAction } from "../../../App/services/Enemies/actions/actionTypes";
-import { parallelAll, wait } from "../../utils";
+import { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes";
+import { parallelAll, twice, wait } from "../../utils";
 
-const moveLeft = {
+const moveLeft: TMove = {
    type: "move",
    frames: 80,
    x: -205,
    y: 30,
 };
 
-const moveRight = {
+const moveRight: TMove = {
    ...moveLeft,
    x: 205,
 };
@@ -54,13 +54,11 @@ export const sinus = {
       { type: "gfxSetShape", shape: "octagon" },
       { type: "setShotSpeed", pixelsPerFrame: 1.5 },
       { attr: "right", is: true, yes: [{ type: "mirrorX", value: true }] },
-      {
-         twice: [
-            rotateLeftAndShoot,
-            moveRight,
-            rotateRightAndShoot,
-            moveLeft,
-         ]
-      }
+      twice(
+         rotateLeftAndShoot,
+         moveRight,
+         rotateRightAndShoot,
+         moveLeft,
+      )
    ],
 };

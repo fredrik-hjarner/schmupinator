@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
-import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
+import type { TAction, TMove } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { forever, parallelAll, parallelRace, repeat, spawn, wait } from "../utils";
+import { forever, parallelAll, parallelRace, repeat, spawn, twice, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -81,8 +81,8 @@ export const nonShootingAimer: IEnemyJson = {
 
 //------------------------------------------------------------
 
-const moveLeft = { type: "move", frames: 80, x: -205, y: 30 };
-const moveRight = { ...moveLeft, x: 205 };
+const moveLeft: TMove = { type: "move", frames: 80, x: -205, y: 30 };
+const moveRight: TMove = { ...moveLeft, x: 205 };
 
 const rotateLeft: TAction | TShortFormAction = {
    type: "rotate_around_relative_point",
@@ -117,18 +117,12 @@ export const sinus: IEnemyJson = {
       { setShotSpeed: 2 },
       // @ts-ignore
       { attr: "right", is: true, yes: [{ type: "mirrorX", value: true }] },
-      {
-         twice: [ // TODO: remove `twice` from core game code and let it be a "util"
-            // @ts-ignore
-            rotateLeftAndShoot, 
-            // @ts-ignore
-            moveRight,
-            // @ts-ignore
-            rotateRightAndShoot,
-            // @ts-ignore
-            moveLeft
-         ]
-      }
+      twice(
+         rotateLeftAndShoot, 
+         moveRight,
+         rotateRightAndShoot,
+         moveLeft
+      )
    ]
 };
 
@@ -144,14 +138,12 @@ const shootingPattern = [
       { thrice: [shootDown, wait(3)] }, // TODO: replace with { repeat: 3, actions: ... }
       wait(55),
       { setShotSpeed: 2.2 },
-      {
-         twice: [ // TODO: replace with { repeat: 2, actions: ... }
-            { type: "shoot_toward_player" },
-            { type: "shoot_beside_player", degrees: 25 },
-            { type: "shoot_beside_player", degrees: -25 },
-            wait(64)
-         ]
-      }
+      twice(
+         { type: "shoot_toward_player" },
+         { type: "shoot_beside_player", degrees: 25 },
+         { type: "shoot_beside_player", degrees: -25 },
+         wait(64)
+      )
    )
 ];
 

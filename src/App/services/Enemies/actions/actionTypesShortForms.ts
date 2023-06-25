@@ -27,11 +27,6 @@ const isShortFormSetSpeed = (acn: (TAction|TShortFormAction)): acn is TShortForm
    return (acn as TShortFormSetSpeed).setSpeed !== undefined;
 };
 
-export type TTwice = { twice: TShortFormAction[] };
-const isTwice = (acn: (TAction|TShortFormAction)): acn is TTwice => {
-   return (acn as TTwice).twice !== undefined;
-};
-
 export type TThrice = { thrice: TShortFormAction[] };
 const isThrice = (acn: (TAction|TShortFormAction)): acn is TThrice => {
    return (acn as TThrice).thrice !== undefined;
@@ -49,8 +44,6 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
       return { type: "moveToAbsolute", moveTo: moveToAbsolute, frames };
    }else if(isShortFormSetSpeed(shortForm)) {
       return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
-   }else if(isTwice(shortForm)) {
-      return { type: "repeat", times: 2, actions: shortForm.twice };
    }else if(isThrice(shortForm)) {
       return { type: "repeat", times: 3, actions: shortForm.thrice };
    }
@@ -62,7 +55,6 @@ export function isShortFormAction(action: TAction|TShortFormAction): boolean {
          isShortFormSetShotSpeed(action) ||
          isShortFormMoveToAbsolute(action) ||
          isShortFormSetSpeed(action) ||
-         isTwice(action) ||
          isThrice(action);
 }
 
@@ -77,5 +69,4 @@ export type TShortFormAction =
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
    TShortFormSetSpeed |
-   TTwice |
    TThrice;
