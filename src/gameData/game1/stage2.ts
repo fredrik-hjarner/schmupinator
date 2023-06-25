@@ -1,4 +1,4 @@
-import { parallelAll, wait } from "../utils";
+import { forever, parallelAll, wait } from "../utils";
 import { col } from "./common";
 
 export const stage2 = {
@@ -47,11 +47,10 @@ export const clonerChild = {
          { type: "move", x: -45, y: -20, frames: 65 },
          [
             wait(60),
-            // @ts-ignore
-            { forever: [
+            forever(
                { type: "shootDirection", x: 0, y: 1},
                wait(40)
-            ]},
+            ),
          ],
       )
    ]

@@ -27,12 +27,6 @@ const isShortFormSetSpeed = (acn: (TAction|TShortFormAction)): acn is TShortForm
    return (acn as TShortFormSetSpeed).setSpeed !== undefined;
 };
 
-// Infinite repeat of list of actions.
-export type TForever = { forever: TShortFormAction[] };
-const isForever = (acn: (TAction|TShortFormAction)): acn is TForever => {
-   return (acn as TForever).forever !== undefined;
-};
-
 export type TTwice = { twice: TShortFormAction[] };
 const isTwice = (acn: (TAction|TShortFormAction)): acn is TTwice => {
    return (acn as TTwice).twice !== undefined;
@@ -60,8 +54,6 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
       return { type: "moveToAbsolute", moveTo: moveToAbsolute, frames };
    }else if(isShortFormSetSpeed(shortForm)) {
       return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
-   }else if(isForever(shortForm)) {
-      return { type: "repeat", times: 100_000_000, actions: shortForm.forever };
    }else if(isTwice(shortForm)) {
       return { type: "repeat", times: 2, actions: shortForm.twice };
    }else if(isThrice(shortForm)) {
@@ -77,7 +69,6 @@ export function isShortFormAction(action: TAction|TShortFormAction): boolean {
          isShortFormSetShotSpeed(action) ||
          isShortFormMoveToAbsolute(action) ||
          isShortFormSetSpeed(action) ||
-         isForever(action) ||
          isTwice(action) ||
          isThrice(action) ||
          isShortFormFork(action);
@@ -94,7 +85,6 @@ export type TShortFormAction =
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
    TShortFormSetSpeed |
-   TForever |
    TTwice |
    TThrice |
    TShortFormFork

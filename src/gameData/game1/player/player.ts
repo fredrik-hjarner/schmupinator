@@ -2,30 +2,33 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
-import { wait } from "../../utils";
+import { TAction } from "../../../App/services/Enemies/actions/actionTypes";
+
+import { forever, wait } from "../../utils";
 
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 
-const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs) => ({
+const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs): TAction => ({
    type: "spawn", enemy: "playerShot",
    actions: [{
-      fork: [{
-         forever: [
+      fork: [
+         // @ts-ignore
+         forever(
             { type: "moveDelta", x: moveDeltaX, y: moveDeltaY },
             { type: "waitNextFrame" }
-         ]
-      }]
+         )
+      ]
    }]
 });
 
-const trippleShot: any = [
+const trippleShot: TAction[] = [
    createShot({ moveDeltaX: 0, moveDeltaY: -9 }),
    createShot({ moveDeltaX: 1.5, moveDeltaY: -9 }),
    createShot({ moveDeltaX: -1.5, moveDeltaY: -9 }),
    wait(8),
 ];
 
-const laser = [
+const laser: TAction[] = [
    { type: "spawn", enemy: "playerLaser", y: 15 },
    { type: "spawn", enemy: "playerLaser", y: 10 },
    { type: "spawn", enemy: "playerLaser", y: 5 },
@@ -56,28 +59,31 @@ export const player: IEnemyJson = {
       wait(1),
       { type: "gfxSetShape", shape: "diamondShield" },
       {
-         fork: [{
-            forever: [
+         fork: [
+            // @ts-ignore
+            forever(
                { type: "moveAccordingToInput" },
                { type: "waitNextFrame" }
-            ]
-         }],
+            )
+         ],
       },
       {
-         fork: [{
-            forever: [
+         fork: [
+            // @ts-ignore
+            forever(
                { type: "waitInputShoot" },
                ...trippleShot,
-            ]
-         }],
+            )
+         ],
       },
       {
-         fork: [{
-            forever: [
+         fork: [
+            // @ts-ignore
+            forever(
                { type: "waitInputLaser" },
                ...laser
-            ]
-         }],
+            )
+         ],
       },
    ]
 };

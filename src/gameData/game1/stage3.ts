@@ -1,4 +1,4 @@
-import { wait } from "../utils";
+import { forever, wait } from "../utils";
 import { col, row } from "./common";
 
 export const stage3 = {
@@ -19,20 +19,18 @@ export const shapeShifter = {
    hp: 100,
    onDeathAction: { type: "spawn", enemy: "shapeShifter", y: -20 },
    actions: [
-      {
-         forever: [
-            { type: "gfxSetShape", shape: "circle" },
-            wait(60),
-            { type: "gfxSetShape", shape: "square" },
-            wait(60),
-            { type: "gfxSetShape", shape: "triangle" },
-            wait(60),
-            { type: "gfxSetShape", shape: "diamondShield" },
-            wait(60),
-            { type: "gfxSetShape", shape: "octagon" },
-            wait(60),
-         ]
-      }
+      forever(
+         { type: "gfxSetShape", shape: "circle" },
+         wait(60),
+         { type: "gfxSetShape", shape: "square" },
+         wait(60),
+         { type: "gfxSetShape", shape: "triangle" },
+         wait(60),
+         { type: "gfxSetShape", shape: "diamondShield" },
+         wait(60),
+         { type: "gfxSetShape", shape: "octagon" },
+         wait(60),
+      )
    ]
 };
 
@@ -42,16 +40,15 @@ export const healer = {
    hp: 50,
    actions: [
       { type: "setAttribute", attribute: "hp", value: 25 },
-      {
-         forever: [
-            wait(10),
-            {
-               attr: "hp",
-               is: 50,
-               no: [{ type: "incr", attribute: "hp" }]
-            }
-         ]
-      }
+      forever(
+         wait(10),
+         // @ts-ignore
+         {
+            attr: "hp",
+            is: 50,
+            no: [{ type: "incr", attribute: "hp" }]
+         }
+      )
    ]
 };
 
@@ -60,11 +57,9 @@ export const dehealer = {
    diameter: 30,
    hp: 50,
    actions: [
-      {
-         forever: [
-            wait(10),
-            { type: "decr", attribute: "hp" }
-         ]
-      }
+      forever(
+         wait(10),
+         { type: "decr", attribute: "hp" }
+      )
    ]
 };

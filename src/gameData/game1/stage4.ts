@@ -1,3 +1,4 @@
+import { forever } from "../utils";
 import { col, row } from "./common";
 
 const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}) => ({
@@ -109,9 +110,9 @@ export const easyFlyer = {
    actions: [
       { type: "setSpeed", pixelsPerFrame: 1.17 },
       { type: "gfxSetColor", color: "green" },
-      { forever: [
+      forever(
          { type: "move_according_to_speed_and_direction" },
          { type: "waitNextFrame" },
-      ]},
+      )
    ],
 };

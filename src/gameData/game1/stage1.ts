@@ -3,7 +3,7 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { parallelAll, parallelRace, repeat, spawn, wait } from "../utils";
+import { forever, parallelAll, parallelRace, repeat, spawn, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -71,15 +71,10 @@ export const nonShootingAimer: IEnemyJson = {
             { type: "rotate_towards_player" },
             wait(8)
          ]),
-         {
-            // @ts-ignore
-            forever: [
-               // @ts-ignore
-               { type: "move_according_to_speed_and_direction" },
-               // @ts-ignore
-               { type: "waitNextFrame" }
-            ]
-         }
+         forever(
+            { type: "move_according_to_speed_and_direction" },
+            { type: "waitNextFrame" }
+         )
       )
    ]
 };
@@ -143,22 +138,21 @@ const shootDown = { type: "shootDirection", x: 0, y: 1 };
 
 const shootingPattern = [
    wait(75),
-   {
-      forever: [
-         { setShotSpeed: 2.6 },
-         { thrice: [shootDown, wait(3)] }, // TODO: replace with { repeat: 3, actions: ... }
-         wait(55),
-         { setShotSpeed: 2.2 },
-         {
-            twice: [ // TODO: replace with { repeat: 2, actions: ... }
-               { type: "shoot_toward_player" },
-               { type: "shoot_beside_player", degrees: 25 },
-               { type: "shoot_beside_player", degrees: -25 },
-               wait(64)
-            ]
-         }
-      ]
-   }
+   forever(
+      // @ts-ignore
+      { setShotSpeed: 2.6 },
+      { thrice: [shootDown, wait(3)] }, // TODO: replace with { repeat: 3, actions: ... }
+      wait(55),
+      { setShotSpeed: 2.2 },
+      {
+         twice: [ // TODO: replace with { repeat: 2, actions: ... }
+            { type: "shoot_toward_player" },
+            { type: "shoot_beside_player", degrees: 25 },
+            { type: "shoot_beside_player", degrees: -25 },
+            wait(64)
+         ]
+      }
+   )
 ];
 
 const intoScreen =            { moveToAbsolute: { x: 116, y: 0 }, frames: 40 };
@@ -205,8 +199,8 @@ export const firstMiniboss: IEnemyJson = {
    diameter: 35,
    actions: [
       parallelRace(
-         // @ts-ignore
          shootingPattern,
+         // @ts-ignore
          movementPattern
       )
    ]
