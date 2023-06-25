@@ -27,11 +27,6 @@ const isShortFormSetSpeed = (acn: (TAction|TShortFormAction)): acn is TShortForm
    return (acn as TShortFormSetSpeed).setSpeed !== undefined;
 };
 
-export type TThrice = { thrice: TShortFormAction[] };
-const isThrice = (acn: (TAction|TShortFormAction)): acn is TThrice => {
-   return (acn as TThrice).thrice !== undefined;
-};
-
 export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TAction => {
    if(iShortFormAttr(shortForm)) {
       const { attr, is, yes, no } = shortForm;
@@ -44,8 +39,6 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
       return { type: "moveToAbsolute", moveTo: moveToAbsolute, frames };
    }else if(isShortFormSetSpeed(shortForm)) {
       return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
-   }else if(isThrice(shortForm)) {
-      return { type: "repeat", times: 3, actions: shortForm.thrice };
    }
    return shortForm;
 };
@@ -54,8 +47,7 @@ export function isShortFormAction(action: TAction|TShortFormAction): boolean {
    return iShortFormAttr(action) ||
          isShortFormSetShotSpeed(action) ||
          isShortFormMoveToAbsolute(action) ||
-         isShortFormSetSpeed(action) ||
-         isThrice(action);
+         isShortFormSetSpeed(action);
 }
 
 export type TShortFormAction =
@@ -68,5 +60,4 @@ export type TShortFormAction =
    TShortFormAttr |
    TShortFormSetShotSpeed |
    TShortFormMoveToAbsolute |
-   TShortFormSetSpeed |
-   TThrice;
+   TShortFormSetSpeed;

@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
-import type { TAction, TMove } from "../../App/services/Enemies/actions/actionTypes";
+import type { TAction, TMove, TShootDirection } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { forever, parallelAll, parallelRace, repeat, spawn, twice, wait } from "../utils";
+import { forever, parallelAll, parallelRace, repeat, spawn, thrice, twice, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -128,14 +128,17 @@ export const sinus: IEnemyJson = {
 
 //------------------------------------------------------------
 
-const shootDown = { type: "shootDirection", x: 0, y: 1 };
+const shootDown: TShootDirection = { type: "shootDirection", x: 0, y: 1 };
 
 const shootingPattern = [
    wait(75),
    forever(
       // @ts-ignore
       { setShotSpeed: 2.6 },
-      { thrice: [shootDown, wait(3)] }, // TODO: replace with { repeat: 3, actions: ... }
+      thrice(
+         shootDown,
+         wait(3)
+      ),
       wait(55),
       { setShotSpeed: 2.2 },
       twice(
