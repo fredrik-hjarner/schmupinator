@@ -186,8 +186,6 @@ to prefix all logs in for example the GameData service.
 fitting name since otherwise I might end up using `collisionType` for things that are not even
 collision related. At some point I might want to filter by type for example too.
 
-* Fix highscore tests.
-
 * It would be better if the Scene:s where created anew with `new` on Scene swapping, maybe, because
 then some vars would reset automatically. I had a problem with one var not having been reset in
 destroy.
@@ -242,9 +240,5 @@ and more uniform/consistent.~~
 
 * The shooting actions should prolly have to specify which shot to use instead of using the default
 shot, since the default shot is a bit "magical".
-
-* Replace Jest with Vitest.
-
-* Add @ alias for src folder.
 
 * Remove TDo action, it's not needed. It is used but I think all those can be removed/replaced.

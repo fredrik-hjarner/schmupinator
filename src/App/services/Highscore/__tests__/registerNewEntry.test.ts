@@ -1,6 +1,8 @@
-import { Highscore } from '../Highscore';
+import { describe, it, expect } from "vitest";
 
-const createHighscoreFixture = (): Highscore => {
+import { Highscore } from "../Highscore";
+
+const createHighscoreFixture = async (): Promise<Highscore> => {
    const highscores = {
       version: 1,
       games: {
@@ -19,12 +21,18 @@ const createHighscoreFixture = (): Highscore => {
       },
    };
 
-   return new Highscore({ name: "hs", highscores });
-}
+   
+   const hs = new Highscore({ name: "hs", highscores });
+   // @ts-ignorec
+   // eslint-disable-next-line
+   await hs.Init({ gameData: { getAndAssertActiveGame: () => "game1" } as any });
+
+   return hs;
+};
 
 describe("registerNewEntry", () => {
-   it("dont qualify for top10", () => {
-      const hs = createHighscoreFixture();
+   it("dont qualify for top10", async () => {
+      const hs = await createHighscoreFixture();
 
       const expected = hs.getTop10();
       hs.registerNewEntry({ name: "Nils", score: 0 });
@@ -32,8 +40,8 @@ describe("registerNewEntry", () => {
       expect(actual).toEqual(expected);
    });
 
-   it("rank 0 (top1)", () => {
-      const hs = createHighscoreFixture();
+   it("rank 0 (top1)", async () => {
+      const hs = await createHighscoreFixture();
 
       const expected = [
          { name: "Nils", score: 11 },
@@ -46,15 +54,15 @@ describe("registerNewEntry", () => {
          { name: "G", score: 4 },
          { name: "H", score: 3 },
          { name: "I", score: 2 },
-      ]
+      ];
       hs.registerNewEntry({ name: "Nils", score: 11 });
       expect(hs.getTop10().length).toBe(10);
       const actual = hs.getTop10();
       expect(actual).toEqual(expected);
    });
 
-   it("rank 1 (top2)", () => {
-      const hs = createHighscoreFixture();
+   it("rank 1 (top2)", async () => {
+      const hs = await createHighscoreFixture();
 
       const expected = [
          { name: "A", score: 10 },
@@ -67,7 +75,7 @@ describe("registerNewEntry", () => {
          { name: "G", score: 4 },
          { name: "H", score: 3 },
          { name: "I", score: 2 },
-      ]
+      ];
       hs.registerNewEntry({ name: "Nils", score: 10 });
       expect(hs.getTop10().length).toBe(10);
       const actual = hs.getTop10();

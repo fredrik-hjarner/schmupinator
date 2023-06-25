@@ -1,11 +1,10 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
-  // TODO: Fix tests!
   ignorePatterns: [
-    "jest.config.cjs",
+    "vite.config.ts",
     ".eslintrc.cjs",
     "dist/**/*",
-    "src/**/*.test.ts",
+    // "src/**/*.test.ts",
     // "auto-generated" files
     "e2ehistory.ts",
     "src/**/mocks/replay.ts",
@@ -39,6 +38,13 @@ module.exports = {
   ],
   settings: {
     'import/resolver': {
+      node: {
+        // extensions: ['.js', '.ts', '.tsx'],
+        paths: 'src',
+        "map": [
+          ["@", "./src"]
+        ]
+      },
       /**
        * eslint-import-resolver-typescript make eslint understand imports better.
        * even though typescript is an empty object it needs to be there for

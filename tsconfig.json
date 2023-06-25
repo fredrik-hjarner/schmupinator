@@ -22,14 +22,17 @@
     "allowUnusedLabels": false,
     "noImplicitAny": true,
     "incremental": true, // disable this if you have problems. known to cause problems.
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+    },
   },
+  "baseUrl": "src",
   "include": [
     "src"
   ],
   "exclude": [
     // "dist/**/*",
-    // TODO: Fix tests!
-    // "src/**/*.test.ts",
-    // "jest.config.cjs"
   ],
 }

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "@/src/App/services/Enemies/enemyConfigs/IEnemyJson";
 
 import { explosion, roundExplosion } from "./effects/explosions";
 import { player } from "./player/player";
