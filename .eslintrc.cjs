@@ -123,6 +123,12 @@ module.exports = {
     "@typescript-eslint/explicit-member-accessibility": ["error"],
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-assertions": ["error" , {
+      assertionStyle: "as",
+      objectLiteralTypeAssertions: "never"
+    }],
+    "@typescript-eslint/no-duplicate-type-constituents": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
 
     /************
      * Disables *
