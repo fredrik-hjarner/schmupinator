@@ -1,5 +1,7 @@
-import { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes";
-import { parallelAll, twice, wait } from "../../utils";
+import type { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes";
+import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
+
+import { Do, attr, parallelAll, twice, wait } from "../../utils";
 
 const moveLeft: TMove = {
    type: "move",
@@ -40,20 +42,18 @@ const rotateRightAndShoot = parallelAll(
    shootWhileRotation
 );
 
-export const sinus = {
+export const sinus: IEnemyJson = {
    name: "sinus",
    hp: 1,
    diameter: 24,
-   onDeathAction: {
-      do: [
-         { type: "spawn", enemy: "roundExplosion" },
-         { type: "spawn", enemy: "kamikazeCorpse" },
-      ],
-   },
+   onDeathAction: Do(
+      { type: "spawn", enemy: "roundExplosion" },
+      { type: "spawn", enemy: "kamikazeCorpse" },
+   ),
    actions: [
       { type: "gfxSetShape", shape: "octagon" },
       { type: "setShotSpeed", pixelsPerFrame: 1.5 },
-      { attr: "right", is: true, yes: [{ type: "mirrorX", value: true }] },
+      attr("right", { is: true, yes: [{ type: "mirrorX", value: true }] }),
       twice(
          rotateLeftAndShoot,
          moveRight,

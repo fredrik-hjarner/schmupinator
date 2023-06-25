@@ -1,7 +1,9 @@
-import { forever, wait } from "../utils";
+import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+
+import { attr, forever, wait } from "../utils";
 import { col, row } from "./common";
 
-export const stage3 = {
+export const stage3: IEnemyJson = {
    name: "stage3",
    diameter: 20,
    hp: 9999,
@@ -13,7 +15,7 @@ export const stage3 = {
    ]
 };
 
-export const shapeShifter = {
+export const shapeShifter: IEnemyJson = {
    name: "shapeShifter",
    diameter: 30,
    hp: 100,
@@ -34,7 +36,7 @@ export const shapeShifter = {
    ]
 };
 
-export const healer = {
+export const healer: IEnemyJson = {
    name: "healer",
    diameter: 30,
    hp: 50,
@@ -42,17 +44,15 @@ export const healer = {
       { type: "setAttribute", attribute: "hp", value: 25 },
       forever(
          wait(10),
-         // @ts-ignore
-         {
-            attr: "hp",
+         attr("hp", {
             is: 50,
             no: [{ type: "incr", attribute: "hp" }]
-         }
+         })
       )
    ]
 };
 
-export const dehealer = {
+export const dehealer: IEnemyJson = {
    name: "dehealer",
    diameter: 30,
    hp: 50,

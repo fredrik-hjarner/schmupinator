@@ -1,7 +1,11 @@
+import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+
+import { TAction } from "../../App/services/Enemies/actions/actionTypes";
+
 import { forever } from "../utils";
 import { col, row } from "./common";
 
-const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}) => ({
+const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}): TAction => ({
    type: "spawn", enemy: "easyFlyer",
    x,
    y,
@@ -47,7 +51,7 @@ const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}) => ({
 //    ]},
 // ];
 
-const wave3 = [
+const wave3: TAction[] = [
    { type: "spawn", enemy: "easyFlyer", x: -100, y: 0, actions: [
       { type: "setMoveDirection", degrees: 140 }
    ] },
@@ -70,7 +74,7 @@ const wave3 = [
    { type: "wait", frames: 60 },
 ];
 
-const wave4 = [
+const wave4: TAction[] = [
    { type: "repeat", times: 5, actions: [
       makeEasyFlyer({ x: col[1], y: -20 }),
       makeEasyFlyer({ x: col[3], y: -20 }),
@@ -88,7 +92,7 @@ const wave4 = [
    ]},
 ];
 
-export const stage4 = {
+export const stage4: IEnemyJson = {
    name: "stage4",
    diameter: 20,
    hp: 9999,
@@ -103,7 +107,7 @@ export const stage4 = {
    ],
 };
 
-export const easyFlyer = {
+export const easyFlyer: IEnemyJson = {
    name: "easyFlyer",
    diameter: 29,
    hp: 5,

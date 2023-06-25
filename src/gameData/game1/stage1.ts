@@ -1,9 +1,13 @@
 /* eslint-disable max-len */
 import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
-import type { TAction, TMove, TShootDirection } from "../../App/services/Enemies/actions/actionTypes";
-import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
+import type {
+   TAction, TMove, TShootDirection
+} from "../../App/services/Enemies/actions/actionTypes";
 
-import { forever, moveToAbsolute, parallelAll, parallelRace, repeat, setSpeed, spawn, thrice, twice, wait } from "../utils";
+import {
+   attr, forever, moveToAbsolute, parallelAll, parallelRace,
+   repeat, setShotSpeed, setSpeed, spawn, thrice, twice, wait
+} from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -47,9 +51,7 @@ export const stage1: IEnemyJson = {
       wait(120),
       sinuses,
       wait(200),
-      // @ts-ignore
       // leftMiniBoss,
-      // @ts-ignore
       // rightMiniBoss,
       leftMiniBoss,
       rightMiniBoss,
@@ -62,7 +64,6 @@ export const nonShootingAimer: IEnemyJson = {
    name: "nonShootingAimer",
    hp: 4,
    diameter: 22,
-   // @ts-ignore
    onDeathAction: spawn("roundExplosion"),
    actions: [
       setSpeed(1.6),
@@ -84,13 +85,13 @@ export const nonShootingAimer: IEnemyJson = {
 const moveLeft: TMove = { type: "move", frames: 80, x: -205, y: 30 };
 const moveRight: TMove = { ...moveLeft, x: 205 };
 
-const rotateLeft: TAction | TShortFormAction = {
+const rotateLeft: TAction = {
    type: "rotate_around_relative_point",
    degrees: -180,
    frames: 35,
    point: { y: 31 }
 };
-const rotateRight: TAction | TShortFormAction = { ...rotateLeft, degrees: 180 };
+const rotateRight: TAction = { ...rotateLeft, degrees: 180 };
 
 const shootWhileRotation: TAction[] = [
    wait(16),
@@ -111,12 +112,10 @@ export const sinus: IEnemyJson = {
    name: "sinus",
    hp: 3,
    diameter: 24,
-   // @ts-ignore
    onDeathAction: spawn("roundExplosion"),
    actions: [
-      { setShotSpeed: 2 },
-      // @ts-ignore
-      { attr: "right", is: true, yes: [{ type: "mirrorX", value: true }] },
+      setShotSpeed(2),
+      attr("right", { is: true, yes: [{ type: "mirrorX", value: true }] }),
       twice(
          rotateLeftAndShoot, 
          moveRight,
@@ -133,14 +132,13 @@ const shootDown: TShootDirection = { type: "shootDirection", x: 0, y: 1 };
 const shootingPattern = [
    wait(75),
    forever(
-      // @ts-ignore
-      { setShotSpeed: 2.6 },
+      setShotSpeed(2.6),
       thrice(
          shootDown,
          wait(3)
       ),
       wait(55),
-      { setShotSpeed: 2.2 },
+      setShotSpeed(2.2),
       twice(
          { type: "shoot_toward_player" },
          { type: "shoot_beside_player", degrees: 25 },
@@ -150,23 +148,23 @@ const shootingPattern = [
    )
 ];
 
-const intoScreen =            moveToAbsolute({ x: 116, y: 0 , frames: 40 });
-const down1 =                 moveToAbsolute({ y: 75 , frames: 52 });
-const quarterCircleDownIn =   { type: "rotate_around_relative_point", degrees: -90, frames: 39, point: { x: 25, y: -5 } };
-const quarterCircleDownOut =  { type: "rotate_around_relative_point", degrees: 90, frames: 39, point: { x: -20, y: -11 } };
-const in1 =                   moveToAbsolute({ x: 139.5 , frames: 47});
-const up1 =                   moveToAbsolute({ y: 11 , frames: 100 });
-const halfCircleLeftDown =    { type: "rotate_around_absolute_point", point: { y: 61 }, degrees: -180, frames: 100 };
-const out1 =                  moveToAbsolute({ x: 99.5, frames: 50 });
-const down2 =                 moveToAbsolute({ y: 141, frames: 30 });
-const up2 =                   moveToAbsolute({ y: 61, frames: 80 });
-const downIn =                moveToAbsolute({ x: 138.5, y: 105, frames: 40 });
-const rotateClockwise =       { type: "rotate_around_absolute_point", point: { x: 178.5 }, degrees: 360, frames: 240 };
-const rotateAntiClockwise =   { type: "rotate_around_absolute_point", point: { x: 178.5 }, degrees: -360, frames: 240 };
-const downOutOfScreen =       moveToAbsolute({ x: 98.5, y: 290, frames: 210 });
+const intoScreen: TAction =            moveToAbsolute({ x: 116, y: 0 , frames: 40 });
+const down1: TAction =                 moveToAbsolute({ y: 75 , frames: 52 });
+const quarterCircleDownIn: TAction =   { type: "rotate_around_relative_point", degrees: -90, frames: 39, point: { x: 25, y: -5 } };
+const quarterCircleDownOut: TAction =  { type: "rotate_around_relative_point", degrees: 90, frames: 39, point: { x: -20, y: -11 } };
+const in1: TAction =                   moveToAbsolute({ x: 139.5 , frames: 47});
+const up1: TAction =                   moveToAbsolute({ y: 11 , frames: 100 });
+const halfCircleLeftDown: TAction =    { type: "rotate_around_absolute_point", point: { y: 61 }, degrees: -180, frames: 100 };
+const out1: TAction =                  moveToAbsolute({ x: 99.5, frames: 50 });
+const down2: TAction =                 moveToAbsolute({ y: 141, frames: 30 });
+const up2: TAction =                   moveToAbsolute({ y: 61, frames: 80 });
+const downIn: TAction =                moveToAbsolute({ x: 138.5, y: 105, frames: 40 });
+const rotateClockwise: TAction =       { type: "rotate_around_absolute_point", point: { x: 178.5 }, degrees: 360, frames: 240 };
+const rotateAntiClockwise: TAction =   { type: "rotate_around_absolute_point", point: { x: 178.5 }, degrees: -360, frames: 240 };
+const downOutOfScreen: TAction =       moveToAbsolute({ x: 98.5, y: 290, frames: 210 });
 
-const movementPattern = [
-   { attr: "right", is: true, yes: [{ type: "mirrorX", value: true }] },
+const movementPattern: TAction[] = [
+   attr("right", { is: true, yes: [{ type: "mirrorX", value: true }] }),
    intoScreen,
    down1,
 
@@ -180,10 +178,10 @@ const movementPattern = [
    up2,                  wait(25),
    downIn,               wait(25),
 
-   { attr: "right", is: true, yes: [{ type: "mirrorY", value: true }] },
+   attr("right", { is: true, yes: [{ type: "mirrorY", value: true }] }),
    rotateClockwise,      wait(25),
    rotateAntiClockwise,
-   { attr: "right", is: true, yes: [{ type: "mirrorY", value: false }] },
+   attr("right", { is: true, yes: [{ type: "mirrorY", value: false }] }),
    wait(25),
    downOutOfScreen
 ];
@@ -195,7 +193,6 @@ export const firstMiniboss: IEnemyJson = {
    actions: [
       parallelRace(
          shootingPattern,
-         // @ts-ignore
          movementPattern
       )
    ]

@@ -27,27 +27,18 @@ const game: IEnemyJson[] = [
    firstMiniboss,
 
    // Stage 2
-   // @ts-ignore
    stage2,
-   // @ts-ignore
    cloner,
-   // @ts-ignore
    clonerChild,
 
    // Stage 3
-   // @ts-ignore
    stage3,
-   // @ts-ignore
    shapeShifter,
-   // @ts-ignore
    healer,
-   // @ts-ignore
    dehealer,
 
    // Stage 4
-   // @ts-ignore
    stage4,
-   // @ts-ignore
    easyFlyer,
 ];
 

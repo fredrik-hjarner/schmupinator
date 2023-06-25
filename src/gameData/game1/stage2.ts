@@ -1,7 +1,9 @@
-import { forever, moveToAbsolute, parallelAll, wait } from "../utils";
+import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+
+import { attr, forever, moveToAbsolute, parallelAll, setShotSpeed, wait } from "../utils";
 import { col } from "./common";
 
-export const stage2 = {
+export const stage2: IEnemyJson = {
    name: "stage2",
    diameter: 20,
    hp: 9999,
@@ -13,7 +15,7 @@ export const stage2 = {
    ]
 };
 
-export const cloner = {
+export const cloner: IEnemyJson = {
    name: "cloner",
    hp: 25,
    diameter: 29,
@@ -35,14 +37,14 @@ export const cloner = {
    ]
 };
 
-export const clonerChild = {
+export const clonerChild: IEnemyJson = {
    name: "clonerChild",
    hp: 10,
    diameter: 18,
    actions: [
-      { attr: "mirrorX", is: true, yes: [{ type: "mirrorX", value: true }] },
-      { attr: "mirrorY", is: true, yes: [{ type: "mirrorY", value: true }] },
-      { setShotSpeed: 1.5 },
+      attr("mirrorX", { is: true, yes: [{ type: "mirrorX", value: true }] }),
+      attr("mirrorY", { is: true, yes: [{ type: "mirrorY", value: true }] }),
+      setShotSpeed(1.5),
       parallelAll(
          { type: "move", x: -45, y: -20, frames: 65 },
          [

@@ -1,12 +1,15 @@
-import { repeat, wait } from "../utils";
+import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { TSpawn } from "../../App/services/Enemies/actions/actionTypes";
 
-const sinusLeft = {
+import { Do, repeat, wait } from "../utils";
+
+const sinusLeft: TSpawn = {
    type: "spawn", enemy: "sinus",
    x: 75,
    y: -20,
 };
 
-const sinusRight = {
+const sinusRight: TSpawn = {
    type: "spawn", enemy: "sinus",
    x: 280,
    y: -20,
@@ -16,20 +19,18 @@ const sinusRight = {
 };
 
 const sinuses = repeat(5, [
-   // @ts-ignore
-   { do: [sinusLeft, wait(70)] },
-   // @ts-ignore
-   { do: [sinusRight, wait(70)] },
+   Do(sinusLeft, wait(70)),
+   Do(sinusRight, wait(70)),
 ]);
 
-export const pacifistStage = {
+export const pacifistStage: IEnemyJson = {
    name: "pacifistStage",
    diameter: 20,
    hp: 9999,
    actions: [
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
-      { wait: 120 },
+      wait(120),
       sinuses,
    ],
 };

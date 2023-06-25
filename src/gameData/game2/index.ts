@@ -11,18 +11,13 @@ import { playerShot } from "./player/playerShot";
 import { shot } from "./shot";
 import { spawner } from "./spawner";
 
-// @ts-ignore
 const game: IEnemyJson[] = [
    // Stage 1
    explosion,
    roundExplosion,
-   // @ts-ignore
    kamikaze,
-   // @ts-ignore
    kamikazeCorpse,
-   // @ts-ignore
    sinus,
-   // @ts-ignore
    pacifistStage,
    player,
    playerLaser,

@@ -5,7 +5,6 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { TAttributeValue } from "./Attributes/Attributes";
 import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
-import type { TShortFormAction } from "./actions/actionTypesShortForms";
 
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
@@ -20,7 +19,7 @@ type TEnemyActionExecutorArgs = {
    * Executes them in sequence.
    * You can execute things in parallel with special compound actions like parallelRace.
    */
-   actions: (TAction|TShortFormAction)[];
+   actions: TAction[];
    actionHandler: TActionHandler;
    getPosition: () => TVector;
    getAttr: (attr: string) => TAttributeValue;
@@ -58,7 +57,7 @@ export class EnemyActionExecutor {
     * Only useful for special cases.
     * @returns true if done, else false.
     */
-   public ExecuteOneAction = (action: TShortFormAction): boolean => {
+   public ExecuteOneAction = (action: TAction): boolean => {
       const generator = this.makeGenerator([action]);
       const { done } = generator.next();
       return !!done;
@@ -95,10 +94,8 @@ export class EnemyActionExecutor {
    private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
 
    private *makeGenerator(
-      shortFormActions: (TAction|TShortFormAction)[] = []
+      actions: TAction[] = []
    ): Generator<void, void, void> {
-      // const actions = shortFormActions.map(ShortFormToLongForm);
-      const actions = shortFormActions as TAction[]; // TODO: This typecase is a hack. remove.
       let currIndex = 0;
       const nrActions = actions.length;
 

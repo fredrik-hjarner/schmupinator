@@ -6,7 +6,6 @@ export const playerLaser: IEnemyJson = {
    name: "playerLaser",
    hp: 1,
    diameter: 5,
-   // @ts-ignore
    onDeathAction: spawn("explosion"),
    actions: [
       { type: "setAttribute", attribute: "collisionType", value: "playerBullet" },

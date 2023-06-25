@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
-
-import { TAction } from "../../../App/services/Enemies/actions/actionTypes";
+import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
 
 import { forever, fork, wait } from "../../utils";
 
@@ -11,7 +8,6 @@ type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs): TAction => ({
    type: "spawn", enemy: "playerShot",
    actions: [
-      // @ts-ignore
       fork(forever(
          { type: "moveDelta", x: moveDeltaX, y: moveDeltaY },
          { type: "waitNextFrame" }

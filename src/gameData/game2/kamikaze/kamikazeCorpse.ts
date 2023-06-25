@@ -1,6 +1,8 @@
+import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
+
 import { wait } from "../../utils";
 
-export const kamikaze = {
+export const kamikaze: IEnemyJson = {
    name: "kamikaze",
    diameter: 20,
    hp: 1,
@@ -13,7 +15,7 @@ export const kamikaze = {
    ],
 };
 
-export const kamikazeCorpse = {
+export const kamikazeCorpse: IEnemyJson = {
    name: "kamikazeCorpse",
    diameter: 20,
    hp: 1,

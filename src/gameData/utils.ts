@@ -1,17 +1,35 @@
 import type {
-   TAction, TFork, TMoveToAbsolute, TRepeat, TSetSpeed, TSpawn, TWait, TparallelAll, TparallelRace
+   TAction, TAttr, TDo, TFork, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed,
+   TSpawn, TWait, TparallelAll,TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
+
+type TAttrParams = {
+   is: TAttr["is"];
+   yes?: TAttr["yes"];
+   no?: TAttr["no"];
+};
+export const attr = (attrName: TAttr["attrName"], { is, yes, no }: TAttrParams): TAttr => ({
+   type: "attr",
+   attrName,
+   is,
+   yes,
+   no
+});
+
+// first caps because `do` is a reserved word in js.
+export const Do = (...actions: TAction[]): TDo => ({
+   type: "do",
+   acns: actions
+});
 
 export const forever = (...actions: TAction[]): TRepeat => ({
    type: "repeat",
    times: 100_000_000,
-   // @ts-ignore: TODO: fix type
    actions
 });
 
 export const fork = (...actions: TAction[]): TFork => ({
    type: "fork",
-   // @ts-ignore: TODO: fix type
    actions
 });
 
@@ -24,20 +42,17 @@ export const moveToAbsolute = ({ x, y, frames }: TMoveToAbsParams): TMoveToAbsol
 
 export const parallelAll = (...actions: (TAction|TAction[])[]): TparallelAll => ({
    type: "parallelAll",
-   // @ts-ignore: TODO: fix type
    actionsLists: actions.map(acns => Array.isArray(acns) ? acns : [acns])
 });
 
 export const parallelRace = (...actions: (TAction|TAction[])[]): TparallelRace => ({
    type: "parallelRace",
-   // @ts-ignore: TODO: fix type
    actionsLists: actions.map(acn => Array.isArray(acn) ? acn : [acn])
 });
 
 export const repeat = (times: number, actions: TAction[]): TRepeat => ({
    type: "repeat",
    times,
-   // @ts-ignore: TODO: fix type
    actions
 });
 
@@ -56,8 +71,12 @@ export const spawn = (enemy: string, params?: TSpawnParams): TSpawn => ({
    enemy,
    x: params?.x,
    y: params?.y,
-   // @ts-ignore: TODO: fix type
    actions: params?.actions
+});
+
+export const setShotSpeed = (pixelsPerFrame: number): TSetShotSpeed => ({
+   type: "setShotSpeed",
+   pixelsPerFrame
 });
 
 export const thrice = (...actions: TAction[]): TRepeat => repeat(3, actions);

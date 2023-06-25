@@ -3,7 +3,6 @@ import type { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
 
 import game1js from "../../../gameData/game1/index";
 import game2js from "../../../gameData/game2/index";
-import { transformEnemy } from "./transformEnemy";
 
 type TEnemyJsons = Partial<{ [enemyName: string]: IEnemyJson }>;
 
@@ -40,7 +39,7 @@ export class GameData implements IService {
        */
       // key all enemies by name
       this.games["game1"] = game1js.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
-         acc[enemyJson.name] = transformEnemy(enemyJson);
+         acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
 
@@ -49,7 +48,7 @@ export class GameData implements IService {
        */
       // key all enemies by name
       this.games["game2"] = game2js.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
-         acc[enemyJson.name] = transformEnemy(enemyJson);
+         acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
 
