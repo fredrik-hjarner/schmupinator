@@ -3,7 +3,7 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { parallelAll, repeat, spawn, wait } from "../utils";
+import { parallelAll, parallelRace, repeat, spawn, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -203,12 +203,11 @@ export const firstMiniboss: IEnemyJson = {
    name: "firstMiniboss",
    hp: 120,
    diameter: 35,
-   actions: [{
-      parallelRace: [
+   actions: [
+      parallelRace(
          // @ts-ignore
          shootingPattern,
-         // @ts-ignore
          movementPattern
-      ]
-   }]
+      )
+   ]
 };

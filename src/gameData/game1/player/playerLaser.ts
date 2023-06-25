@@ -1,6 +1,6 @@
 import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
 
-import { spawn, wait } from "../../utils";
+import { parallelRace, spawn, wait } from "../../utils";
 
 export const playerLaser: IEnemyJson = {
    name: "playerLaser",
@@ -15,20 +15,18 @@ export const playerLaser: IEnemyJson = {
       { type: "setAttribute", attribute: "points", value: 0 },
       { type: "gfxSetShape", shape: "square" },
       { type: "gfxSetColor", color: "aqua" },
-      {
-         parallelRace: [
-            [{
-               forever: [
-                  { type: "moveDelta", y: -30 },
-                  { type: "waitNextFrame" },
-               ]
-            }],
-            [
-               // @ts-ignore
-               wait(8),
-               { type: "despawn" }
+      parallelRace(
+         {
+            // @ts-ignore
+            forever: [
+               { type: "moveDelta", y: -30 },
+               { type: "waitNextFrame" },
             ]
+         },
+         [
+            wait(8),
+            { type: "despawn" }
          ]
-      },
+      )
    ]
 };
