@@ -1,7 +1,7 @@
 import type { IService, TInitParams } from "../IService";
+import type { App } from "../../App";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { App } from "../../App";
 
 const localStorageKey = "__settings";
 

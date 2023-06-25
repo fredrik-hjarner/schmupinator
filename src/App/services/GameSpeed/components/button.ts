@@ -1,7 +1,8 @@
+import type { IDestroyable } from "../../../../utils/types/IDestroyable";
+
 import { zIndices } from "../../../../consts";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 import { px } from "../../../../utils/px";
-import { IDestroyable } from "../../../../utils/types/IDestroyable";
 import { fontSizes } from "../../UI/Scenes/consts/fontSizes";
 
 type TConstructorParams = {

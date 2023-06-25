@@ -1,4 +1,5 @@
-import { IBrowserDriver } from "./IBrowserDriver";
+import type { IBrowserDriver } from "./IBrowserDriver";
+
 import pixelMicro from "../../assets/fonts/PixelMicro.ttf";
 import { BrowserDriver } from ".";
 

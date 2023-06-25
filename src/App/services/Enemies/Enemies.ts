@@ -9,9 +9,9 @@ import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
 import type { Settings } from "../Settings/Settings";
+import type { TAction } from "./actions/actionTypes";
 
 import { Enemy } from "./Enemy";
-import { TAction } from "./actions/actionTypes";
 
 export class Enemies implements IService {
    public readonly name: string;

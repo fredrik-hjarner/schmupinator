@@ -121,6 +121,8 @@ module.exports = {
      */
     "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "@typescript-eslint/explicit-member-accessibility": ["error"],
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
 
     /************
      * Disables *

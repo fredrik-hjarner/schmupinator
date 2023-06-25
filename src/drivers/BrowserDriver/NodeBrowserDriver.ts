@@ -1,7 +1,7 @@
 /* eslint-disable import/no-nodejs-modules */
 // import { performance } from "perf_hooks"; // only uncomment when run in node for extra precision
 
-import { IBrowserDriver } from "./IBrowserDriver";
+import type { IBrowserDriver } from "./IBrowserDriver";
 
 export class NodeBrowserDriver implements IBrowserDriver {
    public WithWindow = <T>(_: (window: Window) => T): undefined => {

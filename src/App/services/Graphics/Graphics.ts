@@ -3,10 +3,10 @@ import type {
    TGfx_SetScale, TGfx_SetShape, TGraphicsAction, TGraphicsResponse, THandle,
    TResponse_AskForElement, TResponse_Void
 } from "./IGraphics";
+import type { Vector as TVector } from "../../../math/bezier";
 
 import { resolutionWidth } from "../../../consts";
 import { guid } from "../../../utils/uuid";
-import { Vector as TVector } from "../../../math/bezier";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 import { GraphicsElement } from "./GraphicsElement";
 
