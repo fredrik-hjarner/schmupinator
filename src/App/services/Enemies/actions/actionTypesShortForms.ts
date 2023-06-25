@@ -22,11 +22,6 @@ const isShortFormMoveToAbsolute =
       return (acn as TShortFormMoveToAbsolute).moveToAbsolute !== undefined;
    };
 
-export type TShortFormSetSpeed = { setSpeed: number };
-const isShortFormSetSpeed = (acn: (TAction|TShortFormAction)): acn is TShortFormSetSpeed => {
-   return (acn as TShortFormSetSpeed).setSpeed !== undefined;
-};
-
 export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TAction => {
    if(iShortFormAttr(shortForm)) {
       const { attr, is, yes, no } = shortForm;
@@ -37,8 +32,6 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
    }else if(isShortFormMoveToAbsolute(shortForm)) {
       const { moveToAbsolute, frames } = shortForm;
       return { type: "moveToAbsolute", moveTo: moveToAbsolute, frames };
-   }else if(isShortFormSetSpeed(shortForm)) {
-      return { type: "setSpeed", pixelsPerFrame: shortForm.setSpeed };
    }
    return shortForm;
 };
@@ -46,8 +39,7 @@ export const ShortFormToLongForm = (shortForm: TAction|TShortFormAction): TActio
 export function isShortFormAction(action: TAction|TShortFormAction): boolean {
    return iShortFormAttr(action) ||
          isShortFormSetShotSpeed(action) ||
-         isShortFormMoveToAbsolute(action) ||
-         isShortFormSetSpeed(action);
+         isShortFormMoveToAbsolute(action);
 }
 
 export type TShortFormAction =
@@ -59,5 +51,4 @@ export type TShortFormAction =
 
    TShortFormAttr |
    TShortFormSetShotSpeed |
-   TShortFormMoveToAbsolute |
-   TShortFormSetSpeed;
+   TShortFormMoveToAbsolute;

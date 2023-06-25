@@ -1,5 +1,5 @@
 import type {
-   TAction, TFork, TRepeat, TSpawn, TWait, TparallelAll, TparallelRace
+   TAction, TFork, TRepeat, TSetSpeed, TSpawn, TWait, TparallelAll, TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
 
 export const forever = (...actions: TAction[]): TRepeat => ({
@@ -32,6 +32,11 @@ export const repeat = (times: number, actions: TAction[]): TRepeat => ({
    times,
    // @ts-ignore: TODO: fix type
    actions
+});
+
+export const setSpeed = (pixelsPerFrame: number): TSetSpeed => ({
+   type: "setSpeed",
+   pixelsPerFrame
 });
 
 type TSpawnParams = {

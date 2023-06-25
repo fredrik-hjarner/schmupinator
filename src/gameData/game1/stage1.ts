@@ -3,7 +3,7 @@ import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJ
 import type { TAction, TMove, TShootDirection } from "../../App/services/Enemies/actions/actionTypes";
 import type { TShortFormAction } from "../../App/services/Enemies/actions/actionTypesShortForms";
 
-import { forever, parallelAll, parallelRace, repeat, spawn, thrice, twice, wait } from "../utils";
+import { forever, parallelAll, parallelRace, repeat, setSpeed, spawn, thrice, twice, wait } from "../utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });
@@ -65,7 +65,7 @@ export const nonShootingAimer: IEnemyJson = {
    // @ts-ignore
    onDeathAction: spawn("roundExplosion"),
    actions: [
-      { setSpeed: 1.6 },
+      setSpeed(1.6),
       parallelAll(
          repeat(26.25, [
             { type: "rotate_towards_player" },

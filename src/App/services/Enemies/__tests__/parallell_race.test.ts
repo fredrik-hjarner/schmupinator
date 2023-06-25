@@ -48,7 +48,10 @@ describe("parallelRace", () => {
         type: 'parallelRace',
         actionsLists: [
           [],
-          [{ setSpeed: 1 }]
+          [
+            // @ts-ignore
+            { type: "setSpeed", pixelsPerFrame: 1 }
+          ]
         ]
       }]
     }).generators[0];
@@ -70,10 +73,12 @@ describe("parallelRace", () => {
       actions: [{
         type: 'parallelRace',
         actionsLists: [[
-          { setSpeed: 1 }
+          // @ts-ignore
+          { type: "setSpeed", pixelsPerFrame: 1 }
         ], [
           { type: 'waitNextFrame' },
-          { setSpeed: 1 }
+          // @ts-ignore
+          { type: "setSpeed", pixelsPerFrame: 1 }
         ]]
       }]
     }).generators[0];
@@ -96,11 +101,13 @@ describe("parallelRace", () => {
         type: 'parallelRace',
         actionsLists: [[
           { type: 'waitNextFrame' },
-          { setSpeed: 1 }
+          // @ts-ignore
+          { type: "setSpeed", pixelsPerFrame: 1 }
         ], [
           { type: 'waitNextFrame' },
           { type: 'waitNextFrame' },
-          { setSpeed: 1 }
+          // @ts-ignore
+          { type: "setSpeed", pixelsPerFrame: 1 }
         ]]
       }]
     }).generators[0];
