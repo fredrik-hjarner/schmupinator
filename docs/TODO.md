@@ -20,8 +20,6 @@ that would make relative/absolute positioning actions more coherent.
 
 * Have private constructors, and use a Construct method instead that can be async.
 
-* Eventually remove all long forms that have short forms to reduce complexity!
-
 * Add max number of lines in eslint.
 
 * Rename Enemy to GameObject, and Enemies to GameObjectManager.
@@ -34,8 +32,6 @@ not declared!!
 Nah, it might be better to have every event in it's own service (i.e. event channel).
 
 * I should probably not send in `app`, but rather `deps: IService[]` into services.
-
-* Yaml: Maybe do so all files starting with _ are prepended to every file.
 
 * When an emepy has spawned it should probably execute it's EnemyExecutor (generators) once,
 otherwise, if the enemy has setup actions, then it might exist for one frame in an uninitialized
@@ -57,11 +53,7 @@ generator (now it creates several thus only one would be killed)!
 * Maybe I should have a frameTickEvents service, that only has frame_tick on it. This would allow a
 little bit of increased performance I think.
 
-* Graphics.elementPool should be Object keyed by handle => performance optimization.
 * Enemies.enemies should be Object keyed by id => performance optimization.
-
-* I could make a general NoopService, since most mocks are exactly the same that will save some
-lines of code.
 
 * This is an abuse ` this.app.gameLoop.FrameCount` could most likely use the `frameNr` in the
 `frame_tick` event instead, that way depenencies on `gameLoop` can be removed in some places.
@@ -71,8 +63,6 @@ lines of code.
 * Dont dispatch zero point events.
 
 * TODO: Set correct button for laser on GamePad !!!
-
-* Add auto-play to Settings, so I can toggle manual input/replay in that menu.
 
 * Try/verify if Player can have more than 1 hp, which should be able to have.
 
@@ -208,9 +198,6 @@ Movement - Arrow keys
 for example one GameObject migh want to use the default `shot` but another one might want to use
 another one.
 
-* Replace TAction|TShortFormAction with TAllActionTypes. Also clean up in actionTypes.ts so that
-that file only contains TActions: and not any TShortFormAction:s.
-
 * Experiment with GraphicsElement.commit and Graphics.commit to see if that make any difference
 performance-wise. with cssText probably. I am probably gonna need a commit if I am going to do
 something with canvas.
@@ -226,19 +213,11 @@ frames if I also make a onHit callback action that can toggle invincibility on/o
 * In the future I would probably want more specific actions to end the game for example end it
 in a success way but now I only have one type of "end of game" and that is Game Over.
 
-* Shouldn't I be able to use JS instead of YAML for game-object configs etc? The JS could be
-executed and it needs to return a JSON of correct/expected format. Well then I run into security
-problems again though. Security problems will not be an issue since node 20 introduced permissions,
-otherwise I could do that transformation with deno.
-
-* ~~The things I have with short form and long form actions is confusing. The types get complicated,
-the types are complicatedetc. I should probably remove the short form actions and only have the long
-form actions. The short form actions serve the function of making it easier to write actions, but
-I think it's better to have the long form actions and then use JSONNET in which I can create my own
-short form actions as JSONNET functions. This way the code of the actual program can become simpler
-and more uniform/consistent.~~
-
 * The shooting actions should prolly have to specify which shot to use instead of using the default
 shot, since the default shot is a bit "magical".
 
 * Remove TDo action, it's not needed. It is used but I think all those can be removed/replaced.
+
+* The way I imagine it to work is that users upload a
+js-file to a backend, then the backend runs that js file to generate a json, then the frontend loads
+that json (that is a level). So at no point does the frontend need zip or yaml.
