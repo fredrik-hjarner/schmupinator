@@ -316,31 +316,31 @@ export class GraphicsElement implements IDestroyable {
    };
 
    // scrolls the background image by amount.
-   public scrollY = (amountToScroll: number) => {
+   public scrollBg = ({ x, y }: { x?: number, y?: number }) => {
       if(this.element === undefined) {
-         this.logError("Tried to getScrollY of undefined element");
+         this.logError("Tried to scrollBg of undefined element");
          return;
       }
-      const withoutPx = this.element.style.backgroundPositionY.replace("px", "") ?? "";
-      const currentScrollY = parseFloat(withoutPx) || 0; // TODO: error if NaN
-      const nextScrollY = currentScrollY + amountToScroll;
-      // TODO: this should not be needed to happen every time, i.e. setting repeat-y.
-      this.element.style.backgroundRepeat = "repeat";
-      this.element.style.backgroundPositionY = px(nextScrollY);
-   };
 
-   // scrolls the background image by amount.
-   public scrollX = (amountToScroll: number) => {
-      if(this.element === undefined) {
-         this.logError("Tried to getScrollX of undefined element");
-         return;
+      // x
+      if(x !== undefined){
+         const withoutPx = this.element.style.backgroundPositionX.replace("px", "") ?? "";
+         const currentScrollX = parseFloat(withoutPx) || 0; // TODO: error if NaN
+         const nextScrollX = currentScrollX + x;
+         // TODO: this should not be needed to happen every time, i.e. setting repeat-y.
+         this.element.style.backgroundRepeat = "repeat";
+         this.element.style.backgroundPositionX = px(nextScrollX);
       }
-      const withoutPx = this.element.style.backgroundPositionX.replace("px", "") ?? "";
-      const currentScrollX = parseFloat(withoutPx) || 0; // TODO: error if NaN
-      const nextScrollX = currentScrollX + amountToScroll;
-      // TODO: this should not be needed to happen every time, i.e. setting repeat-y.
-      this.element.style.backgroundRepeat = "repeat";
-      this.element.style.backgroundPositionX = px(nextScrollX);
+
+      // y
+      if(y !== undefined){
+         const withoutPx = this.element.style.backgroundPositionY.replace("px", "") ?? "";
+         const currentScrollY = parseFloat(withoutPx) || 0; // TODO: error if NaN
+         const nextScrollY = currentScrollY + y;
+         // TODO: this should not be needed to happen every time, i.e. setting repeat-y.
+         this.element.style.backgroundRepeat = "repeat";
+         this.element.style.backgroundPositionY = px(nextScrollY);
+      }
    };
 
    // Sizes the element to cover the whole screen area be positionend at top right corner.

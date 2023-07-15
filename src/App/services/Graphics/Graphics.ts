@@ -1,5 +1,5 @@
 import type {
-   IGraphics, TGfx_FillScreen, TGfx_Release, TGfx_ScrollX, TGfx_ScrollY, TGfx_SetColor,
+   IGraphics, TGfx_FillScreen, TGfx_Release, TGfx_ScrollBg, TGfx_SetColor,
    TGfx_SetDiameter,
    TGfx_SetPosition, TGfx_SetRotation, TGfx_SetScale, TGfx_SetShape, TGraphicsAction,
    TGraphicsResponse, THandle, TResponse_AskForElement, TResponse_Void
@@ -78,10 +78,8 @@ export class Graphics implements IGraphics {
             return this.actionSetRotation(action);
          case "gfxSetScale":
             return this.actionSetScale(action);
-         case "gfxScrollY":
-            return this.actionScrollY(action);
-         case "gfxScrollX":
-            return this.actionScrollX(action);
+         case "gfxScrollBg":
+            return this.actionScrollBg(action);
          case "gfxFillScreen":
             return this.actionFillScreen(action);
          default: {
@@ -206,18 +204,10 @@ export class Graphics implements IGraphics {
       };
 
    // scrolls the background by amount.
-   private actionScrollY =
-      ({ handle, y }: Omit<TGfx_ScrollY,"type">): TResponse_Void => {
+   private actionScrollBg =
+      ({ handle, x, y }: Omit<TGfx_ScrollBg,"type">): TResponse_Void => {
          const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.scrollY(y);
-         return { type: "responseVoid" };
-      };
-
-   // scrolls the background by amount.
-   private actionScrollX =
-      ({ handle, x }: Omit<TGfx_ScrollX,"type">): TResponse_Void => {
-         const gfxEntry = this.findExistingAndInUse(handle);
-         gfxEntry.element.scrollX(x);
+         gfxEntry.element.scrollBg({ x, y });
          return { type: "responseVoid" };
       };
    

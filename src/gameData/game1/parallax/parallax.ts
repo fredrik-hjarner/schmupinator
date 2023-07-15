@@ -27,7 +27,7 @@ export const layer1: IEnemyJson = {
       { type: "gfxFillScreen" },
       forever(
          wait(1),
-         { type: "gfxScrollY", y: -0.3 }
+         { type: "gfxScrollBg", y: -0.3 }
       )
    ],
 };
@@ -42,7 +42,7 @@ export const layer2: IEnemyJson = {
       { type: "gfxFillScreen" },
       forever(
          wait(1),
-         { type: "gfxScrollY", y: -1 }
+         { type: "gfxScrollBg", y: -1 }
       )
    ],
 };
@@ -57,7 +57,7 @@ export const layer3: IEnemyJson = {
       { type: "gfxFillScreen" },
       forever(
          wait(1),
-         { type: "gfxScrollY", y: -1.5 }
+         { type: "gfxScrollBg", y: -1.5 }
       )
    ],
 };

@@ -219,7 +219,9 @@ shot, since the default shot is a bit "magical".
 js-file to a backend, then the backend runs that js file to generate a json, then the frontend loads
 that json (that is a level). So at no point does the frontend need zip or yaml.
 
-* replace the scrollX scrollY actions with one scroll action which scrolls both.
-
 * have internal state that keeps track of background scroll so that code does not have to grab from
 DOM all the time (might be slow?).
+
+* Improve uuid so that I always have to send in a type into it, sort of. The point of this would be
+to make it e2e tests not break as much when I add game objects. Example: E2e tests broke bad when I
+added the parallax game objects.
