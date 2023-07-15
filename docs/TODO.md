@@ -166,9 +166,6 @@ by all WebWorkers.
 
 * StartGame scene should change name to StartMenu.
 
-* Maybe the Parallax Service could be a GameObject!!! That would solve some issues, for example how
-you could change the speed or direction and so on for the background.
-
 * It would be nice to have a better logger so you could do `log = new Log().WithPrefix("GameData")`
 to prefix all logs in for example the GameData service.
 
@@ -221,3 +218,8 @@ shot, since the default shot is a bit "magical".
 * The way I imagine it to work is that users upload a
 js-file to a backend, then the backend runs that js file to generate a json, then the frontend loads
 that json (that is a level). So at no point does the frontend need zip or yaml.
+
+* replace the scrollX scrollY actions with one scroll action which scrolls both.
+
+* have internal state that keeps track of background scroll so that code does not have to grab from
+DOM all the time (might be slow?).
