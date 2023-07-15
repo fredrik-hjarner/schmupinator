@@ -7,7 +7,7 @@ import type {
 import type { Vector as TVector } from "../../../math/bezier";
 
 import { resolutionWidth } from "../../../consts";
-import { guid } from "../../../utils/uuid";
+import { uuid } from "../../../utils/uuid";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 import { GraphicsElement } from "./GraphicsElement";
 
@@ -113,7 +113,7 @@ export class Graphics implements IGraphics {
    private initOneElement = (i: number): TGfxPoolEntry => {
       const { x, y } = this.getRestingPlace(i);
       return {
-         handle: `${guid()}`,
+         handle: `${uuid("guid")}`,
          inUse: false,
          element: new GraphicsElement(x, y),
          index: i,

@@ -38,12 +38,7 @@ export class Enemy {
 
    public constructor( enemies: Enemies, position: TVector, json: IEnemyJson ) {
       this.enemies = enemies;
-      /**
-       * TODO: This is a hack to make it so that tests don't blow up because of the new parallax
-       * enemy. The uuid:s should probably be incremented depending upon the enemy type(/name).
-       */
-      this.id = !["parallax", "layer1", "layer2", "layer3"].includes(json.name) ?
-         `${json.name}-${uuid()}` : json.name;
+      this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;
       this.diameter = json.diameter;
       this.X = position.x;

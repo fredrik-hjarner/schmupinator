@@ -5,8 +5,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-9",
-               "playerShot-5"
+               "nonShootingAimer-0",
+               "playerShot-2"
             ]
          }
       },
@@ -31,8 +31,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-10",
-               "playerShot-4"
+               "nonShootingAimer-1",
+               "playerShot-1"
             ]
          }
       },
@@ -64,8 +64,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-10",
-               "playerShot-7"
+               "nonShootingAimer-1",
+               "playerShot-4"
             ]
          }
       },
@@ -102,8 +102,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-10",
-               "playerShot-15"
+               "nonShootingAimer-1",
+               "playerShot-9"
             ]
          }
       },
@@ -145,8 +145,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-10",
-               "playerShot-20"
+               "nonShootingAimer-1",
+               "playerShot-12"
             ]
          }
       },
@@ -195,8 +195,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-33",
-               "playerShot-23"
+               "nonShootingAimer-3",
+               "playerShot-15"
             ]
          }
       },
@@ -233,8 +233,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-33",
-               "playerShot-28"
+               "nonShootingAimer-3",
+               "playerShot-19"
             ]
          }
       },
@@ -259,8 +259,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-9",
-               "playerShot-36"
+               "nonShootingAimer-0",
+               "playerShot-23"
             ]
          }
       },
@@ -297,8 +297,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-33",
-               "playerShot-35"
+               "nonShootingAimer-3",
+               "playerShot-22"
             ]
          }
       },
@@ -323,8 +323,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-9",
-               "playerShot-37"
+               "nonShootingAimer-0",
+               "playerShot-24"
             ]
          }
       },
@@ -354,8 +354,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-32",
-               "playerShot-39"
+               "nonShootingAimer-2",
+               "playerShot-26"
             ]
          }
       },
@@ -380,8 +380,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-9",
-               "playerShot-44"
+               "nonShootingAimer-0",
+               "playerShot-28"
             ]
          }
       },
@@ -406,8 +406,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-32",
-               "playerShot-43"
+               "nonShootingAimer-2",
+               "playerShot-27"
             ]
          }
       },
@@ -439,8 +439,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-32",
-               "playerShot-50"
+               "nonShootingAimer-2",
+               "playerShot-32"
             ]
          }
       },
@@ -472,8 +472,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-32",
-               "playerShot-56"
+               "nonShootingAimer-2",
+               "playerShot-35"
             ]
          }
       },
@@ -498,8 +498,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-33",
-               "playerShot-55"
+               "nonShootingAimer-3",
+               "playerShot-34"
             ]
          }
       },
@@ -543,8 +543,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-62"
+               "nonShootingAimer-4",
+               "playerShot-38"
             ]
          }
       },
@@ -569,8 +569,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-66"
+               "nonShootingAimer-4",
+               "playerShot-41"
             ]
          }
       },
@@ -607,8 +607,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-73"
+               "nonShootingAimer-4",
+               "playerShot-44"
             ]
          }
       },
@@ -645,8 +645,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-58",
-               "playerShot-77"
+               "nonShootingAimer-4",
+               "playerShot-47"
             ]
          }
       },
@@ -683,8 +683,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-59",
-               "playerShot-80"
+               "nonShootingAimer-5",
+               "playerShot-49"
             ]
          }
       },
@@ -721,8 +721,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-83",
-               "playerShot-81"
+               "nonShootingAimer-6",
+               "playerShot-50"
             ]
          }
       },
@@ -747,8 +747,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-59",
-               "playerShot-86"
+               "nonShootingAimer-5",
+               "playerShot-52"
             ]
          }
       },
@@ -780,8 +780,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-83",
-               "playerShot-87"
+               "nonShootingAimer-6",
+               "playerShot-53"
             ]
          }
       },
@@ -806,8 +806,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-59",
-               "playerShot-91"
+               "nonShootingAimer-5",
+               "playerShot-55"
             ]
          }
       },
@@ -832,8 +832,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-83",
-               "playerShot-92"
+               "nonShootingAimer-6",
+               "playerShot-56"
             ]
          }
       },
@@ -863,8 +863,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-59",
-               "playerShot-96"
+               "nonShootingAimer-5",
+               "playerShot-58"
             ]
          }
       },
@@ -889,8 +889,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-83",
-               "playerShot-97"
+               "nonShootingAimer-6",
+               "playerShot-59"
             ]
          }
       },
@@ -922,8 +922,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-84",
-               "playerShot-102"
+               "nonShootingAimer-7",
+               "playerShot-61"
             ]
          }
       },
@@ -955,10 +955,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-84",
-               "playerShot-108",
-               "nonShootingAimer-112",
-               "playerShot-103"
+               "nonShootingAimer-7",
+               "playerShot-64",
+               "nonShootingAimer-8",
+               "playerShot-62"
             ]
          }
       },
@@ -1005,8 +1005,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-112",
-               "playerShot-109"
+               "nonShootingAimer-8",
+               "playerShot-65"
             ]
          }
       },
@@ -1031,8 +1031,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-84",
-               "playerShot-115"
+               "nonShootingAimer-7",
+               "playerShot-67"
             ]
          }
       },
@@ -1064,8 +1064,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-112",
-               "playerShot-116"
+               "nonShootingAimer-8",
+               "playerShot-68"
             ]
          }
       },
@@ -1090,8 +1090,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-84",
-               "playerShot-119"
+               "nonShootingAimer-7",
+               "playerShot-70"
             ]
          }
       },
@@ -1121,8 +1121,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-112",
-               "playerShot-120"
+               "nonShootingAimer-8",
+               "playerShot-71"
             ]
          }
       },
@@ -1147,8 +1147,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-113",
-               "playerShot-126"
+               "nonShootingAimer-9",
+               "playerShot-73"
             ]
          }
       },
@@ -1180,10 +1180,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-113",
-               "playerShot-132",
-               "nonShootingAimer-140",
-               "playerShot-127"
+               "nonShootingAimer-9",
+               "playerShot-76",
+               "nonShootingAimer-10",
+               "playerShot-74"
             ]
          }
       },
@@ -1230,10 +1230,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-113",
-               "playerShot-137",
-               "nonShootingAimer-140",
-               "playerShot-133"
+               "nonShootingAimer-9",
+               "playerShot-79",
+               "nonShootingAimer-10",
+               "playerShot-77"
             ]
          }
       },
@@ -1280,8 +1280,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-140",
-               "playerShot-138"
+               "nonShootingAimer-10",
+               "playerShot-80"
             ]
          }
       },
@@ -1306,8 +1306,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-113",
-               "playerShot-143"
+               "nonShootingAimer-9",
+               "playerShot-82"
             ]
          }
       },
@@ -1339,8 +1339,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-140",
-               "playerShot-144"
+               "nonShootingAimer-10",
+               "playerShot-83"
             ]
          }
       },
@@ -1370,8 +1370,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-141",
-               "playerShot-148"
+               "nonShootingAimer-11",
+               "playerShot-85"
             ]
          }
       },
@@ -1396,8 +1396,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-141",
-               "playerShot-156"
+               "nonShootingAimer-11",
+               "playerShot-88"
             ]
          }
       },
@@ -1434,10 +1434,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-141",
-               "playerShot-161",
-               "nonShootingAimer-168",
-               "playerShot-157"
+               "nonShootingAimer-11",
+               "playerShot-91",
+               "nonShootingAimer-12",
+               "playerShot-89"
             ]
          }
       },
@@ -1484,10 +1484,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-141",
-               "playerShot-165",
-               "nonShootingAimer-168",
-               "playerShot-162"
+               "nonShootingAimer-11",
+               "playerShot-94",
+               "nonShootingAimer-12",
+               "playerShot-92"
             ]
          }
       },
@@ -1534,8 +1534,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-168",
-               "playerShot-166"
+               "nonShootingAimer-12",
+               "playerShot-95"
             ]
          }
       },
@@ -1567,10 +1567,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-168",
-               "playerShot-172",
-               "nonShootingAimer-169",
-               "playerShot-171"
+               "nonShootingAimer-12",
+               "playerShot-98",
+               "nonShootingAimer-13",
+               "playerShot-97"
             ]
          }
       },
@@ -1615,8 +1615,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-169",
-               "playerShot-176"
+               "nonShootingAimer-13",
+               "playerShot-100"
             ]
          }
       },
@@ -1641,8 +1641,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-169",
-               "playerShot-183"
+               "nonShootingAimer-13",
+               "playerShot-103"
             ]
          }
       },
@@ -1679,10 +1679,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-169",
-               "playerShot-189",
-               "nonShootingAimer-196",
-               "playerShot-184"
+               "nonShootingAimer-13",
+               "playerShot-106",
+               "nonShootingAimer-14",
+               "playerShot-104"
             ]
          }
       },
@@ -1729,8 +1729,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-196",
-               "playerShot-190"
+               "nonShootingAimer-14",
+               "playerShot-107"
             ]
          }
       },
@@ -1762,10 +1762,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-196",
-               "playerShot-194",
-               "nonShootingAimer-197",
-               "playerShot-193"
+               "nonShootingAimer-14",
+               "playerShot-110",
+               "nonShootingAimer-15",
+               "playerShot-109"
             ]
          }
       },
@@ -1812,10 +1812,10 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-196",
-               "playerShot-200",
-               "nonShootingAimer-197",
-               "playerShot-199"
+               "nonShootingAimer-14",
+               "playerShot-113",
+               "nonShootingAimer-15",
+               "playerShot-112"
             ]
          }
       },
@@ -1860,8 +1860,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-197",
-               "playerShot-205"
+               "nonShootingAimer-15",
+               "playerShot-115"
             ]
          }
       },
@@ -1886,8 +1886,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "nonShootingAimer-197",
-               "playerShot-211"
+               "nonShootingAimer-15",
+               "playerShot-118"
             ]
          }
       },
@@ -2174,8 +2174,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-270",
-               "playerShot-263"
+               "sinus-0",
+               "playerShot-164"
             ]
          }
       },
@@ -2212,8 +2212,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-270",
-               "playerShot-266"
+               "sinus-0",
+               "playerShot-167"
             ]
          }
       },
@@ -2250,8 +2250,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-270",
-               "playerShot-269"
+               "sinus-0",
+               "playerShot-170"
             ]
          }
       },
@@ -4026,8 +4026,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-360",
-               "playerLaser-453"
+               "sinus-1",
+               "playerLaser-163"
             ]
          }
       },
@@ -4052,8 +4052,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-360",
-               "playerLaser-463"
+               "sinus-1",
+               "playerLaser-173"
             ]
          }
       },
@@ -4128,8 +4128,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-360",
-               "playerLaser-458"
+               "sinus-1",
+               "playerLaser-168"
             ]
          }
       },
@@ -5064,8 +5064,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-504",
-               "playerLaser-558"
+               "sinus-2",
+               "playerLaser-261"
             ]
          }
       },
@@ -5090,8 +5090,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-504",
-               "playerLaser-555"
+               "sinus-2",
+               "playerLaser-258"
             ]
          }
       },
@@ -5116,8 +5116,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-504",
-               "playerLaser-564"
+               "sinus-2",
+               "playerLaser-267"
             ]
          }
       },
@@ -5792,8 +5792,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-554",
-               "playerLaser-626"
+               "sinus-3",
+               "playerLaser-324"
             ]
          }
       },
@@ -5818,8 +5818,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-554",
-               "playerLaser-637"
+               "sinus-3",
+               "playerLaser-335"
             ]
          }
       },
@@ -5894,8 +5894,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-554",
-               "playerLaser-632"
+               "sinus-3",
+               "playerLaser-330"
             ]
          }
       },
@@ -8256,8 +8256,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-690",
-               "playerLaser-876"
+               "sinus-4",
+               "playerLaser-566"
             ]
          }
       },
@@ -8342,8 +8342,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-690",
-               "playerLaser-874"
+               "sinus-4",
+               "playerLaser-564"
             ]
          }
       },
@@ -8368,8 +8368,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-690",
-               "playerLaser-884"
+               "sinus-4",
+               "playerLaser-574"
             ]
          }
       },
@@ -9292,8 +9292,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-830",
-               "playerLaser-968"
+               "sinus-5",
+               "playerLaser-654"
             ]
          }
       },
@@ -9318,8 +9318,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-830",
-               "playerLaser-978"
+               "sinus-5",
+               "playerLaser-664"
             ]
          }
       },
@@ -9394,8 +9394,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-830",
-               "playerLaser-974"
+               "sinus-5",
+               "playerLaser-660"
             ]
          }
       },
@@ -10452,8 +10452,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-980",
-               "playerLaser-1082"
+               "sinus-6",
+               "playerLaser-762"
             ]
          }
       },
@@ -10478,8 +10478,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-980",
-               "playerLaser-1093"
+               "sinus-6",
+               "playerLaser-773"
             ]
          }
       },
@@ -10554,8 +10554,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-980",
-               "playerLaser-1088"
+               "sinus-6",
+               "playerLaser-768"
             ]
          }
       },
@@ -11736,8 +11736,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1128",
-               "playerLaser-1208"
+               "sinus-7",
+               "playerLaser-882"
             ]
          }
       },
@@ -11762,8 +11762,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1128",
-               "playerLaser-1219"
+               "sinus-7",
+               "playerLaser-893"
             ]
          }
       },
@@ -11838,8 +11838,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1128",
-               "playerLaser-1214"
+               "sinus-7",
+               "playerLaser-888"
             ]
          }
       },
@@ -13392,8 +13392,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1272",
-               "playerLaser-1370"
+               "sinus-8",
+               "playerLaser-1038"
             ]
          }
       },
@@ -13418,8 +13418,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1272",
-               "playerLaser-1381"
+               "sinus-8",
+               "playerLaser-1049"
             ]
          }
       },
@@ -13494,8 +13494,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1272",
-               "playerLaser-1376"
+               "sinus-8",
+               "playerLaser-1044"
             ]
          }
       },
@@ -15484,8 +15484,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1422",
-               "playerLaser-1583"
+               "sinus-9",
+               "playerLaser-1245"
             ]
          }
       },
@@ -15570,8 +15570,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1422",
-               "playerLaser-1580"
+               "sinus-9",
+               "playerLaser-1242"
             ]
          }
       },
@@ -15596,8 +15596,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "sinus-1422",
-               "playerLaser-1589"
+               "sinus-9",
+               "playerLaser-1251"
             ]
          }
       },
@@ -17171,8 +17171,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1749"
+               "firstMiniboss-1",
+               "playerShot-210"
             ]
          }
       },
@@ -17209,8 +17209,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1752"
+               "firstMiniboss-1",
+               "playerShot-213"
             ]
          }
       },
@@ -17247,8 +17247,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1755"
+               "firstMiniboss-1",
+               "playerShot-216"
             ]
          }
       },
@@ -17285,8 +17285,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1760"
+               "firstMiniboss-1",
+               "playerShot-219"
             ]
          }
       },
@@ -17323,8 +17323,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1764"
+               "firstMiniboss-1",
+               "playerShot-222"
             ]
          }
       },
@@ -17349,8 +17349,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1780"
+               "firstMiniboss-1",
+               "playerLaser-1384"
             ]
          }
       },
@@ -17385,8 +17385,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1776"
+               "firstMiniboss-1",
+               "playerLaser-1380"
             ]
          }
       },
@@ -17448,8 +17448,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1768"
+               "firstMiniboss-1",
+               "playerShot-225"
             ]
          }
       },
@@ -17474,8 +17474,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1783"
+               "firstMiniboss-1",
+               "playerLaser-1386"
             ]
          }
       },
@@ -17547,8 +17547,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1791"
+               "firstMiniboss-1",
+               "playerLaser-1394"
             ]
          }
       },
@@ -17573,8 +17573,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1789"
+               "firstMiniboss-1",
+               "playerLaser-1392"
             ]
          }
       },
@@ -17646,8 +17646,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1798"
+               "firstMiniboss-1",
+               "playerLaser-1399"
             ]
          }
       },
@@ -17672,8 +17672,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1772"
+               "firstMiniboss-1",
+               "playerShot-228"
             ]
          }
       },
@@ -17757,8 +17757,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1819"
+               "firstMiniboss-1",
+               "playerLaser-1408"
             ]
          }
       },
@@ -17783,8 +17783,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1815"
+               "firstMiniboss-1",
+               "playerLaser-1404"
             ]
          }
       },
@@ -17809,8 +17809,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1804"
+               "firstMiniboss-1",
+               "playerShot-231"
             ]
          }
       },
@@ -17870,8 +17870,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1824"
+               "firstMiniboss-1",
+               "playerLaser-1413"
             ]
          }
       },
@@ -17896,8 +17896,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1821"
+               "firstMiniboss-1",
+               "playerLaser-1410"
             ]
          }
       },
@@ -17957,8 +17957,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1830"
+               "firstMiniboss-1",
+               "playerLaser-1418"
             ]
          }
       },
@@ -17983,8 +17983,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1828"
+               "firstMiniboss-1",
+               "playerLaser-1416"
             ]
          }
       },
@@ -18044,8 +18044,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1812"
+               "firstMiniboss-1",
+               "playerShot-234"
             ]
          }
       },
@@ -18082,8 +18082,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1843"
+               "firstMiniboss-1",
+               "playerLaser-1422"
             ]
          }
       },
@@ -18108,8 +18108,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1844"
+               "firstMiniboss-1",
+               "playerLaser-1423"
             ]
          }
       },
@@ -18174,8 +18174,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1850"
+               "firstMiniboss-1",
+               "playerLaser-1428"
             ]
          }
       },
@@ -18245,8 +18245,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1835"
+               "firstMiniboss-1",
+               "playerShot-237"
             ]
          }
       },
@@ -18283,8 +18283,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1867"
+               "firstMiniboss-1",
+               "playerLaser-1437"
             ]
          }
       },
@@ -18309,8 +18309,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1864"
+               "firstMiniboss-1",
+               "playerLaser-1434"
             ]
          }
       },
@@ -18335,8 +18335,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1875"
+               "firstMiniboss-1",
+               "playerLaser-1442"
             ]
          }
       },
@@ -18396,8 +18396,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1873"
+               "firstMiniboss-1",
+               "playerLaser-1440"
             ]
          }
       },
@@ -18422,8 +18422,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1856"
+               "firstMiniboss-1",
+               "playerShot-240"
             ]
          }
       },
@@ -18448,8 +18448,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1884"
+               "firstMiniboss-1",
+               "playerLaser-1447"
             ]
          }
       },
@@ -18509,8 +18509,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1883"
+               "firstMiniboss-1",
+               "playerLaser-1446"
             ]
          }
       },
@@ -18547,8 +18547,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1892"
+               "firstMiniboss-1",
+               "playerLaser-1453"
             ]
          }
       },
@@ -18613,8 +18613,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1891"
+               "firstMiniboss-1",
+               "playerLaser-1452"
             ]
          }
       },
@@ -18681,8 +18681,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1910"
+               "firstMiniboss-1",
+               "playerLaser-1463"
             ]
          }
       },
@@ -18707,8 +18707,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1905"
+               "firstMiniboss-1",
+               "playerLaser-1458"
             ]
          }
       },
@@ -18733,8 +18733,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1916"
+               "firstMiniboss-1",
+               "playerLaser-1469"
             ]
          }
       },
@@ -18769,8 +18769,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1911"
+               "firstMiniboss-1",
+               "playerLaser-1464"
             ]
          }
       },
@@ -18830,8 +18830,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1898"
+               "firstMiniboss-1",
+               "playerShot-243"
             ]
          }
       },
@@ -18856,8 +18856,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1923"
+               "firstMiniboss-1",
+               "playerLaser-1474"
             ]
          }
       },
@@ -18882,8 +18882,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1919"
+               "firstMiniboss-1",
+               "playerLaser-1470"
             ]
          }
       },
@@ -18982,8 +18982,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1937"
+               "firstMiniboss-1",
+               "playerLaser-1480"
             ]
          }
       },
@@ -19008,8 +19008,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1933"
+               "firstMiniboss-1",
+               "playerLaser-1476"
             ]
          }
       },
@@ -19034,8 +19034,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1943"
+               "firstMiniboss-1",
+               "playerLaser-1486"
             ]
          }
       },
@@ -19060,8 +19060,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-1939"
+               "firstMiniboss-1",
+               "playerLaser-1482"
             ]
          }
       },
@@ -19121,8 +19121,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1926"
+               "firstMiniboss-1",
+               "playerShot-246"
             ]
          }
       },
@@ -19147,8 +19147,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1928"
+               "firstMiniboss-1",
+               "playerShot-248"
             ]
          }
       },
@@ -19220,8 +19220,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1949"
+               "firstMiniboss-1",
+               "playerShot-251"
             ]
          }
       },
@@ -19253,8 +19253,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1956"
+               "firstMiniboss-1",
+               "playerShot-254"
             ]
          }
       },
@@ -19289,8 +19289,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1960"
+               "firstMiniboss-1",
+               "playerShot-257"
             ]
          }
       },
@@ -19371,8 +19371,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1980"
+               "firstMiniboss-1",
+               "playerShot-269"
             ]
          }
       },
@@ -19397,8 +19397,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1983"
+               "firstMiniboss-1",
+               "playerShot-272"
             ]
          }
       },
@@ -19440,8 +19440,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1987"
+               "firstMiniboss-1",
+               "playerShot-275"
             ]
          }
       },
@@ -19478,8 +19478,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerShot-1991"
+               "firstMiniboss-1",
+               "playerShot-278"
             ]
          }
       },
@@ -21321,8 +21321,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2220"
+               "firstMiniboss-1",
+               "playerLaser-1627"
             ]
          }
       },
@@ -21399,8 +21399,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2225"
+               "firstMiniboss-1",
+               "playerLaser-1632"
             ]
          }
       },
@@ -21477,8 +21477,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2231"
+               "firstMiniboss-1",
+               "playerLaser-1638"
             ]
          }
       },
@@ -21550,8 +21550,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2238"
+               "firstMiniboss-1",
+               "playerLaser-1644"
             ]
          }
       },
@@ -21621,8 +21621,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2249"
+               "firstMiniboss-1",
+               "playerLaser-1654"
             ]
          }
       },
@@ -21647,8 +21647,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2245"
+               "firstMiniboss-1",
+               "playerLaser-1650"
             ]
          }
       },
@@ -21708,8 +21708,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2256"
+               "firstMiniboss-1",
+               "playerLaser-1660"
             ]
          }
       },
@@ -21734,8 +21734,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2252"
+               "firstMiniboss-1",
+               "playerLaser-1656"
             ]
          }
       },
@@ -22473,8 +22473,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2353"
+               "firstMiniboss-1",
+               "playerLaser-1746"
             ]
          }
       },
@@ -22551,8 +22551,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2363"
+               "firstMiniboss-1",
+               "playerLaser-1756"
             ]
          }
       },
@@ -22577,8 +22577,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2359"
+               "firstMiniboss-1",
+               "playerLaser-1752"
             ]
          }
       },
@@ -22650,8 +22650,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2369"
+               "firstMiniboss-1",
+               "playerLaser-1761"
             ]
          }
       },
@@ -22676,8 +22676,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2366"
+               "firstMiniboss-1",
+               "playerLaser-1758"
             ]
          }
       },
@@ -22739,8 +22739,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2376"
+               "firstMiniboss-1",
+               "playerLaser-1766"
             ]
          }
       },
@@ -22765,8 +22765,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2374"
+               "firstMiniboss-1",
+               "playerLaser-1764"
             ]
          }
       },
@@ -22828,8 +22828,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2383"
+               "firstMiniboss-1",
+               "playerLaser-1771"
             ]
          }
       },
@@ -22854,8 +22854,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2382"
+               "firstMiniboss-1",
+               "playerLaser-1770"
             ]
          }
       },
@@ -22917,8 +22917,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2390"
+               "firstMiniboss-1",
+               "playerLaser-1776"
             ]
          }
       },
@@ -22943,8 +22943,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2391"
+               "firstMiniboss-1",
+               "playerLaser-1777"
             ]
          }
       },
@@ -23011,8 +23011,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2398"
+               "firstMiniboss-1",
+               "playerLaser-1782"
             ]
          }
       },
@@ -23079,8 +23079,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2406"
+               "firstMiniboss-1",
+               "playerLaser-1788"
             ]
          }
       },
@@ -23152,8 +23152,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2413"
+               "firstMiniboss-1",
+               "playerLaser-1794"
             ]
          }
       },
@@ -23223,8 +23223,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2425"
+               "firstMiniboss-1",
+               "playerLaser-1805"
             ]
          }
       },
@@ -23249,8 +23249,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2420"
+               "firstMiniboss-1",
+               "playerLaser-1800"
             ]
          }
       },
@@ -23320,8 +23320,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2433"
+               "firstMiniboss-1",
+               "playerLaser-1811"
             ]
          }
       },
@@ -23346,8 +23346,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2428"
+               "firstMiniboss-1",
+               "playerLaser-1806"
             ]
          }
       },
@@ -23407,8 +23407,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2441"
+               "firstMiniboss-1",
+               "playerLaser-1817"
             ]
          }
       },
@@ -23433,8 +23433,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2436"
+               "firstMiniboss-1",
+               "playerLaser-1812"
             ]
          }
       },
@@ -23494,8 +23494,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2449"
+               "firstMiniboss-1",
+               "playerLaser-1823"
             ]
          }
       },
@@ -23520,8 +23520,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2444"
+               "firstMiniboss-1",
+               "playerLaser-1818"
             ]
          }
       },
@@ -23581,8 +23581,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2463"
+               "firstMiniboss-1",
+               "playerLaser-1829"
             ]
          }
       },
@@ -23607,8 +23607,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2458"
+               "firstMiniboss-1",
+               "playerLaser-1824"
             ]
          }
       },
@@ -23670,8 +23670,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2466"
+               "firstMiniboss-1",
+               "playerLaser-1830"
             ]
          }
       },
@@ -23733,8 +23733,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2473"
+               "firstMiniboss-1",
+               "playerLaser-1836"
             ]
          }
       },
@@ -23806,8 +23806,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2480"
+               "firstMiniboss-1",
+               "playerLaser-1842"
             ]
          }
       },
@@ -23879,8 +23879,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2487"
+               "firstMiniboss-1",
+               "playerLaser-1848"
             ]
          }
       },
@@ -23952,8 +23952,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2494"
+               "firstMiniboss-1",
+               "playerLaser-1854"
             ]
          }
       },
@@ -24025,8 +24025,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2501"
+               "firstMiniboss-1",
+               "playerLaser-1860"
             ]
          }
       },
@@ -24098,8 +24098,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2509"
+               "firstMiniboss-1",
+               "playerLaser-1867"
             ]
          }
       },
@@ -24171,8 +24171,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2516"
+               "firstMiniboss-1",
+               "playerLaser-1873"
             ]
          }
       },
@@ -24244,8 +24244,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2524"
+               "firstMiniboss-1",
+               "playerLaser-1880"
             ]
          }
       },
@@ -25503,8 +25503,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2674"
+               "firstMiniboss-1",
+               "playerLaser-2022"
             ]
          }
       },
@@ -25579,8 +25579,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2684"
+               "firstMiniboss-1",
+               "playerLaser-2032"
             ]
          }
       },
@@ -25605,8 +25605,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2680"
+               "firstMiniboss-1",
+               "playerLaser-2028"
             ]
          }
       },
@@ -25676,8 +25676,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2690"
+               "firstMiniboss-1",
+               "playerLaser-2036"
             ]
          }
       },
@@ -25702,8 +25702,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2688"
+               "firstMiniboss-1",
+               "playerLaser-2034"
             ]
          }
       },
@@ -25763,8 +25763,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2698"
+               "firstMiniboss-1",
+               "playerLaser-2042"
             ]
          }
       },
@@ -25789,8 +25789,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "firstMiniboss-1759",
-               "playerLaser-2696"
+               "firstMiniboss-1",
+               "playerLaser-2040"
             ]
          }
       },
@@ -25811,6 +25811,19 @@ export const recordedHistory = {
       }
    ],
    "2096": [
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "player-0"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "player"
+      },
       {
          "type": "player_died"
       }
