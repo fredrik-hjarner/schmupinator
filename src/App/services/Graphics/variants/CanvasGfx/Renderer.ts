@@ -2,13 +2,13 @@ import type { GfxElementData } from "./GfxElementData";
 
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
 // resources
-import circle from "../../../../../assets/images/circle.png";
-import square from "../../../../../assets/images/square.png";
-import triangle from "../../../../../assets/images/triangle.png";
-import diamondShield from "../../../../../assets/images/diamondShield.png";
-import octagon from "../../../../../assets/images/octagon.png";
-import explosion from "../../../../../assets/images/explosion.png";
-import roundExplosion from "../../../../../assets/images/roundExplosion.png";
+const circle = "/images/circle.png";
+const square = "/images/square.png";
+const triangle = "/images/triangle.png";
+const diamondShield = "/images/diamondShield.png";
+const octagon = "/images/octagon.png";
+const explosion = "/images/explosion.png";
+const roundExplosion = "/images/roundExplosion.png";
 
 type TRenderParams = {
    ctx?: CanvasRenderingContext2D;

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import type { IEnemyJson } from "@/src/App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "@/App/services/Enemies/enemyConfigs/IEnemyJson";
 
 import { explosion, roundExplosion } from "./effects/explosions";
 import { player } from "./player/player";
@@ -11,14 +11,20 @@ import { firstMiniboss, nonShootingAimer, sinus, stage1 } from "./stage1";
 import { cloner, clonerChild, stage2 } from "./stage2";
 import { dehealer, healer, shapeShifter, stage3 } from "./stage3";
 import { easyFlyer, stage4 } from "./stage4";
+import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
 
 const game: IEnemyJson[] = [
-   // Stage 1
-   explosion,
-   roundExplosion,
    player,
    playerLaser,
    playerShot,
+   parallax,
+   layer1,
+   layer2,
+   layer3,
+
+   // Stage 1
+   explosion,
+   roundExplosion,
    shot,
    spawner,
    stage1,

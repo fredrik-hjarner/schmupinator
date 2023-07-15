@@ -8,7 +8,7 @@ import type { IEventsEndOfFrame } from "../../../Events/IEvents";
 
 import { Renderer } from "./Renderer";
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts";
-import { guid } from "../../../../../utils/uuid";
+import { uuid } from "../../../../../utils/uuid";
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
 import { GfxElementData } from "./GfxElementData";
 import { px } from "../../../../../utils/px";
@@ -136,7 +136,7 @@ export class CanvasGfx implements IGraphics {
    };
 
    private actionAskForElement = (): TResponse_AskForElement => {
-      const handle = `${guid()}`;
+      const handle = `${uuid("guid")}`;
       this.gfxElements[handle] = {
          handle,
          element: new GfxElementData()

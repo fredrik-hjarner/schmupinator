@@ -11,7 +11,12 @@ export type TShape =
    "diamondShield" |
    "octagon" |
    "explosion" |
-   "roundExplosion";
+   "roundExplosion" |
+   /**
+    * fallback case. allows to set ANY image. actually I should probably remove all others and
+    * just have this one.
+    */
+   string;
 
 /***********
  * Actions *
@@ -45,10 +50,20 @@ export type TGfx_SetScale = {
    type: "gfxSetScale",
    handle: THandle, scale: number
 };
+// scrolls the background by x, y.
+export type TGfx_ScrollBg = {
+   type: "gfxScrollBg",
+   handle: THandle, x?: number, y?: number
+};
+// make gfx cover the whole screen
+export type TGfx_FillScreen = {
+   type: "gfxFillScreen",
+   handle: THandle
+};
 
 export type TGraphicsAction =
-   TGfx_AskForElement | TGfx_SetPosition | TGfx_SetDiameter | TGfx_Release |
-   TGfx_SetColor | TGfx_SetShape | TGfx_SetRotation | TGfx_SetScale;
+   TGfx_AskForElement | TGfx_SetPosition | TGfx_SetDiameter | TGfx_Release | TGfx_SetColor |
+   TGfx_SetShape | TGfx_SetRotation | TGfx_SetScale | TGfx_ScrollBg | TGfx_FillScreen;
 
 /**
  * When you run commands via a yaml file,the handle does not need to be sent in
@@ -63,7 +78,9 @@ export type TGraphicsActionWithoutHandle =
    Omit<TGfx_SetColor, "handle"> |
    Omit<TGfx_SetShape, "handle"> |
    Omit<TGfx_SetRotation, "handle"> |
-   Omit<TGfx_SetScale, "handle">;
+   Omit<TGfx_SetScale, "handle"> |
+   Omit<TGfx_ScrollBg, "handle"> |
+   Omit<TGfx_FillScreen, "handle">;
 
 /*************
  * Responses *

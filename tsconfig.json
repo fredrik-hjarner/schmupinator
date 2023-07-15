@@ -24,7 +24,7 @@
     "incremental": true, // disable this if you have problems. known to cause problems.
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
       ],
     },
   },

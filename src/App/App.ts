@@ -13,7 +13,6 @@ import type {
 } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
-import type { IParallax } from "./services/Parallax/IParallax";
 import type { IE2eTest } from "./services/E2eTest/IE2eTest";
 import type { IOutsideHider } from "./services/OutsideHider/IOutsideHider";
 import type { ICursorShowGamePos } from "./services/CursorShowGamePos/ICursorShowGamePos";
@@ -47,7 +46,6 @@ import { UI } from "./services/UI/UI";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Fullscreen } from "./services/Fullscreen/Fullscreen";
-import { Parallax } from "./services/Parallax/Parallax";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { E2eTest } from "./services/E2eTest/E2eTest";
@@ -109,7 +107,6 @@ export class App {
    public graphics: IGraphics;
    public ui: IUI;
    public fullscreen: IFullscreen;
-   public parallax: IParallax;
    public outsideHider: IOutsideHider;
 
    /**
@@ -176,8 +173,6 @@ export class App {
       this.ui = IsBrowser() ? new UI({ name: "ui" }) : new NoopService();
 
       this.fullscreen = this.construct.fullscreen();
-
-      this.parallax = IsBrowser() ? new Parallax({ name: "parallax" }) : new NoopService();
 
       this.outsideHider = this.construct.outsideHider();
    }
@@ -299,9 +294,6 @@ export class App {
          gameData,
       });
       await this.init.fullscreen();
-      await this.parallax.Init({
-         events,
-      });
       await this.init.outsideHider();
    };
 

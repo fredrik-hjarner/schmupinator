@@ -50,6 +50,8 @@ export class EnemyGfx {
          case "gfxSetRotation":
          case "gfxSetShape":
          case "gfxSetScale":
+         case "gfxScrollBg":
+         case "gfxFillScreen":
             this.graphics.Dispatch({ ...action, handle: this.gfxHandle });
             break;
          default:

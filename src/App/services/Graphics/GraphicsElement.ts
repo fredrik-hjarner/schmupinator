@@ -3,15 +3,17 @@ import type { IDestroyable } from "../../../utils/types/IDestroyable";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 import { px } from "../../../utils/px";
-import { zIndices } from "../../../consts";
+import { resolutionHeight, resolutionWidth, zIndices } from "../../../consts";
+
 // resources
-import circle from "../../../assets/images/circle.png";
-import square from "../../../assets/images/square.png";
-import triangle from "../../../assets/images/triangle.png";
-import diamondShield from "../../../assets/images/diamondShield.png";
-import octagon from "../../../assets/images/octagon.png";
-import explosion from "../../../assets/images/explosion.png";
-import roundExplosion from "../../../assets/images/roundExplosion.png";
+const circle = "/images/circle.png";
+const square = "/images/square.png";
+const triangle = "/images/triangle.png";
+const diamondShield = "/images/diamondShield.png";
+const octagon = "/images/octagon.png";
+const explosion = "/images/explosion.png";
+const roundExplosion = "/images/roundExplosion.png";
+
 
 /**
  * TODO:
@@ -103,7 +105,6 @@ export class GraphicsElement implements IDestroyable {
    }
 
    /**
-    * 
     * @param x restingPlace x TODO: remove this param. will be necessary when I have this.commit.
     * @param y restingPlace y TODO: remove this param. will be necessary when I have this.commit.
     */
@@ -132,7 +133,6 @@ export class GraphicsElement implements IDestroyable {
       };
 
       const radius = this.vars.diameter/2;
-
       const top = y - radius;
       const left = x - radius;
 
@@ -210,9 +210,7 @@ export class GraphicsElement implements IDestroyable {
          return;
       }
       this.vars.color = color;
-      /**
-       * TODO: This switch case is ugly, should do this in some other way??
-       */
+      // TODO: This switch case is ugly, should do this in some other way??
       switch(color) {
          case "red":
             this.element.style.filter = "none";
@@ -244,22 +242,18 @@ export class GraphicsElement implements IDestroyable {
       this.vars.shape = shape;
 
       switch(shape) {
-         case "none": {
+         case "none":
             this.element.style.backgroundImage = "none";
             break;
-         }
-         case "circle": {
+         case "circle":
             this.element.style.backgroundImage = `url('${circle}')`;
             break;
-         }
-         case "square": {
+         case "square":
             this.element.style.backgroundImage = `url('${square}')`;
             break;
-         }
-         case "triangle": {
+         case "triangle":
             this.element.style.backgroundImage = `url('${triangle}')`;
             break;
-         }
          case "diamondShield":
             this.element.style.backgroundImage = `url('${diamondShield}')`;
             break;
@@ -281,6 +275,15 @@ export class GraphicsElement implements IDestroyable {
             this.element.style.backgroundImage = `url('${roundExplosion}${q}')`;
             break;
          }
+         /**
+          * Fallback case to allow for ANY image.
+          * TODO: The other shapes such as triangle, square and circle should probably be removed
+          * from code and they should use this default case instead.
+          * It would also be good if the code actually checked if the image exists.
+          */
+         default:
+            // shape would be something like "triangle.png".
+            this.element.style.backgroundImage = `url('/images/${shape}')`;
       }
    };
 
@@ -310,5 +313,48 @@ export class GraphicsElement implements IDestroyable {
       this.vars.scale = scale;
 
       this.element.style.transform = `rotate(${this.vars.rotation}deg) scale(${this.vars.scale})`;
+   };
+
+   // scrolls the background image by amount.
+   public scrollBg = ({ x, y }: { x?: number, y?: number }) => {
+      if(this.element === undefined) {
+         this.logError("Tried to scrollBg of undefined element");
+         return;
+      }
+
+      // x
+      if(x !== undefined){
+         const withoutPx = this.element.style.backgroundPositionX.replace("px", "") ?? "";
+         const currentScrollX = parseFloat(withoutPx) || 0; // TODO: error if NaN
+         const nextScrollX = currentScrollX + x;
+         // TODO: this should not be needed to happen every time, i.e. setting repeat-y.
+         this.element.style.backgroundRepeat = "repeat";
+         this.element.style.backgroundPositionX = px(nextScrollX);
+      }
+
+      // y
+      if(y !== undefined){
+         const withoutPx = this.element.style.backgroundPositionY.replace("px", "") ?? "";
+         const currentScrollY = parseFloat(withoutPx) || 0; // TODO: error if NaN
+         const nextScrollY = currentScrollY + y;
+         // TODO: this should not be needed to happen every time, i.e. setting repeat-y.
+         this.element.style.backgroundRepeat = "repeat";
+         this.element.style.backgroundPositionY = px(nextScrollY);
+      }
+   };
+
+   // Sizes the element to cover the whole screen area be positionend at top right corner.
+   public fillScreen = () => {
+      if(this.element === undefined) {
+         this.logError("Tried to fillScreen of undefined element");
+         return;
+      }
+
+      const style = this.element.style;
+      style.width = px(resolutionWidth);
+      style.height = px(resolutionHeight);
+      style.backgroundSize = "cover";
+      style.left = px(0);
+      style.top = px(0);
    };
 }

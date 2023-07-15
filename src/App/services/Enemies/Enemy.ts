@@ -38,7 +38,7 @@ export class Enemy {
 
    public constructor( enemies: Enemies, position: TVector, json: IEnemyJson ) {
       this.enemies = enemies;
-      this.id = `${json.name}-${uuid()}`;
+      this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;
       this.diameter = json.diameter;
       this.X = position.x;
@@ -95,9 +95,7 @@ export class Enemy {
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
 
-   /**
-    * When this enemy collided.
-    */
+   // When this enemy collided.
    public OnCollision = () => {
       /**
        * TODO: If points is zero then it should not dispatch a add_points event!
@@ -252,24 +250,21 @@ export class Enemy {
       this.spawn({
          enemy: "shot",
          pos: { x: 0, y: 0 },
-         actions:  [
-            {
-               type: "fork",
+         actions:  [{
+            type: "fork",
+            actions: [{
+               type: "repeat",
+               times: 99999,
                actions: [
-                  {
-                     type: "repeat",
-                     times: 99999,
-                     actions: [
-                        /**
-                         * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
-                         * and then in yaml file a `moveAccordingToDirAndSpeed` action.
-                         */
-                        { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
-                        { type: "waitNextFrame" }
-                     ]},
+                  /**
+                   * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
+                   * and then in yaml file a `moveAccordingToDirAndSpeed` action.
+                   */
+                  { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
+                  { type: "waitNextFrame" }
                ]
-            }
-         ]
+            }]
+         }]
       });
    };
 

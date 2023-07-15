@@ -14,6 +14,7 @@ export const spawner: IEnemyJson = {
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
       // { wait: 1 },
+      spawn("parallax"),
       spawn("player", { x: 178.5, y: 220 }),
       spawn("stage1"),
       // { type: "spawn", enemy: 'stage2' },

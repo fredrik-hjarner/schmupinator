@@ -16,7 +16,6 @@ import type { GameData } from "./GamaData/GameData";
 import type { IGraphics } from "./Graphics/IGraphics";
 import type { IUI } from "./UI/IUI";
 import type { IFullscreen } from "./Fullscreen/IFullscreen";
-import type { IParallax } from "./Parallax/IParallax";
 import type { IOutsideHider } from "./OutsideHider/IOutsideHider";
 
 export type TInitParams = Partial<{
@@ -40,7 +39,6 @@ export type TInitParams = Partial<{
   graphics: IGraphics;
   ui: IUI;
   fullscreen: IFullscreen;
-  parallax: IParallax;
   outsideHider: IOutsideHider;
 }>;
 
