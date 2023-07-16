@@ -1,6 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { TAction, TSetPosition } from "../actions/actionTypes";
-import type { Vector as TVector } from "../../../../math/bezier";
 
 import { describe, it, expect } from "vitest";
 
@@ -11,7 +11,9 @@ const input: any = undefined;
 const gamepad: any = undefined;
 
 describe("move", () => {
-   const getPosition = (): TVector => ({ x: 0, y: 0 });
+   const enemy: any = {
+      getPosition: () => ({ x: 0, y: 0 })
+   };
 
    // TODO: Can't handle frames being zero. Fix.
    it.skip("move one pixel over zero frame. expect moved and not progressed frame.", () => {
@@ -19,7 +21,7 @@ describe("move", () => {
       const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
       const generator = new EnemyActionExecutor({
-         getPosition,
+         enemy,
          actionHandler,
          getAttr,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -43,7 +45,7 @@ describe("move", () => {
       const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
       const generator = new EnemyActionExecutor({
-         getPosition,
+         enemy,
          actionHandler,
          getAttr,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -73,7 +75,7 @@ describe("move", () => {
       const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
       const generator = new EnemyActionExecutor({
-         getPosition,
+         enemy,
          actionHandler,
          getAttr,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

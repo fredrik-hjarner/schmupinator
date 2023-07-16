@@ -16,13 +16,13 @@ export const playerLaser: IEnemyJson = {
       { type: "gfxSetColor", color: "aqua" },
       parallelRace(
          forever(
-            { type: "moveDelta", x: 30 },
+            { type: "moveDelta", y: -30 },
             { type: "waitNextFrame" },
          ),
          [
             wait(8),
             { type: "despawn" }
          ]
-      )
+      ),
    ]
 };

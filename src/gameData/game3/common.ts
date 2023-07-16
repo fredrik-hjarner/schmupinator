@@ -11,8 +11,7 @@ export const col = {
    8 : 286,
    9 : 321,
    10 : 357,
-   11 : 393,
-   12 : 429,
+   11 : 393
 };
 
 export const row = {

@@ -46,7 +46,7 @@ export class Enemy {
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction,
          actions: json.actions,
-         getPosition: this.getPosition,
+         enemy: this,
          getAttr: this.getAttr,
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
@@ -60,11 +60,6 @@ export class Enemy {
       this.gfx = new EnemyGfx({
          diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
       });
-
-      // Execute one frame. This important if the enemy has some initialization that it needs have
-      // to have run, otherwise initialization (with actions) would be delayed one frame from
-      // being constructed/added via constructor.
-      this.OnFrameTick();
    }
 
    private get hp():number {
@@ -83,6 +78,7 @@ export class Enemy {
    public get Radius(){ return this.diameter/2; }
 
    public OnFrameTick = () => {
+      // console.log(`${this.id} OnFrameTick`);
       /* const done = */ this.actionExecutor.ProgressOneFrame();
       // if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
       // if(done) { this.die(); }
@@ -92,6 +88,7 @@ export class Enemy {
          this.boundToWindow();
       }
       this.gfx?.setPosition({ x: this.X, y: this.Y });
+      // TODO: Don't force graphical rotation to sync be synced with move direction!!! See TODO.md
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
 
@@ -127,6 +124,7 @@ export class Enemy {
 
    // unlike die despawn does NOT trigger onDeathAction
    private despawn = () => {
+      // console.log(`${this.id} despawned`);
       const enemies = this.enemies;
       // remove this enemy.
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
@@ -199,6 +197,7 @@ export class Enemy {
             this.moveAccordingToSpeedAndDirection();
             break;
          case "spawn": {
+            // console.log(`Enemy: spawning: ${action.enemy}`);
             const { enemy, x=0, y=0, actions } = action;
             this.spawn({ enemy, pos: { x, y }, actions });
             break;
@@ -332,7 +331,7 @@ export class Enemy {
       this.enemies.Spawn({ enemy, position: absolute, prependActions: actions });
    };
 
-   private getPosition = (): TVector => {
+   public getPosition = (): TVector => {
       let x = this.X;
       let y = this.Y;
       /**

@@ -62,8 +62,11 @@ export class Enemies implements IService {
       { enemy, position, prependActions=[] }:
       { enemy: string, position: TVector, prependActions?: TAction[] }
    ) => {
+      // console.log(`Enemies.Spawn: enemy: ${enemy}`);
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = this.gameData.GetEnemy(enemy);
+      // console.log(`Enemies.Spawn: enemyJson.name: ${enemyJson.name}`);
+
       /**
        * prepend the actions that the parent sent. this allow parent some control over it's spawn.
        * also add die-when-outside-screen behaviour too all spawns.
@@ -85,7 +88,27 @@ export class Enemies implements IService {
             ...enemyJson.actions
          ]
       };
-      this.enemies.push(new Enemy(this, position, newEnemyJson));
+      // console.log(`Enemies.Spawn: newEnemyJson.name: ${newEnemyJson.name}`);
+      // console.log(
+      //    `Enemies.Spawn: enemies before push: ${this.enemies.map(e => e.id).toString()}`
+      // );
+      /**
+       * TODO: There "used to" be is a bug here.
+       * What can happen is that an Enemy's constructor executes a bunch of code that never fully
+       * completes. The consequence is that the enemy is never added to the enemies array!!!!
+       * 
+       * "Fixed" by moving the OnFrameTick() call to after the push (used to be called at end of
+       * Enemy's constructor).
+       */
+      const newEnemyInstance = new Enemy(this, position, newEnemyJson);
+      this.enemies.push(newEnemyInstance);
+      // console.log(
+      //    `Enemies.Spawn: enemies after push: ${this.enemies.map(e => e.id).toString()}`
+      // );
+      // Execute one frame. This is important if the enemy has some initialization that it needs
+      // have to have run, otherwise initialization (with actions) would be delayed one frame from
+      // being constructed/added via constructor.
+      newEnemyInstance.OnFrameTick();
    };
 
    public get player(): Enemy {
@@ -126,6 +149,7 @@ export class Enemies implements IService {
              * if I wanted to, actually set everything in the actions as actions such as set
              * hp, set_position etc. Dunno if I want to do it like that though.
              */
+            // console.log(`Enemies.tick: enemies:`, this.enemies.map(e => e.id));
             this.enemies.forEach(enemy => {
                enemy.OnFrameTick();
             });

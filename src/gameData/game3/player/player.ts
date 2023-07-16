@@ -6,8 +6,7 @@ import { forever, fork, wait } from "../../utils";
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 
 const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs): TAction => ({
-   type: "spawn",
-   enemy: "playerShot",
+   type: "spawn", enemy: "playerShot",
    actions: [
       fork(forever(
          { type: "moveDelta", x: moveDeltaX, y: moveDeltaY },
@@ -17,19 +16,19 @@ const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs): TAction => ({
 });
 
 const trippleShot: TAction[] = [
-   createShot({ moveDeltaY: 0, moveDeltaX: 9 }),
-   // createShot({ moveDeltaY: 0.8, moveDeltaX: 9 }),
-   // createShot({ moveDeltaY: -0.8, moveDeltaX: 9 }),
+   createShot({ moveDeltaX: 0, moveDeltaY: -9 }),
+   createShot({ moveDeltaX: 1.5, moveDeltaY: -9 }),
+   createShot({ moveDeltaX: -1.5, moveDeltaY: -9 }),
    wait(8),
 ];
 
 const laser: TAction[] = [
-   { type: "spawn", enemy: "playerLaser", x: 15 },
-   { type: "spawn", enemy: "playerLaser", x: 10 },
-   { type: "spawn", enemy: "playerLaser", x: 5 },
-   { type: "spawn", enemy: "playerLaser", x: 0 },
-   { type: "spawn", enemy: "playerLaser", x: -5 },
-   { type: "spawn", enemy: "playerLaser", x: -10 },
+   { type: "spawn", enemy: "playerLaser", y: 15 },
+   { type: "spawn", enemy: "playerLaser", y: 10 },
+   { type: "spawn", enemy: "playerLaser", y: 5 },
+   { type: "spawn", enemy: "playerLaser", y: 0 },
+   { type: "spawn", enemy: "playerLaser", y: -5 },
+   { type: "spawn", enemy: "playerLaser", y: -10 },
    wait(3),
 ];
 
@@ -51,9 +50,8 @@ export const player: IEnemyJson = {
       { type: "setAttribute", attribute: "boundToWindow", value: true },
       // The following line is just a hack to hide the player initially.
       { type: "gfxSetShape", shape: "none" },
-      { type: "setMoveDirection", degrees: 90 },
       wait(1),
-      { type: "gfxSetShape", shape: "stage2/player.png" },
+      { type: "gfxSetShape", shape: "diamondShield" },
       fork(forever(
          { type: "moveAccordingToInput" },
          { type: "waitNextFrame" }
@@ -64,7 +62,7 @@ export const player: IEnemyJson = {
       )),
       fork(forever(
          { type: "waitInputLaser" },
-         ...laser
+         ...laser,
       )),
    ]
 };

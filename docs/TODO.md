@@ -221,3 +221,36 @@ that json (that is a level). So at no point does the frontend need zip or yaml.
 
 * have internal state that keeps track of background scroll so that code does not have to grab from
 DOM all the time (might be slow?).
+
+* I have this code:
+```
+public OnFrameTick = () => {
+   /* ... */
+   this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
+};
+```
+However this sucks. I don't want to tie grapical rotation to movement direction!!
+One way to solve this would be to have a new action called `setGfxRotationFromMoveDirection` or
+something like that or a `copyAttribute({ from: "movementDirection", to: "gfxRotation" })` action.
+
+* Wait.. is there a bug: If I try to spawn something by string that does not exist, is there an
+error shown somewhere or does everything just run without errors!?
+There is an error but the game does not crash.
+
+* I can actually control immediate children from a parent, i.e. children-parent relations.
+I can do that via injecting actions into the child which (as currently coded) will run in a "fork"
+and can execute forever so I could check make it (the child) do something based upon some 
+attribute in the parent.
+SO ACTUALLY, what I have a a relation from parent-to-child but NOT in the opposite direction?
+No, I am hallucinating, the attributes that can be read in the actions on the child are only the
+attributes on the child :/
+Although if I dabble with "global attributes" I could "inject" the name of the parent into the child
+or something like that.
+
+* I could make enemies more "generic", perhaps, via injecting more of their
+"special/specific/differing/alternative" behaviour. For example I could inject a "onHit" action
+that would be executed when the enemy is hit.
+
+* For debugging I need the enemy name/id to be available in EnemyActionExecutor so I can log better.
+
+* I should have a log action really so I can log before and after an enemy's action.

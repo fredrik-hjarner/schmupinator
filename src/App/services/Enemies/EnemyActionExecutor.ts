@@ -5,6 +5,7 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { TAttributeValue } from "./Attributes/Attributes";
 import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
+import type { Enemy } from "./Enemy";
 
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
@@ -21,7 +22,7 @@ type TEnemyActionExecutorArgs = {
    */
    actions: TAction[];
    actionHandler: TActionHandler;
-   getPosition: () => TVector;
+   enemy: Enemy;
    getAttr: (attr: string) => TAttributeValue;
    input: IInput;
    gamepad: GamePad;
@@ -33,7 +34,7 @@ export class EnemyActionExecutor {
    private gamepad: GamePad;
 
    private actionHandler: (action: TAction) => void;
-   private getPosition: () => TVector;
+   private enemy: Enemy;
    private getAttr: (attr: string) => TAttributeValue;
    /**
     * The only reason I don't have only ONE generator is because of the `fork` action.
@@ -42,9 +43,9 @@ export class EnemyActionExecutor {
    public generators: Generator<void, void, void>[];
 
    public constructor(params: TEnemyActionExecutorArgs) {
-      const { actions, actionHandler, getPosition, getAttr, input, gamepad } = params;
+      const { actions, actionHandler, enemy, getAttr, input, gamepad } = params;
       this.actionHandler = actionHandler;
-      this.getPosition = getPosition;
+      this.enemy = enemy;
       this.getAttr = getAttr;
       this.input = input;
       this.gamepad = gamepad;
@@ -101,6 +102,9 @@ export class EnemyActionExecutor {
 
       while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
          const currAction = actions[currIndex];
+         // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
+         //    console.log(`${this.enemy.id} will execute ${currAction.type}`);
+         // }
          // console.log(currAction.type);
          switch(currAction.type) {
             case "moveAccordingToInput": {
@@ -198,22 +202,32 @@ export class EnemyActionExecutor {
             }
 
             case "wait": {
+               // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
+               //    console.log(`${this.enemy.id} started waiting ${currAction.frames} frames`);
+               // }
                for(let i=0; i<currAction.frames; i++) {
                   yield;
+                  // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
+                  //    console.log(`${this.enemy.id} waited 1 frame in loop`);
+                  // }
                }
+               // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
+               //    console.log(`${this.enemy.id} finished waiting ${currAction.frames} frames`);
+               // }
                break;
             }
 
             case "waitTilInsideScreen": {
-               const left = -20;
-               const right = resolutionWidth + 20;
-               const top = -20;
-               const bottom = resolutionHeight + 20;
+               const margin = 0; // was 20
+               const left = -margin;
+               const right = resolutionWidth + margin;
+               const top = -margin;
+               const bottom = resolutionHeight + margin;
                // TODO: Move function.
                const isOutsideScreen = ({ x, y }: TVector): boolean => {
                   return x < left || x > right || y < top || y > bottom;
                };
-               while(isOutsideScreen(this.getPosition())) {
+               while(isOutsideScreen(this.enemy.getPosition())) {
                   yield;
                }
                break;
@@ -228,7 +242,7 @@ export class EnemyActionExecutor {
                const isOutsideScreen = ({ x, y }: TVector): boolean => {
                   return x < left || x > right || y < top || y > bottom;
                };
-               while(!isOutsideScreen(this.getPosition())) {
+               while(!isOutsideScreen(this.enemy.getPosition())) {
                   yield;
                }
                break;
@@ -253,7 +267,7 @@ export class EnemyActionExecutor {
             }
 
             case "moveToAbsolute": {
-               const startPos = this.getPosition();
+               const startPos = this.enemy.getPosition();
                const { moveTo } = currAction;
                const moveX = moveTo.x !== undefined ? moveTo.x - startPos.x : 0;
                const moveY = moveTo.y !== undefined ? moveTo.y - startPos.y : 0;
@@ -275,7 +289,7 @@ export class EnemyActionExecutor {
             }
 
             case "rotate_around_absolute_point": {
-               const startPos = this.getPosition();
+               const startPos = this.enemy.getPosition();
                const pointX = currAction.point.x ?? startPos.x;
                const pointY = currAction.point.y ?? startPos.y;
                const pointToPosVector = Vector.fromTo(
@@ -290,6 +304,9 @@ export class EnemyActionExecutor {
                this.actionHandler(currAction);
          }
          currIndex++;
+         // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
+         //    console.log(`${this.enemy.id} executed ${currAction.type}`);
+         // }
       }
    }
 }
