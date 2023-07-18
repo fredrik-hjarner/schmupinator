@@ -294,4 +294,6 @@ Power ups would just be something that when it collides with an enemy then it wo
 * I could make it so that one can change the direction of the player's shooting, I would need more
 buttons though.
 
+* Enemy.x and Enemy.y should be attributes so that they could be grabbed by actions.
+
 

@@ -11,7 +11,7 @@ import { Angle } from "../../../math/Angle";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
-import { Attributes } from "./Attributes/Attributes";
+import { attributesService as attrs } from "./Attributes/Attributes";
 import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
@@ -32,7 +32,6 @@ export class Enemy {
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
-   public attrs = new Attributes();
    private name: string;
    // One action that is executed immediately when an enemy dies.
    private onDeathAction?: TAction;
@@ -42,13 +41,13 @@ export class Enemy {
       this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;
       this.diameter = json.diameter;
-      this.X = position.x;
-      this.Y = position.y;
+      this.X = position.x; // TODO: This should be an attribute.
+      this.Y = position.y; // TODO: This should be an attribute.
       this.actionExecutor = new EnemyActionExecutor({
-         actionHandler: this.HandleAction,
+         actionHandler: this.HandleAction, // TODO: Remove this line.
          actions: json.actions,
          enemy: this,
-         getAttr: this.getAttr,
+         getAttr: this.getAttr, // TODO: Remove this line.
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
@@ -64,16 +63,16 @@ export class Enemy {
    }
 
    private get hp(): number {
-      return assertNumber(this.attrs.GetAttribute({ gameObjectId: this.id, attribute: "hp" }));
+      return assertNumber(attrs.GetAttribute({ gameObjectId: this.id, attribute: "hp" }));
    }
    private set hp(value: number){
-      this.attrs.SetAttribute({ gameObjectId: this.id, attribute: "hp", value });
+      attrs.SetAttribute({ gameObjectId: this.id, attribute: "hp", value });
    }
    private get maxHp(): number {
-      return assertNumber(this.attrs.GetAttribute({ gameObjectId: this.id, attribute: "maxHp" }));
+      return assertNumber(attrs.GetAttribute({ gameObjectId: this.id, attribute: "maxHp" }));
    }
    private set maxHp(value: number){
-      this.attrs.SetAttribute({ gameObjectId: this.id, attribute: "maxHp", value });
+      attrs.SetAttribute({ gameObjectId: this.id, attribute: "maxHp", value });
    }
 
    public get Radius(){ return this.diameter/2; }
@@ -85,7 +84,7 @@ export class Enemy {
       // if(done) { this.die(); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
-      if(this.attrs.GetAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
+      if(attrs.GetAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
          this.boundToWindow();
       }
       this.gfx?.setPosition({ x: this.X, y: this.Y });
@@ -96,7 +95,7 @@ export class Enemy {
    // When this enemy collided.
    public OnCollision = () => {
       // TODO: If points is zero then it should not dispatch a add_points event!
-      const points = assertNumber(this.attrs.GetAttribute({
+      const points = assertNumber(attrs.GetAttribute({
          gameObjectId: this.id,
          attribute: "points"
       }));
@@ -128,7 +127,7 @@ export class Enemy {
       const enemies = this.enemies; // TODO: This line could be remove right?
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id); // remove this enemy.
 
-      const points = assertNumber(this.attrs.GetAttribute({
+      const points = assertNumber(attrs.GetAttribute({
          gameObjectId: this.id,
          attribute: "pointsOnDeath"
       }));
@@ -214,7 +213,7 @@ export class Enemy {
             this.moveDelta({ x: action.x, y: action.y });
             break;
          case "setAttribute":
-            this.attrs.SetAttribute({
+            attrs.SetAttribute({
                gameObjectId: this.id,
                attribute: action.attribute,
                value: action.value
@@ -227,10 +226,10 @@ export class Enemy {
             this.die();
             break;
          case "incr":
-            this.attrs.incr({ gameObjectId: this.id, attribute: action.attribute });
+            attrs.incr({ gameObjectId: this.id, attribute: action.attribute });
             break;
          case "decr":
-            this.attrs.decr({ gameObjectId: this.id, attribute: action.attribute });
+            attrs.decr({ gameObjectId: this.id, attribute: action.attribute });
             break;
          case "finishLevel": // TODO: dispatch some new "finishLevel" event instead.
             this.enemies.events.dispatchEvent({ type: "player_died" }); 
@@ -354,6 +353,6 @@ export class Enemy {
    };
 
    private getAttr = (attr: string): TAttrValue => {
-      return this.attrs.GetAttribute({ gameObjectId: this.id, attribute: attr });
+      return attrs.GetAttribute({ gameObjectId: this.id, attribute: attr });
    };
 }

@@ -56,7 +56,7 @@ type TGetAttrParams = { gameObjectId: string, attribute: string };
 type TSetAttrParams = { gameObjectId: string, attribute: string, value: TAttrValue };
 type TIncrDecrAttrParams = { gameObjectId: string, attribute: string };
 
-export class Attributes {
+class AttributesService {
    // Observe!! Object types like this should be in Partial<> to signal that keys may not exist.
    private attributes: TAttributes = {
       gameObjects: {}
@@ -123,3 +123,5 @@ export class Attributes {
       (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number)--;
    };
 }
+
+export const attributesService = new AttributesService();

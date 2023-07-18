@@ -4,6 +4,7 @@ import type { IService, TInitParams } from "../IService";
 import type { Enemy } from "../Enemies/Enemy";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { attributesService } from "../Enemies/Attributes/Attributes";
 
 export type PosAndRadiusAndId = {X: number, Y: number, Radius: number, id: string };
 
@@ -71,7 +72,7 @@ export class Collisions implements IService {
       const playerBullets: Enemy[] = [];
 
       this.enemies.enemies.forEach(enemy => {
-         const attrValue = enemy.attrs.GetAttribute({
+         const attrValue = attributesService.GetAttribute({
             gameObjectId: enemy.id,
             attribute: "collisionType"
          });

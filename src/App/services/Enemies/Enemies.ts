@@ -12,6 +12,7 @@ import type { Settings } from "../Settings/Settings";
 import type { TAction } from "./actions/actionTypes";
 
 import { Enemy } from "./Enemy";
+import { attributesService } from "./Attributes/Attributes";
 
 export class Enemies implements IService {
    public readonly name: string;
@@ -123,7 +124,7 @@ export class Enemies implements IService {
       }
 
       const player = this.enemies.find(e =>
-         e.attrs.GetAttribute({
+         attributesService.GetAttribute({
             gameObjectId: e.id,
             attribute: "collisionType"
          }) as string === "player"
