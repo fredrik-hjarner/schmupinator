@@ -2,7 +2,7 @@ import type {
    TAction, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
 } from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
-import type { TAttributeValue } from "./Attributes/Attributes";
+import type { TAttrValue } from "./Attributes/Attributes";
 import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
 import type { Enemy } from "./Enemy";
@@ -23,7 +23,7 @@ type TEnemyActionExecutorArgs = {
    actions: TAction[];
    actionHandler: TActionHandler;
    enemy: Enemy;
-   getAttr: (attr: string) => TAttributeValue;
+   getAttr: (attr: string) => TAttrValue;
    input: IInput;
    gamepad: GamePad;
 }
@@ -35,7 +35,7 @@ export class EnemyActionExecutor {
 
    private actionHandler: (action: TAction) => void;
    private enemy: Enemy;
-   private getAttr: (attr: string) => TAttributeValue;
+   private getAttr: (attr: string) => TAttrValue;
    /**
     * The only reason I don't have only ONE generator is because of the `fork` action.
     * `fork` creates/adds a new generator. I think that's the only way it could work really.

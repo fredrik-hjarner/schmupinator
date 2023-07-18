@@ -3,13 +3,8 @@ import { BrowserDriver } from "../../../../drivers/BrowserDriver";
 /**
  * End-user should be able to set attributes, they will be like variables,
  * that is why they need to be able to be of different types.
- * undefined will essentially be equal to "unsetting" an attribute.
- *
- * TODO: Update comment.
  */
-export type TAttributeValue = string | number | boolean;
-
-// export type TAttribute = Attribute;
+export type TAttrValue = string | number | boolean;
 
 // class Attribute {
 //    public value: TAttributeValue;
@@ -31,9 +26,11 @@ export type TAttributeValue = string | number | boolean;
 // }
 
 type TAttributes = {
-   gameObjects: {
-      // [gameObjectId: string]: {
+   gameObjects: Partial<{
+      [gameObjectId: string]: Partial<{
+         // how many points you get when this enemy collides.
          points: number;
+         // how many points you get when this dies.
          pointsOnDeath: number;
          // hp?: number;
          // maxHp?: number;
@@ -41,56 +38,50 @@ type TAttributes = {
           * TODO: The type of collision type should prolly be somewhere else since it is needed in
           * other places
           */
-         collisionType: "none" | "enemy" | "enemyBullet" | "player" | "playerBullet";
-         boundToWindow: boolean;
-         [attribute: string]: TAttributeValue;
-      // }
-   }
-};
-
-type TGameObjectIdAndAttrParams = { gameObjectId: string, attribute: string };
-type TGetAttrParams = { gameObjectId: string, attribute: string };
-type TSetAttrParams = { gameObjectId: string, attribute: string, value: TAttributeValue };
-type TIncrDecrAttrParams = { gameObjectId: string, attribute: string };
-
-export class Attributes {
-   // Observe!! Object types like this should be in Partial<> to signal that keys may not exist.
-   private attributes: TAttributes = {
-      gameObjects: {
-         /**
-          * Populate with some default attributes. Later I should probably set all of these with
-          * actions, but it may not hurt to have default values though, and also may serve as
-          * reference of what "built-in" attrs exist.
-          */
-         // how many points you get when this enemy collides.
-         points:        10,
-         // how many points you get when this dies.
-         pointsOnDeath: 0,
-         // hp:            1, // I should not need a default value for this.
-         // maxHp:         1, // I should not need a default value for this.
          /**
           * Different things can and can't collide with each other.
           * none, enemy, enemyBullet, player, playerBullet.
           * (may add groundEnemy later).
           */
-         collisionType: "enemy",
-         // If should not be allowed to leave the game window.
-         boundToWindow: false,
-      }
+         collisionType: "none" | "enemy" | "enemyBullet" | "player" | "playerBullet";
+         // If should not be allowed to leave the game window. Player should be contrained to window
+         boundToWindow: boolean;
+         [attribute: string]: TAttrValue;
+      }>
+   }>
+};
+
+type TGameObjectIdAndAttrParams = { gameObjectId: string, attribute: string };
+type TGetAttrParams = { gameObjectId: string, attribute: string };
+type TSetAttrParams = { gameObjectId: string, attribute: string, value: TAttrValue };
+type TIncrDecrAttrParams = { gameObjectId: string, attribute: string };
+
+export class Attributes {
+   // Observe!! Object types like this should be in Partial<> to signal that keys may not exist.
+   private attributes: TAttributes = {
+      gameObjects: {}
    };
 
-   private getAndAssertAttribute = ({ attribute }: TGetAttrParams): TAttributeValue => {
-      if(!(attribute in this.attributes.gameObjects)){
+   private getAndAssertAttribute = ({ gameObjectId, attribute }: TGetAttrParams): TAttrValue => {
+      const value = this.attributes.gameObjects[gameObjectId]?.[attribute];
+      if(value === undefined){
          const msg = `Attribute:  Attribute "${attribute}" does not exist.`;
          console.error(msg);
       }
       // guaranteed to exist since previous if case.
-      return this.attributes.gameObjects[attribute];
+      return value as TAttrValue;
    };
 
-   public SetAttribute = (params: TSetAttrParams) => {
-      const { attribute, value } = params;
-      this.attributes.gameObjects[attribute] = value;
+   public SetAttribute = ({ gameObjectId, attribute, value }: TSetAttrParams) => {
+      const attrs = this.attributes.gameObjects[gameObjectId];
+      if (attrs !== undefined) {
+         attrs[attribute] = value;
+         return;
+      }
+      // init if it did not exist.
+      this.attributes.gameObjects[gameObjectId] = {
+         [attribute]: value
+      };
    };
 
    // public UnsetAttribute = (name: string) => {
@@ -98,7 +89,7 @@ export class Attributes {
    //    delete this.attributes[name];
    // };
 
-   public GetAttribute = (params: TGameObjectIdAndAttrParams): TAttributeValue => {
+   public GetAttribute = (params: TGameObjectIdAndAttrParams): TAttrValue => {
       return this.getAndAssertAttribute(params);
    };
 
@@ -114,7 +105,8 @@ export class Attributes {
          throw new Error(msg);
       }
       // as number, because I did check that if if case above.
-      (this.attributes.gameObjects[params.attribute] as number)++;
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number)++;
    };
 
    public decr = (params: TIncrDecrAttrParams) => {
@@ -127,6 +119,7 @@ export class Attributes {
          throw new Error(msg);
       }
       // as number, because I did check that if if case above.
-      (this.attributes.gameObjects[params.attribute] as number)--;
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number)--;
    };
 }

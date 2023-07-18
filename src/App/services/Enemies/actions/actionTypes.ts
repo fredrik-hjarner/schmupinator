@@ -1,6 +1,6 @@
 import type { Vector } from "../../../../math/bezier";
 import type { TGraphicsActionWithoutHandle } from "../../Graphics/IGraphics";
-import type { TAttributeValue } from "../Attributes/Attributes";
+import type { TAttrValue } from "../Attributes/Attributes";
 
 export type TWait =                Readonly<{ type: "wait", frames: number }>;
 export type TWaitNextFrame =       Readonly<{ type: "waitNextFrame" }>;
@@ -39,7 +39,7 @@ export type TSpawn = {
 };
 // Simple if-equals case. Executes yes if true. Executs no when false.
 export type TAttr =
-   { type: "attr", attrName: string, is: TAttributeValue, yes?: TAction[], no?: TAction[] };
+   { type: "attr", attrName: string, is: TAttrValue, yes?: TAction[], no?: TAction[] };
 // Increments an attribute. Obviously will blow up if trying to increment a non-number.
 export type TIncrement =
 { type: "incr", attribute: string };
@@ -71,7 +71,7 @@ export type TDespawn = { type: "despawn" };
  * Attributes can be either some predefined thing by me such as hp, points,
  * or it could be  end-user specified variable with any type.
  */
-export type TSetAttribute = { type: "setAttribute", attribute: string, value: TAttributeValue };
+export type TSetAttribute = { type: "setAttribute", attribute: string, value: TAttrValue };
 // Waits until Enemy is outside the screen/game window
 export type TWaitTilOutsideScreen = { type: "waitTilOutsideScreen" };
 // Waits until Enemy is inside the screen/game window
@@ -92,7 +92,7 @@ export type TFork = { type: "fork", actions: TAction[] };
 export type TMoveDirection = Readonly<{ type: "setMoveDirection", degrees: number }>;
 // Yields until the attribute has the value set in is.
 export type TWaitUntilAttrIs = Readonly<{
-   type: "waitUntilAttrIs", attr: string, is: TAttributeValue
+   type: "waitUntilAttrIs", attr: string, is: TAttrValue
 }>;
 
 /**

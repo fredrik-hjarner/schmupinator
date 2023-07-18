@@ -3,7 +3,7 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { TAttributeValue } from "./Attributes/Attributes";
+import type { TAttrValue } from "./Attributes/Attributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -353,7 +353,7 @@ export class Enemy {
       return { x, y };
    };
 
-   private getAttr = (attr: string): TAttributeValue => {
+   private getAttr = (attr: string): TAttrValue => {
       return this.attrs.GetAttribute({ gameObjectId: this.id, attribute: attr });
    };
 }

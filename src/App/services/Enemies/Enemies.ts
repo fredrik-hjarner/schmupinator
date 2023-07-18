@@ -76,9 +76,15 @@ export class Enemies implements IService {
       const newEnemyJson: IEnemyJson = {
          ...enemyJson,
          actions: [
+            // Set some default attributes. TODO: Should prolly do this in another way.
+            { type: "setAttribute", attribute: "points", value: 10 },
+            { type: "setAttribute", attribute: "pointsOnDeath", value: 0 },
+            { type: "setAttribute", attribute: "collisionType", value: "enemy" },
+            { type: "setAttribute", attribute: "boundToWindow", value: false },
             {
                type: "fork",
                actions: [
+                  // TODO: Comment
                   { type: "waitTilInsideScreen" },
                   { type: "waitTilOutsideScreen" },
                   { type: "despawn" }
