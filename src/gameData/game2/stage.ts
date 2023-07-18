@@ -7,8 +7,8 @@ import {
 import { col, row } from "./common";
 import { aimersWave } from "./waves/aimers";
 
-export const stage1: IEnemyJson = {
-   name: "stage1",
+export const stage: IEnemyJson = {
+   name: "stage",
    diameter: 20,
    hp: 9999,
    actions: [

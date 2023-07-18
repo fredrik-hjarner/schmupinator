@@ -6,7 +6,7 @@ import { player } from "./player/player";
 import { playerShot } from "./player/playerShot";
 import { shot } from "./shot";
 import { spawner } from "./spawner";
-import { stage1 } from "./stage1";
+import { stage } from "./stage";
 import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
 import { nonShootingAimer } from "./enemies/nonShootingAimer";
 import { dot } from "./enemies/dot";
@@ -28,7 +28,7 @@ const game: IEnemyJson[] = [
    roundExplosion,
    shot,
    spawner,
-   stage1,
+   stage,
    dot,
    traceDot,
    spinningDots,

@@ -73,7 +73,7 @@ const shootingPattern: TAction[] = [
 ];
 
 const movePattern: TAction[] = [
-   { type: "moveToAbsolute", frames: 60 * 7, moveTo: { x: col[5] }}
+   { type: "moveToAbsolute", frames: 60 * 7.5, moveTo: { x: col[5] }}
 ];
 
 export const boss: IEnemyJson = {
@@ -84,7 +84,7 @@ export const boss: IEnemyJson = {
    actions: [
       { type: "gfxSetShape", shape: "stage2/circle.png" },
       ...movePattern,
-      { type: "setAttribute", attribute: "hp", value: 7 }, // In fact make it immortal until now.
+      { type: "setAttribute", attribute: "hp", value: 70 }, // In fact make it immortal until now.
       parallelAll(
          shootingPattern
       )

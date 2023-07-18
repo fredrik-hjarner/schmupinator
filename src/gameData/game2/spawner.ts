@@ -17,6 +17,6 @@ export const spawner: IEnemyJson = {
       // { wait: 1 },
       spawn("parallax"),
       spawn("player", { x: col[1], y: row[5] }),
-      spawn("stage1"),
+      spawn("stage"),
    ],
 };
