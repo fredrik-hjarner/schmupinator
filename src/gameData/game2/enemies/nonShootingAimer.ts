@@ -4,7 +4,7 @@ import { forever, parallelAll, repeat, setSpeed, spawn, wait } from "@/gameData/
 
 export const nonShootingAimer: IEnemyJson = {
    name: "nonShootingAimer",
-   hp: 4,
+   hp: 1,
    diameter: 22,
    onDeathAction: spawn("roundExplosion"),
    actions: [

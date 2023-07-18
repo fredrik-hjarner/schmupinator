@@ -2,6 +2,7 @@ import type { IEnemyJson } from "@/App/services/Enemies/enemyConfigs/IEnemyJson"
 import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import {
+   forever,
    fork,
    spawn,
 } from "@/gameData/utils";
@@ -26,28 +27,56 @@ export const spinningDots: IEnemyJson = {
       { type: "gfxSetShape", shape: "stage2/circle.png" },
       { type: "gfxSetColor", color: "aqua" },
       // center
-      spawn("dot"),
+      spawn("dot", {
+         actions: [
+            fork(forever(
+               { type: "moveDelta", x: -0.55 },
+               { type: "waitNextFrame" },
+            )),
+         ]
+      }),
 
       // in-right
       spawn("dot", {
          x: dist,
-         actions: [fork(rotate({ x: -dist }))]
+         actions: [
+            fork(forever(
+               { type: "moveDelta", x: -0.55 },
+               { type: "waitNextFrame" },
+            )),
+            fork(rotate({ x: -dist }))
+         ]
       }),
       // out-right
       spawn("dot", {
          x: dist*2,
-         actions: [fork(rotate({ x: -(dist*2) }))]
+         actions: [
+            fork(forever(
+               { type: "moveDelta", x: -0.55 },
+               { type: "waitNextFrame" },
+            )),
+            fork(rotate({ x: -(dist*2) }))]
       }),
 
       // in-left
       spawn("dot", {
          x: -dist,
-         actions: [fork(rotate({ x: dist }))]
+         actions: [
+            fork(forever(
+               { type: "moveDelta", x: -0.55 },
+               { type: "waitNextFrame" },
+            )),
+            fork(rotate({ x: dist }))]
       }),
       // out-left
       spawn("dot", {
          x: -(dist*2),
-         actions: [fork(rotate({ x: dist*2 }))]
+         actions: [
+            fork(forever(
+               { type: "moveDelta", x: -0.55 },
+               { type: "waitNextFrame" },
+            )),
+            fork(rotate({ x: dist*2 }))]
       }),
       { type: "despawn" }
    ]

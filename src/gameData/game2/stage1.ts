@@ -5,6 +5,7 @@ import {
    wait
 } from "../utils";
 import { col, row } from "./common";
+import { aimersWave } from "./waves/aimers";
 
 export const stage1: IEnemyJson = {
    name: "stage1",
@@ -13,17 +14,21 @@ export const stage1: IEnemyJson = {
    actions: [
       { type: "setAttribute", attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
-      // wait(1),
+
+      // aimers wave
+      wait(1 * 60),
+      aimersWave,
+      wait(1 * 60),
+
       // spinner wave 1
       spawn("spinningDots", { x: col[12], y: row[5] }),
-      wait(7 * 60),
+      wait(8 * 60),
 
       // spinner wave 2
       spawn("spinningDots", { x: col[12], y: row[3] }),
       wait(1.5 * 60),
       spawn("spinningDots", { x: col[12], y: row[7] }),
-      wait(7 * 60),
-
+      wait(8 * 60),
 
       // spinner wave 3
       spawn("spinningDots", { x: col[12], y: row[1] }),
@@ -32,5 +37,7 @@ export const stage1: IEnemyJson = {
       wait(1.5 * 60),
       spawn("spinningDots", { x: col[12], y: row[9] }),
 
+      wait(60 * 6),
+      spawn("boss", { x: col[12], y: row[5] }),
    ]
 };

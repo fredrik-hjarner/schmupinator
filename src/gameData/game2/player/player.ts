@@ -18,19 +18,7 @@ const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs): TAction => ({
 
 const trippleShot: TAction[] = [
    createShot({ moveDeltaY: 0, moveDeltaX: 9 }),
-   // createShot({ moveDeltaY: 0.8, moveDeltaX: 9 }),
-   // createShot({ moveDeltaY: -0.8, moveDeltaX: 9 }),
    wait(8),
-];
-
-const laser: TAction[] = [
-   { type: "spawn", enemy: "playerLaser", x: 15 },
-   { type: "spawn", enemy: "playerLaser", x: 10 },
-   { type: "spawn", enemy: "playerLaser", x: 5 },
-   { type: "spawn", enemy: "playerLaser", x: 0 },
-   { type: "spawn", enemy: "playerLaser", x: -5 },
-   { type: "spawn", enemy: "playerLaser", x: -10 },
-   wait(3),
 ];
 
 export const player: IEnemyJson = {
@@ -61,10 +49,6 @@ export const player: IEnemyJson = {
       fork(forever(
          { type: "waitInputShoot" },
          ...trippleShot,
-      )),
-      fork(forever(
-         { type: "waitInputLaser" },
-         ...laser
       )),
    ]
 };

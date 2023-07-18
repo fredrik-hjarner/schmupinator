@@ -254,3 +254,44 @@ that would be executed when the enemy is hit.
 * For debugging I need the enemy name/id to be available in EnemyActionExecutor so I can log better.
 
 * I should have a log action really so I can log before and after an enemy's action.
+
+* I have to code to despawn stuff that gets out of screen, but that's hardcoded which sucks.
+I need to have that be more dynamic. An example would be the player's bullets, they should be
+despawned IMMEDIATELY when they get out of screen, but as it is now they despawn when they are
+30 pixels outside of screen which makes it so that enemies can get hit by bullets that are not
+visible on screen.
+
+* I really need, in actions, to have it that argumets that are values also could be taken from
+attributes. For example I might want to have a "moveDelta" action that takes a "x" argument, but
+I might want to have that x be taken from an attribute instead of being hardcoded.
+
+Maybe I should have attributes be specific types rather than have them allowed to be any type.
+So like setAttribute({ type: "string", name: "x", value: "1" })
+or setStringAttribute({ name: "x' value: "1" })
+and getStringAttribute("x").
+
+On first step to improve the attributes could be to create a new AttributeService class that holds
+all attributes for all GameObjects. The data structure would be something like this:
+```
+{
+   player-1: {
+      floats: {
+         "x": 1,
+         "y": 2,
+      },
+      strings: {
+         "weapon": "laser"
+      }
+   },
+   "enemy-1": {
+      /* ... */
+   }
+}
+```
+Power ups would just be something that when it collides with an enemy then it would set an attribute
+(global or the player). However I don't have any onCollide callback yet.
+
+* I could make it so that one can change the direction of the player's shooting, I would need more
+buttons though.
+
+
