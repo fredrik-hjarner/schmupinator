@@ -48,6 +48,11 @@ type TAttributes = {
    }
 };
 
+type TGameObjectIdAndAttrParams = { gameObjectId: string, attribute: string };
+type TGetAttrParams = { gameObjectId: string, attribute: string };
+type TSetAttrParams = { gameObjectId: string, attribute: string, value: TAttributeValue };
+type TIncrDecrAttrParams = { gameObjectId: string, attribute: string };
+
 export class Attributes {
    // Observe!! Object types like this should be in Partial<> to signal that keys may not exist.
    private attributes: TAttributes = {
@@ -74,18 +79,18 @@ export class Attributes {
       }
    };
 
-   private getAndAssertAttribute = (name: string): TAttributeValue => {
-      if(!(name in this.attributes.gameObjects)){
-         const msg = `Attribute:  Attribute "${name}" does not exist.`;
+   private getAndAssertAttribute = ({ attribute }: TGetAttrParams): TAttributeValue => {
+      if(!(attribute in this.attributes.gameObjects)){
+         const msg = `Attribute:  Attribute "${attribute}" does not exist.`;
          console.error(msg);
       }
       // guaranteed to exist since previous if case.
-      return this.attributes.gameObjects[name];
+      return this.attributes.gameObjects[attribute];
    };
 
-   public SetAttribute = (params: { name: string, value: TAttributeValue }) => {
-      const {name, value} = params;
-      this.attributes.gameObjects[name] = value;
+   public SetAttribute = (params: TSetAttrParams) => {
+      const { attribute, value } = params;
+      this.attributes.gameObjects[attribute] = value;
    };
 
    // public UnsetAttribute = (name: string) => {
@@ -93,33 +98,35 @@ export class Attributes {
    //    delete this.attributes[name];
    // };
 
-   public GetAttribute = (name: string): TAttributeValue => {
-      return this.getAndAssertAttribute(name);
+   public GetAttribute = (params: TGameObjectIdAndAttrParams): TAttributeValue => {
+      return this.getAndAssertAttribute(params);
    };
 
    // public attrExists = (name: string): boolean => !!this.attributes.gameObjects[name];
 
-   public incr = (name: string) => {
-      const attr = this.getAndAssertAttribute(name);
+   public incr = (params: TIncrDecrAttrParams) => {
+      const attr = this.getAndAssertAttribute(params);
       if(typeof attr !== "number") {
          const msg =
-            `Attribute.incr: Tried to increment ${name} which is of type ${typeof attr}`;
+            "Attribute.incr: Tried to increment " +
+            `${params.attribute} which is of type ${typeof params.attribute}`;
          BrowserDriver.Alert(msg);
          throw new Error(msg);
       }
       // as number, because I did check that if if case above.
-      (this.attributes.gameObjects[name] as number)++;
+      (this.attributes.gameObjects[params.attribute] as number)++;
    };
 
-   public decr = (name: string) => {
-      const attr = this.getAndAssertAttribute(name);
+   public decr = (params: TIncrDecrAttrParams) => {
+      const attr = this.getAndAssertAttribute(params);
       if(typeof attr !== "number") {
          const msg =
-            `Attribute.decr: Tried to decrement ${name} which is of type ${typeof attr}`;
+            "Attribute.decr: Tried to decrement" +
+            `${params.attribute} which is of type ${typeof params.attribute}`;
          BrowserDriver.Alert(msg);
          throw new Error(msg);
       }
       // as number, because I did check that if if case above.
-      (this.attributes.gameObjects[name] as number)--;
+      (this.attributes.gameObjects[params.attribute] as number)--;
    };
 }

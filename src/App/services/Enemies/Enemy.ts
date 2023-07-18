@@ -64,16 +64,16 @@ export class Enemy {
    }
 
    private get hp(): number {
-      return assertNumber(this.attrs.GetAttribute("hp"));
+      return assertNumber(this.attrs.GetAttribute({ gameObjectId: this.id, attribute: "hp" }));
    }
    private set hp(value: number){
-      this.attrs.SetAttribute({ name: "hp", value });
+      this.attrs.SetAttribute({ gameObjectId: this.id, attribute: "hp", value });
    }
    private get maxHp(): number {
-      return assertNumber(this.attrs.GetAttribute("maxHp"));
+      return assertNumber(this.attrs.GetAttribute({ gameObjectId: this.id, attribute: "maxHp" }));
    }
    private set maxHp(value: number){
-      this.attrs.SetAttribute({ name: "maxHp", value });
+      this.attrs.SetAttribute({ gameObjectId: this.id, attribute: "maxHp", value });
    }
 
    public get Radius(){ return this.diameter/2; }
@@ -85,7 +85,7 @@ export class Enemy {
       // if(done) { this.die(); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
-      if(this.attrs.GetAttribute("boundToWindow")) {
+      if(this.attrs.GetAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
          this.boundToWindow();
       }
       this.gfx?.setPosition({ x: this.X, y: this.Y });
@@ -95,14 +95,13 @@ export class Enemy {
 
    // When this enemy collided.
    public OnCollision = () => {
-      /**
-       * TODO: If points is zero then it should not dispatch a add_points event!
-       */
-      const points = assertNumber(this.attrs.GetAttribute("points"));
+      // TODO: If points is zero then it should not dispatch a add_points event!
+      const points = assertNumber(this.attrs.GetAttribute({
+         gameObjectId: this.id,
+         attribute: "points"
+      }));
 
-      /**
-       * TODO: add_points is a bad name. Should be names pointsOnHit.
-       */
+      // TODO: add_points is a bad name. Should be names pointsOnHit.
       this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
       this.hp -= 1;
 
@@ -126,11 +125,13 @@ export class Enemy {
    // unlike die despawn does NOT trigger onDeathAction
    private despawn = () => {
       // console.log(`${this.id} despawned`);
-      const enemies = this.enemies;
-      // remove this enemy.
-      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
+      const enemies = this.enemies; // TODO: This line could be remove right?
+      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id); // remove this enemy.
 
-      const points = assertNumber(this.attrs.GetAttribute("pointsOnDeath"));
+      const points = assertNumber(this.attrs.GetAttribute({
+         gameObjectId: this.id,
+         attribute: "pointsOnDeath"
+      }));
       if(points !== 0) {
          this.enemies.eventsPoints.dispatchEvent({type: "add_points", enemy: this.name, points });
       }
@@ -213,7 +214,11 @@ export class Enemy {
             this.moveDelta({ x: action.x, y: action.y });
             break;
          case "setAttribute":
-            this.attrs.SetAttribute({ name: action.attribute, value: action.value });
+            this.attrs.SetAttribute({
+               gameObjectId: this.id,
+               attribute: action.attribute,
+               value: action.value
+            });
             break;
          case "despawn":
             this.despawn();
@@ -222,10 +227,10 @@ export class Enemy {
             this.die();
             break;
          case "incr":
-            this.attrs.incr(action.attribute);
+            this.attrs.incr({ gameObjectId: this.id, attribute: action.attribute });
             break;
          case "decr":
-            this.attrs.decr(action.attribute);
+            this.attrs.decr({ gameObjectId: this.id, attribute: action.attribute });
             break;
          case "finishLevel": // TODO: dispatch some new "finishLevel" event instead.
             this.enemies.events.dispatchEvent({ type: "player_died" }); 
@@ -349,6 +354,6 @@ export class Enemy {
    };
 
    private getAttr = (attr: string): TAttributeValue => {
-      return this.attrs.GetAttribute(attr);
+      return this.attrs.GetAttribute({ gameObjectId: this.id, attribute: attr });
    };
 }

@@ -71,7 +71,10 @@ export class Collisions implements IService {
       const playerBullets: Enemy[] = [];
 
       this.enemies.enemies.forEach(enemy => {
-         const attrValue = enemy.attrs.GetAttribute("collisionType");
+         const attrValue = enemy.attrs.GetAttribute({
+            gameObjectId: enemy.id,
+            attribute: "collisionType"
+         });
          switch(attrValue){
             case "enemy":
                enemies.push(enemy);

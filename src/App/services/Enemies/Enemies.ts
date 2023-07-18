@@ -117,7 +117,10 @@ export class Enemies implements IService {
       }
 
       const player = this.enemies.find(e =>
-         e.attrs.GetAttribute("collisionType") as string === "player"
+         e.attrs.GetAttribute({
+            gameObjectId: e.id,
+            attribute: "collisionType"
+         }) as string === "player"
       );
       if(player === undefined) {
          throw new Error("Enemies.getPlayer: Player was not found");
