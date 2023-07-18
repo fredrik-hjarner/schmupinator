@@ -3,6 +3,7 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
+import type { TAttributeValue } from "./Attributes/Attributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -62,14 +63,14 @@ export class Enemy {
       });
    }
 
-   private get hp():number {
-      return assertNumber(this.attrs.GetAttribute("hp").value);
+   private get hp(): number {
+      return assertNumber(this.attrs.GetAttribute("hp"));
    }
    private set hp(value: number){
       this.attrs.SetAttribute({ name: "hp", value });
    }
-   private get maxHp():number {
-      return assertNumber(this.attrs.GetAttribute("maxHp").value);
+   private get maxHp(): number {
+      return assertNumber(this.attrs.GetAttribute("maxHp"));
    }
    private set maxHp(value: number){
       this.attrs.SetAttribute({ name: "maxHp", value });
@@ -84,7 +85,7 @@ export class Enemy {
       // if(done) { this.die(); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
-      if(this.attrs.GetAttribute("boundToWindow").value) {
+      if(this.attrs.GetAttribute("boundToWindow")) {
          this.boundToWindow();
       }
       this.gfx?.setPosition({ x: this.X, y: this.Y });
@@ -97,7 +98,7 @@ export class Enemy {
       /**
        * TODO: If points is zero then it should not dispatch a add_points event!
        */
-      const points = assertNumber(this.attrs.GetAttribute("points").value);
+      const points = assertNumber(this.attrs.GetAttribute("points"));
 
       /**
        * TODO: add_points is a bad name. Should be names pointsOnHit.
@@ -129,7 +130,7 @@ export class Enemy {
       // remove this enemy.
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
 
-      const points = assertNumber(this.attrs.GetAttribute("pointsOnDeath").value);
+      const points = assertNumber(this.attrs.GetAttribute("pointsOnDeath"));
       if(points !== 0) {
          this.enemies.eventsPoints.dispatchEvent({type: "add_points", enemy: this.name, points });
       }
@@ -347,7 +348,7 @@ export class Enemy {
       return { x, y };
    };
 
-   private getAttr = (attr: string) => {
-      return this.attrs.attrExists(attr) && this.attrs.GetAttribute(attr).value;
+   private getAttr = (attr: string): TAttributeValue => {
+      return this.attrs.GetAttribute(attr);
    };
 }
