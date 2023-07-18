@@ -51,8 +51,6 @@ export const stage1: IEnemyJson = {
       wait(120),
       sinuses,
       wait(200),
-      // leftMiniBoss,
-      // rightMiniBoss,
       leftMiniBoss,
       rightMiniBoss,
    ]

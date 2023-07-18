@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { TAction } from "../actions/actionTypes";
-import type { Vector as TVector } from "../../../../math/bezier";
 
 import { describe, it, expect } from "vitest";
 
@@ -12,7 +11,9 @@ const input: any = undefined;
 const gamepad: any = undefined;
 
 describe("parallelRace", () => {
-   const getPosition = (): TVector => ({ x: 0, y: 0 });
+   const enemy: any = {
+      getPosition: () => ({ x: 0, y: 0 })
+   };
 
    it("empty actions list. exect no exception. expect done", () => {
       const recordedActions: TAction[] = [];
@@ -21,7 +22,7 @@ describe("parallelRace", () => {
       };
 
       const generator = new EnemyActionExecutor({
-         getPosition,
+         enemy,
          actionHandler,
          getAttr,
          input,
@@ -41,7 +42,7 @@ describe("parallelRace", () => {
       const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
       const generator = new EnemyActionExecutor({
-         getPosition,
+         enemy,
          actionHandler,
          getAttr,
          input,
@@ -66,7 +67,7 @@ describe("parallelRace", () => {
       const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
       const generator = new EnemyActionExecutor({
-         getPosition,
+         enemy,
          actionHandler,
          getAttr,
          input,
@@ -91,7 +92,7 @@ describe("parallelRace", () => {
       const actionHandler = (action: TAction) => { recordedActions.push(action); };
 
       const generator = new EnemyActionExecutor({
-         getPosition,
+         enemy,
          actionHandler,
          getAttr,
          input,

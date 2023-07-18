@@ -96,7 +96,7 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
       if(i > 1) {
          this.tooSlowFrames += (i-1);
          // TODO: Only show this warning on debug, right?
-         console.log(`A total of ${this.tooSlowFrames} frames executed too slow!`);
+         console.info(`A total of ${this.tooSlowFrames} frames executed too slow!`);
       }
    };
 }

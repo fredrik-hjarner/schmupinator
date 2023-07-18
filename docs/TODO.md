@@ -221,3 +221,77 @@ that json (that is a level). So at no point does the frontend need zip or yaml.
 
 * have internal state that keeps track of background scroll so that code does not have to grab from
 DOM all the time (might be slow?).
+
+* I have this code:
+```
+public OnFrameTick = () => {
+   /* ... */
+   this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
+};
+```
+However this sucks. I don't want to tie grapical rotation to movement direction!!
+One way to solve this would be to have a new action called `setGfxRotationFromMoveDirection` or
+something like that or a `copyAttribute({ from: "movementDirection", to: "gfxRotation" })` action.
+
+* Wait.. is there a bug: If I try to spawn something by string that does not exist, is there an
+error shown somewhere or does everything just run without errors!?
+There is an error but the game does not crash.
+
+* I can actually control immediate children from a parent, i.e. children-parent relations.
+I can do that via injecting actions into the child which (as currently coded) will run in a "fork"
+and can execute forever so I could check make it (the child) do something based upon some 
+attribute in the parent.
+SO ACTUALLY, what I have a a relation from parent-to-child but NOT in the opposite direction?
+No, I am hallucinating, the attributes that can be read in the actions on the child are only the
+attributes on the child :/
+Although if I dabble with "global attributes" I could "inject" the name of the parent into the child
+or something like that.
+
+* I could make enemies more "generic", perhaps, via injecting more of their
+"special/specific/differing/alternative" behaviour. For example I could inject a "onHit" action
+that would be executed when the enemy is hit.
+
+* For debugging I need the enemy name/id to be available in EnemyActionExecutor so I can log better.
+
+* I should have a log action really so I can log before and after an enemy's action.
+
+* I have to code to despawn stuff that gets out of screen, but that's hardcoded which sucks.
+I need to have that be more dynamic. An example would be the player's bullets, they should be
+despawned IMMEDIATELY when they get out of screen, but as it is now they despawn when they are
+30 pixels outside of screen which makes it so that enemies can get hit by bullets that are not
+visible on screen.
+
+* I really need, in actions, to have it that argumets that are values also could be taken from
+attributes. For example I might want to have a "moveDelta" action that takes a "x" argument, but
+I might want to have that x be taken from an attribute instead of being hardcoded.
+
+Maybe I should have attributes be specific types rather than have them allowed to be any type.
+So like setAttribute({ type: "string", name: "x", value: "1" })
+or setStringAttribute({ name: "x' value: "1" })
+and getStringAttribute("x").
+
+On first step to improve the attributes could be to create a new AttributeService class that holds
+all attributes for all GameObjects. The data structure would be something like this:
+```
+{
+   player-1: {
+      floats: {
+         "x": 1,
+         "y": 2,
+      },
+      strings: {
+         "weapon": "laser"
+      }
+   },
+   "enemy-1": {
+      /* ... */
+   }
+}
+```
+Power ups would just be something that when it collides with an enemy then it would set an attribute
+(global or the player). However I don't have any onCollide callback yet.
+
+* I could make it so that one can change the direction of the player's shooting, I would need more
+buttons though.
+
+
