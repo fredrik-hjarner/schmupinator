@@ -1,15 +1,15 @@
 import type {
-   TAction, TAttr, TDo, TFork, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed,
+   TAction, TAttrIs, TDo, TFork, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll,TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
 
 type TAttrParams = {
-   is: TAttr["is"];
-   yes?: TAttr["yes"];
-   no?: TAttr["no"];
+   is: TAttrIs["is"];
+   yes?: TAttrIs["yes"];
+   no?: TAttrIs["no"];
 };
-export const attr = (attrName: TAttr["attrName"], { is, yes, no }: TAttrParams): TAttr => ({
-   type: "attr",
+export const attr = (attrName: TAttrIs["attrName"], { is, yes, no }: TAttrParams): TAttrIs => ({
+   type: "attrIs",
    attrName,
    is,
    yes,

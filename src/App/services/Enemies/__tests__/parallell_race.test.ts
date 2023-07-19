@@ -6,7 +6,6 @@ import { describe, it, expect } from "vitest";
 
 import { EnemyActionExecutor } from "../EnemyActionExecutor";
 
-const getAttr = (_: string) => false;
 const input: any = undefined;
 const gamepad: any = undefined;
 
@@ -24,7 +23,6 @@ describe("parallelRace", () => {
       const generator = new EnemyActionExecutor({
          enemy,
          actionHandler,
-         getAttr,
          input,
          gamepad,
          actions: [{
@@ -44,7 +42,6 @@ describe("parallelRace", () => {
       const generator = new EnemyActionExecutor({
          enemy,
          actionHandler,
-         getAttr,
          input,
          gamepad,
          actions: [{
@@ -69,7 +66,6 @@ describe("parallelRace", () => {
       const generator = new EnemyActionExecutor({
          enemy,
          actionHandler,
-         getAttr,
          input,
          gamepad,
          actions: [{
@@ -94,7 +90,6 @@ describe("parallelRace", () => {
       const generator = new EnemyActionExecutor({
          enemy,
          actionHandler,
-         getAttr,
          input,
          gamepad,
          actions: [{

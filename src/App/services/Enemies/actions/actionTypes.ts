@@ -38,14 +38,16 @@ export type TSpawn = {
    type: "spawn", enemy: string, x?: number, y?: number, actions?: TAction[]
 };
 // Simple if-equals case. Executes yes if true. Executs no when false.
-export type TAttr =
-   { type: "attr", attrName: string, is: TAttrValue, yes?: TAction[], no?: TAction[] };
+export type TAttrIs = {
+   type: "attrIs", gameObjectId?: string, attrName: string,
+   is: TAttrValue, yes?: TAction[], no?: TAction[]
+};
 // Increments an attribute. Obviously will blow up if trying to increment a non-number.
 export type TIncrement =
-{ type: "incr", attribute: string };
+{ type: "incr", gameObjectId?: string, attribute: string };
 // Decrements an attribute. Obviously will blow up if trying to increment a non-number.
 export type TDecrement =
-{ type: "decr", attribute: string };
+{ type: "decr", gameObjectId?: string, attribute: string };
 
 /**
  * Mirroring mirrors an axis.
@@ -71,7 +73,8 @@ export type TDespawn = { type: "despawn" };
  * Attributes can be either some predefined thing by me such as hp, points,
  * or it could be  end-user specified variable with any type.
  */
-export type TSetAttribute = { type: "setAttribute", attribute: string, value: TAttrValue };
+export type TSetAttribute =
+   { type: "setAttribute", gameObjectId?: string, attribute: string, value: TAttrValue };
 // Waits until Enemy is outside the screen/game window
 export type TWaitTilOutsideScreen = { type: "waitTilOutsideScreen" };
 // Waits until Enemy is inside the screen/game window
@@ -92,7 +95,7 @@ export type TFork = { type: "fork", actions: TAction[] };
 export type TMoveDirection = Readonly<{ type: "setMoveDirection", degrees: number }>;
 // Yields until the attribute has the value set in is.
 export type TWaitUntilAttrIs = Readonly<{
-   type: "waitUntilAttrIs", attr: string, is: TAttrValue
+   type: "waitUntilAttrIs", gameObjectId?: string, attr: string, is: TAttrValue
 }>;
 
 /**
@@ -155,7 +158,7 @@ export type TAction = Readonly<
    /**
     * Control/Conditions/Attributes
     */
-   TAttr |
+   TAttrIs |
    TSetAttribute |
    TIncrement |
    TDecrement |

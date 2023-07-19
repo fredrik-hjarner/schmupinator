@@ -6,7 +6,6 @@ import { describe, it, expect } from "vitest";
 
 import { EnemyActionExecutor } from "../EnemyActionExecutor";
 
-const getAttr = (_: string) => false;
 const input: any = undefined;
 const gamepad: any = undefined;
 
@@ -23,7 +22,6 @@ describe("move", () => {
       const generator = new EnemyActionExecutor({
          enemy,
          actionHandler,
-         getAttr,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
          input,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -47,7 +45,6 @@ describe("move", () => {
       const generator = new EnemyActionExecutor({
          enemy,
          actionHandler,
-         getAttr,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
          input,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -77,7 +74,6 @@ describe("move", () => {
       const generator = new EnemyActionExecutor({
          enemy,
          actionHandler,
-         getAttr,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
          input,
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

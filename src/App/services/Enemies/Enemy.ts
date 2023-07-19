@@ -3,7 +3,6 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { TAttrValue } from  "../Attributes/IAttributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -19,7 +18,8 @@ export class Enemy {
    public X: number;
    public Y: number;
    public id: string;
-   private enemies: Enemies; // enemies service
+   // public because grabbed in EnemyActionExecutor.
+   public enemies: Enemies; // enemies service
    private graphics: IGraphics; // Graphics service
    private diameter: number;
    private speed = 0;
@@ -46,7 +46,6 @@ export class Enemy {
          actionHandler: this.HandleAction, // TODO: Remove this line.
          actions: json.actions,
          enemy: this,
-         getAttr: this.getAttr, // TODO: Remove this line.
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
@@ -212,25 +211,27 @@ export class Enemy {
          case "moveDelta":
             this.moveDelta({ x: action.x, y: action.y });
             break;
-         case "setAttribute":
-            this.attrs.setAttribute({
-               gameObjectId: this.id,
-               attribute: action.attribute,
-               value: action.value
-            });
+         case "setAttribute": { // this I believe could be move into EnemyActionExecutor??
+            const { gameObjectId, attribute, value } = action;
+            this.attrs.setAttribute({ gameObjectId: gameObjectId ?? this.id, attribute, value });
             break;
+         }
          case "despawn":
             this.despawn();
             break;
          case "die":
             this.die();
             break;
-         case "incr":
-            this.attrs.incr({ gameObjectId: this.id, attribute: action.attribute });
+         case "incr": { // this I believe could be move into EnemyActionExecutor??
+            const { gameObjectId, attribute } = action;
+            this.attrs.incr({ gameObjectId: gameObjectId ?? this.id, attribute});
             break;
-         case "decr":
-            this.attrs.decr({ gameObjectId: this.id, attribute: action.attribute });
+         }
+         case "decr": { // this I believe could be move into EnemyActionExecutor??
+            const { gameObjectId, attribute } = action;
+            this.attrs.decr({ gameObjectId: gameObjectId ?? this.id, attribute});
             break;
+         }
          case "finishLevel": // TODO: dispatch some new "finishLevel" event instead.
             this.enemies.events.dispatchEvent({ type: "player_died" }); 
             break;
@@ -350,9 +351,5 @@ export class Enemy {
          y = resolutionHeight - y;
       }
       return { x, y };
-   };
-
-   private getAttr = (attr: string): TAttrValue => { // TODO: Remove this method.
-      return this.attrs.getAttribute({ gameObjectId: this.id, attribute: attr });
    };
 }
