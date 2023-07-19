@@ -1,6 +1,6 @@
 import type { Vector } from "../../../../math/bezier";
 import type { TGraphicsActionWithoutHandle } from "../../Graphics/IGraphics";
-import type { TAttrValue } from "../Attributes/Attributes";
+import type { TAttrValue } from "../../Attributes/IAttributes";
 
 export type TWait =                Readonly<{ type: "wait", frames: number }>;
 export type TWaitNextFrame =       Readonly<{ type: "waitNextFrame" }>;

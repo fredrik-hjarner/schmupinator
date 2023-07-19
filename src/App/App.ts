@@ -232,6 +232,7 @@ export class App {
     */
    public Init = async () => {
       const {
+         attributes,
          collisions,
          enemies,
          events, eventsEndOfFrame, eventsCollisions, eventsPoints, eventsUi,
@@ -264,6 +265,7 @@ export class App {
       await gameLoop.Init();
       await this.init.fps();
       await enemies.Init({
+         attributes,
          events,
          eventsCollisions,
          eventsPoints,
@@ -275,6 +277,7 @@ export class App {
       });
       await gamepad.Init();
       await this.collisions.Init({
+         attributes,
          enemies,
          events,
          eventsCollisions,

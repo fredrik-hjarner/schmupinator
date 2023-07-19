@@ -10,9 +10,9 @@ import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
 import type { Settings } from "../Settings/Settings";
 import type { TAction } from "./actions/actionTypes";
+import type { IAttributes } from "../Attributes/IAttributes";
 
 import { Enemy } from "./Enemy";
-import { attributesService } from "./Attributes/Attributes";
 
 export class Enemies implements IService {
    public readonly name: string;
@@ -29,6 +29,7 @@ export class Enemies implements IService {
    public input!: IInput;
    public gamepad!: GamePad;
    public settings!: Settings;
+   public attributes!: IAttributes;
 
    /**
     * Public
@@ -54,6 +55,7 @@ export class Enemies implements IService {
       this.input = deps?.input as IInput;
       this.gamepad = deps?.gamepad as GamePad;
       this.settings = deps?.settings as Settings;
+      this.attributes = deps?.attributes as IAttributes;
 
       this.events.subscribeToEvent(this.name, this.handleEvent);
       this.eventsCollisions.subscribeToEvent(this.name, this.handleEvent);
@@ -124,7 +126,7 @@ export class Enemies implements IService {
       }
 
       const player = this.enemies.find(e =>
-         attributesService.GetAttribute({
+         this.attributes.getAttribute({
             gameObjectId: e.id,
             attribute: "collisionType"
          }) as string === "player"

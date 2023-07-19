@@ -2,7 +2,7 @@ import type {
    TAction, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
 } from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
-import type { TAttrValue } from "./Attributes/Attributes";
+import type { TAttrValue } from "../Attributes/IAttributes";
 import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
 import type { Enemy } from "./Enemy";

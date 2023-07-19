@@ -3,7 +3,7 @@ import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
-import type { TAttrValue } from "./Attributes/Attributes";
+import type { TAttrValue } from  "../Attributes/IAttributes";
 
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
@@ -11,7 +11,6 @@ import { Angle } from "../../../math/Angle";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
-import { attributesService as attrs } from "./Attributes/Attributes";
 import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
@@ -61,18 +60,19 @@ export class Enemy {
          diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
       });
    }
+   private get attrs() { return this.enemies.attributes; } // convenience getter to shorten code.
 
    private get hp(): number {
-      return assertNumber(attrs.GetAttribute({ gameObjectId: this.id, attribute: "hp" }));
+      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "hp" }));
    }
    private set hp(value: number){
-      attrs.SetAttribute({ gameObjectId: this.id, attribute: "hp", value });
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "hp", value });
    }
    private get maxHp(): number {
-      return assertNumber(attrs.GetAttribute({ gameObjectId: this.id, attribute: "maxHp" }));
+      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "maxHp" }));
    }
    private set maxHp(value: number){
-      attrs.SetAttribute({ gameObjectId: this.id, attribute: "maxHp", value });
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "maxHp", value });
    }
 
    public get Radius(){ return this.diameter/2; }
@@ -84,7 +84,7 @@ export class Enemy {
       // if(done) { this.die(); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
-      if(attrs.GetAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
+      if(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
          this.boundToWindow();
       }
       this.gfx?.setPosition({ x: this.X, y: this.Y });
@@ -95,7 +95,7 @@ export class Enemy {
    // When this enemy collided.
    public OnCollision = () => {
       // TODO: If points is zero then it should not dispatch a add_points event!
-      const points = assertNumber(attrs.GetAttribute({
+      const points = assertNumber(this.attrs.getAttribute({
          gameObjectId: this.id,
          attribute: "points"
       }));
@@ -127,7 +127,7 @@ export class Enemy {
       const enemies = this.enemies; // TODO: This line could be remove right?
       enemies.enemies = enemies.enemies.filter(e => e.id !== this.id); // remove this enemy.
 
-      const points = assertNumber(attrs.GetAttribute({
+      const points = assertNumber(this.attrs.getAttribute({
          gameObjectId: this.id,
          attribute: "pointsOnDeath"
       }));
@@ -213,7 +213,7 @@ export class Enemy {
             this.moveDelta({ x: action.x, y: action.y });
             break;
          case "setAttribute":
-            attrs.SetAttribute({
+            this.attrs.setAttribute({
                gameObjectId: this.id,
                attribute: action.attribute,
                value: action.value
@@ -226,10 +226,10 @@ export class Enemy {
             this.die();
             break;
          case "incr":
-            attrs.incr({ gameObjectId: this.id, attribute: action.attribute });
+            this.attrs.incr({ gameObjectId: this.id, attribute: action.attribute });
             break;
          case "decr":
-            attrs.decr({ gameObjectId: this.id, attribute: action.attribute });
+            this.attrs.decr({ gameObjectId: this.id, attribute: action.attribute });
             break;
          case "finishLevel": // TODO: dispatch some new "finishLevel" event instead.
             this.enemies.events.dispatchEvent({ type: "player_died" }); 
@@ -352,7 +352,7 @@ export class Enemy {
       return { x, y };
    };
 
-   private getAttr = (attr: string): TAttrValue => {
-      return attrs.GetAttribute({ gameObjectId: this.id, attribute: attr });
+   private getAttr = (attr: string): TAttrValue => { // TODO: Remove this method.
+      return this.attrs.getAttribute({ gameObjectId: this.id, attribute: attr });
    };
 }
