@@ -54,9 +54,6 @@ module.exports = {
     },
   },
   rules: {
-    /****************************
-     * Warning that are fixable *
-     ****************************/
     /**
      * Default
      */
@@ -71,6 +68,9 @@ module.exports = {
     "semi": "warn",
     "no-undef": "error",
     "quotes": ["warn", "double", { "allowTemplateLiterals": true }],
+    "max-len": ["error", 100],
+    "max-lines": ["error", 360],
+
     /**
      * Import
      */
@@ -83,21 +83,6 @@ module.exports = {
       "newlines-between": "always-and-inside-groups"
     }],
     "import/newline-after-import": "warn",
-    /**
-     * Typescript
-     */
-
-    /**********
-     * Errors *
-     **********/
-    /**
-     * Default
-     */
-    "max-len": ["error", 100],
-    "max-lines": ["error", 360],
-    /**
-     * Import
-     */
     "import/no-unresolved": "error",
     "import/named": "error",
     "import/default": "error",
@@ -122,6 +107,7 @@ module.exports = {
       { "json": "always" }
     ],
     "import/no-default-export": "error",
+  
     /**
      * Typescript
      */
