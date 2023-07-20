@@ -13,9 +13,10 @@ import { dehealer, healer, shapeShifter, stage3 } from "./stage3";
 import { easyFlyer, stage4 } from "./stage4";
 import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
 import { aqua, executor, stage5 } from "./stage5";
+import startScreen from "./startScreen.png";
 
 const game: TGame = {
-   startScreenImageUrl: "/images/menuBackground.png",
+   startScreenImageUrl: startScreen,
 
    gameObjects: [
       player,

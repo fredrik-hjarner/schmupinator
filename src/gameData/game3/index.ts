@@ -10,9 +10,10 @@ import { playerLaser } from "./player/playerLaser";
 import { playerShot } from "./player/playerShot";
 import { shot } from "./shot";
 import { spawner } from "./spawner";
+import startScreen from "./startScreen.png";
 
 const game: TGame = {
-   startScreenImageUrl: "/images/menuBackground.png",
+   startScreenImageUrl: startScreen,
 
    gameObjects: [
       // Stage 1

@@ -14,9 +14,10 @@ import { traceDot } from "./enemies/traceDot";
 import { spinningDots } from "./enemies/spinningDots";
 import { boss } from "./enemies/boss";
 import { bossCorpse } from "./enemies/bossCorpse";
+import startScreen from "./startScreen.png";
 
 const game: TGame = {
-   startScreenImageUrl: "/images/menuBackground.png",
+   startScreenImageUrl: startScreen,
 
    gameObjects: [
       player,
