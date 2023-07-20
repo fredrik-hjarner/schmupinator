@@ -15,7 +15,6 @@ import { GameOver } from "./Scenes/GameOver";
 import { Highscore } from "./Scenes/Highscore";
 import { EnterHighscore } from "./Scenes/EnterHighscore";
 import { Settings } from "./Scenes/Settings";
-import { SettingsControls } from "./Scenes/SettingsControls";
 import { DisplayControls } from "./Scenes/DisplayControls";
 import { SelectGame } from "./Scenes/SelectGame";
 import { SelectGameForHighscore } from "./Scenes/SelectGameForHighscore";
@@ -46,7 +45,6 @@ export class UI implements IUI {
    public highscore: IScene;
    public selectGameForHighscore: IScene;
    public enterHighscore: IScene;
-   public settingsControls: IScene;
    public displayControls: IScene;
 
    // Active scene
@@ -63,7 +61,6 @@ export class UI implements IUI {
       this.highscore = new Highscore({ ui: this });
       this.selectGameForHighscore = new SelectGameForHighscore({ ui: this });
       this.enterHighscore = new EnterHighscore({ ui: this });
-      this.settingsControls = new SettingsControls({ ui: this });
       this.displayControls = new DisplayControls({ ui: this });
    }
 
@@ -122,7 +119,6 @@ export class UI implements IUI {
       this.gameOver.destroy();
       this.highscore.destroy();
       this.enterHighscore.destroy();
-      this.settingsControls.destroy();
       this.displayControls.destroy();
 
       // Unsubscribe to events.

@@ -1,7 +1,7 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./components/atoms/shade";
+import { createBgImage } from "./components/atoms/bgImage";
 import { ShowControls } from "./components/molecules/ShowControls";
 import { Countdown } from "./components/molecules/Countdown";
 import { fontSizes } from "./consts/fontSizes";
@@ -14,7 +14,7 @@ export class DisplayControls implements IScene {
    public readonly ui: UI;
 
    // elements
-   private shadeElement?: HTMLDivElement;
+   private bgImageElement?: HTMLDivElement;
    private countdown?: Countdown;
    private showControls?: ShowControls;
 
@@ -29,7 +29,7 @@ export class DisplayControls implements IScene {
          return;
       }
 
-      this.shadeElement = createShade();
+      this.bgImageElement = createBgImage(this.ui.gameData.getStartScreenImageUrl());
 
       this.countdown = new Countdown({
          input: this.ui.input,
@@ -45,8 +45,8 @@ export class DisplayControls implements IScene {
    }
 
    public destroy() {
-      this.shadeElement?.remove();
-      this.shadeElement = undefined;
+      this.bgImageElement?.remove();
+      this.bgImageElement = undefined;
 
       this.countdown?.destroy();
       this.countdown = undefined;

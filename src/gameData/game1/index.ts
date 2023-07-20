@@ -15,7 +15,7 @@ import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
 import { aqua, executor, stage5 } from "./stage5";
 
 const game: TGame = {
-   startScreenImageUrl: "",
+   startScreenImageUrl: "/images/menuBackground.png",
 
    gameObjects: [
       player,

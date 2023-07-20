@@ -12,7 +12,7 @@ import { shot } from "./shot";
 import { spawner } from "./spawner";
 
 const game: TGame = {
-   startScreenImageUrl: "",
+   startScreenImageUrl: "/images/menuBackground.png",
 
    gameObjects: [
       // Stage 1

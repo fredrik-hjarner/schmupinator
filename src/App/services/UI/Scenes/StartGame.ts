@@ -50,10 +50,6 @@ export class StartGame implements IScene {
                text: "highscore",
                onClick: () => { this.ui.SetActiveScene(this.ui.selectGameForHighscore); }
             },
-            {
-               text: "controls",
-               onClick: () => { this.ui.SetActiveScene(this.ui.settingsControls); }
-            },
             { text: "settings", onClick: () => { this.ui.SetActiveScene(this.ui.settings); }},
          ]
       });

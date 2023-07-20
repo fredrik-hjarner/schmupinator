@@ -16,7 +16,7 @@ import { boss } from "./enemies/boss";
 import { bossCorpse } from "./enemies/bossCorpse";
 
 const game: TGame = {
-   startScreenImageUrl: "",
+   startScreenImageUrl: "/images/menuBackground.png",
 
    gameObjects: [
       player,
