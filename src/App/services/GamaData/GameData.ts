@@ -91,10 +91,25 @@ export class GameData implements IService {
       if(!this.activeGame) {
          throw new Error("GameData.GetEnemy: Error activeGame is not set.");
       }
-      const enemyJson =  this.games[this.activeGame]?.gameObjects?.[enemyName];
+      /**
+       * TODO: Code would be slightly faster if we stored the current game in a variable,
+       * instead of looking it up every time.
+       */
+      const enemyJson = this.games[this.activeGame]?.gameObjects?.[enemyName];
       if(!enemyJson) {
          throw new Error(`GameData.GetEnemy: Unknown enemy "${enemyName}".`);
       }
       return enemyJson;
+   };
+
+   public getStartScreenImageUrl = (): TInternalGame["startScreenImageUrl"]  => {
+      if(!this.activeGame) {
+         throw new Error("GameData.GetStartScreenImageUrl: Error activeGame is not set.");
+      }
+      const startScreenImageUrl = this.games[this.activeGame]?.startScreenImageUrl;
+      if(!startScreenImageUrl) {
+         throw new Error("GameData.GetStartScreenImageUrl: No startScreenImageUrl.");
+      }
+      return startScreenImageUrl;
    };
 }
