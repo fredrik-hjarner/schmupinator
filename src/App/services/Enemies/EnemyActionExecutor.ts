@@ -2,7 +2,7 @@ import type {
    TAction, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
 } from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
-import type { TAttributeValue } from "./Attributes/Attributes";
+import type { TAttrValue } from "../Attributes/IAttributes";
 import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
 import type { Enemy } from "./Enemy";
@@ -23,7 +23,6 @@ type TEnemyActionExecutorArgs = {
    actions: TAction[];
    actionHandler: TActionHandler;
    enemy: Enemy;
-   getAttr: (attr: string) => TAttributeValue;
    input: IInput;
    gamepad: GamePad;
 }
@@ -35,7 +34,6 @@ export class EnemyActionExecutor {
 
    private actionHandler: (action: TAction) => void;
    private enemy: Enemy;
-   private getAttr: (attr: string) => TAttributeValue;
    /**
     * The only reason I don't have only ONE generator is because of the `fork` action.
     * `fork` creates/adds a new generator. I think that's the only way it could work really.
@@ -43,10 +41,9 @@ export class EnemyActionExecutor {
    public generators: Generator<void, void, void>[];
 
    public constructor(params: TEnemyActionExecutorArgs) {
-      const { actions, actionHandler, enemy, getAttr, input, gamepad } = params;
+      const { actions, actionHandler, enemy, input, gamepad } = params;
       this.actionHandler = actionHandler;
       this.enemy = enemy;
-      this.getAttr = getAttr;
       this.input = input;
       this.gamepad = gamepad;
       this.generators = [this.makeGenerator(actions)];
@@ -93,6 +90,14 @@ export class EnemyActionExecutor {
 
    private shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
    private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
+
+   // convenience method to shorten code a bit and reduce code duplication.
+   private getAttribute = (params: { gameObjectId?: string, attribute: string }): TAttrValue => {
+      return this.enemy.enemies.attributes.getAttribute({
+         gameObjectId: params.gameObjectId ?? this.enemy.id, // default to THIS enemy.
+         attribute: params.attribute,
+      });
+   };
 
    private *makeGenerator(
       actions: TAction[] = []
@@ -150,8 +155,8 @@ export class EnemyActionExecutor {
             }
 
             case "waitUntilAttrIs": {
-               const { attr, is } = currAction;
-               while(this.getAttr(attr) !== is) { yield; }
+               const { gameObjectId, attr: attribute, is } = currAction;
+               while(this.getAttribute({ gameObjectId, attribute }) !== is) { yield; }
                break;
             }
 
@@ -189,9 +194,9 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "attr": {
-               const { attrName, is, yes, no } = currAction;
-               const attrValue = this.getAttr(attrName);
+            case "attrIs": {
+               const { attrName: attribute, gameObjectId, is, yes, no } = currAction;
+               const attrValue = this.getAttribute({ gameObjectId, attribute });
                yield* this.makeGenerator(attrValue === is ? yes : no);
                break;
             }

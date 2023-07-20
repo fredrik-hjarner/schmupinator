@@ -17,8 +17,9 @@ export const spawner: IEnemyJson = {
       spawn("parallax"),
       spawn("player", { x: 178.5, y: 220 }),
       spawn("stage1"),
-      // { type: "spawn", enemy: 'stage2' },
-      // { type: "spawn", enemy: 'stage3' },
-      // { type: "spawn", enemy: 'stage4' },
+      // { type: "spawn", enemy: "stage2" },
+      // { type: "spawn", enemy: "stage3" },
+      // { type: "spawn", enemy: "stage4" },
+      // { type: "spawn", enemy: "stage5" },
    ],
 };

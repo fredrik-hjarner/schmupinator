@@ -17,6 +17,7 @@ import type { IGraphics } from "./Graphics/IGraphics";
 import type { IUI } from "./UI/IUI";
 import type { IFullscreen } from "./Fullscreen/IFullscreen";
 import type { IOutsideHider } from "./OutsideHider/IOutsideHider";
+import type { IAttributes } from "./Attributes/IAttributes";
 
 export type TInitParams = Partial<{
   e2eTest: IE2eTest;
@@ -40,6 +41,7 @@ export type TInitParams = Partial<{
   ui: IUI;
   fullscreen: IFullscreen;
   outsideHider: IOutsideHider;
+  attributes: IAttributes;
 }>;
 
 export interface IService {

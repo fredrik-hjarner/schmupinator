@@ -2,6 +2,7 @@ import type { Enemies } from "../Enemies/Enemies";
 import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
 import type { Enemy } from "../Enemies/Enemy";
+import type { IAttributes } from "../Attributes/IAttributes";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
@@ -30,6 +31,7 @@ export class Collisions implements IService {
    private events!: IGameEvents;
    private eventsCollisions!: IEventsCollisions;
    private enemies!: Enemies;
+   private attributes!: IAttributes;
 
    /**
    * Public
@@ -49,6 +51,7 @@ export class Collisions implements IService {
       this.events = deps?.events as IGameEvents;
       this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
       this.enemies = deps?.enemies as Enemies;
+      this.attributes = deps?.attributes as IAttributes;
       
       this.events.subscribeToEvent(
          this.name,
@@ -71,7 +74,10 @@ export class Collisions implements IService {
       const playerBullets: Enemy[] = [];
 
       this.enemies.enemies.forEach(enemy => {
-         const attrValue = enemy.attrs.GetAttribute("collisionType").value;
+         const attrValue = this.attributes.getAttribute({
+            gameObjectId: enemy.id,
+            attribute: "collisionType"
+         });
          switch(attrValue){
             case "enemy":
                enemies.push(enemy);

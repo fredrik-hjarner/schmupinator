@@ -10,7 +10,6 @@ import { Angle } from "../../../math/Angle";
 import { UnitVector } from "../../../math/UnitVector";
 import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
-import { Attributes } from "./Attributes/Attributes";
 import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
@@ -19,7 +18,8 @@ export class Enemy {
    public X: number;
    public Y: number;
    public id: string;
-   private enemies: Enemies; // enemies service
+   // public because grabbed in EnemyActionExecutor.
+   public enemies: Enemies; // enemies service
    private graphics: IGraphics; // Graphics service
    private diameter: number;
    private speed = 0;
@@ -31,7 +31,6 @@ export class Enemy {
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
-   public attrs = new Attributes();
    private name: string;
    // One action that is executed immediately when an enemy dies.
    private onDeathAction?: TAction;
@@ -41,13 +40,12 @@ export class Enemy {
       this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;
       this.diameter = json.diameter;
-      this.X = position.x;
-      this.Y = position.y;
+      this.X = position.x; // TODO: This should be an attribute.
+      this.Y = position.y; // TODO: This should be an attribute.
       this.actionExecutor = new EnemyActionExecutor({
-         actionHandler: this.HandleAction,
+         actionHandler: this.HandleAction, // TODO: Remove this line.
          actions: json.actions,
          enemy: this,
-         getAttr: this.getAttr,
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
@@ -61,18 +59,19 @@ export class Enemy {
          diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
       });
    }
+   private get attrs() { return this.enemies.attributes; } // convenience getter to shorten code.
 
-   private get hp():number {
-      return assertNumber(this.attrs.GetAttribute("hp").value);
+   private get hp(): number {
+      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "hp" }));
    }
    private set hp(value: number){
-      this.attrs.SetAttribute({ name: "hp", value });
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "hp", value });
    }
-   private get maxHp():number {
-      return assertNumber(this.attrs.GetAttribute("maxHp").value);
+   private get maxHp(): number {
+      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "maxHp" }));
    }
    private set maxHp(value: number){
-      this.attrs.SetAttribute({ name: "maxHp", value });
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "maxHp", value });
    }
 
    public get Radius(){ return this.diameter/2; }
@@ -84,7 +83,7 @@ export class Enemy {
       // if(done) { this.die(); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
-      if(this.attrs.GetAttribute("boundToWindow").value) {
+      if(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
          this.boundToWindow();
       }
       this.gfx?.setPosition({ x: this.X, y: this.Y });
@@ -94,14 +93,13 @@ export class Enemy {
 
    // When this enemy collided.
    public OnCollision = () => {
-      /**
-       * TODO: If points is zero then it should not dispatch a add_points event!
-       */
-      const points = assertNumber(this.attrs.GetAttribute("points").value);
+      // TODO: If points is zero then it should not dispatch a add_points event!
+      const points = assertNumber(this.attrs.getAttribute({
+         gameObjectId: this.id,
+         attribute: "points"
+      }));
 
-      /**
-       * TODO: add_points is a bad name. Should be names pointsOnHit.
-       */
+      // TODO: add_points is a bad name. Should be names pointsOnHit.
       this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
       this.hp -= 1;
 
@@ -125,11 +123,13 @@ export class Enemy {
    // unlike die despawn does NOT trigger onDeathAction
    private despawn = () => {
       // console.log(`${this.id} despawned`);
-      const enemies = this.enemies;
-      // remove this enemy.
-      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id);
+      const enemies = this.enemies; // TODO: This line could be remove right?
+      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id); // remove this enemy.
 
-      const points = assertNumber(this.attrs.GetAttribute("pointsOnDeath").value);
+      const points = assertNumber(this.attrs.getAttribute({
+         gameObjectId: this.id,
+         attribute: "pointsOnDeath"
+      }));
       if(points !== 0) {
          this.enemies.eventsPoints.dispatchEvent({type: "add_points", enemy: this.name, points });
       }
@@ -211,21 +211,27 @@ export class Enemy {
          case "moveDelta":
             this.moveDelta({ x: action.x, y: action.y });
             break;
-         case "setAttribute":
-            this.attrs.SetAttribute({ name: action.attribute, value: action.value });
+         case "setAttribute": { // this I believe could be move into EnemyActionExecutor??
+            const { gameObjectId, attribute, value } = action;
+            this.attrs.setAttribute({ gameObjectId: gameObjectId ?? this.id, attribute, value });
             break;
+         }
          case "despawn":
             this.despawn();
             break;
          case "die":
             this.die();
             break;
-         case "incr":
-            this.attrs.incr(action.attribute);
+         case "incr": { // this I believe could be move into EnemyActionExecutor??
+            const { gameObjectId, attribute } = action;
+            this.attrs.incr({ gameObjectId: gameObjectId ?? this.id, attribute});
             break;
-         case "decr":
-            this.attrs.decr(action.attribute);
+         }
+         case "decr": { // this I believe could be move into EnemyActionExecutor??
+            const { gameObjectId, attribute } = action;
+            this.attrs.decr({ gameObjectId: gameObjectId ?? this.id, attribute});
             break;
+         }
          case "finishLevel": // TODO: dispatch some new "finishLevel" event instead.
             this.enemies.events.dispatchEvent({ type: "player_died" }); 
             break;
@@ -345,9 +351,5 @@ export class Enemy {
          y = resolutionHeight - y;
       }
       return { x, y };
-   };
-
-   private getAttr = (attr: string) => {
-      return this.attrs.attrExists(attr) && this.attrs.GetAttribute(attr).value;
    };
 }

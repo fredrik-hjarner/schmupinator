@@ -16,6 +16,7 @@ import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
 import type { IE2eTest } from "./services/E2eTest/IE2eTest";
 import type { IOutsideHider } from "./services/OutsideHider/IOutsideHider";
 import type { ICursorShowGamePos } from "./services/CursorShowGamePos/ICursorShowGamePos";
+import type { IAttributes } from "./services/Attributes/IAttributes";
 
 /**
  * Services
@@ -51,6 +52,7 @@ import { Fullscreen } from "./services/Fullscreen/Fullscreen";
 import { E2eTest } from "./services/E2eTest/E2eTest";
 import { Settings } from "./services/Settings/Settings";
 import { OutsideHider } from "./services/OutsideHider/OutsideHider";
+import { Attributes } from "./services/Attributes/Attributes";
 
 /**
  * "Mocks"/Service variations
@@ -108,6 +110,7 @@ export class App {
    public ui: IUI;
    public fullscreen: IFullscreen;
    public outsideHider: IOutsideHider;
+   public attributes: IAttributes;
 
    /**
     * Step 1 of initialization
@@ -175,6 +178,8 @@ export class App {
       this.fullscreen = this.construct.fullscreen();
 
       this.outsideHider = this.construct.outsideHider();
+
+      this.attributes = this.construct.attributes();
    }
 
    /**
@@ -182,6 +187,9 @@ export class App {
     * TODO: Force sort this object alphabetically.
     */
    public construct = {
+      attributes: (): IAttributes => {
+         return new Attributes({ name: "attributes" });
+      },
       cursorShowGamePos: (): ICursorShowGamePos => {
          return IsBrowser() ?
             new CursorShowGamePos({ name: "cursorShowGamePos" }) :
@@ -224,6 +232,7 @@ export class App {
     */
    public Init = async () => {
       const {
+         attributes,
          collisions,
          enemies,
          events, eventsEndOfFrame, eventsCollisions, eventsPoints, eventsUi,
@@ -256,6 +265,7 @@ export class App {
       await gameLoop.Init();
       await this.init.fps();
       await enemies.Init({
+         attributes,
          events,
          eventsCollisions,
          eventsPoints,
@@ -267,6 +277,7 @@ export class App {
       });
       await gamepad.Init();
       await this.collisions.Init({
+         attributes,
          enemies,
          events,
          eventsCollisions,
@@ -295,6 +306,7 @@ export class App {
       });
       await this.init.fullscreen();
       await this.init.outsideHider();
+      await this.init.attributes();
    };
 
    /**
@@ -303,6 +315,9 @@ export class App {
     * TODO: Force sort this object alphabetically.
     */
    public init = {
+      attributes: async (): Promise<void> => {
+         await this.attributes.Init();
+      },
       cursorShowGamePos: async (): Promise<void> => {
          const { fullscreen } = this;
          await this.cursorShowGamePos.Init({
