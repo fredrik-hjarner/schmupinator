@@ -16,11 +16,11 @@ You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
 * You can play a stage that lasts 30 seconds.
 * Highscore that saves in localStorage.
-* You can theoretically build your own stages and enemies with YAML files, but really, you will need a tutorial or be pretty smart (200+ IQ) to figure out how to do it.
+* You can theoretically build your own stages and enemies with YAML files, but really, you will need a tutorial or be pretty smart (~~200 IQ~~ 150 IQ) to figure out how to do it.
 
 ## Preliminary goals for the game/maker
 
-1. Make it able to do everything that the game *Truxton* can do. *Truxton* is a good, imho, shoot 'em up but primitive so is easy to *mimic*.
+1. Make it able to do everything that the game *Truxton* can do. *Truxton* is an old shoot 'em up game that is relatively primitive so is easy to *mimic*.
 2. Make it *not too hard* to create enemies and stages. A good tutorial and documentation is needed.
 3. A dream goal is to create a stage and enemy editor, but in order for that to be feasible the code must first have stabilized.
 4. Server that stores highscores and custom stages.
@@ -34,17 +34,16 @@ You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
 **Requirements:**
 - Install `git` (optional but recommended).
-- Install `node` (use version 16 if you have problems with another version).
+- Install `node` (usually lastest version, but use version 18 if you have problems).
 
 **Steps**
 1. Create a directory for *Schmupinator*. Open the created directory in a terminal.
 2. Download repository.
    - Alt 1. Clone repository by running `git clone https://github.com/fredrik-hjarner/schmupinator.git .` in terminal.
-   - Alt 2. If you dont want to use git, then download zip-file [here](https://github.com/fredrik-hjarner/schmupinator/archive/refs/heads/vite-master-safe-always-working-not-broken.zip). Extract and open terminal in the exteracted directory.
+   - Alt 2. If you dont want to use git, then download zip-file [here](https://github.com/fredrik-hjarner/schmupinator/archive/refs/heads/vite-master-safe-always-working-not-broken.zip). Extract and open terminal in the extracted directory.
 3. Run `npm install` in terminal.
-4. Run `npx zip` in terminal.
-5. Run `npm run dev` in terminal.
-6. Open `http://localhost:3000/` in a web browser.
+4. Run `npm run dev` in terminal.
+5. Open `http://localhost:3000/` in a web browser.
 
 ## License
 
