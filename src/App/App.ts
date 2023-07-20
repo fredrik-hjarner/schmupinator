@@ -138,7 +138,9 @@ export class App {
 
       this.e2eTest = IsBrowser() ?
          // new NoopService() :
-         new E2eRecordEvents({ name: "e2e" }) :
+         (isRelease ?
+            new NoopService() : // don't record events in releases.
+            new E2eRecordEvents({ name: "e2e" })) :
          new E2eTest({ name: "e2e" });
 
       this.input = IsBrowser() ?
