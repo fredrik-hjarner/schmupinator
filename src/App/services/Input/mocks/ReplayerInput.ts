@@ -37,7 +37,9 @@ export class ReplayerInput implements IInput {
    public Init = async (deps?: TInitParams) => {
       this.replay = (await import("./replay")).replay as THistory;
 
-      this.events = deps?.events as IGameEvents;
+      // TODO: Better type checking
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+      this.events = deps?.events!;
 
       this.events.subscribeToEvent(this.name, (event) => {
          switch(event.type) {

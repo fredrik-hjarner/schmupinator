@@ -30,7 +30,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
-    // "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
   ],
   plugins: [
     "import",
@@ -129,6 +129,9 @@ module.exports = {
      * Typescript
      */
     "@typescript-eslint/no-unnecessary-type-assertion": "off",
-    "@typescript-eslint/ban-ts-comment": "off"
+    "@typescript-eslint/ban-ts-comment": "off",
+    '@typescript-eslint/consistent-type-definitions': 'off',
+    '@typescript-eslint/consistent-indexed-object-style': 'off',
+    "@typescript-eslint/dot-notation": "off",
   }
 };

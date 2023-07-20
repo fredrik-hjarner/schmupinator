@@ -47,15 +47,18 @@ export class Enemies implements IService {
     */
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.events = deps?.events as IGameEvents;
-      this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
-      this.eventsPoints = deps?.eventsPoints as IEventsPoints;
-      this.gameData = deps?.gameData as GameData;
-      this.graphics = deps?.graphics as IGraphics;
-      this.input = deps?.input as IInput;
-      this.gamepad = deps?.gamepad as GamePad;
-      this.settings = deps?.settings as Settings;
-      this.attributes = deps?.attributes as IAttributes;
+      /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+      // TODO: Better type checking.
+      this.events = deps?.events!;
+      this.eventsCollisions = deps?.eventsCollisions!;
+      this.eventsPoints = deps?.eventsPoints!;
+      this.gameData = deps?.gameData!;
+      this.graphics = deps?.graphics!;
+      this.input = deps?.input!;
+      this.gamepad = deps?.gamepad!;
+      this.settings = deps?.settings!;
+      this.attributes = deps?.attributes!;
+      /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       this.events.subscribeToEvent(this.name, this.handleEvent);
       this.eventsCollisions.subscribeToEvent(this.name, this.handleEvent);

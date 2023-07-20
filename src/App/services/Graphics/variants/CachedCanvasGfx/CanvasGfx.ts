@@ -48,7 +48,7 @@ export class CanvasGfx implements IGraphics {
          window.document.body.appendChild(canvas);
    
          return canvas.getContext("2d");
-      }) as CanvasRenderingContext2D;
+      })!;
    }
 
    public destroy = () => {
@@ -74,7 +74,9 @@ export class CanvasGfx implements IGraphics {
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.eventsEndOfFrame = deps?.eventsEndOfFrame as IEventsEndOfFrame;
+      // TODO: Better type checking.
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+      this.eventsEndOfFrame = deps?.eventsEndOfFrame!;
       // TODO: Remember to unsubscribe.
       this.eventsEndOfFrame.subscribeToEvent(this.name, this.render);
    };

@@ -25,5 +25,5 @@ export const createShade = () => {
       window.document.body.appendChild(element);
       
       return element;
-   }) as HTMLDivElement;
+   })!;
 };

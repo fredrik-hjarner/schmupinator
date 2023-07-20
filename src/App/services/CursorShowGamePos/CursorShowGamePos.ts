@@ -28,7 +28,9 @@ export class CursorShowGamePos implements ICursorShowGamePos {
    
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.fullscreen = deps?.fullscreen as IFullscreen;
+      // TODO: Better type checking.
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+      this.fullscreen = deps?.fullscreen!;
       this.tooltip = this.createCursorTooltip();
    };
 
@@ -62,7 +64,7 @@ export class CursorShowGamePos implements ICursorShowGamePos {
          document.addEventListener("mouseleave", this.hideTooltip);
 
          return tooltip;
-      }) as HTMLDivElement;
+      })!;
    };
 
    private updateTooltip = (event: MouseEvent): void => {
@@ -96,7 +98,7 @@ export class CursorShowGamePos implements ICursorShowGamePos {
          document.removeEventListener("mouseleave", this.hideTooltip);
          
          // Remove the tooltip element
-         if (this.tooltip && this.tooltip.parentNode) {
+         if (this.tooltip?.parentNode) {
             this.tooltip.parentNode.removeChild(this.tooltip);
             this.tooltip = null;
          }

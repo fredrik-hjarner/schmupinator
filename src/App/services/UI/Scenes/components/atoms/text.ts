@@ -48,5 +48,5 @@ export const createText = (params: TCreateTextParams) => {
       window.document.body.appendChild(element);
       
       return element;
-   }) as HTMLDivElement;
+   })!;
 };

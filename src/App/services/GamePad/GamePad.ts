@@ -48,6 +48,6 @@ export class GamePad implements IService {
             return false;
          }
          return !!gamepad.buttons?.[index]?.pressed;
-      }) as boolean;
+      })!;
    };
 }

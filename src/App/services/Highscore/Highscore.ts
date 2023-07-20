@@ -60,7 +60,9 @@ export class Highscore implements IService {
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.gameData = deps?.gameData as GameData;
+      // TODO: Better type checking.
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+      this.gameData = deps?.gameData!;
 
       // attempt to load from localStorage.
       BrowserDriver.WithWindow(window => {
