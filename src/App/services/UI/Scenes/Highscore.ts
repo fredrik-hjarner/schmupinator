@@ -4,7 +4,6 @@ import type { UI } from "../UI";
 import { createShade } from "./components/atoms/shade";
 import { createText } from "./components/atoms/text";
 import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { Countdown } from "./components/molecules/Countdown";
 import { isBoolean, isNumber, isObject } from "../../../../utils/typeAssertions";
 import { centerHorizontally } from "./utils/centering";
 import { fontSizes } from "./consts/fontSizes";
@@ -33,7 +32,6 @@ export class Highscore implements IScene {
    private shadeElement?: HTMLDivElement;
    private title?: HTMLDivElement;
    private top10?: HTMLDivElement;
-   private countdown?: Countdown;
    private menu?: Menu;
 
    public constructor(params: TConstructor) {
@@ -81,22 +79,13 @@ export class Highscore implements IScene {
       });
       centerHorizontally(this.top10);
 
-      this.countdown = new Countdown({
-         input: this.ui.input,
-         secondsLeft: 15,
-         onDone: this.handleCountdDownDone,
-         fontSize: fontSizes.large,
-         top: 5,
-         left: 315,
-      });
-
       this.menu = new Menu({
          input: this.ui.input,
          top: 207,
          menuItems: [
             {
                text: this.backButton ? "back" : "continue",
-               onClick: this.handleCountdDownDone
+               onClick: this.handleExit
             },
          ]
       });
@@ -119,13 +108,10 @@ export class Highscore implements IScene {
       this.top10?.remove();
       this.top10 = undefined;
 
-      this.countdown?.destroy();
-      this.countdown = undefined;
-
       this.menu?.destroy();
    }
 
-   private handleCountdDownDone = () => {
+   private handleExit = () => {
       if(this.backButton) {
          this.ui.SetActiveScene(this.ui.startGame);
          return;
