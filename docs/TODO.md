@@ -285,3 +285,8 @@ Power ups would just be something that when it collides with an enemy then it wo
 buttons though.
 
 * Enemy.x and Enemy.y should be attributes so that they could be grabbed by actions.
+
+* 0.6.0 release:
+  * Hide the control buttons. Can be done with higher z-index on "outside hiders".
+    I dont remember in what service they are added.
+  * Hide the "cursor position" stuff.

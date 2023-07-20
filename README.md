@@ -46,7 +46,7 @@ You can try version 0.6.0 here: https://fredrik-hjarner.github.io/schmupinator/
      - If you dont want to use git, then download zip-file [here](https://github.com/fredrik-hjarner/schmupinator/archive/refs/heads/vite-master-safe-always-working-not-broken.zip). Extract and open terminal in the extracted directory.
 4. Run `npm install` in terminal.
 5. Run `npm run dev` in terminal.
-6. Open `http://localhost:3000/` in a web browser.
+   - This should open `http://localhost:3000/` in a web browser, if not then open it manually.
 
 ## License
 

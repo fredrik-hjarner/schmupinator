@@ -4,10 +4,11 @@
   "type": "module",
   "version": "0.6.0",
   "scripts": {
-    "dev": "vite --port 3000",
-    "build": "tsc && vite build",
-    "release": "tsc && vite build --base=/schmupinator/",
-    "preview": "vite preview --port 3000",
+    "dev": "vite --port 3000 --open",
+    "build": "vite build",
+    "build:release": "vite build --base=/schmupinator/ --outDir dist/schmupinator",
+    "preview": "vite preview --port 3000 --open",
+    "preview:release": "vite preview --port 3000 --open schmupinator",
     "test": "vitest run"
   },
   "devDependencies": {
