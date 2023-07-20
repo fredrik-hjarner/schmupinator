@@ -1,8 +1,8 @@
 import type { IService } from "../IService";
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
-import game1js from "../../../gameData/game1/index";
-import game2js from "../../../gameData/game2/index";
+import game1 from "../../../gameData/game1/index";
+import game2 from "../../../gameData/game2/index";
 
 type TEnemyJsons = Partial<{ [enemyName: string]: IEnemyJson }>;
 
@@ -38,7 +38,7 @@ export class GameData implements IService {
        * Game 1
        */
       // key all enemies by name
-      this.games["game1"] = game1js.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+      this.games["game1"] = game1.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
@@ -47,7 +47,7 @@ export class GameData implements IService {
        * Game 2
        */
       // key all enemies by name
-      this.games["game2"] = game2js.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+      this.games["game2"] = game2.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});

@@ -11,19 +11,21 @@ import { playerShot } from "./player/playerShot";
 import { shot } from "./shot";
 import { spawner } from "./spawner";
 
-const game: TGame = [
-   // Stage 1
-   explosion,
-   roundExplosion,
-   kamikaze,
-   kamikazeCorpse,
-   sinus,
-   pacifistStage,
-   player,
-   playerLaser,
-   playerShot,
-   shot,
-   spawner,
-];
+const game: TGame = {
+   gameObjects: [
+      // Stage 1
+      explosion,
+      roundExplosion,
+      kamikaze,
+      kamikazeCorpse,
+      sinus,
+      pacifistStage,
+      player,
+      playerLaser,
+      playerShot,
+      shot,
+      spawner,
+   ]
+};
 
 export default game;

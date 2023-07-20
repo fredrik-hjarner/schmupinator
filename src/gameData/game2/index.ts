@@ -15,26 +15,28 @@ import { spinningDots } from "./enemies/spinningDots";
 import { boss } from "./enemies/boss";
 import { bossCorpse } from "./enemies/bossCorpse";
 
-const game: TGame = [
-   player,
-   playerShot,
-   parallax,
-   layer1,
-   layer2,
-   layer3,
+const game: TGame = {
+   gameObjects: [
+      player,
+      playerShot,
+      parallax,
+      layer1,
+      layer2,
+      layer3,
 
-   // Stage 2
-   explosion,
-   roundExplosion,
-   shot,
-   spawner,
-   stage,
-   dot,
-   traceDot,
-   spinningDots,
-   nonShootingAimer,
-   boss,
-   bossCorpse
-];
+      // Stage 2
+      explosion,
+      roundExplosion,
+      shot,
+      spawner,
+      stage,
+      dot,
+      traceDot,
+      spinningDots,
+      nonShootingAimer,
+      boss,
+      bossCorpse
+   ]
+};
 
 export default game;
