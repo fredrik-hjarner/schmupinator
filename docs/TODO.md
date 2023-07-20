@@ -285,5 +285,3 @@ Power ups would just be something that when it collides with an enemy then it wo
 buttons though.
 
 * Enemy.x and Enemy.y should be attributes so that they could be grabbed by actions.
-
-* Levels should be able to have an intro image that they can show (with control or whatever).
