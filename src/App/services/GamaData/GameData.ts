@@ -1,5 +1,5 @@
 import type { IService } from "../IService";
-import type { IEnemyJson } from "../Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
 import game1js from "../../../gameData/game1/index";
 import game2js from "../../../gameData/game2/index";

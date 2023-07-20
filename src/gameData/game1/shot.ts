@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
 export const shot: IEnemyJson = {
    name: "shot",

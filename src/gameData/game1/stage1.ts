@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 import type {
    TAction, TMove, TShootDirection
 } from "../../App/services/Enemies/actions/actionTypes";

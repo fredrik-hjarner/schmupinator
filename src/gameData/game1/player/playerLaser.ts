@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
 import { forever, parallelRace, spawn, wait } from "../../utils";
 

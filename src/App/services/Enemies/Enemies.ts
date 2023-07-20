@@ -1,7 +1,7 @@
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IService, TInitParams } from "../IService";
 import type { GameData } from "../GamaData/GameData";
-import type { IEnemyJson } from "./enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 import type {
    IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent
 } from "../Events/IEvents";

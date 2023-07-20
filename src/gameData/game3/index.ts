@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { TGame } from "@/gameTypes/TGame";
 
 import { explosion, roundExplosion } from "./effects/explosions";
 import { kamikaze, kamikazeCorpse } from "./kamikaze/kamikazeCorpse";
@@ -11,7 +11,7 @@ import { playerShot } from "./player/playerShot";
 import { shot } from "./shot";
 import { spawner } from "./spawner";
 
-const game: IEnemyJson[] = [
+const game: TGame = [
    // Stage 1
    explosion,
    roundExplosion,
