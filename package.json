@@ -2,7 +2,7 @@
   "name": "schmupinator",
   "private": true,
   "type": "module",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "scripts": {
     "dev": "vite --port 3000",
     "build": "tsc && vite build",

@@ -4,7 +4,7 @@
 
 > The ambition is to make a shoot 'em up maker with the ability for users to create their own shoot 'em up stages.
 
-You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
+You can try version 0.6.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
 ## Teasers
 
@@ -14,9 +14,9 @@ You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
 ## Current state
 
-* You can play a stage that lasts 30 seconds.
-* Highscore that saves in localStorage.
-* You can theoretically build your own stages and enemies with YAML files, but really, you will need a tutorial or be pretty smart (~~200 IQ~~ 150 IQ) to figure out how to do it.
+* You can play 2 very short stages, one vertical one horizontal.
+* Highscore, separate for each level, that saves in localStorage.
+* You can theoretically build your own stages and enemies with JS/TS files, but really, you will need a tutorial or be pretty smart (~~200 IQ~~ 150 IQ) to figure out how to do it.
 
 ## Preliminary goals for the game/maker
 
@@ -27,23 +27,26 @@ You can try version 0.5.0 here: https://fredrik-hjarner.github.io/schmupinator/
 
 ## Preliminary goals for the code
 
+* Robust code that never breaks.
+  * Every file edit starts a test that runs a stage (with pre-recorded inputs) from start to finish to assert that behavior is exactly as expected.
 * As few dependencies as possible. Fewer dependencies can increase the life span of a project since it will not rely on 1 000 dependences that ~~can~~ *will* break.
-* No canvas, every enemy, bullet, etc. is a div! It works better than one would think.
+  * **The code currently has zero *runtime* dependencies.**
+* No canvas or OpenGL. Every enemy, bullet, etc. is a div!
 
 ## How to clone, build and run *Schmupinator* locally?
 
-**Requirements:**
-- Install `git` (optional but recommended).
-- Install `node` (usually lastest version, but use version 18 if you have problems).
-
-**Steps**
-1. Create a directory for *Schmupinator*. Open the created directory in a terminal.
+1. Install the requirements if you don't have them.
+   - Install `node` (usually lastest version, but use version 18 if you have problems).
+   - Install `git` (**optional**).
 2. Download repository.
-   - Alt 1. Clone repository by running `git clone https://github.com/fredrik-hjarner/schmupinator.git .` in terminal.
-   - Alt 2. If you dont want to use git, then download zip-file [here](https://github.com/fredrik-hjarner/schmupinator/archive/refs/heads/vite-master-safe-always-working-not-broken.zip). Extract and open terminal in the extracted directory.
-3. Run `npm install` in terminal.
-4. Run `npm run dev` in terminal.
-5. Open `http://localhost:3000/` in a web browser.
+   - Alt 1 - with git
+     - Create a directory for *Schmupinator*. Open the created directory in a terminal.
+     - Clone repository by running `git clone https://github.com/fredrik-hjarner/schmupinator.git .` in terminal.
+   - Alt 2 - without git
+     - If you dont want to use git, then download zip-file [here](https://github.com/fredrik-hjarner/schmupinator/archive/refs/heads/vite-master-safe-always-working-not-broken.zip). Extract and open terminal in the extracted directory.
+4. Run `npm install` in terminal.
+5. Run `npm run dev` in terminal.
+6. Open `http://localhost:3000/` in a web browser.
 
 ## License
 
