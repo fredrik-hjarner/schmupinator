@@ -12,6 +12,8 @@ import { shot } from "./shot";
 import { spawner } from "./spawner";
 
 const game: TGame = {
+   startScreenImageUrl: "",
+
    gameObjects: [
       // Stage 1
       explosion,

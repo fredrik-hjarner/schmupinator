@@ -1,12 +1,16 @@
+import type { OverrideProperties } from "type-fest";
 import type { IService } from "../IService";
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
+import type { TGame } from "@/gameTypes/TGame";
 
 import game1 from "../../../gameData/game1/index";
 import game2 from "../../../gameData/game2/index";
 
 type TEnemyJsons = Partial<{ [enemyName: string]: IEnemyJson }>;
 
-type TGames = Partial<{ [gameName: string]: TEnemyJsons }>
+// TGame is used when creating a game, TInternalGame is used when executing the game.
+type TInternalGame = OverrideProperties<TGame, { gameObjects: TEnemyJsons }>;
+type TGames = Partial<{ [gameName: string]: TInternalGame }>
 
 type TConstructor = {
    name: string
@@ -38,19 +42,27 @@ export class GameData implements IService {
        * Game 1
        */
       // key all enemies by name
-      this.games["game1"] = game1.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+      const gameObjects1 = game1.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
+      this.games["game1"] = {
+         gameObjects: gameObjects1,
+         startScreenImageUrl: game1.startScreenImageUrl
+      };
 
       /**
        * Game 2
        */
       // key all enemies by name
-      this.games["game2"] = game2.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+      const gameObjects2 = game2.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
+      this.games["game2"] = {
+         gameObjects: gameObjects2,
+         startScreenImageUrl: game2.startScreenImageUrl
+      };
 
       return Promise.resolve(); // just to make typescript happy.
    };
@@ -79,7 +91,7 @@ export class GameData implements IService {
       if(!this.activeGame) {
          throw new Error("GameData.GetEnemy: Error activeGame is not set.");
       }
-      const enemyJson =  this.games[this.activeGame]?.[enemyName];
+      const enemyJson =  this.games[this.activeGame]?.gameObjects?.[enemyName];
       if(!enemyJson) {
          throw new Error(`GameData.GetEnemy: Unknown enemy "${enemyName}".`);
       }

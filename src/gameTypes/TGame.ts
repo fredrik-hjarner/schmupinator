@@ -6,4 +6,6 @@ import type { IEnemyJson } from "./IEnemyJson";
 export type TGame = {
    /** All gameObjects used by the game (i.e. all that are spawned) must be added here. */
    gameObjects: IEnemyJson[];
+   /** This is the image that is displayed when you start the game */
+   startScreenImageUrl: string;
 };
