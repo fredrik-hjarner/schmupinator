@@ -2,7 +2,6 @@ import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
 import { createBgImage } from "./components/atoms/bgImage";
-import { ShowControls } from "./components/molecules/ShowControls";
 import { Countdown } from "./components/molecules/Countdown";
 import { fontSizes } from "./consts/fontSizes";
 
@@ -16,7 +15,6 @@ export class DisplayControls implements IScene {
    // elements
    private bgImageElement?: HTMLDivElement;
    private countdown?: Countdown;
-   private showControls?: ShowControls;
 
    public constructor(params: TConstructor) {
       this.ui = params.ui;
@@ -39,9 +37,6 @@ export class DisplayControls implements IScene {
          top: 5,
          left: 315,
       });
-
-      this.showControls = new ShowControls({ top: 80 });
-      this.showControls.render();
    }
 
    public destroy() {
@@ -50,8 +45,6 @@ export class DisplayControls implements IScene {
 
       this.countdown?.destroy();
       this.countdown = undefined;
-
-      this.showControls?.destroy();
    }
 
    private handleCountdDownDone = () => {
