@@ -2,7 +2,7 @@ import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../../c
 import { BrowserDriver } from "../../../../../../drivers/BrowserDriver";
 import { px } from "../../../../../../utils/px";
 
-const menuBackground = "/images/menuBackground.png";
+const menuBackground = `${import.meta.env.BASE_URL}images/menuBackground.png`;
 
 /**
  * TODO: Originally this was just a 0.7 opacity black div, but I wanted to use a background image.

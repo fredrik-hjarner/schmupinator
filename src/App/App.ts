@@ -78,6 +78,14 @@ import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx";
  */
 import { IsBrowser } from "../drivers/BrowserDriver";
 
+/**
+ * TODO: I toggle some stuff based upon if the mode is "release" (my custom mode), this is
+ * inconsistent though since I toggle most stuff based on the stuff in Settings service, so I dont
+ * know if I should make this more consistent by, for example, removing this and placing all of
+ * these in the Settings service instead.
+ */
+const isRelease = import.meta.env.MODE === "release";
+
 export class App {
    // types here should not be IService but rather something that implements IService.
    // TODO: also all types should NOT be concrete types, but interfaces.
@@ -130,7 +138,9 @@ export class App {
 
       this.e2eTest = IsBrowser() ?
          // new NoopService() :
-         new E2eRecordEvents({ name: "e2e" }) :
+         (isRelease ?
+            new NoopService() : // don't record events in releases.
+            new E2eRecordEvents({ name: "e2e" })) :
          new E2eTest({ name: "e2e" });
 
       this.input = IsBrowser() ?
@@ -192,7 +202,9 @@ export class App {
       },
       cursorShowGamePos: (): ICursorShowGamePos => {
          return IsBrowser() ?
-            new CursorShowGamePos({ name: "cursorShowGamePos" }) :
+            (isRelease ?
+               new NoopService() : // hide cursor pos in releases.
+               new CursorShowGamePos({ name: "cursorShowGamePos" })) :
             new NoopService();
       },
       fps: (): IFps => {

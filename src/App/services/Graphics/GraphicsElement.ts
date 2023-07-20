@@ -6,14 +6,13 @@ import { px } from "../../../utils/px";
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../consts";
 
 // resources
-const circle = "/images/circle.png";
-const square = "/images/square.png";
-const triangle = "/images/triangle.png";
-const diamondShield = "/images/diamondShield.png";
-const octagon = "/images/octagon.png";
-const explosion = "/images/explosion.png";
-const roundExplosion = "/images/roundExplosion.png";
-
+const circle = `${import.meta.env.BASE_URL}images/circle.png`;
+const square = `${import.meta.env.BASE_URL}images/square.png`;
+const triangle = `${import.meta.env.BASE_URL}images/triangle.png`;
+const diamondShield = `${import.meta.env.BASE_URL}images/diamondShield.png`;
+const octagon = `${import.meta.env.BASE_URL}images/octagon.png`;
+const explosion = `${import.meta.env.BASE_URL}images/explosion.png`;
+const roundExplosion = `${import.meta.env.BASE_URL}images/roundExplosion.png`;
 
 /**
  * TODO:
@@ -283,7 +282,8 @@ export class GraphicsElement implements IDestroyable {
           */
          default:
             // shape would be something like "triangle.png".
-            this.element.style.backgroundImage = `url('/images/${shape}')`;
+            this.element.style.backgroundImage =
+               `url('${import.meta.env.BASE_URL}images/${shape}')`;
       }
    };
 
