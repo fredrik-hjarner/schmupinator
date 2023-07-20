@@ -12,6 +12,7 @@ import { cloner, clonerChild, stage2 } from "./stage2";
 import { dehealer, healer, shapeShifter, stage3 } from "./stage3";
 import { easyFlyer, stage4 } from "./stage4";
 import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
+import { aqua, executor, stage5 } from "./stage5";
 
 const game: IEnemyJson[] = [
    player,
@@ -46,6 +47,11 @@ const game: IEnemyJson[] = [
    // Stage 4
    stage4,
    easyFlyer,
+
+   // Stage 5
+   stage5,
+   executor,
+   aqua,
 ];
 
 export default game;

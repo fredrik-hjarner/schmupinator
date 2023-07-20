@@ -20,5 +20,6 @@ export const spawner: IEnemyJson = {
       // { type: "spawn", enemy: "stage2" },
       // { type: "spawn", enemy: "stage3" },
       // { type: "spawn", enemy: "stage4" },
+      // { type: "spawn", enemy: "stage5" },
    ],
 };
