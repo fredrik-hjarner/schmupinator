@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import type { IEnemyJson } from "../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { TGame } from "@/gameTypes/TGame";
 
 import { explosion, roundExplosion } from "./effects/explosions";
 import { kamikaze, kamikazeCorpse } from "./kamikaze/kamikazeCorpse";
@@ -10,20 +10,25 @@ import { playerLaser } from "./player/playerLaser";
 import { playerShot } from "./player/playerShot";
 import { shot } from "./shot";
 import { spawner } from "./spawner";
+import startScreen from "./startScreen.png";
 
-const game: IEnemyJson[] = [
-   // Stage 1
-   explosion,
-   roundExplosion,
-   kamikaze,
-   kamikazeCorpse,
-   sinus,
-   pacifistStage,
-   player,
-   playerLaser,
-   playerShot,
-   shot,
-   spawner,
-];
+const game: TGame = {
+   startScreenImageUrl: startScreen,
+
+   gameObjects: [
+      // Stage 1
+      explosion,
+      roundExplosion,
+      kamikaze,
+      kamikazeCorpse,
+      sinus,
+      pacifistStage,
+      player,
+      playerLaser,
+      playerShot,
+      shot,
+      spawner,
+   ]
+};
 
 export default game;

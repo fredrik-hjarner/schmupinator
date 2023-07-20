@@ -94,7 +94,7 @@ export class Renderer {
       // new OffscreenCanvas(diameterOfCanvas, diameterOfCanvas) as HTMLCanvasElement;
       offscreenCanvas.width = diameterOfCanvas;
       offscreenCanvas.height = diameterOfCanvas;
-      const newCtx = offscreenCanvas.getContext("2d") as CanvasRenderingContext2D;
+      const newCtx = offscreenCanvas.getContext("2d")!;
       
       // Note: I think even numbers can be problematic here and make a rotated image not be exact.
       newCtx.translate(radiusOfCanvas, radiusOfCanvas);

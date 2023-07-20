@@ -15,7 +15,6 @@ import { GameOver } from "./Scenes/GameOver";
 import { Highscore } from "./Scenes/Highscore";
 import { EnterHighscore } from "./Scenes/EnterHighscore";
 import { Settings } from "./Scenes/Settings";
-import { SettingsControls } from "./Scenes/SettingsControls";
 import { DisplayControls } from "./Scenes/DisplayControls";
 import { SelectGame } from "./Scenes/SelectGame";
 import { SelectGameForHighscore } from "./Scenes/SelectGameForHighscore";
@@ -46,7 +45,6 @@ export class UI implements IUI {
    public highscore: IScene;
    public selectGameForHighscore: IScene;
    public enterHighscore: IScene;
-   public settingsControls: IScene;
    public displayControls: IScene;
 
    // Active scene
@@ -63,20 +61,22 @@ export class UI implements IUI {
       this.highscore = new Highscore({ ui: this });
       this.selectGameForHighscore = new SelectGameForHighscore({ ui: this });
       this.enterHighscore = new EnterHighscore({ ui: this });
-      this.settingsControls = new SettingsControls({ ui: this });
       this.displayControls = new DisplayControls({ ui: this });
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.events = deps?.events as IGameEvents;
-      this.eventsUi = deps?.eventsUi as IUiEvents;
-      this.gameLoop = deps?.gameLoop as IGameLoop;
-      this.highscoreService = deps?.highscore as THighscoreService;
-      this.points = deps?.points as IPoints;
-      this.settingsService = deps?.settings as TSettingsService;
-      this.input = deps?.input as IInput;
-      this.gameData = deps?.gameData as GameData;
+      /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+      // TODO: Better type checking here.
+      this.events = deps?.events!;
+      this.eventsUi = deps?.eventsUi!;
+      this.gameLoop = deps?.gameLoop!;
+      this.highscoreService = deps?.highscore!;
+      this.points = deps?.points!;
+      this.settingsService = deps?.settings!;
+      this.input = deps?.input!;
+      this.gameData = deps?.gameData!;
+      /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       this.events.subscribeToEvent(this.name, this.onEvent);
 
@@ -119,7 +119,6 @@ export class UI implements IUI {
       this.gameOver.destroy();
       this.highscore.destroy();
       this.enterHighscore.destroy();
-      this.settingsControls.destroy();
       this.displayControls.destroy();
 
       // Unsubscribe to events.

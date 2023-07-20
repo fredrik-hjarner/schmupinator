@@ -58,7 +58,7 @@ export class Countdown {
          window.document.body.appendChild(element);
       
          return element;
-      }) as HTMLDivElement;
+      })!;
 
       this.interval = BrowserDriver.SetInterval(this.tick, 1000);
 

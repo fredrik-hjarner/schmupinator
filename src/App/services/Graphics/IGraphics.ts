@@ -3,6 +3,13 @@ import type { IDestroyable } from "../../../utils/types/IDestroyable";
 
 export type THandle = string;
 
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
+/**
+ * The problem with eslint here is that I mix speficic strings such as "circle" with string,
+ * and string is a union of all possible strings, so it's redundant. But I need to do this
+ * because I want to allow any string to be used as a shape, so I can use any image as a shape,
+ * but I also want to document which specific string can be sent in. Auto-completion does not work.
+ */
 export type TShape =
    "none" |
    "circle" |
@@ -17,6 +24,7 @@ export type TShape =
     * just have this one.
     */
    string;
+/* eslint-enable @typescript-eslint/no-redundant-type-constituents */
 
 /***********
  * Actions *

@@ -48,10 +48,13 @@ export class Collisions implements IService {
     */
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.events = deps?.events as IGameEvents;
-      this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
-      this.enemies = deps?.enemies as Enemies;
-      this.attributes = deps?.attributes as IAttributes;
+      /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+      // TODO: Better type checking.
+      this.events = deps?.events!;
+      this.eventsCollisions = deps?.eventsCollisions!;
+      this.enemies = deps?.enemies!;
+      this.attributes = deps?.attributes!;
+      /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
       
       this.events.subscribeToEvent(
          this.name,
@@ -135,8 +138,7 @@ export class Collisions implements IService {
    ): TCalcCollisionsResult => {
       const { doesThis, collideWithThese } = params;
       
-      for(let i=0; i<collideWithThese.length; i++) {
-         const shot = collideWithThese[i];
+      for(const shot of collideWithThese) {
          // Multiplying minDistance if a hack to cause lower hit "box".
          const minDistance = doesThis.Radius + shot.Radius * 0.8;
          const xDist = doesThis.X - shot.X;

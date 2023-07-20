@@ -71,8 +71,11 @@ export class GameSpeed implements IGameSpeed {
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.gameLoop = deps?.gameLoop as IGameLoop;
-      this.settings = deps?.settings as Settings;
+      /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+      // TODO: Better type checking.
+      this.gameLoop = deps?.gameLoop!;
+      this.settings = deps?.settings!;
+      /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       this.render();
    };

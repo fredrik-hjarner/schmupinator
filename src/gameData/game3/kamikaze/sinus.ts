@@ -1,5 +1,5 @@
 import type { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes";
-import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
 import { Do, attr, parallelAll, twice, wait } from "../../utils";
 

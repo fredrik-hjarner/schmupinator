@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../../App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
 
 import { forever, fork, wait } from "../../utils";

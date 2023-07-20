@@ -136,7 +136,7 @@ export class Graphics implements IGraphics {
 
    private actionAskForElement = (): TResponse_AskForElement => {
       const unusedElement = Object.values(this.elementPool)
-         .find((element) => !(element as TGfxPoolEntry).inUse);
+         .find((element) => !(element!).inUse);
       if(unusedElement) {
          unusedElement.inUse = true;
          return { type: "responseAskForElement", handle: unusedElement.handle };

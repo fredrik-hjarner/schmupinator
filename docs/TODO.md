@@ -94,8 +94,6 @@ Solved with Date.Now().
 
 * Rename GameSpeed service to GameLoopControlUI or something like that.
 
-* Instead of having a GameSpeedSlider I should have 0x, x1, x2 etc Buttons.
-
 * Some/many of the setting in Settings scene should be moved to a non-game-UI debug menu
 (currently called GameSpeed service), this debug menu should be toggled with a DebugMenu setting
 from the Settings scene.
@@ -161,8 +159,6 @@ by all WebWorkers.
 ---
 
 * I temporary removed the DisplayControls scene, I should probably bring it back somehow.
-
-* I must also make it so that the highscore is per "game"/zip.
 
 * StartGame scene should change name to StartMenu.
 
@@ -233,10 +229,6 @@ However this sucks. I don't want to tie grapical rotation to movement direction!
 One way to solve this would be to have a new action called `setGfxRotationFromMoveDirection` or
 something like that or a `copyAttribute({ from: "movementDirection", to: "gfxRotation" })` action.
 
-* Wait.. is there a bug: If I try to spawn something by string that does not exist, is there an
-error shown somewhere or does everything just run without errors!?
-There is an error but the game does not crash.
-
 * I can actually control immediate children from a parent, i.e. children-parent relations.
 I can do that via injecting actions into the child which (as currently coded) will run in a "fork"
 and can execute forever so I could check make it (the child) do something based upon some 
@@ -250,8 +242,6 @@ or something like that.
 * I could make enemies more "generic", perhaps, via injecting more of their
 "special/specific/differing/alternative" behaviour. For example I could inject a "onHit" action
 that would be executed when the enemy is hit.
-
-* For debugging I need the enemy name/id to be available in EnemyActionExecutor so I can log better.
 
 * I should have a log action really so I can log before and after an enemy's action.
 
@@ -295,5 +285,3 @@ Power ups would just be something that when it collides with an enemy then it wo
 buttons though.
 
 * Enemy.x and Enemy.y should be attributes so that they could be grabbed by actions.
-
-

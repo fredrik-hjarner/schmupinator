@@ -15,7 +15,7 @@ tasks:
       - npx eslint --fix src
       - echo "eslint finished"
 
-  lint-e2e-watch: task --parallel -w eslint e2e
+  lint-e2e-watch: task --parallel --watch eslint e2e
 
   serve: npm run dev
 

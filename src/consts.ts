@@ -1,6 +1,5 @@
 /**
  * This is the width of the stage!
- * The reslutions is 292px!!
  */
 export const resolutionWidth = 357; // confirmed correct!
 
@@ -26,4 +25,4 @@ export const zIndices = {
    gameHide: "1",
    graphicsEngineElements: "0", // Set to "0" to hide behind gameHide.
    ui: "2"
-};
+} as const;

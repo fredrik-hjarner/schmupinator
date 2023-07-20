@@ -38,7 +38,7 @@ export class Button implements IDestroyable {
          window.document.body.appendChild(element);
             
          return element;
-      }) as HTMLButtonElement;
+      })!;
    }
 
    public destroy = () => {

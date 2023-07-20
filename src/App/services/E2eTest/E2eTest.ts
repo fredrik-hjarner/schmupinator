@@ -48,10 +48,12 @@ export class E2eTest implements IE2eTest {
       this.recordedHistory = (await import("./e2ehistory")).recordedHistory as THistory;
 
       // TODO: Replace typecast with type guard.
-      this.collisions = deps?.collisions as Collisions;
-      this.events = deps?.events as IGameEvents;
-      this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
-      this.eventsPoints = deps?.eventsPoints as IEventsPoints;
+      /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+      this.collisions = deps?.collisions!;
+      this.events = deps?.events!;
+      this.eventsCollisions = deps?.eventsCollisions!;
+      this.eventsPoints = deps?.eventsPoints!;
+      /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       // TODO: These are not unsubscribed to.
       this.events.subscribeToEvent(this.name, this.onEvent);

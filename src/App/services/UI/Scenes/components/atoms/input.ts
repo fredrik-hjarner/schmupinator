@@ -31,5 +31,5 @@ export const createInput = (params: TCreateInputParams) => {
       window.document.body.appendChild(element);
       
       return element;
-   }) as HTMLInputElement;
+   })!;
 };

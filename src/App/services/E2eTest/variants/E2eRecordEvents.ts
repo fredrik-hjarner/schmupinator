@@ -35,9 +35,11 @@ export class E2eRecordEvents implements IE2eTest {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
       // TODO: Replace typecast with type guard.
-      this.events = deps?.events as IGameEvents;
-      this.eventsCollisions = deps?.eventsCollisions as IEventsCollisions;
-      this.eventsPoints = deps?.eventsPoints as IEventsPoints;
+      /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+      this.events = deps?.events!;
+      this.eventsCollisions = deps?.eventsCollisions!;
+      this.eventsPoints = deps?.eventsPoints!;
+      /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       // TODO: These are not unsubscribed to.
       this.events.subscribeToEvent(this.name, this.onEvent);

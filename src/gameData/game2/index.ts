@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import type { IEnemyJson } from "@/App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { TGame } from "@/gameTypes/TGame";
 
 import { explosion, roundExplosion } from "./effects/explosions";
 import { player } from "./player/player";
@@ -14,27 +14,32 @@ import { traceDot } from "./enemies/traceDot";
 import { spinningDots } from "./enemies/spinningDots";
 import { boss } from "./enemies/boss";
 import { bossCorpse } from "./enemies/bossCorpse";
+import startScreen from "./startScreen.png";
 
-const game: IEnemyJson[] = [
-   player,
-   playerShot,
-   parallax,
-   layer1,
-   layer2,
-   layer3,
+const game: TGame = {
+   startScreenImageUrl: startScreen,
 
-   // Stage 2
-   explosion,
-   roundExplosion,
-   shot,
-   spawner,
-   stage,
-   dot,
-   traceDot,
-   spinningDots,
-   nonShootingAimer,
-   boss,
-   bossCorpse
-];
+   gameObjects: [
+      player,
+      playerShot,
+      parallax,
+      layer1,
+      layer2,
+      layer3,
+
+      // Stage 2
+      explosion,
+      roundExplosion,
+      shot,
+      spawner,
+      stage,
+      dot,
+      traceDot,
+      spinningDots,
+      nonShootingAimer,
+      boss,
+      bossCorpse
+   ]
+};
 
 export default game;

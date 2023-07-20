@@ -42,7 +42,7 @@ export class Attributes implements IAttributes {
          console.error(msg);
       }
       // guaranteed to exist since previous if case.
-      return value as TAttrValue;
+      return value!;
    };
 
    public setAttribute = ({ gameObjectId, attribute, value }: TSetAttrParams) => {

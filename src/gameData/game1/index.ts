@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import type { IEnemyJson } from "@/App/services/Enemies/enemyConfigs/IEnemyJson";
+import type { TGame } from "@/gameTypes/TGame";
 
 import { explosion, roundExplosion } from "./effects/explosions";
 import { player } from "./player/player";
@@ -13,45 +13,50 @@ import { dehealer, healer, shapeShifter, stage3 } from "./stage3";
 import { easyFlyer, stage4 } from "./stage4";
 import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
 import { aqua, executor, stage5 } from "./stage5";
+import startScreen from "./startScreen.png";
 
-const game: IEnemyJson[] = [
-   player,
-   playerLaser,
-   playerShot,
-   parallax,
-   layer1,
-   layer2,
-   layer3,
+const game: TGame = {
+   startScreenImageUrl: startScreen,
 
-   // Stage 1
-   explosion,
-   roundExplosion,
-   shot,
-   spawner,
-   stage1,
-   nonShootingAimer,
-   sinus,
-   firstMiniboss,
+   gameObjects: [
+      player,
+      playerLaser,
+      playerShot,
+      parallax,
+      layer1,
+      layer2,
+      layer3,
 
-   // Stage 2
-   stage2,
-   cloner,
-   clonerChild,
+      // Stage 1
+      explosion,
+      roundExplosion,
+      shot,
+      spawner,
+      stage1,
+      nonShootingAimer,
+      sinus,
+      firstMiniboss,
 
-   // Stage 3
-   stage3,
-   shapeShifter,
-   healer,
-   dehealer,
+      // Stage 2
+      stage2,
+      cloner,
+      clonerChild,
 
-   // Stage 4
-   stage4,
-   easyFlyer,
+      // Stage 3
+      stage3,
+      shapeShifter,
+      healer,
+      dehealer,
 
-   // Stage 5
-   stage5,
-   executor,
-   aqua,
-];
+      // Stage 4
+      stage4,
+      easyFlyer,
+
+      // Stage 5
+      stage5,
+      executor,
+      aqua,
+   ]
+};
 
 export default game;
