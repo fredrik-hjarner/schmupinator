@@ -1,10 +1,11 @@
 import type { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes";
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
 import { Do, attr, parallelAll, twice, wait } from "../../utils";
 
 const moveLeft: TMove = {
-   type: "move",
+   type: AT.move,
    frames: 80,
    x: -205,
    y: 30,
@@ -16,7 +17,7 @@ const moveRight: TMove = {
 };
 
 const rotateLeft: TAction = {
-   type: "rotate_around_relative_point",
+   type: AT.rotate_around_relative_point,
    degrees: -180,
    frames: 35,
    point: { y: 31 },
@@ -29,7 +30,7 @@ const rotateRight = {
 
 const shootWhileRotation: TAction[] = [
    wait(16),
-   { type: "shoot_toward_player" },
+   { type: AT.shootTowardPlayer },
 ];
 
 const rotateLeftAndShoot = parallelAll(
@@ -47,13 +48,13 @@ export const sinus: IEnemyJson = {
    hp: 1,
    diameter: 24,
    onDeathAction: Do(
-      { type: "spawn", enemy: "roundExplosion" },
-      { type: "spawn", enemy: "kamikazeCorpse" },
+      { type: AT.spawn, enemy: "roundExplosion" },
+      { type: AT.spawn, enemy: "kamikazeCorpse" },
    ),
    actions: [
       { type: "gfxSetShape", shape: "octagon" },
-      { type: "setShotSpeed", pixelsPerFrame: 1.5 },
-      attr("right", { is: true, yes: [{ type: "mirrorX", value: true }] }),
+      { type: AT.setShotSpeed, pixelsPerFrame: 1.5 },
+      attr("right", { is: true, yes: [{ type: AT.mirrorX, value: true }] }),
       twice(
          rotateLeftAndShoot,
          moveRight,

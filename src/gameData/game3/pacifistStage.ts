@@ -1,20 +1,21 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 import type { TSpawn } from "../../App/services/Enemies/actions/actionTypes";
 
+import { ActionType as AT} from "../../App/services/Enemies/actions/actionTypes";
 import { Do, repeat, wait } from "../utils";
 
 const sinusLeft: TSpawn = {
-   type: "spawn", enemy: "sinus",
+   type: AT.spawn, enemy: "sinus",
    x: 75,
    y: -20,
 };
 
 const sinusRight: TSpawn = {
-   type: "spawn", enemy: "sinus",
+   type: AT.spawn, enemy: "sinus",
    x: 280,
    y: -20,
    actions: [
-      { type: "setAttribute", attribute: "right", value: true }
+      { type: AT.setAttribute, attribute: "right", value: true }
    ],
 };
 
@@ -28,7 +29,7 @@ export const pacifistStage: IEnemyJson = {
    diameter: 20,
    hp: 9999,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
       wait(120),
       sinuses,

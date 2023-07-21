@@ -1,5 +1,6 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import { attr, forever, wait } from "../utils";
 import { col, row } from "./common";
 
@@ -9,9 +10,9 @@ export const stage3: IEnemyJson = {
    hp: 9999,
    actions: [
       { type: "gfxSetShape", shape: "none" },
-      { type: "spawn", enemy: "shapeShifter", x: col[5], y: row[5] },
-      { type: "spawn", enemy: "healer", x: col[4], y: row[4] },
-      { type: "spawn", enemy: "dehealer", x: col[6], y: row[4] },
+      { type: AT.spawn, enemy: "shapeShifter", x: col[5], y: row[5] },
+      { type: AT.spawn, enemy: "healer", x: col[4], y: row[4] },
+      { type: AT.spawn, enemy: "dehealer", x: col[6], y: row[4] },
    ]
 };
 
@@ -19,7 +20,7 @@ export const shapeShifter: IEnemyJson = {
    name: "shapeShifter",
    diameter: 30,
    hp: 100,
-   onDeathAction: { type: "spawn", enemy: "shapeShifter", y: -20 },
+   onDeathAction: { type: AT.spawn, enemy: "shapeShifter", y: -20 },
    actions: [
       forever(
          { type: "gfxSetShape", shape: "circle" },
@@ -41,12 +42,12 @@ export const healer: IEnemyJson = {
    diameter: 30,
    hp: 50,
    actions: [
-      { type: "setAttribute", attribute: "hp", value: 25 },
+      { type: AT.setAttribute, attribute: "hp", value: 25 },
       forever(
          wait(10),
          attr("hp", {
             is: 50,
-            no: [{ type: "incr", attribute: "hp" }]
+            no: [{ type: AT.incr, attribute: "hp" }]
          })
       )
    ]
@@ -59,7 +60,7 @@ export const dehealer: IEnemyJson = {
    actions: [
       forever(
          wait(10),
-         { type: "decr", attribute: "hp" }
+         { type: AT.decr, attribute: "hp" }
       )
    ]
 };

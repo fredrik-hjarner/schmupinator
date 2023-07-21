@@ -4,6 +4,7 @@ import type { TAction } from "../actions/actionTypes";
 
 import { describe, it, expect } from "vitest";
 
+import { ActionType as AT } from "../actions/actionTypes";
 import { EnemyActionExecutor } from "../EnemyActionExecutor";
 
 const input: any = undefined;
@@ -26,7 +27,7 @@ describe("parallelRace", () => {
          input,
          gamepad,
          actions: [{
-            type: "parallelRace",
+            type: AT.parallelRace,
             actionsLists: [[]]
          }]
       }).generators[0];
@@ -45,11 +46,11 @@ describe("parallelRace", () => {
          input,
          gamepad,
          actions: [{
-            type: "parallelRace",
+            type: AT.parallelRace,
             actionsLists: [
                [],
                [
-                  { type: "setSpeed", pixelsPerFrame: 1 }
+                  { type: AT.setSpeed, pixelsPerFrame: 1 }
                ]
             ]
          }]
@@ -69,12 +70,12 @@ describe("parallelRace", () => {
          input,
          gamepad,
          actions: [{
-            type: "parallelRace",
+            type: AT.parallelRace,
             actionsLists: [[
-               { type: "setSpeed", pixelsPerFrame: 1 }
+               { type: AT.setSpeed, pixelsPerFrame: 1 }
             ], [
-               { type: "waitNextFrame" },
-               { type: "setSpeed", pixelsPerFrame: 1 }
+               { type: AT.waitNextFrame },
+               { type: AT.setSpeed, pixelsPerFrame: 1 }
             ]]
          }]
       }).generators[0];
@@ -93,14 +94,14 @@ describe("parallelRace", () => {
          input,
          gamepad,
          actions: [{
-            type: "parallelRace",
+            type: AT.parallelRace,
             actionsLists: [[
-               { type: "waitNextFrame" },
-               { type: "setSpeed", pixelsPerFrame: 1 }
+               { type: AT.waitNextFrame },
+               { type: AT.setSpeed, pixelsPerFrame: 1 }
             ], [
-               { type: "waitNextFrame" },
-               { type: "waitNextFrame" },
-               { type: "setSpeed", pixelsPerFrame: 1 }
+               { type: AT.waitNextFrame },
+               { type: AT.waitNextFrame },
+               { type: AT.setSpeed, pixelsPerFrame: 1 }
             ]]
          }]
       }).generators[0];

@@ -1,13 +1,14 @@
 import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
 
 import { forever, spawn, wait } from "@/gameData/utils";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
 export const parallax: IEnemyJson = {
    name: "parallax",
    diameter: 240,
    hp: 9999,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetColor", color: "black" },
       { type: "gfxSetShape", shape: "square" },
       { type: "gfxFillScreen" },
@@ -22,7 +23,7 @@ export const layer1: IEnemyJson = {
    diameter: 240,
    hp: 9999,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "layer1.png" },
       { type: "gfxFillScreen" },
       forever(
@@ -37,7 +38,7 @@ export const layer2: IEnemyJson = {
    diameter: 240,
    hp: 9999,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "layer2.png" },
       { type: "gfxFillScreen" },
       forever(
@@ -52,7 +53,7 @@ export const layer3: IEnemyJson = {
    diameter: 240,
    hp: 9999,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "layer3.png" },
       { type: "gfxFillScreen" },
       forever(

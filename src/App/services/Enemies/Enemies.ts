@@ -12,6 +12,7 @@ import type { Settings } from "../Settings/Settings";
 import type { TAction } from "./actions/actionTypes";
 import type { IAttributes } from "../Attributes/IAttributes";
 
+import { ActionType as AT } from "./actions/actionTypes";
 import { Enemy } from "./Enemy";
 
 export class Enemies implements IService {
@@ -83,17 +84,17 @@ export class Enemies implements IService {
          ...enemyJson,
          actions: [
             // Set some default attributes. TODO: Should prolly do this in another way.
-            { type: "setAttribute", attribute: "points", value: 10 },
-            { type: "setAttribute", attribute: "pointsOnDeath", value: 0 },
-            { type: "setAttribute", attribute: "collisionType", value: "enemy" },
-            { type: "setAttribute", attribute: "boundToWindow", value: false },
+            { type: AT.setAttribute, attribute: "points", value: 10 },
+            { type: AT.setAttribute, attribute: "pointsOnDeath", value: 0 },
+            { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
+            { type: AT.setAttribute, attribute: "boundToWindow", value: false },
             {
                type: "fork",
                actions: [
                   // TODO: Comment
                   { type: "waitTilInsideScreen" },
                   { type: "waitTilOutsideScreen" },
-                  { type: "despawn" }
+                  { type: AT.despawn }
                ]
             },
             ...prependActions,

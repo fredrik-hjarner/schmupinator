@@ -7,6 +7,7 @@ import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
 import type { Enemy } from "./Enemy";
 
+import { ActionType as AT } from "./actions/actionTypes";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { GeneratorUtils } from "../../../utils/GeneratorUtils";
@@ -137,7 +138,7 @@ export class EnemyActionExecutor {
                if (up) { y -= speed; }
                if (down) { y += speed; }
                if(x !== 0 || y !== 0) {
-                  this.actionHandler({ type: "moveDelta", x, y });
+                  this.actionHandler({ type: AT.moveDelta, x, y });
                }
                break;
             }
@@ -265,7 +266,7 @@ export class EnemyActionExecutor {
                 * allow passedFrames to go all the way up to 4.
                 */
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-                  this.actionHandler({ type: "moveDelta", x: stepX, y: stepY });
+                  this.actionHandler({ type: AT.moveDelta, x: stepX, y: stepY });
                   yield;
                }
                break;
@@ -279,7 +280,7 @@ export class EnemyActionExecutor {
                const stepX = moveX / currAction.frames;
                const stepY = moveY / currAction.frames;
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-                  this.actionHandler({ type: "moveDelta", x: stepX, y: stepY });
+                  this.actionHandler({ type: AT.moveDelta, x: stepX, y: stepY });
                   yield;
                }
                break;
@@ -330,7 +331,7 @@ const rotateAroundPoint = function*(
       const currRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
 
       const delta = Vector.fromTo(prevRotated, currRotated);
-      actionHandler({ type: "moveDelta", x: delta.x, y: delta.y });
+      actionHandler({ type: AT.moveDelta, x: delta.x, y: delta.y });
       yield;
    }
 };

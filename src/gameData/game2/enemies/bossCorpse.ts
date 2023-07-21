@@ -1,6 +1,7 @@
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import {
    parallelAll,
    spawn,
@@ -32,14 +33,14 @@ export const bossCorpse: IEnemyJson = {
    diameter: 18,
    hp: 9999,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "explosion" },
       parallelAll(
          explodeInAllDirections(8, 3),
          explodeInAllDirections(24, 5),
          explodeInAllDirections(16, 15),
       ),
-      { type: "wait", frames: 60 * 3 },
+      { type: AT.wait, frames: 60 * 3 },
       { type: "finishLevel" }
    ],
 };

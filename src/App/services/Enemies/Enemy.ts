@@ -4,6 +4,7 @@ import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraph
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "./actions/actionTypes";
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
@@ -168,7 +169,7 @@ export class Enemy {
     * Actually one-lines are okey to inline here.
     */
    private HandleAction = (action: TAction) => {
-      switch(action.type) {
+      switch(action.type /* TODO: as AT */) {
          case "shootDirection":
             this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
@@ -258,15 +259,15 @@ export class Enemy {
          actions:  [{
             type: "fork",
             actions: [{
-               type: "repeat",
+               type: AT.repeat,
                times: 99999,
                actions: [
                   /**
                    * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
                    * and then in yaml file a `moveAccordingToDirAndSpeed` action.
                    */
-                  { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
-                  { type: "waitNextFrame" }
+                  { type: AT.moveDelta, x: dirX * speedUpFactor, y: dirY * speedUpFactor },
+                  { type: AT.waitNextFrame }
                ]
             }]
          }]

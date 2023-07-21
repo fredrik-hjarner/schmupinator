@@ -1,5 +1,6 @@
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import { forever, parallelRace, spawn, wait } from "../../utils";
 
 export const playerLaser: IEnemyJson = {
@@ -8,20 +9,20 @@ export const playerLaser: IEnemyJson = {
    diameter: 5,
    onDeathAction: spawn("explosion"),
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "playerBullet" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "playerBullet" },
       // TODO: is points really necessary for this?
-      { type: "setAttribute", attribute: "pointsOnDeath", value: -0.2 },
-      { type: "setAttribute", attribute: "points", value: 0 },
+      { type: AT.setAttribute, attribute: "pointsOnDeath", value: -0.2 },
+      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: "gfxSetShape", shape: "square" },
       { type: "gfxSetColor", color: "aqua" },
       parallelRace(
          forever(
-            { type: "moveDelta", y: -30 },
-            { type: "waitNextFrame" },
+            { type: AT.moveDelta, y: -30 },
+            { type: AT.waitNextFrame },
          ),
          [
             wait(8),
-            { type: "despawn" }
+            { type: AT.despawn }
          ]
       ),
    ]

@@ -1,6 +1,7 @@
 import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
 import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import {
    forever,
    fork,
@@ -10,7 +11,7 @@ import {
 const dist = 27;
 
 const rotate = ({ x, y }: { x?: number, y?: number }): TAction => ({
-   type: "rotate_around_relative_point",
+   type: AT.rotate_around_relative_point,
    degrees: -360 * 15,
    frames: 200 * 4.0 * 15,
    point: { x, y }
@@ -22,7 +23,7 @@ export const spinningDots: IEnemyJson = {
    diameter: 5,
    onDeathAction: spawn("roundExplosion"),
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
       { type: "gfxSetShape", shape: "stage2/circle.png" },
       { type: "gfxSetColor", color: "aqua" },
@@ -30,8 +31,8 @@ export const spinningDots: IEnemyJson = {
       spawn("dot", {
          actions: [
             fork(forever(
-               { type: "moveDelta", x: -0.55 },
-               { type: "waitNextFrame" },
+               { type: AT.moveDelta, x: -0.55 },
+               { type: AT.waitNextFrame },
             )),
          ]
       }),
@@ -41,8 +42,8 @@ export const spinningDots: IEnemyJson = {
          x: dist,
          actions: [
             fork(forever(
-               { type: "moveDelta", x: -0.55 },
-               { type: "waitNextFrame" },
+               { type: AT.moveDelta, x: -0.55 },
+               { type: AT.waitNextFrame },
             )),
             fork(rotate({ x: -dist }))
          ]
@@ -52,8 +53,8 @@ export const spinningDots: IEnemyJson = {
          x: dist*2,
          actions: [
             fork(forever(
-               { type: "moveDelta", x: -0.55 },
-               { type: "waitNextFrame" },
+               { type: AT.moveDelta, x: -0.55 },
+               { type: AT.waitNextFrame },
             )),
             fork(rotate({ x: -(dist*2) }))]
       }),
@@ -63,8 +64,8 @@ export const spinningDots: IEnemyJson = {
          x: -dist,
          actions: [
             fork(forever(
-               { type: "moveDelta", x: -0.55 },
-               { type: "waitNextFrame" },
+               { type: AT.moveDelta, x: -0.55 },
+               { type: AT.waitNextFrame },
             )),
             fork(rotate({ x: dist }))]
       }),
@@ -73,11 +74,11 @@ export const spinningDots: IEnemyJson = {
          x: -(dist*2),
          actions: [
             fork(forever(
-               { type: "moveDelta", x: -0.55 },
-               { type: "waitNextFrame" },
+               { type: AT.moveDelta, x: -0.55 },
+               { type: AT.waitNextFrame },
             )),
             fork(rotate({ x: dist*2 }))]
       }),
-      { type: "despawn" }
+      { type: AT.despawn }
    ]
 };

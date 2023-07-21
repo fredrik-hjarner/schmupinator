@@ -6,13 +6,14 @@ import {
 } from "../utils";
 import { col, row } from "./common";
 import { aimersWave } from "./waves/aimers";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
 export const stage: IEnemyJson = {
    name: "stage",
    diameter: 20,
    hp: 9999,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
 
       // aimers wave

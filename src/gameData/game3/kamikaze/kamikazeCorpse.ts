@@ -1,12 +1,13 @@
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import { wait } from "../../utils";
 
 export const kamikaze: IEnemyJson = {
    name: "kamikaze",
    diameter: 20,
    hp: 1,
-   onDeathAction: { type: "spawn", enemy: "kamikazeCorpse" },
+   onDeathAction: { type: AT.spawn, enemy: "kamikazeCorpse" },
    actions: [
       { type: "gfxSetShape", shape: "octagon" },
       { type: "gfxSetColor", color: "red" },
@@ -20,17 +21,17 @@ export const kamikazeCorpse: IEnemyJson = {
    diameter: 20,
    hp: 1,
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },
-      { type: "setShotSpeed", pixelsPerFrame: 0.9 },
-      { type: "shootDirection", x: 1, y: -1 },
-      { type: "shootDirection", x: 1, y: 0 },
-      { type: "shootDirection", x: 1, y: 1 },
-      { type: "shootDirection", x: 0, y: 1 },
-      { type: "shootDirection", x: -1, y: 1 },
-      { type: "shootDirection", x: -1, y: 0 },
-      { type: "shootDirection", x: -1, y: -1 },
-      { type: "shootDirection", x: 0, y: -1 },
-      { type: "despawn" },
+      { type: AT.setShotSpeed, pixelsPerFrame: 0.9 },
+      { type: AT.shootDirection, x: 1, y: -1 },
+      { type: AT.shootDirection, x: 1, y: 0 },
+      { type: AT.shootDirection, x: 1, y: 1 },
+      { type: AT.shootDirection, x: 0, y: 1 },
+      { type: AT.shootDirection, x: -1, y: 1 },
+      { type: AT.shootDirection, x: -1, y: 0 },
+      { type: AT.shootDirection, x: -1, y: -1 },
+      { type: AT.shootDirection, x: 0, y: -1 },
+      { type: AT.despawn },
    ],
 };
