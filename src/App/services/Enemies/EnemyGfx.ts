@@ -44,14 +44,14 @@ export class EnemyGfx {
 
    public dispatch = (action: TGraphicsActionWithoutHandle) => {
       switch(action.type) {
-         case "gfxSetColor":
-         case "gfxSetDiameter":
-         case "gfxSetPosition":
-         case "gfxSetRotation":
-         case "gfxSetShape":
-         case "gfxSetScale":
-         case "gfxScrollBg":
-         case "gfxFillScreen":
+         case AT.gfxSetColor:
+         case AT.gfxSetDiameter:
+         case AT.gfxSetPosition:
+         case AT.gfxSetRotation:
+         case AT.gfxSetShape:
+         case AT.gfxSetScale:
+         case AT.gfxScrollBg:
+         case AT.gfxFillScreen:
             this.graphics.Dispatch({ ...action, handle: this.gfxHandle });
             break;
          default:

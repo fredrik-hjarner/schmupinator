@@ -10,7 +10,7 @@ import type { TAttrValue } from "../../Attributes/IAttributes";
  */
 export enum ActionType {
    wait = "wait",
-   waitNextFrame = "waitNextFrame",
+   waitNextFrame = "waitNextFrame", // TODO: Remove use "wait" instead.
    waitUntilFrameNr = "wait_util_frame_nr",
    repeat = "repeat",
    shootDirection = "shootDirection",
@@ -51,16 +51,20 @@ export enum ActionType {
    /**
     * GFX
     */
-   gfxAskForElement = "gfxAskForElement",
    gfxSetPosition = "gfxSetPosition",
    gfxSetDiameter = "gfxSetDiameter",
-   gfxRelease = "gfxRelease",
    gfxSetColor = "gfxSetColor",
    gfxSetShape = "gfxSetShape",
    gfxSetRotation = "gfxSetRotation",
    gfxSetScale = "gfxSetScale",
    gfxScrollBg = "gfxScrollBg",
    gfxFillScreen = "gfxFillScreen",
+
+   /**
+    * GFX that is only used internally by the engine.
+    */
+   gfxAskForElement = "gfxAskForElement",
+   gfxRelease = "gfxRelease",
 }
 
 /** Action types */

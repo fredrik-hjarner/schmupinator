@@ -6,6 +6,7 @@ import type {
 } from "./IGraphics";
 import type { Vector as TVector } from "../../../math/bezier";
 
+import { ActionType as AT } from "../Enemies/actions/actionTypes";
 import { resolutionWidth } from "../../../consts";
 import { uuid } from "../../../utils/uuid";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
@@ -62,25 +63,25 @@ export class Graphics implements IGraphics {
 
    public Dispatch = (action: TGraphicsAction): TGraphicsResponse => {
       switch(action.type) {
-         case "gfxAskForElement":
+         case AT.gfxAskForElement:
             return this.actionAskForElement();
-         case "gfxSetPosition":
+         case AT.gfxSetPosition:
             return this.actionSetPosition(action);
-         case "gfxSetDiameter":
+         case AT.gfxSetDiameter:
             return this.actionSetDiameter(action);
-         case "gfxRelease":
+         case AT.gfxRelease:
             return this.actionRelease(action);
-         case "gfxSetColor":
+         case AT.gfxSetColor:
             return this.actionSetColor(action);
-         case "gfxSetShape":
+         case AT.gfxSetShape:
             return this.actionSetShape(action);
-         case "gfxSetRotation":
+         case AT.gfxSetRotation:
             return this.actionSetRotation(action);
-         case "gfxSetScale":
+         case AT.gfxSetScale:
             return this.actionSetScale(action);
-         case "gfxScrollBg":
+         case AT.gfxScrollBg:
             return this.actionScrollBg(action);
-         case "gfxFillScreen":
+         case AT.gfxFillScreen:
             return this.actionFillScreen(action);
          default: {
             // eslint-disable-next-line

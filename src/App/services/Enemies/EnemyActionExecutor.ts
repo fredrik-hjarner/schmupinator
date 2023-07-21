@@ -113,7 +113,7 @@ export class EnemyActionExecutor {
          // }
          // console.log(currAction.type);
          switch(currAction.type) {
-            case "moveAccordingToInput": {
+            case AT.moveAccordingToInput: {
                const input = this.input;
                const gamepad = this.gamepad;
 
@@ -143,25 +143,25 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "waitInputShoot": {
+            case AT.waitInputShoot: {
                const shootPressed = () => this.shootPressed() && !this.laserPressed();
                while(!shootPressed()) { yield; }
                break;
             }
 
-            case "waitInputLaser": {
+            case AT.waitInputLaser: {
                const laserPressed = () => this.laserPressed();
                while(!laserPressed()) { yield; }
                break;
             }
 
-            case "waitUntilAttrIs": {
+            case AT.waitUntilAttrIs: {
                const { gameObjectId, attr: attribute, is } = currAction;
                while(this.getAttribute({ gameObjectId, attribute }) !== is) { yield; }
                break;
             }
 
-            case "fork": {
+            case AT.fork: {
                // Create a new generator for the fork to allow it to execute parallely.
                const generator = this.makeGenerator(currAction.actions);
                this.generators.push(generator);
@@ -170,24 +170,24 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "do": { // flatten essentially.
+            case AT.do: { // flatten essentially.
                yield* this.makeGenerator(currAction.acns);
                break;
             }
 
-            case "parallelRace": {
+            case AT.parallelRace: {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
                yield* GeneratorUtils.parallelRace(generators);
                break;
             }
 
-            case "parallelAll": {
+            case AT.parallelAll: {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
                yield* GeneratorUtils.parallelAll(generators);
                break;
             }
 
-            case "repeat": {
+            case AT.repeat: {
                yield*  GeneratorUtils.Repeat({
                   makeGenerator: () => this.makeGenerator(currAction.actions),
                   times: currAction.times
@@ -195,19 +195,19 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "attrIs": {
+            case AT.attrIs: {
                const { attrName: attribute, gameObjectId, is, yes, no } = currAction;
                const attrValue = this.getAttribute({ gameObjectId, attribute });
                yield* this.makeGenerator(attrValue === is ? yes : no);
                break;
             }
 
-            case "waitNextFrame": {
+            case AT.waitNextFrame: {
                yield;
                break;
             }
 
-            case "wait": {
+            case AT.wait: {
                // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
                //    console.log(`${this.enemy.id} started waiting ${currAction.frames} frames`);
                // }
@@ -223,7 +223,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "waitTilInsideScreen": {
+            case AT.waitTilInsideScreen: {
                const margin = 0; // was 20
                const left = -margin;
                const right = resolutionWidth + margin;
@@ -239,7 +239,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "waitTilOutsideScreen": {
+            case AT.waitTilOutsideScreen: {
                const left = -30;
                const right = resolutionWidth + 30;
                const top = -30;
@@ -254,7 +254,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "move": {
+            case AT.move: {
                const moveX = currAction.x ?? 0;
                const moveY = currAction.y ?? 0;
                const stepX = moveX / currAction.frames;
@@ -272,7 +272,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "moveToAbsolute": {
+            case AT.moveToAbsolute: {
                const startPos = this.enemy.getPosition();
                const { moveTo } = currAction;
                const moveX = moveTo.x !== undefined ? moveTo.x - startPos.x : 0;
@@ -286,7 +286,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "rotate_around_relative_point": {
+            case AT.rotate_around_relative_point: {
                const pointX = currAction.point.x ?? 0;
                const pointY = currAction.point.y ?? 0;
                const pointToPosVector = new Vector(-pointX, -pointY);
@@ -294,7 +294,7 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case "rotate_around_absolute_point": {
+            case AT.rotate_around_absolute_point: {
                const startPos = this.enemy.getPosition();
                const pointX = currAction.point.x ?? startPos.x;
                const pointY = currAction.point.y ?? startPos.y;
