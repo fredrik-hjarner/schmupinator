@@ -29,25 +29,30 @@ export enum ActionType {
    rotate_towards_player = "rotate_towards_player",
    move_according_to_speed_and_direction = "move_according_to_speed_and_direction",
    spawn = "spawn",
-   attrIs = "attrIs",
-   incr = "incr",
-   decr = "decr",
    mirrorX = "mirrorX",
    mirrorY = "mirrorY",
    do = "do",
    die = "die",
    despawn = "despawn",
-   setAttribute = "setAttribute",
    waitTilOutsideScreen = "waitTilOutsideScreen",
    waitTilInsideScreen = "waitTilInsideScreen",
    fork = "fork",
    setMoveDirection = "setMoveDirection",
-   waitUntilAttrIs = "waitUntilAttrIs",
    moveAccordingToInput = "moveAccordingToInput",
    waitInputShoot = "waitInputShoot",
    waitInputLaser = "waitInputLaser",
    finishLevel = "finishLevel",
-
+   
+   /**
+    * Attributes
+    */
+   setAttribute = "setAttribute",
+   attrIs = "attrIs",
+   incr = "incr",
+   decr = "decr",
+   waitUntilAttrIs = "waitUntilAttrIs",
+   
+   
    /**
     * GFX
     */
