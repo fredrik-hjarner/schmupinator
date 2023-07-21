@@ -39,7 +39,7 @@ export class Attributes implements IAttributes {
       const value = this.attributes.gameObjects[gameObjectId]?.[attribute];
       if(value === undefined){
          const msg = `Attribute:  Attribute "${attribute}" does not exist.`;
-         console.error(msg);
+         console.warn(msg);
       }
       // guaranteed to exist since previous if case.
       return value!;
@@ -52,6 +52,7 @@ export class Attributes implements IAttributes {
          return;
       }
       // init if it did not exist.
+      // TODO: This only needs to be done once when the enmey is created maybe.
       this.attributes.gameObjects[gameObjectId] = {
          [attribute]: value
       };
@@ -59,6 +60,28 @@ export class Attributes implements IAttributes {
 
    public getAttribute = (params: TGameObjectIdAndAttrParams): TAttrValue => {
       return this.getAndAssertAttribute(params);
+   };
+
+   public getNumber = ({ gameObjectId, attribute }: TGameObjectIdAndAttrParams): number => {
+      const value = this.attributes.gameObjects[gameObjectId]?.[attribute];
+      if(typeof value !== "number"){
+         const msg = `Attributes.getNumber: "${attribute}" expected to be number but is ${value}.`;
+         console.error(msg);
+      }
+      // guaranteed to exist since previous if case.
+      return value as number; // TODO: Fix.
+   };
+   public getString = ({ gameObjectId, attribute }: TGameObjectIdAndAttrParams): string => {
+      const value = this.attributes.gameObjects[gameObjectId]?.[attribute];
+      if(typeof value !== "string"){
+         const msg = `Attributes.getString: "${attribute}" expected to be string but is ${value}.`;
+         console.error(msg);
+      }
+      // guaranteed to exist since previous if case.
+      return value as string; // TODO: Fix.
+   };
+   public getBool = ({ gameObjectId, attribute }: TGameObjectIdAndAttrParams): boolean => {
+      return !!this.attributes.gameObjects[gameObjectId]?.[attribute];
    };
 
    public incr = (params: TIncrDecrAttrParams) => {

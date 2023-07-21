@@ -41,6 +41,9 @@ export type TIncrDecrAttrParams = { gameObjectId: string, attribute: string };
 export interface IAttributes extends IService, IDestroyable {
    setAttribute: ({ gameObjectId, attribute, value }: TSetAttrParams) => void;
    getAttribute: (params: TGameObjectIdAndAttrParams) => TAttrValue;
+   getNumber: (params: TGameObjectIdAndAttrParams) => number;
+   getString: (params: TGameObjectIdAndAttrParams) => string;
+   getBool: (params: TGameObjectIdAndAttrParams) => boolean;
    incr: (params: TIncrDecrAttrParams) => void;
    decr: (params: TIncrDecrAttrParams) => void;
 }

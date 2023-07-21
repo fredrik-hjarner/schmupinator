@@ -212,11 +212,6 @@ export class Enemy {
          case AT.moveDelta:
             this.moveDelta({ x: action.x, y: action.y });
             break;
-         case AT.setAttribute: { // this I believe could be move into EnemyActionExecutor??
-            const { gameObjectId, attribute, value } = action;
-            this.attrs.setAttribute({ gameObjectId: gameObjectId ?? this.id, attribute, value });
-            break;
-         }
          case AT.despawn:
             this.despawn();
             break;

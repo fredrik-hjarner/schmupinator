@@ -1,5 +1,5 @@
 import type {
-   TAction, TAttrIs, TDo, TFork, TMoveToAbsolute, TRepeat, TSetShotSpeed, TSetSpeed,
+   TAction, TAttrIs, TDo, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll, TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
 
@@ -52,7 +52,7 @@ export const parallelRace = (...actions: (TAction|TAction[])[]): TparallelRace =
    actionsLists: actions.map(acn => Array.isArray(acn) ? acn : [acn])
 });
 
-export const repeat = (times: number, actions: TAction[]): TRepeat => ({
+export const repeat = (times: TNumber, actions: TAction[]): TRepeat => ({
    type: AT.repeat,
    times,
    actions
@@ -85,4 +85,4 @@ export const thrice = (...actions: TAction[]): TRepeat => repeat(3, actions);
 
 export const twice = (...actions: TAction[]): TRepeat => repeat(2, actions);
 
-export const wait = (frames: number): TWait => ({ type: AT.wait, frames });
+export const wait = (frames: TNumber): TWait => ({ type: AT.wait, frames });

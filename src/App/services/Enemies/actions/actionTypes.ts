@@ -10,7 +10,7 @@ import type { TAttrValue } from "../../Attributes/IAttributes";
  */
 export enum ActionType {
    wait = "wait",
-   waitNextFrame = "waitNextFrame", // TODO: Remove use "wait" instead.
+   waitNextFrame = "waitNextFrame",
    waitUntilFrameNr = "wait_util_frame_nr",
    repeat = "repeat",
    shootDirection = "shootDirection",
@@ -52,7 +52,6 @@ export enum ActionType {
    decr = "decr",
    waitUntilAttrIs = "waitUntilAttrIs",
    
-   
    /**
     * GFX
     */
@@ -72,12 +71,28 @@ export enum ActionType {
    gfxRelease = "gfxRelease",
 }
 
+/**
+ * Attribute getters.
+ * Used to get the value of an attribute an inject that into an action that would otherwise take
+ * a integer, float, bool, or string. This is to make stuff more dynamic and flexible.
+ */
+type TAttrGetter = Readonly<{ gameObjectId?: string, attr: string }>;
+
+/**
+ * Types for primitive values.
+ * Instead of using "bool" use TBool (etc) so that an action can either take a hardcoded value
+ * or get the value from an attribute.
+ */
+export type TNumber = Readonly<number | TAttrGetter>;
+export type TString = Readonly<string | TAttrGetter>;
+export type TBool = Readonly<boolean | TAttrGetter>;
+
 /** Action types */
-export type TWait =                Readonly<{ type: ActionType.wait, frames: number }>;
+export type TWait =                Readonly<{ type: ActionType.wait, frames: TNumber }>;
 export type TWaitNextFrame =       Readonly<{ type: ActionType.waitNextFrame }>;
 export type TWaitUtilFrameNr =     Readonly<{ type: ActionType.waitUntilFrameNr, frameNr: number}>;
 export type TRepeat =              Readonly<{ type: ActionType.repeat,
-                                                times: number, actions: TAction[] }>;
+                                                times: TNumber, actions: TAction[] }>;
 export type TShootDirection =      Readonly<{ type: ActionType.shootDirection,
                                                 x: number, y: number }>;
 export type TShootTowardPlayer =   Readonly<{ type: ActionType.shootTowardPlayer }>;

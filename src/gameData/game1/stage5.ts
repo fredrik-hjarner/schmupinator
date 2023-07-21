@@ -1,7 +1,7 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { forever, spawn, wait } from "../utils";
+import { forever, repeat, spawn, wait } from "../utils";
 import { col, row } from "./common";
 
 export const stage5: IEnemyJson = {
@@ -12,6 +12,42 @@ export const stage5: IEnemyJson = {
       { type: AT.gfxSetShape, shape: "none" },
       spawn("aqua", { x: col[3], y: row[3] }),
       spawn("executor", { x: col[5], y: row[5] }),
+      spawn("shotSpeedFromHp", { x: col[7], y: row[5] }),
+      spawn("repeatFromHp", { x: col[8], y: row[5] }),
+   ],
+};
+
+// Proves that attribute getter work with wait action.
+export const shotSpeedFromHp: IEnemyJson = {
+   name: "shotSpeedFromHp",
+   diameter: 20,
+   hp: 50,
+   actions: [
+      { type: AT.gfxSetShape, shape: "octagon" },
+      { type: AT.gfxSetColor, color: "red" },
+      { type: AT.setShotSpeed, pixelsPerFrame: 1.8 },
+      forever(
+         wait({ attr: "hp" }),
+         { type: AT.shootDirection, x: 0, y: -1 },
+      )
+   ],
+};
+
+// Proves that attribute getter work with repeat action.
+export const repeatFromHp: IEnemyJson = {
+   name: "repeatFromHp",
+   diameter: 20,
+   hp: 50,
+   actions: [
+      { type: AT.gfxSetShape, shape: "octagon" },
+      { type: AT.gfxSetColor, color: "red" },
+      { type: AT.setShotSpeed, pixelsPerFrame: 1.8 },
+      forever(
+         repeat({ attr: "hp" }, [
+            wait(1)
+         ]),
+         { type: AT.shootDirection, x: 0, y: -1 },
+      )
    ],
 };
 

@@ -1,8 +1,8 @@
 import type {
-   TAction, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
+   TAction, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
 } from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
-import type { TAttrValue } from "../Attributes/IAttributes";
+import type { IAttributes, TAttrValue } from "../Attributes/IAttributes";
 import type { IInput } from "../Input/IInput";
 import type { GamePad } from "../GamePad/GamePad";
 import type { Enemy } from "./Enemy";
@@ -35,6 +35,7 @@ export class EnemyActionExecutor {
 
    private actionHandler: (action: TAction) => void;
    private enemy: Enemy;
+   private attrs: IAttributes; // attribute service for convenience.
    /**
     * The only reason I don't have only ONE generator is because of the `fork` action.
     * `fork` creates/adds a new generator. I think that's the only way it could work really.
@@ -45,6 +46,7 @@ export class EnemyActionExecutor {
       const { actions, actionHandler, enemy, input, gamepad } = params;
       this.actionHandler = actionHandler;
       this.enemy = enemy;
+      this.attrs = enemy.enemies.attributes; // for convenience.
       this.input = input;
       this.gamepad = gamepad;
       this.generators = [this.makeGenerator(actions)];
@@ -86,17 +88,27 @@ export class EnemyActionExecutor {
    }
 
    /**
-   * Private
-   */
+    * Private
+    */
 
    private shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
    private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
 
    // convenience method to shorten code a bit and reduce code duplication.
    private getAttribute = (params: { gameObjectId?: string, attribute: string }): TAttrValue => {
-      return this.enemy.enemies.attributes.getAttribute({
+      return this.attrs.getAttribute({
          gameObjectId: params.gameObjectId ?? this.enemy.id, // default to THIS enemy.
          attribute: params.attribute,
+      });
+   };
+   /** Get/extract a hardcoded number or an attribute */
+   private getNumber = (param: TNumber): number => {
+      if (typeof param === "number") {
+         return param;
+      }
+      return this.attrs.getNumber({
+         gameObjectId: param.gameObjectId ?? this.enemy.id,
+         attribute: param.attr
       });
    };
 
@@ -161,6 +173,12 @@ export class EnemyActionExecutor {
                break;
             }
 
+            case AT.setAttribute: {
+               const { gameObjectId: GOID, attribute, value } = currAction;
+               this.attrs.setAttribute({ gameObjectId: GOID ?? this.enemy.id, attribute, value });
+               break;
+            }
+
             case AT.fork: {
                // Create a new generator for the fork to allow it to execute parallely.
                const generator = this.makeGenerator(currAction.actions);
@@ -188,9 +206,10 @@ export class EnemyActionExecutor {
             }
 
             case AT.repeat: {
+               const times = this.getNumber(currAction.times);
                yield*  GeneratorUtils.Repeat({
                   makeGenerator: () => this.makeGenerator(currAction.actions),
-                  times: currAction.times
+                  times,
                });
                break;
             }
@@ -208,18 +227,8 @@ export class EnemyActionExecutor {
             }
 
             case AT.wait: {
-               // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
-               //    console.log(`${this.enemy.id} started waiting ${currAction.frames} frames`);
-               // }
-               for(let i=0; i<currAction.frames; i++) {
-                  yield;
-                  // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
-                  //    console.log(`${this.enemy.id} waited 1 frame in loop`);
-                  // }
-               }
-               // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
-               //    console.log(`${this.enemy.id} finished waiting ${currAction.frames} frames`);
-               // }
+               const frames = this.getNumber(currAction.frames);
+               for(let i=0; i<frames; i++) { yield; }
                break;
             }
 
