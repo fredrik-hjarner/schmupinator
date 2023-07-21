@@ -257,7 +257,7 @@ export class Enemy {
          enemy: "shot",
          pos: { x: 0, y: 0 },
          actions:  [{
-            type: "fork",
+            type: AT.fork,
             actions: [{
                type: AT.repeat,
                times: 99999,

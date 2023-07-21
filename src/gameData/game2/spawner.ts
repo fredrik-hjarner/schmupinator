@@ -11,7 +11,7 @@ export const spawner: IEnemyJson = {
    actions: [
       fork(
          wait(300 * 60),
-         { type: "finishLevel" },
+         { type: AT.finishLevel },
       ),
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: "gfxSetShape", shape: "none" },

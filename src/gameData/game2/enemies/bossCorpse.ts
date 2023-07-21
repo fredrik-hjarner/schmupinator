@@ -41,6 +41,6 @@ export const bossCorpse: IEnemyJson = {
          explodeInAllDirections(16, 15),
       ),
       { type: AT.wait, frames: 60 * 3 },
-      { type: "finishLevel" }
+      { type: AT.finishLevel }
    ],
 };

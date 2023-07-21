@@ -31,7 +31,7 @@ export const forever = (...actions: TAction[]): TRepeat => ({
 });
 
 export const fork = (...actions: TAction[]): TFork => ({
-   type: "fork",
+   type: AT.fork,
    actions
 });
 

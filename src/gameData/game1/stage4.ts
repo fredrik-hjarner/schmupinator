@@ -53,23 +53,23 @@ const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}): TActi
 
 const wave3: TAction[] = [
    { type: AT.spawn, enemy: "easyFlyer", x: -100, y: 0, actions: [
-      { type: "setMoveDirection", degrees: 140 }
+      { type: AT.setMoveDirection, degrees: 140 }
    ] },
    { type: AT.spawn, enemy: "easyFlyer", x: -50, y: -50, actions: [
-      { type: "setMoveDirection", degrees: 135 }
+      { type: AT.setMoveDirection, degrees: 135 }
    ] },
    { type: AT.spawn, enemy: "easyFlyer", x: 0, y: -100, actions: [
-      { type: "setMoveDirection", degrees: 135 }
+      { type: AT.setMoveDirection, degrees: 135 }
    ] },
    { type: AT.wait, frames: 30 },
    { type: AT.spawn, enemy: "easyFlyer", x: col[9], y: row[-1], actions: [
-      { type: "setMoveDirection", degrees: -135 }
+      { type: AT.setMoveDirection, degrees: -135 }
    ] },
    { type: AT.spawn, enemy: "easyFlyer", x: col[10], y: row[0], actions: [
-      { type: "setMoveDirection", degrees: -135 }
+      { type: AT.setMoveDirection, degrees: -135 }
    ] },
    { type: AT.spawn, enemy: "easyFlyer", x: col[11], y: row[1], actions: [
-      { type: "setMoveDirection", degrees: -135 }
+      { type: AT.setMoveDirection, degrees: -135 }
    ] },
    { type: AT.wait, frames: 60 },
 ];

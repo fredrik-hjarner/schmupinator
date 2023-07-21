@@ -35,20 +35,20 @@ export const player: IEnemyJson = {
       // cuz every tick the gfx rotation is set to moveDirection,
       // which is contra-intuitive. Should prolly not be set
       // automaticallt on tick, but need to be set explicitly.
-      { type: "setMoveDirection", degrees: 0 },
+      { type: AT.setMoveDirection, degrees: 0 },
       { type: AT.setAttribute, attribute: "collisionType", value: "player" },
       { type: AT.setAttribute, attribute: "boundToWindow", value: true },
       // The following line is just a hack to hide the player initially.
       { type: "gfxSetShape", shape: "none" },
-      { type: "setMoveDirection", degrees: 90 },
+      { type: AT.setMoveDirection, degrees: 90 },
       wait(1),
       { type: "gfxSetShape", shape: "stage2/player.png" },
       fork(forever(
-         { type: "moveAccordingToInput" },
+         { type: AT.moveAccordingToInput },
          { type: AT.waitNextFrame }
       )),
       fork(forever(
-         { type: "waitInputShoot" },
+         { type: AT.waitInputShoot },
          ...trippleShot,
       )),
    ]

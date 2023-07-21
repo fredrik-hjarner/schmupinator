@@ -38,7 +38,7 @@ export const aqua: IEnemyJson = {
       { type: "gfxSetColor", color: "aqua" },
       { type: AT.setShotSpeed, pixelsPerFrame: 2 },
       forever(
-         { type:"waitUntilAttrIs", gameObjectId: "global", attr: "aquaShoot", is: true },
+         { type: AT.waitUntilAttrIs, gameObjectId: "global", attr: "aquaShoot", is: true },
          { type: AT.shootDirection, x: 0, y: 1 },
          wait(1),
       )

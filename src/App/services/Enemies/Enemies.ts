@@ -89,11 +89,11 @@ export class Enemies implements IService {
             { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
             { type: AT.setAttribute, attribute: "boundToWindow", value: false },
             {
-               type: "fork",
+               type: AT.fork,
                actions: [
                   // TODO: Comment
-                  { type: "waitTilInsideScreen" },
-                  { type: "waitTilOutsideScreen" },
+                  { type: AT.waitTilInsideScreen },
+                  { type: AT.waitTilOutsideScreen },
                   { type: AT.despawn }
                ]
             },

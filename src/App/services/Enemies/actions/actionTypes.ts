@@ -38,6 +38,20 @@ export enum ActionType {
    die = "die",
    despawn = "despawn",
    setAttribute = "setAttribute",
+   waitTilOutsideScreen = "waitTilOutsideScreen",
+   waitTilInsideScreen = "waitTilInsideScreen",
+   fork = "fork",
+   setMoveDirection = "setMoveDirection",
+   waitUntilAttrIs = "waitUntilAttrIs",
+   moveAccordingToInput = "moveAccordingToInput",
+   waitInputShoot = "waitInputShoot",
+   waitInputLaser = "waitInputLaser",
+   finishLevel = "finishLevel",
+
+   /**
+    * GFX
+    */
+   
 }
 
 /** Action types */
@@ -124,9 +138,9 @@ export type TDespawn = { type: ActionType.despawn };
 export type TSetAttribute =
    { type: ActionType.setAttribute, gameObjectId?: string, attribute: string, value: TAttrValue };
 // Waits until Enemy is outside the screen/game window
-export type TWaitTilOutsideScreen = { type: "waitTilOutsideScreen" };
+export type TWaitTilOutsideScreen = { type: ActionType.waitTilOutsideScreen };
 // Waits until Enemy is inside the screen/game window
-export type TWaitTilInsideScreen = { type: "waitTilInsideScreen" };
+export type TWaitTilInsideScreen = { type: ActionType.waitTilInsideScreen };
 /**
  * Fork is like fork in C essentially. The actions in fork executes separately
  * (in a separate generator) i.e. these actions won't delay other actions.
@@ -135,27 +149,27 @@ export type TWaitTilInsideScreen = { type: "waitTilInsideScreen" };
  * a new enemy and you want those actions to not delay the enemy's own actions, but rather
  * execute in parallel to them).
  */
-export type TFork = { type: "fork", actions: TAction[] };
+export type TFork = { type: ActionType.fork, actions: TAction[] };
 /**
  * Set only the move direction. Only specific some move actions care about the direction which 
  * gotta be called to move in the direction set with this action.
  */
-export type TMoveDirection = Readonly<{ type: "setMoveDirection", degrees: number }>;
+export type TMoveDirection = Readonly<{ type: ActionType.setMoveDirection, degrees: number }>;
 // Yields until the attribute has the value set in is.
 export type TWaitUntilAttrIs = Readonly<{
-   type: "waitUntilAttrIs", gameObjectId?: string, attr: string, is: TAttrValue
+   type: ActionType.waitUntilAttrIs, gameObjectId?: string, attr: string, is: TAttrValue
 }>;
 
 /**
  * This action is a way to react to input/gamepad/controls, mainly made in order
  * to allow the Player to be an Enemy (i.e. GameObject)
  */
-export type TMoveAccordingToInput = Readonly<{ type: "moveAccordingToInput" }>;
-export type TWaitInputShoot = Readonly<{ type: "waitInputShoot" }>;
-export type TWaitInputLaser = Readonly<{ type: "waitInputLaser" }>;
+export type TMoveAccordingToInput = Readonly<{ type: ActionType.moveAccordingToInput }>;
+export type TWaitInputShoot = Readonly<{ type: ActionType.waitInputShoot }>;
+export type TWaitInputLaser = Readonly<{ type: ActionType.waitInputLaser }>;
 
 // Signals that the level has been finished, so trigger this when end boss dies or something similar
-export type TFinishLevel = Readonly<{ type: "finishLevel" }>;
+export type TFinishLevel = Readonly<{ type: ActionType.finishLevel }>;
 
 export type TAction = Readonly<
    /**
