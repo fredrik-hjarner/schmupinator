@@ -9,7 +9,7 @@ export const stage3: IEnemyJson = {
    diameter: 20,
    hp: 9999,
    actions: [
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       { type: AT.spawn, enemy: "shapeShifter", x: col[5], y: row[5] },
       { type: AT.spawn, enemy: "healer", x: col[4], y: row[4] },
       { type: AT.spawn, enemy: "dehealer", x: col[6], y: row[4] },
@@ -23,15 +23,15 @@ export const shapeShifter: IEnemyJson = {
    onDeathAction: { type: AT.spawn, enemy: "shapeShifter", y: -20 },
    actions: [
       forever(
-         { type: "gfxSetShape", shape: "circle" },
+         { type: AT.gfxSetShape, shape: "circle" },
          wait(60),
-         { type: "gfxSetShape", shape: "square" },
+         { type: AT.gfxSetShape, shape: "square" },
          wait(60),
-         { type: "gfxSetShape", shape: "triangle" },
+         { type: AT.gfxSetShape, shape: "triangle" },
          wait(60),
-         { type: "gfxSetShape", shape: "diamondShield" },
+         { type: AT.gfxSetShape, shape: "diamondShield" },
          wait(60),
-         { type: "gfxSetShape", shape: "octagon" },
+         { type: AT.gfxSetShape, shape: "octagon" },
          wait(60),
       )
    ]

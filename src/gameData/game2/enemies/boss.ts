@@ -13,9 +13,9 @@ import { col } from "../common";
 
 const shootInAll8Directions = (shootSpeed: number): TAction[] => [
    // blink to signal it's about to shoot
-   { type: "gfxSetColor", color: "aqua" },
+   { type: AT.gfxSetColor, color: "aqua" },
    { type: AT.wait, frames: 10 },
-   { type: "gfxSetColor", color: "red" },
+   { type: AT.gfxSetColor, color: "red" },
    { type: AT.wait, frames: 10 },
 
    { type: AT.setShotSpeed, pixelsPerFrame: shootSpeed },
@@ -83,7 +83,7 @@ export const boss: IEnemyJson = {
    diameter: 40,
    onDeathAction: spawn("bossCorpse"),
    actions: [
-      { type: "gfxSetShape", shape: "stage2/circle.png" },
+      { type: AT.gfxSetShape, shape: "stage2/circle.png" },
       ...movePattern,
       { type: AT.setAttribute, attribute: "hp", value: 70 }, // In fact make it immortal until now.
       parallelAll(

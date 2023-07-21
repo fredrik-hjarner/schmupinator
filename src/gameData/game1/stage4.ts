@@ -113,7 +113,7 @@ export const easyFlyer: IEnemyJson = {
    hp: 5,
    actions: [
       { type: AT.setSpeed, pixelsPerFrame: 1.17 },
-      { type: "gfxSetColor", color: "green" },
+      { type: AT.gfxSetColor, color: "green" },
       forever(
          { type: AT.move_according_to_speed_and_direction },
          { type: AT.waitNextFrame },

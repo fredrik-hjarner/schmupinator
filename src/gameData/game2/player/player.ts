@@ -29,7 +29,7 @@ export const player: IEnemyJson = {
    actions: [
       //set points to 0, otherwise you get points when the player dies since default is 10 currently
       { type: AT.setAttribute, attribute: "points", value: 0 },
-      { type: "gfxSetColor", color: "aqua" },
+      { type: AT.gfxSetColor, color: "aqua" },
       // TODO: setMoveDirection might be a stupid name for the
       // action and the way it works might also be stupid.
       // cuz every tick the gfx rotation is set to moveDirection,
@@ -39,10 +39,10 @@ export const player: IEnemyJson = {
       { type: AT.setAttribute, attribute: "collisionType", value: "player" },
       { type: AT.setAttribute, attribute: "boundToWindow", value: true },
       // The following line is just a hack to hide the player initially.
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       { type: AT.setMoveDirection, degrees: 90 },
       wait(1),
-      { type: "gfxSetShape", shape: "stage2/player.png" },
+      { type: AT.gfxSetShape, shape: "stage2/player.png" },
       fork(forever(
          { type: AT.moveAccordingToInput },
          { type: AT.waitNextFrame }

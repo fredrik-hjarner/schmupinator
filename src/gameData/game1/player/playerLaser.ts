@@ -13,8 +13,8 @@ export const playerLaser: IEnemyJson = {
       // TODO: is points really necessary for this?
       { type: AT.setAttribute, attribute: "pointsOnDeath", value: -0.2 },
       { type: AT.setAttribute, attribute: "points", value: 0 },
-      { type: "gfxSetShape", shape: "square" },
-      { type: "gfxSetColor", color: "aqua" },
+      { type: AT.gfxSetShape, shape: "square" },
+      { type: AT.gfxSetColor, color: "aqua" },
       parallelRace(
          forever(
             { type: AT.moveDelta, y: -30 },

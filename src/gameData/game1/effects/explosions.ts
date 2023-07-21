@@ -9,7 +9,7 @@ export const explosion: IEnemyJson = {
    hp: 9999,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "explosion" },
+      { type: AT.gfxSetShape, shape: "explosion" },
       wait(40),
       // { type: "wait", frames: 40 },
       { type: AT.despawn },
@@ -22,7 +22,7 @@ export const roundExplosion: IEnemyJson = {
    hp: 9999,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "roundExplosion" },
+      { type: AT.gfxSetShape, shape: "roundExplosion" },
       wait(75),
       // { type: "wait", frames: 75 },
       { type: AT.despawn },

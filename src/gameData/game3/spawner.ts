@@ -17,7 +17,7 @@ export const spawner: IEnemyJson = {
       //    { type: "finishLevel" }
       // ),
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       // { wait: 1 },
       spawn("player", { x: 178.5, y: 220 }),
       spawn("pacifistStage")

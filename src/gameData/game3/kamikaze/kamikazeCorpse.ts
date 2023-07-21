@@ -9,8 +9,8 @@ export const kamikaze: IEnemyJson = {
    hp: 1,
    onDeathAction: { type: AT.spawn, enemy: "kamikazeCorpse" },
    actions: [
-      { type: "gfxSetShape", shape: "octagon" },
-      { type: "gfxSetColor", color: "red" },
+      { type: AT.gfxSetShape, shape: "octagon" },
+      { type: AT.gfxSetColor, color: "red" },
       wait(90),
       // { type: "die" },
    ],
@@ -22,7 +22,7 @@ export const kamikazeCorpse: IEnemyJson = {
    hp: 1,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       { type: AT.setShotSpeed, pixelsPerFrame: 0.9 },
       { type: AT.shootDirection, x: 1, y: -1 },
       { type: AT.shootDirection, x: 1, y: 0 },

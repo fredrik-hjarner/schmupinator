@@ -24,9 +24,9 @@ export const spinningDots: IEnemyJson = {
    onDeathAction: spawn("roundExplosion"),
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "none" },
-      { type: "gfxSetShape", shape: "stage2/circle.png" },
-      { type: "gfxSetColor", color: "aqua" },
+      { type: AT.gfxSetShape, shape: "none" },
+      { type: AT.gfxSetShape, shape: "stage2/circle.png" },
+      { type: AT.gfxSetColor, color: "aqua" },
       // center
       spawn("dot", {
          actions: [

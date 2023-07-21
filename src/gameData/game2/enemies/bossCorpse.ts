@@ -34,7 +34,7 @@ export const bossCorpse: IEnemyJson = {
    hp: 9999,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "explosion" },
+      { type: AT.gfxSetShape, shape: "explosion" },
       parallelAll(
          explodeInAllDirections(8, 3),
          explodeInAllDirections(24, 5),

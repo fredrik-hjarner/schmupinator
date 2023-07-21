@@ -9,7 +9,7 @@ export const stage5: IEnemyJson = {
    diameter: 20,
    hp: 9999,
    actions: [
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       spawn("aqua", { x: col[3], y: row[3] }),
       spawn("executor", { x: col[5], y: row[5] }),
    ],
@@ -20,7 +20,7 @@ export const executor: IEnemyJson = {
    diameter: 30,
    hp: 100_000,
    actions: [
-      { type: "gfxSetColor", color: "green" },
+      { type: AT.gfxSetColor, color: "green" },
       forever(
          { type: AT.setAttribute, gameObjectId: "global", attribute: "aquaShoot", value: true },
          wait(1),
@@ -35,7 +35,7 @@ export const aqua: IEnemyJson = {
    diameter: 30,
    hp: 100_000,
    actions: [
-      { type: "gfxSetColor", color: "aqua" },
+      { type: AT.gfxSetColor, color: "aqua" },
       { type: AT.setShotSpeed, pixelsPerFrame: 2 },
       forever(
          { type: AT.waitUntilAttrIs, gameObjectId: "global", attr: "aquaShoot", is: true },

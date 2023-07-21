@@ -52,7 +52,7 @@ export const sinus: IEnemyJson = {
       { type: AT.spawn, enemy: "kamikazeCorpse" },
    ),
    actions: [
-      { type: "gfxSetShape", shape: "octagon" },
+      { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.setShotSpeed, pixelsPerFrame: 1.5 },
       attr("right", { is: true, yes: [{ type: AT.mirrorX, value: true }] }),
       twice(

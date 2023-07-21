@@ -14,7 +14,7 @@ export const playerShot: IEnemyJson = {
       // TODO: is points really necessary for this?
       { type: AT.setAttribute, attribute: "pointsOnDeath", value: -1 },
       { type: AT.setAttribute, attribute: "points", value: 0 },
-      { type: "gfxSetShape", shape: "circle" },
-      { type: "gfxSetColor", color: "aqua" },
+      { type: AT.gfxSetShape, shape: "circle" },
+      { type: AT.gfxSetColor, color: "aqua" },
    ],
 };

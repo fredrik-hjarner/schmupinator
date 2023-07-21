@@ -9,6 +9,6 @@ export const shot: IEnemyJson = {
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "enemyBullet" },
       { type: AT.setAttribute, attribute: "points", value: 0 },
-      { type: "gfxSetShape", shape: "circle" }
+      { type: AT.gfxSetShape, shape: "circle" }
    ]
 };

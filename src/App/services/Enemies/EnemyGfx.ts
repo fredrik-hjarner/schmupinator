@@ -3,8 +3,8 @@ import type {
    IGraphics, TGraphicsActionWithoutHandle , TResponse_AskForElement
 } from "../Graphics/IGraphics";
 
+import { ActionType as AT } from "./actions/actionTypes";
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
-
 
 type TConstructor = {
    graphics: IGraphics; // Graphics service;
@@ -23,23 +23,23 @@ export class EnemyGfx {
       this.graphics = graphics;
 
       this.gfxHandle =
-         (this.graphics.Dispatch({ type:"gfxAskForElement" }) as TResponse_AskForElement).handle;
-      this.graphics.Dispatch({ type:"gfxSetPosition", handle: this.gfxHandle, x, y });
-      this.graphics.Dispatch({ type:"gfxSetDiameter", handle: this.gfxHandle, diameter });
-      this.graphics.Dispatch({ type:"gfxSetColor", handle: this.gfxHandle, color: "red" });
-      this.graphics.Dispatch({ type:"gfxSetShape", handle: this.gfxHandle, shape: "diamondShield"});
+         (this.graphics.Dispatch({ type:AT.gfxAskForElement }) as TResponse_AskForElement).handle;
+      this.graphics.Dispatch({ type:AT.gfxSetPosition, handle: this.gfxHandle, x, y });
+      this.graphics.Dispatch({ type:AT.gfxSetDiameter, handle: this.gfxHandle, diameter });
+      this.graphics.Dispatch({ type:AT.gfxSetColor, handle: this.gfxHandle, color: "red" });
+      this.graphics.Dispatch({ type:AT.gfxSetShape, handle: this.gfxHandle, shape:"diamondShield"});
    }
 
    public setPosition = ({ x, y }: TVector) => {
-      this.graphics.Dispatch({ type:"gfxSetPosition", handle: this.gfxHandle, x, y });
+      this.graphics.Dispatch({ type:AT.gfxSetPosition, handle: this.gfxHandle, x, y });
    };
 
    public release = () => {
-      this.graphics.Dispatch({ type: "gfxRelease", handle: this.gfxHandle });
+      this.graphics.Dispatch({ type: AT.gfxRelease, handle: this.gfxHandle });
    };
 
    public setRotation = ({ degrees }: { degrees: number }) => {
-      this.graphics.Dispatch({ type: "gfxSetRotation", handle: this.gfxHandle, degrees: degrees });
+      this.graphics.Dispatch({ type: AT.gfxSetRotation, handle: this.gfxHandle, degrees: degrees });
    };
 
    public dispatch = (action: TGraphicsActionWithoutHandle) => {

@@ -1,6 +1,8 @@
 import type { IService } from "../IService";
 import type { IDestroyable } from "../../../utils/types/IDestroyable";
 
+import type { ActionType as AT } from "../Enemies/actions/actionTypes";
+
 export type THandle = string;
 
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
@@ -30,42 +32,42 @@ export type TShape =
  * Actions *
  ***********/
 // Asks the Graphics Engine for a graphics element if you want one.
-export type TGfx_AskForElement = { type: "gfxAskForElement" };
+export type TGfx_AskForElement = { type: AT.gfxAskForElement };
 export type TGfx_SetPosition = {
-   type: "gfxSetPosition",
+   type: AT.gfxSetPosition,
    handle: THandle, x?: number, y?: number
 };
 export type TGfx_SetDiameter = {
-   type: "gfxSetDiameter",
+   type: AT.gfxSetDiameter,
    handle: THandle, diameter: number
 };
 // Releases a GraphicsElement, so it's free for other to pick up/ask for/claim.
-export type TGfx_Release = { type: "gfxRelease", handle: THandle };
+export type TGfx_Release = { type: AT.gfxRelease, handle: THandle };
 export type TGfx_SetColor = {
-   type: "gfxSetColor",
+   type: AT.gfxSetColor,
    handle: THandle, color: string
 };
 export type TGfx_SetShape = {
-   type: "gfxSetShape",
+   type: AT.gfxSetShape,
    handle: THandle, shape: TShape
 };
 export type TGfx_SetRotation = {
-   type: "gfxSetRotation",
+   type: AT.gfxSetRotation,
    handle: THandle, degrees: number
 };
 // TODO: This seems to be unused. Unclear purpose.
 export type TGfx_SetScale = {
-   type: "gfxSetScale",
+   type: AT.gfxSetScale,
    handle: THandle, scale: number
 };
 // scrolls the background by x, y.
 export type TGfx_ScrollBg = {
-   type: "gfxScrollBg",
+   type: AT.gfxScrollBg,
    handle: THandle, x?: number, y?: number
 };
 // make gfx cover the whole screen
 export type TGfx_FillScreen = {
-   type: "gfxFillScreen",
+   type: AT.gfxFillScreen,
    handle: THandle
 };
 

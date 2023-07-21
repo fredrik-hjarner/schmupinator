@@ -51,7 +51,16 @@ export enum ActionType {
    /**
     * GFX
     */
-   
+   gfxAskForElement = "gfxAskForElement",
+   gfxSetPosition = "gfxSetPosition",
+   gfxSetDiameter = "gfxSetDiameter",
+   gfxRelease = "gfxRelease",
+   gfxSetColor = "gfxSetColor",
+   gfxSetShape = "gfxSetShape",
+   gfxSetRotation = "gfxSetRotation",
+   gfxSetScale = "gfxSetScale",
+   gfxScrollBg = "gfxScrollBg",
+   gfxFillScreen = "gfxFillScreen",
 }
 
 /** Action types */

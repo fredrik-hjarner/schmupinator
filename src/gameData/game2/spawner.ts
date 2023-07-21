@@ -14,7 +14,7 @@ export const spawner: IEnemyJson = {
          { type: AT.finishLevel },
       ),
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       // { wait: 1 },
       spawn("parallax"),
       spawn("player", { x: col[1], y: row[5] }),

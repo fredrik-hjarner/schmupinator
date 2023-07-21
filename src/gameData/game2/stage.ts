@@ -14,7 +14,7 @@ export const stage: IEnemyJson = {
    hp: 9999,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
 
       // aimers wave
       wait(1 * 60),
