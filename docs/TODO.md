@@ -285,3 +285,25 @@ Power ups would just be something that when it collides with an enemy then it wo
 buttons though.
 
 * Enemy.x and Enemy.y should be attributes so that they could be grabbed by actions.
+
+* What cool shit could I do with actions now?
+   * I would be cool if instead of dying automatically and auto-triggering Game Over,
+     I could could trigger Game Over manually.
+     It would be cool if it was possible to give the player several lifes this way, like
+     decrementing a counter and then fully die when it eaches zero.
+     Actually, maybe I could replace `onDeathAction` with `waitUntilAttrIs` action so that I wait
+     until `hp` is 0.
+
+   * Points could be entirely managed by enemies themselves (in onHit callback or something).
+
+   * The intro screen could be a GameObject: It could render the Graphics and all.
+     It could have timers. It could listen to space button.
+     It could even be several images after each other.
+
+   * I could have boss phases with something like this:
+   ```
+   [
+      parallelRace(waitUntilAttrIs(flag, "phase2"), [some, actions]),
+      parallelRace(waitUntilAttrIs(flag, "phase3"), [some, actions]),
+   ]
+   ```
