@@ -34,16 +34,31 @@ export function createGameObject(params: TCreateGameObjectParams): IEnemyJson {
       hp: params.hp,
       diameter: params.diameter,
       actions: [
+         // Set some default attributes.
+         { type: AT.setAttribute, attribute: "points", value: 10 },
+         { type: AT.setAttribute, attribute: "pointsOnDeath", value: 0 },
+         { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
+         { type: AT.setAttribute, attribute: "boundToWindow", value: false },
+         // Setup despawning when GameObject moves out of the screen.
+         {
+            type: AT.fork,
+            actions: [
+               { type: AT.waitTilInsideScreen },
+               { type: AT.waitTilOutsideScreen },
+               { type: AT.despawn }
+            ]
+         },
+         // Die when hp is 0. TODO: Actually it should be LTE to 0.
          fork(
             /**
              * TODO: since hp always exists on atributes I should prolly add it to type
              * so I get auto-completion
              */
-            // Die when hp is 0. TODO: Actually it should be LTE to 0.
             { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
             ...(params.onDeathAction ? [params.onDeathAction] : []),
             { type: AT.despawn },
          ),
+         // "Normal" actions
          ...params.actions
       ]
    };

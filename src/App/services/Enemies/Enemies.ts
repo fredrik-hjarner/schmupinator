@@ -83,27 +83,11 @@ export class Enemies implements IService {
       /**
        * prepend the actions that the parent sent. this allow parent some control over it's spawn.
        * also add die-when-outside-screen behaviour too all spawns.
-       * TODO:
-       * This is elegant. Maybe add the die-when-outside-screen behaviour in some other way
        */
       const newEnemyJson: IEnemyJson = {
          ...enemyJson,
          actions: [
-            // Set some default attributes. TODO: Should prolly do this in another way.
-            { type: AT.setAttribute, attribute: "points", value: 10 },
-            { type: AT.setAttribute, attribute: "pointsOnDeath", value: 0 },
-            { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
-            { type: AT.setAttribute, attribute: "boundToWindow", value: false },
             ...parentIdAction,
-            {
-               type: AT.fork,
-               actions: [
-                  // TODO: Comment
-                  { type: AT.waitTilInsideScreen },
-                  { type: AT.waitTilOutsideScreen },
-                  { type: AT.despawn }
-               ]
-            },
             ...prependActions,
             ...enemyJson.actions
          ]
