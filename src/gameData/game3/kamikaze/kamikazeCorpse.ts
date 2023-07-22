@@ -1,9 +1,9 @@
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { wait } from "../../utils";
+import { createGameObject, wait } from "../../utils";
 
-export const kamikaze: IEnemyJson = {
+export const kamikaze: IEnemyJson = createGameObject({
    name: "kamikaze",
    diameter: 20,
    hp: 1,
@@ -14,9 +14,9 @@ export const kamikaze: IEnemyJson = {
       wait(90),
       // { type: "die" },
    ],
-};
+});
 
-export const kamikazeCorpse: IEnemyJson = {
+export const kamikazeCorpse: IEnemyJson = createGameObject({
    name: "kamikazeCorpse",
    diameter: 20,
    hp: 1,
@@ -34,4 +34,4 @@ export const kamikazeCorpse: IEnemyJson = {
       { type: AT.shootDirection, x: 0, y: -1 },
       { type: AT.despawn },
    ],
-};
+});

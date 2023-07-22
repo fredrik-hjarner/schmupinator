@@ -2,10 +2,12 @@ import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { attr, forever, moveToAbsolute, parallelAll, setShotSpeed, wait } from "../utils";
+import {
+   attr, createGameObject, forever, moveToAbsolute, parallelAll, setShotSpeed, wait
+} from "../utils";
 import { col } from "./common";
 
-export const stage2: IEnemyJson = {
+export const stage2: IEnemyJson = createGameObject({
    name: "stage2",
    diameter: 20,
    hp: 9999,
@@ -15,9 +17,9 @@ export const stage2: IEnemyJson = {
       { type: AT.spawn, enemy: "cloner", x: col[2], y: -20 },
       { type: AT.spawn, enemy: "cloner", x: col[8], y: -20 },
    ]
-};
+});
 
-export const cloner: IEnemyJson = {
+export const cloner: IEnemyJson = createGameObject({
    name: "cloner",
    hp: 25,
    diameter: 29,
@@ -37,9 +39,9 @@ export const cloner: IEnemyJson = {
          { type: AT.setAttribute, attribute: "mirrorY", value: true }
       ]},
    ]
-};
+});
 
-export const clonerChild: IEnemyJson = {
+export const clonerChild: IEnemyJson = createGameObject({
    name: "clonerChild",
    hp: 10,
    diameter: 18,
@@ -58,4 +60,4 @@ export const clonerChild: IEnemyJson = {
          ],
       )
    ]
-};
+});

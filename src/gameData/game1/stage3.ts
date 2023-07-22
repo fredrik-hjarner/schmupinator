@@ -1,10 +1,10 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { attr, forever, wait } from "../utils";
+import { attr, createGameObject, forever, wait } from "../utils";
 import { col, row } from "./common";
 
-export const stage3: IEnemyJson = {
+export const stage3: IEnemyJson = createGameObject({
    name: "stage3",
    diameter: 20,
    hp: 9999,
@@ -14,9 +14,9 @@ export const stage3: IEnemyJson = {
       { type: AT.spawn, enemy: "healer", x: col[4], y: row[4] },
       { type: AT.spawn, enemy: "dehealer", x: col[6], y: row[4] },
    ]
-};
+});
 
-export const shapeShifter: IEnemyJson = {
+export const shapeShifter: IEnemyJson = createGameObject({
    name: "shapeShifter",
    diameter: 30,
    hp: 100,
@@ -35,9 +35,9 @@ export const shapeShifter: IEnemyJson = {
          wait(60),
       )
    ]
-};
+});
 
-export const healer: IEnemyJson = {
+export const healer: IEnemyJson = createGameObject({
    name: "healer",
    diameter: 30,
    hp: 50,
@@ -51,9 +51,9 @@ export const healer: IEnemyJson = {
          })
       )
    ]
-};
+});
 
-export const dehealer: IEnemyJson = {
+export const dehealer: IEnemyJson = createGameObject({
    name: "dehealer",
    diameter: 30,
    hp: 50,
@@ -63,4 +63,4 @@ export const dehealer: IEnemyJson = {
          { type: AT.decr, attribute: "hp" }
       )
    ]
-};
+});

@@ -8,7 +8,7 @@ import type {
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes";
 import {
-   attr, forever, moveToAbsolute, parallelAll, parallelRace,
+   attr, createGameObject, forever, moveToAbsolute, parallelAll, parallelRace,
    repeat, setShotSpeed, setSpeed, spawn, thrice, twice, wait
 } from "../utils";
 
@@ -42,7 +42,7 @@ const sinuses = repeat(5, [
    wait(70),
 ]);
 
-export const stage1: IEnemyJson = {
+export const stage1: IEnemyJson = createGameObject({
    name: "stage1",
    diameter: 20,
    hp: 9999,
@@ -57,11 +57,11 @@ export const stage1: IEnemyJson = {
       leftMiniBoss,
       rightMiniBoss,
    ]
-};
+});
 
 //------------------------------------------------------------
 
-export const nonShootingAimer: IEnemyJson = {
+export const nonShootingAimer: IEnemyJson = createGameObject({
    name: "nonShootingAimer",
    hp: 4,
    diameter: 22,
@@ -79,7 +79,7 @@ export const nonShootingAimer: IEnemyJson = {
          )
       )
    ]
-};
+});
 
 //------------------------------------------------------------
 
@@ -109,7 +109,7 @@ const rotateRightAndShoot = parallelAll(
    shootWhileRotation
 );
 
-export const sinus: IEnemyJson = {
+export const sinus: IEnemyJson = createGameObject({
    name: "sinus",
    hp: 3,
    diameter: 24,
@@ -124,7 +124,7 @@ export const sinus: IEnemyJson = {
          moveLeft
       )
    ]
-};
+});
 
 //------------------------------------------------------------
 
@@ -187,7 +187,7 @@ const movementPattern: TAction[] = [
    downOutOfScreen
 ];
 
-export const firstMiniboss: IEnemyJson = {
+export const firstMiniboss: IEnemyJson = createGameObject({
    name: "firstMiniboss",
    hp: 120,
    diameter: 35,
@@ -197,4 +197,4 @@ export const firstMiniboss: IEnemyJson = {
          movementPattern
       )
    ]
-};
+});

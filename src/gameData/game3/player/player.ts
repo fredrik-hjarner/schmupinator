@@ -2,7 +2,7 @@ import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
-import { forever, fork, wait } from "../../utils";
+import { createGameObject, forever, fork, wait } from "../../utils";
 
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 
@@ -33,7 +33,7 @@ const laser: TAction[] = [
    wait(3),
 ];
 
-export const player: IEnemyJson = {
+export const player: IEnemyJson = createGameObject({
    name: "player",
    diameter: 20,
    hp: 1,
@@ -66,4 +66,4 @@ export const player: IEnemyJson = {
          ...laser,
       )),
    ]
-};
+});

@@ -1,9 +1,9 @@
 import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
 
-import { forever, spawn, wait } from "@/gameData/utils";
+import { createGameObject, forever, spawn, wait } from "@/gameData/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
-export const parallax: IEnemyJson = {
+export const parallax: IEnemyJson = createGameObject({
    name: "parallax",
    diameter: 240,
    hp: 9999,
@@ -16,9 +16,9 @@ export const parallax: IEnemyJson = {
       spawn("layer2"),
       spawn("layer3"),
    ],
-};
+});
 
-export const layer1: IEnemyJson = {
+export const layer1: IEnemyJson = createGameObject({
    name: "layer1",
    diameter: 240,
    hp: 9999,
@@ -31,9 +31,9 @@ export const layer1: IEnemyJson = {
          { type: AT.gfxScrollBg, y: -0.3 }
       )
    ],
-};
+});
 
-export const layer2: IEnemyJson = {
+export const layer2: IEnemyJson = createGameObject({
    name: "layer2",
    diameter: 240,
    hp: 9999,
@@ -46,9 +46,9 @@ export const layer2: IEnemyJson = {
          { type: AT.gfxScrollBg, y: -1 }
       )
    ],
-};
+});
 
-export const layer3: IEnemyJson = {
+export const layer3: IEnemyJson = createGameObject({
    name: "layer3",
    diameter: 240,
    hp: 9999,
@@ -61,4 +61,4 @@ export const layer3: IEnemyJson = {
          { type: AT.gfxScrollBg, y: -1.5 }
       )
    ],
-};
+});

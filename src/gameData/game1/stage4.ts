@@ -2,7 +2,7 @@ import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes";
-import { forever } from "../utils";
+import { createGameObject, forever } from "../utils";
 import { col, row } from "./common";
 
 const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}): TAction => ({
@@ -92,7 +92,7 @@ const wave4: TAction[] = [
    ]},
 ];
 
-export const stage4: IEnemyJson = {
+export const stage4: IEnemyJson = createGameObject({
    name: "stage4",
    diameter: 20,
    hp: 9999,
@@ -105,9 +105,9 @@ export const stage4: IEnemyJson = {
       { type: AT.wait, frames: 240 },
       ...wave4,
    ],
-};
+});
 
-export const easyFlyer: IEnemyJson = {
+export const easyFlyer: IEnemyJson = createGameObject({
    name: "easyFlyer",
    diameter: 29,
    hp: 5,
@@ -119,4 +119,4 @@ export const easyFlyer: IEnemyJson = {
          { type: AT.waitNextFrame },
       )
    ],
-};
+});

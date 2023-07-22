@@ -3,6 +3,7 @@ import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import {
+   createGameObject,
    forever,
    parallelAll,
    repeat,
@@ -77,7 +78,7 @@ const movePattern: TAction[] = [
    { type: AT.moveToAbsolute, frames: 60 * 7.5, moveTo: { x: col[5] }}
 ];
 
-export const boss: IEnemyJson = {
+export const boss: IEnemyJson = createGameObject({
    name: "boss",
    hp: 100_000, // immortal.
    diameter: 40,
@@ -90,4 +91,4 @@ export const boss: IEnemyJson = {
          shootingPattern
       )
    ]
-};
+});

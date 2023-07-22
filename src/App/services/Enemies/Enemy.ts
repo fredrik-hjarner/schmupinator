@@ -13,7 +13,6 @@ import { uuid } from "../../../utils/uuid";
 import { resolutionHeight, resolutionWidth } from "../../../consts";
 import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
 export class Enemy {
    public X: number;
@@ -33,8 +32,6 @@ export class Enemy {
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private name: string;
-   // One action that is executed immediately when an enemy dies.
-   private onDeathAction?: TAction;
 
    public constructor( enemies: Enemies, position: TVector, json: IEnemyJson ) {
       this.enemies = enemies;
@@ -50,7 +47,6 @@ export class Enemy {
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
-      this.onDeathAction = json.onDeathAction;
       // TODO: Attrs should be be set by an Action in future, right?
       this.hp = json.hp;
       this.maxHp = json.hp;
@@ -103,8 +99,6 @@ export class Enemy {
       // TODO: add_points is a bad name. Should be names pointsOnHit.
       this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
       this.hp -= 1;
-
-      if(this.hp < 1) { this.die(); }
    };
 
    private boundToWindow = () => {
@@ -140,27 +134,6 @@ export class Enemy {
          this.gfx.release();
          this.gfx = undefined;
       }
-
-      if(this === this.enemies.player && !this.enemies.settings.settings.invincibility) {
-         this.enemies.events.dispatchEvent({ type: "gameOver" });
-      }
-   };
-
-   // unlike despawn die triggers onDeathAction
-   private die = () => {
-      if(this === this.enemies.player && this.enemies.settings.settings.invincibility) {
-         return; // Don't kill player if invincible. TODO: Mayb this should b in OnCollision instead
-      }
-      if(this.onDeathAction) {
-         const done = this.actionExecutor.ExecuteOneAction(this.onDeathAction);
-         if(!done) {
-            BrowserDriver.Alert(
-               `Enemy '${this.id}'s onDeathAction required more than 1 frame to execute.
-               An onDeathAction must be able to finish execution after 1 frame.`
-            );
-         }
-      }
-      this.despawn();
    };
 
    /**
@@ -214,9 +187,6 @@ export class Enemy {
             break;
          case AT.despawn:
             this.despawn();
-            break;
-         case AT.die:
-            this.die();
             break;
          case AT.incr: { // this I believe could be move into EnemyActionExecutor??
             const { gameObjectId, attribute } = action;

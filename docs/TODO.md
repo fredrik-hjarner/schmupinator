@@ -294,6 +294,12 @@ buttons though.
   `TNumber | { position: "relative" | "absolute", value: TNumber }`, although that looks a bit
   complicated so I dunno.
 
+* Maybe every GameObject should auto-get a `type` attribute which is the `name`
+  (inconsistent naming) set when creating a GameObject (IEnemyJSON) when creating a game/level.
+
+* When I have most of the stuff in Attributes, I should use Attributes in e2e test instead:
+  For every frame I would save a delta.
+
 * What cool shit could I do with actions now?
    * I would be cool if instead of dying automatically and auto-triggering Game Over,
      I could could trigger Game Over manually.
@@ -315,3 +321,5 @@ buttons though.
       parallelRace(waitUntilAttrIs(flag, "phase3"), [some, actions]),
    ]
    ```
+
+* TODO: Now I have broken the player invincibility setting.

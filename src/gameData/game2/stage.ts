@@ -1,6 +1,7 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
 import {
+   createGameObject,
    spawn,
    wait
 } from "../utils";
@@ -8,7 +9,7 @@ import { col, row } from "./common";
 import { aimersWave } from "./waves/aimers";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
-export const stage: IEnemyJson = {
+export const stage: IEnemyJson = createGameObject({
    name: "stage",
    diameter: 20,
    hp: 9999,
@@ -41,4 +42,4 @@ export const stage: IEnemyJson = {
       wait(60 * 6),
       spawn("boss", { x: col[12], y: row[5] }),
    ]
-};
+});

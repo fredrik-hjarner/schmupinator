@@ -3,6 +3,7 @@ import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import {
+   createGameObject,
    parallelAll,
    spawn,
    wait
@@ -28,7 +29,7 @@ const explodeInAllDirections = (radius: number, _wait: number,): TAction[] => {
    ];
 };
 
-export const bossCorpse: IEnemyJson = {
+export const bossCorpse: IEnemyJson = createGameObject({
    name: "bossCorpse",
    diameter: 18,
    hp: 9999,
@@ -43,4 +44,4 @@ export const bossCorpse: IEnemyJson = {
       { type: AT.wait, frames: 60 * 3 },
       { type: AT.finishLevel }
    ],
-};
+});

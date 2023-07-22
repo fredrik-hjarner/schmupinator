@@ -1,9 +1,11 @@
 import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
 
-import { forever, parallelAll, repeat, setSpeed, spawn, wait } from "@/gameData/utils";
+import {
+   createGameObject, forever, parallelAll, repeat, setSpeed, spawn, wait
+} from "@/gameData/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
-export const nonShootingAimer: IEnemyJson = {
+export const nonShootingAimer: IEnemyJson = createGameObject({
    name: "nonShootingAimer",
    hp: 1,
    diameter: 22,
@@ -21,4 +23,4 @@ export const nonShootingAimer: IEnemyJson = {
          )
       )
    ]
-};
+});
