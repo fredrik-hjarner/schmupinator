@@ -323,3 +323,6 @@ buttons though.
    ```
 
 * TODO: Now I have broken the player invincibility setting.
+
+* Collision detection does some duplicate collision detection, can be improved. Checked bullets
+  against player collisions twice.
