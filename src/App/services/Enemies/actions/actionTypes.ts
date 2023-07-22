@@ -1,84 +1,179 @@
 import type { Vector } from "../../../../math/bezier";
 import type { TGraphicsActionWithoutHandle } from "../../Graphics/IGraphics";
-import type { TAttrValue } from "../../Attributes/IAttributes";
+import type { TAttrName, TAttrValue } from "../../Attributes/IAttributes";
 
-export type TWait =                Readonly<{ type: "wait", frames: number }>;
-export type TWaitNextFrame =       Readonly<{ type: "waitNextFrame" }>;
-export type TWaitUtilFrameNr =     Readonly<{ type: "wait_util_frame_nr", frameNr: number}>;
-export type TRepeat =              Readonly<{ type: "repeat", times: number, actions: TAction[] }>;
-export type TShootDirection =      Readonly<{ type: "shootDirection", x: number, y: number }>;
-export type TShootTowardPlayer =   Readonly<{ type: "shoot_toward_player" }>;
-export type TShootBesidePlayer =   Readonly<{ type: "shoot_beside_player", degrees: number }>;
-export type TSetShotSpeed =        Readonly<{ type: "setShotSpeed", pixelsPerFrame: number }>;
+/**
+ * Action type enum.
+ * It's often the best to have consts instead of strings. "Find all references" works better in IDE.
+ * Enums are cool in one way: According to TS you are not allowed to assign a string to an enum,
+ * so it forces you to use the enum everywhere which is great!
+ */
+export enum ActionType {
+   wait = "wait",
+   waitNextFrame = "waitNextFrame",
+   waitUntilFrameNr = "wait_util_frame_nr",
+   repeat = "repeat",
+   shootDirection = "shootDirection",
+   shootTowardPlayer = "shoot_toward_player",
+   shoot_beside_player = "shoot_beside_player",
+   setShotSpeed = "setShotSpeed",
+   move = "move",
+   moveDelta = "moveDelta",
+   moveToAbsolute = "moveToAbsolute",
+   set_position = "set_position",
+   setSpeed = "setSpeed",
+   rotate_around_absolute_point = "rotate_around_absolute_point",
+   rotate_around_relative_point = "rotate_around_relative_point",
+   parallelRace = "parallelRace",
+   parallelAll = "parallelAll",
+   rotate_towards_player = "rotate_towards_player",
+   move_according_to_speed_and_direction = "move_according_to_speed_and_direction",
+   spawn = "spawn",
+   mirrorX = "mirrorX",
+   mirrorY = "mirrorY",
+   do = "do",
+   die = "die",
+   despawn = "despawn",
+   waitTilOutsideScreen = "waitTilOutsideScreen",
+   waitTilInsideScreen = "waitTilInsideScreen",
+   fork = "fork",
+   setMoveDirection = "setMoveDirection",
+   moveAccordingToInput = "moveAccordingToInput",
+   waitInputShoot = "waitInputShoot",
+   waitInputLaser = "waitInputLaser",
+   finishLevel = "finishLevel",
+   
+   /**
+    * Attributes
+    */
+   setAttribute = "setAttribute",
+   attrIs = "attrIs",
+   incr = "incr",
+   decr = "decr",
+   waitUntilAttrIs = "waitUntilAttrIs",
+   
+   /**
+    * GFX
+    */
+   gfxSetPosition = "gfxSetPosition",
+   gfxSetDiameter = "gfxSetDiameter",
+   gfxSetColor = "gfxSetColor",
+   gfxSetShape = "gfxSetShape",
+   gfxSetRotation = "gfxSetRotation",
+   gfxSetScale = "gfxSetScale",
+   gfxScrollBg = "gfxScrollBg",
+   gfxFillScreen = "gfxFillScreen",
+
+   /**
+    * GFX that is only used internally by the engine.
+    */
+   gfxAskForElement = "gfxAskForElement",
+   gfxRelease = "gfxRelease",
+}
+
+/**
+ * Attribute getters.
+ * Used to get the value of an attribute an inject that into an action that would otherwise take
+ * a integer, float, bool, or string. This is to make stuff more dynamic and flexible.
+ */
+type TAttrGetter = Readonly<{ gameObjectId?: string, attr: TAttrName }>;
+
+/**
+ * Types for primitive values.
+ * Instead of using "bool" use TBool (etc) so that an action can either take a hardcoded value
+ * or get the value from an attribute.
+ */
+export type TNumber = Readonly<number | TAttrGetter>;
+export type TString = Readonly<string | TAttrGetter>;
+export type TBool = Readonly<boolean | TAttrGetter>;
+
+/** Action types */
+export type TWait =                Readonly<{ type: ActionType.wait, frames: TNumber }>;
+export type TWaitNextFrame =       Readonly<{ type: ActionType.waitNextFrame }>;
+export type TWaitUtilFrameNr =     Readonly<{ type: ActionType.waitUntilFrameNr, frameNr: number}>;
+export type TRepeat =              Readonly<{ type: ActionType.repeat,
+                                                times: TNumber, actions: TAction[] }>;
+export type TShootDirection =      Readonly<{ type: ActionType.shootDirection,
+                                                x: number, y: number }>;
+export type TShootTowardPlayer =   Readonly<{ type: ActionType.shootTowardPlayer }>;
+export type TShootBesidePlayer =   Readonly<{ type: ActionType.shoot_beside_player,
+                                                degrees: number }>;
+export type TSetShotSpeed =        Readonly<{ type: ActionType.setShotSpeed,
+                                                pixelsPerFrame: number }>;
 // Moves relative to current position.
-export type TMove =                Readonly<{ type: "move", frames: number } & Partial<Vector>>;
+export type TMove =                Readonly<{ type: ActionType.move,
+                                                frames: number } & Partial<Vector>>;
 // A very atomic action.
-export type TMoveDelta =           Readonly<{ type: "moveDelta", x?: number, y?: number }>
+export type TMoveDelta =           Readonly<{ type: ActionType.moveDelta, x?: number, y?: number }>
 // Move to an absolute postion on screen.
-export type TMoveToAbsolute =      Readonly<{ type: "moveToAbsolute",
-moveTo: Partial<Vector>, frames: number }>;
-export type TSetPosition =         Readonly<{ type: "set_position", x: number, y: number }>;
-export type TSetSpeed =            Readonly<{ type: "setSpeed", pixelsPerFrame: number }>;
+export type TMoveToAbsolute =      Readonly<{ type: ActionType.moveToAbsolute,
+                                                moveTo: Partial<Vector>, frames: number }>;
+export type TSetPosition =         Readonly<{ type: ActionType.set_position,
+                                                x: number, y: number }>;
+export type TSetSpeed =            Readonly<{ type: ActionType.setSpeed, pixelsPerFrame: number }>;
 export type TRotateAroundAbsolutePoint = Readonly<{
-   type: "rotate_around_absolute_point", point:Partial<Vector>, degrees:number, frames:number
+   type:ActionType.rotate_around_absolute_point, point:Partial<Vector>, degrees:number,frames:number
 }>;
 export type TRotateAroundRelativePoint = Readonly<{
-   type: "rotate_around_relative_point", point:Partial<Vector>, degrees:number, frames:number
+   type:ActionType.rotate_around_relative_point, point:Partial<Vector>, degrees:number,frames:number
 }>
 /**
  * Like Promise.race.
  * Executes TAction lists in parallel, stops when any one of them has finished.
  */
-export type TparallelRace       = Readonly<{ type: "parallelRace", actionsLists: TAction[][] }>;
-export type TparallelAll        = Readonly<{ type: "parallelAll", actionsLists: TAction[][] }>;
-export type TRotateTowardsPlayer = Readonly<{ type: "rotate_towards_player" }>;
-export type TMoveAccordingToSpeedAndDirection = { type: "move_according_to_speed_and_direction" };
+export type TparallelRace       = Readonly<{ type: ActionType.parallelRace,
+                                                actionsLists: TAction[][] }>;
+export type TparallelAll        = Readonly<{ type: ActionType.parallelAll,
+                                                actionsLists: TAction[][] }>;
+export type TRotateTowardsPlayer = Readonly<{ type: ActionType.rotate_towards_player }>;
+export type TMoveAccordingToSpeedAndDirection =
+                                       { type: ActionType.move_according_to_speed_and_direction };
 // Spawns an enemy. actions are prepended to the actions of the particular enemy.
 export type TSpawn = {
-   type: "spawn", enemy: string, x?: number, y?: number, actions?: TAction[]
+   type: ActionType.spawn, enemy: string, x?: number, y?: number, actions?: TAction[]
 };
 // Simple if-equals case. Executes yes if true. Executs no when false.
 export type TAttrIs = {
-   type: "attrIs", gameObjectId?: string, attrName: string,
+   type: ActionType.attrIs, gameObjectId?: string, attrName: TAttrName,
    is: TAttrValue, yes?: TAction[], no?: TAction[]
 };
 // Increments an attribute. Obviously will blow up if trying to increment a non-number.
 export type TIncrement =
-{ type: "incr", gameObjectId?: string, attribute: string };
+{ type: ActionType.incr, gameObjectId?: string, attribute: TAttrName };
 // Decrements an attribute. Obviously will blow up if trying to increment a non-number.
 export type TDecrement =
-{ type: "decr", gameObjectId?: string, attribute: string };
+{ type: ActionType.decr, gameObjectId?: string, attribute: TAttrName };
 
 /**
  * Mirroring mirrors an axis.
  * If you have an enemy that moves like another enemy, except
  * that every x movement is inverted then try mirrorX.
  */
-export type TMirrorX = { type: "mirrorX", value: boolean };
-export type TMirrorY = { type: "mirrorY", value: boolean };
+export type TMirrorX = { type: ActionType.mirrorX, value: boolean };
+export type TMirrorY = { type: ActionType.mirrorY, value: boolean };
 /**
  * The only purpose for this is to "flatten" arrays in YAML.
  * The action simple executes the actions sent to it. As simple as that.
  */
-export type TDo = { type: "do", acns: TAction[] };
+export type TDo = { type: ActionType.do, acns: TAction[] };
 // Well, the enemy dies.
-export type TDie = { type: "die" };
+export type TDie = { type: ActionType.die };
 /**
  * Enemy despawns. Like "die" except onDeathAction is NOT triggered.
  * An example of when this should be used is when an enemy despawns outside of the screen,
  * you probably don't want to trigger an onDeath with explodes the enemy into bullets.
  */
-export type TDespawn = { type: "despawn" };
+export type TDespawn = { type: ActionType.despawn };
 /**
  * Attributes can be either some predefined thing by me such as hp, points,
  * or it could be  end-user specified variable with any type.
  */
 export type TSetAttribute =
-   { type: "setAttribute", gameObjectId?: string, attribute: string, value: TAttrValue };
+   { type: ActionType.setAttribute, gameObjectId?: string, attribute: TAttrName, value: TAttrValue};
 // Waits until Enemy is outside the screen/game window
-export type TWaitTilOutsideScreen = { type: "waitTilOutsideScreen" };
+export type TWaitTilOutsideScreen = { type: ActionType.waitTilOutsideScreen };
 // Waits until Enemy is inside the screen/game window
-export type TWaitTilInsideScreen = { type: "waitTilInsideScreen" };
+export type TWaitTilInsideScreen = { type: ActionType.waitTilInsideScreen };
 /**
  * Fork is like fork in C essentially. The actions in fork executes separately
  * (in a separate generator) i.e. these actions won't delay other actions.
@@ -87,27 +182,27 @@ export type TWaitTilInsideScreen = { type: "waitTilInsideScreen" };
  * a new enemy and you want those actions to not delay the enemy's own actions, but rather
  * execute in parallel to them).
  */
-export type TFork = { type: "fork", actions: TAction[] };
+export type TFork = { type: ActionType.fork, actions: TAction[] };
 /**
  * Set only the move direction. Only specific some move actions care about the direction which 
  * gotta be called to move in the direction set with this action.
  */
-export type TMoveDirection = Readonly<{ type: "setMoveDirection", degrees: number }>;
+export type TMoveDirection = Readonly<{ type: ActionType.setMoveDirection, degrees: number }>;
 // Yields until the attribute has the value set in is.
 export type TWaitUntilAttrIs = Readonly<{
-   type: "waitUntilAttrIs", gameObjectId?: string, attr: string, is: TAttrValue
+   type: ActionType.waitUntilAttrIs, gameObjectId?: TString, attr: TAttrName, is: TAttrValue
 }>;
 
 /**
  * This action is a way to react to input/gamepad/controls, mainly made in order
  * to allow the Player to be an Enemy (i.e. GameObject)
  */
-export type TMoveAccordingToInput = Readonly<{ type: "moveAccordingToInput" }>;
-export type TWaitInputShoot = Readonly<{ type: "waitInputShoot" }>;
-export type TWaitInputLaser = Readonly<{ type: "waitInputLaser" }>;
+export type TMoveAccordingToInput = Readonly<{ type: ActionType.moveAccordingToInput }>;
+export type TWaitInputShoot = Readonly<{ type: ActionType.waitInputShoot }>;
+export type TWaitInputLaser = Readonly<{ type: ActionType.waitInputLaser }>;
 
 // Signals that the level has been finished, so trigger this when end boss dies or something similar
-export type TFinishLevel = Readonly<{ type: "finishLevel" }>;
+export type TFinishLevel = Readonly<{ type: ActionType.finishLevel }>;
 
 export type TAction = Readonly<
    /**

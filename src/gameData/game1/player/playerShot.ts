@@ -2,17 +2,19 @@ import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
 import { spawn } from "../../utils";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+
 export const playerShot: IEnemyJson = {
    name: "playerShot",
    hp: 1,
    diameter: 5,
    onDeathAction: spawn("explosion"),
    actions: [
-      { type: "setAttribute", attribute: "collisionType", value: "playerBullet" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "playerBullet" },
       // TODO: is points really necessary for this?
-      { type: "setAttribute", attribute: "pointsOnDeath", value: -1 },
-      { type: "setAttribute", attribute: "points", value: 0 },
-      { type: "gfxSetShape", shape: "circle" },
-      { type: "gfxSetColor", color: "aqua" },
+      { type: AT.setAttribute, attribute: "pointsOnDeath", value: -1 },
+      { type: AT.setAttribute, attribute: "points", value: 0 },
+      { type: AT.gfxSetShape, shape: "circle" },
+      { type: AT.gfxSetColor, color: "aqua" },
    ],
 };

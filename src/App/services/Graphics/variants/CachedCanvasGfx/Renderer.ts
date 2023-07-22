@@ -129,11 +129,13 @@ export class Renderer {
          case "triangle":
          case "diamondShield":
          case "octagon":
-            images && this.drawImage(images[shape], params);
+            type x = "circle" | "square" | "triangle" | "diamondShield" | "octagon";
+            images && this.drawImage(images[shape as x], params);
             break;
          case "explosion":
          case "roundExplosion":
-            images && this.drawImage(images[shape], params);
+            type y = "explosion" | "roundExplosion";
+            images && this.drawImage(images[shape as y], params);
             break;
          default:
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions

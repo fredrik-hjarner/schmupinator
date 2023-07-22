@@ -6,6 +6,7 @@ import type {
 import type { TInitParams } from "../../../IService";
 import type { IEventsEndOfFrame } from "../../../Events/IEvents";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import { Renderer } from "./Renderer";
 import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts";
 import { uuid } from "../../../../../utils/uuid";
@@ -101,21 +102,21 @@ export class CanvasGfx implements IGraphics {
 
    public Dispatch = (action: TGraphicsAction): TGraphicsResponse => {
       switch(action.type) {
-         case "gfxAskForElement":
+         case AT.gfxAskForElement:
             return this.actionAskForElement();
-         case "gfxSetPosition":
+         case AT.gfxSetPosition:
             return this.actionSetPosition(action);
-         case "gfxSetDiameter":
+         case AT.gfxSetDiameter:
             return this.actionSetDiameter(action);
-         case "gfxRelease":
+         case AT.gfxRelease:
             return this.actionRelease(action);
-         case "gfxSetColor":
+         case AT.gfxSetColor:
             return this.actionSetColor(action);
-         case "gfxSetShape":
+         case AT.gfxSetShape:
             return this.actionSetShape(action);
-         case "gfxSetRotation":
+         case AT.gfxSetRotation:
             return this.actionSetRotation(action);
-         case "gfxSetScale":
+         case AT.gfxSetScale:
             return this.actionSetScale(action);
          default: {
             // eslint-disable-next-line

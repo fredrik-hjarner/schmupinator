@@ -4,6 +4,7 @@ import type { TAction, TSetPosition } from "../actions/actionTypes";
 
 import { describe, it, expect } from "vitest";
 
+import { ActionType as AT } from "../actions/actionTypes";
 import { EnemyActionExecutor } from "../EnemyActionExecutor";
 
 const input: any = undefined;
@@ -27,7 +28,7 @@ describe("move", () => {
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
          gamepad,
          actions: [{
-            type: "move",
+            type: AT.move,
             x: 1,
             y: 0,
             frames: 0
@@ -50,7 +51,7 @@ describe("move", () => {
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
          gamepad,
          actions: [{
-            type: "move",
+            type: AT.move,
             x: 1,
             y: 0,
             frames: 1
@@ -79,7 +80,7 @@ describe("move", () => {
          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
          gamepad,
          actions: [{
-            type: "move",
+            type: AT.move,
             x: 2,
             y: 0,
             frames: 2

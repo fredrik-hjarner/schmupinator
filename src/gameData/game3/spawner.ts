@@ -1,5 +1,6 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import {
    // fork,
    spawn,
@@ -15,8 +16,8 @@ export const spawner: IEnemyJson = {
       //    wait(100),
       //    { type: "finishLevel" }
       // ),
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       // { wait: 1 },
       spawn("player", { x: 178.5, y: 220 }),
       spawn("pacifistStage")

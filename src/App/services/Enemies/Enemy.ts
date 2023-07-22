@@ -4,6 +4,7 @@ import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraph
 import type { Enemies } from "./Enemies";
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "./actions/actionTypes";
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
@@ -168,71 +169,66 @@ export class Enemy {
     * Actually one-lines are okey to inline here.
     */
    private HandleAction = (action: TAction) => {
-      switch(action.type) {
-         case "shootDirection":
+      switch(action.type /* TODO: as AT */) {
+         case AT.shootDirection:
             this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
-         case "setSpeed":
+         case AT.setSpeed:
             this.speed = action.pixelsPerFrame;
             break;
-         case "setShotSpeed":
+         case AT.setShotSpeed:
             this.shotSpeed = action.pixelsPerFrame;
             break;
-         case "set_position":
+         case AT.set_position:
             this.SetPosition({ x: action.x, y: action.y });
             break;
-         case "shoot_toward_player":
+         case AT.shootTowardPlayer:
             this.ShootTowardPlayer();
             break;
-         case "shoot_beside_player":
+         case AT.shoot_beside_player:
             this.ShootBesidePlayer(action.degrees);
             break;
-         case "rotate_towards_player":
+         case AT.rotate_towards_player:
             this.RotateTowardsPlayer();
             break;
-         case "setMoveDirection":
+         case AT.setMoveDirection:
             this.setMoveDirection(action.degrees);
             break;
-         case "move_according_to_speed_and_direction":
+         case AT.move_according_to_speed_and_direction:
             this.moveAccordingToSpeedAndDirection();
             break;
-         case "spawn": {
+         case AT.spawn: {
             // console.log(`Enemy: spawning: ${action.enemy}`);
             const { enemy, x=0, y=0, actions } = action;
             this.spawn({ enemy, pos: { x, y }, actions });
             break;
          }
-         case "mirrorX": 
+         case AT.mirrorX: 
             this.mirrorX = action.value;
             break;
-         case "mirrorY": 
+         case AT.mirrorY: 
             this.mirrorY = action.value;
             break;
-         case "moveDelta":
+         case AT.moveDelta:
             this.moveDelta({ x: action.x, y: action.y });
             break;
-         case "setAttribute": { // this I believe could be move into EnemyActionExecutor??
-            const { gameObjectId, attribute, value } = action;
-            this.attrs.setAttribute({ gameObjectId: gameObjectId ?? this.id, attribute, value });
-            break;
-         }
-         case "despawn":
+         case AT.despawn:
             this.despawn();
             break;
-         case "die":
+         case AT.die:
             this.die();
             break;
-         case "incr": { // this I believe could be move into EnemyActionExecutor??
+         case AT.incr: { // this I believe could be move into EnemyActionExecutor??
             const { gameObjectId, attribute } = action;
             this.attrs.incr({ gameObjectId: gameObjectId ?? this.id, attribute});
             break;
          }
-         case "decr": { // this I believe could be move into EnemyActionExecutor??
+         case AT.decr: { // this I believe could be move into EnemyActionExecutor??
             const { gameObjectId, attribute } = action;
             this.attrs.decr({ gameObjectId: gameObjectId ?? this.id, attribute});
             break;
          }
-         case "finishLevel": // TODO: dispatch some new "finishLevel" event instead.
+         case AT.finishLevel: // TODO: dispatch some new "finishLevel" event instead.
             this.enemies.events.dispatchEvent({ type: "player_died" }); 
             break;
          default:
@@ -256,17 +252,17 @@ export class Enemy {
          enemy: "shot",
          pos: { x: 0, y: 0 },
          actions:  [{
-            type: "fork",
+            type: AT.fork,
             actions: [{
-               type: "repeat",
+               type: AT.repeat,
                times: 99999,
                actions: [
                   /**
                    * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
                    * and then in yaml file a `moveAccordingToDirAndSpeed` action.
                    */
-                  { type: "moveDelta", x: dirX * speedUpFactor, y: dirY * speedUpFactor },
-                  { type: "waitNextFrame" }
+                  { type: AT.moveDelta, x: dirX * speedUpFactor, y: dirY * speedUpFactor },
+                  { type: AT.waitNextFrame }
                ]
             }]
          }]
@@ -334,7 +330,12 @@ export class Enemy {
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
-      this.enemies.Spawn({ enemy, position: absolute, prependActions: actions });
+      this.enemies.Spawn({
+         enemy,
+         position: absolute,
+         prependActions: actions,
+         parentId: this.id, // send in that THIS enemy is the parent of the child being spawned.
+      });
    };
 
    public getPosition = (): TVector => {

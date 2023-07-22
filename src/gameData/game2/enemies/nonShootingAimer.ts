@@ -1,6 +1,7 @@
 import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
 
 import { forever, parallelAll, repeat, setSpeed, spawn, wait } from "@/gameData/utils";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
 export const nonShootingAimer: IEnemyJson = {
    name: "nonShootingAimer",
@@ -11,12 +12,12 @@ export const nonShootingAimer: IEnemyJson = {
       setSpeed(1.6),
       parallelAll(
          repeat(26.25, [
-            { type: "rotate_towards_player" },
+            { type: AT.rotate_towards_player },
             wait(8)
          ]),
          forever(
-            { type: "move_according_to_speed_and_direction" },
-            { type: "waitNextFrame" }
+            { type: AT.move_according_to_speed_and_direction },
+            { type: AT.waitNextFrame }
          )
       )
    ]

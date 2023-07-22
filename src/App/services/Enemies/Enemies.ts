@@ -12,6 +12,7 @@ import type { Settings } from "../Settings/Settings";
 import type { TAction } from "./actions/actionTypes";
 import type { IAttributes } from "../Attributes/IAttributes";
 
+import { ActionType as AT } from "./actions/actionTypes";
 import { Enemy } from "./Enemy";
 
 export class Enemies implements IService {
@@ -65,13 +66,19 @@ export class Enemies implements IService {
    };
 
    public Spawn = (
-      { enemy, position, prependActions=[] }:
-      { enemy: string, position: TVector, prependActions?: TAction[] }
+      { enemy, position, prependActions=[], parentId }:
+      { enemy: string, position: TVector, prependActions?: TAction[], parentId?: string }
    ) => {
       // console.log(`Enemies.Spawn: enemy: ${enemy}`);
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = this.gameData.GetEnemy(enemy);
       // console.log(`Enemies.Spawn: enemyJson.name: ${enemyJson.name}`);
+
+      // action that sets the parentId attribute to hold what gameObject spawned this GameObject.
+      const parentIdAction = (parentId ?
+         [{ type: AT.setAttribute, attribute: "parentId", value: parentId } as const]:
+         []
+      );
 
       /**
        * prepend the actions that the parent sent. this allow parent some control over it's spawn.
@@ -83,17 +90,18 @@ export class Enemies implements IService {
          ...enemyJson,
          actions: [
             // Set some default attributes. TODO: Should prolly do this in another way.
-            { type: "setAttribute", attribute: "points", value: 10 },
-            { type: "setAttribute", attribute: "pointsOnDeath", value: 0 },
-            { type: "setAttribute", attribute: "collisionType", value: "enemy" },
-            { type: "setAttribute", attribute: "boundToWindow", value: false },
+            { type: AT.setAttribute, attribute: "points", value: 10 },
+            { type: AT.setAttribute, attribute: "pointsOnDeath", value: 0 },
+            { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
+            { type: AT.setAttribute, attribute: "boundToWindow", value: false },
+            ...parentIdAction,
             {
-               type: "fork",
+               type: AT.fork,
                actions: [
                   // TODO: Comment
-                  { type: "waitTilInsideScreen" },
-                  { type: "waitTilOutsideScreen" },
-                  { type: "despawn" }
+                  { type: AT.waitTilInsideScreen },
+                  { type: AT.waitTilOutsideScreen },
+                  { type: AT.despawn }
                ]
             },
             ...prependActions,

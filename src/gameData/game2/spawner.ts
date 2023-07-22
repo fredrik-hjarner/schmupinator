@@ -1,5 +1,6 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import { fork, spawn, wait } from "../utils";
 import { col, row } from "./common";
 
@@ -10,10 +11,10 @@ export const spawner: IEnemyJson = {
    actions: [
       fork(
          wait(300 * 60),
-         { type: "finishLevel" },
+         { type: AT.finishLevel },
       ),
-      { type: "setAttribute", attribute: "collisionType", value: "none" },
-      { type: "gfxSetShape", shape: "none" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
+      { type: AT.gfxSetShape, shape: "none" },
       // { wait: 1 },
       spawn("parallax"),
       spawn("player", { x: col[1], y: row[5] }),
