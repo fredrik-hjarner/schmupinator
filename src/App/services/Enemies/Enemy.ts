@@ -142,7 +142,7 @@ export class Enemy {
       }
 
       if(this === this.enemies.player && !this.enemies.settings.settings.invincibility) {
-         this.enemies.events.dispatchEvent({ type: "player_died" });
+         this.enemies.events.dispatchEvent({ type: "gameOver" });
       }
    };
 
@@ -229,7 +229,7 @@ export class Enemy {
             break;
          }
          case AT.finishLevel: // TODO: dispatch some new "finishLevel" event instead.
-            this.enemies.events.dispatchEvent({ type: "player_died" }); 
+            this.enemies.events.dispatchEvent({ type: "gameOver" }); 
             break;
          default:
             this.gfx?.dispatch(action as TGraphicsActionWithoutHandle);

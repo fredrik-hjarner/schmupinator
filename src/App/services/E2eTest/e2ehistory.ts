@@ -25825,7 +25825,7 @@ export const recordedHistory = {
          "enemy": "player"
       },
       {
-         "type": "player_died"
+         "type": "gameOver"
       }
    ]
 };

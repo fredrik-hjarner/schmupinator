@@ -48,7 +48,7 @@ export class E2eRecordEvents implements IE2eTest {
    };
 
    private onEvent = (event: TGameEvent | TPointsEvent | TCollisionsEvent) => {
-      if (event.type === "player_died") {
+      if (event.type === "gameOver") {
          console.log("E2eRecordEvents.history:");
          console.log(this.history);
       }

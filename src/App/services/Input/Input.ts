@@ -58,7 +58,7 @@ export class Input implements IInput {
             case "frame_tick":
                this.frameCount = event.frameNr;
                break;
-            case "player_died":
+            case "gameOver":
                console.log("Input.history:");
                console.log(this.history);
                break;
