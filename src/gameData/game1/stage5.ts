@@ -10,10 +10,11 @@ export const stage5: IEnemyJson = {
    hp: 9999,
    actions: [
       { type: AT.gfxSetShape, shape: "none" },
-      spawn("aqua", { x: col[3], y: row[3] }),
-      spawn("executor", { x: col[5], y: row[5] }),
-      spawn("shotSpeedFromHp", { x: col[7], y: row[5] }),
-      spawn("repeatFromHp", { x: col[8], y: row[5] }),
+      spawn("aqua", { x: col[1], y: row[3] }),
+      spawn("executor", { x: col[2], y: row[5] }),
+      spawn("shotSpeedFromHp", { x: col[3], y: row[5] }),
+      spawn("repeatFromHp", { x: col[4], y: row[5] }),
+      spawn("parent", { x: col[7], y: row[5] }),
    ],
 };
 
@@ -78,5 +79,31 @@ export const aqua: IEnemyJson = {
          { type: AT.shootDirection, x: 0, y: 1 },
          wait(1),
       )
+   ],
+};
+
+/**
+ * Proves that children have parents (parentId is stored in attribute "parentId" on the child).
+ * Shooting on 
+ */
+export const child: IEnemyJson = {
+   name: "child",
+   diameter: 20,
+   hp: 100_000,
+   actions: [
+      { type: AT.gfxSetColor, color: "aqua" },
+      { type: AT.waitUntilAttrIs, gameObjectId: { attr: "parentId" }, attr: "hp", is: 0 },
+      { type: AT.die },
+   ],
+};
+export const parent: IEnemyJson = {
+   name: "parent",
+   diameter: 25,
+   hp: 5,
+   actions: [
+      { type: AT.gfxSetColor, color: "red" },
+      spawn("child", { x: -30,   y: -30 }),
+      spawn("child", { x: 0,     y: -30 }),
+      spawn("child", { x: 30,    y: -30 }),
    ],
 };

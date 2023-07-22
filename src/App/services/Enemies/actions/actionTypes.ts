@@ -1,6 +1,6 @@
 import type { Vector } from "../../../../math/bezier";
 import type { TGraphicsActionWithoutHandle } from "../../Graphics/IGraphics";
-import type { TAttrValue } from "../../Attributes/IAttributes";
+import type { TAttrName, TAttrValue } from "../../Attributes/IAttributes";
 
 /**
  * Action type enum.
@@ -76,7 +76,7 @@ export enum ActionType {
  * Used to get the value of an attribute an inject that into an action that would otherwise take
  * a integer, float, bool, or string. This is to make stuff more dynamic and flexible.
  */
-type TAttrGetter = Readonly<{ gameObjectId?: string, attr: string }>;
+type TAttrGetter = Readonly<{ gameObjectId?: string, attr: TAttrName }>;
 
 /**
  * Types for primitive values.
@@ -134,15 +134,15 @@ export type TSpawn = {
 };
 // Simple if-equals case. Executes yes if true. Executs no when false.
 export type TAttrIs = {
-   type: ActionType.attrIs, gameObjectId?: string, attrName: string,
+   type: ActionType.attrIs, gameObjectId?: string, attrName: TAttrName,
    is: TAttrValue, yes?: TAction[], no?: TAction[]
 };
 // Increments an attribute. Obviously will blow up if trying to increment a non-number.
 export type TIncrement =
-{ type: ActionType.incr, gameObjectId?: string, attribute: string };
+{ type: ActionType.incr, gameObjectId?: string, attribute: TAttrName };
 // Decrements an attribute. Obviously will blow up if trying to increment a non-number.
 export type TDecrement =
-{ type: ActionType.decr, gameObjectId?: string, attribute: string };
+{ type: ActionType.decr, gameObjectId?: string, attribute: TAttrName };
 
 /**
  * Mirroring mirrors an axis.
@@ -169,7 +169,7 @@ export type TDespawn = { type: ActionType.despawn };
  * or it could be  end-user specified variable with any type.
  */
 export type TSetAttribute =
-   { type: ActionType.setAttribute, gameObjectId?: string, attribute: string, value: TAttrValue };
+   { type: ActionType.setAttribute, gameObjectId?: string, attribute: TAttrName, value: TAttrValue};
 // Waits until Enemy is outside the screen/game window
 export type TWaitTilOutsideScreen = { type: ActionType.waitTilOutsideScreen };
 // Waits until Enemy is inside the screen/game window
@@ -190,7 +190,7 @@ export type TFork = { type: ActionType.fork, actions: TAction[] };
 export type TMoveDirection = Readonly<{ type: ActionType.setMoveDirection, degrees: number }>;
 // Yields until the attribute has the value set in is.
 export type TWaitUntilAttrIs = Readonly<{
-   type: ActionType.waitUntilAttrIs, gameObjectId?: string, attr: string, is: TAttrValue
+   type: ActionType.waitUntilAttrIs, gameObjectId?: TString, attr: TAttrName, is: TAttrValue
 }>;
 
 /**

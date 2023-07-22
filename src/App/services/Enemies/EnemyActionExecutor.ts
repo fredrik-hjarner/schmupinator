@@ -1,5 +1,5 @@
 import type {
-   TAction, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint
+   TAction, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
 } from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IAttributes, TAttrValue } from "../Attributes/IAttributes";
@@ -17,8 +17,7 @@ type TActionHandler = (action: TAction) => void;
 
 type TEnemyActionExecutorArgs = {
    /**
-   * The actions to execute.
-   * Executes them in sequence.
+   * The actions to execute. Executes them in sequence.
    * You can execute things in parallel with special compound actions like parallelRace.
    */
    actions: TAction[];
@@ -111,6 +110,16 @@ export class EnemyActionExecutor {
          attribute: param.attr
       });
    };
+   /** Get/extract a hardcoded string or an attribute */
+   private getString = (param: TString): string => {
+      if (typeof param === "string") {
+         return param;
+      }
+      return this.attrs.getString({
+         gameObjectId: param.gameObjectId ?? this.enemy.id,
+         attribute: param.attr
+      });
+   };
 
    private *makeGenerator(
       actions: TAction[] = []
@@ -168,8 +177,13 @@ export class EnemyActionExecutor {
             }
 
             case AT.waitUntilAttrIs: {
-               const { gameObjectId, attr: attribute, is } = currAction;
-               while(this.getAttribute({ gameObjectId, attribute }) !== is) { yield; }
+               const { gameObjectId, attr, is } = currAction;
+               while(this.getAttribute({
+                  gameObjectId: gameObjectId ? this.getString(gameObjectId) : undefined,
+                  attribute: attr
+               }) !== is) {
+                  yield;
+               }
                break;
             }
 
@@ -227,8 +241,8 @@ export class EnemyActionExecutor {
             }
 
             case AT.wait: {
-               const frames = this.getNumber(currAction.frames);
-               for(let i=0; i<frames; i++) { yield; }
+               // const frames = this.getNumber(currAction.frames);
+               for(let i=0; i<this.getNumber(currAction.frames); i++) { yield; }
                break;
             }
 

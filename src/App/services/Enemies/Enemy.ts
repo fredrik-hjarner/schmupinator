@@ -330,7 +330,12 @@ export class Enemy {
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
-      this.enemies.Spawn({ enemy, position: absolute, prependActions: actions });
+      this.enemies.Spawn({
+         enemy,
+         position: absolute,
+         prependActions: actions,
+         parentId: this.id, // send in that THIS enemy is the parent of the child being spawned.
+      });
    };
 
    public getPosition = (): TVector => {

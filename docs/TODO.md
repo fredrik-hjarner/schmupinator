@@ -286,6 +286,8 @@ buttons though.
 
 * Enemy.x and Enemy.y should be attributes so that they could be grabbed by actions.
 
+* I will need `attrLessThan` and `AttrGreaterThan` actions.
+
 * What cool shit could I do with actions now?
    * I would be cool if instead of dying automatically and auto-triggering Game Over,
      I could could trigger Game Over manually.

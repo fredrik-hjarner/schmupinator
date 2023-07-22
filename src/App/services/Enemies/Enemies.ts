@@ -66,13 +66,19 @@ export class Enemies implements IService {
    };
 
    public Spawn = (
-      { enemy, position, prependActions=[] }:
-      { enemy: string, position: TVector, prependActions?: TAction[] }
+      { enemy, position, prependActions=[], parentId }:
+      { enemy: string, position: TVector, prependActions?: TAction[], parentId?: string }
    ) => {
       // console.log(`Enemies.Spawn: enemy: ${enemy}`);
       // console.log(`Spawn ${enemy} at ${JSON.stringify(position)}`);
       const enemyJson = this.gameData.GetEnemy(enemy);
       // console.log(`Enemies.Spawn: enemyJson.name: ${enemyJson.name}`);
+
+      // action that sets the parentId attribute to hold what gameObject spawned this GameObject.
+      const parentIdAction = (parentId ?
+         [{ type: AT.setAttribute, attribute: "parentId", value: parentId } as const]:
+         []
+      );
 
       /**
        * prepend the actions that the parent sent. this allow parent some control over it's spawn.
@@ -88,6 +94,7 @@ export class Enemies implements IService {
             { type: AT.setAttribute, attribute: "pointsOnDeath", value: 0 },
             { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
             { type: AT.setAttribute, attribute: "boundToWindow", value: false },
+            ...parentIdAction,
             {
                type: AT.fork,
                actions: [
