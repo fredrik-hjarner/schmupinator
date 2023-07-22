@@ -5,7 +5,7 @@ import { createGameObject } from "../utils";
 
 export const shot: IEnemyJson = createGameObject({
    name: "shot",
-   hp: 9999,
+   hp: 1,
    diameter: 5,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "enemyBullet" },

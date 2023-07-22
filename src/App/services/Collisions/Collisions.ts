@@ -109,7 +109,7 @@ export class Collisions implements IService {
          this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
       
-      const enemiesThatWereHit = enemies.reduce<string[]>((acc, enemy) => {
+      const enemiesHitByPlayerBullets = enemies.reduce<string[]>((acc, enemy) => {
          const collision = this.calcCollisions({
             doesThis: enemy,
             collideWithThese: playerBullets
@@ -118,12 +118,28 @@ export class Collisions implements IService {
          return collision.collided ? [...acc, enemy.id, collision.collidedWithId] : acc;
       }, []);
 
+      /** TODO: I think there are some collisions that are calculatd twice. */
+      // Bullets hitting the player should be able to explode/despawn for example.
+      const enemyBulletsThatHitPlayer = enemyBullets.reduce<string[]>((acc, enemyBullet) => {
+         const collision = this.calcCollisions({
+            doesThis: enemyBullet,
+            collideWithThese: [player]
+         });
+         return collision.collided ? [...acc, enemyBullet.id] : acc;
+      }, []);
+
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
 
       // Only send event if there were collisions.
-      if (enemiesThatWereHit.length > 0) {
-         const collisions = { enemiesThatWereHit };
+      if (enemiesHitByPlayerBullets.length > 0) {
+         const collisions = { enemiesThatWereHit: enemiesHitByPlayerBullets };
+         this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
+      }
+
+      // Only send event if there were collisions.
+      if (enemyBulletsThatHitPlayer.length > 0) {
+         const collisions = { enemiesThatWereHit: enemyBulletsThatHitPlayer };
          this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
    };
