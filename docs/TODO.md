@@ -288,6 +288,12 @@ buttons though.
 
 * I will need `attrLessThan` and `AttrGreaterThan` actions.
 
+* All positions should be standardized in action to `pos` and there should be a type `TPos`,
+  and a `TPosDim` that is like `TString` in that they can either take a
+  `{ x?: TPosDim, y?: TPosDim }` and `TPosDim` is
+  `TNumber | { position: "relative" | "absolute", value: TNumber }`, although that looks a bit
+  complicated so I dunno.
+
 * What cool shit could I do with actions now?
    * I would be cool if instead of dying automatically and auto-triggering Game Over,
      I could could trigger Game Over manually.
