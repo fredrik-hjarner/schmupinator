@@ -47,9 +47,6 @@ export class Enemy {
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
-      // TODO: Attrs should be be set by an Action in future, right?
-      this.hp = json.hp;
-      this.maxHp = json.hp;
 
       this.graphics = this.enemies.graphics;
       this.gfx = new EnemyGfx({
@@ -63,12 +60,6 @@ export class Enemy {
    }
    private set hp(value: number){
       this.attrs.setAttribute({ gameObjectId: this.id, attribute: "hp", value });
-   }
-   private get maxHp(): number {
-      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "maxHp" }));
-   }
-   private set maxHp(value: number){
-      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "maxHp", value });
    }
 
    public get Radius(){ return this.diameter/2; }

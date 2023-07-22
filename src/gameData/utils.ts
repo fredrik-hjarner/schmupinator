@@ -31,7 +31,6 @@ type TCreateGameObjectParams = {
 export function createGameObject(params: TCreateGameObjectParams): IEnemyJson {
    return {
       name: params.name,
-      hp: params.hp,
       diameter: params.diameter,
       actions: [
          // Set some default attributes.
@@ -39,12 +38,14 @@ export function createGameObject(params: TCreateGameObjectParams): IEnemyJson {
          { type: AT.setAttribute, attribute: "pointsOnDeath", value: 0 },
          { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
          { type: AT.setAttribute, attribute: "boundToWindow", value: false },
+         { type: AT.setAttribute, attribute: "hp", value: params.hp },
+         { type: AT.setAttribute, attribute: "maxHp", value: params.hp },
          // Setup despawning when GameObject moves out of the screen.
          {
             type: AT.fork,
             actions: [
-               { type: AT.waitTilInsideScreen },
-               { type: AT.waitTilOutsideScreen },
+               { type: AT.waitTilInsideScreen }, // TODO: This should take a margin argument.
+               { type: AT.waitTilOutsideScreen }, // TODO: This should take a margin argument.
                { type: AT.despawn }
             ]
          },

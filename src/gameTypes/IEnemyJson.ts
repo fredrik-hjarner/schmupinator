@@ -7,7 +7,6 @@ import type { TAction } from "../App/services/Enemies/actions/actionTypes";
  */
 export type IEnemyJson = {
   name: string;
-  hp: number; // actually maxHp
   diameter: number;
   actions: TAction[];
 }
