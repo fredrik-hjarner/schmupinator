@@ -5,7 +5,7 @@ import type { TAction } from "../App/services/Enemies/actions/actionTypes";
  * One can think of this as being a template. When spawning new GameObjects then this "template" is
  * used to create a new GameObject "instances".
  */
-export type IEnemyJson = {
+export type TGameObject = {
   name: string;
   diameter: number;
   actions: TAction[];

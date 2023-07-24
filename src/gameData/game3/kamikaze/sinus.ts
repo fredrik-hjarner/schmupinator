@@ -1,5 +1,5 @@
 import type { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes";
-import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
 import { Do, attr, createGameObject, parallelAll, twice, wait } from "../../utils";
@@ -43,7 +43,7 @@ const rotateRightAndShoot = parallelAll(
    shootWhileRotation
 );
 
-export const sinus: IEnemyJson = createGameObject({
+export const sinus: TGameObject = createGameObject({
    name: "sinus",
    hp: 1,
    diameter: 24,

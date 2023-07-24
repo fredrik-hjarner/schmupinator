@@ -25,7 +25,7 @@ export class SelectGame implements IScene {
    public render() {
       if(this.ui.settingsService.settings.skipStartMenu) {
          // Yea, just skip this menu.
-         this.onSelectGame("game1");
+         this.onSelectGame(0);
          return;
       }
 
@@ -38,12 +38,12 @@ export class SelectGame implements IScene {
       });
       centerHorizontally(this.title);
 
-      const games = this.ui.gameData.getGames()
-         .map(game => (
+      const games = this.ui.gameData.getGameNames()
+         .map((game, i) => (
             {
                text: game,
                onClick: () => {
-                  this.onSelectGame(game);
+                  this.onSelectGame(i);
                }
             }
          ));
@@ -72,7 +72,7 @@ export class SelectGame implements IScene {
       this.menu?.destroy();
    }
 
-   private onSelectGame = (gameName: string) => {
+   private onSelectGame = (gameName: number) => {
       this.ui.gameData.setActiveGame(gameName);
       /**
        * TODO: Should display controls for the current game,

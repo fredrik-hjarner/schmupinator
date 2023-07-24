@@ -15,7 +15,7 @@ type THighscores = {
     * In case I need to transform from an ealier format to a later format.
     */
    version?: number;
-   games: Partial<Record<string, THighscoreEntry[]>>
+   games: Partial<Record<number, THighscoreEntry[]>>
 }
 
 type THighscoreEntry = { name: string, score: number };
@@ -47,10 +47,10 @@ export class Highscore implements IService {
 
       this.highscores = {
          version: latestVersion,
-         games: {
-            game1: this.defaultHighscore(),
-            game2: this.defaultHighscore(),
-         }
+         games: [
+            this.defaultHighscore(),
+            this.defaultHighscore(),
+         ]
       };
 
       if(highscores) {

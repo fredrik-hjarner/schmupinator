@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import {
@@ -8,7 +8,7 @@ import {
    // wait
 } from "../utils";
 
-export const spawner: IEnemyJson = createGameObject({
+export const spawner: TGameObject = createGameObject({
    name: "spawner",
    diameter: 20,
    hp: 9999,

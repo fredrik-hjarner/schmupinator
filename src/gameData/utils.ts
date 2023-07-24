@@ -2,7 +2,7 @@ import type {
    TAction, TAttrIs, TDo, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll, TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
-import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
+import type { TGameObject } from "@/gameTypes/TGameObject";
 
 import { ActionType as AT } from "../App/services/Enemies/actions/actionTypes";
 
@@ -28,7 +28,7 @@ type TCreateGameObjectParams = {
  * with actions (and attriubutes).
  * TODO: Maybe this should be removed when it is no longer needed??
  */
-export function createGameObject(params: TCreateGameObjectParams): IEnemyJson {
+export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    return {
       name: params.name,
       diameter: params.diameter,

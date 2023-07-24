@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import {
    createGameObject,
@@ -9,7 +9,7 @@ import { col, row } from "./common";
 import { aimersWave } from "./waves/aimers";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
-export const stage: IEnemyJson = createGameObject({
+export const stage: TGameObject = createGameObject({
    name: "stage",
    diameter: 20,
    hp: 9999,

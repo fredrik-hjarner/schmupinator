@@ -1,10 +1,10 @@
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import { attr, createGameObject, forever, wait } from "../utils";
 import { col, row } from "./common";
 
-export const stage3: IEnemyJson = createGameObject({
+export const stage3: TGameObject = createGameObject({
    name: "stage3",
    diameter: 20,
    hp: 9999,
@@ -16,7 +16,7 @@ export const stage3: IEnemyJson = createGameObject({
    ]
 });
 
-export const shapeShifter: IEnemyJson = createGameObject({
+export const shapeShifter: TGameObject = createGameObject({
    name: "shapeShifter",
    diameter: 30,
    hp: 100,
@@ -37,7 +37,7 @@ export const shapeShifter: IEnemyJson = createGameObject({
    ]
 });
 
-export const healer: IEnemyJson = createGameObject({
+export const healer: TGameObject = createGameObject({
    name: "healer",
    diameter: 30,
    hp: 50,
@@ -53,7 +53,7 @@ export const healer: IEnemyJson = createGameObject({
    ]
 });
 
-export const dehealer: IEnemyJson = createGameObject({
+export const dehealer: TGameObject = createGameObject({
    name: "dehealer",
    diameter: 30,
    hp: 50,

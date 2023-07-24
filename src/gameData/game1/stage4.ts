@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes";
@@ -92,7 +92,7 @@ const wave4: TAction[] = [
    ]},
 ];
 
-export const stage4: IEnemyJson = createGameObject({
+export const stage4: TGameObject = createGameObject({
    name: "stage4",
    diameter: 20,
    hp: 9999,
@@ -107,7 +107,7 @@ export const stage4: IEnemyJson = createGameObject({
    ],
 });
 
-export const easyFlyer: IEnemyJson = createGameObject({
+export const easyFlyer: TGameObject = createGameObject({
    name: "easyFlyer",
    diameter: 29,
    hp: 5,

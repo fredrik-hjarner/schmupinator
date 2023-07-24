@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
+import type { TGameObject } from "@/gameTypes/TGameObject";
 import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
@@ -18,7 +18,7 @@ const rotate = ({ x, y }: { x?: number, y?: number }): TAction => ({
    point: { x, y }
 });
 
-export const spinningDots: IEnemyJson = createGameObject({
+export const spinningDots: TGameObject = createGameObject({
    name: "spinningDots",
    hp: 9999,
    diameter: 5,

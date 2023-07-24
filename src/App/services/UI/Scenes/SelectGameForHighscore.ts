@@ -32,12 +32,12 @@ export class SelectGameForHighscore implements IScene {
       });
       centerHorizontally(this.title);
 
-      const games = this.ui.gameData.getGames()
-         .map(game => (
+      const games = this.ui.gameData.getGameNames()
+         .map((game, i) => (
             {
                text: game,
                onClick: () => {
-                  this.onSelectGame(game);
+                  this.onSelectGame(i);
                }
             }
          ));
@@ -66,7 +66,7 @@ export class SelectGameForHighscore implements IScene {
       this.menu?.destroy();
    }
 
-   private onSelectGame = (gameName: string) => {
+   private onSelectGame = (gameName: number) => {
       this.ui.gameData.setActiveGame(gameName);
       this.ui.SetActiveScene(this.ui.highscore, { backButton: true });
    };

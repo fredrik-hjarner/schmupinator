@@ -13,6 +13,8 @@ import { spawner } from "./spawner";
 import startScreen from "./startScreen.png";
 
 const game: TGame = {
+   name: "Some tests",
+
    startScreenImageUrl: startScreen,
 
    gameObjects: [
