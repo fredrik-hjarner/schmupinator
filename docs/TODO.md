@@ -301,12 +301,8 @@ buttons though.
   For every frame I would save a delta.
 
 * What cool shit could I do with actions now?
-   * I would be cool if instead of dying automatically and auto-triggering Game Over,
-     I could could trigger Game Over manually.
-     It would be cool if it was possible to give the player several lifes this way, like
-     decrementing a counter and then fully die when it eaches zero.
-     Actually, maybe I could replace `onDeathAction` with `waitUntilAttrIs` action so that I wait
-     until `hp` is 0.
+     It would be cool if it was possible to give the player several lifes, like
+     decrementing a counter and then fully die when it reaches zero.
 
    * Points could be entirely managed by enemies themselves (in onHit callback or something).
 
