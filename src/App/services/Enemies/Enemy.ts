@@ -230,6 +230,10 @@ export class Enemy {
       });
    };
 
+   /**
+    * TODO: This should be removed. Instead I should do this somehow with an action or attributes,
+    * so that you can shoot toward any position (or any position of a GameObject).
+    */
    private ShootTowardPlayer = () => {
       const player = this.enemies.player;
       const dirX = player.X - this.X;
