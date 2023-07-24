@@ -258,10 +258,11 @@ export class EnemyActionExecutor {
             }
 
             case AT.waitTilOutsideScreen: {
-               const left = -30;
-               const right = resolutionWidth + 30;
-               const top = -30;
-               const bottom = resolutionHeight + 30;
+               const { margin = 30 } = currAction;
+               const left = -margin;
+               const right = resolutionWidth + margin;
+               const top = -margin;
+               const bottom = resolutionHeight + margin;
                // TODO: Move function.
                const isOutsideScreen = ({ x, y }: TVector): boolean => {
                   return x < left || x > right || y < top || y > bottom;

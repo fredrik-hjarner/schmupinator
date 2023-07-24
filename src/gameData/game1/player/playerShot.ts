@@ -9,6 +9,7 @@ export const playerShot: TGameObject = createGameObject({
    hp: 1,
    diameter: 5,
    onDeathAction: spawn("explosion"),
+   options: { despawnMargin: 5 },
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "playerBullet" },
       // TODO: is points really necessary for this?

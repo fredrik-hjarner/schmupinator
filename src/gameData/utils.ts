@@ -30,6 +30,8 @@ type TCreateGameObjectParams = {
       despawnWhenOutsideScreen?: boolean;
       /** Set to true disable polling hp every frame for death. */
       invincible?: boolean;
+      /** Despawns the GameObject when it's these many pixels outside of the screen */
+      despawnMargin?: number;
    }
 }
 /**
@@ -42,12 +44,13 @@ type TCreateGameObjectParams = {
 export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    const despawnWhenOutsideScreen = params.options?.despawnWhenOutsideScreen ?? true;
    const invincible = params.options?.invincible ?? false;
+   const despawnMargin = params.options?.despawnMargin;
 
    const despawnWhenOutsideScreenAction: TAction[] = despawnWhenOutsideScreen ? [{
       type: AT.fork,
       actions: [
          { type: AT.waitTilInsideScreen }, // TODO: This should take a margin argument.
-         { type: AT.waitTilOutsideScreen }, // TODO: This should take a margin argument.
+         { type: AT.waitTilOutsideScreen, margin: despawnMargin },
          { type: AT.despawn }
       ]
    }] : [];

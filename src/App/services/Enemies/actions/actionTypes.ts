@@ -171,8 +171,11 @@ export type TDespawn = { type: ActionType.despawn };
  */
 export type TSetAttribute =
    { type: ActionType.setAttribute, gameObjectId?: string, attribute: TAttrName, value: TAttrValue};
-// Waits until Enemy is outside the screen/game window
-export type TWaitTilOutsideScreen = { type: ActionType.waitTilOutsideScreen };
+/**
+ * Waits until Enemy is outside the screen/game window.
+ * margin is how many pixels the GameObject needs to be outside the screen.
+ */
+export type TWaitTilOutsideScreen = { type: ActionType.waitTilOutsideScreen, margin?: number };
 // Waits until Enemy is inside the screen/game window
 export type TWaitTilInsideScreen = { type: ActionType.waitTilInsideScreen };
 /**
