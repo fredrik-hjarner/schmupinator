@@ -1,9 +1,9 @@
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { forever, parallelRace, spawn, wait } from "../../utils";
+import { createGameObject, forever, parallelRace, spawn, wait } from "../../utils";
 
-export const playerLaser: IEnemyJson = {
+export const playerLaser: IEnemyJson = createGameObject({
    name: "playerLaser",
    hp: 1,
    diameter: 5,
@@ -26,4 +26,4 @@ export const playerLaser: IEnemyJson = {
          ]
       )
    ]
-};
+});

@@ -36,7 +36,7 @@ export class Points implements IPoints {
             this.updatePoints();
             break;
          }
-         case "player_died":
+         case "gameOver":
             // unsub because we dont want to get in here again.
             this.app.events.unsubscribeToEvent(this.name);
             break;

@@ -1,9 +1,9 @@
 import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { spawn } from "../../utils";
+import { createGameObject, spawn } from "../../utils";
 
-export const playerShot: IEnemyJson = {
+export const playerShot: IEnemyJson = createGameObject({
    name: "playerShot",
    hp: 1,
    diameter: 5,
@@ -16,4 +16,4 @@ export const playerShot: IEnemyJson = {
       { type: AT.gfxSetShape, shape: "circle" },
       { type: AT.gfxSetColor, color: "aqua" },
    ],
-};
+});

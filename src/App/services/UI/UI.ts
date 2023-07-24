@@ -103,7 +103,7 @@ export class UI implements IUI {
 
    private onEvent = (event: TGameEvent) => {
       switch(event.type) {
-         case "player_died": {
+         case "gameOver": {
             this.gameLoop.pause();
             this.SetActiveScene(this.gameOver);
             break;

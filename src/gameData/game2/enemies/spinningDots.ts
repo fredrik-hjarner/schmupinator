@@ -3,6 +3,7 @@ import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import {
+   createGameObject,
    forever,
    fork,
    spawn,
@@ -17,7 +18,7 @@ const rotate = ({ x, y }: { x?: number, y?: number }): TAction => ({
    point: { x, y }
 });
 
-export const spinningDots: IEnemyJson = {
+export const spinningDots: IEnemyJson = createGameObject({
    name: "spinningDots",
    hp: 9999,
    diameter: 5,
@@ -81,4 +82,4 @@ export const spinningDots: IEnemyJson = {
       }),
       { type: AT.despawn }
    ]
-};
+});

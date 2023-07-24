@@ -28,7 +28,7 @@ type TEventFrameTick = { type: "frame_tick", frameNr: number };
 
 export type TGameEvent =
    TEventFrameTick | // signals next frame has come.
-   { type: "player_died" }; // when player dies.
+   { type: "gameOver" }; // when player dies.
 
 export type TGameEventCallback =  TEventCallback<TGameEvent>;
 export type TGameEventSubscribers = TEventSubscribers<TGameEvent>

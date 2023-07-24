@@ -1,10 +1,10 @@
 import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { forever, repeat, spawn, wait } from "../utils";
+import { createGameObject, forever, repeat, spawn, wait } from "../utils";
 import { col, row } from "./common";
 
-export const stage5: IEnemyJson = {
+export const stage5: IEnemyJson = createGameObject({
    name: "stage5",
    diameter: 20,
    hp: 9999,
@@ -16,10 +16,10 @@ export const stage5: IEnemyJson = {
       spawn("repeatFromHp", { x: col[4], y: row[5] }),
       spawn("parent", { x: col[7], y: row[5] }),
    ],
-};
+});
 
 // Proves that attribute getter work with wait action.
-export const shotSpeedFromHp: IEnemyJson = {
+export const shotSpeedFromHp: IEnemyJson = createGameObject({
    name: "shotSpeedFromHp",
    diameter: 20,
    hp: 50,
@@ -32,10 +32,10 @@ export const shotSpeedFromHp: IEnemyJson = {
          { type: AT.shootDirection, x: 0, y: -1 },
       )
    ],
-};
+});
 
 // Proves that attribute getter work with repeat action.
-export const repeatFromHp: IEnemyJson = {
+export const repeatFromHp: IEnemyJson = createGameObject({
    name: "repeatFromHp",
    diameter: 20,
    hp: 50,
@@ -50,9 +50,9 @@ export const repeatFromHp: IEnemyJson = {
          { type: AT.shootDirection, x: 0, y: -1 },
       )
    ],
-};
+});
 
-export const executor: IEnemyJson = {
+export const executor: IEnemyJson = createGameObject({
    name: "executor",
    diameter: 30,
    hp: 100_000,
@@ -65,9 +65,9 @@ export const executor: IEnemyJson = {
          wait(35),
       )
    ],
-};
+});
 
-export const aqua: IEnemyJson = {
+export const aqua: IEnemyJson = createGameObject({
    name: "aqua",
    diameter: 30,
    hp: 100_000,
@@ -80,23 +80,23 @@ export const aqua: IEnemyJson = {
          wait(1),
       )
    ],
-};
+});
 
 /**
  * Proves that children have parents (parentId is stored in attribute "parentId" on the child).
  * Shooting on 
  */
-export const child: IEnemyJson = {
+export const child: IEnemyJson = createGameObject({
    name: "child",
    diameter: 20,
    hp: 100_000,
    actions: [
       { type: AT.gfxSetColor, color: "aqua" },
       { type: AT.waitUntilAttrIs, gameObjectId: { attr: "parentId" }, attr: "hp", is: 0 },
-      { type: AT.die },
+      { type: AT.setAttribute, attribute: "hp", value: 0 },
    ],
-};
-export const parent: IEnemyJson = {
+});
+export const parent: IEnemyJson = createGameObject({
    name: "parent",
    diameter: 25,
    hp: 5,
@@ -106,4 +106,4 @@ export const parent: IEnemyJson = {
       spawn("child", { x: 0,     y: -30 }),
       spawn("child", { x: 30,    y: -30 }),
    ],
-};
+});

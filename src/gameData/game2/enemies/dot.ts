@@ -1,11 +1,12 @@
 import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
 
 import {
+   createGameObject,
    spawn,
 } from "@/gameData/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
-export const dot: IEnemyJson = {
+export const dot: IEnemyJson = createGameObject({
    name: "dot",
    hp: 20,
    diameter: 20,
@@ -13,4 +14,4 @@ export const dot: IEnemyJson = {
    actions: [
       { type: AT.gfxSetShape, shape: "stage2/circle.png" },
    ]
-};
+});

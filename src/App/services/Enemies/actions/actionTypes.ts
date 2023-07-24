@@ -32,7 +32,6 @@ export enum ActionType {
    mirrorX = "mirrorX",
    mirrorY = "mirrorY",
    do = "do",
-   die = "die",
    despawn = "despawn",
    waitTilOutsideScreen = "waitTilOutsideScreen",
    waitTilInsideScreen = "waitTilInsideScreen",
@@ -69,6 +68,11 @@ export enum ActionType {
     */
    gfxAskForElement = "gfxAskForElement",
    gfxRelease = "gfxRelease",
+
+   /**
+    * Log
+    */
+   log = "log",
 }
 
 /**
@@ -156,12 +160,9 @@ export type TMirrorY = { type: ActionType.mirrorY, value: boolean };
  * The action simple executes the actions sent to it. As simple as that.
  */
 export type TDo = { type: ActionType.do, acns: TAction[] };
-// Well, the enemy dies.
-export type TDie = { type: ActionType.die };
 /**
- * Enemy despawns. Like "die" except onDeathAction is NOT triggered.
+ * Enemy despawns.
  * An example of when this should be used is when an enemy despawns outside of the screen,
- * you probably don't want to trigger an onDeath with explodes the enemy into bullets.
  */
 export type TDespawn = { type: ActionType.despawn };
 /**
@@ -203,6 +204,9 @@ export type TWaitInputLaser = Readonly<{ type: ActionType.waitInputLaser }>;
 
 // Signals that the level has been finished, so trigger this when end boss dies or something similar
 export type TFinishLevel = Readonly<{ type: ActionType.finishLevel }>;
+
+// Action to console.log, so you can debug actions.
+export type TLog = Readonly<{ type: ActionType.log, msg: string }>;
 
 export type TAction = Readonly<
    /**
@@ -246,7 +250,6 @@ export type TAction = Readonly<
    * Spawning/Life cycle
    */
    TSpawn |
-   TDie |
    TDespawn |
    TWaitTilOutsideScreen |
    TWaitTilInsideScreen |
@@ -268,5 +271,9 @@ export type TAction = Readonly<
     * And also all Graphics actions
     * I remove the handles because the enemy that executes the actions has the handle already.
     */
-   TGraphicsActionWithoutHandle
+   TGraphicsActionWithoutHandle |
+   /**
+    * Log
+    */
+   TLog
 >;

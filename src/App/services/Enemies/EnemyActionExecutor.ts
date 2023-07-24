@@ -77,7 +77,6 @@ export class EnemyActionExecutor {
           * During the execution more generators can be added,
           * so only if the number has not been changed can we make assumptions about all generators
           * having finished or not.
-          * 
           * But... couldn't one generator be added and another one deleted, +1 -1 = 0 ??
           */
          const allDone = nexts.every(next => next.done);
@@ -129,10 +128,6 @@ export class EnemyActionExecutor {
 
       while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
          const currAction = actions[currIndex];
-         // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
-         //    console.log(`${this.enemy.id} will execute ${currAction.type}`);
-         // }
-         // console.log(currAction.type);
          switch(currAction.type) {
             case AT.moveAccordingToInput: {
                const input = this.input;
@@ -328,14 +323,15 @@ export class EnemyActionExecutor {
                yield* rotateAroundPoint(currAction, pointToPosVector, this.actionHandler);
                break;
             }
+            
+            case AT.log:
+               console.log(`LogAction: ${currAction.msg}`);
+               break;
 
             default:
                this.actionHandler(currAction);
          }
          currIndex++;
-         // if (this.enemy.id.includes("spin") || this.enemy.id.includes("stage")) {
-         //    console.log(`${this.enemy.id} executed ${currAction.type}`);
-         // }
       }
    }
 }

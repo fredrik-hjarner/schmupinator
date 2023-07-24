@@ -62,7 +62,7 @@ export class E2eTest implements IE2eTest {
    };
 
    private onEvent = (event: TGameEvent | TPointsEvent | TCollisionsEvent) => {
-      if (event.type === "player_died") {
+      if (event.type === "gameOver") {
          // This should actually trigger for very kind of END OF GAME scenario.
          console.log("E2eTest: Test succeeded.");
          const millis = (BrowserDriver.PerformanceNow() - this.startTime);

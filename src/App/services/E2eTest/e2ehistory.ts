@@ -19,14 +19,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "132": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "132": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -45,14 +45,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "133": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "136": [
+   "135": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -78,14 +80,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "139": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "144": [
+   "143": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -98,6 +102,21 @@ export const recordedHistory = {
       }
    ],
    "151": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -116,24 +135,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "152": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -159,6 +163,18 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "159": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -166,19 +182,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "160": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      }
-   ],
-   "168": [
+   "167": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -209,14 +213,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "173": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "176": [
+   "175": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -247,14 +253,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "179": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "179": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -273,14 +279,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "180": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "184": [
+   "183": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -311,14 +319,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "186": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "186": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -337,7 +345,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "187": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "191": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -345,11 +362,6 @@ export const recordedHistory = {
       }
    ],
    "192": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "collisions",
          "collisions": {
@@ -368,14 +380,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "193": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "193": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -394,7 +406,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "194": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -420,14 +434,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "199": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "200": [
+      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -453,14 +467,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "206": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "208": [
+   "207": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -486,14 +502,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "213": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "213": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -512,6 +528,20 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "214": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "215": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -519,19 +549,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "216": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      }
-   ],
-   "224": [
+   "223": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -557,7 +575,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "226": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -565,6 +585,16 @@ export const recordedHistory = {
       }
    ],
    "231": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -583,19 +613,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "232": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -621,14 +641,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "239": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "240": [
+      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -659,14 +679,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "246": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "248": [
+   "247": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -697,14 +719,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "254": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "256": [
+   "255": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -735,7 +759,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "259": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -761,14 +787,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "261": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "264": [
+   "263": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -794,14 +822,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "266": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "266": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -820,7 +848,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "267": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -828,6 +858,11 @@ export const recordedHistory = {
       }
    ],
    "271": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -846,11 +881,6 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "272": [
@@ -877,7 +907,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "273": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -885,6 +917,11 @@ export const recordedHistory = {
       }
    ],
    "279": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -903,11 +940,6 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "280": [
@@ -936,14 +968,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "286": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "288": [
+   "287": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -974,11 +1008,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -986,6 +1015,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "293": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -993,7 +1029,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "296": [
+   "295": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1019,14 +1055,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "299": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "299": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -1045,14 +1081,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "300": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "304": [
+   "303": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1078,14 +1116,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "306": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "306": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -1104,7 +1142,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "307": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "311": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1112,11 +1159,6 @@ export const recordedHistory = {
       }
    ],
    "312": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "collisions",
          "collisions": {
@@ -1135,7 +1177,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "313": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1161,14 +1205,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "319": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "320": [
+      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1199,11 +1243,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1211,6 +1250,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "326": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1218,7 +1264,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "328": [
+   "327": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1249,11 +1295,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1261,6 +1302,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "333": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1268,7 +1316,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "336": [
+   "335": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1294,14 +1342,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "339": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "339": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -1320,14 +1368,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "340": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "344": [
+   "343": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1353,7 +1403,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "346": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "351": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1361,11 +1420,6 @@ export const recordedHistory = {
       }
    ],
    "352": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "collisions",
          "collisions": {
@@ -1384,7 +1438,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "353": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1410,14 +1466,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "359": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "360": [
+      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1453,11 +1509,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1465,6 +1516,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "366": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1472,7 +1530,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "368": [
+   "367": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1503,11 +1561,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1515,6 +1568,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "373": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1522,7 +1582,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "376": [
+   "375": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1548,14 +1608,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "379": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "384": [
+   "383": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1586,11 +1648,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1598,6 +1655,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "386": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1605,12 +1669,14 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "392": [
+   "391": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      },
+      }
+   ],
+   "392": [
       {
          "type": "collisions",
          "collisions": {
@@ -1629,7 +1695,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "393": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1655,14 +1723,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "399": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "400": [
+      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1698,11 +1766,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1710,6 +1773,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "406": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1717,7 +1787,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "408": [
+   "407": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1743,14 +1813,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "413": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "416": [
+   "415": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1781,11 +1853,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1793,6 +1860,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "419": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1800,7 +1874,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "424": [
+   "423": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1831,11 +1905,6 @@ export const recordedHistory = {
       },
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
          "points": 10,
          "enemy": "nonShootingAimer"
       },
@@ -1843,6 +1912,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "426": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -1850,12 +1926,14 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "432": [
+   "431": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      },
+      }
+   ],
+   "432": [
       {
          "type": "collisions",
          "collisions": {
@@ -1874,7 +1952,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "433": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1900,38 +1980,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
-   "440": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      }
-   ],
-   "448": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      }
-   ],
-   "456": [
+   "439": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1948,7 +1999,19 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "464": [
+   "447": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "455": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1965,7 +2028,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "472": [
+   "463": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1982,7 +2045,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "480": [
+   "471": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -1999,7 +2062,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "488": [
+   "479": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2016,7 +2079,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "496": [
+   "487": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2033,7 +2096,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "504": [
+   "495": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2050,7 +2113,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "512": [
+   "503": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2067,7 +2130,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "520": [
+   "511": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2084,7 +2147,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "528": [
+   "519": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2101,7 +2164,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "536": [
+   "527": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2118,7 +2181,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "544": [
+   "535": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2135,7 +2198,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "552": [
+   "543": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2152,7 +2215,24 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "560": [
+   "551": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "559": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2188,14 +2268,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "565": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "568": [
+   "567": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2226,14 +2308,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "572": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "576": [
+   "575": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2264,31 +2348,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "578": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "584": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      }
-   ],
-   "592": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
+   "583": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2300,7 +2369,24 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "600": [
+   "591": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "599": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -2379,22 +2465,24 @@ export const recordedHistory = {
          "points": -0.2
       }
    ],
+   "607": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
    "608": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -2580,7 +2668,7 @@ export const recordedHistory = {
          "points": -0.2
       }
    ],
-   "616": [
+   "615": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -4040,7 +4128,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "684": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -4066,14 +4156,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "686": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "686": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -4142,7 +4232,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "687": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -5078,14 +5170,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "784": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "784": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -5104,7 +5196,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "785": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -5130,14 +5224,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "787": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "787": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -5806,7 +5900,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "818": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -5832,14 +5928,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "820": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "820": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -5908,7 +6004,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "821": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -8270,14 +8368,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "937": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "937": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -8356,7 +8454,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "938": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -8382,14 +8482,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "940": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "940": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -9306,7 +9406,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "983": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -9332,14 +9434,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "985": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "985": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -9408,7 +9510,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "986": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -10466,7 +10570,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1037": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -10492,14 +10598,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1039": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1039": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -10568,7 +10674,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1040": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -11750,7 +11858,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1097": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -11776,14 +11886,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1099": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1099": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -11852,7 +11962,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1100": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -13406,7 +13518,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1175": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -13432,14 +13546,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1177": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1177": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -13508,7 +13622,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1178": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -15498,14 +15614,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1276": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1276": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -15584,7 +15700,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1277": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -15610,14 +15728,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1279": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1279": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17013,7 +17131,7 @@ export const recordedHistory = {
          "points": -0.2
       }
    ],
-   "1394": [
+   "1393": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17030,7 +17148,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1402": [
+   "1401": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17047,7 +17165,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1410": [
+   "1409": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17064,7 +17182,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1418": [
+   "1417": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17081,7 +17199,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1426": [
+   "1425": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17098,7 +17216,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1436": [
+   "1435": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17115,7 +17233,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1444": [
+   "1443": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17132,7 +17250,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1451": [
+   "1450": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17149,7 +17267,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1459": [
+   "1458": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17185,14 +17303,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1465": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "1467": [
+   "1466": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17223,14 +17343,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1472": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "1475": [
+   "1474": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17261,14 +17383,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1480": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "1483": [
+   "1482": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17299,14 +17423,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1487": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "1491": [
+   "1490": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17337,7 +17463,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1495": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17345,6 +17473,16 @@ export const recordedHistory = {
       }
    ],
    "1498": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17363,23 +17501,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "1499": [
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "collisions",
@@ -17399,14 +17527,19 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      }
+   ],
+   "1500": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1500": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17462,14 +17595,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1502": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "1502": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17488,14 +17621,19 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      }
+   ],
+   "1503": [
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1503": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17561,14 +17699,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1505": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1505": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17587,14 +17725,29 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      }
+   ],
+   "1506": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1506": [
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17633,16 +17786,6 @@ export const recordedHistory = {
    ],
    "1507": [
       {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
@@ -17660,14 +17803,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1508": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1508": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17686,16 +17829,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "1509": [
       {
          "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
       },
@@ -17740,7 +17883,7 @@ export const recordedHistory = {
          "points": -0.2
       }
    ],
-   "1515": [
+   "1514": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -17771,14 +17914,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1520": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1520": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17797,14 +17940,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1521": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1521": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17823,14 +17966,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1522": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "1522": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17884,14 +18027,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1523": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1523": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17910,7 +18053,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1524": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -17971,14 +18116,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1526": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1526": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -17997,7 +18142,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1527": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18058,14 +18205,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1529": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "1531": [
+   "1530": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -18096,14 +18245,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1533": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1533": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18122,7 +18271,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1534": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18188,7 +18339,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1536": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18196,6 +18349,16 @@ export const recordedHistory = {
       }
    ],
    "1538": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18259,19 +18422,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "1539": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -18297,14 +18450,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1543": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1543": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18323,7 +18476,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1544": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18349,14 +18504,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1546": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1546": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18410,14 +18565,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1547": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1547": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18436,14 +18591,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1548": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "1548": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18462,14 +18617,24 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
+      }
+   ],
+   "1549": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1549": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18523,23 +18688,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "1550": [
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1551": [
@@ -18561,14 +18716,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1552": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1552": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18627,7 +18782,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1553": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18695,14 +18852,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1558": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1558": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18721,7 +18878,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1559": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18729,6 +18888,16 @@ export const recordedHistory = {
       }
    ],
    "1560": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18747,23 +18916,13 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
       }
    ],
    "1561": [
       {
          "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
+         "enemy": "playerLaser",
+         "points": -0.2
       },
       {
          "type": "collisions",
@@ -18783,14 +18942,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1562": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1562": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18844,14 +19003,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1563": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "1563": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18870,14 +19029,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1564": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1564": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -18896,14 +19055,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1565": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1565": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -18996,14 +19155,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1570": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1570": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -19022,7 +19181,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1571": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -19048,14 +19209,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1573": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1573": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -19074,14 +19235,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1574": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1574": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -19135,14 +19296,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1575": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "1575": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -19161,6 +19322,18 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "1576": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -19169,16 +19342,6 @@ export const recordedHistory = {
       }
    ],
    "1577": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -19234,14 +19397,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1584": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "1590": [
+   "1589": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19267,6 +19432,20 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
+      }
+   ],
+   "1593": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1599": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
       },
       {
          "type": "add_points",
@@ -19275,16 +19454,6 @@ export const recordedHistory = {
       }
    ],
    "1600": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "collisions",
          "collisions": {
@@ -19303,26 +19472,16 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1601": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       }
    ],
-   "1608": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      }
-   ],
-   "1616": [
+   "1607": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19334,7 +19493,36 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1624": [
+   "1615": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1623": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1631": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19353,21 +19541,6 @@ export const recordedHistory = {
    ],
    "1632": [
       {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
@@ -19385,7 +19558,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1633": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19393,6 +19568,21 @@ export const recordedHistory = {
       }
    ],
    "1639": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -19411,24 +19601,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "1640": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19454,14 +19629,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
+      }
+   ],
+   "1647": [
       {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      }
-   ],
-   "1648": [
+      },
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19474,6 +19649,16 @@ export const recordedHistory = {
       }
    ],
    "1655": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -19492,11 +19677,6 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerShot"
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
    "1656": [
@@ -19504,26 +19684,9 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
       }
    ],
-   "1664": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      }
-   ],
-   "1672": [
+   "1663": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19535,7 +19698,19 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1680": [
+   "1671": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1679": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19552,7 +19727,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1687": [
+   "1686": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19569,7 +19744,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1694": [
+   "1693": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19586,7 +19761,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1702": [
+   "1701": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19603,7 +19778,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1710": [
+   "1709": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19620,7 +19795,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1718": [
+   "1717": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19637,7 +19812,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1726": [
+   "1725": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19654,7 +19829,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1734": [
+   "1733": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19671,7 +19846,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1741": [
+   "1740": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19688,7 +19863,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1748": [
+   "1747": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19705,7 +19880,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1756": [
+   "1755": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19722,7 +19897,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1764": [
+   "1763": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19739,7 +19914,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1772": [
+   "1771": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19756,7 +19931,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1782": [
+   "1781": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19773,7 +19948,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1790": [
+   "1789": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19790,7 +19965,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1798": [
+   "1797": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19807,7 +19982,7 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1806": [
+   "1805": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19824,7 +19999,24 @@ export const recordedHistory = {
          "points": -1
       }
    ],
-   "1814": [
+   "1813": [
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerShot",
+         "points": -1
+      }
+   ],
+   "1823": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -19842,21 +20034,6 @@ export const recordedHistory = {
       }
    ],
    "1824": [
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerShot",
-         "points": -1
-      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -20042,7 +20219,7 @@ export const recordedHistory = {
          "points": -0.2
       }
    ],
-   "1832": [
+   "1831": [
       {
          "type": "add_points",
          "enemy": "playerShot",
@@ -20186,68 +20363,6 @@ export const recordedHistory = {
    "1839": [
       {
          "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      },
-      {
-         "type": "add_points",
-         "enemy": "playerLaser",
-         "points": -0.2
-      }
-   ],
-   "1840": [
-      {
-         "type": "add_points",
          "enemy": "playerShot",
          "points": -1
       },
@@ -20260,6 +20375,66 @@ export const recordedHistory = {
          "type": "add_points",
          "enemy": "playerShot",
          "points": -1
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
       }
    ],
    "1842": [
@@ -21335,7 +21510,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1892": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21413,7 +21590,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1895": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21491,7 +21670,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1898": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21564,7 +21745,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1901": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21635,14 +21818,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1903": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1903": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -21661,7 +21844,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1904": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -21722,14 +21907,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1906": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1906": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -21748,7 +21933,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1907": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22487,14 +22674,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1950": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1950": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22565,14 +22752,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1952": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1952": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -22591,14 +22778,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1953": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1953": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22664,14 +22851,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1955": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1955": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -22690,14 +22877,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1956": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1956": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22753,14 +22940,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1958": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1958": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -22779,14 +22966,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1959": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1959": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22842,14 +23029,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1961": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1961": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -22868,14 +23055,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1962": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1962": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -22931,14 +23118,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1964": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1964": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -22957,14 +23144,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1965": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1965": [
+      },
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23025,7 +23212,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1967": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23093,7 +23282,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1970": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23166,7 +23357,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1973": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23237,14 +23430,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1975": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1975": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -23263,7 +23456,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1976": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23334,14 +23529,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1978": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1978": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -23360,7 +23555,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1979": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23421,14 +23618,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1981": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1981": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -23447,7 +23644,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1982": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23508,14 +23707,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1984": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1984": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -23534,7 +23733,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1985": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23595,14 +23796,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1987": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "1987": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -23621,7 +23822,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1988": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23684,7 +23887,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1991": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23747,7 +23952,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1994": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23820,7 +24027,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "1997": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23893,7 +24102,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2000": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -23966,7 +24177,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2003": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24039,7 +24252,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2006": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24112,7 +24327,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2009": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24185,7 +24402,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2012": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -24258,7 +24477,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2015": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -25517,7 +25738,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2087": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -25593,14 +25816,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2089": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "2089": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -25619,7 +25842,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2090": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -25690,14 +25915,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2092": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "2092": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -25716,7 +25941,9 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2093": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
@@ -25777,14 +26004,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2095": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "2095": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -25803,14 +26030,14 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "playerLaser"
-      },
+      }
+   ],
+   "2096": [
       {
          "type": "add_points",
          "enemy": "playerLaser",
          "points": -0.2
-      }
-   ],
-   "2096": [
+      },
       {
          "type": "collisions",
          "collisions": {
@@ -25825,7 +26052,76 @@ export const recordedHistory = {
          "enemy": "player"
       },
       {
-         "type": "player_died"
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "shot-63"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "shot"
+      }
+   ],
+   "2097": [
+      {
+         "type": "gameOver"
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "add_points",
+         "enemy": "playerLaser",
+         "points": -0.2
+      },
+      {
+         "type": "collisions",
+         "collisions": {
+            "enemiesThatWereHit": [
+               "firstMiniboss-1",
+               "playerLaser-2047"
+            ]
+         }
+      },
+      {
+         "type": "add_points",
+         "points": 10,
+         "enemy": "firstMiniboss"
+      },
+      {
+         "type": "add_points",
+         "points": 0,
+         "enemy": "playerLaser"
       }
    ]
 };
