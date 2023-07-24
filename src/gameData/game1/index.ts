@@ -16,6 +16,8 @@ import { aqua, child, executor, parent, repeatFromHp, shotSpeedFromHp, stage5 } 
 import startScreen from "./startScreen.png";
 
 const game: TGame = {
+   name: "1. Vertical level",
+
    startScreenImageUrl: startScreen,
 
    gameObjects: [

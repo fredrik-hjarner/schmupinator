@@ -17,6 +17,8 @@ import { bossCorpse } from "./enemies/bossCorpse";
 import startScreen from "./startScreen.png";
 
 const game: TGame = {
+   name: "2. Horizontal level",
+
    startScreenImageUrl: startScreen,
 
    gameObjects: [

@@ -37,6 +37,7 @@ export const player: TGameObject = createGameObject({
    name: "player",
    diameter: 20,
    hp: 1,
+   onDeathAction: { type: AT.finishLevel },
    actions: [
       //set points to 0, otherwise you get points when the player dies since default is 10 currently
       { type: AT.setAttribute, attribute: "points", value: 0 },

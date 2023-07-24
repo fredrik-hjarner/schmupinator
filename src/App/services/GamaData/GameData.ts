@@ -10,7 +10,7 @@ type TEnemyJsons = Partial<{ [enemyName: string]: TGameObject }>;
 
 // TGame is used when creating a game, TInternalGame is used when executing the game.
 type TInternalGame = OverrideProperties<TGame, { gameObjects: TEnemyJsons }>;
-type TGames = Partial<{ [gameName: string]: TInternalGame }>
+type TGames = TInternalGame[];
 
 type TConstructor = {
    name: string
@@ -25,16 +25,16 @@ export class GameData implements IService {
    /**
     * Keeps track of which "game" (zip-file) is active.
     */
-   private activeGame?: string;
+   private activeGame?: number;
    
    public constructor({ name }: TConstructor) {
       this.name = name;
-      this.games = {};
+      this.games = [];
       /**
        * TODO: activeGame should probably be undefined at the beginning??
        * I set it to "game1" just to make e2e tests in node to work faster.
        */
-      this.activeGame = "game1";
+      this.activeGame = 0;
    }
 
    public Init = () => {
@@ -46,7 +46,8 @@ export class GameData implements IService {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
-      this.games["game1"] = {
+      this.games[0] = {
+         name: game1.name,
          gameObjects: gameObjects1,
          startScreenImageUrl: game1.startScreenImageUrl
       };
@@ -59,7 +60,8 @@ export class GameData implements IService {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
-      this.games["game2"] = {
+      this.games[1] = {
+         name: game2.name,
          gameObjects: gameObjects2,
          startScreenImageUrl: game2.startScreenImageUrl
       };
@@ -67,7 +69,7 @@ export class GameData implements IService {
       return Promise.resolve(); // just to make typescript happy.
    };
 
-   public setActiveGame = (game: string) => {
+   public setActiveGame = (game: number) => {
       this.activeGame = game;
    };
    public getActiveGame = () => {
@@ -81,14 +83,21 @@ export class GameData implements IService {
    };
 
    /**
-    * get list of games such as ["game1", "game2", "game3"]
+    * get list of games index such as ["0", "1", "2"]
     */
    public getGames = (): string[] => {
       return Object.keys(this.games);
    };
 
+   /**
+    * get list of games such as ["game1", "game2", "game3"]
+    */
+   public getGameNames = (): string[] => {
+      return Object.values(this.games).map(g => g.name);
+   };
+
    public GetEnemy = (enemyName: string): TGameObject  => {
-      if(!this.activeGame) {
+      if(this.activeGame === undefined) {
          throw new Error("GameData.GetEnemy: Error activeGame is not set.");
       }
       /**
@@ -103,7 +112,7 @@ export class GameData implements IService {
    };
 
    public getStartScreenImageUrl = (): TInternalGame["startScreenImageUrl"]  => {
-      if(!this.activeGame) {
+      if(this.activeGame === undefined) {
          throw new Error("GameData.GetStartScreenImageUrl: Error activeGame is not set.");
       }
       const startScreenImageUrl = this.games[this.activeGame]?.startScreenImageUrl;
