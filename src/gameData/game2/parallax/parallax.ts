@@ -1,9 +1,9 @@
-import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
+import type { TGameObject } from "@/gameTypes/TGameObject";
 
 import { createGameObject, forever, spawn, wait } from "@/gameData/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
-export const parallax: IEnemyJson = createGameObject({
+export const parallax: TGameObject = createGameObject({
    name: "parallax",
    diameter: 240,
    hp: 9999,
@@ -18,7 +18,7 @@ export const parallax: IEnemyJson = createGameObject({
    ],
 });
 
-export const layer1: IEnemyJson = createGameObject({
+export const layer1: TGameObject = createGameObject({
    name: "layer1",
    diameter: 240,
    hp: 9999,
@@ -33,7 +33,7 @@ export const layer1: IEnemyJson = createGameObject({
    ],
 });
 
-export const layer2: IEnemyJson = createGameObject({
+export const layer2: TGameObject = createGameObject({
    name: "layer2",
    diameter: 240,
    hp: 9999,
@@ -48,7 +48,7 @@ export const layer2: IEnemyJson = createGameObject({
    ],
 });
 
-export const layer3: IEnemyJson = createGameObject({
+export const layer3: TGameObject = createGameObject({
    name: "layer3",
    diameter: 240,
    hp: 9999,

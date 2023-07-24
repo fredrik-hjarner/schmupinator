@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 import type {
    TAction,
    TMove,
@@ -42,7 +42,7 @@ const sinuses = repeat(5, [
    wait(70),
 ]);
 
-export const stage1: IEnemyJson = createGameObject({
+export const stage1: TGameObject = createGameObject({
    name: "stage1",
    diameter: 20,
    hp: 9999,
@@ -61,7 +61,7 @@ export const stage1: IEnemyJson = createGameObject({
 
 //------------------------------------------------------------
 
-export const nonShootingAimer: IEnemyJson = createGameObject({
+export const nonShootingAimer: TGameObject = createGameObject({
    name: "nonShootingAimer",
    hp: 4,
    diameter: 22,
@@ -109,7 +109,7 @@ const rotateRightAndShoot = parallelAll(
    shootWhileRotation
 );
 
-export const sinus: IEnemyJson = createGameObject({
+export const sinus: TGameObject = createGameObject({
    name: "sinus",
    hp: 3,
    diameter: 24,
@@ -187,7 +187,7 @@ const movementPattern: TAction[] = [
    downOutOfScreen
 ];
 
-export const firstMiniboss: IEnemyJson = createGameObject({
+export const firstMiniboss: TGameObject = createGameObject({
    name: "firstMiniboss",
    hp: 120,
    diameter: 35,

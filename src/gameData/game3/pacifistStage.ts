@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 import type { TSpawn } from "../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT} from "../../App/services/Enemies/actions/actionTypes";
@@ -24,7 +24,7 @@ const sinuses = repeat(5, [
    Do(sinusRight, wait(70)),
 ]);
 
-export const pacifistStage: IEnemyJson = createGameObject({
+export const pacifistStage: TGameObject = createGameObject({
    name: "pacifistStage",
    diameter: 20,
    hp: 9999,

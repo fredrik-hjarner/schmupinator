@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
@@ -7,7 +7,7 @@ import {
 } from "../utils";
 import { col } from "./common";
 
-export const stage2: IEnemyJson = createGameObject({
+export const stage2: TGameObject = createGameObject({
    name: "stage2",
    diameter: 20,
    hp: 9999,
@@ -19,7 +19,7 @@ export const stage2: IEnemyJson = createGameObject({
    ]
 });
 
-export const cloner: IEnemyJson = createGameObject({
+export const cloner: TGameObject = createGameObject({
    name: "cloner",
    hp: 25,
    diameter: 29,
@@ -41,7 +41,7 @@ export const cloner: IEnemyJson = createGameObject({
    ]
 });
 
-export const clonerChild: IEnemyJson = createGameObject({
+export const clonerChild: TGameObject = createGameObject({
    name: "clonerChild",
    hp: 10,
    diameter: 18,

@@ -1,10 +1,10 @@
-import type { IEnemyJson } from "../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 import { createGameObject, forever, repeat, spawn, wait } from "../utils";
 import { col, row } from "./common";
 
-export const stage5: IEnemyJson = createGameObject({
+export const stage5: TGameObject = createGameObject({
    name: "stage5",
    diameter: 20,
    hp: 9999,
@@ -19,7 +19,7 @@ export const stage5: IEnemyJson = createGameObject({
 });
 
 // Proves that attribute getter work with wait action.
-export const shotSpeedFromHp: IEnemyJson = createGameObject({
+export const shotSpeedFromHp: TGameObject = createGameObject({
    name: "shotSpeedFromHp",
    diameter: 20,
    hp: 50,
@@ -35,7 +35,7 @@ export const shotSpeedFromHp: IEnemyJson = createGameObject({
 });
 
 // Proves that attribute getter work with repeat action.
-export const repeatFromHp: IEnemyJson = createGameObject({
+export const repeatFromHp: TGameObject = createGameObject({
    name: "repeatFromHp",
    diameter: 20,
    hp: 50,
@@ -52,7 +52,7 @@ export const repeatFromHp: IEnemyJson = createGameObject({
    ],
 });
 
-export const executor: IEnemyJson = createGameObject({
+export const executor: TGameObject = createGameObject({
    name: "executor",
    diameter: 30,
    hp: 100_000,
@@ -67,7 +67,7 @@ export const executor: IEnemyJson = createGameObject({
    ],
 });
 
-export const aqua: IEnemyJson = createGameObject({
+export const aqua: TGameObject = createGameObject({
    name: "aqua",
    diameter: 30,
    hp: 100_000,
@@ -86,7 +86,7 @@ export const aqua: IEnemyJson = createGameObject({
  * Proves that children have parents (parentId is stored in attribute "parentId" on the child).
  * Shooting on 
  */
-export const child: IEnemyJson = createGameObject({
+export const child: TGameObject = createGameObject({
    name: "child",
    diameter: 20,
    hp: 100_000,
@@ -96,7 +96,7 @@ export const child: IEnemyJson = createGameObject({
       { type: AT.setAttribute, attribute: "hp", value: 0 },
    ],
 });
-export const parent: IEnemyJson = createGameObject({
+export const parent: TGameObject = createGameObject({
    name: "parent",
    diameter: 25,
    hp: 5,

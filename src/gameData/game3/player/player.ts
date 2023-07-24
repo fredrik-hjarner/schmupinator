@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../../gameTypes/TGameObject";
 import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
@@ -33,7 +33,7 @@ const laser: TAction[] = [
    wait(3),
 ];
 
-export const player: IEnemyJson = createGameObject({
+export const player: TGameObject = createGameObject({
    name: "player",
    diameter: 20,
    hp: 1,

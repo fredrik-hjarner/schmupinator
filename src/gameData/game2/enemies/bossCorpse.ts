@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../../gameTypes/TGameObject";
 import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
@@ -29,7 +29,7 @@ const explodeInAllDirections = (radius: number, _wait: number,): TAction[] => {
    ];
 };
 
-export const bossCorpse: IEnemyJson = createGameObject({
+export const bossCorpse: TGameObject = createGameObject({
    name: "bossCorpse",
    diameter: 18,
    hp: 9999,

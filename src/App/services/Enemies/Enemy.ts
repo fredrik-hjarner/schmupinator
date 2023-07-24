@@ -2,7 +2,7 @@ import type { TAction } from "./actions/actionTypes";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
-import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "./actions/actionTypes";
 import { EnemyActionExecutor } from "./EnemyActionExecutor";
@@ -31,7 +31,7 @@ export class Enemy {
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private name: string;
 
-   public constructor( enemies: Enemies, position: TVector, json: IEnemyJson ) {
+   public constructor( enemies: Enemies, position: TVector, json: TGameObject ) {
       this.enemies = enemies;
       this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;

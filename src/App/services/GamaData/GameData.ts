@@ -1,12 +1,12 @@
 import type { OverrideProperties } from "type-fest";
 import type { IService } from "../IService";
-import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../../gameTypes/TGameObject";
 import type { TGame } from "@/gameTypes/TGame";
 
 import game1 from "../../../gameData/game1/index";
 import game2 from "../../../gameData/game2/index";
 
-type TEnemyJsons = Partial<{ [enemyName: string]: IEnemyJson }>;
+type TEnemyJsons = Partial<{ [enemyName: string]: TGameObject }>;
 
 // TGame is used when creating a game, TInternalGame is used when executing the game.
 type TInternalGame = OverrideProperties<TGame, { gameObjects: TEnemyJsons }>;
@@ -42,7 +42,7 @@ export class GameData implements IService {
        * Game 1
        */
       // key all enemies by name
-      const gameObjects1 = game1.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+      const gameObjects1 = game1.gameObjects.reduce((acc: TEnemyJsons, enemyJson: TGameObject) => {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
@@ -55,7 +55,7 @@ export class GameData implements IService {
        * Game 2
        */
       // key all enemies by name
-      const gameObjects2 = game2.gameObjects.reduce((acc: TEnemyJsons, enemyJson: IEnemyJson) => {
+      const gameObjects2 = game2.gameObjects.reduce((acc: TEnemyJsons, enemyJson: TGameObject) => {
          acc[enemyJson.name] = enemyJson;
          return acc;
       }, {});
@@ -87,7 +87,7 @@ export class GameData implements IService {
       return Object.keys(this.games);
    };
 
-   public GetEnemy = (enemyName: string): IEnemyJson  => {
+   public GetEnemy = (enemyName: string): TGameObject  => {
       if(!this.activeGame) {
          throw new Error("GameData.GetEnemy: Error activeGame is not set.");
       }

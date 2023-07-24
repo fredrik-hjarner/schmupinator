@@ -1,7 +1,7 @@
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IService, TInitParams } from "../IService";
 import type { GameData } from "../GamaData/GameData";
-import type { IEnemyJson } from "../../../gameTypes/IEnemyJson";
+import type { TGameObject } from "../../../gameTypes/TGameObject";
 import type {
    IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent
 } from "../Events/IEvents";
@@ -84,7 +84,7 @@ export class Enemies implements IService {
        * prepend the actions that the parent sent. this allow parent some control over it's spawn.
        * also add die-when-outside-screen behaviour too all spawns.
        */
-      const newEnemyJson: IEnemyJson = {
+      const newEnemyJson: TGameObject = {
          ...enemyJson,
          actions: [
             ...parentIdAction,

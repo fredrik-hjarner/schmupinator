@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
+import type { TGameObject } from "@/gameTypes/TGameObject";
 import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
@@ -78,7 +78,7 @@ const movePattern: TAction[] = [
    { type: AT.moveToAbsolute, frames: 60 * 7.5, moveTo: { x: col[5] }}
 ];
 
-export const boss: IEnemyJson = createGameObject({
+export const boss: TGameObject = createGameObject({
    name: "boss",
    hp: 100_000, // immortal.
    diameter: 40,

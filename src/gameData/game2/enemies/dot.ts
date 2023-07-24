@@ -1,4 +1,4 @@
-import type { IEnemyJson } from "@/gameTypes/IEnemyJson";
+import type { TGameObject } from "@/gameTypes/TGameObject";
 
 import {
    createGameObject,
@@ -6,7 +6,7 @@ import {
 } from "@/gameData/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
-export const dot: IEnemyJson = createGameObject({
+export const dot: TGameObject = createGameObject({
    name: "dot",
    hp: 20,
    diameter: 20,
