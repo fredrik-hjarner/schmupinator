@@ -6,7 +6,7 @@ import type { IAttributes } from "../Attributes/IAttributes";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
 
-export type PosAndRadiusAndId = {X: number, Y: number, Radius: number, id: string };
+export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
 
 export type TCollisions = {
    // List of id:s of enemies that were hit.
@@ -157,8 +157,8 @@ export class Collisions implements IService {
       for(const shot of collideWithThese) {
          // Multiplying minDistance if a hack to cause lower hit "box".
          const minDistance = doesThis.Radius + shot.Radius * 0.8;
-         const xDist = doesThis.X - shot.X;
-         const yDist = doesThis.Y - shot.Y;
+         const xDist = doesThis.x - shot.x;
+         const yDist = doesThis.y - shot.y;
          const distance = Math.sqrt(xDist**2 + yDist**2);
          if(distance <= minDistance) {
             return { collided: true, collidedWithId: shot.id };
