@@ -15,8 +15,6 @@ import { assertNumber } from "../../../utils/typeAssertions";
 import { EnemyGfx } from "./EnemyGfx";
 
 export class Enemy {
-   public X: number;
-   public Y: number;
    public id: string;
    // public because grabbed in EnemyActionExecutor.
    public enemies: Enemies; // enemies service
@@ -38,8 +36,8 @@ export class Enemy {
       this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;
       this.diameter = json.diameter;
-      this.X = position.x; // TODO: This should be an attribute.
-      this.Y = position.y; // TODO: This should be an attribute.
+      this.x = position.x;
+      this.y = position.y;
       this.actionExecutor = new EnemyActionExecutor({
          actionHandler: this.HandleAction, // TODO: Remove this line.
          actions: json.actions,
@@ -50,7 +48,7 @@ export class Enemy {
 
       this.graphics = this.enemies.graphics;
       this.gfx = new EnemyGfx({
-         diameter: json.diameter, graphics: this.graphics, x: this.X, y: this.Y
+         diameter: json.diameter, graphics: this.graphics, x: position.x, y: position.y
       });
    }
    private get attrs() { return this.enemies.attributes; } // convenience getter to shorten code.
@@ -60,6 +58,20 @@ export class Enemy {
    }
    private set hp(value: number){
       this.attrs.setAttribute({ gameObjectId: this.id, attribute: "hp", value });
+   }
+
+   public get x(): number { // get x from attributes
+      return this.attrs.getNumber({ gameObjectId: this.id, attribute: "x" });
+   }
+   public set x(value: number) { // set x attribute
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "x", value });
+   }
+
+   public get y(): number { // get y from attributes
+      return this.attrs.getNumber({ gameObjectId: this.id, attribute: "y" });
+   }
+   public set y(value: number) { // set y attribute
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "y", value });
    }
 
    public get Radius(){ return this.diameter/2; }
@@ -74,7 +86,7 @@ export class Enemy {
       if(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
          this.boundToWindow();
       }
-      this.gfx?.setPosition({ x: this.X, y: this.Y });
+      this.gfx?.setPosition({ x: this.x, y: this.y });
       // TODO: Don't force graphical rotation to sync be synced with move direction!!! See TODO.md
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
@@ -94,15 +106,17 @@ export class Enemy {
 
    private boundToWindow = () => {
       const radius = this.diameter/2;
-      if(this.X < radius) {
-         this.X = radius;
-      } else if(this.X > resolutionWidth-radius) {
-         this.X = resolutionWidth-radius;
+      const x = this.x;
+      const y = this.y;
+      if(x < radius) {
+         this.x = radius;
+      } else if(x > resolutionWidth-radius) {
+         this.x = resolutionWidth-radius;
       }
-      if(this.Y < radius) {
-         this.Y = radius;
-      } else if (this.Y > resolutionHeight-radius) {
-         this.Y = resolutionHeight-radius;
+      if(y < radius) {
+         this.y = radius;
+      } else if (y > resolutionHeight-radius) {
+         this.y = resolutionHeight-radius;
       }
    };
 
@@ -198,8 +212,8 @@ export class Enemy {
    };
 
    private moveDelta = ({ x=0, y=0 }: Partial<TVector>) => {
-      this.X = this.mirrorX ? this.X - x : this.X + x;
-      this.Y = this.mirrorY ? this.Y - y : this.Y + y;
+      this.x = this.mirrorX ? this.x - x : this.x + x;
+      this.y = this.mirrorY ? this.y - y : this.y + y;
    };
 
    private ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
@@ -236,15 +250,15 @@ export class Enemy {
     */
    private ShootTowardPlayer = () => {
       const player = this.enemies.player;
-      const dirX = player.X - this.X;
-      const dirY = player.Y - this.Y;
+      const dirX = player.x - this.x;
+      const dirY = player.y - this.y;
       this.ShootDirection({ dirX, dirY });
    };
 
    private ShootBesidePlayer = (degrees: number) => {
       const player = this.enemies.player;
-      const dirX = player.X - this.X;
-      const dirY = player.Y - this.Y;
+      const dirX = player.x - this.x;
+      const dirY = player.y - this.y;
       const vector = new Vector(dirX, dirY).rotateClockwiseM(Angle.fromDegrees(degrees));
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
@@ -262,17 +276,17 @@ export class Enemy {
       if(this.mirrorY) {
          deltaY = -deltaY;
       }
-      const newX = this.X + deltaX;
-      const newY = this.Y + deltaY;
-      this.X = newX;
-      this.Y = newY;
+      const newX = this.x + deltaX;
+      const newY = this.y + deltaY;
+      this.x = newX;
+      this.y = newY;
    };
 
    private RotateTowardsPlayer = () => {
       const playerCircle = this.enemies.player;
-      const playerVector = new Vector(playerCircle.X, playerCircle.Y);
+      const playerVector = new Vector(playerCircle.x, playerCircle.y);
       // TODO: Make all positions into Vectors! Also rename Vector type to TVector.
-      const enemyVector = new Vector(this.X, this.Y);
+      const enemyVector = new Vector(this.x, this.y);
       const vectorFromEnemyToPlayer = Vector.fromTo(enemyVector, playerVector);
       this.moveDirection = new UnitVector(vectorFromEnemyToPlayer);
    };
@@ -283,10 +297,10 @@ export class Enemy {
    };
 
    private moveAccordingToSpeedAndDirection = () => {
-      const newX = this.X + this.moveDirection.x * this.speed;
-      const newY = this.Y += this.moveDirection.y * this.speed;
-      this.X = newX;
-      this.Y = newY;
+      const newX = this.x + this.moveDirection.x * this.speed;
+      const newY = this.y += this.moveDirection.y * this.speed;
+      this.x = newX;
+      this.y = newY;
    };
 
    private spawn = (
@@ -294,7 +308,7 @@ export class Enemy {
       { enemy: string, pos: TVector, actions?: TAction[] }
    ) => {
       // Make a relative position into an absolute one.
-      const absolute = { x: pos.x + this.X, y: pos.y + this.Y };
+      const absolute = { x: pos.x + this.x, y: pos.y + this.y };
       this.enemies.Spawn({
          enemy,
          position: absolute,
@@ -304,8 +318,8 @@ export class Enemy {
    };
 
    public getPosition = (): TVector => {
-      let x = this.X;
-      let y = this.Y;
+      let x = this.x;
+      let y = this.y;
       /**
        * If mirroring Enemy will lie about it's location.
        * It's sort of a hack actually, not super beautiful.
