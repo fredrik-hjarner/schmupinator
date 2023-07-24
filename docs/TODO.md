@@ -322,3 +322,8 @@ buttons though.
 
 * Collision detection does some duplicate collision detection, can be improved. Checked bullets
   against player collisions twice.
+
+* I should make a tutorial series about how to create a (General Purpose) Game Engine. The tutorial
+  series should be named "Creating A Pong Game Engine" where I should how to create a Game Engine
+  supporting functionality that is needed to implement Pong (Graphics Engine that can draw text and
+  rectangles, and Action Executor with GameObject with a few actions).
