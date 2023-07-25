@@ -53,8 +53,6 @@ generator (now it creates several thus only one would be killed)!
 * Maybe I should have a frameTickEvents service, that only has frame_tick on it. This would allow a
 little bit of increased performance I think.
 
-* Enemies.enemies should be Object keyed by id => performance optimization.
-
 * This is an abuse ` this.app.gameLoop.FrameCount` could most likely use the `frameNr` in the
 `frame_tick` event instead, that way depenencies on `gameLoop` can be removed in some places.
 

@@ -78,7 +78,7 @@ export class Collisions implements IService {
       const enemyBullets: Enemy[] = [];
       const playerBullets: Enemy[] = [];
 
-      this.enemies.enemies.forEach(enemy => {
+      Object.values(this.enemies.enemies).forEach(enemy => {
          const attrValue = this.attributes.getAttribute({
             gameObjectId: enemy.id,
             attribute: "collisionType"
