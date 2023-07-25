@@ -1,5 +1,5 @@
 import type {
-   TAction, TAttrIs, TDo, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
+   TAction, TAttrIf, TDo, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll, TparallelRace
 } from "../App/services/Enemies/actions/actionTypes";
 import type { TGameObject } from "@/gameTypes/TGameObject";
@@ -87,15 +87,19 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
 }
 
 type TAttrParams = {
-   is: TAttrIs["is"];
-   yes?: TAttrIs["yes"];
-   no?: TAttrIs["no"];
+   condition?: TAttrIf["condition"];
+   value: TAttrIf["value"];
+   yes?: TAttrIf["yes"];
+   no?: TAttrIf["no"];
 };
-export function attr(attrName: TAttrIs["attrName"], { is, yes, no }: TAttrParams): TAttrIs {
+export function attr(
+   attrName: TAttrIf["attrName"], { condition="equals", value, yes, no }: TAttrParams
+): TAttrIf {
    return {
-      type: AT.attrIs,
+      condition,
+      type: AT.attrIf,
       attrName,
-      is,
+      value: value,
       yes,
       no
    };

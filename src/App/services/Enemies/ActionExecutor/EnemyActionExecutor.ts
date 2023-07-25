@@ -1,17 +1,18 @@
 import type {
    TAction, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
-} from "./actions/actionTypes";
-import type { Vector as TVector } from "../../../math/bezier";
-import type { IAttributes, TAttrValue } from "../Attributes/IAttributes";
-import type { IInput } from "../Input/IInput";
-import type { GamePad } from "../GamePad/GamePad";
-import type { Enemy } from "./Enemy";
+} from "../actions/actionTypes";
+import type { Vector as TVector } from "../../../../math/bezier";
+import type { IAttributes, TAttrValue } from "../../Attributes/IAttributes";
+import type { IInput } from "../../Input/IInput";
+import type { GamePad } from "../../GamePad/GamePad";
+import type { Enemy } from "../Enemy";
 
-import { ActionType as AT } from "./actions/actionTypes";
-import { Vector } from "../../../math/Vector";
-import { Angle } from "../../../math/Angle";
-import { GeneratorUtils } from "../../../utils/GeneratorUtils";
-import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../consts";
+import { ActionType as AT } from "../actions/actionTypes";
+import { Vector } from "../../../../math/Vector";
+import { Angle } from "../../../../math/Angle";
+import { GeneratorUtils } from "../../../../utils/GeneratorUtils";
+import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../../consts";
+import { ifAttr } from "./if";
 
 type TActionHandler = (action: TAction) => void;
 
@@ -197,10 +198,9 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case AT.do: { // flatten essentially.
+            case AT.do: // flatten essentially.
                yield* this.makeGenerator(currAction.acns);
                break;
-            }
 
             case AT.parallelRace: {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
@@ -223,23 +223,23 @@ export class EnemyActionExecutor {
                break;
             }
 
-            case AT.attrIs: {
-               const { attrName: attribute, gameObjectId, is, yes, no } = currAction;
+            case AT.attrIf: {
+               const {
+                  attrName: attribute, condition, gameObjectId, value, yes, no
+               } = currAction;
                const attrValue = this.getAttribute({ gameObjectId, attribute });
-               yield* this.makeGenerator(attrValue === is ? yes : no);
+               const result = ifAttr({ attrValue, condition, value });
+               yield* this.makeGenerator(result ? yes : no);
                break;
             }
 
-            case AT.waitNextFrame: {
+            case AT.waitNextFrame: 
                yield;
                break;
-            }
 
-            case AT.wait: {
-               // const frames = this.getNumber(currAction.frames);
+            case AT.wait:
                for(let i=0; i<this.getNumber(currAction.frames); i++) { yield; }
                break;
-            }
 
             case AT.waitTilInsideScreen: {
                const margin = 0; // was 20
@@ -251,9 +251,7 @@ export class EnemyActionExecutor {
                const isOutsideScreen = ({ x, y }: TVector): boolean => {
                   return x < left || x > right || y < top || y > bottom;
                };
-               while(isOutsideScreen(this.enemy.getPosition())) {
-                  yield;
-               }
+               while(isOutsideScreen(this.enemy.getPosition())) { yield; }
                break;
             }
 
@@ -267,9 +265,7 @@ export class EnemyActionExecutor {
                const isOutsideScreen = ({ x, y }: TVector): boolean => {
                   return x < left || x > right || y < top || y > bottom;
                };
-               while(!isOutsideScreen(this.enemy.getPosition())) {
-                  yield;
-               }
+               while(!isOutsideScreen(this.enemy.getPosition())) { yield; }
                break;
             }
 

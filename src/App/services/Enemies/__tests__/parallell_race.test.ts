@@ -5,7 +5,7 @@ import type { TAction } from "../actions/actionTypes";
 import { describe, it, expect } from "vitest";
 
 import { ActionType as AT } from "../actions/actionTypes";
-import { EnemyActionExecutor } from "../EnemyActionExecutor";
+import { EnemyActionExecutor } from "../ActionExecutor/EnemyActionExecutor";
 
 const input: any = undefined;
 const gamepad: any = undefined;
