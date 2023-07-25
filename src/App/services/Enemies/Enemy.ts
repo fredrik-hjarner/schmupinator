@@ -124,7 +124,7 @@ export class Enemy {
    private despawn = () => {
       // console.log(`${this.id} despawned`);
       const enemies = this.enemies; // TODO: This line could be remove right?
-      enemies.enemies = enemies.enemies.filter(e => e.id !== this.id); // remove this enemy.
+      delete enemies.enemies[this.id]; // remove this enemy.
 
       const points = assertNumber(this.attrs.getAttribute({
          gameObjectId: this.id,

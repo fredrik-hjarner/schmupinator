@@ -72,11 +72,13 @@ export class Collisions implements IService {
    private update = () => {
       const startTime = BrowserDriver.PerformanceNow();
 
+      const allGameObjectsThatWereHit: TCollisions["enemiesThatWereHit"] = [];
+
       const enemies: Enemy[] = [];
       const enemyBullets: Enemy[] = [];
       const playerBullets: Enemy[] = [];
 
-      this.enemies.enemies.forEach(enemy => {
+      Object.values(this.enemies.enemies).forEach(enemy => {
          const attrValue = this.attributes.getAttribute({
             gameObjectId: enemy.id,
             attribute: "collisionType"
@@ -94,19 +96,17 @@ export class Collisions implements IService {
          }
       });
 
-      const killsPlayerOnCollision = [...enemyBullets, ...enemies];
-
       const player = this.enemies.player;
 
-      const playerWasHit =
+      // Observe: by enemy and not by enemy bullets.
+      const playerWasHitByEnemy =
          this.calcCollisions({
             doesThis: player,
-            collideWithThese: killsPlayerOnCollision
+            collideWithThese: enemies
          }).collided;
 
-      if(playerWasHit) {
-         const collisions = { enemiesThatWereHit: [player.id] };
-         this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
+      if(playerWasHitByEnemy) {
+         allGameObjectsThatWereHit.push(player.id);
       }
       
       const enemiesHitByPlayerBullets = enemies.reduce<string[]>((acc, enemy) => {
@@ -118,8 +118,6 @@ export class Collisions implements IService {
          return collision.collided ? [...acc, enemy.id, collision.collidedWithId] : acc;
       }, []);
 
-      /** TODO: I think there are some collisions that are calculatd twice. */
-      // Bullets hitting the player should be able to explode/despawn for example.
       const enemyBulletsThatHitPlayer = enemyBullets.reduce<string[]>((acc, enemyBullet) => {
          const collision = this.calcCollisions({
             doesThis: enemyBullet,
@@ -128,18 +126,22 @@ export class Collisions implements IService {
          return collision.collided ? [...acc, enemyBullet.id] : acc;
       }, []);
 
+      if(enemyBulletsThatHitPlayer.length > 0) {
+         // if a bullet hit the player then the player was hit...
+         allGameObjectsThatWereHit.push(player.id);
+      }
+
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
 
-      // Only send event if there were collisions.
-      if (enemiesHitByPlayerBullets.length > 0) {
-         const collisions = { enemiesThatWereHit: enemiesHitByPlayerBullets };
-         this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
-      }
+      allGameObjectsThatWereHit.push(...enemiesHitByPlayerBullets);
 
-      // Only send event if there were collisions.
-      if (enemyBulletsThatHitPlayer.length > 0) {
-         const collisions = { enemiesThatWereHit: enemyBulletsThatHitPlayer };
+      allGameObjectsThatWereHit.push(...enemyBulletsThatHitPlayer);
+
+      if(allGameObjectsThatWereHit.length > 0) {
+         const collisions = {
+            enemiesThatWereHit: [...new Set(allGameObjectsThatWereHit)] // remove duplicates.
+         };
          this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
    };

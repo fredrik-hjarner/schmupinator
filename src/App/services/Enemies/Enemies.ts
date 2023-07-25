@@ -17,7 +17,7 @@ import { Enemy } from "./Enemy";
 
 export class Enemies implements IService {
    public readonly name: string;
-   public enemies: Enemy[];
+   public enemies: { [gameObjectId: string]: Enemy };
    // Just so that player does not have to be found every time.
    private memoizedPlayer?: Enemy;
 
@@ -37,7 +37,7 @@ export class Enemies implements IService {
     */
    public constructor({ name }: { name: string }) {
       this.name = name;
-      this.enemies = [];
+      this.enemies = {};
    }
 
    /**
@@ -105,7 +105,7 @@ export class Enemies implements IService {
        * Enemy's constructor).
        */
       const newEnemyInstance = new Enemy(this, position, newEnemyJson);
-      this.enemies.push(newEnemyInstance);
+      this.enemies[newEnemyInstance.id] = newEnemyInstance;
       // console.log(
       //    `Enemies.Spawn: enemies after push: ${this.enemies.map(e => e.id).toString()}`
       // );
@@ -120,7 +120,7 @@ export class Enemies implements IService {
          return this.memoizedPlayer;
       }
 
-      const player = this.enemies.find(e =>
+      const player = Object.values(this.enemies).find(e =>
          this.attributes.getAttribute({
             gameObjectId: e.id,
             attribute: "collisionType"
@@ -157,15 +157,14 @@ export class Enemies implements IService {
              * hp, set_position etc. Dunno if I want to do it like that though.
              */
             // console.log(`Enemies.tick: enemies:`, this.enemies.map(e => e.id));
-            this.enemies.forEach(enemy => {
+            Object.values(this.enemies).forEach(enemy => {
                enemy.OnFrameTick();
             });
             break;
          }
          case "collisions":
             event.collisions.enemiesThatWereHit.forEach(enemyId => {
-               // TODO: I would not have to "find" if enemies was obj keyed by enemy.id
-               const enemy = this.enemies.find(e => e.id === enemyId);
+               const enemy = this.enemies[enemyId];
                if(enemy) {
                   enemy.OnCollision();
                }

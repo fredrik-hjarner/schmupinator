@@ -53,8 +53,6 @@ generator (now it creates several thus only one would be killed)!
 * Maybe I should have a frameTickEvents service, that only has frame_tick on it. This would allow a
 little bit of increased performance I think.
 
-* Enemies.enemies should be Object keyed by id => performance optimization.
-
 * This is an abuse ` this.app.gameLoop.FrameCount` could most likely use the `frameNr` in the
 `frame_tick` event instead, that way depenencies on `gameLoop` can be removed in some places.
 
@@ -320,10 +318,9 @@ buttons though.
 
 * TODO: Now I have broken the player invincibility setting.
 
-* Collision detection does some duplicate collision detection, can be improved. Checked bullets
-  against player collisions twice.
-
 * I should make a tutorial series about how to create a (General Purpose) Game Engine. The tutorial
   series should be named "Creating A Pong Game Engine" where I should how to create a Game Engine
   supporting functionality that is needed to implement Pong (Graphics Engine that can draw text and
   rectangles, and Action Executor with GameObject with a few actions).
+
+* Margin on WaitUntilOutsideScreen should probably be the diameter by default.

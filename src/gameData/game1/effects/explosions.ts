@@ -7,6 +7,7 @@ export const explosion: TGameObject = createGameObject({
    name: "explosion",
    diameter: 18,
    hp: 9999,
+   options: { invincible: true },
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "explosion" },
@@ -20,6 +21,7 @@ export const roundExplosion: TGameObject = createGameObject({
    name: "roundExplosion",
    diameter: 40,
    hp: 9999,
+   options: { invincible: true },
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "roundExplosion" },

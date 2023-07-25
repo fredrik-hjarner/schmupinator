@@ -8,7 +8,7 @@ import { ActionType as AT } from "../App/services/Enemies/actions/actionTypes";
 
 type TCreateGameObjectParams = {
    name: string;
-   hp: number;
+   hp: number; // TODO: | "invincible"
    diameter: number;
    actions: TAction[];
    /**
@@ -20,6 +20,19 @@ type TCreateGameObjectParams = {
    * "spawning a corpse".
    */
    onDeathAction?: TAction | undefined;
+   /**
+    * Some options.
+    * TODO: Move these up to root level and make them mandatory to set. It is convenient to have
+    * them optional, for now, but it is also easy to forget to set them.
+    * */
+   options?: {
+      /** If true then the GameObject will be removed when it moves outside the screen. */
+      despawnWhenOutsideScreen?: boolean;
+      /** Set to true disable polling hp every frame for death. */
+      invincible?: boolean;
+      /** Despawns the GameObject when it's these many pixels outside of the screen */
+      despawnMargin?: number;
+   }
 }
 /**
  * A function I made as a middle layer to make so I would need to make fewer changes to gameObjects
@@ -29,6 +42,29 @@ type TCreateGameObjectParams = {
  * TODO: Maybe this should be removed when it is no longer needed??
  */
 export function createGameObject(params: TCreateGameObjectParams): TGameObject {
+   const despawnWhenOutsideScreen = params.options?.despawnWhenOutsideScreen ?? true;
+   const invincible = params.options?.invincible ?? false;
+   const despawnMargin = params.options?.despawnMargin;
+
+   const despawnWhenOutsideScreenAction: TAction[] = despawnWhenOutsideScreen ? [{
+      type: AT.fork,
+      actions: [
+         { type: AT.waitTilInsideScreen }, // TODO: This should take a margin argument.
+         { type: AT.waitTilOutsideScreen, margin: despawnMargin },
+         { type: AT.despawn }
+      ]
+   }] : [];
+
+   const invincibleAction: TAction[] = invincible ? [] : [fork(
+      /**
+       * TODO: since hp always exists on atributes I should prolly add it to type
+       * so I get auto-completion
+       */
+      { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+      ...(params.onDeathAction ? [params.onDeathAction] : []),
+      { type: AT.despawn },
+   )];
+
    return {
       name: params.name,
       diameter: params.diameter,
@@ -41,24 +77,9 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
          { type: AT.setAttribute, attribute: "hp", value: params.hp },
          { type: AT.setAttribute, attribute: "maxHp", value: params.hp },
          // Setup despawning when GameObject moves out of the screen.
-         {
-            type: AT.fork,
-            actions: [
-               { type: AT.waitTilInsideScreen }, // TODO: This should take a margin argument.
-               { type: AT.waitTilOutsideScreen }, // TODO: This should take a margin argument.
-               { type: AT.despawn }
-            ]
-         },
+         ...despawnWhenOutsideScreenAction,
          // Die when hp is 0. TODO: Actually it should be LTE to 0.
-         fork(
-            /**
-             * TODO: since hp always exists on atributes I should prolly add it to type
-             * so I get auto-completion
-             */
-            { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
-            ...(params.onDeathAction ? [params.onDeathAction] : []),
-            { type: AT.despawn },
-         ),
+         ...invincibleAction,
          // "Normal" actions
          ...params.actions
       ]
