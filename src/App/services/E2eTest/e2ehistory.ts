@@ -19762,7 +19762,8 @@ export const recordedHistory = {
          "type": "collisions",
          "collisions": {
             "enemiesThatWereHit": [
-               "player-0"
+               "player-0",
+               "shot-63"
             ]
          }
       },
@@ -19770,14 +19771,6 @@ export const recordedHistory = {
          "type": "add_points",
          "points": 0,
          "enemy": "player"
-      },
-      {
-         "type": "collisions",
-         "collisions": {
-            "enemiesThatWereHit": [
-               "shot-63"
-            ]
-         }
       },
       {
          "type": "add_points",
