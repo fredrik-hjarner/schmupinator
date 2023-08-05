@@ -128,6 +128,18 @@ module.exports = {
     "@typescript-eslint/no-unused-expressions": ["error", { allowShortCircuit: true  }],
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/return-await": "error",
+    "@typescript-eslint/no-confusing-void-expression": "error",
+    // "@typescript-eslint/no-dynamic-delete": "error",// sometimes Map is faster than object delete
+    "@typescript-eslint/no-invalid-void-type": "error",
+    "@typescript-eslint/no-meaningless-void-operator": "error",
+    "@typescript-eslint/no-non-null-asserted-nullish-coalescing": "error",
+    // "@typescript-eslint/no-non-null-assertion": "error", // currently too harsh.
+    "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+    // "@typescript-eslint/no-unnecessary-condition": "error", // too harsh for someArray[i].
+    "@typescript-eslint/prefer-includes": "error",
+    "@typescript-eslint/prefer-reduce-type-parameter": "error",
+    "@typescript-eslint/prefer-return-this-type": "error",
+    "@typescript-eslint/no-throw-literal": "error",
 
     /************
      * Disables *

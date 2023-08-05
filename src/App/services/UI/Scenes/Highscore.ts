@@ -58,11 +58,11 @@ export class Highscore implements IScene {
    // if rank is a number it intructs to highlight that rank in the top10 list.
    public render(props: unknown) {
       if(isObject(props)) {
-         if(isNumber(props?.rank)) {
+         if(isNumber(props.rank)) {
             this.rank = props.rank;
          }
-         if(isBoolean(props?.backButton)) {
-            this.backButton = props?.backButton;
+         if(isBoolean(props.backButton)) {
+            this.backButton = props.backButton;
          }
       }
       this.shadeElement = createShade();

@@ -79,7 +79,7 @@ export class Input implements IInput {
             if(k === "laser" || k === "shoot" || k === "up" ||
                k === "down" || k === "left" || k === "right" ||
                k === "start") {
-               if(buttonsPressed[k] === false) {
+               if(!buttonsPressed[k]) {
                   delete buttonsPressed[k];
                }
             }

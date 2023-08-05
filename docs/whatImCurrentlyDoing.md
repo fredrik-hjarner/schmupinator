@@ -6,11 +6,3 @@ it easier to make levels, debug texts, debug buttons and tools etc.
   * the attribute getter itself should be able to take an attribute getter!!!
 
 * Maybe I should do powerups next, or bomb? or maybe update controls to support more buttons.
-
-- Remove these actions, and replace them with a TWaitForInput = { type, inputs: [] }.
-It can wait for several inputs. Why? Because you might want special code for diagonal movement.
-  - TMoveAccordingToInput
-  - TWaitInputShoot
-  - TWaitInputLaser
-- I need to add `notPressed` to `TWaitForInput`. This is to make it possible to handle directional
-  input differently I one does not want diagonal movement to be straight up UP added with RIGHT.

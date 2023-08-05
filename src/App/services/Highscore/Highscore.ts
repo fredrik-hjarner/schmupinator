@@ -73,7 +73,7 @@ export class Highscore implements IService {
 
             // If localStorage is an older version then skip it.
             const parsedfromLocalStorage = JSON.parse(fromLocalStorage) as unknown;
-            if(isObject(parsedfromLocalStorage) && parsedfromLocalStorage?.version === 2) {
+            if(isObject(parsedfromLocalStorage) && parsedfromLocalStorage.version === 2) {
                this.highscores = parsedfromLocalStorage as THighscores;
             }
          } else {

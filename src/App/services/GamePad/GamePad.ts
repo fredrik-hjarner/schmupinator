@@ -47,7 +47,7 @@ export class GamePad implements IService {
          if(!gamepad) {
             return false;
          }
-         return !!gamepad.buttons?.[index]?.pressed;
+         return !!gamepad.buttons[index]?.pressed;
       })!;
    };
 }
