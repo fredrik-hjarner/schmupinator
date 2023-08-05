@@ -46,7 +46,7 @@ export const healer: TGameObject = createGameObject({
       forever(
          wait(10),
          attr("hp", {
-            is: 50,
+            value: 50,
             no: [{ type: AT.incr, attribute: "hp" }]
          })
       )

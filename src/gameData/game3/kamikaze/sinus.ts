@@ -54,7 +54,7 @@ export const sinus: TGameObject = createGameObject({
    actions: [
       { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.setShotSpeed, pixelsPerFrame: 1.5 },
-      attr("right", { is: true, yes: [{ type: AT.mirrorX, value: true }] }),
+      attr("right", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
       twice(
          rotateLeftAndShoot,
          moveRight,

@@ -5,7 +5,7 @@ import type { Enemies } from "./Enemies";
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "./actions/actionTypes";
-import { EnemyActionExecutor } from "./EnemyActionExecutor";
+import { EnemyActionExecutor } from "./ActionExecutor/EnemyActionExecutor";
 import { Vector } from "../../../math/Vector";
 import { Angle } from "../../../math/Angle";
 import { UnitVector } from "../../../math/UnitVector";

@@ -46,7 +46,7 @@ export enum ActionType {
     * Attributes
     */
    setAttribute = "setAttribute",
-   attrIs = "attrIs",
+   attrIf = "attrIf",
    incr = "incr",
    decr = "decr",
    waitUntilAttrIs = "waitUntilAttrIs",
@@ -137,9 +137,10 @@ export type TSpawn = {
    type: ActionType.spawn, enemy: string, x?: number, y?: number, actions?: TAction[]
 };
 // Simple if-equals case. Executes yes if true. Executs no when false.
-export type TAttrIs = {
-   type: ActionType.attrIs, gameObjectId?: string, attrName: TAttrName,
-   is: TAttrValue, yes?: TAction[], no?: TAction[]
+export type TAttrIf = {
+   type: ActionType.attrIf, gameObjectId?: string, attrName: TAttrName,
+   condition: "equals" | "lessThan" | "greaterThan" | "lessThanOrEqual" | "greaterThanOrEqual",
+   value: TAttrValue, yes?: TAction[], no?: TAction[]
 };
 // Increments an attribute. Obviously will blow up if trying to increment a non-number.
 export type TIncrement =
@@ -259,7 +260,7 @@ export type TAction = Readonly<
    /**
     * Control/Conditions/Attributes
     */
-   TAttrIs |
+   TAttrIf |
    TSetAttribute |
    TIncrement |
    TDecrement |

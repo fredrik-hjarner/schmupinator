@@ -46,8 +46,8 @@ export const clonerChild: TGameObject = createGameObject({
    hp: 10,
    diameter: 18,
    actions: [
-      attr("mirrorX", { is: true, yes: [{ type: AT.mirrorX, value: true }] }),
-      attr("mirrorY", { is: true, yes: [{ type: AT.mirrorY, value: true }] }),
+      attr("mirrorX", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
+      attr("mirrorY", { value: true, yes: [{ type: AT.mirrorY, value: true }] }),
       setShotSpeed(1.5),
       parallelAll(
          { type: AT.move, x: -45, y: -20, frames: 65 },

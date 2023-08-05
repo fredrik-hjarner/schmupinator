@@ -116,7 +116,7 @@ export const sinus: TGameObject = createGameObject({
    onDeathAction: spawn("roundExplosion"),
    actions: [
       setShotSpeed(2),
-      attr("right", { is: true, yes: [{ type: AT.mirrorX, value: true }] }),
+      attr("right", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
       twice(
          rotateLeftAndShoot, 
          moveRight,
@@ -165,7 +165,7 @@ const rotateAntiClockwise: TAction =   { type: AT.rotate_around_absolute_point, 
 const downOutOfScreen: TAction =       moveToAbsolute({ x: 98.5, y: 290, frames: 210 });
 
 const movementPattern: TAction[] = [
-   attr("right", { is: true, yes: [{ type: AT.mirrorX, value: true }] }),
+   attr("right", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
    intoScreen,
    down1,
 
@@ -179,10 +179,10 @@ const movementPattern: TAction[] = [
    up2,                  wait(25),
    downIn,               wait(25),
 
-   attr("right", { is: true, yes: [{ type: AT.mirrorY, value: true }] }),
+   attr("right", { value: true, yes: [{ type: AT.mirrorY, value: true }] }),
    rotateClockwise,      wait(25),
    rotateAntiClockwise,
-   attr("right", { is: true, yes: [{ type: AT.mirrorY, value: false }] }),
+   attr("right", { value: true, yes: [{ type: AT.mirrorY, value: false }] }),
    wait(25),
    downOutOfScreen
 ];

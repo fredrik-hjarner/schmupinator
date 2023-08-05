@@ -5,6 +5,7 @@ import type { Enemy } from "../Enemies/Enemy";
 import type { IAttributes } from "../Attributes/IAttributes";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver";
+// import { resolutionHeight, resolutionWidth } from "@/consts";
 
 export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
 
@@ -20,6 +21,11 @@ type TCalcCollisionsResult =
 type TConstructor = {
    name: string;
 }
+
+// const isOutsideOfScreen = (x: number, y: number, radius: number): boolean => {
+//    return x < -radius || x > resolutionWidth + radius ||
+//       y < -radius || y > resolutionHeight + radius;
+// };
 
 export class Collisions implements IService {
    // vars
@@ -79,6 +85,10 @@ export class Collisions implements IService {
       const playerBullets: Enemy[] = [];
 
       Object.values(this.enemies.enemies).forEach(enemy => {
+         // If a GameObject is outside of the screen we don't bother to do collision detection.
+         // if(isOutsideOfScreen(enemy.x, enemy.y, enemy.Radius)) {
+         //    return;
+         // }
          const attrValue = this.attributes.getAttribute({
             gameObjectId: enemy.id,
             attribute: "collisionType"
