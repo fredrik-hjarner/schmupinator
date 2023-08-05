@@ -1,7 +1,7 @@
 // TODO: remove eslint-disable max-lines
 /* eslint-disable max-lines */
 import type {
-   TAction, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
+   TAction, TInputButton, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
 } from "../actions/actionTypes";
 import type { Vector as TVector } from "../../../../math/bezier";
 import type { IAttributes, TAttrValue } from "../../Attributes/IAttributes";
@@ -93,24 +93,10 @@ export class EnemyActionExecutor {
     */
 
    // Some utils for controls. I should probably refactor this somehow.
-   private _leftPressed = () => this.input.ButtonsPressed.left || this.gamepad.left;
-   private _rightPressed = () => this.input.ButtonsPressed.right || this.gamepad.right;
-   private _upPressed = () => this.input.ButtonsPressed.up || this.gamepad.up;
-   private _downPressed = () => this.input.ButtonsPressed.down || this.gamepad.down;
-
-   private leftPressed = () =>
-      this._leftPressed() && !this._upPressed() && !this._downPressed();
-   private rightPressed = () =>
-      this._rightPressed() && !this._upPressed() && !this._downPressed();
-   private upPressed = () =>
-      this._upPressed() && !this._leftPressed() && !this._rightPressed();
-   private downPressed = () =>
-      this._downPressed() && !this._leftPressed() && !this._rightPressed();
-
-   private upLeftPressed = () => this._upPressed() && this._leftPressed();
-   private upRightPressed = () => this._upPressed() && this._rightPressed();
-   private downLeftPressed = () => this._downPressed() && this._leftPressed();
-   private downRightPressed = () => this._downPressed() && this._rightPressed();
+   private leftPressed = () => this.input.ButtonsPressed.left || this.gamepad.left;
+   private rightPressed = () => this.input.ButtonsPressed.right || this.gamepad.right;
+   private upPressed = () => this.input.ButtonsPressed.up || this.gamepad.up;
+   private downPressed = () => this.input.ButtonsPressed.down || this.gamepad.down;
 
    private shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
    private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
@@ -155,45 +141,35 @@ export class EnemyActionExecutor {
          const currAction = actions[currIndex];
          switch(currAction.type) {
             case AT.waitForInput: {
-               const button = currAction.inputs[0];
-               
-               switch(button) {
-                  case "left":
-                     while(!this.leftPressed()) { yield; }
-                     break;
-                  case "right":
-                     while(!this.rightPressed()) { yield; }
-                     break;
-                  case "up":
-                     while(!this.upPressed()) { yield; }
-                     break;
-                  case "down":
-                     while(!this.downPressed()) { yield; }
-                     break;
+               const pressed = currAction.pressed;
+               const notPressed = currAction.notPressed ?? [];
 
-                  case "upLeft":
-                     while(!this.upLeftPressed()) { yield; }
-                     break;
-                  case "upRight":
-                     while(!this.upRightPressed()) { yield; }
-                     break;
-                  case "downLeft":
-                     while(!this.downLeftPressed()) { yield; }
-                     break;
-                  case "downRight":
-                     while(!this.downRightPressed()) { yield; }
-                     break;
+               const isButtonPressed = (button: TInputButton): boolean => {
+                  switch(button) {
+                     case "left":
+                        return this.leftPressed();
+                     case "right":
+                        return this.rightPressed();
+                     case "up":
+                        return this.upPressed();
+                     case "down":
+                        return this.downPressed();
 
-                  case "shoot":
-                     while(!this.shootPressed()) { yield; }
-                     break;
-                  case "laser":
-                     while(!this.laserPressed()) { yield; }
-                     break;
-                  case "start":
-                     while(!this.startPressed()) { yield; }
-                     break;
-               }
+                     case "shoot":
+                        return this.shootPressed();
+                     case "laser":
+                        return this.laserPressed();
+                     case "start":
+                        return this.startPressed();
+                  }
+               };
+
+               while(!(
+                  // every button in pressed must be pressed.
+                  pressed.every(isButtonPressed) &&
+                  // if some button in notPressed is pressed then return false.
+                  !notPressed.some(isButtonPressed)
+               )) { yield; }
 
                break;
             }

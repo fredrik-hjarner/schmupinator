@@ -52,44 +52,48 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    const defaultDirectionalControlsActions: TAction[] = defaultDirectionalControls ? [
       // cardinal
       fork(forever(
-         { type: AT.waitForInput, inputs: ["left"] },
+         // notPressed is set because I don't want this to trigger for diagonal movement.
+         { type: AT.waitForInput, pressed: ["left"], notPressed: ["up", "down"] },
          { type: AT.moveDelta, x: -2.35 },
          { type: AT.waitNextFrame }
       )),
       fork(forever(
-         { type: AT.waitForInput, inputs: ["right"] },
+         // notPressed is set because I don't want this to trigger for diagonal movement.
+         { type: AT.waitForInput, pressed: ["right"], notPressed: ["up", "down"] },
          { type: AT.moveDelta, x: 2.35 },
          { type: AT.waitNextFrame }
       )),
       fork(forever(
-         { type: AT.waitForInput, inputs: ["up"] },
+         // notPressed is set because I don't want this to trigger for diagonal movement.
+         { type: AT.waitForInput, pressed: ["up"], notPressed: ["left", "right"] },
          { type: AT.moveDelta, y: -2.35 },
          { type: AT.waitNextFrame }
       )),
       fork(forever(
-         { type: AT.waitForInput, inputs: ["down"] },
+         // notPressed is set because I don't want this to trigger for diagonal movement.
+         { type: AT.waitForInput, pressed: ["down"], notPressed: ["left", "right"] },
          { type: AT.moveDelta, y: 2.35 },
          { type: AT.waitNextFrame }
       )),
 
       // diagonal
       fork(forever(
-         { type: AT.waitForInput, inputs: ["upLeft"] },
+         { type: AT.waitForInput, pressed: ["up", "left"] },
          { type: AT.moveDelta, x: -2.35/Math.SQRT2, y: -2.35/Math.SQRT2 },
          { type: AT.waitNextFrame }
       )),
       fork(forever(
-         { type: AT.waitForInput, inputs: ["upRight"] },
+         { type: AT.waitForInput, pressed: ["up", "right"] },
          { type: AT.moveDelta, x: 2.35/Math.SQRT2, y: -2.35/Math.SQRT2 },
          { type: AT.waitNextFrame }
       )),
       fork(forever(
-         { type: AT.waitForInput, inputs: ["downLeft"] },
+         { type: AT.waitForInput, pressed: ["down", "left"] },
          { type: AT.moveDelta, x: -2.35/Math.SQRT2, y: 2.35/Math.SQRT2 },
          { type: AT.waitNextFrame }
       )),
       fork(forever(
-         { type: AT.waitForInput, inputs: ["downRight"] },
+         { type: AT.waitForInput, pressed: ["down", "right"] },
          { type: AT.moveDelta, x: 2.35/Math.SQRT2, y: 2.35/Math.SQRT2 },
          { type: AT.waitNextFrame }
       )),

@@ -214,15 +214,18 @@ export type TWaitInputLaser = Readonly<{ type: ActionType.waitInputLaser }>;
  */
 export type TInputButton =
    "up" | "down" | "left" | "right" |
-   "upLeft" | "upRight" | "downLeft" | "downRight" |
    "laser" | "shoot" | "start";
 /**
  * Waits until the user presses a button.
- * @param inputs The buttons to wait for.
+ * @param pressed The buttons to wait for until they are pressed.
+ * @param notPressed These buttons must not be pressed.
+ *    notPressed exists because it allows you to wait for a button to be released, or to
+ *    handle directional buttons specially.
  */
 export type TWaitForInput = Readonly<{
    type: ActionType.waitForInput,
-   inputs: [TInputButton] | [TInputButton, TInputButton],
+   pressed: TInputButton[],
+   notPressed?: TInputButton[]
 }>;
 
 // Signals that the level has been finished, so trigger this when end boss dies or something similar
