@@ -1,6 +1,6 @@
 import type { TGameObject } from "@/gameTypes/TGameObject";
 
-import { createGameObject, forever, spawn, wait } from "@/gameData/utils";
+import { createGameObject, forever, spawn, wait } from "@/gameData/utils/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
 export const parallax: TGameObject = createGameObject({

@@ -22,9 +22,6 @@ export class Enemy {
    private diameter: number;
    private speed = 0;
    private shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
-   // facing/aim
-   // default direction down.
-   private moveDirection = new UnitVector(new Vector(0, 1));
    private mirrorX = false;
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
@@ -46,12 +43,30 @@ export class Enemy {
          gamepad: this.enemies.gamepad,
       });
 
+      this.attrs
+         .setAttribute({gameObjectId: this.id, attribute: "moveDirectionAngle", value: 180 });
+
       this.graphics = this.enemies.graphics;
       this.gfx = new EnemyGfx({
          diameter: json.diameter, graphics: this.graphics, x: position.x, y: position.y
       });
    }
    private get attrs() { return this.enemies.attributes; } // convenience getter to shorten code.
+
+   /**
+    * TODO: Converting from/to angle/vector seems a bit unoptimized.
+    */
+   // facing/aim in angle degrees or 2d vector. 0 faces up, 90 = right, 180 = down, 270 = left.
+   private get moveDirection(): UnitVector {
+      const degrees = assertNumber(
+         this.attrs.getAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle" })
+      );
+      return new UnitVector(new Vector(0, -1)).rotateClockwise(Angle.fromDegrees(degrees));
+   }
+   private set moveDirection(dir: UnitVector){
+      const value = dir.toVector().angle.degrees;
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle", value });
+   }
 
    private get hp(): number {
       return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "hp" }));

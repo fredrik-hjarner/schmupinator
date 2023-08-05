@@ -6,7 +6,7 @@ import {
    // fork,
    spawn,
    // wait
-} from "../utils";
+} from "../utils/utils";
 
 export const spawner: TGameObject = createGameObject({
    name: "spawner",

@@ -1,7 +1,7 @@
-import type { TGameObject } from "../../../gameTypes/TGameObject";
+import type { TGameObject } from "@/gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { createGameObject, wait } from "../../utils/utils";
+import { createGameObject, wait } from "./utils";
 
 export const explosion: TGameObject = createGameObject({
    name: "explosion",
@@ -12,7 +12,6 @@ export const explosion: TGameObject = createGameObject({
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "explosion" },
       wait(40),
-      // { type: "wait", frames: 40 },
       { type: AT.despawn },
    ],
 });
@@ -26,7 +25,6 @@ export const roundExplosion: TGameObject = createGameObject({
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "roundExplosion" },
       wait(75),
-      // { type: "wait", frames: 75 },
       { type: AT.despawn },
    ],
 });

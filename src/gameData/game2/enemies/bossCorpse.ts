@@ -7,7 +7,7 @@ import {
    parallelAll,
    spawn,
    wait
-} from "../../utils";
+} from "../../utils/utils";
 
 
 const explodeInAllDirections = (radius: number, _wait: number,): TAction[] => {

@@ -1,6 +1,6 @@
 import {
    repeat, spawn, wait
-} from "../../utils";
+} from "../../utils/utils";
 import { col, row } from "../common";
 
 const aimerTop = spawn("nonShootingAimer", { x: col[11], y: row[3] });

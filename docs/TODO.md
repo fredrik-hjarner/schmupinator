@@ -329,3 +329,10 @@ buttons though.
 
 * There is a bug when you press UP + DOWN + RIGHT that you move faster then only RIGHT,
   this is because it does upRight + downRight at the same time.
+
+* Add A fields to TGame that is named `bootstrapGameObject` that will replace the `spawner`.
+
+* Bug. The reason why Parallax goes in the opposite direction is because the facing is down by
+  default.
+
+* AT.incr should take an optional arg that contains how much to increment with.

@@ -9,7 +9,7 @@ import {
    repeat,
    spawn,
    wait,
-} from "@/gameData/utils";
+} from "@/gameData/utils/utils";
 import { col } from "../common";
 
 const shootInAll8Directions = (shootSpeed: number): TAction[] => [

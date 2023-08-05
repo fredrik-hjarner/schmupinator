@@ -2,7 +2,7 @@ import type { TAction, TMove } from "../../../App/services/Enemies/actions/actio
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
-import { Do, attr, createGameObject, parallelAll, twice, wait } from "../../utils";
+import { Do, attr, createGameObject, parallelAll, twice, wait } from "../../utils/utils";
 
 const moveLeft: TMove = {
    type: AT.move,

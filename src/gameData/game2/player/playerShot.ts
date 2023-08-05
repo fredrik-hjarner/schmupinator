@@ -1,7 +1,7 @@
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { createGameObject, spawn } from "../../utils";
+import { createGameObject, spawn } from "../../utils/utils";
 
 export const playerShot: TGameObject = createGameObject({
    name: "playerShot",
