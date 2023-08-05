@@ -282,10 +282,6 @@ Power ups would just be something that when it collides with an enemy then it wo
 * I could make it so that one can change the direction of the player's shooting, I would need more
 buttons though.
 
-* Enemy.x and Enemy.y should be attributes so that they could be grabbed by actions.
-
-* I will need `attrLessThan` and `AttrGreaterThan` actions.
-
 * All positions should be standardized in action to `pos` and there should be a type `TPos`,
   and a `TPosDim` that is like `TString` in that they can either take a
   `{ x?: TPosDim, y?: TPosDim }` and `TPosDim` is
@@ -322,5 +318,11 @@ buttons though.
   series should be named "Creating A Pong Game Engine" where I should how to create a Game Engine
   supporting functionality that is needed to implement Pong (Graphics Engine that can draw text and
   rectangles, and Action Executor with GameObject with a few actions).
+
+* I should do Snake, or a snake boss, or the player being a snake.
+
+* The Graphics Engine should be able to render text. Maybe that could be separate from rendering
+  images because it would not make sense that an image and a text would be the same
+  (a GraphicsObject).
 
 * Margin on WaitUntilOutsideScreen should probably be the diameter by default.
