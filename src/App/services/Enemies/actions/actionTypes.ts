@@ -37,11 +37,6 @@ export enum ActionType {
    waitTilInsideScreen = "waitTilInsideScreen",
    fork = "fork",
    setMoveDirection = "setMoveDirection",
-
-   moveAccordingToInput = "moveAccordingToInput", // TODO: remove
-   waitInputShoot = "waitInputShoot", // TODO: remove
-   waitInputLaser = "waitInputLaser", // TODO: remove
-
    waitForInput = "waitForInput",
    finishLevel = "finishLevel",
    
@@ -202,14 +197,6 @@ export type TWaitUntilAttrIs = Readonly<{
 }>;
 
 /**
- * This action is a way to react to input/gamepad/controls, mainly made in order
- * to allow the Player to be an Enemy (i.e. GameObject)
- */
-// TODO: remove these. They are replaced by waitForInput
-export type TWaitInputShoot = Readonly<{ type: ActionType.waitInputShoot }>;
-export type TWaitInputLaser = Readonly<{ type: ActionType.waitInputLaser }>;
-
-/**
  * TODO: Move this type and makes use of it in Input.ts. It does not look right to have it here.
  */
 export type TInputButton =
@@ -269,8 +256,6 @@ export type TAction = Readonly<
    /**
     * Controls/input
     */
-   TWaitInputShoot | // TODO: remove
-   TWaitInputLaser | // TODO: remove
    TWaitForInput |
    /**
    * Spawning/Life cycle

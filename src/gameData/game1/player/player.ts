@@ -55,11 +55,11 @@ export const player = createGameObject({
       wait(1),
       { type: AT.gfxSetShape, shape: "diamondShield" },
       fork(forever(
-         { type: AT.waitInputShoot },
+         { type: AT.waitForInput, pressed: ["shoot"], notPressed: ["laser"] },
          ...trippleShot,
       )),
       fork(forever(
-         { type: AT.waitInputLaser },
+         { type: AT.waitForInput, pressed: ["laser"] },
          ...laser
       )),
    ]

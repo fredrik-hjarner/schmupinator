@@ -46,7 +46,7 @@ export const player: TGameObject = createGameObject({
       wait(1),
       { type: AT.gfxSetShape, shape: "stage2/player.png" },
       fork(forever(
-         { type: AT.waitInputShoot },
+         { type: AT.waitForInput, pressed: ["shoot"], notPressed: ["laser"] },
          ...trippleShot,
       )),
    ]

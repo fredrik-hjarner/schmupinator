@@ -1,5 +1,3 @@
-// TODO: remove eslint-disable max-lines
-/* eslint-disable max-lines */
 import type {
    TAction, TInputButton, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
 } from "../actions/actionTypes";
@@ -171,18 +169,6 @@ export class EnemyActionExecutor {
                   !notPressed.some(isButtonPressed)
                )) { yield; }
 
-               break;
-            }
-
-            case AT.waitInputShoot: {
-               const shootPressed = () => this.shootPressed() && !this.laserPressed();
-               while(!shootPressed()) { yield; }
-               break;
-            }
-
-            case AT.waitInputLaser: {
-               const laserPressed = () => this.laserPressed();
-               while(!laserPressed()) { yield; }
                break;
             }
 
