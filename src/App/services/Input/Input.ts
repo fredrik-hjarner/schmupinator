@@ -29,6 +29,9 @@ export class Input implements IInput {
       up: false,
       down: false,
    };
+   /**
+    * onKeyUpCallback seems to be used by UI exclusively. 
+    */
    public onKeyUpCallback?: (key: TKey) => void;
    /**
     * Keep track of which frame it is "locally" in this object.
@@ -67,6 +70,7 @@ export class Input implements IInput {
    };
 
    public get ButtonsPressed(): ButtonsPressed {
+      //#region push to history
       const frame = this.frameCount;
       const buttonsPressed = { ...this.buttonsPressed };
       const wasPressed = Object.values(buttonsPressed).includes(true);
@@ -82,6 +86,7 @@ export class Input implements IInput {
          });
          this.history.inputs[frame] = buttonsPressed;
       }
+      //#endregion
       return this.buttonsPressed;
    }
 

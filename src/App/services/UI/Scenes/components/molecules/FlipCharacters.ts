@@ -79,6 +79,8 @@ export class FlipCharacters {
             case "start":
                this.onDone(this.getEnteredString());
                break;
+            default:
+               // NOOP
          }
       };
    }
@@ -136,18 +138,18 @@ export class FlipCharacters {
    };
 
    private incrCaretIndex = () => {
-      if(this.caretIndex === undefined) {
-         return;
-      }
+      // if(this.caretIndex === undefined) {
+      //    return;
+      // }
       if(this.caretIndex < this.charIndices.length - 1) {
          this.setCaretIndex(this.caretIndex + 1);
       }
    };
 
    private decrCaretIndex = () => {
-      if(this.caretIndex === undefined) {
-         return;
-      }
+      // if(this.caretIndex === undefined) {
+      //    return;
+      // }
       if(this.caretIndex >= 1) {
          this.setCaretIndex(this.caretIndex - 1);
       }

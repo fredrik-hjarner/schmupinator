@@ -170,6 +170,8 @@ export class Enemies implements IService {
                }
             });
             break;
+         default:
+            // NOOP
       }
    };
 }

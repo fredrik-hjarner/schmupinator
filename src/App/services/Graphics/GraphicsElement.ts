@@ -324,7 +324,7 @@ export class GraphicsElement implements IDestroyable {
 
       // x
       if(x !== undefined){
-         const withoutPx = this.element.style.backgroundPositionX.replace("px", "") ?? "";
+         const withoutPx = this.element.style.backgroundPositionX.replace("px", "");
          const currentScrollX = parseFloat(withoutPx) || 0; // TODO: error if NaN
          const nextScrollX = currentScrollX + x;
          // TODO: this should not be needed to happen every time, i.e. setting repeat-y.
@@ -334,7 +334,7 @@ export class GraphicsElement implements IDestroyable {
 
       // y
       if(y !== undefined){
-         const withoutPx = this.element.style.backgroundPositionY.replace("px", "") ?? "";
+         const withoutPx = this.element.style.backgroundPositionY.replace("px", "");
          const currentScrollY = parseFloat(withoutPx) || 0; // TODO: error if NaN
          const nextScrollY = currentScrollY + y;
          // TODO: this should not be needed to happen every time, i.e. setting repeat-y.

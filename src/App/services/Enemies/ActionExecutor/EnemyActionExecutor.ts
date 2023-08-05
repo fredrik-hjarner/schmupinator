@@ -1,5 +1,5 @@
 import type {
-   TAction, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
+   TAction, TInputButton, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
 } from "../actions/actionTypes";
 import type { Vector as TVector } from "../../../../math/bezier";
 import type { IAttributes, TAttrValue } from "../../Attributes/IAttributes";
@@ -11,8 +11,27 @@ import { ActionType as AT } from "../actions/actionTypes";
 import { Vector } from "../../../../math/Vector";
 import { Angle } from "../../../../math/Angle";
 import { GeneratorUtils } from "../../../../utils/GeneratorUtils";
-import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../../consts";
+import { resolutionHeight, resolutionWidth } from "../../../../consts";
 import { ifAttr } from "./if";
+
+const rotateAroundPoint = function*(
+   currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
+   pointToPosVector: Vector,
+   actionHandler: TActionHandler
+): Generator<void, void, void> {
+   const stepDegrees = currAction.degrees / currAction.frames;
+   for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
+      const prevDegrees = stepDegrees * (passedFrames-1);
+      const currDegrees = stepDegrees * passedFrames;
+
+      const prevRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(prevDegrees));
+      const currRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
+
+      const delta = Vector.fromTo(prevRotated, currRotated);
+      actionHandler({ type: AT.moveDelta, x: delta.x, y: delta.y });
+      yield;
+   }
+};
 
 type TActionHandler = (action: TAction) => void;
 
@@ -90,8 +109,16 @@ export class EnemyActionExecutor {
     * Private
     */
 
+   // Some utils for controls. I should probably refactor this somehow.
+   private leftPressed = () => this.input.ButtonsPressed.left || this.gamepad.left;
+   private rightPressed = () => this.input.ButtonsPressed.right || this.gamepad.right;
+   private upPressed = () => this.input.ButtonsPressed.up || this.gamepad.up;
+   private downPressed = () => this.input.ButtonsPressed.down || this.gamepad.down;
+
    private shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
    private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
+   // TODO: Why do I have no start on gamepad??
+   private startPressed = () => this.input.ButtonsPressed.start;
 
    // convenience method to shorten code a bit and reduce code duplication.
    private getAttribute = (params: { gameObjectId?: string, attribute: string }): TAttrValue => {
@@ -130,45 +157,37 @@ export class EnemyActionExecutor {
       while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
          const currAction = actions[currIndex];
          switch(currAction.type) {
-            case AT.moveAccordingToInput: {
-               const input = this.input;
-               const gamepad = this.gamepad;
+            case AT.waitForInput: {
+               const pressed = currAction.pressed;
+               const notPressed = currAction.notPressed ?? [];
 
-               let speed = playerSpeedPerFrame[0];
+               const isButtonPressed = (button: TInputButton): boolean => {
+                  switch(button) {
+                     case "left":
+                        return this.leftPressed();
+                     case "right":
+                        return this.rightPressed();
+                     case "up":
+                        return this.upPressed();
+                     case "down":
+                        return this.downPressed();
 
-               const left = input.ButtonsPressed.left || gamepad.left;
-               const right = input.ButtonsPressed.right || gamepad.right;
-               const up = input.ButtonsPressed.up || gamepad.up;
-               const down = input.ButtonsPressed.down || gamepad.down;
+                     case "shoot":
+                        return this.shootPressed();
+                     case "laser":
+                        return this.laserPressed();
+                     case "start":
+                        return this.startPressed();
+                  }
+               };
 
-               const horizonal = left || right;
-               const vertical = up || down;
-               if(horizonal && vertical) {
-                  // decrease speed to not have diagonal movement be faster.
-                  speed /= Math.SQRT2;
-               }
+               while(!(
+                  // every button in pressed must be pressed.
+                  pressed.every(isButtonPressed) &&
+                  // if some button in notPressed is pressed then return false.
+                  !notPressed.some(isButtonPressed)
+               )) { yield; }
 
-               let x=0;
-               let y=0;
-               if (left) { x -= speed; }
-               if (right) { x += speed; }
-               if (up) { y -= speed; }
-               if (down) { y += speed; }
-               if(x !== 0 || y !== 0) {
-                  this.actionHandler({ type: AT.moveDelta, x, y });
-               }
-               break;
-            }
-
-            case AT.waitInputShoot: {
-               const shootPressed = () => this.shootPressed() && !this.laserPressed();
-               while(!shootPressed()) { yield; }
-               break;
-            }
-
-            case AT.waitInputLaser: {
-               const laserPressed = () => this.laserPressed();
-               while(!laserPressed()) { yield; }
                break;
             }
 
@@ -332,22 +351,3 @@ export class EnemyActionExecutor {
       }
    }
 }
-
-const rotateAroundPoint = function*(
-   currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
-   pointToPosVector: Vector,
-   actionHandler: TActionHandler
-): Generator<void, void, void> {
-   const stepDegrees = currAction.degrees / currAction.frames;
-   for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-      const prevDegrees = stepDegrees * (passedFrames-1);
-      const currDegrees = stepDegrees * passedFrames;
-
-      const prevRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(prevDegrees));
-      const currRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
-
-      const delta = Vector.fromTo(prevRotated, currRotated);
-      actionHandler({ type: AT.moveDelta, x: delta.x, y: delta.y });
-      yield;
-   }
-};

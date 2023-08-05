@@ -122,7 +122,7 @@ export class Vector {
 
    // Mutation functions are suffixed with a "M"
 
-   public rotateClockwiseM(angle: Angle): Vector {
+   public rotateClockwiseM(angle: Angle): this {
       const x = this.x;
       const y = this.y;
       const radians = angle.radians;

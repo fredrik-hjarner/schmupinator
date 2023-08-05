@@ -46,6 +46,8 @@ export class ReplayerInput implements IInput {
             case "frame_tick":
                this.frameCount = event.frameNr;
                break;
+            default:
+               // NOOP
          }
       });
    };

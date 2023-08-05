@@ -37,9 +37,7 @@ export enum ActionType {
    waitTilInsideScreen = "waitTilInsideScreen",
    fork = "fork",
    setMoveDirection = "setMoveDirection",
-   moveAccordingToInput = "moveAccordingToInput",
-   waitInputShoot = "waitInputShoot",
-   waitInputLaser = "waitInputLaser",
+   waitForInput = "waitForInput",
    finishLevel = "finishLevel",
    
    /**
@@ -199,12 +197,23 @@ export type TWaitUntilAttrIs = Readonly<{
 }>;
 
 /**
- * This action is a way to react to input/gamepad/controls, mainly made in order
- * to allow the Player to be an Enemy (i.e. GameObject)
+ * TODO: Move this type and makes use of it in Input.ts. It does not look right to have it here.
  */
-export type TMoveAccordingToInput = Readonly<{ type: ActionType.moveAccordingToInput }>;
-export type TWaitInputShoot = Readonly<{ type: ActionType.waitInputShoot }>;
-export type TWaitInputLaser = Readonly<{ type: ActionType.waitInputLaser }>;
+export type TInputButton =
+   "up" | "down" | "left" | "right" |
+   "laser" | "shoot" | "start";
+/**
+ * Waits until the user presses a button.
+ * @param pressed The buttons to wait for until they are pressed.
+ * @param notPressed These buttons must not be pressed.
+ *    notPressed exists because it allows you to wait for a button to be released, or to
+ *    handle directional buttons specially.
+ */
+export type TWaitForInput = Readonly<{
+   type: ActionType.waitForInput,
+   pressed: TInputButton[],
+   notPressed?: TInputButton[]
+}>;
 
 // Signals that the level has been finished, so trigger this when end boss dies or something similar
 export type TFinishLevel = Readonly<{ type: ActionType.finishLevel }>;
@@ -247,9 +256,7 @@ export type TAction = Readonly<
    /**
     * Controls/input
     */
-   TMoveAccordingToInput |
-   TWaitInputShoot |
-   TWaitInputLaser |
+   TWaitForInput |
    /**
    * Spawning/Life cycle
    */

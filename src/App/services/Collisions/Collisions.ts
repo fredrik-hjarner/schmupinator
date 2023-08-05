@@ -103,6 +103,8 @@ export class Collisions implements IService {
             case "playerBullet":
                playerBullets.push(enemy);
                break;
+            default:
+               // NOOP
          }
       });
 

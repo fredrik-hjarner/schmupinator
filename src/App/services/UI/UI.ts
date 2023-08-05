@@ -108,6 +108,8 @@ export class UI implements IUI {
             this.SetActiveScene(this.gameOver);
             break;
          }
+         default:
+            // NOOP
       }
    };
 

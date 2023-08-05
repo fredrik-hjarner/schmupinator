@@ -69,6 +69,8 @@ export class Menu {
                   this.menuItems[this.activeItemIndex].onClick();
                }
                break;
+            default:
+               // NOOP
          }
       };
    }

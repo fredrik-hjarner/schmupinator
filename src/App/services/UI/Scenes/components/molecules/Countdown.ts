@@ -78,6 +78,8 @@ export class Countdown {
                   this.onDone();
                }
                break;
+            default:
+               // NOOP
          }
       };
    }
