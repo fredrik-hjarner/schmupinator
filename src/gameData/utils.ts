@@ -32,6 +32,8 @@ type TCreateGameObjectParams = {
       invincible?: boolean;
       /** Despawns the GameObject when it's these many pixels outside of the screen */
       despawnMargin?: number;
+      /** setup default (player) directional controls */
+      defaultDirectionalControls?: boolean;
    }
 }
 /**
@@ -45,6 +47,53 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    const despawnWhenOutsideScreen = params.options?.despawnWhenOutsideScreen ?? true;
    const invincible = params.options?.invincible ?? false;
    const despawnMargin = params.options?.despawnMargin;
+   const defaultDirectionalControls = params.options?.defaultDirectionalControls ?? false;
+
+   const defaultDirectionalControlsActions: TAction[] = defaultDirectionalControls ? [
+      // cardinal
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["left"] },
+         { type: AT.moveDelta, x: -2.35 },
+         { type: AT.waitNextFrame }
+      )),
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["right"] },
+         { type: AT.moveDelta, x: 2.35 },
+         { type: AT.waitNextFrame }
+      )),
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["up"] },
+         { type: AT.moveDelta, y: -2.35 },
+         { type: AT.waitNextFrame }
+      )),
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["down"] },
+         { type: AT.moveDelta, y: 2.35 },
+         { type: AT.waitNextFrame }
+      )),
+
+      // diagonal
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["upLeft"] },
+         { type: AT.moveDelta, x: -2.35/Math.SQRT2, y: -2.35/Math.SQRT2 },
+         { type: AT.waitNextFrame }
+      )),
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["upRight"] },
+         { type: AT.moveDelta, x: 2.35/Math.SQRT2, y: -2.35/Math.SQRT2 },
+         { type: AT.waitNextFrame }
+      )),
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["downLeft"] },
+         { type: AT.moveDelta, x: -2.35/Math.SQRT2, y: 2.35/Math.SQRT2 },
+         { type: AT.waitNextFrame }
+      )),
+      fork(forever(
+         { type: AT.waitForInput, inputs: ["downRight"] },
+         { type: AT.moveDelta, x: 2.35/Math.SQRT2, y: 2.35/Math.SQRT2 },
+         { type: AT.waitNextFrame }
+      )),
+   ] : [];
 
    const despawnWhenOutsideScreenAction: TAction[] = despawnWhenOutsideScreen ? [{
       type: AT.fork,
@@ -76,6 +125,8 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
          { type: AT.setAttribute, attribute: "boundToWindow", value: false },
          { type: AT.setAttribute, attribute: "hp", value: params.hp },
          { type: AT.setAttribute, attribute: "maxHp", value: params.hp },
+         // Set default player controls.
+         ...defaultDirectionalControlsActions,
          // Setup despawning when GameObject moves out of the screen.
          ...despawnWhenOutsideScreenAction,
          // Die when hp is 0. TODO: Actually it should be LTE to 0.
@@ -111,11 +162,13 @@ export const Do = (...actions: TAction[]): TDo => ({
    acns: actions
 });
 
-export const forever = (...actions: TAction[]): TRepeat => ({
-   type: AT.repeat,
-   times: 100_000_000,
-   actions
-});
+export function forever(...actions: TAction[]): TRepeat {
+   return {
+      type: AT.repeat,
+      times: 100_000_000,
+      actions
+   };
+}
 
 export function fork(...actions: TAction[]): TFork {
    return {

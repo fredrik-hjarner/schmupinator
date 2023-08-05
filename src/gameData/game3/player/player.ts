@@ -38,6 +38,7 @@ export const player: TGameObject = createGameObject({
    diameter: 20,
    hp: 1,
    onDeathAction: { type: AT.finishLevel },
+   options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: true },
    actions: [
       //set points to 0, otherwise you get points when the player dies since default is 10 currently
       { type: AT.setAttribute, attribute: "points", value: 0 },
@@ -54,10 +55,6 @@ export const player: TGameObject = createGameObject({
       { type: AT.gfxSetShape, shape: "none" },
       wait(1),
       { type: AT.gfxSetShape, shape: "diamondShield" },
-      fork(forever(
-         { type: AT.moveAccordingToInput },
-         { type: AT.waitNextFrame }
-      )),
       fork(forever(
          { type: AT.waitInputShoot },
          ...trippleShot,

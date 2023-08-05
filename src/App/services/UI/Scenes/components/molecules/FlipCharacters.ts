@@ -79,6 +79,8 @@ export class FlipCharacters {
             case "start":
                this.onDone(this.getEnteredString());
                break;
+            default:
+               // NOOP
          }
       };
    }

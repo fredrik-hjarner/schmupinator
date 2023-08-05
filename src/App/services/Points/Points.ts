@@ -40,6 +40,8 @@ export class Points implements IPoints {
             // unsub because we dont want to get in here again.
             this.app.events.unsubscribeToEvent(this.name);
             break;
+         default:
+            // NOOP
       }
    };
 

@@ -121,6 +121,7 @@ module.exports = {
     }],
     "@typescript-eslint/no-duplicate-type-constituents": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/switch-exhaustiveness-check": "error",
 
     /************
      * Disables *

@@ -326,3 +326,6 @@ buttons though.
   (a GraphicsObject).
 
 * Margin on WaitUntilOutsideScreen should probably be the diameter by default.
+
+* There is a bug when you press UP + DOWN + RIGHT that you move faster then only RIGHT,
+  this is because it does upRight + downRight at the same time.

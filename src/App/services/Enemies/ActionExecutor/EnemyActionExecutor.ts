@@ -1,3 +1,5 @@
+// TODO: remove eslint-disable max-lines
+/* eslint-disable max-lines */
 import type {
    TAction, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
 } from "../actions/actionTypes";
@@ -11,7 +13,7 @@ import { ActionType as AT } from "../actions/actionTypes";
 import { Vector } from "../../../../math/Vector";
 import { Angle } from "../../../../math/Angle";
 import { GeneratorUtils } from "../../../../utils/GeneratorUtils";
-import { playerSpeedPerFrame, resolutionHeight, resolutionWidth } from "../../../../consts";
+import { resolutionHeight, resolutionWidth } from "../../../../consts";
 import { ifAttr } from "./if";
 
 type TActionHandler = (action: TAction) => void;
@@ -90,8 +92,30 @@ export class EnemyActionExecutor {
     * Private
     */
 
+   // Some utils for controls. I should probably refactor this somehow.
+   private _leftPressed = () => this.input.ButtonsPressed.left || this.gamepad.left;
+   private _rightPressed = () => this.input.ButtonsPressed.right || this.gamepad.right;
+   private _upPressed = () => this.input.ButtonsPressed.up || this.gamepad.up;
+   private _downPressed = () => this.input.ButtonsPressed.down || this.gamepad.down;
+
+   private leftPressed = () =>
+      this._leftPressed() && !this._upPressed() && !this._downPressed();
+   private rightPressed = () =>
+      this._rightPressed() && !this._upPressed() && !this._downPressed();
+   private upPressed = () =>
+      this._upPressed() && !this._leftPressed() && !this._rightPressed();
+   private downPressed = () =>
+      this._downPressed() && !this._leftPressed() && !this._rightPressed();
+
+   private upLeftPressed = () => this._upPressed() && this._leftPressed();
+   private upRightPressed = () => this._upPressed() && this._rightPressed();
+   private downLeftPressed = () => this._downPressed() && this._leftPressed();
+   private downRightPressed = () => this._downPressed() && this._rightPressed();
+
    private shootPressed = () => this.input.ButtonsPressed.shoot || this.gamepad.shoot;
    private laserPressed = () => this.input.ButtonsPressed.laser || this.gamepad.laser;
+   // TODO: Why do I have no start on gamepad??
+   private startPressed = () => this.input.ButtonsPressed.start;
 
    // convenience method to shorten code a bit and reduce code duplication.
    private getAttribute = (params: { gameObjectId?: string, attribute: string }): TAttrValue => {
@@ -130,33 +154,47 @@ export class EnemyActionExecutor {
       while(currIndex < nrActions) { // if index 1 & nr 2 => kosher
          const currAction = actions[currIndex];
          switch(currAction.type) {
-            case AT.moveAccordingToInput: {
-               const input = this.input;
-               const gamepad = this.gamepad;
+            case AT.waitForInput: {
+               const button = currAction.inputs[0];
+               
+               switch(button) {
+                  case "left":
+                     while(!this.leftPressed()) { yield; }
+                     break;
+                  case "right":
+                     while(!this.rightPressed()) { yield; }
+                     break;
+                  case "up":
+                     while(!this.upPressed()) { yield; }
+                     break;
+                  case "down":
+                     while(!this.downPressed()) { yield; }
+                     break;
 
-               let speed = playerSpeedPerFrame[0];
+                  case "upLeft":
+                     while(!this.upLeftPressed()) { yield; }
+                     break;
+                  case "upRight":
+                     while(!this.upRightPressed()) { yield; }
+                     break;
+                  case "downLeft":
+                     while(!this.downLeftPressed()) { yield; }
+                     break;
+                  case "downRight":
+                     while(!this.downRightPressed()) { yield; }
+                     break;
 
-               const left = input.ButtonsPressed.left || gamepad.left;
-               const right = input.ButtonsPressed.right || gamepad.right;
-               const up = input.ButtonsPressed.up || gamepad.up;
-               const down = input.ButtonsPressed.down || gamepad.down;
-
-               const horizonal = left || right;
-               const vertical = up || down;
-               if(horizonal && vertical) {
-                  // decrease speed to not have diagonal movement be faster.
-                  speed /= Math.SQRT2;
+                  case "shoot":
+                     while(!this.shootPressed()) { yield; }
+                     break;
+                  case "laser":
+                     while(!this.laserPressed()) { yield; }
+                     break;
+                  case "start":
+                     while(!this.startPressed()) { yield; }
+                     break;
                }
 
-               let x=0;
-               let y=0;
-               if (left) { x -= speed; }
-               if (right) { x += speed; }
-               if (up) { y -= speed; }
-               if (down) { y += speed; }
-               if(x !== 0 || y !== 0) {
-                  this.actionHandler({ type: AT.moveDelta, x, y });
-               }
                break;
             }
 
