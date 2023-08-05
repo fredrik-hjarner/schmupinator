@@ -6,6 +6,100 @@ import type { TGameObject } from "@/gameTypes/TGameObject";
 
 import { ActionType as AT } from "../App/services/Enemies/actions/actionTypes";
 
+type TAttrParams = {
+   condition?: TAttrIf["condition"];
+   value: TAttrIf["value"];
+   yes?: TAttrIf["yes"];
+   no?: TAttrIf["no"];
+};
+export function attr(
+   attrName: TAttrIf["attrName"], { condition="equals", value, yes, no }: TAttrParams
+): TAttrIf {
+   return {
+      condition,
+      type: AT.attrIf,
+      attrName,
+      value: value,
+      yes,
+      no
+   };
+}
+
+// first caps because `do` is a reserved word in js.
+export const Do = (...actions: TAction[]): TDo => ({
+   type: AT.do,
+   acns: actions
+});
+
+export function forever(...actions: TAction[]): TRepeat {
+   return {
+      type: AT.repeat,
+      times: 100_000_000,
+      actions
+   };
+}
+
+export function fork(...actions: TAction[]): TFork {
+   return {
+      type: AT.fork,
+      actions
+   };
+}
+
+type TMoveToAbsParams = { x?: number, y?: number, frames: number};
+export const moveToAbsolute = ({ x, y, frames }: TMoveToAbsParams): TMoveToAbsolute => ({
+   type: AT.moveToAbsolute,
+   moveTo: { x, y },
+   frames
+});
+
+export const parallelAll = (...actions: (TAction|TAction[])[]): TparallelAll => ({
+   type: AT.parallelAll,
+   actionsLists: actions.map(acns => Array.isArray(acns) ? acns : [acns])
+});
+
+export function parallelRace(...actions: (TAction|TAction[])[]): TparallelRace {
+   return {
+      type: AT.parallelRace,
+      actionsLists: actions.map(acn => Array.isArray(acn) ? acn : [acn])
+   };
+}
+
+export const repeat = (times: TNumber, actions: TAction[]): TRepeat => ({
+   type: AT.repeat,
+   times,
+   actions
+});
+
+export const setSpeed = (pixelsPerFrame: number): TSetSpeed => ({
+   type: AT.setSpeed,
+   pixelsPerFrame
+});
+
+type TSpawnParams = {
+   x?: number;
+   y?: number;
+   actions?: (TAction)[]
+}
+export const spawn = (enemy: string, params?: TSpawnParams): TSpawn => ({
+   type: AT.spawn,
+   enemy,
+   x: params?.x,
+   y: params?.y,
+   actions: params?.actions
+});
+
+export const setShotSpeed = (pixelsPerFrame: number): TSetShotSpeed => ({
+   type: AT.setShotSpeed,
+   pixelsPerFrame
+});
+
+export const thrice = (...actions: TAction[]): TRepeat => repeat(3, actions);
+
+export const twice = (...actions: TAction[]): TRepeat => repeat(2, actions);
+
+export const wait = (frames: TNumber): TWait => ({ type: AT.wait, frames });
+
 type TCreateGameObjectParams = {
    name: string;
    hp: number; // TODO: | "invincible"
@@ -140,97 +234,3 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
       ]
    };
 }
-
-type TAttrParams = {
-   condition?: TAttrIf["condition"];
-   value: TAttrIf["value"];
-   yes?: TAttrIf["yes"];
-   no?: TAttrIf["no"];
-};
-export function attr(
-   attrName: TAttrIf["attrName"], { condition="equals", value, yes, no }: TAttrParams
-): TAttrIf {
-   return {
-      condition,
-      type: AT.attrIf,
-      attrName,
-      value: value,
-      yes,
-      no
-   };
-}
-
-// first caps because `do` is a reserved word in js.
-export const Do = (...actions: TAction[]): TDo => ({
-   type: AT.do,
-   acns: actions
-});
-
-export function forever(...actions: TAction[]): TRepeat {
-   return {
-      type: AT.repeat,
-      times: 100_000_000,
-      actions
-   };
-}
-
-export function fork(...actions: TAction[]): TFork {
-   return {
-      type: AT.fork,
-      actions
-   };
-}
-
-type TMoveToAbsParams = { x?: number, y?: number, frames: number};
-export const moveToAbsolute = ({ x, y, frames }: TMoveToAbsParams): TMoveToAbsolute => ({
-   type: AT.moveToAbsolute,
-   moveTo: { x, y },
-   frames
-});
-
-export const parallelAll = (...actions: (TAction|TAction[])[]): TparallelAll => ({
-   type: AT.parallelAll,
-   actionsLists: actions.map(acns => Array.isArray(acns) ? acns : [acns])
-});
-
-export function parallelRace(...actions: (TAction|TAction[])[]): TparallelRace {
-   return {
-      type: AT.parallelRace,
-      actionsLists: actions.map(acn => Array.isArray(acn) ? acn : [acn])
-   };
-}
-
-export const repeat = (times: TNumber, actions: TAction[]): TRepeat => ({
-   type: AT.repeat,
-   times,
-   actions
-});
-
-export const setSpeed = (pixelsPerFrame: number): TSetSpeed => ({
-   type: AT.setSpeed,
-   pixelsPerFrame
-});
-
-type TSpawnParams = {
-   x?: number;
-   y?: number;
-   actions?: (TAction)[]
-}
-export const spawn = (enemy: string, params?: TSpawnParams): TSpawn => ({
-   type: AT.spawn,
-   enemy,
-   x: params?.x,
-   y: params?.y,
-   actions: params?.actions
-});
-
-export const setShotSpeed = (pixelsPerFrame: number): TSetShotSpeed => ({
-   type: AT.setShotSpeed,
-   pixelsPerFrame
-});
-
-export const thrice = (...actions: TAction[]): TRepeat => repeat(3, actions);
-
-export const twice = (...actions: TAction[]): TRepeat => repeat(2, actions);
-
-export const wait = (frames: TNumber): TWait => ({ type: AT.wait, frames });

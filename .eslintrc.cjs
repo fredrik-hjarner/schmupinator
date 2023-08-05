@@ -122,6 +122,12 @@ module.exports = {
     "@typescript-eslint/no-duplicate-type-constituents": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/switch-exhaustiveness-check": "error",
+    "@typescript-eslint/no-import-type-side-effects": "error",
+    "@typescript-eslint/no-loop-func": "error",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-unused-expressions": ["error", { allowShortCircuit: true  }],
+    "@typescript-eslint/no-use-before-define": "error",
+    "@typescript-eslint/return-await": "error",
 
     /************
      * Disables *

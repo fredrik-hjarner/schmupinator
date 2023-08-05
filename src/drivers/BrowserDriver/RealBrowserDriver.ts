@@ -65,13 +65,13 @@ export class RealBrowserDriver implements IBrowserDriver {
    public FetchText = async (input: RequestInfo | URL): Promise<string> => {
       // eslint-disable-next-line no-undef
       const res = await window.fetch(input);
-      return await res.text();
+      return res.text();
    };
 
    public FetchBinary = async (input: RequestInfo | URL): Promise<Blob> => {
       // eslint-disable-next-line no-undef
       const res = await window.fetch(input);
-      return await res.blob();
+      return res.blob();
    };
 
    public SaveFile = async (_path: string, _data: string) => {

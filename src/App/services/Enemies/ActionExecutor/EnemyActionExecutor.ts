@@ -14,6 +14,25 @@ import { GeneratorUtils } from "../../../../utils/GeneratorUtils";
 import { resolutionHeight, resolutionWidth } from "../../../../consts";
 import { ifAttr } from "./if";
 
+const rotateAroundPoint = function*(
+   currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
+   pointToPosVector: Vector,
+   actionHandler: TActionHandler
+): Generator<void, void, void> {
+   const stepDegrees = currAction.degrees / currAction.frames;
+   for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
+      const prevDegrees = stepDegrees * (passedFrames-1);
+      const currDegrees = stepDegrees * passedFrames;
+
+      const prevRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(prevDegrees));
+      const currRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
+
+      const delta = Vector.fromTo(prevRotated, currRotated);
+      actionHandler({ type: AT.moveDelta, x: delta.x, y: delta.y });
+      yield;
+   }
+};
+
 type TActionHandler = (action: TAction) => void;
 
 type TEnemyActionExecutorArgs = {
@@ -332,22 +351,3 @@ export class EnemyActionExecutor {
       }
    }
 }
-
-const rotateAroundPoint = function*(
-   currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
-   pointToPosVector: Vector,
-   actionHandler: TActionHandler
-): Generator<void, void, void> {
-   const stepDegrees = currAction.degrees / currAction.frames;
-   for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-      const prevDegrees = stepDegrees * (passedFrames-1);
-      const currDegrees = stepDegrees * passedFrames;
-
-      const prevRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(prevDegrees));
-      const currRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
-
-      const delta = Vector.fromTo(prevRotated, currRotated);
-      actionHandler({ type: AT.moveDelta, x: delta.x, y: delta.y });
-      yield;
-   }
-};
