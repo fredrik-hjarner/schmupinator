@@ -334,3 +334,5 @@ buttons though.
 
 * Bug. The reason why Parallax goes in the opposite direction is because the facing is down by
   default.
+
+* How should I randomize values for say a position? I have a PseudoRandom service now, but how? 

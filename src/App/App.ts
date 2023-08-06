@@ -17,6 +17,7 @@ import type { IE2eTest } from "./services/E2eTest/IE2eTest";
 import type { IOutsideHider } from "./services/OutsideHider/IOutsideHider";
 import type { ICursorShowGamePos } from "./services/CursorShowGamePos/ICursorShowGamePos";
 import type { IAttributes } from "./services/Attributes/IAttributes";
+import type { IPseudoRandom } from "./services/PseudoRandom/IPseudoRandom";
 
 /**
  * Services
@@ -53,6 +54,7 @@ import { E2eTest } from "./services/E2eTest/E2eTest";
 import { Settings } from "./services/Settings/Settings";
 import { OutsideHider } from "./services/OutsideHider/OutsideHider";
 import { Attributes } from "./services/Attributes/Attributes";
+import { PseudoRandom } from "./services/PseudoRandom/PseudoRandom";
 
 /**
  * "Mocks"/Service variations
@@ -119,6 +121,7 @@ export class App {
    public fullscreen: IFullscreen;
    public outsideHider: IOutsideHider;
    public attributes: IAttributes;
+   public pseudoRandom: IPseudoRandom;
 
    /**
     * Step 1 of initialization
@@ -190,6 +193,8 @@ export class App {
       this.outsideHider = this.construct.outsideHider();
 
       this.attributes = this.construct.attributes();
+
+      this.pseudoRandom = this.construct.pseudoRandom();
    }
 
    /**
@@ -232,6 +237,9 @@ export class App {
          return IsBrowser() ?
             (outsideHider ? new OutsideHider({ name: "hider" }) : new NoopService()) :
             new NoopService();
+      },
+      pseudoRandom: (): IPseudoRandom => {
+         return new PseudoRandom({ name: "pseudoRandom" });
       },
    };
 
@@ -319,6 +327,7 @@ export class App {
       await this.init.fullscreen();
       await this.init.outsideHider();
       await this.init.attributes();
+      await this.init.pseudoRandom();
    };
 
    /**
@@ -336,12 +345,8 @@ export class App {
             fullscreen,
          });
       },
-      fps: async (): Promise<void> => {
-         await this.fps.Init();
-      },
-      fullscreen: async (): Promise<void> => {
-         await this.fullscreen.Init();
-      },
+      fps: async (): Promise<void> => { await this.fps.Init(); },
+      fullscreen: async (): Promise<void> => { await this.fullscreen.Init(); },
       gameSpeed: async (): Promise<void> => {
          const { gameLoop, settings } = this;
          await this.gameSpeed.Init({
@@ -349,8 +354,7 @@ export class App {
             settings,
          });
       },
-      outsideHider: async (): Promise<void> => {
-         await this.outsideHider.Init();
-      }
+      outsideHider: async (): Promise<void> => { await this.outsideHider.Init(); },
+      pseudoRandom: async (): Promise<void> => { await this.pseudoRandom.Init(); },
    };
 }
