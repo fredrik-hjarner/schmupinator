@@ -1,7 +1,13 @@
 import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
-import { createGameObject, forever, fork, wait } from "../../utils/utils";
+import {
+   attr,
+   createGameObject,
+   forever,
+   fork,
+   wait
+} from "../../utils/utils";
 
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 
@@ -22,6 +28,11 @@ const trippleShot: TAction[] = [
    wait(8),
 ];
 
+/**
+ * `left`, `right` rotates the player.
+ * `up` accelerates the player in the direction it is facing.
+ * down accelerates player in backward direction.
+ */
 const defaultDirectionalControlsActions: TAction[] = [
    fork(forever(
       { type: AT.waitForInput, pressed: ["left"] },
@@ -45,6 +56,33 @@ const defaultDirectionalControlsActions: TAction[] = [
    )),
 ];
 
+/**
+ * Screen wrap like in the real Asteroids game.
+ * When the player goes outside the screen, it appears on the other side.
+ */
+const screenWrapActions: TAction[] = [
+   fork(forever(
+      // horizontal
+      attr("x", { condition: "greaterThan", value: 357, yes: [
+         { type: AT.setAttribute, attribute: "x", value: 0 },
+      ] }),
+      attr("x", { condition: "lessThan", value: 0, yes: [
+         { type: AT.setAttribute, attribute: "x", value: 357 },
+      ] }),
+
+      // vertical
+      attr("y", { condition: "greaterThan", value: 240, yes: [
+         { type: AT.setAttribute, attribute: "y", value: 0 },
+      ] }),
+
+      attr("y", { condition: "lessThan", value: 0, yes: [
+         { type: AT.setAttribute, attribute: "y", value: 240 },
+      ] }),
+
+      wait(1),
+   )),
+];
+
 export const player = createGameObject({
    name: "player",
    diameter: 20,
@@ -62,7 +100,7 @@ export const player = createGameObject({
       // automaticallt on tick, but need to be set explicitly.
       { type: AT.setMoveDirection, degrees: 0 },
       { type: AT.setAttribute, attribute: "collisionType", value: "player" },
-      { type: AT.setAttribute, attribute: "boundToWindow", value: true },
+      { type: AT.setAttribute, attribute: "boundToWindow", value: false },
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "none" },
       wait(1),
@@ -71,7 +109,10 @@ export const player = createGameObject({
          { type: AT.waitForInput, pressed: ["shoot"], notPressed: ["laser"] },
          ...trippleShot,
       )),
-      { type: AT.setSpeed, pixelsPerFrame: 0.9 },
+      { type: AT.setSpeed, pixelsPerFrame: 1.5 },
+      // controls
       ...defaultDirectionalControlsActions,
+      // setup screen wrapping
+      ...screenWrapActions,
    ]
 });

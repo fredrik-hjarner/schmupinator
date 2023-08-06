@@ -335,4 +335,9 @@ buttons though.
 * Bug. The reason why Parallax goes in the opposite direction is because the facing is down by
   default.
 
-* How should I randomize values for say a position? I have a PseudoRandom service now, but how? 
+* How should I randomize values for say a position? I have a PseudoRandom service now, but how?
+
+* I must be able to modify acceleration in order to do Asteroids.
+
+* I must make it so that when the player goes outside of the screen it appears on the other side,
+  i.e. screen wrapping.
