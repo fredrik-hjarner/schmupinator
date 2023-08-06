@@ -16,12 +16,13 @@ export enum ActionType {
    shootDirection = "shootDirection",
    shootTowardPlayer = "shoot_toward_player",
    shoot_beside_player = "shoot_beside_player",
+   shootAccordingToMoveDirection = "shootAccordingToMoveDirection",
    setShotSpeed = "setShotSpeed",
    move = "move",
    moveDelta = "moveDelta",
    moveToAbsolute = "moveToAbsolute",
    set_position = "set_position",
-   setSpeed = "setSpeed",
+   setSpeed = "setSpeed", // TODO: Remove
    rotate_around_absolute_point = "rotate_around_absolute_point",
    rotate_around_relative_point = "rotate_around_relative_point",
    parallelRace = "parallelRace",
@@ -100,6 +101,10 @@ export type TShootDirection =      Readonly<{ type: ActionType.shootDirection,
 export type TShootTowardPlayer =   Readonly<{ type: ActionType.shootTowardPlayer }>;
 export type TShootBesidePlayer =   Readonly<{ type: ActionType.shoot_beside_player,
                                                 degrees: number }>;
+export type TShootAccordingToMoveDirection = Readonly<{
+   type: ActionType.shootAccordingToMoveDirection;
+   shot?: string; // allows to specify which shot GameObject to use. default is "shot".
+}>;
 export type TSetShotSpeed =        Readonly<{ type: ActionType.setShotSpeed,
                                                 pixelsPerFrame: number }>;
 // Moves relative to current position.
@@ -112,6 +117,7 @@ export type TMoveToAbsolute =      Readonly<{ type: ActionType.moveToAbsolute,
                                                 moveTo: Partial<Vector>, frames: number }>;
 export type TSetPosition =         Readonly<{ type: ActionType.set_position,
                                                 x: number, y: number }>;
+// TODO: Remove TSetSpeed
 export type TSetSpeed =            Readonly<{ type: ActionType.setSpeed, pixelsPerFrame: number }>;
 export type TRotateAroundAbsolutePoint = Readonly<{
    type:ActionType.rotate_around_absolute_point, point:Partial<Vector>, degrees:number,frames:number
@@ -240,6 +246,7 @@ export type TAction = Readonly<
    TShootDirection |
    TShootTowardPlayer |
    TShootBesidePlayer |
+   TShootAccordingToMoveDirection |
    /**
    * Movement
    */
@@ -247,7 +254,7 @@ export type TAction = Readonly<
    TMoveDelta |
    TMoveToAbsolute |
    TSetPosition |
-   TSetSpeed |
+   TSetSpeed | // TODO: Remove.
    TRotateAroundAbsolutePoint |
    TRotateAroundRelativePoint |
    TRotateTowardsPlayer |

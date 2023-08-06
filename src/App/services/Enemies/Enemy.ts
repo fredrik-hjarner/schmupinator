@@ -162,12 +162,14 @@ export class Enemy {
    };
 
    /**
-    * Essentially maps actions to class methods,
-    * that is has very "thin" responsibilities.
+    * Essentially maps actions to class methods, that is has very "thin" responsibilities.
     * Actually one-lines are okey to inline here.
     */
    private HandleAction = (action: TAction) => {
       switch(action.type /* TODO: as AT */) {
+         case AT.shootAccordingToMoveDirection:
+            this.shootAccordingToMoveDirection(action.shot);
+            break;
          case AT.shootDirection:
             this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
@@ -236,7 +238,8 @@ export class Enemy {
       this.y = this.mirrorY ? this.y - y : this.y + y;
    };
 
-   private ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
+   private ShootDirection = (params: { dirX: number, dirY: number, shot?: string }) => {
+      const { dirX, dirY, shot = "shot" } = params;
       const isZero = dirX === 0 && dirY === 0;
       const pixelsPerFrame = this.shotSpeed;
       // TODO: Could maybe do this with UnitVector instead.
@@ -244,7 +247,7 @@ export class Enemy {
       const speedUpFactor = pixelsPerFrame / pythagoras;
 
       this.spawn({
-         enemy: "shot",
+         enemy: shot,
          pos: { x: 0, y: 0 },
          actions:  [{
             type: AT.fork,
@@ -281,6 +284,11 @@ export class Enemy {
       const dirY = player.y - this.y;
       const vector = new Vector(dirX, dirY).rotateClockwiseM(Angle.fromDegrees(degrees));
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
+   };
+
+   private shootAccordingToMoveDirection = (shot?: string) => {
+      const dir = this.moveDirection;
+      this.ShootDirection({ dirX: dir.x, dirY: dir.y, shot });
    };
 
    private SetPosition = ({ x, y }: {x: number, y: number}) => {
@@ -345,12 +353,8 @@ export class Enemy {
        * If mirroring Enemy will lie about it's location.
        * It's sort of a hack actually, not super beautiful.
        */
-      if(this.mirrorX) {
-         x = resolutionWidth - x;
-      }
-      if(this.mirrorY) {
-         y = resolutionHeight - y;
-      }
+      if(this.mirrorX) { x = resolutionWidth - x; }
+      if(this.mirrorY) { y = resolutionHeight - y; }
       return { x, y };
    };
 }

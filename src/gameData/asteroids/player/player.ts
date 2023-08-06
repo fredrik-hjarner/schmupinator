@@ -9,25 +9,6 @@ import {
    wait
 } from "../../utils/utils";
 
-type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
-
-const createShot = ({ moveDeltaX, moveDeltaY }: TCreateShotArgs): TAction => ({
-   type: AT.spawn, enemy: "playerShot",
-   actions: [
-      fork(forever(
-         { type: AT.moveDelta, x: moveDeltaX, y: moveDeltaY },
-         { type: AT.waitNextFrame }
-      ))
-   ]
-});
-
-const trippleShot: TAction[] = [
-   createShot({ moveDeltaX: 0, moveDeltaY: -9 }),
-   createShot({ moveDeltaX: 1.5, moveDeltaY: -9 }),
-   createShot({ moveDeltaX: -1.5, moveDeltaY: -9 }),
-   wait(8),
-];
-
 /**
  * `left`, `right` rotates the player.
  * `up` accelerates the player in the direction it is facing.
@@ -49,12 +30,12 @@ const defaultDirectionalControlsActions: TAction[] = [
    // acceleration
    fork(forever(
       { type: AT.waitForInput, pressed: ["up"] },
-      { type: AT.incr, attribute: "speed", amount: 0.05 },
+      { type: AT.incr, attribute: "speed", amount: 0.04 },
       { type: AT.waitNextFrame },
    )),
    fork(forever(
       { type: AT.waitForInput, pressed: ["down"] },
-      { type: AT.incr, attribute: "speed", amount: -0.05 },
+      { type: AT.incr, attribute: "speed", amount: -0.04 },
       { type: AT.waitNextFrame },
    )),
 
@@ -94,7 +75,7 @@ const screenWrapActions: TAction[] = [
 
 export const player = createGameObject({
    name: "player",
-   diameter: 20,
+   diameter: 17,
    hp: 1,
    onDeathAction: { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
@@ -114,9 +95,11 @@ export const player = createGameObject({
       { type: AT.gfxSetShape, shape: "none" },
       wait(1),
       { type: AT.gfxSetShape, shape: "diamondShield" },
+      { type: AT.setShotSpeed, pixelsPerFrame: 5 },
       fork(forever(
-         { type: AT.waitForInput, pressed: ["shoot"], notPressed: ["laser"] },
-         ...trippleShot,
+         { type: AT.waitForInput, pressed: ["shoot"] },
+         { type: AT.shootAccordingToMoveDirection, shot: "playerShot" },
+         wait(10),
       )),
       // controls
       ...defaultDirectionalControlsActions,
