@@ -37,7 +37,7 @@ export enum ActionType {
    waitTilOutsideScreen = "waitTilOutsideScreen",
    waitTilInsideScreen = "waitTilInsideScreen",
    fork = "fork",
-   setMoveDirection = "setMoveDirection",
+   setMoveDirection = "setMoveDirection", // TODO: remove. deprecated.
    waitForInput = "waitForInput",
    finishLevel = "finishLevel",
    
@@ -196,6 +196,7 @@ export type TFork = { type: ActionType.fork, actions: TAction[] };
  * Set only the move direction. Only specific some move actions care about the direction which 
  * gotta be called to move in the direction set with this action.
  */
+// TODO: remove TMoveDirection. deprecated
 export type TMoveDirection = Readonly<{ type: ActionType.setMoveDirection, degrees: number }>;
 // Yields until the attribute has the value set in is.
 export type TWaitUntilAttrIs = Readonly<{
@@ -246,7 +247,7 @@ export type TAction = Readonly<
    TShootDirection |
    TShootTowardPlayer |
    TShootBesidePlayer |
-   TShootAccordingToMoveDirection |
+   TShootAccordingToMoveDirection | // TODO: remove. deprecated.
    /**
    * Movement
    */

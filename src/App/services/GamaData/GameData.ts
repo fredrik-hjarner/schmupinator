@@ -6,6 +6,7 @@ import type { TGame } from "@/gameTypes/TGame";
 import game1 from "../../../gameData/game1/index";
 import game2 from "../../../gameData/game2/index";
 import asteroids from "../../../gameData/asteroids/index";
+import snake from "../../../gameData/snake/index";
 
 type TEnemyJsons = Partial<{ [enemyName: string]: TGameObject }>;
 
@@ -80,6 +81,21 @@ export class GameData implements IService {
          name: asteroids.name,
          gameObjects: gameObjects3,
          startScreenImageUrl: asteroids.startScreenImageUrl
+      });
+
+      /**
+       * Game 4: Asteroids
+       */
+      // key all enemies by name
+      const gameObjects4 = snake.gameObjects
+         .reduce((acc: TEnemyJsons, enemyJson: TGameObject) => {
+            acc[enemyJson.name] = enemyJson;
+            return acc;
+         }, {});
+      this.games.push({
+         name: snake.name,
+         gameObjects: gameObjects4,
+         startScreenImageUrl: snake.startScreenImageUrl
       });
 
       return Promise.resolve(); // just to make typescript happy.

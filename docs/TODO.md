@@ -350,3 +350,5 @@ but speed as a vector.
 * Refactor this
 `return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "speed" }));`
 in Enemy.ts. I should be able to be made shorter with a helper method, maybe.
+
+* remove setMoveDirection as it is now an Attribute.
