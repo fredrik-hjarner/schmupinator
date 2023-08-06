@@ -1,6 +1,9 @@
 import type { TGameObject } from "@/gameTypes/TGameObject";
 
-import { createGameObject, forever, spawn, wait } from "@/gameData/utils/utils";
+import {
+   createGameObject,
+   spawn,
+} from "@/gameData/utils/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
 export const parallax: TGameObject = createGameObject({
@@ -28,10 +31,6 @@ export const layer1: TGameObject = createGameObject({
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "layer1.png" },
       { type: AT.gfxFillScreen },
-      forever(
-         wait(1),
-         { type: AT.gfxScrollBg, y: -0.3 }
-      )
    ],
 });
 
@@ -44,10 +43,6 @@ export const layer2: TGameObject = createGameObject({
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "layer2.png" },
       { type: AT.gfxFillScreen },
-      forever(
-         wait(1),
-         { type: AT.gfxScrollBg, y: -1 }
-      )
    ],
 });
 
@@ -60,9 +55,5 @@ export const layer3: TGameObject = createGameObject({
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "layer3.png" },
       { type: AT.gfxFillScreen },
-      forever(
-         wait(1),
-         { type: AT.gfxScrollBg, y: -1.5 }
-      )
    ],
 });
