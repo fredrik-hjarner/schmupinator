@@ -142,10 +142,10 @@ export type TAttrIf = {
 };
 // Increments an attribute. Obviously will blow up if trying to increment a non-number.
 export type TIncrement =
-{ type: ActionType.incr, gameObjectId?: string, attribute: TAttrName };
+{ type: ActionType.incr, gameObjectId?: string, attribute: TAttrName, amount?: number };
 // Decrements an attribute. Obviously will blow up if trying to increment a non-number.
 export type TDecrement =
-{ type: ActionType.decr, gameObjectId?: string, attribute: TAttrName };
+{ type: ActionType.decr, gameObjectId?: string, attribute: TAttrName, amount?: number };
 
 /**
  * Mirroring mirrors an axis.

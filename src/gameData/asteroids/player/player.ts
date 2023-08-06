@@ -25,16 +25,12 @@ const trippleShot: TAction[] = [
 const defaultDirectionalControlsActions: TAction[] = [
    fork(forever(
       { type: AT.waitForInput, pressed: ["left"] },
-      { type: AT.decr, attribute: "moveDirectionAngle" },
-      { type: AT.decr, attribute: "moveDirectionAngle" },
-      { type: AT.decr, attribute: "moveDirectionAngle" },
+      { type: AT.decr, attribute: "moveDirectionAngle", amount: 3.5 },
       { type: AT.waitNextFrame },
    )),
    fork(forever(
       { type: AT.waitForInput, pressed: ["right"] },
-      { type: AT.incr, attribute: "moveDirectionAngle" },
-      { type: AT.incr, attribute: "moveDirectionAngle" },
-      { type: AT.incr, attribute: "moveDirectionAngle" },
+      { type: AT.incr, attribute: "moveDirectionAngle", amount: 3.5 },
       { type: AT.waitNextFrame },
    )),
    fork(forever(

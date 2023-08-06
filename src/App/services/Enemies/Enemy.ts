@@ -209,13 +209,13 @@ export class Enemy {
             this.despawn();
             break;
          case AT.incr: { // this I believe could be move into EnemyActionExecutor??
-            const { gameObjectId, attribute } = action;
-            this.attrs.incr({ gameObjectId: gameObjectId ?? this.id, attribute});
+            const { gameObjectId, attribute, amount = 1 } = action;
+            this.attrs.incr({ gameObjectId: gameObjectId ?? this.id, attribute, amount });
             break;
          }
          case AT.decr: { // this I believe could be move into EnemyActionExecutor??
-            const { gameObjectId, attribute } = action;
-            this.attrs.decr({ gameObjectId: gameObjectId ?? this.id, attribute});
+            const { gameObjectId, attribute, amount = 1 } = action;
+            this.attrs.decr({ gameObjectId: gameObjectId ?? this.id, attribute, amount });
             break;
          }
          case AT.finishLevel: // TODO: dispatch some new "finishLevel" event instead.
