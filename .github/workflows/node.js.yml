@@ -28,3 +28,4 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npx vite-node ./src/main.ts
+    - run: npx eslint src
