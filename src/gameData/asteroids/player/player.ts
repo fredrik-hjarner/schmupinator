@@ -34,6 +34,7 @@ const trippleShot: TAction[] = [
  * down accelerates player in backward direction.
  */
 const defaultDirectionalControlsActions: TAction[] = [
+   // rotation
    fork(forever(
       { type: AT.waitForInput, pressed: ["left"] },
       { type: AT.decr, attribute: "moveDirectionAngle", amount: 3.5 },
@@ -44,14 +45,22 @@ const defaultDirectionalControlsActions: TAction[] = [
       { type: AT.incr, attribute: "moveDirectionAngle", amount: 3.5 },
       { type: AT.waitNextFrame },
    )),
+
+   // acceleration
    fork(forever(
       { type: AT.waitForInput, pressed: ["up"] },
-      { type: AT.move_according_to_speed_and_direction },
+      { type: AT.incr, attribute: "speed", amount: 0.05 },
       { type: AT.waitNextFrame },
    )),
    fork(forever(
       { type: AT.waitForInput, pressed: ["down"] },
-      { type: AT.moveDelta, y: 2.35 },
+      { type: AT.incr, attribute: "speed", amount: -0.05 },
+      { type: AT.waitNextFrame },
+   )),
+
+   // every frame: move according to speed and direction.
+   fork(forever(
+      { type: AT.move_according_to_speed_and_direction }, // TODO: This is what does not work.
       { type: AT.waitNextFrame },
    )),
 ];
@@ -109,7 +118,6 @@ export const player = createGameObject({
          { type: AT.waitForInput, pressed: ["shoot"], notPressed: ["laser"] },
          ...trippleShot,
       )),
-      { type: AT.setSpeed, pixelsPerFrame: 1.5 },
       // controls
       ...defaultDirectionalControlsActions,
       // setup screen wrapping

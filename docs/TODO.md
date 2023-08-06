@@ -341,3 +341,12 @@ buttons though.
 
 * I must make it so that when the player goes outside of the screen it appears on the other side,
   i.e. screen wrapping.
+
+* Make speed into an attribute.
+   * remove setSpeed action since it will no longer be needed.
+* Actually doing it like that is not correct... I need not to be able to set speed as a number,
+but speed as a vector.
+
+* Refactor this
+`return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "speed" }));`
+in Enemy.ts. I should be able to be made shorter with a helper method, maybe.

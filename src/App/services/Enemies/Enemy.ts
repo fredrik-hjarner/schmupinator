@@ -20,7 +20,6 @@ export class Enemy {
    public enemies: Enemies; // enemies service
    private graphics: IGraphics; // Graphics service
    private diameter: number;
-   private speed = 0;
    private shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
    private mirrorX = false;
    private mirrorY = false;
@@ -42,10 +41,9 @@ export class Enemy {
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
-
       this.attrs
          .setAttribute({gameObjectId: this.id, attribute: "moveDirectionAngle", value: 180 });
-
+      this.speed = 0;
       this.graphics = this.enemies.graphics;
       this.gfx = new EnemyGfx({
          diameter: json.diameter, graphics: this.graphics, x: position.x, y: position.y
@@ -66,6 +64,13 @@ export class Enemy {
    private set moveDirection(dir: UnitVector){
       const value = dir.toVector().angle.degrees;
       this.attrs.setAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle", value });
+   }
+
+   private get speed(): number {
+      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "speed" }));
+   }
+   private set speed(value: number){
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "speed", value });
    }
 
    private get hp(): number {
@@ -312,8 +317,9 @@ export class Enemy {
    };
 
    private moveAccordingToSpeedAndDirection = () => {
-      const newX = this.x + this.moveDirection.x * this.speed;
-      const newY = this.y += this.moveDirection.y * this.speed;
+      const speed = this.speed;
+      const newX = this.x + this.moveDirection.x * speed;
+      const newY = this.y += this.moveDirection.y * speed;
       this.x = newX;
       this.y = newY;
    };
