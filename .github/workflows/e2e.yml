@@ -10,7 +10,7 @@ on:
     branches: [ "vite-master-safe-always-working-not-broken" ]
 
 jobs:
-  e2e_and_eslint:
+  e2e:
 
     runs-on: ubuntu-latest
 
