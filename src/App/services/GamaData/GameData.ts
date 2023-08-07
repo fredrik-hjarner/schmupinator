@@ -84,7 +84,7 @@ export class GameData implements IService {
       });
 
       /**
-       * Game 4: Asteroids
+       * Game 4: Snake
        */
       // key all enemies by name
       const gameObjects4 = snake.gameObjects
