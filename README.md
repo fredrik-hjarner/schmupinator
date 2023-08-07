@@ -1,4 +1,5 @@
 ![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/e2e.yml/badge.svg)
+![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/eslint.yml/badge.svg)
 
 ![Schmupinator](https://raw.githubusercontent.com/fredrik-hjarner/schmupinator/vite-master-safe-always-working-not-broken/githubAssets/schmupinator.gif)
 
