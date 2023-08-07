@@ -1,4 +1,4 @@
-![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/node.js.yml/badge.svg)
+![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/e2e.yml/badge.svg)
 
 ![Schmupinator](https://raw.githubusercontent.com/fredrik-hjarner/schmupinator/vite-master-safe-always-working-not-broken/githubAssets/schmupinator.gif)
 
