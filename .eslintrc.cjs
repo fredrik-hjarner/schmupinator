@@ -148,12 +148,13 @@ module.exports = defineConfig({
     "@typescript-eslint/prefer-return-this-type": "error",
     "@typescript-eslint/no-throw-literal": "error",
     "@typescript-eslint/no-extraneous-class": "error",
-
+    
     /**
      * Unicorn
-     */
+    */
     "unicorn/consistent-function-scoping": "error", // performance
     "unicorn/no-array-for-each": "error", // performance
+    "unicorn/no-array-reduce": "error", // performance
 
     /************
      * Disables *

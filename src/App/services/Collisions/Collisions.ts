@@ -121,22 +121,28 @@ export class Collisions implements IService {
          allGameObjectsThatWereHit.push(player.id);
       }
       
-      const enemiesHitByPlayerBullets = enemies.reduce<string[]>((acc, enemy) => {
+      const enemiesHitByPlayerBullets: string[] = [];
+      for(const enemy of enemies) {
          const collision = this.calcCollisions({
             doesThis: enemy,
             collideWithThese: playerBullets
          });
          // adds both the "enemy" and what it collides with (for example a playerBullet).
-         return collision.collided ? [...acc, enemy.id, collision.collidedWithId] : acc;
-      }, []);
+         if(collision.collided) {
+            enemiesHitByPlayerBullets.push(enemy.id, collision.collidedWithId);
+         }
+      }
 
-      const enemyBulletsThatHitPlayer = enemyBullets.reduce<string[]>((acc, enemyBullet) => {
+      const enemyBulletsThatHitPlayer: string[] = [];
+      for(const enemyBullet of enemyBullets) {
          const collision = this.calcCollisions({
             doesThis: enemyBullet,
             collideWithThese: [player]
          });
-         return collision.collided ? [...acc, enemyBullet.id] : acc;
-      }, []);
+         if(collision.collided) {
+            enemyBulletsThatHitPlayer.push(enemyBullet.id);
+         }
+      }
 
       if(enemyBulletsThatHitPlayer.length > 0) {
          // if a bullet hit the player then the player was hit...

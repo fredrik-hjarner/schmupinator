@@ -39,64 +39,25 @@ export class GameData implements IService {
       this.activeGame = 0;
    }
 
+   private addGame = (game: TGame) => {
+      // key all enemies by name
+      const gameObjects: Partial<{ [enemyName: string]: TGameObject; }> = {};
+      for(const enemyJson of game.gameObjects) {
+         gameObjects[enemyJson.name] = enemyJson;
+      }
+
+      this.games.push({
+         name: game.name,
+         gameObjects,
+         startScreenImageUrl: game.startScreenImageUrl
+      });
+   };
+
    public Init = () => {
-      /**
-       * Game 1
-       */
-      // key all enemies by name
-      const gameObjects1 = game1.gameObjects.reduce((acc: TEnemyJsons, enemyJson: TGameObject) => {
-         acc[enemyJson.name] = enemyJson;
-         return acc;
-      }, {});
-      this.games.push({
-         name: game1.name,
-         gameObjects: gameObjects1,
-         startScreenImageUrl: game1.startScreenImageUrl
-      });
-
-      /**
-       * Game 2
-       */
-      // key all enemies by name
-      const gameObjects2 = game2.gameObjects.reduce((acc: TEnemyJsons, enemyJson: TGameObject) => {
-         acc[enemyJson.name] = enemyJson;
-         return acc;
-      }, {});
-      this.games.push({
-         name: game2.name,
-         gameObjects: gameObjects2,
-         startScreenImageUrl: game2.startScreenImageUrl
-      });
-
-      /**
-       * Game 3: Asteroids
-       */
-      // key all enemies by name
-      const gameObjects3 = asteroids.gameObjects
-         .reduce((acc: TEnemyJsons, enemyJson: TGameObject) => {
-            acc[enemyJson.name] = enemyJson;
-            return acc;
-         }, {});
-      this.games.push({
-         name: asteroids.name,
-         gameObjects: gameObjects3,
-         startScreenImageUrl: asteroids.startScreenImageUrl
-      });
-
-      /**
-       * Game 4: Snake
-       */
-      // key all enemies by name
-      const gameObjects4 = snake.gameObjects
-         .reduce((acc: TEnemyJsons, enemyJson: TGameObject) => {
-            acc[enemyJson.name] = enemyJson;
-            return acc;
-         }, {});
-      this.games.push({
-         name: snake.name,
-         gameObjects: gameObjects4,
-         startScreenImageUrl: snake.startScreenImageUrl
-      });
+      this.addGame(game1);
+      this.addGame(game2);
+      this.addGame(asteroids);
+      this.addGame(snake);
 
       return Promise.resolve(); // just to make typescript happy.
    };

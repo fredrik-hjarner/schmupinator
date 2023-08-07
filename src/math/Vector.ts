@@ -94,15 +94,12 @@ export class Vector {
    };
 
    public static sum(vectors: Vector[]): Vector {
-      const { x, y } = vectors.reduce(
-         (acc, vector) => {
-            acc.x += vector.x;
-            acc.y += vector.y;
-            return acc;
-         },
-         { x: 0, y: 0 }
-      );
-      return new Vector(x, y);
+      const v = { x: 0, y: 0 };
+      for (const vector of vectors) {
+         v.x += vector.x;
+         v.y += vector.y;
+      }
+      return new Vector(v.x, v.y);
    }
 
    public static merge(vectors: Vector[]): Vector {
