@@ -92,12 +92,12 @@ export class CanvasGfx implements IGraphics {
       // clear canvas.
       ctx.clearRect(0, 0, resolutionWidth, resolutionHeight);
       // render/commit all gfxElements.
-      Object.values(this.gfxElements).forEach(gfx => {
+      for (const gfx of Object.values(this.gfxElements)) {
          if(gfx === undefined) {
             throw new Error("CanvasGfx: gfx is undefined");
          }
          this.renderer.render({ ctx, data: gfx.element });
-      });
+      }
    };
 
    public Dispatch = (action: TGraphicsAction): TGraphicsResponse => {

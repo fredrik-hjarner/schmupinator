@@ -26,6 +26,6 @@ export class Destroyables implements IDestroyable {
             "Destroyable.destroy: no IDestroyable:s to destroy since this.destroyables is empty."
          );
       }
-      this.destroyables.forEach(d => { d.destroy(); });
+      for (const d of this.destroyables) { d.destroy(); }
    };
 }

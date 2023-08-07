@@ -15,6 +15,8 @@ module.exports = defineConfig({
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: true,
+    ecmaVersion: "latest", // https://github.com/sindresorhus/eslint-plugin-unicorn
+    sourceType: "module", // https://github.com/sindresorhus/eslint-plugin-unicorn
   },
   env: {
     "es2024": true, // https://github.com/sindresorhus/eslint-plugin-unicorn
@@ -151,6 +153,7 @@ module.exports = defineConfig({
      * Unicorn
      */
     "unicorn/consistent-function-scoping": "error", // performance
+    "unicorn/no-array-for-each": "error", // performance
 
     /************
      * Disables *

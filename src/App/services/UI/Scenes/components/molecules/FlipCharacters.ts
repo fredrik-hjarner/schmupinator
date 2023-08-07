@@ -89,9 +89,9 @@ export class FlipCharacters {
       // Must unregister the callback.
       this.input.onKeyUpCallback = undefined;
 
-      this.charElements.forEach(item => {
+      for (const item of this.charElements) {
          item.remove();
-      });
+      }
       this.charElements = [];
 
       this.caretIndex = 0;

@@ -84,7 +84,7 @@ export class Collisions implements IService {
       const enemyBullets: Enemy[] = [];
       const playerBullets: Enemy[] = [];
 
-      Object.values(this.enemies.enemies).forEach(enemy => {
+      for (const enemy of Object.values(this.enemies.enemies)) {
          // If a GameObject is outside of the screen we don't bother to do collision detection.
          // if(isOutsideOfScreen(enemy.x, enemy.y, enemy.Radius)) {
          //    return;
@@ -106,7 +106,7 @@ export class Collisions implements IService {
             default:
                // NOOP
          }
-      });
+      }
 
       const player = this.enemies.player;
 

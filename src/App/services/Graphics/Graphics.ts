@@ -45,11 +45,11 @@ export class Graphics implements IGraphics {
       /**
         * reset vars
         */
-      Object.values(this.elementPool).forEach(element => {
+      for (const element of Object.values(this.elementPool)) {
          if(element !== undefined) {
             element.element.destroy();
          }
-      });
+      }
       this.elementPool = {};
 
       /**
@@ -104,10 +104,10 @@ export class Graphics implements IGraphics {
    private initElementPool = (): TGfxPool => {
       const arr100 = Array(Graphics.poolSize).fill(0);
       const result: TGfxPool = {};
-      arr100.forEach((_, i) => {
+      for (const [i] of arr100.entries()) {
          const element = this.initOneElement(i);
          result[element.handle] = element;
-      });
+      }
       return result;
    };
 

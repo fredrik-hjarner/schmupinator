@@ -32,8 +32,8 @@ export class Events<TEvent> implements IEvents<TEvent> {
    };
 
    public dispatchEvent = (event: TEvent) => {
-      Object.values(this.subscribers).forEach(callback => {
+      for (const callback of Object.values(this.subscribers)) {
          callback(event);
-      });
+      }
    };
 }

@@ -75,7 +75,7 @@ export class Input implements IInput {
       const buttonsPressed = { ...this.buttonsPressed };
       const wasPressed = Object.values(buttonsPressed).includes(true);
       if(wasPressed) {
-         Object.keys(buttonsPressed).forEach((k) => {
+         for (const k of Object.keys(buttonsPressed)) {
             if(k === "laser" || k === "shoot" || k === "up" ||
                k === "down" || k === "left" || k === "right" ||
                k === "start") {
@@ -83,7 +83,7 @@ export class Input implements IInput {
                   delete buttonsPressed[k];
                }
             }
-         });
+         }
          this.history.inputs[frame] = buttonsPressed;
       }
       //#endregion

@@ -40,9 +40,9 @@ export class List {
    }
 
    public destroy() {
-      this.itemElements.forEach(item => {
+      for (const item of this.itemElements) {
          item.remove();
-      });
+      }
       this.itemElements = [];
    }
 }

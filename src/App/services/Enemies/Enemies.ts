@@ -157,18 +157,18 @@ export class Enemies implements IService {
              * hp, set_position etc. Dunno if I want to do it like that though.
              */
             // console.log(`Enemies.tick: enemies:`, this.enemies.map(e => e.id));
-            Object.values(this.enemies).forEach(enemy => {
+            for (const enemy of Object.values(this.enemies)) {
                enemy.OnFrameTick();
-            });
+            }
             break;
          }
          case "collisions":
-            event.collisions.enemiesThatWereHit.forEach(enemyId => {
+            for (const enemyId of event.collisions.enemiesThatWereHit) {
                const enemy = this.enemies[enemyId];
                if(enemy) {
                   enemy.OnCollision();
                }
-            });
+            }
             break;
          default:
             // NOOP

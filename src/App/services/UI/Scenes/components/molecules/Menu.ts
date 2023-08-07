@@ -79,9 +79,9 @@ export class Menu {
       // Must unregister the callback.
       this.input.onKeyUpCallback = undefined;
 
-      this.menuItemElements.forEach(item => {
+      for (const item of this.menuItemElements) {
          item.remove();
-      });
+      }
       this.menuItemElements = [];
 
       this.activeItemIndex = undefined;
