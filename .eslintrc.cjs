@@ -155,6 +155,8 @@ module.exports = defineConfig({
     "unicorn/consistent-function-scoping": "error", // performance
     "unicorn/no-array-for-each": "error", // performance
     "unicorn/no-array-reduce": "error", // performance
+    "unicorn/no-for-loop": "error",
+    "unicorn/prefer-modern-math-apis": "error",
 
     /************
      * Disables *

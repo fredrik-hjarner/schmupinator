@@ -243,7 +243,7 @@ export class Enemy {
       const isZero = dirX === 0 && dirY === 0;
       const pixelsPerFrame = this.shotSpeed;
       // TODO: Could maybe do this with UnitVector instead.
-      const pythagoras = isZero ? 9999 : Math.sqrt(dirX**2 + dirY**2);
+      const pythagoras = isZero ? 9999 : Math.hypot(dirX, dirY);
       const speedUpFactor = pixelsPerFrame / pythagoras;
 
       this.spawn({

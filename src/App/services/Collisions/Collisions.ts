@@ -179,7 +179,7 @@ export class Collisions implements IService {
          const minDistance = doesThis.Radius + shot.Radius * 0.8;
          const xDist = doesThis.x - shot.x;
          const yDist = doesThis.y - shot.y;
-         const distance = Math.sqrt(xDist**2 + yDist**2);
+         const distance = Math.hypot(xDist, yDist);
          if(distance <= minDistance) {
             return { collided: true, collidedWithId: shot.id };
          }
