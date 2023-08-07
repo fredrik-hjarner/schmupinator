@@ -17,6 +17,7 @@ module.exports = defineConfig({
     project: true,
   },
   env: {
+    "es2024": true, // https://github.com/sindresorhus/eslint-plugin-unicorn
     /**
      * I disable both node and browser because I dont allow to use anything that relies on a
      * specific environment. If you want to use something that is not common to ALL environments
@@ -37,7 +38,8 @@ module.exports = defineConfig({
   ],
   plugins: [
     "import",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "unicorn",
   ],
   settings: {
     'import/resolver': {
@@ -144,6 +146,11 @@ module.exports = defineConfig({
     "@typescript-eslint/prefer-return-this-type": "error",
     "@typescript-eslint/no-throw-literal": "error",
     "@typescript-eslint/no-extraneous-class": "error",
+
+    /**
+     * Unicorn
+     */
+    "unicorn/consistent-function-scoping": "error", // performance
 
     /************
      * Disables *

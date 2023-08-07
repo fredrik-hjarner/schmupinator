@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/consistent-function-scoping */
 import { it, expect } from "vitest";
 
 import { GeneratorUtils } from "../GeneratorUtils";

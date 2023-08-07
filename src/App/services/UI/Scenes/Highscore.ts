@@ -38,15 +38,17 @@ export class Highscore implements IScene {
       this.ui = params.ui;
    }
 
-   private getTop10Text = (): string => {
-      const padRank = (text: string) => pad(text, 10);
-      const padScore = (text: string) => pad(text, 11);
+   // helper functions.
+   private padRank = (text: string) => pad(text, 10);
+   private padScore = (text: string) => pad(text, 11);
 
-      const header = padRank("rank") + padScore("Score") + "Player";
+   private getTop10Text = (): string => {
+
+      const header = this.padRank("rank") + this.padScore("Score") + "Player";
       const top10 = this.ui.highscoreService.getTop10()
          .map(({ name, score }, i) => {
-            const rnk = padRank(`${i+1}`);
-            const scr = padScore(`${score}`);
+            const rnk = this.padRank(`${i+1}`);
+            const scr = this.padScore(`${score}`);
             if(isNumber(this.rank) && this.rank === i) {
                return `<span class="flash1s">${rnk}${scr}${name}</span>`;
             }
