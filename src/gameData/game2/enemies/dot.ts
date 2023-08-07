@@ -3,7 +3,7 @@ import type { TGameObject } from "@/gameTypes/TGameObject";
 import {
    createGameObject,
    spawn,
-} from "@/gameData/utils";
+} from "@/gameData/utils/utils";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
 
 export const dot: TGameObject = createGameObject({

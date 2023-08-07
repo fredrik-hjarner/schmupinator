@@ -20,11 +20,7 @@ export class Enemy {
    public enemies: Enemies; // enemies service
    private graphics: IGraphics; // Graphics service
    private diameter: number;
-   private speed = 0;
    private shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
-   // facing/aim
-   // default direction down.
-   private moveDirection = new UnitVector(new Vector(0, 1));
    private mirrorX = false;
    private mirrorY = false;
    private actionExecutor: EnemyActionExecutor;
@@ -45,13 +41,37 @@ export class Enemy {
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
-
+      this.attrs
+         .setAttribute({gameObjectId: this.id, attribute: "moveDirectionAngle", value: 180 });
+      this.speed = 0;
       this.graphics = this.enemies.graphics;
       this.gfx = new EnemyGfx({
          diameter: json.diameter, graphics: this.graphics, x: position.x, y: position.y
       });
    }
    private get attrs() { return this.enemies.attributes; } // convenience getter to shorten code.
+
+   /**
+    * TODO: Converting from/to angle/vector seems a bit unoptimized.
+    */
+   // facing/aim in angle degrees or 2d vector. 0 faces up, 90 = right, 180 = down, 270 = left.
+   private get moveDirection(): UnitVector {
+      const degrees = assertNumber(
+         this.attrs.getAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle" })
+      );
+      return new UnitVector(new Vector(0, -1)).rotateClockwise(Angle.fromDegrees(degrees));
+   }
+   private set moveDirection(dir: UnitVector){
+      const value = dir.toVector().angle.degrees;
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle", value });
+   }
+
+   private get speed(): number {
+      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "speed" }));
+   }
+   private set speed(value: number){
+      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "speed", value });
+   }
 
    private get hp(): number {
       return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "hp" }));
@@ -142,12 +162,14 @@ export class Enemy {
    };
 
    /**
-    * Essentially maps actions to class methods,
-    * that is has very "thin" responsibilities.
+    * Essentially maps actions to class methods, that is has very "thin" responsibilities.
     * Actually one-lines are okey to inline here.
     */
    private HandleAction = (action: TAction) => {
       switch(action.type /* TODO: as AT */) {
+         case AT.shootAccordingToMoveDirection:
+            this.shootAccordingToMoveDirection(action.shot);
+            break;
          case AT.shootDirection:
             this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
@@ -194,13 +216,13 @@ export class Enemy {
             this.despawn();
             break;
          case AT.incr: { // this I believe could be move into EnemyActionExecutor??
-            const { gameObjectId, attribute } = action;
-            this.attrs.incr({ gameObjectId: gameObjectId ?? this.id, attribute});
+            const { gameObjectId, attribute, amount = 1 } = action;
+            this.attrs.incr({ gameObjectId: gameObjectId ?? this.id, attribute, amount });
             break;
          }
          case AT.decr: { // this I believe could be move into EnemyActionExecutor??
-            const { gameObjectId, attribute } = action;
-            this.attrs.decr({ gameObjectId: gameObjectId ?? this.id, attribute});
+            const { gameObjectId, attribute, amount = 1 } = action;
+            this.attrs.decr({ gameObjectId: gameObjectId ?? this.id, attribute, amount });
             break;
          }
          case AT.finishLevel: // TODO: dispatch some new "finishLevel" event instead.
@@ -216,7 +238,8 @@ export class Enemy {
       this.y = this.mirrorY ? this.y - y : this.y + y;
    };
 
-   private ShootDirection = ({ dirX, dirY }: { dirX: number, dirY: number }) => {
+   private ShootDirection = (params: { dirX: number, dirY: number, shot?: string }) => {
+      const { dirX, dirY, shot = "shot" } = params;
       const isZero = dirX === 0 && dirY === 0;
       const pixelsPerFrame = this.shotSpeed;
       // TODO: Could maybe do this with UnitVector instead.
@@ -224,7 +247,7 @@ export class Enemy {
       const speedUpFactor = pixelsPerFrame / pythagoras;
 
       this.spawn({
-         enemy: "shot",
+         enemy: shot,
          pos: { x: 0, y: 0 },
          actions:  [{
             type: AT.fork,
@@ -263,6 +286,11 @@ export class Enemy {
       this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
 
+   private shootAccordingToMoveDirection = (shot?: string) => {
+      const dir = this.moveDirection;
+      this.ShootDirection({ dirX: dir.x, dirY: dir.y, shot });
+   };
+
    private SetPosition = ({ x, y }: {x: number, y: number}) => {
       const prevPos = this.getPosition();
       const prevPosVector = new Vector(prevPos.x, prevPos.y);
@@ -297,8 +325,9 @@ export class Enemy {
    };
 
    private moveAccordingToSpeedAndDirection = () => {
-      const newX = this.x + this.moveDirection.x * this.speed;
-      const newY = this.y += this.moveDirection.y * this.speed;
+      const speed = this.speed;
+      const newX = this.x + this.moveDirection.x * speed;
+      const newY = this.y += this.moveDirection.y * speed;
       this.x = newX;
       this.y = newY;
    };
@@ -324,12 +353,8 @@ export class Enemy {
        * If mirroring Enemy will lie about it's location.
        * It's sort of a hack actually, not super beautiful.
        */
-      if(this.mirrorX) {
-         x = resolutionWidth - x;
-      }
-      if(this.mirrorY) {
-         y = resolutionHeight - y;
-      }
+      if(this.mirrorX) { x = resolutionWidth - x; }
+      if(this.mirrorY) { y = resolutionHeight - y; }
       return { x, y };
    };
 }

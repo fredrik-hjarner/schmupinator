@@ -4,7 +4,7 @@ import {
    createGameObject,
    spawn,
    wait
-} from "../utils";
+} from "../utils/utils";
 import { col, row } from "./common";
 import { aimersWave } from "./waves/aimers";
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";

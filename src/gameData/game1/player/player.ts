@@ -1,7 +1,7 @@
 import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
-import { createGameObject, forever, fork, wait } from "../../utils";
+import { createGameObject, forever, fork, wait } from "../../utils/utils";
 
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 

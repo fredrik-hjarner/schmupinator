@@ -1,10 +1,42 @@
 import type {
    TAction, TAttrIf, TDo, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll, TparallelRace
-} from "../App/services/Enemies/actions/actionTypes";
+} from "../../App/services/Enemies/actions/actionTypes";
 import type { TGameObject } from "@/gameTypes/TGameObject";
 
-import { ActionType as AT } from "../App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes";
+
+export const col = {
+   "-1" : -36,
+   0 : 0,
+   1 : 36,
+   2 : 71,
+   3 : 107,
+   4 : 143,
+   5 : 179,
+   6 : 214,
+   7 : 250,
+   8 : 286,
+   9 : 321,
+   10 : 357,
+   11 : 393
+};
+
+export const row = {
+   "-1" : -24,
+   0 : 0,
+   1 : 24,
+   2 : 48,
+   3 : 72,
+   4 : 96,
+   5 : 120,
+   6 : 144,
+   7 : 168,
+   8 : 192,
+   9 : 216,
+   10 : 240,
+   11 : 264
+};
 
 type TAttrParams = {
    condition?: TAttrIf["condition"];

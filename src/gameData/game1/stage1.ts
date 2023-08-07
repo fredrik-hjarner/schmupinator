@@ -10,7 +10,7 @@ import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes
 import {
    attr, createGameObject, forever, moveToAbsolute, parallelAll, parallelRace,
    repeat, setShotSpeed, setSpeed, spawn, thrice, twice, wait
-} from "../utils";
+} from "../utils/utils";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });

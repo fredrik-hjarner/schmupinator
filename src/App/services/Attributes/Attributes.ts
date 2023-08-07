@@ -95,7 +95,8 @@ export class Attributes implements IAttributes {
       }
       // as number, because I did check that if if case above.
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number)++;
+      (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number) +=
+         params.amount;
    };
 
    public decr = (params: TIncrDecrAttrParams) => {
@@ -109,7 +110,8 @@ export class Attributes implements IAttributes {
       }
       // as number, because I did check that if if case above.
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number)--;
+      (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number) -=
+         params.amount;
    };
 }
 

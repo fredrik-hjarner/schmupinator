@@ -12,7 +12,7 @@ tasks:
     cmds:
       - echo "eslint started"
       - npx tsc
-      - npx eslint --fix src
+      - npx eslint src
       - echo "eslint finished"
 
   lint-e2e-watch: task --parallel --watch eslint e2e

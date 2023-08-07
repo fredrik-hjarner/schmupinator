@@ -2,12 +2,13 @@ import type { TGameObject } from "@/gameTypes/TGameObject";
 import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+
 import {
    createGameObject,
    forever,
    fork,
    spawn,
-} from "@/gameData/utils";
+} from "@/gameData/utils/utils";
 
 const dist = 27;
 

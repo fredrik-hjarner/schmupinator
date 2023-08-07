@@ -53,7 +53,7 @@ export type TAttributes = {
 export type TGameObjectIdAndAttrParams = { gameObjectId: string, attribute: string };
 export type TGetAttrParams = { gameObjectId: string, attribute: string };
 export type TSetAttrParams = { gameObjectId: string, attribute: string, value: TAttrValue };
-export type TIncrDecrAttrParams = { gameObjectId: string, attribute: string };
+export type TIncrDecrAttrParams = { gameObjectId: string, attribute: string, amount: number };
 
 export interface IAttributes extends IService, IDestroyable {
    setAttribute: ({ gameObjectId, attribute, value }: TSetAttrParams) => void;

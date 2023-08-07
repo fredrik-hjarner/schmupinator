@@ -1,7 +1,7 @@
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { createGameObject, forever, parallelRace, spawn, wait } from "../../utils";
+import { createGameObject, forever, parallelRace, spawn, wait } from "../../utils/utils";
 
 export const playerLaser: TGameObject = createGameObject({
    name: "playerLaser",

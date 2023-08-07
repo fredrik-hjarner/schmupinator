@@ -2,7 +2,7 @@ import type { TGameObject } from "../../gameTypes/TGameObject";
 import type { TSpawn } from "../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT} from "../../App/services/Enemies/actions/actionTypes";
-import { Do, createGameObject, repeat, wait } from "../utils";
+import { Do, createGameObject, repeat, wait } from "../utils/utils";
 
 const sinusLeft: TSpawn = {
    type: AT.spawn, enemy: "sinus",

@@ -2,7 +2,7 @@ import type { TGameObject } from "../../gameTypes/TGameObject";
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes";
-import { createGameObject, forever } from "../utils";
+import { createGameObject, forever } from "../utils/utils";
 import { col, row } from "./common";
 
 const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}): TAction => ({
