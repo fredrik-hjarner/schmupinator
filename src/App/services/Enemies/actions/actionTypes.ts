@@ -247,7 +247,7 @@ export type TAction = Readonly<
    TShootDirection |
    TShootTowardPlayer |
    TShootBesidePlayer |
-   TShootAccordingToMoveDirection | // TODO: remove. deprecated.
+   TShootAccordingToMoveDirection |
    /**
    * Movement
    */
@@ -260,7 +260,7 @@ export type TAction = Readonly<
    TRotateAroundRelativePoint |
    TRotateTowardsPlayer |
    TMoveAccordingToSpeedAndDirection |
-   TMoveDirection |
+   TMoveDirection | // TODO: remove. deprecated.
    /**
     * Controls/input
     */
