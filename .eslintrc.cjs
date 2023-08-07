@@ -157,6 +157,7 @@ module.exports = defineConfig({
     "unicorn/no-array-reduce": "error", // performance
     "unicorn/no-for-loop": "error",
     "unicorn/prefer-modern-math-apis": "error",
+    "unicorn/prefer-node-protocol": "error",
 
     /************
      * Disables *

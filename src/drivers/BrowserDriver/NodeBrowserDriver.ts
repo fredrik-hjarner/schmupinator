@@ -40,14 +40,14 @@ export class NodeBrowserDriver implements IBrowserDriver {
    };
 
    public FetchText = async (path: string): Promise<string> => {
-      const { readFile } = await import("fs/promises");
+      const { readFile } = await import("node:fs/promises");
       const buffer = await readFile(path);
       return buffer.toString();
    };
 
    // eslint-disable-next-line no-undef
    public FetchBinary = async (path: string): Promise<Buffer> => {
-      const { readFile } = await import("fs/promises");
+      const { readFile } = await import("node:fs/promises");
       let buffer;
       try {
          buffer = await readFile(path);
@@ -64,7 +64,7 @@ export class NodeBrowserDriver implements IBrowserDriver {
    };
 
    public SaveFile = async (path: string, data: string) => {
-      const { writeFile } = await import("fs");
+      const { writeFile } = await import("node:fs");
       writeFile(path, data, (err: Error | null) => {
          if(err) {
             throw err;
