@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+const { defineConfig } = require('eslint-define-config');
+
+module.exports = defineConfig({
   parser: "@typescript-eslint/parser",
   ignorePatterns: [
     "vite.config.ts",
@@ -140,6 +143,7 @@ module.exports = {
     "@typescript-eslint/prefer-reduce-type-parameter": "error",
     "@typescript-eslint/prefer-return-this-type": "error",
     "@typescript-eslint/no-throw-literal": "error",
+    "@typescript-eslint/no-extraneous-class": "error",
 
     /************
      * Disables *
@@ -153,4 +157,4 @@ module.exports = {
     '@typescript-eslint/consistent-indexed-object-style': 'off',
     "@typescript-eslint/dot-notation": "off",
   }
-};
+});
