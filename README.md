@@ -1,3 +1,5 @@
+![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/node.js.yml/badge.svg)
+
 ![Schmupinator](https://raw.githubusercontent.com/fredrik-hjarner/schmupinator/vite-master-safe-always-working-not-broken/githubAssets/schmupinator.gif)
 
 **Work in progress! Code can break backward compatibility at any time. Code will most likely not stabilize before ~~2023~~ 2024, if I even get it to a stable state at all.**
