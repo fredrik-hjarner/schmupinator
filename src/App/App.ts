@@ -160,8 +160,12 @@ export class App {
 
       this.fps = this.construct.fps();
 
+      /**
+       * TODO: Move this to after the events. I think it might be needed otherwise collisions might
+       * happen/be recorded/reported one frame later (after my collision re-coding).
+       */
       this.enemies = new Enemies({ name: "enemies" });
-
+      
       this.gamepad = new GamePad({ name: "gamePad" });
 
       this.collisions = new Collisions({ name: "collisions" });
@@ -203,9 +207,7 @@ export class App {
     * TODO: Force sort this object alphabetically.
     */
    public construct = {
-      attributes: (): IAttributes => {
-         return new Attributes({ name: "attributes" });
-      },
+      attributes: (): IAttributes => { return new Attributes({ name: "attributes" }); },
       cursorShowGamePos: (): ICursorShowGamePos => {
          return IsBrowser() ?
             (isRelease ?
@@ -239,9 +241,7 @@ export class App {
             (outsideHider ? new OutsideHider({ name: "hider" }) : new NoopService()) :
             new NoopService();
       },
-      pseudoRandom: (): IPseudoRandom => {
-         return new PseudoRandom({ name: "pseudoRandom" });
-      },
+      pseudoRandom: (): IPseudoRandom => { return new PseudoRandom({ name: "pseudoRandom" }); },
    };
 
    /**

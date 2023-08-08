@@ -1,7 +1,13 @@
 import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
-import { createGameObject, spawn } from "../utils/utils.ts";
+import {
+   createGameObject,
+   // forever,
+   // fork,
+   spawn,
+   // wait
+} from "../utils/utils.ts";
 
 export const shot: TGameObject = createGameObject({
    name: "shot",
@@ -12,6 +18,6 @@ export const shot: TGameObject = createGameObject({
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "enemyBullet" },
       { type: AT.setAttribute, attribute: "points", value: 0 },
-      { type: AT.gfxSetShape, shape: "circle" }
+      { type: AT.gfxSetShape, shape: "circle" },
    ]
 });

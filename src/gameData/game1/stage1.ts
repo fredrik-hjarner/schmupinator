@@ -8,7 +8,7 @@ import type {
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes.ts";
 import {
-   attr, createGameObject, forever, moveToAbsolute, parallelAll, parallelRace,
+   attr, createGameObject, forever, fork, moveToAbsolute, parallelAll, parallelRace,
    repeat, setShotSpeed, setSpeed, spawn, thrice, twice, wait
 } from "../utils/utils.ts";
 
@@ -67,6 +67,11 @@ export const nonShootingAimer: TGameObject = createGameObject({
    diameter: 22,
    onDeathAction: spawn("roundExplosion"),
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         // { type: AT.despawn },
+         wait(1),
+      )),
       setSpeed(1.6),
       parallelAll(
          repeat(26.25, [
@@ -77,7 +82,7 @@ export const nonShootingAimer: TGameObject = createGameObject({
             { type: AT.move_according_to_speed_and_direction },
             { type: AT.waitNextFrame }
          )
-      )
+      ),
    ]
 });
 
