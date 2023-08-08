@@ -1,3 +1,5 @@
+import type { ValueOf } from "type-fest";
+
 import type {
    IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent, TPointsEvent
 } from "../Events/IEvents";
@@ -13,6 +15,11 @@ type THistory = Partial<{ [frame: number]: (TGameEvent | TPointsEvent | TCollisi
 type TConstructor = {
    name: string
 }
+
+// TODO: Util function to temporaliy remove collision events from history.
+const removeCollisionsEvents = (events: ValueOf<THistory>): ValueOf<THistory> => {
+   return events?.filter((event) => event.type !== "collisions");
+};
 
 export class E2eTest implements IE2eTest {
    public readonly name: string;
@@ -89,11 +96,15 @@ export class E2eTest implements IE2eTest {
          // Crucial that we keep track of the current frame!!
          this.frameCount = event.frameNr;
 
+         /**
+          * TODO: I should probably temporalily remove checks for "collision" events as I will
+          * change collisions right now so the collision events will all be different.
+          */
          const lastFrame = event.frameNr - 1;
          const expected = JSON.stringify(
-            this.recordedHistory[lastFrame] as (TGameEvent | TPointsEvent)[] | undefined
+            removeCollisionsEvents(this.recordedHistory[lastFrame] as ValueOf<THistory>)
          );
-         const actual = JSON.stringify(this.history[lastFrame]);
+         const actual = JSON.stringify(removeCollisionsEvents(this.history[lastFrame]));
          if (expected !== actual) {
             BrowserDriver.Alert(
                `Test failed!\nFrame: ${lastFrame}\nExpected: ${expected}\nActual: ${actual}`

@@ -339,9 +339,6 @@ buttons though.
 
 * I must be able to modify acceleration in order to do Asteroids.
 
-* I must make it so that when the player goes outside of the screen it appears on the other side,
-  i.e. screen wrapping.
-
 * Make speed into an attribute.
    * remove setSpeed action since it will no longer be needed.
 * Actually doing it like that is not correct... I need not to be able to set speed as a number,
@@ -368,3 +365,28 @@ of UiThread class or something with functions for manipulating DOM.
 * Gather perf data in ReqAnimFrameGameLoop.ts. stats per frame. when reqamin started, ended, length,
 number of executed frames and diff between excpected frames. store in some kind of object/array,
 save as file then analyze it.
+
+<!-- #region COLLISION_DETECTION -->
+
+So how should the "new" collision detection system work?? Could it work if I had something like this
+```
+player.setAttribute("collisionType", player")
+boss.setAttribute("collisionType", enemy")
+enemyBullet.setAttribute("collisionType", "enemyBullet")
+playerBullet.setAttribute("collisionType", "playerBullet")
+speedUpgrade.setAttribute("collisionType", "speedUpgrade")
+
+// First it removes all with collisionType === "none".
+
+// Collision detection checks everything against everything else.
+// Collision detection accumulate an object keyed by the first gameObjectId
+// (it needs to run x**2 times. every one needs to be checked against every other).
+Map([
+   [gameObjectId, Set([ "enemyBullet", "speedUpgrade" ])],
+])
+
+player.waitUntilCollision({ collisionTypes: ["enemy","enemyBullet"], invincibilityFrames: 1 })
+   -> decr("hp")
+```
+
+<!-- #endregion -->
