@@ -18,5 +18,6 @@ export const spawner: TGameObject = createGameObject({
       { type: AT.gfxSetShape, shape: "none" },
       spawn("parallax"),
       spawn("player", { x: col[1], y: row[9] }),
+      spawn("appleSpawner"),
    ],
 });

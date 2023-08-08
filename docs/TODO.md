@@ -352,3 +352,6 @@ but speed as a vector.
 in Enemy.ts. I should be able to be made shorter with a helper method, maybe.
 
 * remove setMoveDirection as it is now an Attribute.
+
+* I really need some kind of collisions layers and more dynamic/complex stuff around collisions like
+onCollisions listeners and such.

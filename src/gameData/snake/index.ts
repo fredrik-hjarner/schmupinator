@@ -8,6 +8,8 @@ import { spawner } from "./spawner";
 import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
 import startScreen from "./startScreen.png";
 import { snakeBody } from "./player/snakeBody";
+import { appleSpawner } from "./apples/appleSpawner";
+import { apple } from "./apples/apple";
 
 const game: TGame = {
    name: "4. Snake",
@@ -17,6 +19,8 @@ const game: TGame = {
    gameObjects: [
       player,
       snakeBody,
+      appleSpawner,
+      apple,
       parallax,
       layer1,
       layer2,
