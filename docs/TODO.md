@@ -339,9 +339,6 @@ buttons though.
 
 * I must be able to modify acceleration in order to do Asteroids.
 
-* I must make it so that when the player goes outside of the screen it appears on the other side,
-  i.e. screen wrapping.
-
 * Make speed into an attribute.
    * remove setSpeed action since it will no longer be needed.
 * Actually doing it like that is not correct... I need not to be able to set speed as a number,
@@ -364,3 +361,28 @@ run in a separate thread, and it should communicate with the main thread to affe
 It can be really simple, just start everything in a new thread, and let say the graphics engine run
 in the main thread (it already has commands which could be sent to main thread) or have some kind
 of UiThread class or something with functions for manipulating DOM.
+
+<!-- #region COLLISION_DETECTION -->
+
+So how should the "new" collision detection system work?? Could it work if I had something like this
+```
+player.setAttribute("collisionType", player")
+boss.setAttribute("collisionType", enemy")
+enemyBullet.setAttribute("collisionType", "enemyBullet")
+playerBullet.setAttribute("collisionType", "playerBullet")
+speedUpgrade.setAttribute("collisionType", "speedUpgrade")
+
+// First it removes all with collisionType === "none".
+
+// Collision detection checks everything against everything else.
+// Collision detection accumulate an object keyed by the first gameObjectId
+// (it needs to run x**2 times. every one needs to be checked against every other).
+Map([
+   [gameObjectId, Set([ "enemyBullet", "speedUpgrade" ])],
+])
+
+player.waitUntilCollision({ collisionTypes: ["enemy","enemyBullet"], invincibilityFrames: 1 })
+   -> decr("hp")
+```
+
+<!-- #endregion -->

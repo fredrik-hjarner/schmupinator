@@ -10,8 +10,7 @@ import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
 export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
 
 export type TCollisions = {
-   // List of id:s of enemies that were hit.
-   enemiesThatWereHit: string[];
+   [gameObjectId: string]: true; // TODO: Should of course not be true, but should contain more info
 };
 
 type TCalcCollisionsResult =
@@ -78,7 +77,7 @@ export class Collisions implements IService {
    private update = () => {
       const startTime = BrowserDriver.PerformanceNow();
 
-      const allGameObjectsThatWereHit: TCollisions["enemiesThatWereHit"] = [];
+      const collisions: TCollisions = {};
 
       const enemies: Enemy[] = [];
       const enemyBullets: Enemy[] = [];
@@ -118,7 +117,7 @@ export class Collisions implements IService {
          }).collided;
 
       if(playerWasHitByEnemy) {
-         allGameObjectsThatWereHit.push(player.id);
+         collisions[player.id] = true;
       }
       
       const enemiesHitByPlayerBullets: string[] = [];
@@ -146,20 +145,17 @@ export class Collisions implements IService {
 
       if(enemyBulletsThatHitPlayer.length > 0) {
          // if a bullet hit the player then the player was hit...
-         allGameObjectsThatWereHit.push(player.id);
+         collisions[player.id] = true;
       }
-
-      allGameObjectsThatWereHit.push(...enemiesHitByPlayerBullets);
-      
-      allGameObjectsThatWereHit.push(...enemyBulletsThatHitPlayer);
       
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
 
-      if(allGameObjectsThatWereHit.length > 0) {
-         const collisions = {
-            enemiesThatWereHit: [...new Set(allGameObjectsThatWereHit)] // remove duplicates.
-         };
+      for(const goid of enemiesHitByPlayerBullets) { collisions[goid] = true; }
+
+      for(const goid of enemyBulletsThatHitPlayer) { collisions[goid] = true; }
+
+      if(Object.keys(collisions).length > 0) {
          this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
    };

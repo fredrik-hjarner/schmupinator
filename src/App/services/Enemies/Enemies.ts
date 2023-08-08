@@ -163,7 +163,7 @@ export class Enemies implements IService {
             break;
          }
          case "collisions":
-            for (const enemyId of event.collisions.enemiesThatWereHit) {
+            for (const enemyId of Object.keys(event.collisions)) {
                const enemy = this.enemies[enemyId];
                if(enemy) {
                   enemy.OnCollision();
