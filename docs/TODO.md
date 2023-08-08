@@ -386,3 +386,6 @@ player.waitUntilCollision({ collisionTypes: ["enemy","enemyBullet"], invincibili
 ```
 
 <!-- #endregion -->
+
+* I must make e2e tests more robust by recording "state" per frame (probs attributes) instead of
+events.

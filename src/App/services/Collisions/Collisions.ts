@@ -1,21 +1,22 @@
 import type { Enemies } from "../Enemies/Enemies";
 import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
-import type { Enemy } from "../Enemies/Enemy.ts";
 import type { IAttributes } from "../Attributes/IAttributes";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
-// import { resolutionHeight, resolutionWidth } from "@/consts.ts";
+import { assertString } from "@/utils/typeAssertions.ts";
+// import { resolutionHeight, resolutionWidth } from "@/consts";
 
 export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
 
+/**
+ * Object containing all collisions.
+ * Keyed by gameObjectId.
+ * The value is an array of `collisionTypes` that the gameObjects it collided with have.
+ */
 export type TCollisions = {
-   [gameObjectId: string]: true; // TODO: Should of course not be true, but should contain more info
+   [gameObjectId: string]: string[];
 };
-
-type TCalcCollisionsResult =
-   { collided: true, collidedWithId: string } |
-   { collided: false };
 
 type TConstructor = {
    name: string;
@@ -77,34 +78,49 @@ export class Collisions implements IService {
    private update = () => {
       const startTime = BrowserDriver.PerformanceNow();
 
+      // variable in which to store all collisions. TODO: Update comment.
       const collisions: TCollisions = {};
 
-      const enemies: Enemy[] = [];
-      const enemyBullets: Enemy[] = [];
-      const playerBullets: Enemy[] = [];
-
-      for (const enemy of Object.values(this.enemies.enemies)) {
-         // If a GameObject is outside of the screen we don't bother to do collision detection.
-         // if(isOutsideOfScreen(enemy.x, enemy.y, enemy.Radius)) {
-         //    return;
-         // }
-         const attrValue = this.attributes.getAttribute({
-            gameObjectId: enemy.id,
-            attribute: "collisionType"
+      const enemiesThatCanCollide = Object.values(this.enemies.enemies)
+         .filter((enemy) => {
+            const collisionType = this.attributes.getAttribute({
+               gameObjectId: enemy.id,
+               attribute: "collisionType"
+            });
+            return collisionType !== "none";
          });
-         switch(attrValue){
-            case "enemy":
-               enemies.push(enemy);
-               break;
-            case "enemyBullet":
-               enemyBullets.push(enemy);
-               break;
-            case "playerBullet":
-               playerBullets.push(enemy);
-               break;
-            default:
-               // NOOP
+
+      for (const enemy1 of enemiesThatCanCollide) {
+         // const attrValue = this.attributes.getAttribute({
+         //    gameObjectId: enemy.id,
+         //    attribute: "collisionType"
+         // });
+         
+         collisions[enemy1.id] = [];
+
+         for( const enemy2 of enemiesThatCanCollide) {
+            if(enemy1.id === enemy2.id) {
+               continue; // dont check collision with self.
+            }
+
+            const collided = this.calcCollision({
+               doesThis: enemy1,
+               collideWithThis: enemy2
+            });
+
+            if(collided) {
+               const collisionType = assertString(
+                  this.attributes.getAttribute({
+                     gameObjectId: enemy2.id,
+                     attribute: "collisionType"
+                  })
+               );
+               collisions[enemy1.id] = [...new Set(
+                  [...collisions[enemy1.id], collisionType]
+               )];
+            }
          }
+
       }
 
       const player = this.enemies.player;
@@ -147,13 +163,11 @@ export class Collisions implements IService {
          // if a bullet hit the player then the player was hit...
          collisions[player.id] = true;
       }
-      
+         
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
 
-      for(const goid of enemiesHitByPlayerBullets) { collisions[goid] = true; }
-
-      for(const goid of enemyBulletsThatHitPlayer) { collisions[goid] = true; }
+      // console.log("collisions:", collisions);
 
       if(Object.keys(collisions).length > 0) {
          this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
@@ -165,21 +179,20 @@ export class Collisions implements IService {
     * What is checked is if "circle" collides with any of the "shots", if so the return which "shot"
     * "circle" collided with.
     */
-   private calcCollisions = (
-      params: { doesThis: PosAndRadiusAndId, collideWithThese: PosAndRadiusAndId[] }
-   ): TCalcCollisionsResult => {
-      const { doesThis, collideWithThese } = params;
+   private calcCollision = (
+      params: { doesThis: PosAndRadiusAndId, collideWithThis: PosAndRadiusAndId }
+   ): boolean => {
+      const { doesThis, collideWithThis } = params;
       
-      for(const shot of collideWithThese) {
-         // Multiplying minDistance if a hack to cause lower hit "box".
-         const minDistance = doesThis.Radius + shot.Radius * 0.8;
-         const xDist = doesThis.x - shot.x;
-         const yDist = doesThis.y - shot.y;
-         const distance = Math.hypot(xDist, yDist);
-         if(distance <= minDistance) {
-            return { collided: true, collidedWithId: shot.id };
-         }
+      // Multiplying minDistance if a hack to cause lower hit "box".
+      const minDistance = doesThis.Radius + collideWithThis.Radius * 0.8;
+      const xDist = doesThis.x - collideWithThis.x;
+      const yDist = doesThis.y - collideWithThis.y;
+      const distance = Math.hypot(xDist, yDist);
+      if(distance <= minDistance) {
+         return true;
       }
-      return { collided: false };
+
+      return false;
    };
 }

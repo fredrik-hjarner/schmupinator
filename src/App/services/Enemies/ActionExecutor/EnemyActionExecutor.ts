@@ -129,9 +129,7 @@ export class EnemyActionExecutor {
    };
    /** Get/extract a hardcoded number or an attribute */
    private getNumber = (param: TNumber): number => {
-      if (typeof param === "number") {
-         return param;
-      }
+      if (typeof param === "number") { return param; }
       return this.attrs.getNumber({
          gameObjectId: param.gameObjectId ?? this.enemy.id,
          attribute: param.attr
@@ -139,9 +137,7 @@ export class EnemyActionExecutor {
    };
    /** Get/extract a hardcoded string or an attribute */
    private getString = (param: TString): string => {
-      if (typeof param === "string") {
-         return param;
-      }
+      if (typeof param === "string") { return param; }
       return this.attrs.getString({
          gameObjectId: param.gameObjectId ?? this.enemy.id,
          attribute: param.attr
@@ -199,6 +195,17 @@ export class EnemyActionExecutor {
                }) !== is) {
                   yield;
                }
+               break;
+            }
+
+            case AT.waitUntilCollision: {
+               const { collisionTypes } = currAction;
+               while(!this.enemy.collidedWithCollisionTypesThisFrame.some(collisionType =>
+                  collisionTypes.includes(collisionType)
+               )) {
+                  yield;
+               }
+               this.enemy.OnCollision();
                break;
             }
 

@@ -11,7 +11,7 @@ import { Angle } from "../../../math/Angle.ts";
 import { UnitVector } from "../../../math/UnitVector.ts";
 import { uuid } from "../../../utils/uuid.ts";
 import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
-import { assertNumber } from "../../../utils/typeAssertions.ts";
+import { assertNumber, assertString } from "../../../utils/typeAssertions.ts";
 import { EnemyGfx } from "./EnemyGfx.ts";
 
 export class Enemy {
@@ -26,6 +26,8 @@ export class Enemy {
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private name: string;
+   // keeps track of which collisionTypes this GameObject collided with this frame.
+   public collidedWithCollisionTypesThisFrame: string[] = [];
 
    public constructor( enemies: Enemies, position: TVector, json: TGameObject ) {
       this.enemies = enemies;
@@ -41,6 +43,8 @@ export class Enemy {
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
+      this.attrs
+         .setAttribute({gameObjectId: this.id, attribute: "collisionType", value: "none" });
       this.attrs
          .setAttribute({gameObjectId: this.id, attribute: "moveDirectionAngle", value: 180 });
       this.speed = 0;
@@ -111,8 +115,13 @@ export class Enemy {
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
 
-   // When this enemy collided.
+   // When this GameObject collided.
    public OnCollision = () => {
+      // const collisionType = assertString(this.attrs.getAttribute({
+      //    gameObjectId: this.id,
+      //    attribute: "collisionType"
+      // }));
+
       // TODO: If points is zero then it should not dispatch a add_points event!
       const points = assertNumber(this.attrs.getAttribute({
          gameObjectId: this.id,
