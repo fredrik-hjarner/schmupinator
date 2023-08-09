@@ -12,11 +12,16 @@ export default defineConfig({
     },
   },
   build: {
+    target: 'esnext', // minimal transpilation
     minify: 'terser',
     terserOptions: {
       compress: {
-        passes: 2, // barely does any difference
-      }
+        passes: 2, // cuts a few bytes
+        drop_console: true, // cuts a few bytes
+        // booleans_as_integers: true, // cuts a few bytes
+        // keep_fargs: false, // cuts a few bytes
+        // unsafe: true, // cuts a few bytes
+      },
     },
     assetsInlineLimit: 0,
   },
