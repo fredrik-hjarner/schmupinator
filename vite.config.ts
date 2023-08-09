@@ -13,7 +13,8 @@ export default defineConfig({
   },
   build: {
     target: 'esnext', // minimal transpilation
-    minify: 'terser',
+    modulePreload: false, // default: `true`. If `false` then the output can be run with node.
+    minify: "terser",
     terserOptions: {
       compress: {
         passes: 2, // cuts a few bytes
