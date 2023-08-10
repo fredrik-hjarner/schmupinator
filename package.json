@@ -9,6 +9,7 @@
     "build:release": "vite build --mode release --base=/schmupinator/ --outDir dist/schmupinator",
     "preview": "vite preview --port 3000 --open",
     "preview:release": "vite preview --port 3000 --open schmupinator",
+    "e2e:vite-node": "vite-node ./src/main.ts",
     "test": "vitest run"
   },
   "devDependencies": {
