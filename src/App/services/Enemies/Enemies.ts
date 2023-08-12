@@ -166,7 +166,8 @@ export class Enemies implements IService {
             for (const [enemyId, collisionTypes] of Object.entries(event.collisions)) {
                const enemy = this.enemies[enemyId];
                if(enemy) {
-                  enemy.collidedWithCollisionTypesThisFrame = collisionTypes;
+                  enemy.OnCollision(collisionTypes);
+                  // enemy.collidedWithCollisionTypesThisFrame = collisionTypes; // new code
                }
             }
             break;
