@@ -11,7 +11,7 @@ import type { GamePad } from "./GamePad/GamePad";
 import type { Collisions } from "./Collisions/Collisions";
 import type { IGameSpeed } from "./GameSpeed/IGameSpeed";
 import type { IPoints } from "./Points/IPoints";
-import type { Highscore } from "./Highscore/Highscore";
+import type { Highscore } from "./Highscore/Highscore.ts";
 import type { GameData } from "./GamaData/GameData";
 import type { IGraphics } from "./Graphics/IGraphics";
 import type { IUI } from "./UI/IUI";

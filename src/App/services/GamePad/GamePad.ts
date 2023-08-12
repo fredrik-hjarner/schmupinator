@@ -1,6 +1,7 @@
 import type { IService } from "../IService";
 
-import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
+import { BrowserDriver } from "@/drivers/BrowserDriver/index.ts";
+import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
 type TConstructor = {
    name: string;

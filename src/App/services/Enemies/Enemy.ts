@@ -1,18 +1,18 @@
-import type { TAction } from "./actions/actionTypes";
+import type { TAction } from "./actions/actionTypes.ts";
 import type { Vector as TVector } from "../../../math/bezier";
 import type { IGraphics, TGraphicsActionWithoutHandle } from "../Graphics/IGraphics";
 import type { Enemies } from "./Enemies";
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
-import { ActionType as AT } from "./actions/actionTypes";
-import { EnemyActionExecutor } from "./ActionExecutor/EnemyActionExecutor";
-import { Vector } from "../../../math/Vector";
-import { Angle } from "../../../math/Angle";
-import { UnitVector } from "../../../math/UnitVector";
-import { uuid } from "../../../utils/uuid";
-import { resolutionHeight, resolutionWidth } from "../../../consts";
-import { assertNumber } from "../../../utils/typeAssertions";
-import { EnemyGfx } from "./EnemyGfx";
+import { ActionType as AT } from "./actions/actionTypes.ts";
+import { EnemyActionExecutor } from "./ActionExecutor/EnemyActionExecutor.ts";
+import { Vector } from "../../../math/Vector.ts";
+import { Angle } from "../../../math/Angle.ts";
+import { UnitVector } from "../../../math/UnitVector.ts";
+import { uuid } from "../../../utils/uuid.ts";
+import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
+import { assertNumber } from "../../../utils/typeAssertions.ts";
+import { EnemyGfx } from "./EnemyGfx.ts";
 
 export class Enemy {
    public id: string;

@@ -1,7 +1,7 @@
 import type { TInitParams } from "../IService";
 import type { IOutsideHider } from "./IOutsideHider";
 
-import { initGameHideBottom, initGameHideRight } from "./divs";
+import { initGameHideBottom, initGameHideRight } from "./divs.ts";
 
 type TConstructor = {
    name: string;

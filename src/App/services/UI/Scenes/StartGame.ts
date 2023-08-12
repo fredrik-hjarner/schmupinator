@@ -1,12 +1,12 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./components/atoms/shade";
-import { centerHorizontally } from "./utils/centering";
-import { createText } from "./components/atoms/text";
-import { Menu } from "./components/molecules/Menu";
-import { fontSizes } from "./consts/fontSizes";
-import packageJson from "../../../../../package.json";
+import { createShade } from "./components/atoms/shade.ts";
+import { centerHorizontally } from "./utils/centering.ts";
+import { createText } from "./components/atoms/text.ts";
+import { Menu } from "./components/molecules/Menu.ts";
+import { fontSizes } from "./consts/fontSizes.ts";
+import packageJson from "../../../../../package.json" assert { type: "json" };
 
 type TConstructor = {
    ui: UI;

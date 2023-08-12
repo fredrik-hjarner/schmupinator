@@ -3,10 +3,10 @@ import type { IService } from "../IService";
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 import type { TGame } from "@/gameTypes/TGame";
 
-import game1 from "../../../gameData/game1/index";
-import game2 from "../../../gameData/game2/index";
-import asteroids from "../../../gameData/asteroids/index";
-import snake from "../../../gameData/snake/index";
+import game1 from "../../../gameData/game1/index.ts";
+import game2 from "../../../gameData/game2/index.ts";
+import asteroids from "../../../gameData/asteroids/index.ts";
+import snake from "../../../gameData/snake/index.ts";
 
 type TEnemyJsons = Partial<{ [enemyName: string]: TGameObject }>;
 

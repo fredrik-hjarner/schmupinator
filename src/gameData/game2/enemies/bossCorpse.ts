@@ -1,13 +1,13 @@
 import type { TGameObject } from "../../../gameTypes/TGameObject";
-import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
+import type { TAction } from "@/App/services/Enemies/actions/actionTypes.ts";
 
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 import {
    createGameObject,
    parallelAll,
    spawn,
    wait
-} from "../../utils/utils";
+} from "../../utils/utils.ts";
 
 
 const explodeInAllDirections = (radius: number, _wait: number,): TAction[] => {

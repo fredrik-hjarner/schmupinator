@@ -356,6 +356,9 @@ in Enemy.ts. I should be able to be made shorter with a helper method, maybe.
 * I really need some kind of collisions layers and more dynamic/complex stuff around collisions like
 onCollisions listeners and such.
 
+* Rename BrowserDriver into EnvironmentDriver because Node and Deno are not browsers.
+Might add some more stuff to it too, dunno.
+
 * I'm running into performance problems. I need to move to "Off the Main Thread": Everything should
 run in a separate thread, and it should communicate with the main thread to affect the DOM.
 It can be really simple, just start everything in a new thread, and let say the graphics engine run

@@ -1,4 +1,5 @@
-import { BrowserDriver, IsBrowser } from "../drivers/BrowserDriver";
+import { BrowserDriver } from "../drivers/BrowserDriver/index.ts";
+import { IsBrowser } from "../drivers/BrowserDriver/IsBrowser.ts";
 
 export const isObject = (value: unknown): value is Partial<Record<string, unknown>> => {
    return typeof value === "object";

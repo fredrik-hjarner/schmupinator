@@ -1,5 +1,5 @@
-import { resolutionHeight, resolutionWidth } from "../../../../../consts";
-import { px } from "../../../../../utils/px";
+import { resolutionHeight, resolutionWidth } from "../../../../../consts.ts";
+import { px } from "../../../../../utils/px.ts";
 
 type TCenterable = {
    offsetWidth: number;

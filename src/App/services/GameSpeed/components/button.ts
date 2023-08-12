@@ -1,9 +1,9 @@
 import type { IDestroyable } from "../../../../utils/types/IDestroyable";
 
-import { zIndices } from "../../../../consts";
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { px } from "../../../../utils/px";
-import { fontSizes } from "../../UI/Scenes/consts/fontSizes";
+import { zIndices } from "../../../../consts.ts";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver/index.ts";
+import { px } from "../../../../utils/px.ts";
+import { fontSizes } from "../../UI/Scenes/consts/fontSizes.ts";
 
 type TConstructorParams = {
    text: string,

@@ -1,6 +1,6 @@
 import type { IPseudoRandom } from "./IPseudoRandom";
 
-import { randomNumbers } from "./randomNumbers";
+import { randomNumbers } from "./randomNumbers.ts";
 
 type TConstructor = {
    name: string;

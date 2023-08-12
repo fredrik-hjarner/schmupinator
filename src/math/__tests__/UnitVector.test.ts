@@ -1,7 +1,7 @@
 import { it, expect } from "vitest";
 
-import { UnitVector } from "../UnitVector";
-import { Vector } from "../Vector";
+import { UnitVector } from "../UnitVector.ts";
+import { Vector } from "../Vector.ts";
 
 it("Origo points up (things is theres no good solution)", () => {
    const vector = new Vector(0, 0);

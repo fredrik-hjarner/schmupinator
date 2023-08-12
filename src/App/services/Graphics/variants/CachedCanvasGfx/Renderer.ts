@@ -1,7 +1,7 @@
-import type { GfxElementData } from "./GfxElementData";
+import type { GfxElementData } from "./GfxElementData.ts";
 
-import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
-import { Cache } from "./Cache";
+import { BrowserDriver } from "../../../../../drivers/BrowserDriver/index.ts";
+import { Cache } from "./Cache.ts";
 // resources
 const circle = `${import.meta.env.BASE_URL}images/circle.png`;
 const square = `${import.meta.env.BASE_URL}images/square.png`;

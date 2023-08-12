@@ -1,11 +1,11 @@
 import type { Enemies } from "../Enemies/Enemies";
 import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
-import type { Enemy } from "../Enemies/Enemy";
+import type { Enemy } from "../Enemies/Enemy.ts";
 import type { IAttributes } from "../Attributes/IAttributes";
 
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-// import { resolutionHeight, resolutionWidth } from "@/consts";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+// import { resolutionHeight, resolutionWidth } from "@/consts.ts";
 
 export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
 
@@ -149,12 +149,12 @@ export class Collisions implements IService {
          allGameObjectsThatWereHit.push(player.id);
       }
 
+      allGameObjectsThatWereHit.push(...enemiesHitByPlayerBullets);
+      
+      allGameObjectsThatWereHit.push(...enemyBulletsThatHitPlayer);
+      
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
-
-      allGameObjectsThatWereHit.push(...enemiesHitByPlayerBullets);
-
-      allGameObjectsThatWereHit.push(...enemyBulletsThatHitPlayer);
 
       if(allGameObjectsThatWereHit.length > 0) {
          const collisions = {

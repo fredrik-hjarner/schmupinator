@@ -1,6 +1,6 @@
-import { centerHorizontally } from "../../utils/centering";
-import { createText } from "../atoms/text";
-import { fontSizes } from "../../consts/fontSizes";
+import { centerHorizontally } from "../../utils/centering.ts";
+import { createText } from "../atoms/text.ts";
+import { fontSizes } from "../../consts/fontSizes.ts";
 
 type TListItem = {
    text: string,

@@ -2,11 +2,11 @@ import type  { App } from "../../App";
 import type { IFps } from "./IFps";
 import type { TGameEvent } from "../Events/IEvents";
 
-import { round } from "../../../utils/round";
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { initElapsedTimeDiv } from "./elapsedTimeDiv";
-import { initFpsDiv, initMaxWebWorkersDiv } from "./fpsDiv";
-import { initFrameCounterDiv } from "./frameCounterDiv";
+import { round } from "../../../utils/round.ts";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { initElapsedTimeDiv } from "./elapsedTimeDiv.ts";
+import { initFpsDiv, initMaxWebWorkersDiv } from "./fpsDiv.ts";
+import { initFrameCounterDiv } from "./frameCounterDiv.ts";
 
 type TConstructor = {
    // TODO: remove app here. should be super simple as fps is only dependent on app.events.

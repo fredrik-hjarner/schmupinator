@@ -4,13 +4,13 @@ import type {
    TAction,
    TMove,
    TShootDirection
-} from "../../App/services/Enemies/actions/actionTypes";
+} from "../../App/services/Enemies/actions/actionTypes.ts";
 
-import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes.ts";
 import {
    attr, createGameObject, forever, moveToAbsolute, parallelAll, parallelRace,
    repeat, setShotSpeed, setSpeed, spawn, thrice, twice, wait
-} from "../utils/utils";
+} from "../utils/utils.ts";
 
 const aimerLeft = spawn("nonShootingAimer", { x: 128.5, y: -22 });
 const aimerRight = spawn("nonShootingAimer", { x: 228.5, y: -22 });

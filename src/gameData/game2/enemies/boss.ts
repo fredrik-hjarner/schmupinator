@@ -1,7 +1,7 @@
 import type { TGameObject } from "@/gameTypes/TGameObject";
-import type { TAction } from "@/App/services/Enemies/actions/actionTypes";
+import type { TAction } from "@/App/services/Enemies/actions/actionTypes.ts";
 
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 import {
    createGameObject,
    forever,
@@ -9,8 +9,8 @@ import {
    repeat,
    spawn,
    wait,
-} from "@/gameData/utils/utils";
-import { col } from "../common";
+} from "@/gameData/utils/utils.ts";
+import { col } from "../common.ts";
 
 const shootInAll8Directions = (shootSpeed: number): TAction[] => [
    // blink to signal it's about to shoot

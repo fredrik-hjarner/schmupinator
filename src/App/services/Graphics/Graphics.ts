@@ -6,11 +6,11 @@ import type {
 } from "./IGraphics";
 import type { Vector as TVector } from "../../../math/bezier";
 
-import { ActionType as AT } from "../Enemies/actions/actionTypes";
-import { resolutionWidth } from "../../../consts";
-import { uuid } from "../../../utils/uuid";
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { GraphicsElement } from "./GraphicsElement";
+import { ActionType as AT } from "../Enemies/actions/actionTypes.ts";
+import { resolutionWidth } from "../../../consts.ts";
+import { uuid } from "../../../utils/uuid.ts";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { GraphicsElement } from "./GraphicsElement.ts";
 
 type TGfxPoolEntry = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.

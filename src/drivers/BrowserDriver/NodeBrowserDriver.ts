@@ -1,7 +1,25 @@
 /* eslint-disable import/no-nodejs-modules */
-// import { performance } from "perf_hooks"; // only uncomment when run in node for extra precision
-
 import type { IBrowserDriver } from "./IBrowserDriver";
+
+import { IsBrowser } from "./IsBrowser.ts";
+
+/**
+ * TODO: Side effects such though.
+ * I should create a separate Driver for Deno.
+ */
+let perf: { now: () => number } = Date; // Date.now as fallback.
+if (!IsBrowser()) {
+   if(typeof window === "undefined") { // NodeJS
+      const node_perf = (await import("node:perf_hooks"))?.performance;
+      if(node_perf) {
+         perf = (await import("node:perf_hooks")).performance;
+      }
+   // eslint-disable-next-line no-undef
+   } else if("Deno" in window) { // Deno
+      // eslint-disable-next-line no-undef
+      perf = performance;
+   }
+}
 
 export class NodeBrowserDriver implements IBrowserDriver {
    public WithWindow = <T>(_: (window: Window) => T): undefined => {
@@ -20,8 +38,7 @@ export class NodeBrowserDriver implements IBrowserDriver {
    }
 
    public PerformanceNow = (): number => {
-      // return performance.now(); // only uncomment when running in node for extra precision.
-      return Date.now(); // uncomment when code is supposed to run in browser.
+      return perf.now();
    };
 
    public SetInterval = (callback: () => void, _: number): number => {
@@ -71,5 +88,19 @@ export class NodeBrowserDriver implements IBrowserDriver {
          }
          console.log("File saved.");
       });
+   };
+
+   public ProcessExit = (code: number) => {
+      /**
+       * TODO: Create a DenoBrowserDriver, and use Deno.exit() there instead.
+       */
+      if (typeof process !== "undefined") { // NodeJS
+         // eslint-disable-next-line no-undef
+         process.exit(code);
+      } else { // Deno
+         // @ts-ignore
+         // eslint-disable-next-line
+         Deno.exit(code);
+      }
    };
 }

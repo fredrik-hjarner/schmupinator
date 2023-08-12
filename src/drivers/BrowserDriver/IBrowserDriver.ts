@@ -18,4 +18,6 @@ export interface IBrowserDriver {
 
    // save file to disk (obviously a noop in the browser)
    SaveFile: (path: string, data: string) => Promise<void>;
+
+   ProcessExit: (code: number) => void;
 }

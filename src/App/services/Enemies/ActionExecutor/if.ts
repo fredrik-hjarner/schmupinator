@@ -1,4 +1,4 @@
-import type { TAttrIf } from "../actions/actionTypes";
+import type { TAttrIf } from "../actions/actionTypes.ts";
 import type { TAttrValue } from "../../Attributes/IAttributes";
 
 // Helper function to deal with attribute if checks.

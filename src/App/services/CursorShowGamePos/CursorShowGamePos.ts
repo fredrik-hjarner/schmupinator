@@ -2,7 +2,7 @@ import type { ICursorShowGamePos } from "./ICursorShowGamePos";
 import type { TInitParams } from "../IService";
 import type { IFullscreen } from "../Fullscreen/IFullscreen";
 
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
 
 type TConstructor = {
    name: string;

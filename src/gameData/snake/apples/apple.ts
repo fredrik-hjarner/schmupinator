@@ -1,8 +1,8 @@
-import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import {
    createGameObject,
    wait
-} from "../../utils/utils";
+} from "../../utils/utils.ts";
 
 export const apple = createGameObject({
    name: "apple",

@@ -1,8 +1,8 @@
 import type  { App } from "../../../App";
 import type { IGameLoop } from "../IGameLoop";
 
-import { millisPerFrame } from "../../../../consts";
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
+import { millisPerFrame } from "../../../../consts.ts";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver/index.ts";
 
 type TConstructor = {
    app: App;

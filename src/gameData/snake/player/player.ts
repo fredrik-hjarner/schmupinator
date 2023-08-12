@@ -1,6 +1,6 @@
-import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
+import type { TAction } from "../../../App/services/Enemies/actions/actionTypes.ts";
 
-import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import {
    attr,
    createGameObject,
@@ -8,7 +8,7 @@ import {
    fork,
    spawn,
    wait
-} from "../../utils/utils";
+} from "../../utils/utils.ts";
 
 const snakeSize = 17;
 

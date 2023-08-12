@@ -1,8 +1,9 @@
-import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../../consts";
-import { BrowserDriver } from "../../../../../../drivers/BrowserDriver";
-import { px } from "../../../../../../utils/px";
+import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
+import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../../consts.ts";
+import { BrowserDriver } from "../../../../../../drivers/BrowserDriver/index.ts";
+import { px } from "../../../../../../utils/px.ts";
 
-const menuBackground = `${import.meta.env.BASE_URL}images/menuBackground.png`;
+const menuBackground = IsBrowser() ? `${import.meta.env.BASE_URL}images/menuBackground.png` : "";
 
 /**
  * TODO: Originally this was just a 0.7 opacity black div, but I wanted to use a background image.
