@@ -118,7 +118,10 @@ module.exports = defineConfig({
     /**
      * Typescript
      */
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": ["error", {
+      argsIgnorePattern: "^_",
+      destructuredArrayIgnorePattern: "^_",
+    }],
     "@typescript-eslint/explicit-member-accessibility": ["error"],
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/consistent-type-exports": "error",
