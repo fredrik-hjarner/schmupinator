@@ -1,6 +1,7 @@
 import type { GfxElementData } from "./GfxElementData";
 
 import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
+import { Cache } from "./Cache";
 // resources
 const circle = `${import.meta.env.BASE_URL}images/circle.png`;
 const square = `${import.meta.env.BASE_URL}images/square.png`;
@@ -11,7 +12,7 @@ const explosion = `${import.meta.env.BASE_URL}images/explosion.png`;
 const roundExplosion = `${import.meta.env.BASE_URL}images/roundExplosion.png`;
 
 type TRenderParams = {
-   ctx?: CanvasRenderingContext2D;
+   ctx: CanvasRenderingContext2D;
    data: GfxElementData;
 }
 
@@ -42,6 +43,8 @@ const images = BrowserDriver.WithWindow(() => {
 });
 
 export class Renderer {
+   private cache = new Cache<HTMLCanvasElement>({});
+
    // TODO: Actually I only support some colors so color should have a more specific type.
    private deriveFilterFromColor = (color: string) => {
       switch(color) {
@@ -60,24 +63,55 @@ export class Renderer {
 
    // Util to help with image, mostly because canvas rotation is awkward.
    private drawImage = (img: CanvasImageSource, params: TRenderParams) => {
-      const { ctx, data: gfxElement } = params;
-      const { color, rotation, diameter } = gfxElement;
-   
-      if(ctx === undefined) { return; }
+      const { data: gfxElement } = params;
+      const { color, radius, rotation, diameter, x, y } = gfxElement;
+      /**
+       * If you rotate a 1x1 square 45 degrees it WON'T fit inside of a 1x1 square x-y-wize.
+       * diagonals will be outside of the canvas/square.
+       * Actually what I call diameter is actually the length of one side on a sqaure. 
+       */
+      const diameterOfCanvas = diameter*Math.SQRT2;
+      const radiusOfCanvas = diameterOfCanvas/2;
 
-      const radius = Math.round(diameter/2);
-      const x = Math.round(gfxElement.x);
-      const y = Math.round(gfxElement.y);
+      /**
+       * Check cache
+       */
+      const key = JSON.stringify(params.data.serialized);
+      const fromCache = this.cache.tryGet(key);
+      if(fromCache !== undefined) {
+         // console.log("found in cache:", key);
+         params.ctx.drawImage(fromCache, x - radiusOfCanvas, y - radiusOfCanvas);
+         return;
+      }
 
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.rotate(rotation * Math.PI / 180);
-      ctx.filter = this.deriveFilterFromColor(color);
+      /**
+       * Render
+       */
 
-      ctx.drawImage(img, -radius, -radius, diameter, diameter);
+      // @ts-ignore: TS thinks OffscreenCanvas is experimental.
+      // eslint-disable-next-line
+      const offscreenCanvas = document.createElement("canvas");
+      // const offscreenCanvas =
+      // new OffscreenCanvas(diameterOfCanvas, diameterOfCanvas) as HTMLCanvasElement;
+      offscreenCanvas.width = diameterOfCanvas;
+      offscreenCanvas.height = diameterOfCanvas;
+      const newCtx = offscreenCanvas.getContext("2d") as CanvasRenderingContext2D;
       
-      ctx.filter = "none";
-      ctx.restore();
+      // Note: I think even numbers can be problematic here and make a rotated image not be exact.
+      newCtx.translate(radiusOfCanvas, radiusOfCanvas);
+      newCtx.rotate(rotation * Math.PI / 180);
+      newCtx.filter = this.deriveFilterFromColor(color);
+      newCtx.drawImage(img, -radius, -radius, diameter, diameter);
+      // newCtx.filter = "none";
+      
+      // Render to the "real" canvas
+      params.ctx.drawImage(offscreenCanvas, x - radiusOfCanvas, y - radiusOfCanvas);
+      
+      /**
+       * Save to cache
+       */
+      
+      this.cache.add(key, offscreenCanvas);
    };
 
    /**
@@ -86,10 +120,8 @@ export class Renderer {
     * Read the state and render.
     */
    public render = (params: TRenderParams) => {
-      const { ctx, data: { shape } } = params;
+      const { data: { shape } } = params;
    
-      if(ctx === undefined) { return; }
-
       switch(shape) {
          case "none":
             break;
