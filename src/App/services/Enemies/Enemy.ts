@@ -116,11 +116,36 @@ export class Enemy {
    };
 
    // When this GameObject collided.
-   public OnCollision = () => {
-      // const collisionType = assertString(this.attrs.getAttribute({
-      //    gameObjectId: this.id,
-      //    attribute: "collisionType"
-      // }));
+   public OnCollision = (collisionTypes: string[]) => {
+      const collisionType = assertString(this.attrs.getAttribute({
+         gameObjectId: this.id,
+         attribute: "collisionType"
+      }));
+
+      switch(collisionType) {
+         case "player":
+            if(!collisionTypes.some(c => ["enemy", "enemyBullet"].includes(c))) {
+               return;
+            }
+            break;
+         case "playerBullet":
+            if(!collisionTypes.some(c => ["enemy"].includes(c))) {
+               return;
+            }
+            break;
+         case "enemy":
+            if(!collisionTypes.some(c => ["playerBullet"].includes(c))) {
+               return;
+            }
+            break;
+         case "enemyBullet":
+            if(!collisionTypes.some(c => ["player"].includes(c))) {
+               return;
+            }
+            break;
+         default:
+            throw Error(`Unknown collisionType "${collisionType}"`);
+      }
 
       // TODO: If points is zero then it should not dispatch a add_points event!
       const points = assertNumber(this.attrs.getAttribute({
