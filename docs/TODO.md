@@ -355,3 +355,9 @@ in Enemy.ts. I should be able to be made shorter with a helper method, maybe.
 
 * I really need some kind of collisions layers and more dynamic/complex stuff around collisions like
 onCollisions listeners and such.
+
+* I'm running into performance problems. I need to move to "Off the Main Thread": Everything should
+run in a separate thread, and it should communicate with the main thread to affect the DOM.
+It can be really simple, just start everything in a new thread, and let say the graphics engine run
+in the main thread (it already has commands which could be sent to main thread) or have some kind
+of UiThread class or something with functions for manipulating DOM.
