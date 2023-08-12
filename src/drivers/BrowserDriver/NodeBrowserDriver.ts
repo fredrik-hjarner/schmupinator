@@ -4,7 +4,7 @@ import type { IBrowserDriver } from "./IBrowserDriver";
 import { IsBrowser } from "./IsBrowser.ts";
 
 /**
- * TODO: Side effects such though.
+ * TODO: Side effects suck though.
  * I should create a separate Driver for Deno.
  */
 let perf: { now: () => number } = Date; // Date.now as fallback.
@@ -12,7 +12,7 @@ if (!IsBrowser()) {
    if(typeof window === "undefined") { // NodeJS
       const node_perf = (await import("node:perf_hooks"))?.performance;
       if(node_perf) {
-         perf = (await import("node:perf_hooks")).performance;
+         perf = node_perf;
       }
    // eslint-disable-next-line no-undef
    } else if("Deno" in window) { // Deno
