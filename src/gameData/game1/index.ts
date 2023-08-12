@@ -1,19 +1,21 @@
 /* eslint-disable import/no-default-export */
 import type { TGame } from "@/gameTypes/TGame";
 
-import { explosion, roundExplosion } from "./effects/explosions";
-import { player } from "./player/player";
-import { playerLaser } from "./player/playerLaser";
-import { playerShot } from "./player/playerShot";
-import { shot } from "./shot";
-import { spawner } from "./spawner";
-import { firstMiniboss, nonShootingAimer, sinus, stage1 } from "./stage1";
-import { cloner, clonerChild, stage2 } from "./stage2";
-import { dehealer, healer, shapeShifter, stage3 } from "./stage3";
-import { easyFlyer, stage4 } from "./stage4";
-import { layer1, layer2, layer3, parallax } from "./parallax/parallax";
-import { aqua, child, executor, parent, repeatFromHp, shotSpeedFromHp, stage5 } from "./stage5";
-import startScreen from "./startScreen.png";
+import { explosion, roundExplosion } from "./effects/explosions.ts";
+import { player } from "./player/player.ts";
+import { playerLaser } from "./player/playerLaser.ts";
+import { playerShot } from "./player/playerShot.ts";
+import { shot } from "./shot.ts";
+import { spawner } from "./spawner.ts";
+import { firstMiniboss, nonShootingAimer, sinus, stage1 } from "./stage1.ts";
+import { cloner, clonerChild, stage2 } from "./stage2.ts";
+import { dehealer, healer, shapeShifter, stage3 } from "./stage3.ts";
+import { easyFlyer, stage4 } from "./stage4.ts";
+import { layer1, layer2, layer3, parallax } from "./parallax/parallax.ts";
+import { aqua, child, executor, parent, repeatFromHp, shotSpeedFromHp, stage5 } from "./stage5.ts";
+import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
+
+const startScreen: string = IsBrowser() ? (await import("./startScreen.png")).default : "";
 
 const game: TGame = {
    name: "1. Vertical level",

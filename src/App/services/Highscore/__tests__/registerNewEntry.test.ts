@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { Highscore } from "../Highscore";
+import { Highscore } from "../Highscore.ts";
 
 const createHighscoreFixture = async (): Promise<Highscore> => {
    const highscores = {

@@ -11,6 +11,7 @@ module.exports = defineConfig({
     // "auto-generated" files
     "e2ehistory.ts",
     "src/**/mocks/replay.ts",
+    "**/*.d.ts",
   ],
   parserOptions: {
     tsconfigRootDir: __dirname,
@@ -110,7 +111,7 @@ module.exports = defineConfig({
     "import/no-namespace": "error",
     "import/extensions": [
       "error",
-      "never",
+      "always",
       { "json": "always" }
     ],
     "import/no-default-export": "error",

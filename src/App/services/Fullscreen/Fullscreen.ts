@@ -1,7 +1,7 @@
 import type { IFullscreen } from "./IFullscreen";
 
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { resolutionHeight, resolutionWidth } from "../../../consts";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
 
 type TConstructor = {
    name: string;

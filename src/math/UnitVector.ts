@@ -1,5 +1,5 @@
-import { Angle } from "./Angle";
-import { Vector } from "./Vector";
+import { Angle } from "./Angle.ts";
+import { Vector } from "./Vector.ts";
 
 export class UnitVector {
    private vector: Vector;

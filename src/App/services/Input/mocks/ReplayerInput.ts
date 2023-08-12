@@ -35,7 +35,7 @@ export class ReplayerInput implements IInput {
    }
 
    public Init = async (deps?: TInitParams) => {
-      this.replay = (await import("./replay")).replay as THistory;
+      this.replay = (await import("./replay.ts")).replay as THistory;
 
       // TODO: Better type checking
       // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain

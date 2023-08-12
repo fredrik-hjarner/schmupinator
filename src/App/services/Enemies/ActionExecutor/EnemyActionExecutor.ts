@@ -1,18 +1,18 @@
 import type {
    TAction, TInputButton, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
-} from "../actions/actionTypes";
+} from "../actions/actionTypes.ts";
 import type { Vector as TVector } from "../../../../math/bezier";
 import type { IAttributes, TAttrValue } from "../../Attributes/IAttributes";
 import type { IInput } from "../../Input/IInput";
 import type { GamePad } from "../../GamePad/GamePad";
-import type { Enemy } from "../Enemy";
+import type { Enemy } from "../Enemy.ts";
 
-import { ActionType as AT } from "../actions/actionTypes";
-import { Vector } from "../../../../math/Vector";
-import { Angle } from "../../../../math/Angle";
-import { GeneratorUtils } from "../../../../utils/GeneratorUtils";
-import { resolutionHeight, resolutionWidth } from "../../../../consts";
-import { ifAttr } from "./if";
+import { ActionType as AT } from "../actions/actionTypes.ts";
+import { Vector } from "../../../../math/Vector.ts";
+import { Angle } from "../../../../math/Angle.ts";
+import { GeneratorUtils } from "../../../../utils/GeneratorUtils.ts";
+import { resolutionHeight, resolutionWidth } from "../../../../consts.ts";
+import { ifAttr } from "./if.ts";
 
 const rotateAroundPoint = function*(
    currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,

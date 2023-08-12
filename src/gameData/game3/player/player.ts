@@ -1,8 +1,8 @@
 import type { TGameObject } from "../../../gameTypes/TGameObject";
-import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
+import type { TAction } from "../../../App/services/Enemies/actions/actionTypes.ts";
 
-import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
-import { createGameObject, forever, fork, wait } from "../../utils/utils";
+import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
+import { createGameObject, forever, fork, wait } from "../../utils/utils.ts";
 
 type TCreateShotArgs = { moveDeltaX: number, moveDeltaY: number };
 

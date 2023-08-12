@@ -1,12 +1,12 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./components/atoms/shade";
-import { createText } from "./components/atoms/text";
-import { isNumber } from "../../../../utils/typeAssertions";
-import { centerHorizontally } from "./utils/centering";
-import { fontSizes } from "./consts/fontSizes";
-import { FlipCharacters } from "./components/molecules/FlipCharacters";
+import { createShade } from "./components/atoms/shade.ts";
+import { createText } from "./components/atoms/text.ts";
+import { isNumber } from "../../../../utils/typeAssertions.ts";
+import { centerHorizontally } from "./utils/centering.ts";
+import { fontSizes } from "./consts/fontSizes.ts";
+import { FlipCharacters } from "./components/molecules/FlipCharacters.ts";
 
 type TConstructor = {
    ui: UI;

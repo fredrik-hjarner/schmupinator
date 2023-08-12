@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import type { TAction } from "../actions/actionTypes";
+import type { TAction } from "../actions/actionTypes.ts";
 
 import { describe, it, expect } from "vitest";
 
-import { ActionType as AT } from "../actions/actionTypes";
-import { EnemyActionExecutor } from "../ActionExecutor/EnemyActionExecutor";
+import { ActionType as AT } from "../actions/actionTypes.ts";
+import { EnemyActionExecutor } from "../ActionExecutor/EnemyActionExecutor.ts";
 
 const input: any = undefined;
 const gamepad: any = undefined;

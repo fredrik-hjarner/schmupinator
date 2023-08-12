@@ -4,10 +4,10 @@ import {
    createGameObject,
    spawn,
    wait
-} from "../utils/utils";
-import { col, row } from "./common";
-import { aimersWave } from "./waves/aimers";
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+} from "../utils/utils.ts";
+import { col, row } from "./common.ts";
+import { aimersWave } from "./waves/aimers.ts";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 
 export const stage: TGameObject = createGameObject({
    name: "stage",

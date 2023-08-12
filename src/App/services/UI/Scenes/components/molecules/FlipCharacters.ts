@@ -1,7 +1,7 @@
 import type { IInput } from "../../../../Input/IInput";
 
-import { createText } from "../atoms/text";
-import { fontSizes } from "../../consts/fontSizes";
+import { createText } from "../atoms/text.ts";
+import { fontSizes } from "../../consts/fontSizes.ts";
 
 const charList = [
    "_",

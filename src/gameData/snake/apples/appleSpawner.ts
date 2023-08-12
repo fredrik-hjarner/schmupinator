@@ -1,4 +1,4 @@
-import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import {
    col,
    createGameObject,
@@ -7,7 +7,7 @@ import {
    row,
    spawn,
    wait
-} from "../../utils/utils";
+} from "../../utils/utils.ts";
 
 export const appleSpawner = createGameObject({
    name: "appleSpawner",

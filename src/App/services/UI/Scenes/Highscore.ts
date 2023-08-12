@@ -1,14 +1,14 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createShade } from "./components/atoms/shade";
-import { createText } from "./components/atoms/text";
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { isBoolean, isNumber, isObject } from "../../../../utils/typeAssertions";
-import { centerHorizontally } from "./utils/centering";
-import { fontSizes } from "./consts/fontSizes";
-import { pad } from "../../../../utils/formatting/pad";
-import { Menu } from "./components/molecules/Menu";
+import { createShade } from "./components/atoms/shade.ts";
+import { createText } from "./components/atoms/text.ts";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver/index.ts";
+import { isBoolean, isNumber, isObject } from "../../../../utils/typeAssertions.ts";
+import { centerHorizontally } from "./utils/centering.ts";
+import { fontSizes } from "./consts/fontSizes.ts";
+import { pad } from "../../../../utils/formatting/pad.ts";
+import { Menu } from "./components/molecules/Menu.ts";
 
 type TConstructor = {
    ui: UI;

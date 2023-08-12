@@ -1,13 +1,13 @@
-import type { TAction } from "../../../App/services/Enemies/actions/actionTypes";
+import type { TAction } from "../../../App/services/Enemies/actions/actionTypes.ts";
 
-import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import {
    attr,
    createGameObject,
    forever,
    fork,
    wait
-} from "../../utils/utils";
+} from "../../utils/utils.ts";
 
 /**
  * `left`, `right` rotates the player.

@@ -1,9 +1,9 @@
 import type { TGameObject } from "../../gameTypes/TGameObject";
-import type { TAction } from "../../App/services/Enemies/actions/actionTypes";
+import type { TAction } from "../../App/services/Enemies/actions/actionTypes.ts";
 
-import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes";
-import { createGameObject, forever } from "../utils/utils";
-import { col, row } from "./common";
+import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes.ts";
+import { createGameObject, forever } from "../utils/utils.ts";
+import { col, row } from "./common.ts";
 
 const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}): TAction => ({
    type: AT.spawn, enemy: "easyFlyer",

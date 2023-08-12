@@ -2,8 +2,8 @@ import type { TGameObject } from "@/gameTypes/TGameObject";
 
 import {
    createGameObject, forever, parallelAll, repeat, setSpeed, spawn, wait
-} from "@/gameData/utils/utils";
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+} from "@/gameData/utils/utils.ts";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 
 export const nonShootingAimer: TGameObject = createGameObject({
    name: "nonShootingAimer",

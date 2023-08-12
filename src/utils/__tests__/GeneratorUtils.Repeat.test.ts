@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/consistent-function-scoping */
 import { it, expect } from "vitest";
 
-import { GeneratorUtils } from "../GeneratorUtils";
+import { GeneratorUtils } from "../GeneratorUtils.ts";
 
 it("Test normal generator behaviour", () => {
    const generator = (function* () {

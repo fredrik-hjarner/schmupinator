@@ -1,12 +1,12 @@
 import type { TGameObject } from "../../gameTypes/TGameObject";
 
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 import {
    col,
    createGameObject,
    row,
    spawn,
-} from "../utils/utils";
+} from "../utils/utils.ts";
 
 export const spawner: TGameObject = createGameObject({
    name: "spawner",

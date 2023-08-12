@@ -22,71 +22,72 @@ import type { IPseudoRandom } from "./services/PseudoRandom/IPseudoRandom";
 /**
  * Services
  */
-import { CursorShowGamePos } from "./services/CursorShowGamePos/CursorShowGamePos";
-import { Enemies } from "./services/Enemies/Enemies";
+import { CursorShowGamePos } from "./services/CursorShowGamePos/CursorShowGamePos.ts";
+import { Enemies } from "./services/Enemies/Enemies.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Fps } from "./services/Fps/Fps";
-import { Input } from "./services/Input/Input";
-import { GamePad } from "./services/GamePad/GamePad";
-import { Collisions } from "./services/Collisions/Collisions";
+import { Fps } from "./services/Fps/Fps.ts";
+import { Input } from "./services/Input/Input.ts";
+import { GamePad } from "./services/GamePad/GamePad.ts";
+import { Collisions } from "./services/Collisions/Collisions.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Events } from "./services/Events/Events";
+import { Events } from "./services/Events/Events.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { GameSpeed } from "./services/GameSpeed/GameSpeed";
+import { GameSpeed } from "./services/GameSpeed/GameSpeed.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Points } from "./services/Points/Points";
-import { Highscore } from "./services/Highscore/Highscore";
-import { GameData } from "./services/GamaData/GameData";
+import { Points } from "./services/Points/Points.ts";
+import { Highscore } from "./services/Highscore/Highscore.ts";
+import { GameData } from "./services/GamaData/GameData.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Graphics } from "./services/Graphics/Graphics";
-import { UI } from "./services/UI/UI";
+import { Graphics } from "./services/Graphics/Graphics.ts";
+import { UI } from "./services/UI/UI.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Fullscreen } from "./services/Fullscreen/Fullscreen";
+import { Fullscreen } from "./services/Fullscreen/Fullscreen.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { E2eTest } from "./services/E2eTest/E2eTest";
-import { Settings } from "./services/Settings/Settings";
-import { OutsideHider } from "./services/OutsideHider/OutsideHider";
-import { Attributes } from "./services/Attributes/Attributes";
-import { PseudoRandom } from "./services/PseudoRandom/PseudoRandom";
+import { E2eTest } from "./services/E2eTest/E2eTest.ts";
+import { Settings } from "./services/Settings/Settings.ts";
+import { OutsideHider } from "./services/OutsideHider/OutsideHider.ts";
+import { Attributes } from "./services/Attributes/Attributes.ts";
+import { PseudoRandom } from "./services/PseudoRandom/PseudoRandom.ts";
 
 /**
  * "Mocks"/Service variations
  */
-import { NoopService } from "./services/NoopService";
-import { ReplayerInput } from "./services/Input/mocks/ReplayerInput";
-import { MockFullscreen } from "./services/Fullscreen/MockFullscreen";
-import { MockGraphics } from "./services/Graphics/variants/MockGraphics";
-import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop";
+import { NoopService } from "./services/NoopService.ts";
+import { ReplayerInput } from "./services/Input/mocks/ReplayerInput.ts";
+import { MockFullscreen } from "./services/Fullscreen/MockFullscreen.ts";
+import { MockGraphics } from "./services/Graphics/variants/MockGraphics.ts";
+import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop";
-import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents";
+import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop.ts";
+import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx";
+import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx";
+import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx/index.ts";
 
 /**
  * Other
  */
-import { IsBrowser } from "../drivers/BrowserDriver";
+import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
 /**
  * TODO: I toggle some stuff based upon if the mode is "release" (my custom mode), this is
  * inconsistent though since I toggle most stuff based on the stuff in Settings service, so I dont
  * know if I should make this more consistent by, for example, removing this and placing all of
  * these in the Settings service instead.
+ * I only care about "release" if this is executed in the browser.
  */
-const isRelease = import.meta.env.MODE === "release";
+const isRelease = IsBrowser() ? import.meta.env.MODE === "release" : false;
 
 export class App {
    // types here should not be IService but rather something that implements IService.
@@ -336,9 +337,7 @@ export class App {
     * TODO: Force sort this object alphabetically.
     */
    public init = {
-      attributes: async (): Promise<void> => {
-         await this.attributes.Init();
-      },
+      attributes: async (): Promise<void> => { await this.attributes.Init(); },
       cursorShowGamePos: async (): Promise<void> => {
          const { fullscreen } = this;
          await this.cursorShowGamePos.Init({

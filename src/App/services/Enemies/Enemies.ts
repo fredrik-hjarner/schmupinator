@@ -9,11 +9,11 @@ import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
 import type { Settings } from "../Settings/Settings";
-import type { TAction } from "./actions/actionTypes";
+import type { TAction } from "./actions/actionTypes.ts";
 import type { IAttributes } from "../Attributes/IAttributes";
 
-import { ActionType as AT } from "./actions/actionTypes";
-import { Enemy } from "./Enemy";
+import { ActionType as AT } from "./actions/actionTypes.ts";
+import { Enemy } from "./Enemy.ts";
 
 export class Enemies implements IService {
    public readonly name: string;

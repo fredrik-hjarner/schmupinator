@@ -1,8 +1,8 @@
 import type { IService, TInitParams } from "../IService";
 import type { GameData } from "../GamaData/GameData";
 
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { isObject } from "../../../utils/typeAssertions";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { isObject } from "../../../utils/typeAssertions.ts";
 
 const localStorageKey = "__highscore";
 /**

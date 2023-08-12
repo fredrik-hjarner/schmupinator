@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 
-import { Angle } from "../Angle";
-import { Vector } from "../Vector";
+import { Angle } from "../Angle.ts";
+import { Vector } from "../Vector.ts";
 
 describe("simple cardinal directions", () => {
    it("Vector.fromTo straight up", () => {

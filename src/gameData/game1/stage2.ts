@@ -1,11 +1,11 @@
 import type { TGameObject } from "../../gameTypes/TGameObject";
 
 
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 import {
    attr, createGameObject, forever, moveToAbsolute, parallelAll, setShotSpeed, wait
-} from "../utils/utils";
-import { col } from "./common";
+} from "../utils/utils.ts";
+import { col } from "./common.ts";
 
 export const stage2: TGameObject = createGameObject({
    name: "stage2",

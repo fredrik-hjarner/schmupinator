@@ -3,21 +3,21 @@ import type { IScene } from "./Scenes/types/IScene";
 import type { IGameEvents, IUiEvents, TGameEvent } from "../Events/IEvents";
 import type { IGameLoop } from "../GameLoop/IGameLoop";
 import type { TInitParams } from "../IService";
-import type { Highscore as THighscoreService } from "../Highscore/Highscore";
+import type { Highscore as THighscoreService } from "../Highscore/Highscore.ts";
 import type { IPoints } from "../Points/IPoints";
 import type { Settings as TSettingsService } from "../Settings/Settings";
 import type { IInput } from "../Input/IInput";
 import type { GameData } from "../GamaData/GameData";
 
-import { StartGame } from "./Scenes/StartGame";
-import { Game } from "./Scenes/Game";
-import { GameOver } from "./Scenes/GameOver";
-import { Highscore } from "./Scenes/Highscore";
-import { EnterHighscore } from "./Scenes/EnterHighscore";
-import { Settings } from "./Scenes/Settings";
-import { DisplayControls } from "./Scenes/DisplayControls";
-import { SelectGame } from "./Scenes/SelectGame";
-import { SelectGameForHighscore } from "./Scenes/SelectGameForHighscore";
+import { StartGame } from "./Scenes/StartGame.ts";
+import { Game } from "./Scenes/Game.ts";
+import { GameOver } from "./Scenes/GameOver.ts";
+import { Highscore } from "./Scenes/Highscore.ts";
+import { EnterHighscore } from "./Scenes/EnterHighscore.ts";
+import { Settings } from "./Scenes/Settings.ts";
+import { DisplayControls } from "./Scenes/DisplayControls.ts";
+import { SelectGame } from "./Scenes/SelectGame.ts";
+import { SelectGameForHighscore } from "./Scenes/SelectGameForHighscore.ts";
 
 type TConstructor = {
    name: string

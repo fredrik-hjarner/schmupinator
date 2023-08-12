@@ -1,7 +1,7 @@
-import { zIndices } from "../../../../../../consts";
-import { BrowserDriver } from "../../../../../../drivers/BrowserDriver";
-import { px } from "../../../../../../utils/px";
-import { fontSizes } from "../../consts/fontSizes";
+import { zIndices } from "../../../../../../consts.ts";
+import { BrowserDriver } from "../../../../../../drivers/BrowserDriver/index.ts";
+import { px } from "../../../../../../utils/px.ts";
+import { fontSizes } from "../../consts/fontSizes.ts";
 
 type TCreateInputParams = {
    placeholder: string,

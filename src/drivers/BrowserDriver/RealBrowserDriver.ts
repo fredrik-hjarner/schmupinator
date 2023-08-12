@@ -1,7 +1,10 @@
 import type { IBrowserDriver } from "./IBrowserDriver";
 
-import pixelMicro from "../../assets/fonts/PixelMicro.ttf";
-import { BrowserDriver } from ".";
+import { IsBrowser } from "./IsBrowser.ts";
+
+const pixelMicro: string = IsBrowser() ?
+   (await import("../../assets/fonts/PixelMicro.ttf")).default :
+   "";
 
 export class RealBrowserDriver implements IBrowserDriver {
    public WithWindow = <T>(callback: (window: Window) => T): T => {
@@ -41,7 +44,7 @@ export class RealBrowserDriver implements IBrowserDriver {
             // };
          })
          .catch(() => {
-            BrowserDriver.Alert("Failed to load PixelMicro font.");
+            this.Alert("Failed to load PixelMicro font.");
             callback(); // start anyway, but will look like thit.
          });
       /* eslint-enable no-undef */
@@ -76,5 +79,9 @@ export class RealBrowserDriver implements IBrowserDriver {
 
    public SaveFile = async (_path: string, _data: string) => {
       // noop
+   };
+
+   public ProcessExit = (_code: number) => {
+      // NOOP for now.
    };
 }

@@ -1,7 +1,7 @@
 import type  { App } from "../../../App";
 import type { IGameLoop } from "../IGameLoop";
 
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver/index.ts";
 
 type TConstructor = {
    app: App;

@@ -3,8 +3,8 @@ import type {
    IGraphics, TGraphicsActionWithoutHandle , TResponse_AskForElement
 } from "../Graphics/IGraphics";
 
-import { ActionType as AT } from "./actions/actionTypes";
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { ActionType as AT } from "./actions/actionTypes.ts";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
 
 type TConstructor = {
    graphics: IGraphics; // Graphics service;

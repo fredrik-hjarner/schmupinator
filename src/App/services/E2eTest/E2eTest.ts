@@ -5,7 +5,8 @@ import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
 import type { Collisions } from "../Collisions/Collisions";
 
-import { BrowserDriver, IsBrowser } from "../../../drivers/BrowserDriver";
+import { BrowserDriver } from "@/drivers/BrowserDriver/index.ts";
+import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
 type THistory = Partial<{ [frame: number]: (TGameEvent | TPointsEvent | TCollisionsEvent)[] }>;
 
@@ -45,7 +46,7 @@ export class E2eTest implements IE2eTest {
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (deps?: TInitParams) => {
-      this.recordedHistory = (await import("./e2ehistory")).recordedHistory as THistory;
+      this.recordedHistory = (await import("./e2ehistory.ts")).recordedHistory as THistory;
 
       // TODO: Replace typecast with type guard.
       /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
@@ -69,8 +70,7 @@ export class E2eTest implements IE2eTest {
          console.log(`E2eTest: Took ${millis} ms to run test.`);
          console.log(`E2eTest: Collision detection took ${this.collisions.accumulatedTime} ms.`);
          if (!IsBrowser()) {
-            // eslint-disable-next-line no-undef
-            process.exit(0);
+            BrowserDriver.ProcessExit(0);
          }
       }
       if (event.type !== "frame_tick") {

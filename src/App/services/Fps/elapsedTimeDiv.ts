@@ -1,6 +1,6 @@
-import { resolutionHeight, zIndices } from "../../../consts";
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { px } from "../../../utils/px";
+import { resolutionHeight, zIndices } from "../../../consts.ts";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { px } from "../../../utils/px.ts";
 
 export const initElapsedTimeDiv = () => {
    return BrowserDriver.WithWindow(window => {

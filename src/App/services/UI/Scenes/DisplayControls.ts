@@ -1,9 +1,9 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { createBgImage } from "./components/atoms/bgImage";
-import { Countdown } from "./components/molecules/Countdown";
-import { fontSizes } from "./consts/fontSizes";
+import { createBgImage } from "./components/atoms/bgImage.ts";
+import { Countdown } from "./components/molecules/Countdown.ts";
+import { fontSizes } from "./consts/fontSizes.ts";
 
 type TConstructor = {
    ui: UI;

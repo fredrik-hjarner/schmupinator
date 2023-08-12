@@ -6,13 +6,13 @@ import type {
 import type { TInitParams } from "../../../IService";
 import type { IEventsEndOfFrame } from "../../../Events/IEvents";
 
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { Renderer } from "./Renderer";
-import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts";
-import { uuid } from "../../../../../utils/uuid";
-import { BrowserDriver } from "../../../../../drivers/BrowserDriver";
-import { GfxElementData } from "./GfxElementData";
-import { px } from "../../../../../utils/px";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
+import { Renderer } from "./Renderer.ts";
+import { resolutionHeight, resolutionWidth, zIndices } from "../../../../../consts.ts";
+import { uuid } from "../../../../../utils/uuid.ts";
+import { BrowserDriver } from "../../../../../drivers/BrowserDriver/index.ts";
+import { GfxElementData } from "./GfxElementData.ts";
+import { px } from "../../../../../utils/px.ts";
 
 type TGfxPoolEntry = {
    handle: string; // Unique identifier used as handle for this specifc GraphicsElement.

@@ -1,24 +1,24 @@
 import type { TShape } from "./IGraphics";
 import type { IDestroyable } from "../../../utils/types/IDestroyable";
 
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
-import { px } from "../../../utils/px";
-import { resolutionHeight, resolutionWidth, zIndices } from "../../../consts";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { px } from "../../../utils/px.ts";
+import { resolutionHeight, resolutionWidth, zIndices } from "../../../consts.ts";
+import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
 // resources
-const circle = `${import.meta.env.BASE_URL}images/circle.png`;
-const square = `${import.meta.env.BASE_URL}images/square.png`;
-const triangle = `${import.meta.env.BASE_URL}images/triangle.png`;
-const diamondShield = `${import.meta.env.BASE_URL}images/diamondShield.png`;
-const octagon = `${import.meta.env.BASE_URL}images/octagon.png`;
-const explosion = `${import.meta.env.BASE_URL}images/explosion.png`;
-const roundExplosion = `${import.meta.env.BASE_URL}images/roundExplosion.png`;
+const circle = IsBrowser() ? `${import.meta.env.BASE_URL}images/circle.png` : "";
+const square = IsBrowser() ? `${import.meta.env.BASE_URL}images/square.png` : "";
+const triangle = IsBrowser() ? `${import.meta.env.BASE_URL}images/triangle.png` : "";
+const diamondShield = IsBrowser() ? `${import.meta.env.BASE_URL}images/diamondShield.png` : "";
+const octagon = IsBrowser() ? `${import.meta.env.BASE_URL}images/octagon.png` : "";
+const explosion = IsBrowser() ? `${import.meta.env.BASE_URL}images/explosion.png` : "";
+const roundExplosion = IsBrowser() ? `${import.meta.env.BASE_URL}images/roundExplosion.png` : "";
 
 /**
  * TODO:
  * radius could be a private field that is getting updated whenever diameter is updated.
  */
-
 export class GraphicsElement implements IDestroyable {
    // vars
    // These values will be overwitten in this.reset anyway

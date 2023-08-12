@@ -1,12 +1,12 @@
 import type { IScene } from "./types/IScene";
 import type { UI } from "../UI";
 
-import { BrowserDriver } from "../../../../drivers/BrowserDriver";
-import { createShade } from "./components/atoms/shade";
-import { createText } from "./components/atoms/text";
-import { Countdown } from "./components/molecules/Countdown";
-import { centerHorizontally } from "./utils/centering";
-import { fontSizes } from "./consts/fontSizes";
+import { BrowserDriver } from "../../../../drivers/BrowserDriver/index.ts";
+import { createShade } from "./components/atoms/shade.ts";
+import { createText } from "./components/atoms/text.ts";
+import { Countdown } from "./components/molecules/Countdown.ts";
+import { centerHorizontally } from "./utils/centering.ts";
+import { fontSizes } from "./consts/fontSizes.ts";
 
 type TConstructor = {
    ui: UI;

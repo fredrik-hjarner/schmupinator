@@ -1,8 +1,8 @@
-import type { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes";
+import type { TAction, TMove } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
-import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes";
-import { Do, attr, createGameObject, parallelAll, twice, wait } from "../../utils/utils";
+import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
+import { Do, attr, createGameObject, parallelAll, twice, wait } from "../../utils/utils.ts";
 
 const moveLeft: TMove = {
    type: AT.move,

@@ -1,8 +1,8 @@
-import type { TQualifiedForTop10 } from "../Highscore";
+import type { TQualifiedForTop10 } from "../Highscore.ts";
 
 import { describe, it, expect } from "vitest";
 
-import { Highscore } from "../Highscore";
+import { Highscore } from "../Highscore.ts";
 
 describe("qualifiedForTop10", async () => {
    const highscores = {

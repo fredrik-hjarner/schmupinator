@@ -1,8 +1,8 @@
 import type { TGameObject } from "../../gameTypes/TGameObject";
 
-import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes";
-import { createGameObject, forever, repeat, spawn, wait } from "../utils/utils";
-import { col, row } from "./common";
+import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
+import { createGameObject, forever, repeat, spawn, wait } from "../utils/utils.ts";
+import { col, row } from "./common.ts";
 
 export const stage5: TGameObject = createGameObject({
    name: "stage5",

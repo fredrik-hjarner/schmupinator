@@ -1,5 +1,6 @@
-import { App } from "./App/App";
-import { BrowserDriver, IsBrowser } from "./drivers/BrowserDriver";
+import { App } from "./App/App.ts";
+import { BrowserDriver } from "@/drivers/BrowserDriver/index.ts";
+import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
 BrowserDriver.OnLoad(async () => {
    // Create app

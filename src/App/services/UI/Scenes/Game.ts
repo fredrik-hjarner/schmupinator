@@ -2,8 +2,8 @@ import type { IScene } from "./types/IScene";
 import type { TUiEvent } from "../../Events/IEvents";
 import type { UI } from "../UI";
 
-import { createText } from "./components/atoms/text";
-import { fontSizes } from "./consts/fontSizes";
+import { createText } from "./components/atoms/text.ts";
+import { fontSizes } from "./consts/fontSizes.ts";
 
 type TConstructor = {
    ui: UI;

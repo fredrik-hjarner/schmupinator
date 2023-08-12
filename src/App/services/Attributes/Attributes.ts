@@ -8,7 +8,7 @@ import type {
    TSetAttrParams
 } from "./IAttributes";
 
-import { BrowserDriver } from "@/drivers/BrowserDriver";
+import { BrowserDriver } from "@/drivers/BrowserDriver/index.ts";
 
 type TConstructor = {
    name: string;

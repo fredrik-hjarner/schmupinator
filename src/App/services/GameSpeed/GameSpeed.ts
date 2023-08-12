@@ -3,9 +3,9 @@ import type { TInitParams } from "../IService";
 import type { IGameLoop } from "../GameLoop/IGameLoop";
 import type { Settings } from "../Settings/Settings";
 
-import { Button } from "./components/button";
-import { resolutionHeight } from "../../../consts";
-import { Destroyables } from "../../../utils/helperClasses/Destroyables";
+import { Button } from "./components/button.ts";
+import { resolutionHeight } from "../../../consts.ts";
+import { Destroyables } from "../../../utils/helperClasses/Destroyables.ts";
 
 type TConstructor = {
    name: string;

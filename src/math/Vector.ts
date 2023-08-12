@@ -1,4 +1,4 @@
-import { Angle } from "./Angle";
+import { Angle } from "./Angle.ts";
 
 export class Vector {
    public x: number;

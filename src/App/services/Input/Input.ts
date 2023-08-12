@@ -2,7 +2,7 @@ import type { ButtonsPressed, IInput, TKey } from "./IInput";
 import type { IGameEvents } from "../Events/IEvents";
 import type { TInitParams } from "../IService";
 
-import { BrowserDriver } from "../../../drivers/BrowserDriver";
+import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
 
 type TConstructor = {
    name: string;
