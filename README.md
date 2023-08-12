@@ -1,4 +1,5 @@
 ![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/e2e.yml/badge.svg)
+![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/e2e-deno.yml/badge.svg)
 ![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/eslint.yml/badge.svg)
 ![example workflow](https://github.com/fredrik-hjarner/schmupinator/actions/workflows/build.yml/badge.svg)
 
