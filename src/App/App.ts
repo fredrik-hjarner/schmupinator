@@ -68,12 +68,6 @@ import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop.ts";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop.ts";
 import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents.ts";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx.ts";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx/index.ts";
 
 /**
  * Other

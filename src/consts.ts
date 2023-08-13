@@ -26,3 +26,9 @@ export const zIndices = {
    graphicsEngineElements: "0", // Set to "0" to hide behind gameHide.
    ui: "2"
 } as const;
+
+/**
+ * When true: runs on 2 threads. Main Thread only runs what it needs to,
+ * everything else runs on a WebWorker.
+ */
+export const offTheMainThread = true;

@@ -1,13 +1,9 @@
+import type { TEnvironment } from "./GetEnvironment.ts";
+
+import { GetEnvironment } from "./GetEnvironment.ts";
+
+const browserEnvs: TEnvironment[] = ["browser", "webworker_browser"];
+
 export const IsBrowser = (): boolean => {
-   const windowType = typeof window;
-   if (windowType === "undefined") {
-      return false; // NodeJS
-   }
-
-   // eslint-disable-next-line no-undef
-   if ("Deno" in window) {
-      return false; // Deno
-   }
-
-   return true; // Browser
+   return browserEnvs.includes(GetEnvironment());
 };

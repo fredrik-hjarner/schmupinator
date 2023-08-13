@@ -2,6 +2,7 @@ import type { IService, TInitParams } from "../IService";
 import type { App } from "../../App";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { localStorage_WorkerThread } from "@/Threading/LocalStorage/LocalStorage_WorkerThread.ts";
 
 const localStorageKey = "__settings";
 
@@ -40,27 +41,25 @@ export class Settings implements IService {
    public constructor({ app, name }: TConstructor) {
       this.app = app;
       this.name = name;
-
-      // attempt to load from localStorage.
-      BrowserDriver.WithWindow(window => {
-         const fromLocalStorage = window.localStorage.getItem(localStorageKey);
-         if(fromLocalStorage) {
-            // console.log("Settings.Init: fromLocalStorage:");
-            // console.log(fromLocalStorage);
-            this.settings = JSON.parse(fromLocalStorage) as TSettings;
-         } else {
-            // If not in localStorage then save the default in localStorage.
-            // console.log(
-            //    "Settings.Init: localStorage was empty. saving default settings to localStorage."
-            // );
-            window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
-         }
-      });
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async (_deps?: TInitParams) => {
-      // noop
+      // attempt to load from localStorage.
+      const fromLocalStorage = await localStorage_WorkerThread.getItem(localStorageKey);
+
+      console.log("Settings.Init: fromLocalStorage:", fromLocalStorage);
+
+      if(fromLocalStorage) {
+         // console.log("Settings.Init: fromLocalStorage:");
+         // console.log(fromLocalStorage);
+         this.settings = JSON.parse(fromLocalStorage) as TSettings;
+      } else {
+         localStorage_WorkerThread.setItem({
+            key: localStorageKey,
+            value: JSON.stringify(this.settings),
+         });
+      }
    };
 
    public toggleSetting = (setting: keyof TSettings) => {
