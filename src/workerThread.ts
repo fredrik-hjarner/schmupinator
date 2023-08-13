@@ -4,7 +4,7 @@ import { multiThreaded } from "./consts.ts";
 
 const start = async () => {
    // Create app
-   const app = new App();
+   const app = await App.create();
    await app.Init();
 
    // Start
