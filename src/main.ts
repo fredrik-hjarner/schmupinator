@@ -2,28 +2,23 @@ import type { Requests } from "./Threading/types.ts";
 
 import { BrowserDriver } from "@/drivers/BrowserDriver/index.ts";
 import { LocalStorage_MainThread } from "./Threading/LocalStorage/LocalStorage_MainThread.ts";
+import { multiThreaded } from "./consts.ts";
 
-BrowserDriver.OnLoad(() => {
-   // const channel = new MessageChannel();
+BrowserDriver.OnLoad(async () => {
+   const channel = new MessageChannel();
+   
+   const localStorage_MainThread = new LocalStorage_MainThread(channel.port1);
 
-   const worker = new Worker(new URL("./workerThread.ts", import.meta.url), {
-      type: "module",
-   });
-
-   const localStorage_MainThread = new LocalStorage_MainThread(worker);
-
-   worker.onmessage = (ev) => {
+   channel.port1.onmessage = (ev) => {
       const data = ev.data as Requests;
       console.log("worker.onmessage: data", data);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       switch (data.type) {
          case "getItemRequest":
-            // eslint-disable-next-line
-            localStorage_MainThread.getItem(data)
+            localStorage_MainThread.getItem(data);
             return;
          case "setItemRequest":
-            // eslint-disable-next-line
-            localStorage_MainThread.setItem(data)
+            localStorage_MainThread.setItem(data);
             return;
          default:
             // @ts-ignore: Unreachable code error
@@ -32,5 +27,15 @@ BrowserDriver.OnLoad(() => {
       }
    };
 
-   worker.postMessage("start");
+   if (multiThreaded) {
+      const worker = new Worker(new URL("./workerThread.ts", import.meta.url), {
+         type: "module",
+      });
+
+      worker.postMessage("start", [channel.port2]);
+   } else {
+      // if single-threaded, just import the worker normally.
+      const { setPort } = (await import("./workerThread.ts"));
+      setPort(channel.port2);
+   }
 });

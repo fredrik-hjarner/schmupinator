@@ -5,10 +5,10 @@ import type {
 } from "../types";
 
 export class LocalStorage_MainThread {
-   private worker: Worker;
+   private port: MessagePort;
 
-   public constructor(worker: Worker) {
-      this.worker = worker;
+   public constructor(port: MessagePort) {
+      this.port = port;
    }
 
    public getItem = (message: TLocalStorageGetItemRequest) => {
@@ -18,7 +18,7 @@ export class LocalStorage_MainThread {
          // eslint-disable-next-line no-undef
          value: localStorage.getItem(message.key),
       };
-      this.worker.postMessage(response);
+      this.port.postMessage(response);
    };
 
    public setItem = (message: TLocalStorageSetItemRequest) => {

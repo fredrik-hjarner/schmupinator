@@ -215,6 +215,7 @@ export class App {
       },
       fullscreen: (): IFullscreen => {
          const { fullscreen } = this.settings.settings; // assumes settings has been initialized.
+         console.log("App: fullscreen:", fullscreen);
          return IsBrowser() ?
             (fullscreen ?
                new Fullscreen({ name: "fullscreen" }) :

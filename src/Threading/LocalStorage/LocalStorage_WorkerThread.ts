@@ -4,6 +4,8 @@ import type {
    TLocalStorageSetItemRequest
 } from "../types";
 
+import { port } from "@/workerThread.ts";
+
 export class LocalStorage_WorkerThread {
    public getItem = async (key: string): Promise<TLocalStorageGetItemResponse["value"]> => {
       const message: TLocalStorageGetItemRequest = {
@@ -11,11 +13,10 @@ export class LocalStorage_WorkerThread {
          type: "getItemRequest",
          key
       };
-      // eslint-disable-next-line no-undef
-      postMessage(message);
+      // console.log("port", port);
+      port.postMessage(message);
       return new Promise((resolve, reject) => {
-         // eslint-disable-next-line no-undef
-         onmessage = (ev) => {
+         port.onmessage = (ev) => {
             const data = ev.data as TLocalStorageGetItemResponse;
             if("type" in data && data.type === "getItemResponse") {
                resolve(data.value);
@@ -33,8 +34,7 @@ export class LocalStorage_WorkerThread {
          key,
          value
       };
-      // eslint-disable-next-line no-undef
-      postMessage(message);
+      port.postMessage(message);
    };
 }
 

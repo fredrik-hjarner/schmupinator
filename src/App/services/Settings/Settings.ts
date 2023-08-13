@@ -54,6 +54,7 @@ export class Settings implements IService {
          // console.log("Settings.Init: fromLocalStorage:");
          // console.log(fromLocalStorage);
          this.settings = JSON.parse(fromLocalStorage) as TSettings;
+         console.log("Settings.Init: this.settings:", this.settings);
       } else {
          localStorage_WorkerThread.setItem({
             key: localStorageKey,
@@ -67,8 +68,12 @@ export class Settings implements IService {
       this.settings[setting] = !oldValue;
 
       // Write settings of this object to localStorage.
-      BrowserDriver.WithWindow(window => {
-         window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
+      // BrowserDriver.WithWindow(window => {
+      //    window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
+      // });
+      localStorage_WorkerThread.setItem({
+         key: localStorageKey,
+         value: JSON.stringify(this.settings),
       });
 
       // TODO: reload just because app does not clear up by itself yet.
