@@ -1,19 +1,32 @@
 /* eslint-disable @typescript-eslint/no-implied-eval */
 import { expose } from "comlink";
 
-const channel = new MessageChannel();
+/**
+ * runInMainThread
+ */
 
-const runInMainThread = () => {
-   // return Function(functionBody)();
-   console.log("hello from main thread");
+const runInMainThreadChannel = new MessageChannel();
+const runInMainThread = (functionBody: string): unknown => {
+   return Function(functionBody)();
 };
-
 export type TRunInMainThread = typeof runInMainThread;
+expose(runInMainThread, runInMainThreadChannel.port1);
 
-expose(runInMainThread, channel.port2);
+/**
+ * localStorage
+ */
+
+const windowChannel = new MessageChannel();
+expose(window, windowChannel.port1);
 
 const worker = new Worker(new URL("./webWorker.ts", import.meta.url), {
    type: "module",
 });
 
-worker.postMessage(undefined, [channel.port1]);
+worker.postMessage({
+   runInMainThreadPort: runInMainThreadChannel.port2,
+   windowPort: windowChannel.port2,
+}, [
+   runInMainThreadChannel.port2,
+   windowChannel.port2,
+]);
