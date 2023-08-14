@@ -2,18 +2,7 @@
 import { expose } from "comlink";
 
 /**
- * runInMainThread
- */
-
-const runInMainThreadChannel = new MessageChannel();
-const runInMainThread = (functionBody: string): unknown => {
-   return Function(functionBody)();
-};
-export type TRunInMainThread = typeof runInMainThread;
-expose(runInMainThread, runInMainThreadChannel.port1);
-
-/**
- * localStorage
+ * expose whole window object
  */
 
 const windowChannel = new MessageChannel();
@@ -24,9 +13,7 @@ const worker = new Worker(new URL("./webWorker.ts", import.meta.url), {
 });
 
 worker.postMessage({
-   runInMainThreadPort: runInMainThreadChannel.port2,
    windowPort: windowChannel.port2,
 }, [
-   runInMainThreadChannel.port2,
    windowChannel.port2,
 ]);

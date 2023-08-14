@@ -2,7 +2,7 @@ import type { IService, TInitParams } from "../IService";
 import type { App } from "../../App";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
-import { localStorage_WorkerThread } from "@/Threading/LocalStorage/LocalStorage_WorkerThread.ts";
+import { remoteWindow } from "@/workerThread.ts";
 
 const localStorageKey = "__settings";
 
@@ -60,7 +60,7 @@ export class Settings implements IService {
     */
    public static create = async ({ getApp, name }: TCreate) => {
       // attempt to load from localStorage.
-      const fromLocalStorage = await localStorage_WorkerThread.getItem(localStorageKey);
+      const fromLocalStorage = await remoteWindow.localStorage.getItem(localStorageKey);
 
       let settings = defaultSettings;
 
@@ -72,10 +72,10 @@ export class Settings implements IService {
          settings = JSON.parse(fromLocalStorage) as TSettings;
          console.log("Settings.Init: this.settings:", settings);
       } else {
-         localStorage_WorkerThread.setItem({
-            key: localStorageKey,
-            value: JSON.stringify(settings),
-         });
+         remoteWindow.localStorage.setItem(
+            localStorageKey,
+            JSON.stringify(settings),
+         );
       }
       return new Settings({ getApp, name, settings });
    };
@@ -99,10 +99,10 @@ export class Settings implements IService {
       // BrowserDriver.WithWindow(window => {
       //    window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
       // });
-      localStorage_WorkerThread.setItem({
-         key: localStorageKey,
-         value: JSON.stringify(this.settings),
-      });
+      remoteWindow.localStorage.setItem(
+         localStorageKey,
+         JSON.stringify(this.settings),
+      );
 
       // TODO: reload just because app does not clear up by itself yet.
       BrowserDriver.WithWindow(window => {

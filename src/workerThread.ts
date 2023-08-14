@@ -1,8 +1,19 @@
+import { wrap } from "comlink";
+
 import { App } from "./App/App.ts";
 import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 import { multiThreaded } from "./consts.ts";
 
-const start = async () => {
+/**
+ * TODO: More elaborate comment.
+ * port is the MessagePort used to communicate with the WebWorker.
+ * When single-threaded the setPort function is used to set the port.
+ */
+export let remoteWindow: Window;
+
+const start = async (port: MessagePort) => {
+   remoteWindow = wrap<Window>(port);
+
    // Create app
    const app = await App.create();
    await app.Init();
@@ -19,12 +30,9 @@ const start = async () => {
  * port is the MessagePort used to communicate with the WebWorker.
  * When single-threaded the setPort function is used to set the port.
  */
-export let port: MessagePort;
-export const setPort = (p: MessagePort) => {
-   // console.log("p", p);
-   port = p;
+export const setPort = (port: MessagePort) => {
    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-   start();
+   start(port);
 };
 
 if(multiThreaded) {
@@ -32,9 +40,8 @@ if(multiThreaded) {
    onmessage = (ev) => {
       switch (ev.data) {
          case "start":
-            port = ev.ports[0];
             // eslint-disable-next-line @typescript-eslint/no-floating-promises
-            start();
+            start(ev.ports[0]);
             return;
          default:
             throw new Error(`workerThread: onmessage: unknown message: ${ev.data}`);

@@ -31,4 +31,4 @@ export const zIndices = {
  * When true: runs on 2 threads. Main Thread only runs what it needs to,
  * everything else runs on a WebWorker.
  */
-export const multiThreaded = false;
+export const multiThreaded = true;
