@@ -3,7 +3,7 @@
       "@/": "./src/"
    },
    // Might need to be set to true if I ever use npm modules run-time.
-   "nodeModulesDir": false,
+   // "nodeModulesDir": false,
    // Might need to be set to true if I ever use npm modules run-time.
    "lock": false,
    "tasks": {
