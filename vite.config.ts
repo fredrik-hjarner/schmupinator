@@ -19,12 +19,20 @@ export default defineConfig({
     terserOptions: {
       compress: {
         passes: 2, // cuts a few bytes
-        drop_console: true, // cuts a few bytes
+        // drop_console: true, // cuts a few bytes
         // booleans_as_integers: true, // cuts a few bytes
         // keep_fargs: false, // cuts a few bytes
         // unsafe: true, // cuts a few bytes
       },
     },
     assetsInlineLimit: 0,
+    // These options just removes the hash from the output filenames.
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
   },
 });
