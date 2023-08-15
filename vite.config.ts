@@ -11,9 +11,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  // worker: {
-  //   format: "es",
-  // },
+  worker: {
+    format: "es",
+  },
   build: {
     target: 'esnext', // minimal transpilation
     modulePreload: false, // default: `true`. If `false` then the output can be run with node.

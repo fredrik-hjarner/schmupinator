@@ -2,6 +2,7 @@ import type { IService, TInitParams } from "../IService";
 import type { App } from "../../App";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
+import { remoteWindow } from "@/webWorker/remoteWindow.ts";
 
 const localStorageKey = "__settings";
 
@@ -10,52 +11,79 @@ export type TSettings = {
    gameSpeedSlider: boolean;
    fpsStats: boolean;
    outsideHider: boolean;
-   /** If pre-recorded inputs should be used instead of manula input from player. */
+   /** If pre-recorded inputs should be used instead of manual input from player. */
    autoplay: boolean;
    skipStartMenu: boolean;
    invincibility: boolean;
 };
 
-type TConstructor = {
-   app: App;
+const defaultSettings: TSettings = {
+   fullscreen: true,
+   gameSpeedSlider: false,
+   fpsStats: false,
+   outsideHider: true,
+   autoplay: false,
+   skipStartMenu: false,
+   invincibility: false,
+};
+
+type TCreate = {
+   getApp: () => App;
    name: string,
+}
+
+type TConstructor = {
+   getApp: () => App;
+   name: string;
+   settings: TSettings;
 }
 
 export class Settings implements IService {
    public readonly name: string;
-   public settings: TSettings = {
-      fullscreen: true,
-      gameSpeedSlider: false,
-      fpsStats: false,
-      outsideHider: true,
-      autoplay: false,
-      skipStartMenu: false,
-      invincibility: false,
-   };
+   public settings: TSettings = defaultSettings;
 
    // deps/services
-   // TODO: I inted to use app to replace services without location.reload().
-   private app: App;
+   // TODO: I intend to use app to replace services without location.reload().
 
-   public constructor({ app, name }: TConstructor) {
-      this.app = app;
-      this.name = name;
+   /**
+    * The reason why this is not `app` but `getApp` is because I couldnt
+    * figure out how to get the app instance in the Settings constructor, it was hard
+    * to get the order of initialization right.
+    * I all stems from Settings needing to be created first because it deteminess what
+    * variant other services should be etc. And Settings constructor needed to be async
+    * because it calls localStorage on main thread from from WebWorker.
+    */
+   private getApp: () => App;
 
+   /**
+    * Settings constructor needed to be async which caused a lot of pain...
+    */
+   public static create = async ({ getApp, name }: TCreate) => {
       // attempt to load from localStorage.
-      BrowserDriver.WithWindow(window => {
-         const fromLocalStorage = window.localStorage.getItem(localStorageKey);
-         if(fromLocalStorage) {
-            // console.log("Settings.Init: fromLocalStorage:");
-            // console.log(fromLocalStorage);
-            this.settings = JSON.parse(fromLocalStorage) as TSettings;
-         } else {
-            // If not in localStorage then save the default in localStorage.
-            // console.log(
-            //    "Settings.Init: localStorage was empty. saving default settings to localStorage."
-            // );
-            window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
-         }
-      });
+      const fromLocalStorage = await remoteWindow.get().localStorage.getItem(localStorageKey);
+
+      let settings = defaultSettings;
+
+      console.log("Settings.Init: fromLocalStorage:", fromLocalStorage);
+
+      if(fromLocalStorage) {
+         // console.log("Settings.Init: fromLocalStorage:");
+         // console.log(fromLocalStorage);
+         settings = JSON.parse(fromLocalStorage) as TSettings;
+         console.log("Settings.Init: this.settings:", settings);
+      } else {
+         remoteWindow.get().localStorage.setItem(
+            localStorageKey,
+            JSON.stringify(settings),
+         );
+      }
+      return new Settings({ getApp, name, settings });
+   };
+
+   public constructor({ getApp, name, settings }: TConstructor) {
+      this.getApp = getApp;
+      this.name = name;
+      this.settings = settings;
    }
 
    // eslint-disable-next-line @typescript-eslint/require-await
@@ -68,41 +96,45 @@ export class Settings implements IService {
       this.settings[setting] = !oldValue;
 
       // Write settings of this object to localStorage.
-      BrowserDriver.WithWindow(window => {
-         window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
-      });
+      // BrowserDriver.WithWindow(window => {
+      //    window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
+      // });
+      remoteWindow.get().localStorage.setItem(
+         localStorageKey,
+         JSON.stringify(this.settings),
+      );
 
       // TODO: reload just because app does not clear up by itself yet.
       BrowserDriver.WithWindow(window => {
          // Some settings need to reload the window for changes to apply.
          switch(setting) {
             case "fpsStats":
-               this.app.fps.destroy();
-               this.app.fps = this.app.construct.fps();
+               this.getApp().fps.destroy();
+               this.getApp().fps = this.getApp().construct.fps();
                // eslint-disable-next-line @typescript-eslint/no-floating-promises
-               this.app.init.fps(); // TODO: Warning this is a Promise.
+               this.getApp().init.fps(); // TODO: Warning this is a Promise.
                break;
             case "fullscreen":
                /**
                 * TODO: This is not optimal. I would need lots of smart code to do this well.
                 * TODO: Create a this.app.restart/reload to shorten the code here.
                 */
-               this.app.fullscreen.destroy();
-               this.app.fullscreen = this.app.construct.fullscreen();
+               this.getApp().fullscreen.destroy();
+               this.getApp().fullscreen = this.getApp().construct.fullscreen();
                // eslint-disable-next-line @typescript-eslint/no-floating-promises
-               this.app.init.fullscreen(); // TODO: Warning this is a Promise.
+               this.getApp().init.fullscreen(); // TODO: Warning this is a Promise.
                break;
             case "gameSpeedSlider":
-               this.app.gameSpeed.destroy();
-               this.app.gameSpeed = this.app.construct.gameSpeed();
+               this.getApp().gameSpeed.destroy();
+               this.getApp().gameSpeed = this.getApp().construct.gameSpeed();
                // eslint-disable-next-line @typescript-eslint/no-floating-promises
-               this.app.init.gameSpeed(); // TODO: Warning this is a Promise.
+               this.getApp().init.gameSpeed(); // TODO: Warning this is a Promise.
                break;
             case "outsideHider":
-               this.app.outsideHider.destroy();
-               this.app.outsideHider = this.app.construct.outsideHider();
+               this.getApp().outsideHider.destroy();
+               this.getApp().outsideHider = this.getApp().construct.outsideHider();
                // eslint-disable-next-line @typescript-eslint/no-floating-promises
-               this.app.init.outsideHider(); // TODO: Warning this is a Promise.
+               this.getApp().init.outsideHider(); // TODO: Warning this is a Promise.
                break;
             case "skipStartMenu":
                // TODO: Do I need to do something here? Maybe restart UI service?

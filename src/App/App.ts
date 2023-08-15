@@ -22,6 +22,7 @@ import type { IPseudoRandom } from "./services/PseudoRandom/IPseudoRandom";
 /**
  * Services
  */
+import { Settings } from "./services/Settings/Settings.ts";
 import { CursorShowGamePos } from "./services/CursorShowGamePos/CursorShowGamePos.ts";
 import { Enemies } from "./services/Enemies/Enemies.ts";
 //@ts-ignore
@@ -51,7 +52,6 @@ import { Fullscreen } from "./services/Fullscreen/Fullscreen.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { E2eTest } from "./services/E2eTest/E2eTest.ts";
-import { Settings } from "./services/Settings/Settings.ts";
 import { OutsideHider } from "./services/OutsideHider/OutsideHider.ts";
 import { Attributes } from "./services/Attributes/Attributes.ts";
 import { PseudoRandom } from "./services/PseudoRandom/PseudoRandom.ts";
@@ -68,12 +68,6 @@ import { NodeGameLoop } from "./services/GameLoop/variants/NodeGameLoop.ts";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { ReqAnimFrameGameLoop } from "./services/GameLoop/variants/ReqAnimFrameGameLoop.ts";
 import { E2eRecordEvents } from "./services/E2eTest/variants/E2eRecordEvents.ts";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx.ts";
-//@ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx/index.ts";
 
 /**
  * Other
@@ -124,24 +118,35 @@ export class App {
    public attributes: IAttributes;
    public pseudoRandom: IPseudoRandom;
 
+   public static create = async (): Promise<App> => {
+      let app: App; // eslint-disable-line prefer-const
+      const getApp = () => {
+         if(!app) {
+            throw new Error("getApp: App not created yet");
+         }
+         return app;
+      };
+      const settings = await Settings.create({ getApp, name: "settings" });
+      app = new App(settings);
+      return app;
+   };
+
    /**
     * Step 1 of initialization
     */
-   public constructor() {
+   private constructor(settings: Settings) {
       /**
        * Constuct services
        */
-      /**
-       * This is not the most elegant but settings contain some settings that decide
-       * what services are going to be used, so it should be created first.
+      /* This is not the most elegant but settings contain some settings that decide
+       * what services are going to be used, so it should be created first. see App.create.
        */
-      this.settings = new Settings({ app: this, name: "settings" });
+      this.settings = settings;
       const { autoplay } = this.settings.settings;
 
       this.cursorShowGamePos = this.construct.cursorShowGamePos();
 
       this.e2eTest = IsBrowser() ?
-         // new NoopService() :
          (isRelease ?
             new NoopService() : // don't record events in releases.
             new E2eRecordEvents({ name: "e2e" })) :
@@ -203,9 +208,7 @@ export class App {
     * TODO: Force sort this object alphabetically.
     */
    public construct = {
-      attributes: (): IAttributes => {
-         return new Attributes({ name: "attributes" });
-      },
+      attributes: (): IAttributes => { return new Attributes({ name: "attributes" }); },
       cursorShowGamePos: (): ICursorShowGamePos => {
          return IsBrowser() ?
             (isRelease ?
@@ -221,6 +224,7 @@ export class App {
       },
       fullscreen: (): IFullscreen => {
          const { fullscreen } = this.settings.settings; // assumes settings has been initialized.
+         console.log("App: fullscreen:", fullscreen);
          return IsBrowser() ?
             (fullscreen ?
                new Fullscreen({ name: "fullscreen" }) :
@@ -239,9 +243,7 @@ export class App {
             (outsideHider ? new OutsideHider({ name: "hider" }) : new NoopService()) :
             new NoopService();
       },
-      pseudoRandom: (): IPseudoRandom => {
-         return new PseudoRandom({ name: "pseudoRandom" });
-      },
+      pseudoRandom: (): IPseudoRandom => { return new PseudoRandom({ name: "pseudoRandom" }); },
    };
 
    /**
@@ -331,8 +333,7 @@ export class App {
       await this.init.pseudoRandom();
    };
 
-   /**
-    * Contains init functions keyed by service.
+   /* Contains init functions keyed by service.
     * I think I have this public object here so that the init become exposed to the outside world.
     * TODO: Force sort this object alphabetically.
     */
