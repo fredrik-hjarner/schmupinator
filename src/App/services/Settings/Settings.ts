@@ -2,7 +2,7 @@ import type { IService, TInitParams } from "../IService";
 import type { App } from "../../App";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
-import { remoteWindow } from "@/workerThread.ts";
+import { remoteWindow } from "@/webWorker/remoteWindow.ts";
 
 const localStorageKey = "__settings";
 
@@ -60,7 +60,7 @@ export class Settings implements IService {
     */
    public static create = async ({ getApp, name }: TCreate) => {
       // attempt to load from localStorage.
-      const fromLocalStorage = await remoteWindow.localStorage.getItem(localStorageKey);
+      const fromLocalStorage = await remoteWindow.get().localStorage.getItem(localStorageKey);
 
       let settings = defaultSettings;
 
@@ -72,7 +72,7 @@ export class Settings implements IService {
          settings = JSON.parse(fromLocalStorage) as TSettings;
          console.log("Settings.Init: this.settings:", settings);
       } else {
-         remoteWindow.localStorage.setItem(
+         remoteWindow.get().localStorage.setItem(
             localStorageKey,
             JSON.stringify(settings),
          );
@@ -99,7 +99,7 @@ export class Settings implements IService {
       // BrowserDriver.WithWindow(window => {
       //    window.localStorage.setItem(localStorageKey, JSON.stringify(this.settings));
       // });
-      remoteWindow.localStorage.setItem(
+      remoteWindow.get().localStorage.setItem(
          localStorageKey,
          JSON.stringify(this.settings),
       );
