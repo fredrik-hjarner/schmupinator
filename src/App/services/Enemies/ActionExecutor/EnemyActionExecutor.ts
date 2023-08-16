@@ -205,7 +205,7 @@ export class EnemyActionExecutor {
                )) {
                   yield;
                }
-               this.enemy.OnCollision();
+               // this.enemy.OnCollision();
                break;
             }
 
