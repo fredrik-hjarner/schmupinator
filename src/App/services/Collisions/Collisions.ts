@@ -123,47 +123,6 @@ export class Collisions implements IService {
 
       }
 
-      const player = this.enemies.player;
-
-      // Observe: by enemy and not by enemy bullets.
-      const playerWasHitByEnemy =
-         this.calcCollisions({
-            doesThis: player,
-            collideWithThese: enemies
-         }).collided;
-
-      if(playerWasHitByEnemy) {
-         collisions[player.id] = true;
-      }
-      
-      const enemiesHitByPlayerBullets: string[] = [];
-      for(const enemy of enemies) {
-         const collision = this.calcCollisions({
-            doesThis: enemy,
-            collideWithThese: playerBullets
-         });
-         // adds both the "enemy" and what it collides with (for example a playerBullet).
-         if(collision.collided) {
-            enemiesHitByPlayerBullets.push(enemy.id, collision.collidedWithId);
-         }
-      }
-
-      const enemyBulletsThatHitPlayer: string[] = [];
-      for(const enemyBullet of enemyBullets) {
-         const collision = this.calcCollisions({
-            doesThis: enemyBullet,
-            collideWithThese: [player]
-         });
-         if(collision.collided) {
-            enemyBulletsThatHitPlayer.push(enemyBullet.id);
-         }
-      }
-
-      if(enemyBulletsThatHitPlayer.length > 0) {
-         // if a bullet hit the player then the player was hit...
-         collisions[player.id] = true;
-      }
-         
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
 
