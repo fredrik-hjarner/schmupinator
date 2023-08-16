@@ -23,7 +23,7 @@ export const collisionTypeCollidesWith = (
          break;
       case "enemyBullet":
          if(!collisionTypes.some(c => ["player"].includes(c))) {
-            return true;
+            return false;
          }
          break;
       default:

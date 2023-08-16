@@ -3,20 +3,15 @@ import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
 import type { IAttributes } from "../Attributes/IAttributes";
 
+import type { IDestroyable } from "@/utils/types/IDestroyable.ts";
+
+import { collisionsPureFunction } from "./collisionsPureFunction.ts";
+// import type { Remote } from "comlink";
+
+// import { wrap, releaseProxy } from "comlink";
+
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
-import { assertString } from "@/utils/typeAssertions.ts";
 // import { resolutionHeight, resolutionWidth } from "@/consts";
-
-export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
-
-/**
- * Object containing all collisions.
- * Keyed by gameObjectId.
- * The value is an array of `collisionTypes` that the gameObjects it collided with have.
- */
-export type TCollisions = {
-   [gameObjectId: string]: string[];
-};
 
 type TConstructor = {
    name: string;
@@ -27,11 +22,14 @@ type TConstructor = {
 //       y < -radius || y > resolutionHeight + radius;
 // };
 
-export class Collisions implements IService {
+// const numberOfWorkers = 1;
+
+export class Collisions implements IService, IDestroyable {
    // vars
    public readonly name: string;
    // adds the time, every frame, it took for collision detection. 
    public accumulatedTime = 0;
+   // private workers: Worker[] = [];
    
    // deps/services
    private events!: IGameEvents;
@@ -44,6 +42,12 @@ export class Collisions implements IService {
    */
    public constructor(params: TConstructor) {
       this.name = params.name;
+      // for(let i = 0; i < numberOfWorkers; i++) {
+      //    this.workers.push(new Worker(
+      //       new URL("./collisionsPureFunction.ts", import.meta.url),
+      //       { type: "module" }
+      //    ));
+      // }
    }
 
    /**
@@ -78,50 +82,56 @@ export class Collisions implements IService {
    private update = () => {
       const startTime = BrowserDriver.PerformanceNow();
 
-      // variable in which to store all collisions. TODO: Update comment.
-      const collisions: TCollisions = {};
-
       const enemiesThatCanCollide = Object.values(this.enemies.enemies)
-         .filter((enemy) => {
+         .flatMap((enemy) => {
             const collisionType = this.attributes.getAttribute({
                gameObjectId: enemy.id,
                attribute: "collisionType"
             });
-            return collisionType !== "none";
+            if(collisionType === "none") {
+               return [];
+            }
+            return {
+               x: enemy.x,
+               y: enemy.y,
+               Radius: enemy.Radius,
+               id: enemy.id,
+               collisionType: collisionType as string
+            };
          });
 
-      for (const enemy1 of enemiesThatCanCollide) {
-         // const attrValue = this.attributes.getAttribute({
-         //    gameObjectId: enemy.id,
-         //    attribute: "collisionType"
-         // });
-         
-         collisions[enemy1.id] = [];
+      // const promises = [];
+      /**
+       * Each worker will take a slice of each.
+       */
+      // for(let i = 0; i < numberOfWorkers; i++) {
+      //    promises.push(new Promise(resolve => {
+      //       this.workers[i].onmessage = (e) => {
+      //          resolve(e.data);
+      //       };
+      //       this.workers[i].postMessage({
+      //          collidables: enemiesThatCanCollide,
+      //          from: Math.floor(enemiesThatCanCollide.length / numberOfWorkers) * i,
+      //          to: Math.floor(enemiesThatCanCollide.length / numberOfWorkers) * (i + 1),
+      //       });
+      //    }));
+      // }
 
-         for( const enemy2 of enemiesThatCanCollide) {
-            if(enemy1.id === enemy2.id) {
-               continue; // dont check collision with self.
-            }
+      // const results = await Promise.all(promises);
 
-            const collided = this.calcCollision({
-               doesThis: enemy1,
-               collideWithThis: enemy2
-            });
+      // // combine results
+      // const collisions: TCollisions = {};
+      // for(const result of results) {
+      //    for(const [key, value] of Object.entries(result)) {
+      //       collisions[key] = value;
+      //    }
+      // }
 
-            if(collided) {
-               const collisionType = assertString(
-                  this.attributes.getAttribute({
-                     gameObjectId: enemy2.id,
-                     attribute: "collisionType"
-                  })
-               );
-               collisions[enemy1.id] = [...new Set(
-                  [...collisions[enemy1.id], collisionType]
-               )];
-            }
-         }
-
-      }
+      const collisions = collisionsPureFunction({
+         collidables: enemiesThatCanCollide,
+         from: 0,
+         to: enemiesThatCanCollide.length
+      });
 
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
@@ -133,25 +143,10 @@ export class Collisions implements IService {
       }
    };
 
-   /**
-    * TODO: cirlce and shots are outdated names.
-    * What is checked is if "circle" collides with any of the "shots", if so the return which "shot"
-    * "circle" collided with.
-    */
-   private calcCollision = (
-      params: { doesThis: PosAndRadiusAndId, collideWithThis: PosAndRadiusAndId }
-   ): boolean => {
-      const { doesThis, collideWithThis } = params;
-      
-      // Multiplying minDistance if a hack to cause lower hit "box".
-      const minDistance = doesThis.Radius + collideWithThis.Radius * 0.8;
-      const xDist = doesThis.x - collideWithThis.x;
-      const yDist = doesThis.y - collideWithThis.y;
-      const distance = Math.hypot(xDist, yDist);
-      if(distance <= minDistance) {
-         return true;
-      }
-
-      return false;
+   public destroy = () => {
+      // for (const worker of this.workers) {
+      //    // worker[releaseProxy]();
+      //    worker.terminate();
+      // }
    };
 }
