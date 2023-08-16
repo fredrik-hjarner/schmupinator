@@ -1,5 +1,5 @@
 import type { App } from "../../App";
-import type { TCollisions } from "../Collisions/Collisions";
+import type { TCollisions } from "../Collisions/collisionsPureFunction";
 import type { IService } from "../IService";
 
 /***********

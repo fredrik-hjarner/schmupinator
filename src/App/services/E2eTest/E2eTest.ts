@@ -122,11 +122,11 @@ export class E2eTest implements IE2eTest {
             removeCollisionsEvents(sort(this.recordedHistory[lastFrame] as ValueOf<THistory>))
          );
          const actual = JSON.stringify(removeCollisionsEvents(sort(this.history[lastFrame])));
-         // if (expected !== actual) {
-         //    BrowserDriver.Alert(
-         //       `Test failed!\nFrame: ${lastFrame}\nExpected: ${expected}\nActual: ${actual}`
-         //    );
-         // }
+         if (expected !== actual) {
+            // BrowserDriver.Alert(
+            //    `Test failed!\nFrame: ${lastFrame}\nExpected: ${expected}\nActual: ${actual}`
+            // );
+         }
       }
    };
 }
