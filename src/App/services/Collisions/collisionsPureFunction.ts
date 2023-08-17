@@ -1,9 +1,17 @@
 // import { expose } from "comlink";
 
+type NumberArray =
+   Float32Array |
+   Float64Array |
+   Int8Array |
+   Int16Array |
+   Int32Array |
+   Uint8Array |
+   Uint16Array |
+   Uint32Array |
+   Uint8ClampedArray;
+
 export type TCollidable = {
-   x: number,
-   y: number,
-   Radius: number,
    id: string,
    collisionType: string;
 };
@@ -17,50 +25,61 @@ export type TCollisions = {
    [gameObjectId: string]: string[];
 };
 
-/**
- * TODO: cirlce and shots are outdated names.
- * What is checked is if "circle" collides with any of the "shots", if so the return which "shot"
- * "circle" collided with.
- */
-const calcCollision = (
-   params: { doesThis: TCollidable, collideWithThis: TCollidable }
-): boolean => {
-   const { doesThis, collideWithThis } = params;
-   
-   // Multiplying minDistance if a hack to cause lower hit "box".
-   const minDistance = doesThis.Radius + collideWithThis.Radius * 0.8;
-   const xDist = doesThis.x - collideWithThis.x;
-   const yDist = doesThis.y - collideWithThis.y;
-   const distance = Math.hypot(xDist, yDist);
-   if(distance <= minDistance) {
-      return true;
-   }
-
-   return false;
-};
-
 export type TCollisionsPureFunction = typeof collisionsPureFunction;
 
-export const collisionsPureFunction = (
-   { collidables, from, to }:
-   { collidables: TCollidable[], from: number, to: number }
-): TCollisions => {
+export type TCollisionsPureFunctionParams = {
+   // TODO: Comment.
+   xArray: NumberArray;
+   // TODO: Comment.
+   yArray: NumberArray;
+   // TODO: Comment.
+   radiusArray: NumberArray;
+   collidables: TCollidable[],
+   // TODO: Comment.
+   from: number, // inclusive
+   to: number, // exclusive
+   // TODO: Comment
+   total: number;
+}
+
+export const collisionsPureFunction = ({
+   xArray,
+   yArray,
+   radiusArray,
+   collidables,
+   from,
+   to,
+   total,
+}: TCollisionsPureFunctionParams): TCollisions => {
    const collisions: TCollisions = {};
 
    // for (const collidable1 of collidables) {
    for (let i = from; i < to; i++) {
       const collidable1 = collidables[i];
+      const x1 = xArray[i];
+      const y1 = yArray[i];
+      const radius1 = radiusArray[i];
       collisions[collidable1.id] = [];
 
-      for( const collidable2 of collidables) {
+      for(let j = 0; j < total; j++) {
+         const collidable2 = collidables[j];
+         const x2 = xArray[j];
+         const y2 = yArray[j];
+         const radius2 = radiusArray[j];
+
          if(collidable1.id === collidable2.id) {
             continue; // dont check collision with self.
          }
 
-         const collided = calcCollision({
-            doesThis: collidable1,
-            collideWithThis: collidable2
-         });
+         let collided = false;
+         // Multiplying minDistance if a hack to cause lower hit "box".
+         const minDistance = radius1 + radius2 * 0.8;
+         const xDist = x1 - x2;
+         const yDist = y1 - y2;
+         const distance = Math.hypot(xDist, yDist);
+         if(distance <= minDistance) {
+            collided = true;
+         }
 
          if(collided) {
             collisions[collidable1.id] = [...new Set(
@@ -73,9 +92,11 @@ export const collisionsPureFunction = (
    return collisions;
 };
 
-// onmessage = (e) => {
-//    const collisions = collisionsPureFunction(e.data);
-//    postMessage(collisions);
-// };
+if(typeof onmessage !== "undefined") {
+   onmessage = (e) => {
+      const collisions = collisionsPureFunction(e.data);
+      postMessage(collisions);
+   };
+}
 
 // expose(collisionsPureFunction);

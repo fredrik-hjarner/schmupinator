@@ -265,13 +265,16 @@ export class GraphicsElement implements IDestroyable {
              * only one animation displayed on different places. Also the querystring must
              * be different EVERY time so that's why I use `Date.now()`.
              */
-            const q = `?id=${Date.now()}`;
-            this.element.style.backgroundImage = `url('${explosion}${q}')`;
+            // const q = `?id=${Date.now()}`;
+            // this.element.style.backgroundImage = `url('${explosion}${q}')`;
+            this.element.style.backgroundImage = "";
             break;
          }
          case "roundExplosion": {
-            const q = `?id=${Date.now()}`;
-            this.element.style.backgroundImage = `url('${roundExplosion}${q}')`;
+            // const q = `?id=${Date.now()}`;
+            // const q = "";
+            // this.element.style.backgroundImage = `url('${roundExplosion}${q}')`;
+            this.element.style.backgroundImage = "";
             break;
          }
          /**

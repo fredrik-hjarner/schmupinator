@@ -12,6 +12,13 @@ export default defineConfig({
     },
   },
   worker: { format: "es" },
+  server: {
+    // These headers are needed for SharedArrayBuffer to work.
+    headers: {
+      "Cross-Origin-Embedder-Policy": "require-corp",
+      "Cross-Origin-Opener-Policy": "same-origin",
+    }
+  },
   build: {
     target: 'esnext', // minimal transpilation
     modulePreload: false, // default: `true`. If `false` then the output can be run with node.
