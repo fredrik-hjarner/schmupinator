@@ -1,12 +1,13 @@
 import type { Enemies } from "../Enemies/Enemies";
-import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
+import type { IEventsCollisions } from "../Events/IEvents";
+import type { GameEvents } from "../Events/GameEvents.ts";
 import type { IService, TInitParams } from "../IService";
 import type { IAttributes } from "../Attributes/IAttributes";
 import type { IDestroyable } from "@/utils/types/IDestroyable.ts";
 import type { TCollisions, TCollisionsPureFunctionParams } from "./collisionsPureFunction.ts";
 // import type { Remote } from "comlink";
 
-import { collisionsPureFunction } from "./collisionsPureFunction.ts";
+// import { collisionsPureFunction } from "./collisionsPureFunction.ts";
 // import { wrap, releaseProxy } from "comlink";
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
 import { maxGameObjects } from "@/consts.ts";
@@ -36,7 +37,7 @@ export class Collisions implements IService, IDestroyable {
    private workers: Worker[] = [];
    
    // deps/services
-   private events!: IGameEvents;
+   private events!: GameEvents;
    private eventsCollisions!: IEventsCollisions;
    private enemies!: Enemies;
    private attributes!: IAttributes;
@@ -136,7 +137,9 @@ export class Collisions implements IService, IDestroyable {
       // combine results
       const collisions: TCollisions = {};
       for(const result of results) {
+         // @ts-ignore: TODO: Fix this.
          for(const [key, value] of Object.entries(result)) {
+            // @ts-ignore: TODO: Fix this.
             collisions[key] = value;
          }
       }

@@ -1,5 +1,6 @@
 import type { App } from "../../App";
-import type { TGameEvent, TPointsEvent } from "../Events/IEvents";
+import type { TPointsEvent } from "../Events/IEvents";
+import type { TGameEvent } from "../Events/GameEvents.ts";
 import type { IPoints } from "./IPoints";
 
 type TConstructor = {
@@ -21,14 +22,26 @@ export class Points implements IPoints {
    // eslint-disable-next-line @typescript-eslint/require-await
    public Init = async () => {
       this.app.events.subscribeToEvent(this.name, this.onEvent);
-      this.app.eventsPoints.subscribeToEvent(this.name, this.onEvent);
+      this.app.eventsPoints.subscribeToEvent(this.name, this.onEventPoints);
    };
 
    /**
     * Private
     */
 
-   private onEvent = (event: TGameEvent | TPointsEvent) => {
+   private onEvent = (event: TGameEvent) => {
+      switch(event.type) {
+         case "gameOver":
+            // unsub because we dont want to get in here again.
+            this.app.events.unsubscribeToEvent(this.name);
+            break;
+         default:
+            // NOOP
+      }
+      return Promise.resolve(); // To make Typescript happy.
+   };
+
+   private onEventPoints = (event: TPointsEvent) => {
       switch(event.type) {
          case "add_points": {
             this.points += event.points;
@@ -36,10 +49,6 @@ export class Points implements IPoints {
             this.updatePoints();
             break;
          }
-         case "gameOver":
-            // unsub because we dont want to get in here again.
-            this.app.events.unsubscribeToEvent(this.name);
-            break;
          default:
             // NOOP
       }

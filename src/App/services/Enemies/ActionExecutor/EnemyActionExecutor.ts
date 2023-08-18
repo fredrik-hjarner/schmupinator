@@ -14,11 +14,11 @@ import { GeneratorUtils } from "../../../../utils/GeneratorUtils.ts";
 import { resolutionHeight, resolutionWidth } from "../../../../consts.ts";
 import { ifAttr } from "./if.ts";
 
-const rotateAroundPoint = function*(
+const rotateAroundPoint = async function*(
    currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
    pointToPosVector: Vector,
    actionHandler: TActionHandler
-): Generator<void, void, void> {
+): AsyncGenerator<void, void, void> {
    const stepDegrees = currAction.degrees / currAction.frames;
    for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
       const prevDegrees = stepDegrees * (passedFrames-1);
@@ -28,12 +28,12 @@ const rotateAroundPoint = function*(
       const currRotated = pointToPosVector.rotateClockwise(Angle.fromDegrees(currDegrees));
 
       const delta = Vector.fromTo(prevRotated, currRotated);
-      actionHandler({ type: AT.moveDelta, x: delta.x, y: delta.y });
+      await actionHandler({ type: AT.moveDelta, x: delta.x, y: delta.y });
       yield;
    }
 };
 
-type TActionHandler = (action: TAction) => void;
+type TActionHandler = (action: TAction) => Promise<void>;
 
 type TEnemyActionExecutorArgs = {
    /**
@@ -52,14 +52,14 @@ export class EnemyActionExecutor {
    private input: IInput;
    private gamepad: GamePad;
 
-   private actionHandler: (action: TAction) => void;
+   private actionHandler: (action: TAction) => Promise<void>;
    private enemy: Enemy;
    private attrs: IAttributes; // attribute service for convenience.
    /**
     * The only reason I don't have only ONE generator is because of the `fork` action.
     * `fork` creates/adds a new generator. I think that's the only way it could work really.
     */
-   public generators: Generator<void, void, void>[];
+   public generators: AsyncGenerator<void, void, void>[];
 
    public constructor(params: TEnemyActionExecutorArgs) {
       const { actions, actionHandler, enemy, input, gamepad } = params;
@@ -77,20 +77,24 @@ export class EnemyActionExecutor {
     * Only useful for special cases.
     * @returns true if done, else false.
     */
-   public ExecuteOneAction = (action: TAction): boolean => {
+   public ExecuteOneAction = async (action: TAction): Promise<boolean> => {
       const generator = this.makeGenerator([action]);
-      const { done } = generator.next();
+      const { done } = await generator.next();
       return !!done;
    };
 
    // TODO: Maybe I should clear up generators that have status `done`.
    // Return true when all generators have finished, i.e. no actions left ot execute.
-   public ProgressOneFrame(): boolean {
+   public async ProgressOneFrame(): Promise<boolean> {
       // TODO: Die/kill self/explode when done!
       const prevGeneratorsLength = this.generators.length;
-      const nexts = this.generators.map(g => {
-         return g.next();
-      });
+      // const nexts = this.generators.map(g => {
+      //    return g.next();
+      // });
+      const nexts: IteratorResult<void, void>[] = [];
+      for (const generator of this.generators) {
+         nexts.push(await generator.next());
+      }
       const generatorsLength = this.generators.length;
       if(prevGeneratorsLength === generatorsLength) {
          /**
@@ -104,10 +108,6 @@ export class EnemyActionExecutor {
       }
       return false;
    }
-
-   /**
-    * Private
-    */
 
    // Some utils for controls. I should probably refactor this somehow.
    private leftPressed = () => this.input.ButtonsPressed.left || this.gamepad.left;
@@ -144,9 +144,9 @@ export class EnemyActionExecutor {
       });
    };
 
-   private *makeGenerator(
+   private async *makeGenerator(
       actions: TAction[] = []
-   ): Generator<void, void, void> {
+   ): AsyncGenerator<void, void, void> {
       let currIndex = 0;
       const nrActions = actions.length;
 
@@ -220,7 +220,7 @@ export class EnemyActionExecutor {
                const generator = this.makeGenerator(currAction.actions);
                this.generators.push(generator);
                // execute once, otherwise the first forked action would execute next frame.
-               generator.next();
+               await generator.next();
                break;
             }
 
@@ -230,19 +230,19 @@ export class EnemyActionExecutor {
 
             case AT.parallelRace: {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
-               yield* GeneratorUtils.parallelRace(generators);
+               yield* GeneratorUtils.parallelRaceAsync(generators);
                break;
             }
 
             case AT.parallelAll: {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
-               yield* GeneratorUtils.parallelAll(generators);
+               yield* GeneratorUtils.parallelAllAsync(generators);
                break;
             }
 
             case AT.repeat: {
                const times = this.getNumber(currAction.times);
-               yield*  GeneratorUtils.Repeat({
+               yield* GeneratorUtils.RepeatAsync({
                   makeGenerator: () => this.makeGenerator(currAction.actions),
                   times,
                });
@@ -300,14 +300,12 @@ export class EnemyActionExecutor {
                const moveY = currAction.y ?? 0;
                const stepX = moveX / currAction.frames;
                const stepY = moveY / currAction.frames;
-               /**
-                * Start from 1 so that first step is not zero progression, but first step of 
+               /* Start from 1 so that first step is not zero progression, but first step of 
                 * progression.
                 * Allow passedFrames to go up to (include) currActon.frames, i.e. if 4 then
-                * allow passedFrames to go all the way up to 4.
-                */
+                * allow passedFrames to go all the way up to 4. */
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-                  this.actionHandler({ type: AT.moveDelta, x: stepX, y: stepY });
+                  await this.actionHandler({ type: AT.moveDelta, x: stepX, y: stepY });
                   yield;
                }
                break;
@@ -321,7 +319,7 @@ export class EnemyActionExecutor {
                const stepX = moveX / currAction.frames;
                const stepY = moveY / currAction.frames;
                for(let passedFrames=1; passedFrames<=currAction.frames; passedFrames++) {
-                  this.actionHandler({ type: AT.moveDelta, x: stepX, y: stepY });
+                  await this.actionHandler({ type: AT.moveDelta, x: stepX, y: stepY });
                   yield;
                }
                break;
@@ -352,7 +350,7 @@ export class EnemyActionExecutor {
                break;
 
             default:
-               this.actionHandler(currAction);
+               await this.actionHandler(currAction);
          }
          currIndex++;
       }

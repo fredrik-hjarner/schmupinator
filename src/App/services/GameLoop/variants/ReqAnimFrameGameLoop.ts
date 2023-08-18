@@ -46,9 +46,9 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    };
 
    // Public because GameSpeed might want control over frames.
-   public nextFrame = () => {
+   public nextFrame = async () => {
       this.FrameCount++;
-      this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+      await this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
       this.app.eventsEndOfFrame.dispatchEvent({
          type: "end_of_frame",
          frameNr: this.FrameCount
@@ -58,9 +58,9 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    /**
    * Private
    */
-   private advanceFrames = () => {
+   private advanceFrames = async () => {
       for(let i=0; i<this.frameSpeedMultiplier; i++) {
-         this.nextFrame();
+         await this.nextFrame();
       }
    };
 

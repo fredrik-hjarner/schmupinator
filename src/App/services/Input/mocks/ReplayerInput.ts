@@ -1,4 +1,4 @@
-import type { IGameEvents } from "../../Events/IEvents";
+import type { GameEvents } from "../../Events/GameEvents.ts";
 import type { TInitParams } from "../../IService";
 import type { ButtonsPressed, IInput } from "../IInput";
 
@@ -28,7 +28,7 @@ export class ReplayerInput implements IInput {
    private replay!: THistory;
 
    // deps/services
-   private events!: IGameEvents;
+   private events!: GameEvents;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
@@ -49,6 +49,7 @@ export class ReplayerInput implements IInput {
             default:
                // NOOP
          }
+         return Promise.resolve(); // To make Typescript happy.
       });
    };
 

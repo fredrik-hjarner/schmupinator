@@ -1,5 +1,5 @@
 import type { ButtonsPressed, IInput, TKey } from "./IInput";
-import type { IGameEvents } from "../Events/IEvents";
+import type { GameEvents } from "../Events/GameEvents.ts";
 import type { TInitParams } from "../IService";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
@@ -10,7 +10,7 @@ type TConstructor = {
 
 export class Input implements IInput {
    // deps/services
-   private events!: IGameEvents;
+   private events!: GameEvents;
 
    // vars
    public readonly name: string;
@@ -66,6 +66,7 @@ export class Input implements IInput {
                console.log(this.history);
                break;
          }
+         return Promise.resolve(); // To make Typescript happy.
       });
    };
 

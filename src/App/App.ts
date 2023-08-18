@@ -8,8 +8,8 @@ import type { IGraphics } from "./services/Graphics/IGraphics";
 import type { IPoints } from "./services/Points/IPoints";
 import type { IUI } from "./services/UI/IUI";
 import type {
-   IEventsCollisions, IEventsEndOfFrame, IEventsPoints, IGameEvents, IUiEvents, TCollisionsEvent,
-   TEndOfFrameEvent, TGameEvent, TPointsEvent, TUiEvent
+   IEventsCollisions, IEventsEndOfFrame, IEventsPoints, IUiEvents, TCollisionsEvent,
+   TEndOfFrameEvent, TPointsEvent, TUiEvent
 } from "./services/Events/IEvents";
 import type { IGameSpeed } from "./services/GameSpeed/IGameSpeed";
 import type { IFullscreen } from "./services/Fullscreen/IFullscreen";
@@ -21,7 +21,7 @@ import type { IPseudoRandom } from "./services/PseudoRandom/IPseudoRandom";
 
 /**
  * Services
- */
+*/
 import { CursorShowGamePos } from "./services/CursorShowGamePos/CursorShowGamePos.ts";
 import { Enemies } from "./services/Enemies/Enemies.ts";
 //@ts-ignore
@@ -33,6 +33,7 @@ import { Collisions } from "./services/Collisions/Collisions.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Events } from "./services/Events/Events.ts";
+import { GameEvents } from "./services/Events/GameEvents.ts";
 //@ts-ignore
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { GameSpeed } from "./services/GameSpeed/GameSpeed.ts";
@@ -104,7 +105,7 @@ export class App {
    public enemies: Enemies;
    public gamepad: GamePad;
    public collisions: Collisions;
-   public events: IGameEvents;
+   public events: GameEvents;
    public eventsCollisions: IEventsCollisions;
    public eventsEndOfFrame: IEventsEndOfFrame;
    /**
@@ -170,7 +171,7 @@ export class App {
 
       this.collisions = new Collisions({ name: "collisions" });
 
-      this.events =           new Events<TGameEvent>({ app: this, name: "events" });
+      this.events =           new GameEvents({ app: this, name: "events" });
       this.eventsCollisions = new Events<TCollisionsEvent>({ app: this, name: "eventsCollisions" });
       this.eventsEndOfFrame = new Events<TEndOfFrameEvent>({ app: this, name: "eventsEndOfFrame" });
       this.eventsUi =         new Events<TUiEvent>({ app: this, name: "eventsUi" });

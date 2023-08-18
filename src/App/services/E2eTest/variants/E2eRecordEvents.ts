@@ -1,6 +1,9 @@
 import type {
-   IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent, TPointsEvent
+   IEventsCollisions, IEventsPoints, TCollisionsEvent, TPointsEvent
 } from "../../Events/IEvents";
+import type {
+   GameEvents, TGameEvent
+} from "../../Events/GameEvents.ts";
 import type { IE2eTest } from "../IE2eTest";
 import type { TInitParams } from "../../IService";
 
@@ -24,7 +27,7 @@ export class E2eRecordEvents implements IE2eTest {
    // From file that has been pre-recorded.
 
    // deps/services
-   private events!: IGameEvents;
+   private events!: GameEvents;
    private eventsCollisions!: IEventsCollisions;
    private eventsPoints!: IEventsPoints;
 
@@ -42,12 +45,12 @@ export class E2eRecordEvents implements IE2eTest {
       /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       // TODO: These are not unsubscribed to.
-      this.events.subscribeToEvent(this.name, this.onEvent);
+      this.events.subscribeToEvent(this.name, this.onEventGame);
       this.eventsCollisions.subscribeToEvent(this.name, this.onEvent);
       this.eventsPoints.subscribeToEvent(this.name, this.onEvent);
    };
 
-   private onEvent = (event: TGameEvent | TPointsEvent | TCollisionsEvent) => {
+   private onEventGame = (event: TGameEvent) => {
       if (event.type === "gameOver") {
          console.log("E2eRecordEvents.history:");
          console.log(this.history);
@@ -64,5 +67,14 @@ export class E2eRecordEvents implements IE2eTest {
          // Crucial that we keep track of the current frame!!
          this.frameCount = event.frameNr;
       }
+      return Promise.resolve();
+   };
+
+   private onEvent = (event: TPointsEvent | TCollisionsEvent) => {
+      const frame = this.frameCount;
+      if (this.history[frame] === undefined) {
+         this.history[frame] = [];
+      }
+      this.history[frame]?.push(event); // record event in history/
    };
 }

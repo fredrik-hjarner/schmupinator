@@ -12,8 +12,8 @@ const square = IsBrowser() ? `${import.meta.env.BASE_URL}images/square.png` : ""
 const triangle = IsBrowser() ? `${import.meta.env.BASE_URL}images/triangle.png` : "";
 const diamondShield = IsBrowser() ? `${import.meta.env.BASE_URL}images/diamondShield.png` : "";
 const octagon = IsBrowser() ? `${import.meta.env.BASE_URL}images/octagon.png` : "";
-const explosion = IsBrowser() ? `${import.meta.env.BASE_URL}images/explosion.png` : "";
-const roundExplosion = IsBrowser() ? `${import.meta.env.BASE_URL}images/roundExplosion.png` : "";
+// const explosion = IsBrowser() ? `${import.meta.env.BASE_URL}images/explosion.png` : "";
+// const roundExplosion = IsBrowser() ? `${import.meta.env.BASE_URL}images/roundExplosion.png` : "";
 
 /**
  * TODO:
@@ -75,8 +75,7 @@ export class GraphicsElement implements IDestroyable {
        * Unsubscribe from events.
        */
       
-      /**
-        * reset vars
+      /** reset vars
         */
 
       /**
@@ -189,7 +188,6 @@ export class GraphicsElement implements IDestroyable {
       }
    
       this.vars.diameter = diameter;
-
       const radius = diameter/2;
 
       const style = this.element.style;
@@ -300,7 +298,6 @@ export class GraphicsElement implements IDestroyable {
          return;
       }
       this.vars.rotation = rotation;
-
       this.element.style.transform = `rotate(${this.vars.rotation}deg) scale(${this.vars.scale})`;
    };
 

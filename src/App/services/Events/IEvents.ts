@@ -21,21 +21,6 @@ export interface IEvents<TEvent> extends IService {
 }
 
 /**************
- * GameEvents *
- **************/
-
-type TEventFrameTick = { type: "frame_tick", frameNr: number };
-
-export type TGameEvent =
-   TEventFrameTick | // signals next frame has come.
-   { type: "gameOver" }; // when player dies.
-
-export type TGameEventCallback =  TEventCallback<TGameEvent>;
-export type TGameEventSubscribers = TEventSubscribers<TGameEvent>
-export type IGameEvents = IEvents<TGameEvent>;
-
-
-/**************
  * UiEvents *
  **************/
 

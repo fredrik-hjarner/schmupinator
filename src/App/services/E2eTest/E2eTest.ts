@@ -1,8 +1,11 @@
 import type { ValueOf } from "type-fest";
 
 import type {
-   IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent, TPointsEvent
+   IEventsCollisions, IEventsPoints, TCollisionsEvent, TPointsEvent
 } from "../Events/IEvents";
+import type {
+   GameEvents, TGameEvent
+} from "../Events/GameEvents.ts";
 import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
 import type { Collisions } from "../Collisions/Collisions";
@@ -59,7 +62,7 @@ export class E2eTest implements IE2eTest {
 
    // deps/services
    private collisions!: Collisions;
-   private events!: IGameEvents;
+   private events!: GameEvents;
    private eventsCollisions!: IEventsCollisions;
    private eventsPoints!: IEventsPoints;
 
@@ -80,12 +83,12 @@ export class E2eTest implements IE2eTest {
       /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       // TODO: These are not unsubscribed to.
-      this.events.subscribeToEvent(this.name, this.onEvent);
+      this.events.subscribeToEvent(this.name, this.onEventGame);
       this.eventsCollisions.subscribeToEvent(this.name, this.onEvent);
       this.eventsPoints.subscribeToEvent(this.name, this.onEvent);
    };
 
-   private onEvent = (event: TGameEvent | TPointsEvent | TCollisionsEvent) => {
+   private onEventGame = (event: TGameEvent) => {
       if (event.type === "gameOver") {
          // This should actually trigger for very kind of END OF GAME scenario.
          console.log("E2eTest: Test succeeded.");
@@ -128,5 +131,15 @@ export class E2eTest implements IE2eTest {
             // );
          }
       }
+      return Promise.resolve(); // To make typescript happy.
+   };
+
+   private onEvent = (event: TPointsEvent | TCollisionsEvent) => {
+      // dont record frame_tick because that's excessive.
+      const frame = this.frameCount;
+      if (this.history[frame] === undefined) {
+         this.history[frame] = [];
+      }
+      this.history[frame]?.push(event); // record event in history/
    };
 }

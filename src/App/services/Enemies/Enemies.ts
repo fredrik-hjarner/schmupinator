@@ -3,8 +3,11 @@ import type { IService, TInitParams } from "../IService";
 import type { GameData } from "../GamaData/GameData";
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 import type {
-   IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent
+   IEventsCollisions, IEventsPoints, TCollisionsEvent
 } from "../Events/IEvents";
+import type {
+   GameEvents, TGameEvent
+} from "../Events/GameEvents.ts";
 import type { IGraphics } from "../Graphics/IGraphics";
 import type { GamePad } from "../GamePad/GamePad";
 import type { IInput } from "../Input/IInput";
@@ -23,7 +26,7 @@ export class Enemies implements IService {
 
    // deps/services
    private gameData!: GameData;
-   public events!: IGameEvents;
+   public events!: GameEvents;
    public eventsCollisions!: IEventsCollisions;
    public eventsPoints!: IEventsPoints;
    public graphics!: IGraphics;
@@ -62,10 +65,10 @@ export class Enemies implements IService {
       /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       this.events.subscribeToEvent(this.name, this.handleEvent);
-      this.eventsCollisions.subscribeToEvent(this.name, this.handleEvent);
+      this.eventsCollisions.subscribeToEvent(this.name, this.handleEventCollisions);
    };
 
-   public Spawn = (
+   public Spawn = async (
       { enemy, position, prependActions=[], parentId }:
       { enemy: string, position: TVector, prependActions?: TAction[], parentId?: string }
    ) => {
@@ -112,7 +115,7 @@ export class Enemies implements IService {
       // Execute one frame. This is important if the enemy has some initialization that it needs
       // have to have run, otherwise initialization (with actions) would be delayed one frame from
       // being constructed/added via constructor.
-      newEnemyInstance.OnFrameTick();
+      await newEnemyInstance.OnFrameTick();
    };
 
    public get player(): Enemy {
@@ -134,7 +137,7 @@ export class Enemies implements IService {
    }
 
    // TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private
-   private handleEvent = (event: TGameEvent | TCollisionsEvent) => {
+   private handleEvent = async (event: TGameEvent) => {
       switch(event.type) {
          // TODO: Should send frameNumber/FrameCount as paybload in frame_tick event.
          case "frame_tick": {
@@ -148,7 +151,7 @@ export class Enemies implements IService {
                 * primary purpose is to auto-spawn at [0, 0] and
                 * be resposible for spawning enemies.
                 */
-               this.Spawn({ enemy: "spawner", position: { x:0, y: 0 } });
+               await this.Spawn({ enemy: "spawner", position: { x:0, y: 0 } });
             }
 
             /**
@@ -158,10 +161,19 @@ export class Enemies implements IService {
              */
             // console.log(`Enemies.tick: enemies:`, this.enemies.map(e => e.id));
             for (const enemy of Object.values(this.enemies)) {
-               enemy.OnFrameTick();
+               await enemy.OnFrameTick();
             }
             break;
          }
+         default:
+            // NOOP
+      }
+      // return Promise.resolve(); // To make Typescript happy.
+   };
+
+   // TODO: Push this down into Enemy, so that onFramTick and OnCollisions can be private
+   private handleEventCollisions = (event: TCollisionsEvent) => {
+      switch(event.type) {
          case "collisions":
             for (const [enemyId, collisionTypes] of Object.entries(event.collisions)) {
                const enemy = this.enemies[enemyId];
