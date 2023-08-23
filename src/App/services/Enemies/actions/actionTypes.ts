@@ -40,6 +40,7 @@ export enum ActionType {
    setMoveDirection = "setMoveDirection", // TODO: remove. deprecated.
    waitForInput = "waitForInput",
    finishLevel = "finishLevel",
+   waitUntilCollision = "waitUntilCollision",
    
    /**
     * Attributes
@@ -228,6 +229,14 @@ export type TFinishLevel = Readonly<{ type: ActionType.finishLevel }>;
 // Action to console.log, so you can debug actions.
 export type TLog = Readonly<{ type: ActionType.log, msg: string }>;
 
+/**
+ * TODO: Comment
+ */
+export type TWaitUntilCollision = Readonly<{
+   type: ActionType.waitUntilCollision,
+   collisionTypes: string[],
+}>;
+
 export type TAction = Readonly<
    /**
     * Utils
@@ -281,6 +290,10 @@ export type TAction = Readonly<
    TDecrement |
    TWaitUntilAttrIs |
    TFinishLevel |
+   /**
+    * Collisions
+    */
+   TWaitUntilCollision |
    /**
     * Mirroring
     */

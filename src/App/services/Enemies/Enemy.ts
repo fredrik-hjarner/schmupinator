@@ -11,8 +11,9 @@ import { Angle } from "../../../math/Angle.ts";
 import { UnitVector } from "../../../math/UnitVector.ts";
 import { uuid } from "../../../utils/uuid.ts";
 import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
-import { assertNumber } from "../../../utils/typeAssertions.ts";
+import { assertNumber, assertString } from "../../../utils/typeAssertions.ts";
 import { EnemyGfx } from "./EnemyGfx.ts";
+import { collisionTypeCollidesWith } from "./collisionTypeCollidesWith.ts";
 
 export class Enemy {
    public id: string;
@@ -26,6 +27,8 @@ export class Enemy {
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private name: string;
+   // keeps track of which collisionTypes this GameObject collided with this frame.
+   public collidedWithCollisionTypesThisFrame: string[] = [];
 
    public constructor( enemies: Enemies, position: TVector, json: TGameObject ) {
       this.enemies = enemies;
@@ -41,6 +44,8 @@ export class Enemy {
          input: this.enemies.input,
          gamepad: this.enemies.gamepad,
       });
+      this.attrs
+         .setAttribute({gameObjectId: this.id, attribute: "collisionType", value: "none" });
       this.attrs
          .setAttribute({gameObjectId: this.id, attribute: "moveDirectionAngle", value: 180 });
       this.speed = 0;
@@ -96,9 +101,8 @@ export class Enemy {
 
    public get Radius(){ return this.diameter/2; }
 
-   public OnFrameTick = () => {
-      // console.log(`${this.id} OnFrameTick`);
-      /* const done = */ this.actionExecutor.ProgressOneFrame();
+   public OnFrameTick = async () => {
+      /* const done = */ await this.actionExecutor.ProgressOneFrame();
       // if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
       // if(done) { this.die(); }
 
@@ -111,8 +115,15 @@ export class Enemy {
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
    };
 
-   // When this enemy collided.
-   public OnCollision = () => {
+   // When this GameObject collided.
+   public OnCollision = (collisionTypes: string[]) => {
+      const collisionType = assertString(this.attrs.getAttribute({
+         gameObjectId: this.id,
+         attribute: "collisionType"
+      }));
+
+      if(!collisionTypeCollidesWith(collisionType, collisionTypes)) { return; }
+
       // TODO: If points is zero then it should not dispatch a add_points event!
       const points = assertNumber(this.attrs.getAttribute({
          gameObjectId: this.id,
@@ -142,9 +153,7 @@ export class Enemy {
 
    // unlike die despawn does NOT trigger onDeathAction
    private despawn = () => {
-      // console.log(`${this.id} despawned`);
-      const enemies = this.enemies; // TODO: This line could be remove right?
-      delete enemies.enemies[this.id]; // remove this enemy.
+      delete this.enemies.enemies[this.id]; // remove this enemy.
 
       const points = assertNumber(this.attrs.getAttribute({
          gameObjectId: this.id,
@@ -154,24 +163,21 @@ export class Enemy {
          this.enemies.eventsPoints.dispatchEvent({type: "add_points", enemy: this.name, points });
       }
 
-      // TODO: Maybe publish a death event or something.
       if(this.gfx) { // Clear up graphics.
          this.gfx.release();
          this.gfx = undefined;
       }
    };
 
-   /**
-    * Essentially maps actions to class methods, that is has very "thin" responsibilities.
-    * Actually one-lines are okey to inline here.
-    */
-   private HandleAction = (action: TAction) => {
+   /* Essentially maps actions to class methods, that is has very "thin" responsibilities.
+    * Actually one-lines are okey to inline here. */
+   private HandleAction = async (action: TAction) => {
       switch(action.type /* TODO: as AT */) {
          case AT.shootAccordingToMoveDirection:
-            this.shootAccordingToMoveDirection(action.shot);
+            await this.shootAccordingToMoveDirection(action.shot);
             break;
          case AT.shootDirection:
-            this.ShootDirection({ dirX: action.x, dirY: action.y });
+            await this.ShootDirection({ dirX: action.x, dirY: action.y });
             break;
          case AT.setSpeed:
             this.speed = action.pixelsPerFrame;
@@ -183,10 +189,10 @@ export class Enemy {
             this.SetPosition({ x: action.x, y: action.y });
             break;
          case AT.shootTowardPlayer:
-            this.ShootTowardPlayer();
+            await this.ShootTowardPlayer();
             break;
          case AT.shoot_beside_player:
-            this.ShootBesidePlayer(action.degrees);
+            await this.ShootBesidePlayer(action.degrees);
             break;
          case AT.rotate_towards_player:
             this.RotateTowardsPlayer();
@@ -198,9 +204,8 @@ export class Enemy {
             this.moveAccordingToSpeedAndDirection();
             break;
          case AT.spawn: {
-            // console.log(`Enemy: spawning: ${action.enemy}`);
             const { enemy, x=0, y=0, actions } = action;
-            this.spawn({ enemy, pos: { x, y }, actions });
+            await this.spawn({ enemy, pos: { x, y }, actions });
             break;
          }
          case AT.mirrorX: 
@@ -226,7 +231,7 @@ export class Enemy {
             break;
          }
          case AT.finishLevel: // TODO: dispatch some new "finishLevel" event instead.
-            this.enemies.events.dispatchEvent({ type: "gameOver" }); 
+            await this.enemies.events.dispatchEvent({ type: "gameOver" }); 
             break;
          default:
             this.gfx?.dispatch(action as TGraphicsActionWithoutHandle);
@@ -238,7 +243,7 @@ export class Enemy {
       this.y = this.mirrorY ? this.y - y : this.y + y;
    };
 
-   private ShootDirection = (params: { dirX: number, dirY: number, shot?: string }) => {
+   private ShootDirection = async (params: { dirX: number, dirY: number, shot?: string }) => {
       const { dirX, dirY, shot = "shot" } = params;
       const isZero = dirX === 0 && dirY === 0;
       const pixelsPerFrame = this.shotSpeed;
@@ -246,7 +251,7 @@ export class Enemy {
       const pythagoras = isZero ? 9999 : Math.hypot(dirX, dirY);
       const speedUpFactor = pixelsPerFrame / pythagoras;
 
-      this.spawn({
+      await this.spawn({
          enemy: shot,
          pos: { x: 0, y: 0 },
          actions:  [{
@@ -255,10 +260,8 @@ export class Enemy {
                type: AT.repeat,
                times: 99999,
                actions: [
-                  /**
-                   * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
-                   * and then in yaml file a `moveAccordingToDirAndSpeed` action.
-                   */
+                  /* TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
+                   * and then in yaml file a `moveAccordingToDirAndSpeed` action. */
                   { type: AT.moveDelta, x: dirX * speedUpFactor, y: dirY * speedUpFactor },
                   { type: AT.waitNextFrame }
                ]
@@ -267,28 +270,26 @@ export class Enemy {
       });
    };
 
-   /**
-    * TODO: This should be removed. Instead I should do this somehow with an action or attributes,
-    * so that you can shoot toward any position (or any position of a GameObject).
-    */
-   private ShootTowardPlayer = () => {
+   /* TODO: This should be removed. Instead I should do this somehow with an action or attributes,
+    * so that you can shoot toward any position (or any position of a GameObject). */
+   private ShootTowardPlayer = async () => {
       const player = this.enemies.player;
       const dirX = player.x - this.x;
       const dirY = player.y - this.y;
-      this.ShootDirection({ dirX, dirY });
+      await this.ShootDirection({ dirX, dirY });
    };
 
-   private ShootBesidePlayer = (degrees: number) => {
+   private ShootBesidePlayer = async (degrees: number) => {
       const player = this.enemies.player;
       const dirX = player.x - this.x;
       const dirY = player.y - this.y;
       const vector = new Vector(dirX, dirY).rotateClockwiseM(Angle.fromDegrees(degrees));
-      this.ShootDirection({ dirX: vector.x, dirY: vector.y });
+      await this.ShootDirection({ dirX: vector.x, dirY: vector.y });
    };
 
-   private shootAccordingToMoveDirection = (shot?: string) => {
+   private shootAccordingToMoveDirection = async (shot?: string) => {
       const dir = this.moveDirection;
-      this.ShootDirection({ dirX: dir.x, dirY: dir.y, shot });
+      await this.ShootDirection({ dirX: dir.x, dirY: dir.y, shot });
    };
 
    private SetPosition = ({ x, y }: {x: number, y: number}) => {
@@ -332,13 +333,13 @@ export class Enemy {
       this.y = newY;
    };
 
-   private spawn = (
+   private spawn = async (
       { enemy, pos, actions }:
       { enemy: string, pos: TVector, actions?: TAction[] }
    ) => {
       // Make a relative position into an absolute one.
       const absolute = { x: pos.x + this.x, y: pos.y + this.y };
-      this.enemies.Spawn({
+      await this.enemies.Spawn({
          enemy,
          position: absolute,
          prependActions: actions,
@@ -349,10 +350,8 @@ export class Enemy {
    public getPosition = (): TVector => {
       let x = this.x;
       let y = this.y;
-      /**
-       * If mirroring Enemy will lie about it's location.
-       * It's sort of a hack actually, not super beautiful.
-       */
+      /* If mirroring Enemy will lie about it's location.
+       * It's sort of a hack actually, not super beautiful. */
       if(this.mirrorX) { x = resolutionWidth - x; }
       if(this.mirrorY) { y = resolutionHeight - y; }
       return { x, y };

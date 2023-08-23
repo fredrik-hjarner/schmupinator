@@ -7,7 +7,7 @@ import type {
 import type { Vector as TVector } from "../../../math/bezier";
 
 import { ActionType as AT } from "../Enemies/actions/actionTypes.ts";
-import { resolutionWidth } from "../../../consts.ts";
+import { maxGameObjects, resolutionWidth } from "../../../consts.ts";
 import { uuid } from "../../../utils/uuid.ts";
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
 import { GraphicsElement } from "./GraphicsElement.ts";
@@ -30,7 +30,7 @@ type TConstructor = { name: string };
 export class Graphics implements IGraphics {
    public readonly name: string;
    private elementPool: TGfxPool;
-   private static readonly poolSize = 100;
+   private static readonly poolSize = maxGameObjects;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
@@ -102,9 +102,9 @@ export class Graphics implements IGraphics {
    };
 
    private initElementPool = (): TGfxPool => {
-      const arr100 = Array(Graphics.poolSize).fill(0);
+      const arr = Array(Graphics.poolSize).fill(0);
       const result: TGfxPool = {};
-      for (const [i] of arr100.entries()) {
+      for (const [i] of arr.entries()) {
          const element = this.initOneElement(i);
          result[element.handle] = element;
       }

@@ -37,5 +37,6 @@
   ],
   "exclude": [
     // "dist/**/*",
+    "**/__tests__/**" // TODO: Remove. Only when refactoring to async all over the place.
   ],
 }

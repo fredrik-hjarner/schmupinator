@@ -7,12 +7,23 @@ export const isObject = (value: unknown): value is Partial<Record<string, unknow
 export const isNumber = (value: unknown): value is number => {
    return typeof value === "number";
 };
+export const isString = (value: unknown): value is string => {
+   return typeof value === "string";
+};
 export const isBoolean = (value: unknown): value is boolean => {
    return typeof value === "boolean";
 };
 export const assertNumber = (value: unknown): number => {
    if(!isNumber(value)) {
       const error = `assertNumber: ${JSON.stringify(value)} is not of type "number"`;
+      BrowserDriver.Alert(error);
+      throw new Error(error);
+   }
+   return value;
+};
+export const assertString = (value: unknown): string => {
+   if(!isString(value)) {
+      const error = `assertString: ${JSON.stringify(value)} is not of type "string"`;
       BrowserDriver.Alert(error);
       throw new Error(error);
    }

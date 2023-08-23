@@ -147,6 +147,11 @@ type TCreateGameObjectParams = {
    */
    onDeathAction?: TAction | undefined;
    /**
+    * TODO: Comment.
+    * TODO: Make this required to force me to update code.
+    */
+   collisionType?: "player" | "playerBullet" | "enemy" | "enemyBullet" | "none";
+   /**
     * Some options.
     * TODO: Move these up to root level and make them mandatory to set. It is convenient to have
     * them optional, for now, but it is also easy to forget to set them.
@@ -174,6 +179,8 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    const invincible = params.options?.invincible ?? false;
    const despawnMargin = params.options?.despawnMargin;
    const defaultDirectionalControls = params.options?.defaultDirectionalControls ?? false;
+
+   // const collisionType = params.collisionType ?? "none";
 
    const defaultDirectionalControlsActions: TAction[] = defaultDirectionalControls ? [
       // cardinal

@@ -1,6 +1,6 @@
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
-import { createGameObject, spawn } from "../../utils/utils.ts";
+import { createGameObject, forever, fork, spawn, wait } from "../../utils/utils.ts";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 
@@ -17,5 +17,10 @@ export const playerShot: TGameObject = createGameObject({
       { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetShape, shape: "circle" },
       { type: AT.gfxSetColor, color: "aqua" },
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["enemy", "enemyBullet"] },
+         // { type: AT.despawn },
+         wait(1),
+      ))
    ],
 });

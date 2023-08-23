@@ -46,9 +46,9 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    };
 
    // Public because GameSpeed might want control over frames.
-   public nextFrame = () => {
+   public nextFrame = async () => {
       this.FrameCount++;
-      this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+      await this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
       this.app.eventsEndOfFrame.dispatchEvent({
          type: "end_of_frame",
          frameNr: this.FrameCount
@@ -58,9 +58,9 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    /**
    * Private
    */
-   private advanceFrames = () => {
+   private advanceFrames = async () => {
       for(let i=0; i<this.frameSpeedMultiplier; i++) {
-         this.nextFrame();
+         await this.nextFrame();
       }
    };
 
@@ -74,9 +74,8 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    * Idea is to run these as fast as possible and to only progress a frame
    * when one frame has passed.
    */
-   private oneGameLoop = (time: number) => {
+   private oneGameLoop = async (time: number) => {
       // console.log("time:", time);
-      BrowserDriver.RequestAnimationFrame(this.oneGameLoop);
       if(this.nextFrameMillis === null) {
          BrowserDriver.Alert("this.nextFrameMillis === null");
          throw new Error("this.nextFrameMillis === null");
@@ -91,12 +90,13 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
       while (time >= this.nextFrameMillis) {
          i++;
          this.nextFrameMillis += millisPerFrame;
-         this.advanceFrames();
+         await this.advanceFrames();
       }
       if(i > 1) {
          this.tooSlowFrames += (i-1);
          // TODO: Only show this warning on debug, right?
          console.info(`A total of ${this.tooSlowFrames} frames executed too slow!`);
       }
+      await new Promise(resolve => BrowserDriver.RequestAnimationFrame(resolve));
    };
 }

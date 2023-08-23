@@ -1,22 +1,17 @@
 import type { Enemies } from "../Enemies/Enemies";
-import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
+import type { IEventsCollisions } from "../Events/IEvents";
+import type { GameEvents } from "../Events/GameEvents.ts";
 import type { IService, TInitParams } from "../IService";
-import type { Enemy } from "../Enemies/Enemy.ts";
 import type { IAttributes } from "../Attributes/IAttributes";
+import type { IDestroyable } from "@/utils/types/IDestroyable.ts";
+import type { TCollisions, TCollisionsPureFunctionParams } from "./collisionsPureFunction.ts";
+// import type { Remote } from "comlink";
 
+// import { collisionsPureFunction } from "./collisionsPureFunction.ts";
+// import { wrap, releaseProxy } from "comlink";
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
-// import { resolutionHeight, resolutionWidth } from "@/consts.ts";
-
-export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
-
-export type TCollisions = {
-   // List of id:s of enemies that were hit.
-   enemiesThatWereHit: string[];
-};
-
-type TCalcCollisionsResult =
-   { collided: true, collidedWithId: string } |
-   { collided: false };
+import { maxGameObjects } from "@/consts.ts";
+// import { resolutionHeight, resolutionWidth } from "@/consts";
 
 type TConstructor = {
    name: string;
@@ -27,14 +22,23 @@ type TConstructor = {
 //       y < -radius || y > resolutionHeight + radius;
 // };
 
-export class Collisions implements IService {
+const numberOfWorkers = 1;
+
+export class Collisions implements IService, IDestroyable {
    // vars
    public readonly name: string;
    // adds the time, every frame, it took for collision detection. 
    public accumulatedTime = 0;
+   // private xArray = [];
+   // private yArray = [];
+   // private radiusArray = [];
+   private xArray = new Float64Array(new SharedArrayBuffer(maxGameObjects * (64 / 8)));
+   private yArray = new Float64Array(new SharedArrayBuffer(maxGameObjects * (64 / 8)));
+   private radiusArray = new Float64Array(new SharedArrayBuffer(maxGameObjects * (64 / 8)));
+   private workers: Worker[] = [];
    
    // deps/services
-   private events!: IGameEvents;
+   private events!: GameEvents;
    private eventsCollisions!: IEventsCollisions;
    private enemies!: Enemies;
    private attributes!: IAttributes;
@@ -44,6 +48,12 @@ export class Collisions implements IService {
    */
    public constructor(params: TConstructor) {
       this.name = params.name;
+      for(let i = 0; i < numberOfWorkers; i++) {
+         this.workers.push(new Worker(
+            new URL("./collisionsPureFunction.ts", import.meta.url),
+            { type: "module" }
+         ));
+      }
    }
 
    /**
@@ -64,9 +74,9 @@ export class Collisions implements IService {
       
       this.events.subscribeToEvent(
          this.name,
-         ({ type }) => {
+         async ({ type }) => {
             if(type === "frame_tick") {
-               this.update();
+               await this.update();
             }
          }
       );
@@ -75,115 +85,94 @@ export class Collisions implements IService {
    /**
     * Private
     */
-   private update = () => {
+   private update = async () => {
       const startTime = BrowserDriver.PerformanceNow();
 
-      const allGameObjectsThatWereHit: TCollisions["enemiesThatWereHit"] = [];
-
-      const enemies: Enemy[] = [];
-      const enemyBullets: Enemy[] = [];
-      const playerBullets: Enemy[] = [];
-
-      for (const enemy of Object.values(this.enemies.enemies)) {
-         // If a GameObject is outside of the screen we don't bother to do collision detection.
-         // if(isOutsideOfScreen(enemy.x, enemy.y, enemy.Radius)) {
-         //    return;
-         // }
-         const attrValue = this.attributes.getAttribute({
-            gameObjectId: enemy.id,
-            attribute: "collisionType"
+      // number of gameObjects that can collide, i.e. that have a collisionType that is not "none".
+      let gameObjectsCounter = 0;
+      const enemiesThatCanCollide = Object.values(this.enemies.enemies)
+         .flatMap((enemy) => {
+            const collisionType = this.attributes.getAttribute({
+               gameObjectId: enemy.id,
+               attribute: "collisionType"
+            });
+            if(collisionType === "none") {
+               return [];
+            }
+            this.xArray[gameObjectsCounter] = enemy.x;
+            this.yArray[gameObjectsCounter] = enemy.y;
+            this.radiusArray[gameObjectsCounter] = enemy.Radius;
+            gameObjectsCounter++; // increment because we added one GameObject/Colldable.
+            return {
+               id: enemy.id,
+               collisionType: collisionType as string
+            };
          });
-         switch(attrValue){
-            case "enemy":
-               enemies.push(enemy);
-               break;
-            case "enemyBullet":
-               enemyBullets.push(enemy);
-               break;
-            case "playerBullet":
-               playerBullets.push(enemy);
-               break;
-            default:
-               // NOOP
+
+      // /**
+      //  * Multi threaded.
+      //  */
+      const promises = [];
+      /**
+       * Each worker will take a slice of each.
+       */
+      for(let i = 0; i < numberOfWorkers; i++) {
+         promises.push(new Promise(resolve => {
+            this.workers[i].onmessage = (e) => {
+               resolve(e.data);
+            };
+            this.workers[i].postMessage({
+               xArray: this.xArray,
+               yArray: this.yArray,
+               radiusArray: this.radiusArray,
+               collidables: enemiesThatCanCollide,
+               from: Math.floor(enemiesThatCanCollide.length / numberOfWorkers) * i,
+               to: Math.floor(enemiesThatCanCollide.length / numberOfWorkers) * (i + 1),
+               total: enemiesThatCanCollide.length,
+            } satisfies TCollisionsPureFunctionParams);
+         }));
+      }
+
+      const results = await Promise.all(promises);
+
+      // combine results
+      const collisions: TCollisions = {};
+      for(const result of results) {
+         // @ts-ignore: TODO: Fix this.
+         for(const [key, value] of Object.entries(result)) {
+            // @ts-ignore: TODO: Fix this.
+            collisions[key] = value;
          }
       }
 
-      const player = this.enemies.player;
+      /**
+       * Single threaded.
+       */
+      // const collisions = collisionsPureFunction({
+      //    xArray: this.xArray,
+      //    yArray: this.yArray,
+      //    radiusArray: this.radiusArray,
+      //    collidables: enemiesThatCanCollide,
+      //    from: 0,
+      //    to: enemiesThatCanCollide.length,
+      //    total: enemiesThatCanCollide.length,
+      // });
 
-      // Observe: by enemy and not by enemy bullets.
-      const playerWasHitByEnemy =
-         this.calcCollisions({
-            doesThis: player,
-            collideWithThese: enemies
-         }).collided;
-
-      if(playerWasHitByEnemy) {
-         allGameObjectsThatWereHit.push(player.id);
-      }
-      
-      const enemiesHitByPlayerBullets: string[] = [];
-      for(const enemy of enemies) {
-         const collision = this.calcCollisions({
-            doesThis: enemy,
-            collideWithThese: playerBullets
-         });
-         // adds both the "enemy" and what it collides with (for example a playerBullet).
-         if(collision.collided) {
-            enemiesHitByPlayerBullets.push(enemy.id, collision.collidedWithId);
-         }
-      }
-
-      const enemyBulletsThatHitPlayer: string[] = [];
-      for(const enemyBullet of enemyBullets) {
-         const collision = this.calcCollisions({
-            doesThis: enemyBullet,
-            collideWithThese: [player]
-         });
-         if(collision.collided) {
-            enemyBulletsThatHitPlayer.push(enemyBullet.id);
-         }
-      }
-
-      if(enemyBulletsThatHitPlayer.length > 0) {
-         // if a bullet hit the player then the player was hit...
-         allGameObjectsThatWereHit.push(player.id);
-      }
-
-      allGameObjectsThatWereHit.push(...enemiesHitByPlayerBullets);
-      
-      allGameObjectsThatWereHit.push(...enemyBulletsThatHitPlayer);
-      
       const endTime = BrowserDriver.PerformanceNow();
-      this.accumulatedTime += endTime - startTime;
+      const diff = endTime - startTime;
+      this.accumulatedTime += diff;
 
-      if(allGameObjectsThatWereHit.length > 0) {
-         const collisions = {
-            enemiesThatWereHit: [...new Set(allGameObjectsThatWereHit)] // remove duplicates.
-         };
+      // console.log("collisions:", collisions);
+
+      if(Object.keys(collisions).length > 0) {
          this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
    };
 
-   /**
-    * TODO: cirlce and shots are outdated names.
-    * What is checked is if "circle" collides with any of the "shots", if so the return which "shot"
-    * "circle" collided with.
-    */
-   private calcCollisions = (
-      params: { doesThis: PosAndRadiusAndId, collideWithThese: PosAndRadiusAndId[] }
-   ): TCalcCollisionsResult => {
-      const { doesThis, collideWithThese } = params;
-      
-      for(const shot of collideWithThese) {
-         // Multiplying minDistance if a hack to cause lower hit "box".
-         const minDistance = doesThis.Radius + shot.Radius * 0.8;
-         const xDist = doesThis.x - shot.x;
-         const yDist = doesThis.y - shot.y;
-         const distance = Math.hypot(xDist, yDist);
-         if(distance <= minDistance) {
-            return { collided: true, collidedWithId: shot.id };
-         }
+   public destroy = () => {
+      for (const worker of this.workers) {
+         // worker[releaseProxy]();
+         worker.terminate();
       }
-      return { collided: false };
    };
 }

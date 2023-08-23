@@ -1,6 +1,6 @@
 import type  { App } from "../../App";
 import type { IFps } from "./IFps";
-import type { TGameEvent } from "../Events/IEvents";
+import type { TGameEvent } from "../Events/GameEvents.ts";
 
 import { round } from "../../../utils/round.ts";
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
@@ -90,7 +90,7 @@ export class Fps implements IFps {
     */
    private handleEvent = (event: TGameEvent) => {
       if(event.type !== "frame_tick") {
-         return;
+         return Promise.resolve(); // To make Typescript happy.
       }
 
       if(this.startTime === null) {
@@ -104,5 +104,7 @@ export class Fps implements IFps {
       this.elapsedTimeDiv && (this.elapsedTimeDiv.innerHTML = `elapsed: ${round(elapsed/1000)}s`);
       this.framCounterDiv && (this.framCounterDiv.innerHTML = `frames: ${frame}`);
       this.fpsDiv && (this.fpsDiv.innerHTML = `fps: ${Math.round(frame / (elapsed / 1000))}`);
+
+      return Promise.resolve(); // To make Typescript happy.
    };
 }

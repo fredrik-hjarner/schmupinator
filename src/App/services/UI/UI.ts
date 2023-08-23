@@ -1,6 +1,7 @@
 import type { IUI } from "./IUI";
 import type { IScene } from "./Scenes/types/IScene";
-import type { IGameEvents, IUiEvents, TGameEvent } from "../Events/IEvents";
+import type { IUiEvents } from "../Events/IEvents";
+import type { GameEvents, TGameEvent } from "../Events/GameEvents.ts";
 import type { IGameLoop } from "../GameLoop/IGameLoop";
 import type { TInitParams } from "../IService";
 import type { Highscore as THighscoreService } from "../Highscore/Highscore.ts";
@@ -27,7 +28,7 @@ export class UI implements IUI {
    public readonly name: string;
 
    // deps/services
-   public events!: IGameEvents;
+   public events!: GameEvents;
    public eventsUi!: IUiEvents;
    public gameLoop!: IGameLoop;
    public highscoreService!: THighscoreService;
@@ -111,6 +112,7 @@ export class UI implements IUI {
          default:
             // NOOP
       }
+      return Promise.resolve(); // to make Typescript happy.
    };
 
    public destroy = () => {

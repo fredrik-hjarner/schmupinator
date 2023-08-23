@@ -7,6 +7,9 @@ export const resolutionWidth = 357; // confirmed correct!
 export const resolutionHeight = 240; // confirmed correct!
 
 // Calculations happen every frame, no more o less.
+// const frameRate = 17; // Single threaded
+// const frameRate = 17; // 1 worker
+// const frameRate = 17; // 2 worker
 const frameRate = 60;
 export const millisPerFrame = 1000 / frameRate;
 
@@ -26,3 +29,5 @@ export const zIndices = {
    graphicsEngineElements: "0", // Set to "0" to hide behind gameHide.
    ui: "2"
 } as const;
+
+export const maxGameObjects = 100;

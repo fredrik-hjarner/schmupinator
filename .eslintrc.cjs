@@ -7,7 +7,7 @@ module.exports = defineConfig({
     "vite.config.ts",
     ".eslintrc.cjs",
     "dist/**/*",
-    // "src/**/*.test.ts",
+    "src/**/*.test.ts", // TODO: Comment this out. Only for when refactoring.
     // "auto-generated" files
     "e2ehistory.ts",
     "src/**/mocks/replay.ts",
