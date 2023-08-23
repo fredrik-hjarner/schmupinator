@@ -22,7 +22,7 @@ type TConstructor = {
 //       y < -radius || y > resolutionHeight + radius;
 // };
 
-const numberOfWorkers = 5;
+const numberOfWorkers = 1;
 
 export class Collisions implements IService, IDestroyable {
    // vars
@@ -31,6 +31,7 @@ export class Collisions implements IService, IDestroyable {
    public accumulatedTime = 0;
    // private xArray = [];
    // private yArray = [];
+   // private radiusArray = [];
    private xArray = new Float64Array(new SharedArrayBuffer(maxGameObjects * (64 / 8)));
    private yArray = new Float64Array(new SharedArrayBuffer(maxGameObjects * (64 / 8)));
    private radiusArray = new Float64Array(new SharedArrayBuffer(maxGameObjects * (64 / 8)));

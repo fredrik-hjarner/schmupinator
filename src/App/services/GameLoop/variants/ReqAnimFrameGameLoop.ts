@@ -74,9 +74,8 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
    * Idea is to run these as fast as possible and to only progress a frame
    * when one frame has passed.
    */
-   private oneGameLoop = (time: number) => {
+   private oneGameLoop = async (time: number) => {
       // console.log("time:", time);
-      BrowserDriver.RequestAnimationFrame(this.oneGameLoop);
       if(this.nextFrameMillis === null) {
          BrowserDriver.Alert("this.nextFrameMillis === null");
          throw new Error("this.nextFrameMillis === null");
@@ -91,12 +90,13 @@ export class ReqAnimFrameGameLoop implements IGameLoop {
       while (time >= this.nextFrameMillis) {
          i++;
          this.nextFrameMillis += millisPerFrame;
-         this.advanceFrames();
+         await this.advanceFrames();
       }
       if(i > 1) {
          this.tooSlowFrames += (i-1);
          // TODO: Only show this warning on debug, right?
          console.info(`A total of ${this.tooSlowFrames} frames executed too slow!`);
       }
+      await new Promise(resolve => BrowserDriver.RequestAnimationFrame(resolve));
    };
 }

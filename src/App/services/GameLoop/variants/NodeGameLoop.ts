@@ -1,8 +1,6 @@
 import type  { App } from "../../../App";
 import type { IGameLoop } from "../IGameLoop";
 
-import { BrowserDriver } from "../../../../drivers/BrowserDriver/index.ts";
-
 type TConstructor = {
    app: App;
    name: string;
@@ -32,8 +30,10 @@ export class NodeGameLoop implements IGameLoop {
       // noop
    };
 
-   public Start = () => {
-      BrowserDriver.SetInterval(this.oneGameLoop, 0);
+   public Start = async () => {
+      for(let i=0; i<10_000_000; i++) {
+         await this.oneGameLoop();
+      }
    };
 
    public pause = () => {
@@ -41,25 +41,25 @@ export class NodeGameLoop implements IGameLoop {
    };
 
    // Public because GameSpeed might want control over frames.
-   public nextFrame = () => {
+   public nextFrame = async () => {
       this.FrameCount++;
-      this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
+      await this.app.events.dispatchEvent({ type: "frame_tick", frameNr: this.FrameCount });
    };
 
    /**
    * Private
    */
-   private advanceFrames = () => {
+   private advanceFrames = async () => {
       if(this.frameSpeedMultiplier === 0) {
          return;
       }
-      this.nextFrame();
+      await this.nextFrame();
    };
 
-   private oneGameLoop = () => {
+   private oneGameLoop = async () => {
       if(this.frameSpeedMultiplier === 0) {
          return;
       }
-      this.advanceFrames();
+      await this.advanceFrames();
    };
 }
