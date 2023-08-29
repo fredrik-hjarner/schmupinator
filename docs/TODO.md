@@ -368,3 +368,6 @@ of UiThread class or something with functions for manipulating DOM.
 * Gather perf data in ReqAnimFrameGameLoop.ts. stats per frame. when reqamin started, ended, length,
 number of executed frames and diff between excpected frames. store in some kind of object/array,
 save as file then analyze it.
+
+* estimateRefreshRate in ReqAnimFrameGameLoop, if it is close to 60 assume 60 and just do one
+frame per requestAnimFrame. Otherwise use the other code I have (which might be wrong).
