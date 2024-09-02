@@ -1,7 +1,6 @@
 import type {
    TAction, TInputButton, TNumber, TRotateAroundAbsolutePoint, TRotateAroundRelativePoint, TString
 } from "../actions/actionTypes.ts";
-import type { Vector as TVector } from "../../../../math/bezier";
 import type { IAttributes, TAttrValue } from "../../Attributes/IAttributes";
 import type { IInput } from "../../Input/IInput";
 import type { GamePad } from "../../GamePad/GamePad";
@@ -11,8 +10,8 @@ import { ActionType as AT } from "../actions/actionTypes.ts";
 import { Vector } from "../../../../math/Vector.ts";
 import { Angle } from "../../../../math/Angle.ts";
 import { GeneratorUtils } from "../../../../utils/GeneratorUtils.ts";
-import { resolutionHeight, resolutionWidth } from "../../../../consts.ts";
-import { ifAttr } from "./if.ts";
+import { ifAttr } from "./helpers/if.ts";
+import { createIsOutsideScreen } from "./helpers/createIsOutsideScreen.ts";
 
 const rotateAroundPoint = function*(
    currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
@@ -148,6 +147,27 @@ export class EnemyActionExecutor {
       });
    };
 
+   // Util to check if a specfic button is pressed.
+   private isButtonPressed = (button: TInputButton): boolean => {
+      switch(button) {
+         case "left":
+            return this.leftPressed();
+         case "right":
+            return this.rightPressed();
+         case "up":
+            return this.upPressed();
+         case "down":
+            return this.downPressed();
+
+         case "shoot":
+            return this.shootPressed();
+         case "laser":
+            return this.laserPressed();
+         case "start":
+            return this.startPressed();
+      }
+   };
+
    private *makeGenerator(
       actions: TAction[] = []
    ): Generator<void, void, void> {
@@ -161,31 +181,11 @@ export class EnemyActionExecutor {
                const pressed = currAction.pressed;
                const notPressed = currAction.notPressed ?? [];
 
-               const isButtonPressed = (button: TInputButton): boolean => {
-                  switch(button) {
-                     case "left":
-                        return this.leftPressed();
-                     case "right":
-                        return this.rightPressed();
-                     case "up":
-                        return this.upPressed();
-                     case "down":
-                        return this.downPressed();
-
-                     case "shoot":
-                        return this.shootPressed();
-                     case "laser":
-                        return this.laserPressed();
-                     case "start":
-                        return this.startPressed();
-                  }
-               };
-
                while(!(
                   // every button in pressed must be pressed.
-                  pressed.every(isButtonPressed) &&
+                  pressed.every(this.isButtonPressed) &&
                   // if some button in notPressed is pressed then return false.
-                  !notPressed.some(isButtonPressed)
+                  !notPressed.some(this.isButtonPressed)
                )) { yield; }
 
                break;
@@ -262,28 +262,14 @@ export class EnemyActionExecutor {
 
             case AT.waitTilInsideScreen: {
                const margin = 0; // was 20
-               const left = -margin;
-               const right = resolutionWidth + margin;
-               const top = -margin;
-               const bottom = resolutionHeight + margin;
-               // TODO: Move function.
-               const isOutsideScreen = ({ x, y }: TVector): boolean => {
-                  return x < left || x > right || y < top || y > bottom;
-               };
+               const isOutsideScreen = createIsOutsideScreen(margin);
                while(isOutsideScreen(this.enemy.getPosition())) { yield; }
                break;
             }
 
             case AT.waitTilOutsideScreen: {
                const { margin = 30 } = currAction;
-               const left = -margin;
-               const right = resolutionWidth + margin;
-               const top = -margin;
-               const bottom = resolutionHeight + margin;
-               // TODO: Move function.
-               const isOutsideScreen = ({ x, y }: TVector): boolean => {
-                  return x < left || x > right || y < top || y > bottom;
-               };
+               const isOutsideScreen = createIsOutsideScreen(margin);
                while(!isOutsideScreen(this.enemy.getPosition())) { yield; }
                break;
             }

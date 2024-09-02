@@ -364,3 +364,7 @@ run in a separate thread, and it should communicate with the main thread to affe
 It can be really simple, just start everything in a new thread, and let say the graphics engine run
 in the main thread (it already has commands which could be sent to main thread) or have some kind
 of UiThread class or something with functions for manipulating DOM.
+
+* Gather perf data in ReqAnimFrameGameLoop.ts. stats per frame. when reqamin started, ended, length,
+number of executed frames and diff between excpected frames. store in some kind of object/array,
+save as file then analyze it.

@@ -1,5 +1,5 @@
-import type { TAttrIf } from "../actions/actionTypes.ts";
-import type { TAttrValue } from "../../Attributes/IAttributes";
+import type { TAttrIf } from "../../actions/actionTypes.ts";
+import type { TAttrValue } from "../../../Attributes/IAttributes.ts";
 
 // Helper function to deal with attribute if checks.
 type TIfAttrParams = { attrValue: TAttrValue } & Pick<TAttrIf, "condition" | "value">;
