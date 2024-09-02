@@ -147,6 +147,27 @@ export class EnemyActionExecutor {
       });
    };
 
+   // Util to check if a specfic button is pressed.
+   private isButtonPressed = (button: TInputButton): boolean => {
+      switch(button) {
+         case "left":
+            return this.leftPressed();
+         case "right":
+            return this.rightPressed();
+         case "up":
+            return this.upPressed();
+         case "down":
+            return this.downPressed();
+
+         case "shoot":
+            return this.shootPressed();
+         case "laser":
+            return this.laserPressed();
+         case "start":
+            return this.startPressed();
+      }
+   };
+
    private *makeGenerator(
       actions: TAction[] = []
    ): Generator<void, void, void> {
@@ -160,32 +181,11 @@ export class EnemyActionExecutor {
                const pressed = currAction.pressed;
                const notPressed = currAction.notPressed ?? [];
 
-               // TODO: Move this to a helper function.
-               const isButtonPressed = (button: TInputButton): boolean => {
-                  switch(button) {
-                     case "left":
-                        return this.leftPressed();
-                     case "right":
-                        return this.rightPressed();
-                     case "up":
-                        return this.upPressed();
-                     case "down":
-                        return this.downPressed();
-
-                     case "shoot":
-                        return this.shootPressed();
-                     case "laser":
-                        return this.laserPressed();
-                     case "start":
-                        return this.startPressed();
-                  }
-               };
-
                while(!(
                   // every button in pressed must be pressed.
-                  pressed.every(isButtonPressed) &&
+                  pressed.every(this.isButtonPressed) &&
                   // if some button in notPressed is pressed then return false.
-                  !notPressed.some(isButtonPressed)
+                  !notPressed.some(this.isButtonPressed)
                )) { yield; }
 
                break;
