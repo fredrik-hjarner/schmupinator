@@ -143,8 +143,9 @@ export class Collisions implements IService {
    ): boolean => {
       const { doesThis, collideWithThis } = params;
       
-      // Multiplying minDistance if a hack to cause lower hit "box".
-      const minDistance = doesThis.Radius + collideWithThis.Radius * 0.8;
+      // Subtracting from minDistance if a hack to cause lower hit "box".
+      // TODO: Would be better to use attributes for this, like "hitBoxRadius" or something.
+      const minDistance = doesThis.Radius + collideWithThis.Radius - 3;
       const xDist = doesThis.x - collideWithThis.x;
       const yDist = doesThis.y - collideWithThis.y;
       const distance = Math.hypot(xDist, yDist);

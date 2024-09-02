@@ -16,13 +16,19 @@ type TConstructor = {
    name: string
 }
 
-// TODO: Util function to temporaliy remove collision events from history.
+/* TODO: Util function to temporaliy remove collision events from history.
+ * This was made while I was trying to make the test pass while modifying collision detection code.
+ * I should probably remove this function when I'm done.
+ */
 const removeCollisionsEvents = (events: ValueOf<THistory>): ValueOf<THistory> => {
    const filtered = events?.filter((event) => event.type !== "collisions");
    return filtered?.length ? filtered : undefined;
 };
 
 // Sort events in array alphabetically. Cux order is not important, I think...
+/* TODO: I don't remember the purpose of this exactly. I think it was to make the test pass.
+ * I should probably remove this function.
+ */
 const sort = (events: ValueOf<THistory>): ValueOf<THistory> => {
    return events?.sort((_a, _b) => {
       const a = JSON.stringify(_a);

@@ -27,7 +27,8 @@ export class Enemy {
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private name: string;
-   // keeps track of which collisionTypes this GameObject collided with this frame.
+   // Keeps track of which collisionTypes this GameObject collided with this frame.
+   // This is needed so that it can be checked in the EnemyActionExecutor. must be cleaned/frame.
    public collidedWithCollisionTypesThisFrame: string[] = [];
 
    public constructor( enemies: Enemies, position: TVector, json: TGameObject ) {
@@ -56,9 +57,7 @@ export class Enemy {
    }
    private get attrs() { return this.enemies.attributes; } // convenience getter to shorten code.
 
-   /**
-    * TODO: Converting from/to angle/vector seems a bit unoptimized.
-    */
+   // TODO: Converting from/to angle/vector seems a bit unoptimized.
    // facing/aim in angle degrees or 2d vector. 0 faces up, 90 = right, 180 = down, 270 = left.
    private get moveDirection(): UnitVector {
       const degrees = assertNumber(
@@ -122,6 +121,9 @@ export class Enemy {
          attribute: "collisionType"
       }));
 
+      // TODO: Add to collidedWithCollisionTypesThisFrame. remember to reset it/frame.
+
+      // TODO: I think that the line under here is only temporary and should be removed.
       if(!collisionTypeCollidesWith(collisionType, collisionTypes)) { return; }
 
       // TODO: If points is zero then it should not dispatch a add_points event!
