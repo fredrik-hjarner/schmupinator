@@ -31,8 +31,10 @@ module.exports = defineConfig({
     "node": false
   },
   globals: {
-    // console exists in both browser and Node.
+    // console exists in browser, Node and Deno.
     "console": "readonly",
+    // setTimeout exists in browser, Node and Deno.
+    "setTimeout": "readonly",
   },
   extends: [
     "eslint:recommended",
