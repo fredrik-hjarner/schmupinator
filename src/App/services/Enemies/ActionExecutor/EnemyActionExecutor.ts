@@ -200,12 +200,13 @@ export class EnemyActionExecutor {
 
             case AT.waitUntilCollision: {
                const { collisionTypes } = currAction;
+               // on the enemy collidedWithCollisionTypesThisFrame is stored. should/is(?) removed
+               // after each frame.
                while(!this.enemy.collidedWithCollisionTypesThisFrame.some(collisionType =>
                   collisionTypes.includes(collisionType)
                )) {
                   yield;
                }
-               // this.enemy.OnCollision();
                break;
             }
 

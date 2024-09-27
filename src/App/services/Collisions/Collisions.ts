@@ -91,14 +91,9 @@ export class Collisions implements IService {
          });
 
       for (const enemy1 of enemiesThatCanCollide) {
-         // const attrValue = this.attributes.getAttribute({
-         //    gameObjectId: enemy.id,
-         //    attribute: "collisionType"
-         // });
-         
          collisions[enemy1.id] = [];
 
-         for( const enemy2 of enemiesThatCanCollide) {
+         for(const enemy2 of enemiesThatCanCollide) {
             if(enemy1.id === enemy2.id) {
                continue; // dont check collision with self.
             }
@@ -115,6 +110,8 @@ export class Collisions implements IService {
                      attribute: "collisionType"
                   })
                );
+               // seems I only record one of each collision type. so if player collides with two
+               // enemies then only the first one is recorded pretty much.
                collisions[enemy1.id] = [...new Set(
                   [...collisions[enemy1.id], collisionType]
                )];
@@ -133,11 +130,6 @@ export class Collisions implements IService {
       }
    };
 
-   /**
-    * TODO: cirlce and shots are outdated names.
-    * What is checked is if "circle" collides with any of the "shots", if so the return which "shot"
-    * "circle" collided with.
-    */
    private calcCollision = (
       params: { doesThis: PosAndRadiusAndId, collideWithThis: PosAndRadiusAndId }
    ): boolean => {
@@ -145,7 +137,8 @@ export class Collisions implements IService {
       
       // Subtracting from minDistance if a hack to cause lower hit "box".
       // TODO: Would be better to use attributes for this, like "hitBoxRadius" or something.
-      const minDistance = doesThis.Radius + collideWithThis.Radius - 3;
+      // Though to begin with figure out a good number for the hack.
+      const minDistance = (doesThis.Radius + collideWithThis.Radius) * 0.9;
       const xDist = doesThis.x - collideWithThis.x;
       const yDist = doesThis.y - collideWithThis.y;
       const distance = Math.hypot(xDist, yDist);

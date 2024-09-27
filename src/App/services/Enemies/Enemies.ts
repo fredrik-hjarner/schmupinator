@@ -162,12 +162,14 @@ export class Enemies implements IService {
             }
             break;
          }
-         case "collisions":
+         case "collisions": // max one collsiion event per frame.
             for (const [enemyId, collisionTypes] of Object.entries(event.collisions)) {
                const enemy = this.enemies[enemyId];
                if(enemy) {
-                  enemy.OnCollision(collisionTypes);
-                  // enemy.collidedWithCollisionTypesThisFrame = collisionTypes; // new code
+                  enemy.OnCollision(collisionTypes); // TODO: temp hack.
+                  // TODO: new code. I want to store the collision types that the enemy collided
+                  // with on the enemy for ONE frame (the generator function reads these).
+                  // enemy.collidedWithCollisionTypesThisFrame = collisionTypes;
                }
             }
             break;

@@ -134,7 +134,7 @@ export class Enemy {
 
       // TODO: add_points is a bad name. Should be names pointsOnHit.
       this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
-      this.hp -= 1;
+      this.hp -= 1; // TODO: Lol, I had it hard-coded that collisions could only decr hp by 1.
    };
 
    private boundToWindow = () => {
@@ -164,7 +164,6 @@ export class Enemy {
       if(points !== 0) {
          this.enemies.eventsPoints.dispatchEvent({type: "add_points", enemy: this.name, points });
       }
-
       if(this.gfx) { // Clear up graphics.
          this.gfx.release();
          this.gfx = undefined;
