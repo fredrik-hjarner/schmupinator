@@ -8,7 +8,7 @@ import type {
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes.ts";
 import {
-   attr, createGameObject, forever, fork, moveToAbsolute, parallelAll, parallelRace,
+   attr, createGameObject, forever, /* fork, */ moveToAbsolute, parallelAll, parallelRace,
    repeat, setShotSpeed, setSpeed, spawn, thrice, twice, wait
 } from "../utils/utils.ts";
 
@@ -46,6 +46,7 @@ export const stage1: TGameObject = createGameObject({
    name: "stage1",
    diameter: 20,
    hp: 9999,
+   hurtByPlayerBullet: false,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "none" },
@@ -66,12 +67,8 @@ export const nonShootingAimer: TGameObject = createGameObject({
    hp: 4,
    diameter: 22,
    onDeathAction: spawn("roundExplosion"),
+   hurtByPlayerBullet: true,
    actions: [
-      fork(forever(
-         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
-         // { type: AT.despawn },
-         wait(1),
-      )),
       setSpeed(1.6),
       parallelAll(
          repeat(26.25, [
@@ -119,6 +116,7 @@ export const sinus: TGameObject = createGameObject({
    hp: 3,
    diameter: 24,
    onDeathAction: spawn("roundExplosion"),
+   hurtByPlayerBullet: true,
    actions: [
       setShotSpeed(2),
       attr("right", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
@@ -196,6 +194,7 @@ export const firstMiniboss: TGameObject = createGameObject({
    name: "firstMiniboss",
    hp: 120,
    diameter: 35,
+   hurtByPlayerBullet: true,
    actions: [
       parallelRace(
          shootingPattern,

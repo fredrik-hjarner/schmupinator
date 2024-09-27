@@ -10,6 +10,8 @@ BrowserDriver.OnLoad(async () => {
    // Start
    // console.log("Start");
    if(!IsBrowser()) {
+      // If not running in a browser it means it runs headless in either node or deno
+      // which means that we are running e2e tests which is why we start the game loop immediately.
       app.gameLoop.Start();
    }
 });

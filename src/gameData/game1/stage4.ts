@@ -96,7 +96,9 @@ export const stage4: TGameObject = createGameObject({
    name: "stage4",
    diameter: 20,
    hp: 9999,
+   hurtByPlayerBullet: false,
    actions: [
+      // TODO: Should have no collision type.
       // - do: *wave1
       // - wait: 240
       // - do: *wave2
@@ -111,6 +113,7 @@ export const easyFlyer: TGameObject = createGameObject({
    name: "easyFlyer",
    diameter: 29,
    hp: 5,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.setSpeed, pixelsPerFrame: 1.17 },
       { type: AT.gfxSetColor, color: "green" },

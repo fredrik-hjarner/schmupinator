@@ -8,7 +8,9 @@ export const stage5: TGameObject = createGameObject({
    name: "stage5",
    diameter: 20,
    hp: 9999,
+   hurtByPlayerBullet: false,
    actions: [
+      // TODO: Should have no collision type.
       { type: AT.gfxSetShape, shape: "none" },
       spawn("aqua", { x: col[1], y: row[3] }),
       spawn("executor", { x: col[2], y: row[5] }),
@@ -23,6 +25,7 @@ export const shotSpeedFromHp: TGameObject = createGameObject({
    name: "shotSpeedFromHp",
    diameter: 20,
    hp: 50,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.gfxSetColor, color: "red" },
@@ -39,6 +42,7 @@ export const repeatFromHp: TGameObject = createGameObject({
    name: "repeatFromHp",
    diameter: 20,
    hp: 50,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.gfxSetColor, color: "red" },
@@ -56,6 +60,7 @@ export const executor: TGameObject = createGameObject({
    name: "executor",
    diameter: 30,
    hp: 100_000,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.gfxSetColor, color: "green" },
       forever(
@@ -71,6 +76,7 @@ export const aqua: TGameObject = createGameObject({
    name: "aqua",
    diameter: 30,
    hp: 100_000,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.gfxSetColor, color: "aqua" },
       { type: AT.setShotSpeed, pixelsPerFrame: 2 },
@@ -90,6 +96,7 @@ export const child: TGameObject = createGameObject({
    name: "child",
    diameter: 20,
    hp: 100_000,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.gfxSetColor, color: "aqua" },
       { type: AT.waitUntilAttrIs, gameObjectId: { attr: "parentId" }, attr: "hp", is: 0 },
@@ -100,6 +107,7 @@ export const parent: TGameObject = createGameObject({
    name: "parent",
    diameter: 25,
    hp: 5,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.gfxSetColor, color: "red" },
       spawn("child", { x: -30,   y: -30 }),

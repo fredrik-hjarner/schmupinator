@@ -14,6 +14,7 @@ export const shot: TGameObject = createGameObject({
    hp: 1,
    diameter: 5,
    options: { despawnMargin: 5 },
+   hurtByPlayerBullet: false,
    onDeathAction: spawn("explosion"),
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "enemyBullet" },

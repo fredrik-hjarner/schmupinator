@@ -393,3 +393,10 @@ player.waitUntilCollision({ collisionTypes: ["enemy","enemyBullet"], invincibili
 
 * I must make e2e tests more robust by recording "state" per frame (probs attributes) instead of
 events.
+
+* If `collidedWithCollisionTypesThisFrame` are unique, then I could prolly change it to an object
+  keyed by `collisionType` i.e. `Record<string, boolean>` or maybe a `Set`.
+
+* 2024-09-27: I am in the process of updating collision detection. I have added ability to the
+  engine to handle waiting until colliding with selected collision types. I need to update the stuff
+  under GameData folder though so that the games start to work correctly again.

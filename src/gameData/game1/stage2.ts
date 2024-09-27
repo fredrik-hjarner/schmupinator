@@ -11,7 +11,9 @@ export const stage2: TGameObject = createGameObject({
    name: "stage2",
    diameter: 20,
    hp: 9999,
+   hurtByPlayerBullet: false,
    actions: [
+      // TODO: should have no collision.
       { type: AT.spawn, enemy: "cloner", x: col[5], y: -20 },
       wait(270),
       { type: AT.spawn, enemy: "cloner", x: col[2], y: -20 },
@@ -23,6 +25,7 @@ export const cloner: TGameObject = createGameObject({
    name: "cloner",
    hp: 25,
    diameter: 29,
+   hurtByPlayerBullet: true,
    actions: [
       moveToAbsolute({ y: 45, frames: 150 }),
       wait(30),
@@ -45,6 +48,7 @@ export const clonerChild: TGameObject = createGameObject({
    name: "clonerChild",
    hp: 10,
    diameter: 18,
+   hurtByPlayerBullet: true,
    actions: [
       attr("mirrorX", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
       attr("mirrorY", { value: true, yes: [{ type: AT.mirrorY, value: true }] }),

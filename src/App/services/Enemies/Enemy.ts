@@ -11,9 +11,9 @@ import { Angle } from "../../../math/Angle.ts";
 import { UnitVector } from "../../../math/UnitVector.ts";
 import { uuid } from "../../../utils/uuid.ts";
 import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
-import { assertNumber, assertString } from "../../../utils/typeAssertions.ts";
+import { assertNumber /*, assertString */ } from "../../../utils/typeAssertions.ts";
 import { EnemyGfx } from "./EnemyGfx.ts";
-import { collisionTypeCollidesWith } from "./collisionTypeCollidesWith.ts";
+// import { collisionTypeCollidesWith } from "./collisionTypeCollidesWith.ts";
 
 export class Enemy {
    public id: string;
@@ -77,13 +77,6 @@ export class Enemy {
       this.attrs.setAttribute({ gameObjectId: this.id, attribute: "speed", value });
    }
 
-   private get hp(): number {
-      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "hp" }));
-   }
-   private set hp(value: number){
-      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "hp", value });
-   }
-
    public get x(): number { // get x from attributes
       return this.attrs.getNumber({ gameObjectId: this.id, attribute: "x" });
    }
@@ -103,7 +96,6 @@ export class Enemy {
    public OnFrameTick = () => {
       /* const done = */ this.actionExecutor.ProgressOneFrame();
       // if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
-      // if(done) { this.die(); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
       if(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
@@ -112,29 +104,13 @@ export class Enemy {
       this.gfx?.setPosition({ x: this.x, y: this.y });
       // TODO: Don't force graphical rotation to sync be synced with move direction!!! See TODO.md
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
-   };
 
-   // When this GameObject collided.
-   public OnCollision = (collisionTypes: string[]) => {
-      const collisionType = assertString(this.attrs.getAttribute({
-         gameObjectId: this.id,
-         attribute: "collisionType"
-      }));
-
-      // TODO: Add to collidedWithCollisionTypesThisFrame. remember to reset it/frame.
-
-      // TODO: I think that the line under here is only temporary and should be removed.
-      if(!collisionTypeCollidesWith(collisionType, collisionTypes)) { return; }
-
-      // TODO: If points is zero then it should not dispatch a add_points event!
-      const points = assertNumber(this.attrs.getAttribute({
-         gameObjectId: this.id,
-         attribute: "points"
-      }));
-
-      // TODO: add_points is a bad name. Should be names pointsOnHit.
-      this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
-      this.hp -= 1; // TODO: Lol, I had it hard-coded that collisions could only decr hp by 1.
+      // clear collisions. the order how how things happen is important
+      // collisions must be cleared after the enemies have "reacted" to collisions.
+      // it would suck if collisions happened and then removed before enemies had reacted to them.
+      // how this happens is not straight forward but has to do with order services init in.
+      // reacting to collisions is supposed to happen in `this.actionExecutor.ProgressOneFrame()`
+      this.collidedWithCollisionTypesThisFrame = [];
    };
 
    private boundToWindow = () => {
@@ -153,7 +129,6 @@ export class Enemy {
       }
    };
 
-   // unlike die despawn does NOT trigger onDeathAction
    private despawn = () => {
       delete this.enemies.enemies[this.id]; // remove this enemy.
 

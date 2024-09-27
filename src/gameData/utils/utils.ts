@@ -149,8 +149,13 @@ type TCreateGameObjectParams = {
    /**
     * TODO: Comment.
     * TODO: Make this required to force me to update code.
+    * TODO: This does not look finished see collisionType further down.
     */
    collisionType?: "player" | "playerBullet" | "enemy" | "enemyBullet" | "none";
+
+   /** decrements hp when hit by player bullets */
+   hurtByPlayerBullet: boolean;
+
    /**
     * Some options.
     * TODO: Move these up to root level and make them mandatory to set. It is convenient to have
@@ -180,7 +185,16 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    const despawnMargin = params.options?.despawnMargin;
    const defaultDirectionalControls = params.options?.defaultDirectionalControls ?? false;
 
+   // TODO: This does not look finished see collisionType above.
    // const collisionType = params.collisionType ?? "none";
+
+   const hurtByPlayerBullets: TAction[] = params.hurtByPlayerBullet ? [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      ))
+   ] : [];
 
    const defaultDirectionalControlsActions: TAction[] = defaultDirectionalControls ? [
       // cardinal
@@ -262,6 +276,8 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
          { type: AT.setAttribute, attribute: "boundToWindow", value: false },
          { type: AT.setAttribute, attribute: "hp", value: params.hp },
          { type: AT.setAttribute, attribute: "maxHp", value: params.hp },
+         // default to decrement 1 hp when hit by player bullets.
+         ...hurtByPlayerBullets,
          // Set default player controls.
          ...defaultDirectionalControlsActions,
          // Setup despawning when GameObject moves out of the screen.

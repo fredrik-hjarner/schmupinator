@@ -170,6 +170,8 @@ export class App {
 
       this.collisions = new Collisions({ name: "collisions" });
 
+      /* The events services are event channels passing events with
+       * `dispatchEvent` and `subscribeToEvent` functions */
       this.events =           new Events<TGameEvent>({ app: this, name: "events" });
       this.eventsCollisions = new Events<TCollisionsEvent>({ app: this, name: "eventsCollisions" });
       this.eventsEndOfFrame = new Events<TEndOfFrameEvent>({ app: this, name: "eventsEndOfFrame" });
@@ -202,10 +204,8 @@ export class App {
       this.pseudoRandom = this.construct.pseudoRandom();
    }
 
-   /**
-    * Contains construction functions keyed by service.
-    * TODO: Force sort this object alphabetically.
-    */
+   /* Contains construction functions keyed by service.
+    * TODO: Force sort this object alphabetically. */
    public construct = {
       attributes: (): IAttributes => { return new Attributes({ name: "attributes" }); },
       cursorShowGamePos: (): ICursorShowGamePos => {
@@ -244,13 +244,11 @@ export class App {
       pseudoRandom: (): IPseudoRandom => { return new PseudoRandom({ name: "pseudoRandom" }); },
    };
 
-   /**
-    * Step 2 of initialization.
+   /* Step 2 of initialization.
     * 
     * The rules are essentially:
     * 1. In constructor you init what you can without using other services (as dependencies).
-    * 2. If you need other services to init, then do that initialization in the Init function.
-    */
+    * 2. If you need other services to init, then do that initialization in the Init function */
    public Init = async () => {
       const {
          attributes,
@@ -265,8 +263,7 @@ export class App {
          settings,
       } = this;
 
-      /**
-       * Order of initialization usually don't matter.
+      /* Order of initialization usually don't matter.
        * Unfortunately GamaData has to init early since it needs to, right now, fetch
        * yaml async. Enemies needs to be available at least when Enemies service tries to use them.
        */
@@ -285,6 +282,17 @@ export class App {
       });
       await gameLoop.Init();
       await this.init.fps();
+      // Note order of init: input -> collisions -> enemies -> graphics
+      // Maybe another order would make more sense?
+      // The current order: you move an enemy into a collision group, then you check for collisions
+      // then enemies reponds to the collisions (in Enemies.tick), then all enemies clear their
+      // `collidedWithCollisionTypesThisFrame`.
+      await this.collisions.Init({
+         attributes,
+         enemies,
+         events,
+         eventsCollisions,
+      });
       await enemies.Init({
          attributes,
          events,
@@ -297,12 +305,6 @@ export class App {
          settings,
       });
       await gamepad.Init();
-      await this.collisions.Init({
-         attributes,
-         enemies,
-         events,
-         eventsCollisions,
-      });
       await this.events.Init();
       await this.eventsCollisions.Init();
       await this.eventsPoints.Init();
@@ -331,11 +333,9 @@ export class App {
       await this.init.pseudoRandom();
    };
 
-   /**
-    * Contains init functions keyed by service.
+   /* Contains init functions keyed by service.
     * I think I have this public object here so that the init become exposed to the outside world.
-    * TODO: Force sort this object alphabetically.
-    */
+    * TODO: Force sort this object alphabetically */
    public init = {
       attributes: async (): Promise<void> => { await this.attributes.Init(); },
       cursorShowGamePos: async (): Promise<void> => {

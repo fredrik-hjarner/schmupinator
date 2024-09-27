@@ -8,7 +8,9 @@ export const stage3: TGameObject = createGameObject({
    name: "stage3",
    diameter: 20,
    hp: 9999,
+   hurtByPlayerBullet: false,
    actions: [
+      // TODO: Should have no collision type.
       { type: AT.gfxSetShape, shape: "none" },
       { type: AT.spawn, enemy: "shapeShifter", x: col[5], y: row[5] },
       { type: AT.spawn, enemy: "healer", x: col[4], y: row[4] },
@@ -21,6 +23,7 @@ export const shapeShifter: TGameObject = createGameObject({
    diameter: 30,
    hp: 100,
    onDeathAction: { type: AT.spawn, enemy: "shapeShifter", y: -20 },
+   hurtByPlayerBullet: true,
    actions: [
       forever(
          { type: AT.gfxSetShape, shape: "circle" },
@@ -41,6 +44,7 @@ export const healer: TGameObject = createGameObject({
    name: "healer",
    diameter: 30,
    hp: 50,
+   hurtByPlayerBullet: true,
    actions: [
       { type: AT.setAttribute, attribute: "hp", value: 25 },
       forever(
@@ -57,6 +61,7 @@ export const dehealer: TGameObject = createGameObject({
    name: "dehealer",
    diameter: 30,
    hp: 50,
+   hurtByPlayerBullet: true,
    actions: [
       forever(
          wait(10),
