@@ -1,15 +1,21 @@
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
-import { createGameObject, forever, parallelRace, spawn, wait } from "../../utils/utils.ts";
+import { createGameObject, forever, fork, parallelRace, spawn, wait } from "../../utils/utils.ts";
 
 export const playerLaser: TGameObject = createGameObject({
    name: "playerLaser",
    hp: 1,
    diameter: 5,
    onDeathAction: spawn("explosion"),
+   hurtByPlayerBullet: false,
    options: { despawnMargin: 5 },
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["enemy"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
       { type: AT.setAttribute, attribute: "collisionType", value: "playerBullet" },
       // TODO: is points really necessary for this?
       { type: AT.setAttribute, attribute: "pointsOnDeath", value: -0.2 },
