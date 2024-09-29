@@ -1,14 +1,13 @@
 import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
-import { createGameObject, forever, repeat, spawn, wait } from "../utils/utils.ts";
+import { createGameObject, forever, fork, repeat, spawn, wait } from "../utils/utils.ts";
 import { col, row } from "./common.ts";
 
 export const stage5: TGameObject = createGameObject({
    name: "stage5",
    diameter: 20,
    hp: 9999,
-   hurtByPlayerBullet: false,
    actions: [
       // TODO: Should have no collision type.
       { type: AT.gfxSetShape, shape: "none" },
@@ -25,8 +24,16 @@ export const shotSpeedFromHp: TGameObject = createGameObject({
    name: "shotSpeedFromHp",
    diameter: 20,
    hp: 50,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.gfxSetColor, color: "red" },
       { type: AT.setShotSpeed, pixelsPerFrame: 1.8 },
@@ -42,8 +49,16 @@ export const repeatFromHp: TGameObject = createGameObject({
    name: "repeatFromHp",
    diameter: 20,
    hp: 50,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.gfxSetColor, color: "red" },
       { type: AT.setShotSpeed, pixelsPerFrame: 1.8 },
@@ -60,8 +75,16 @@ export const executor: TGameObject = createGameObject({
    name: "executor",
    diameter: 30,
    hp: 100_000,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetColor, color: "green" },
       forever(
          { type: AT.setAttribute, gameObjectId: "global", attribute: "aquaShoot", value: true },
@@ -76,8 +99,16 @@ export const aqua: TGameObject = createGameObject({
    name: "aqua",
    diameter: 30,
    hp: 100_000,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetColor, color: "aqua" },
       { type: AT.setShotSpeed, pixelsPerFrame: 2 },
       forever(
@@ -96,8 +127,16 @@ export const child: TGameObject = createGameObject({
    name: "child",
    diameter: 20,
    hp: 100_000,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetColor, color: "aqua" },
       { type: AT.waitUntilAttrIs, gameObjectId: { attr: "parentId" }, attr: "hp", is: 0 },
       { type: AT.setAttribute, attribute: "hp", value: 0 },
@@ -107,8 +146,16 @@ export const parent: TGameObject = createGameObject({
    name: "parent",
    diameter: 25,
    hp: 5,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetColor, color: "red" },
       spawn("child", { x: -30,   y: -30 }),
       spawn("child", { x: 0,     y: -30 }),

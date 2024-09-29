@@ -3,7 +3,7 @@ import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
 import {
-   attr, createGameObject, forever, moveToAbsolute, parallelAll, setShotSpeed, wait
+   attr, createGameObject, forever, fork, moveToAbsolute, parallelAll, setShotSpeed, wait
 } from "../utils/utils.ts";
 import { col } from "./common.ts";
 
@@ -11,7 +11,6 @@ export const stage2: TGameObject = createGameObject({
    name: "stage2",
    diameter: 20,
    hp: 9999,
-   hurtByPlayerBullet: false,
    actions: [
       // TODO: should have no collision.
       { type: AT.spawn, enemy: "cloner", x: col[5], y: -20 },
@@ -25,8 +24,16 @@ export const cloner: TGameObject = createGameObject({
    name: "cloner",
    hp: 25,
    diameter: 29,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       moveToAbsolute({ y: 45, frames: 150 }),
       wait(30),
       { type: AT.spawn, enemy: "clonerChild" },
@@ -48,8 +55,16 @@ export const clonerChild: TGameObject = createGameObject({
    name: "clonerChild",
    hp: 10,
    diameter: 18,
-   hurtByPlayerBullet: true,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       attr("mirrorX", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
       attr("mirrorY", { value: true, yes: [{ type: AT.mirrorY, value: true }] }),
       setShotSpeed(1.5),

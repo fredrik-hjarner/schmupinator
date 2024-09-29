@@ -145,7 +145,7 @@ type TCreateGameObjectParams = {
    * new GameObject and have those actions in that GameObject, I call this concept
    * "spawning a corpse".
    */
-   onDeathAction?: TAction | undefined;
+   // onDeathAction?: TAction | undefined; // TODO: Remove? oOrder of execution was unclear.
    /**
     * TODO: Comment.
     * TODO: Make this required to force me to update code.
@@ -153,8 +153,6 @@ type TCreateGameObjectParams = {
     */
    collisionType?: "player" | "playerBullet" | "enemy" | "enemyBullet" | "none";
 
-   /** decrements hp when hit by player bullets */
-   hurtByPlayerBullet: boolean;
 
    /**
     * Some options.
@@ -164,8 +162,6 @@ type TCreateGameObjectParams = {
    options?: {
       /** If true then the GameObject will be removed when it moves outside the screen. */
       despawnWhenOutsideScreen?: boolean;
-      /** Set to true disable polling hp every frame for death. */
-      invincible?: boolean;
       /** Despawns the GameObject when it's these many pixels outside of the screen */
       despawnMargin?: number;
       /** setup default (player) directional controls */
@@ -181,20 +177,11 @@ type TCreateGameObjectParams = {
  */
 export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    const despawnWhenOutsideScreen = params.options?.despawnWhenOutsideScreen ?? true;
-   const invincible = params.options?.invincible ?? false;
    const despawnMargin = params.options?.despawnMargin;
    const defaultDirectionalControls = params.options?.defaultDirectionalControls ?? false;
 
    // TODO: This does not look finished see collisionType above.
    // const collisionType = params.collisionType ?? "none";
-
-   const hurtByPlayerBullets: TAction[] = params.hurtByPlayerBullet ? [
-      fork(forever(
-         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
-         { type: AT.decr, attribute: "hp" },
-         wait(1),
-      ))
-   ] : [];
 
    const defaultDirectionalControlsActions: TAction[] = defaultDirectionalControls ? [
       // cardinal
@@ -255,16 +242,6 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
       ]
    }] : [];
 
-   const invincibleAction: TAction[] = invincible ? [] : [fork(
-      /**
-       * TODO: since hp always exists on atributes I should prolly add it to type
-       * so I get auto-completion
-       */
-      { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
-      ...(params.onDeathAction ? [params.onDeathAction] : []),
-      { type: AT.despawn },
-   )];
-
    return {
       name: params.name,
       diameter: params.diameter,
@@ -276,14 +253,10 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
          { type: AT.setAttribute, attribute: "boundToWindow", value: false },
          { type: AT.setAttribute, attribute: "hp", value: params.hp },
          { type: AT.setAttribute, attribute: "maxHp", value: params.hp },
-         // default to decrement 1 hp when hit by player bullets.
-         ...hurtByPlayerBullets,
          // Set default player controls.
          ...defaultDirectionalControlsActions,
          // Setup despawning when GameObject moves out of the screen.
          ...despawnWhenOutsideScreenAction,
-         // Die when hp is 0. TODO: Actually it should be LTE to 0.
-         ...invincibleAction,
          // "Normal" actions
          ...params.actions
       ]

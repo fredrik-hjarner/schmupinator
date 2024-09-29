@@ -400,3 +400,19 @@ events.
 * 2024-09-27: I am in the process of updating collision detection. I have added ability to the
   engine to handle waiting until colliding with selected collision types. I need to update the stuff
   under GameData folder though so that the games start to work correctly again.
+
+* 2024-09-28: Files containing errors only light up red when they are open. I want them to light
+  up red in the VS Code Explorer (left pane file structure).
+
+* 2024-09-29: New collision code seems to make it so that onDeath actions maybe trigger one frame
+  too late. This is most visible with lasers as you can see the lasers explode above where they
+  should explode/die.
+  Oh I think know why this happens. It might happen because the onDeath action happens the next 
+  frame because first hp is reduced to 0, but the code listening to the hp
+  - 2024-09-29: Actually the explosion of the laser happened 2 frames later (2 framedss after
+    collision) than before my recoding of the collision logic.
+    I managed to make it from 2 frames delayed to 1 frame delayed now, but I should really try
+    to make it so that the delay becomes zero.
+
+* Idea: I should have all the state managed by redux maybe, so I have ALL the data easily available
+  and the great Redux DevTools to to see deltas. Maybe look into Zustand.

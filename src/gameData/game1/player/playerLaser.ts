@@ -7,15 +7,13 @@ export const playerLaser: TGameObject = createGameObject({
    name: "playerLaser",
    hp: 1,
    diameter: 5,
-   onDeathAction: spawn("explosion"),
-   hurtByPlayerBullet: false,
    options: { despawnMargin: 5 },
    actions: [
-      fork(forever(
+      fork(
          { type: AT.waitUntilCollision, collisionTypes: ["enemy"] },
-         { type: AT.decr, attribute: "hp" },
-         wait(1),
-      )),
+         spawn("explosion"),
+         { type: AT.despawn },
+      ),
       { type: AT.setAttribute, attribute: "collisionType", value: "playerBullet" },
       // TODO: is points really necessary for this?
       { type: AT.setAttribute, attribute: "pointsOnDeath", value: -0.2 },
