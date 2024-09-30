@@ -143,6 +143,11 @@ export class Enemy {
          this.gfx.release();
          this.gfx = undefined;
       }
+      
+      // TODO: hm should prolly set all generators as finished too. oh this didn't work.
+      // for(const generator of this.actionExecutor.generators) {
+      //    generator.return();
+      // }
    };
 
    /* Essentially maps actions to class methods, that is has very "thin" responsibilities.

@@ -413,6 +413,11 @@ events.
     collision) than before my recoding of the collision logic.
     I managed to make it from 2 frames delayed to 1 frame delayed now, but I should really try
     to make it so that the delay becomes zero.
+  - 2024-09-30: Managed to solve THAT problem by running forks before the main line of actions,
+    though I notice that the Graphics elements gets used up a lot faster for some reason...
+    so there are still problems...
 
 * Idea: I should have all the state managed by redux maybe, so I have ALL the data easily available
   and the great Redux DevTools to to see deltas. Maybe look into Zustand.
+
+* Remove the Do action because it's not needed?

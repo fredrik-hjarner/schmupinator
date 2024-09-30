@@ -190,9 +190,14 @@ export type TWaitTilInsideScreen = { type: ActionType.waitTilInsideScreen };
  * Usually you can get the same behaviour with `paralllelAll`/`parallelRace` but in some situations
  * the parallel actions aren't really an option (such as when you prepend actions when spawning
  * a new enemy and you want those actions to not delay the enemy's own actions, but rather
- * execute in parallel to them).
+ * execute in parallel to them). I.e. fork delay the actions following it zero frames to,
+ * while parallelAll/parallelRace have to finish before the next action after can be executed.
  */
-export type TFork = { type: ActionType.fork, actions: TAction[] };
+export type TFork = {
+   type: ActionType.fork,
+   // order: "prepend" | "append", // Hm, not sure I need this now.
+   actions: TAction[]
+};
 /**
  * Set only the move direction. Only specific some move actions care about the direction which 
  * gotta be called to move in the direction set with this action.
