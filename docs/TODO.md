@@ -416,6 +416,8 @@ events.
   - 2024-09-30: Managed to solve THAT problem by running forks before the main line of actions,
     though I notice that the Graphics elements gets used up a lot faster for some reason...
     so there are still problems...
+    Might just be "better" collision detecting or something... any way the lasers explode anim
+    takes way too many frames.
 
 * Idea: I should have all the state managed by redux maybe, so I have ALL the data easily available
   and the great Redux DevTools to to see deltas. Maybe look into Zustand.
