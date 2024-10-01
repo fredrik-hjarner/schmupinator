@@ -5,6 +5,7 @@ import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts"
 import {
    createGameObject,
    forever,
+   fork,
    parallelAll,
    repeat,
    spawn,
@@ -82,8 +83,17 @@ export const boss: TGameObject = createGameObject({
    name: "boss",
    hp: 100_000, // immortal.
    diameter: 40,
-   onDeathAction: spawn("bossCorpse"),
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         spawn("bossCorpse"),
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetShape, shape: "stage2/circle.png" },
       ...movePattern,
       { type: AT.setAttribute, attribute: "hp", value: 70 }, // In fact make it immortal until now.
