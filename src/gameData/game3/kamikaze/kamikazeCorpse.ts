@@ -1,14 +1,18 @@
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
-import { createGameObject, wait } from "../../utils/utils.ts";
+import { createGameObject, fork, spawn, wait } from "../../utils/utils.ts";
 
 export const kamikaze: TGameObject = createGameObject({
    name: "kamikaze",
    diameter: 20,
    hp: 1,
-   onDeathAction: { type: AT.spawn, enemy: "kamikazeCorpse" },
    actions: [
+      fork(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         spawn("kamikazeCorpse"),
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.gfxSetColor, color: "red" },
       wait(90),

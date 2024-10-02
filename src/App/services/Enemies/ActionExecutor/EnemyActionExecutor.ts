@@ -237,11 +237,6 @@ export class EnemyActionExecutor {
                break;
             }
 
-            // TODO: Do I even need "do"? I think I made that when i was using YAML for convenience.
-            case AT.do: // flatten essentially.
-               yield* this.makeGenerator(currAction.acns);
-               break;
-
             case AT.parallelRace: {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));
                yield* GeneratorUtils.parallelRace(generators);

@@ -1,5 +1,5 @@
 import type {
-   TAction, TAttrIf, TDo, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
+   TAction, TAttrIf, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll, TparallelRace
 } from "../../App/services/Enemies/actions/actionTypes.ts";
 import type { TGameObject } from "@/gameTypes/TGameObject";
@@ -56,12 +56,6 @@ export function attr(
       no
    };
 }
-
-// first caps because `do` is a reserved word in js.
-export const Do = (...actions: TAction[]): TDo => ({
-   type: AT.do,
-   acns: actions
-});
 
 export function forever(...actions: TAction[]): TRepeat {
    return {

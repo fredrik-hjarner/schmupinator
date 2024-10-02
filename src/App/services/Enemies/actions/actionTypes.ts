@@ -162,11 +162,6 @@ export type TDecrement =
 export type TMirrorX = { type: ActionType.mirrorX, value: boolean };
 export type TMirrorY = { type: ActionType.mirrorY, value: boolean };
 /**
- * The only purpose for this is to "flatten" arrays in YAML.
- * The action simple executes the actions sent to it. As simple as that.
- */
-export type TDo = { type: ActionType.do, acns: TAction[] };
-/**
  * Enemy despawns.
  * An example of when this should be used is when an enemy despawns outside of the screen,
  */
@@ -252,7 +247,6 @@ export type TAction = Readonly<
    TRepeat |
    TparallelRace |
    TparallelAll |
-   TDo |
    TFork |
    /**
    * Shooting

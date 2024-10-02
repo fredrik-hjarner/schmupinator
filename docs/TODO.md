@@ -422,4 +422,4 @@ events.
 * Idea: I should have all the state managed by redux maybe, so I have ALL the data easily available
   and the great Redux DevTools to to see deltas. Maybe look into Zustand.
 
-* Remove the Do action because it's not needed?
+* ~~Remove the Do action because it's not needed?~~

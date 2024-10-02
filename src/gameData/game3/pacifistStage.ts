@@ -2,7 +2,7 @@ import type { TGameObject } from "../../gameTypes/TGameObject";
 import type { TSpawn } from "../../App/services/Enemies/actions/actionTypes.ts";
 
 import { ActionType as AT} from "../../App/services/Enemies/actions/actionTypes.ts";
-import { Do, createGameObject, repeat, wait } from "../utils/utils.ts";
+import { createGameObject, repeat, wait } from "../utils/utils.ts";
 
 const sinusLeft: TSpawn = {
    type: AT.spawn, enemy: "sinus",
@@ -20,8 +20,8 @@ const sinusRight: TSpawn = {
 };
 
 const sinuses = repeat(5, [
-   Do(sinusLeft, wait(70)),
-   Do(sinusRight, wait(70)),
+   sinusLeft, wait(70),
+   sinusRight, wait(70),
 ]);
 
 export const pacifistStage: TGameObject = createGameObject({
