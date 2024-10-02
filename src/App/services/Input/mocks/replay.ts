@@ -1,296 +1,454 @@
 /* eslint-disable max-lines */
 export const replay = {
    "inputs": {
+      "54": {
+         "right": true
+      },
+      "55": {
+         "right": true
+      },
+      "56": {
+         "right": true
+      },
+      "57": {
+         "right": true
+      },
+      "58": {
+         "right": true
+      },
+      "59": {
+         "right": true
+      },
+      "60": {
+         "right": true
+      },
+      "61": {
+         "right": true
+      },
+      "62": {
+         "right": true
+      },
+      "63": {
+         "right": true
+      },
+      "64": {
+         "right": true
+      },
+      "65": {
+         "right": true
+      },
+      "66": {
+         "right": true
+      },
+      "67": {
+         "right": true
+      },
+      "68": {
+         "right": true
+      },
+      "69": {
+         "right": true
+      },
+      "70": {
+         "right": true
+      },
+      "71": {
+         "right": true
+      },
+      "74": {
+         "left": true
+      },
+      "75": {
+         "left": true
+      },
+      "76": {
+         "left": true
+      },
+      "77": {
+         "left": true
+      },
+      "78": {
+         "left": true
+      },
+      "79": {
+         "left": true
+      },
+      "80": {
+         "left": true
+      },
+      "81": {
+         "left": true
+      },
+      "82": {
+         "left": true
+      },
+      "83": {
+         "left": true
+      },
+      "84": {
+         "left": true
+      },
+      "85": {
+         "left": true,
+         "up": true
+      },
+      "86": {
+         "left": true,
+         "up": true
+      },
+      "87": {
+         "left": true,
+         "up": true
+      },
+      "88": {
+         "up": true
+      },
+      "89": {
+         "up": true
+      },
+      "90": {
+         "up": true
+      },
+      "91": {
+         "up": true
+      },
+      "92": {
+         "up": true
+      },
+      "93": {
+         "up": true
+      },
+      "94": {
+         "up": true
+      },
+      "95": {
+         "up": true
+      },
+      "96": {
+         "left": true,
+         "up": true
+      },
+      "97": {
+         "left": true,
+         "up": true
+      },
+      "98": {
+         "left": true,
+         "up": true
+      },
+      "99": {
+         "left": true,
+         "up": true
+      },
+      "100": {
+         "left": true,
+         "up": true
+      },
+      "101": {
+         "left": true,
+         "up": true
+      },
+      "102": {
+         "left": true,
+         "up": true
+      },
+      "103": {
+         "left": true,
+         "up": true
+      },
+      "104": {
+         "left": true,
+         "up": true
+      },
+      "105": {
+         "left": true,
+         "up": true
+      },
+      "106": {
+         "left": true,
+         "up": true
+      },
+      "107": {
+         "left": true,
+         "up": true
+      },
       "108": {
-         "shoot": true
+         "left": true,
+         "up": true
       },
       "109": {
-         "shoot": true
+         "left": true,
+         "up": true
       },
       "110": {
-         "shoot": true
+         "left": true,
+         "up": true
       },
       "111": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "112": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "113": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "114": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "115": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "116": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "117": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "118": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "119": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "120": {
-         "shoot": true,
-         "right": true
+         "left": true,
+         "up": true
       },
       "121": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "122": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "123": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "124": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "125": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "126": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "127": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "128": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "129": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "130": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "131": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "132": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "133": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "134": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "135": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "136": {
-         "shoot": true,
-         "right": true
+         "left": true
       },
       "137": {
-         "shoot": true
+         "left": true,
+         "down": true
       },
       "138": {
-         "shoot": true,
-         "left": true
+         "left": true,
+         "down": true
       },
       "139": {
-         "shoot": true,
-         "left": true
+         "down": true
       },
       "140": {
-         "shoot": true,
-         "left": true
+         "down": true
       },
       "141": {
-         "shoot": true,
-         "left": true
+         "down": true
       },
       "142": {
-         "shoot": true,
-         "left": true
+         "down": true
       },
       "143": {
-         "shoot": true,
-         "left": true
+         "down": true
       },
       "144": {
-         "shoot": true,
-         "left": true
+         "down": true
       },
       "145": {
-         "shoot": true,
-         "left": true
+         "down": true
       },
       "146": {
-         "shoot": true,
-         "left": true
+         "right": true,
+         "down": true
       },
       "147": {
          "shoot": true,
-         "left": true
+         "right": true,
+         "down": true
       },
       "148": {
          "shoot": true,
-         "left": true
+         "right": true,
+         "down": true
       },
       "149": {
          "shoot": true,
-         "left": true
+         "right": true,
+         "down": true
       },
       "150": {
          "shoot": true,
-         "left": true
+         "right": true,
+         "down": true
       },
       "151": {
          "shoot": true,
-         "left": true
+         "right": true,
+         "down": true
       },
       "152": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "153": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "154": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "155": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "156": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "157": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "158": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "159": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "160": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "161": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "162": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "163": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "164": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "165": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "166": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "167": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "168": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "169": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "170": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "171": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "172": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "173": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "174": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "175": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "176": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "177": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "178": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "179": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "180": {
          "shoot": true,
-         "left": true
+         "right": true
       },
       "181": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "182": {
          "shoot": true,
@@ -325,75 +483,94 @@ export const replay = {
          "right": true
       },
       "190": {
-         "shoot": true,
-         "right": true
+         "shoot": true
       },
       "191": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "192": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "193": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "194": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "195": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "196": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "197": {
-         "shoot": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "198": {
-         "shoot": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "199": {
-         "shoot": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "200": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "201": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "202": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "203": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "204": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "205": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "206": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "207": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "208": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "209": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "210": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "211": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "212": {
          "shoot": true
@@ -432,25 +609,32 @@ export const replay = {
          "shoot": true
       },
       "224": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "225": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "226": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "227": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "228": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "229": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "230": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "231": {
          "shoot": true
@@ -513,24 +697,19 @@ export const replay = {
          "shoot": true
       },
       "251": {
-         "shoot": true,
-         "right": true
+         "shoot": true
       },
       "252": {
-         "shoot": true,
-         "right": true
+         "shoot": true
       },
       "253": {
-         "shoot": true,
-         "right": true
+         "shoot": true
       },
       "254": {
-         "shoot": true,
-         "right": true
+         "shoot": true
       },
       "255": {
-         "shoot": true,
-         "right": true
+         "shoot": true
       },
       "256": {
          "shoot": true
@@ -899,139 +1078,184 @@ export const replay = {
          "shoot": true
       },
       "378": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "379": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "380": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "381": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "382": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "383": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "384": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "385": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "386": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "387": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "388": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "389": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "390": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "391": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "392": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "393": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "394": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "395": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "396": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "397": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "398": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "399": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "400": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "401": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "402": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "403": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "404": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "405": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "406": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "407": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "408": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "409": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "410": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "411": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "412": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "413": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "414": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "415": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "416": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "417": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "418": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "419": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "420": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "421": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "422": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "423": {
          "shoot": true
@@ -1073,154 +1297,204 @@ export const replay = {
          "shoot": true
       },
       "436": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "437": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "438": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "439": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "440": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "441": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "442": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "443": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "444": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "445": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "446": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "447": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "448": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "449": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "450": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "451": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "452": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "453": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "454": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "455": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "456": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "457": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "458": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "459": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "460": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "461": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "462": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "463": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "464": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "465": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "466": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "467": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "468": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "469": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "470": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "471": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "472": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "473": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "474": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "475": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "476": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "477": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "478": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "479": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "480": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "481": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "482": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "483": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "484": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "485": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "486": {
          "shoot": true
@@ -1238,40 +1512,52 @@ export const replay = {
          "shoot": true
       },
       "491": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "492": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "493": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "494": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "495": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "496": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "497": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "498": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "499": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "500": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "501": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "502": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "503": {
          "shoot": true
@@ -1283,13 +1569,16 @@ export const replay = {
          "shoot": true
       },
       "506": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "507": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "508": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "509": {
          "shoot": true,
@@ -1329,131 +1618,131 @@ export const replay = {
       },
       "518": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "519": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "520": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "521": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "522": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "523": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "524": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "525": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "526": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "527": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "528": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "529": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "530": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "531": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "532": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "533": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "534": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "535": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "536": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "537": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "538": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "539": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "540": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "541": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "542": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "543": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "544": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "545": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "546": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "547": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "548": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "549": {
          "shoot": true,
-         "left": true
+         "up": true
       },
       "550": {
          "shoot": true,
@@ -1476,37 +1765,48 @@ export const replay = {
          "left": true
       },
       "555": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "556": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "557": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "558": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "559": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "560": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "561": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "562": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "563": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "564": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "565": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "566": {
          "shoot": true
@@ -1560,2556 +1860,3057 @@ export const replay = {
          "shoot": true
       },
       "583": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "584": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "585": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "586": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "587": {
-         "shoot": true
+         "shoot": true,
+         "left": true
       },
       "588": {
-         "shoot": true
+         "shoot": true,
+         "left": true
+      },
+      "589": {
+         "shoot": true,
+         "left": true
+      },
+      "590": {
+         "shoot": true,
+         "left": true
+      },
+      "591": {
+         "shoot": true,
+         "left": true
+      },
+      "592": {
+         "shoot": true,
+         "left": true
+      },
+      "593": {
+         "shoot": true,
+         "left": true
+      },
+      "594": {
+         "shoot": true,
+         "left": true
       },
       "595": {
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "596": {
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "597": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "598": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "599": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "600": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "601": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "602": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "603": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "604": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "605": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "606": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "607": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "608": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "609": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "610": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "611": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "612": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "613": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "614": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "615": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "616": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "617": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "618": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "619": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "620": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "621": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "622": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "623": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "624": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "625": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "626": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "627": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "628": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "629": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "630": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "631": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "632": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "633": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "634": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "635": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "636": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "637": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "638": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "639": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "640": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "641": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "642": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "643": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "644": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "645": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "646": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "647": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "648": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "649": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "650": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "651": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "652": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "653": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "654": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "655": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "656": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "657": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "658": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "659": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "660": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "661": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "662": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "663": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "664": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "665": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "666": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "667": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "668": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "669": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "670": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "671": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "672": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "673": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "674": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "675": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "676": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "677": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "678": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "679": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "680": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "681": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "682": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "683": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "684": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "685": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "686": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "687": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "688": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "689": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "690": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "691": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "692": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "693": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "694": {
-         "laser": true
+         "shoot": true
       },
       "695": {
-         "laser": true
+         "shoot": true
       },
       "696": {
-         "laser": true
+         "shoot": true
       },
       "697": {
-         "laser": true
+         "shoot": true
       },
       "698": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "699": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "700": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "701": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "702": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "703": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "704": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "705": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "706": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "707": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "708": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "709": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "710": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "711": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "712": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "713": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "714": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "715": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "716": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "717": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "718": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "719": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "720": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "721": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "722": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "723": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "724": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "725": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
+      },
+      "726": {
+         "shoot": true,
+         "down": true
+      },
+      "727": {
+         "shoot": true,
+         "down": true
+      },
+      "728": {
+         "shoot": true,
+         "down": true
+      },
+      "729": {
+         "shoot": true
+      },
+      "730": {
+         "shoot": true
       },
       "731": {
-         "right": true
+         "shoot": true
       },
       "732": {
-         "right": true
+         "shoot": true
       },
       "733": {
-         "right": true
+         "shoot": true
       },
       "734": {
-         "right": true
+         "shoot": true
       },
       "735": {
-         "right": true
+         "shoot": true
       },
       "736": {
-         "right": true
+         "shoot": true
       },
       "737": {
+         "shoot": true
+      },
+      "738": {
+         "shoot": true
+      },
+      "739": {
+         "shoot": true
+      },
+      "740": {
+         "shoot": true
+      },
+      "741": {
+         "shoot": true
+      },
+      "742": {
+         "shoot": true
+      },
+      "743": {
+         "shoot": true
+      },
+      "744": {
+         "shoot": true
+      },
+      "745": {
+         "shoot": true
+      },
+      "746": {
+         "shoot": true
+      },
+      "747": {
+         "shoot": true
+      },
+      "748": {
+         "shoot": true
+      },
+      "749": {
+         "shoot": true
+      },
+      "750": {
+         "shoot": true
+      },
+      "751": {
+         "shoot": true,
          "right": true
+      },
+      "752": {
+         "shoot": true,
+         "right": true
+      },
+      "753": {
+         "shoot": true,
+         "right": true
+      },
+      "754": {
+         "shoot": true,
+         "right": true
+      },
+      "755": {
+         "shoot": true,
+         "right": true
+      },
+      "756": {
+         "shoot": true,
+         "right": true
+      },
+      "757": {
+         "shoot": true,
+         "right": true
+      },
+      "758": {
+         "shoot": true,
+         "right": true
+      },
+      "759": {
+         "shoot": true,
+         "right": true
+      },
+      "760": {
+         "shoot": true,
+         "right": true
+      },
+      "761": {
+         "shoot": true,
+         "right": true
+      },
+      "762": {
+         "shoot": true
+      },
+      "763": {
+         "shoot": true
+      },
+      "764": {
+         "shoot": true
+      },
+      "765": {
+         "shoot": true
+      },
+      "766": {
+         "shoot": true
+      },
+      "767": {
+         "shoot": true
+      },
+      "768": {
+         "shoot": true
+      },
+      "769": {
+         "shoot": true
+      },
+      "770": {
+         "shoot": true
+      },
+      "771": {
+         "shoot": true
+      },
+      "772": {
+         "shoot": true
+      },
+      "773": {
+         "shoot": true
+      },
+      "774": {
+         "shoot": true
+      },
+      "775": {
+         "shoot": true
+      },
+      "776": {
+         "shoot": true
+      },
+      "777": {
+         "shoot": true
+      },
+      "778": {
+         "shoot": true,
+         "left": true
       },
       "779": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "780": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "781": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "782": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "783": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "784": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "785": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "786": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "787": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "788": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "789": {
-         "laser": true
+         "shoot": true
       },
       "790": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "791": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "792": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "793": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "794": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "795": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "796": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "797": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "798": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "799": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "800": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "801": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "802": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "803": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "804": {
-         "laser": true
+         "shoot": true
       },
       "805": {
-         "laser": true
+         "shoot": true
       },
       "806": {
-         "laser": true
+         "shoot": true
       },
       "807": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "808": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "809": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "810": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "811": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "812": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "813": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "814": {
-         "laser": true
+         "shoot": true
       },
       "815": {
-         "laser": true
+         "shoot": true
       },
       "816": {
-         "laser": true
+         "shoot": true
       },
       "817": {
-         "laser": true
+         "shoot": true
       },
       "818": {
-         "laser": true
+         "shoot": true
       },
       "819": {
-         "laser": true
+         "shoot": true
       },
       "820": {
-         "laser": true
+         "shoot": true
       },
       "821": {
-         "laser": true
+         "shoot": true
       },
       "822": {
-         "laser": true
+         "shoot": true
       },
       "823": {
-         "laser": true
+         "shoot": true
       },
       "824": {
-         "laser": true
+         "shoot": true
       },
       "825": {
-         "laser": true
+         "shoot": true
       },
       "826": {
-         "laser": true
+         "shoot": true
       },
       "827": {
-         "laser": true
+         "shoot": true
       },
       "828": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "829": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "830": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "831": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "832": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "833": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "834": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "835": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "836": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "837": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "838": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "839": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "840": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "841": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "842": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "843": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "844": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "845": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "846": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "847": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "848": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "849": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "850": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "851": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "852": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "853": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "854": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "855": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "856": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "857": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "858": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "859": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "860": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "861": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "862": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "863": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "864": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "865": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "866": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "867": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "868": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "869": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "870": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "871": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "872": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "873": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "874": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "875": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "876": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "877": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "878": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "879": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "880": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "881": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "882": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "883": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "884": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "885": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "886": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "887": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "888": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "889": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "890": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "891": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "892": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "893": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "894": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "895": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "896": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "897": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "898": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "899": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "900": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "901": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "902": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "903": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "904": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "905": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "906": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "907": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "908": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "909": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "910": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "911": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "912": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "913": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "914": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "915": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "916": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "917": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "918": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "919": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "920": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "921": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "922": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "923": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "924": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "925": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "926": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "927": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "928": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "929": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "930": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "931": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "932": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "933": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "934": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "935": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "936": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "937": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "938": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "939": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "940": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "941": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "942": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "943": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "944": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "945": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "946": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "947": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "948": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "949": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "950": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "951": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "952": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "953": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "954": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "955": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "956": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "957": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "958": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "959": {
-         "laser": true,
-         "left": true
+         "shoot": true
       },
       "960": {
-         "laser": true
+         "shoot": true
       },
       "961": {
-         "laser": true
+         "shoot": true
       },
       "962": {
-         "laser": true
+         "shoot": true
       },
       "963": {
-         "laser": true
+         "shoot": true
       },
       "964": {
-         "laser": true
+         "shoot": true
       },
       "965": {
-         "laser": true
+         "shoot": true
       },
       "966": {
-         "laser": true
+         "shoot": true
       },
       "967": {
-         "laser": true
+         "shoot": true
       },
       "968": {
-         "laser": true
+         "shoot": true
       },
       "969": {
-         "laser": true
+         "shoot": true
       },
       "970": {
-         "laser": true
+         "shoot": true
       },
       "971": {
-         "laser": true
+         "shoot": true
       },
       "972": {
-         "laser": true
+         "shoot": true
       },
       "973": {
-         "laser": true
+         "shoot": true
       },
       "974": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "975": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "976": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "977": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "978": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "979": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "980": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "981": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "982": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "983": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "984": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "985": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "986": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "987": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "988": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "989": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "990": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "991": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "992": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "993": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "994": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "995": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "996": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "997": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "998": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "999": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1000": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1001": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1002": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1003": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1004": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1005": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1006": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1007": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1008": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1009": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1010": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1011": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1012": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1013": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1014": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1015": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1016": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1017": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1018": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1019": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1020": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1021": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1022": {
-         "laser": true
+         "shoot": true
       },
       "1023": {
-         "laser": true
+         "shoot": true
       },
       "1024": {
-         "laser": true
+         "shoot": true
       },
       "1025": {
-         "laser": true
+         "shoot": true
       },
       "1026": {
-         "laser": true
+         "shoot": true
       },
       "1027": {
-         "laser": true
+         "shoot": true
       },
       "1028": {
-         "laser": true
+         "shoot": true
       },
       "1029": {
-         "laser": true
+         "shoot": true
       },
       "1030": {
-         "laser": true
+         "shoot": true
       },
       "1031": {
-         "laser": true
+         "shoot": true
       },
       "1032": {
-         "laser": true
+         "shoot": true
       },
       "1033": {
-         "laser": true
+         "shoot": true
       },
       "1034": {
-         "laser": true
+         "shoot": true
       },
       "1035": {
-         "laser": true
+         "shoot": true
       },
       "1036": {
-         "laser": true
+         "shoot": true
       },
       "1037": {
-         "laser": true
+         "shoot": true
       },
       "1038": {
-         "laser": true
+         "shoot": true
       },
       "1039": {
-         "laser": true
+         "shoot": true
       },
       "1040": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1041": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1042": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1043": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1044": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1045": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1046": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1047": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1048": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1049": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1050": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1051": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1052": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1053": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1054": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1055": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1056": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1057": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1058": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1059": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1060": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1061": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1062": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1063": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1064": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1065": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1066": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1067": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1068": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1069": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1070": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1071": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1072": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1073": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1074": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1075": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1076": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1077": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1078": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1079": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1080": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1081": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1082": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1083": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1084": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1085": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1086": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1087": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1088": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1089": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1090": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1091": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1092": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1093": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1094": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1095": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1096": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1097": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1098": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1099": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1100": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1101": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1102": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1103": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1104": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1105": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1106": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1107": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1108": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1109": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1110": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1111": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1112": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1113": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1114": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1115": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1116": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1117": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1118": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1119": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1120": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1121": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1122": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1123": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1124": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1125": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1126": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1127": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1128": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1129": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1130": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1131": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1132": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1133": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1134": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1135": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1136": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1137": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1138": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1139": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1140": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1141": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1142": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1143": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1144": {
-         "laser": true,
+         "shoot": true,
          "left": true
       },
       "1145": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1146": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1147": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1148": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1149": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1150": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1151": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1152": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1153": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1154": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1155": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1156": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1157": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1158": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1159": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1160": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1161": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1162": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1163": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1164": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1165": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1166": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1167": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1168": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1169": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1170": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1171": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1172": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1173": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1174": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1175": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1176": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1177": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1178": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1179": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1180": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1181": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1182": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1183": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1184": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1185": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1186": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1187": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1188": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1189": {
-         "laser": true
+         "shoot": true,
+         "down": true
       },
       "1190": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1191": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1192": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1193": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1194": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1195": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1196": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1197": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1198": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1199": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1200": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1201": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1202": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1203": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1204": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1205": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1206": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1207": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1208": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1209": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1210": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1211": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1212": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1213": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1214": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1215": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1216": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1217": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1218": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1219": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1220": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1221": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1222": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1223": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1224": {
-         "laser": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1225": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1226": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1227": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1228": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1229": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1230": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1231": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1232": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1233": {
-         "laser": true
+         "shoot": true,
+         "up": true
       },
       "1234": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1235": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "up": true
       },
       "1236": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1237": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1238": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1239": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1240": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1241": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1242": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1243": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1244": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1245": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1246": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1247": {
-         "laser": true
+         "shoot": true,
+         "left": true
       },
       "1248": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1249": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1250": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1251": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1252": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1253": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1254": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1255": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1256": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1257": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1258": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1259": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1260": {
-         "laser": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1261": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true,
+         "down": true
       },
       "1262": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1263": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1264": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1265": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1266": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1267": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1268": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "down": true
       },
       "1269": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1270": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1271": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1272": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1273": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1274": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1275": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1276": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1277": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1278": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1279": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1280": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1281": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1282": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1283": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1284": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1285": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1286": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1287": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1288": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1289": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1290": {
-         "laser": true,
-         "right": true
+         "shoot": true
       },
       "1291": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1292": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1293": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1294": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1295": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1296": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1297": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1298": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1299": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1300": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1301": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "left": true
       },
       "1302": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1303": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1304": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1305": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1306": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1307": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "up": true
       },
       "1308": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1309": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1310": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1311": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1312": {
-         "laser": true,
-         "right": true
+         "shoot": true,
+         "right": true,
+         "up": true
       },
       "1313": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1314": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1315": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1316": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1317": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1318": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1319": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1320": {
-         "laser": true,
+         "shoot": true,
          "right": true
       },
       "1321": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1322": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1323": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1324": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1325": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1326": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1327": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1328": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1329": {
-         "laser": true
+         "shoot": true,
+         "right": true
       },
       "1330": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1331": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1332": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1333": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1334": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "right": true,
+         "down": true
       },
       "1335": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1336": {
-         "laser": true,
-         "left": true
+         "shoot": true,
+         "down": true
       },
       "1337": {
-         "laser": true
+         "shoot": true,
+         "down": true
+      },
+      "1338": {
+         "shoot": true,
+         "down": true
+      },
+      "1339": {
+         "shoot": true,
+         "down": true
+      },
+      "1340": {
+         "shoot": true,
+         "down": true
+      },
+      "1341": {
+         "shoot": true,
+         "down": true
+      },
+      "1342": {
+         "shoot": true,
+         "down": true
+      },
+      "1343": {
+         "shoot": true,
+         "down": true
+      },
+      "1344": {
+         "shoot": true,
+         "down": true
+      },
+      "1345": {
+         "shoot": true,
+         "down": true
+      },
+      "1346": {
+         "shoot": true
+      },
+      "1347": {
+         "shoot": true,
+         "left": true
+      },
+      "1348": {
+         "shoot": true,
+         "left": true
+      },
+      "1349": {
+         "shoot": true,
+         "left": true
+      },
+      "1350": {
+         "shoot": true,
+         "left": true
+      },
+      "1351": {
+         "shoot": true,
+         "left": true
+      },
+      "1352": {
+         "shoot": true,
+         "left": true
+      },
+      "1353": {
+         "shoot": true,
+         "left": true
+      },
+      "1354": {
+         "shoot": true,
+         "left": true
+      },
+      "1355": {
+         "shoot": true,
+         "up": true
+      },
+      "1356": {
+         "shoot": true,
+         "up": true
+      },
+      "1357": {
+         "shoot": true,
+         "up": true
+      },
+      "1358": {
+         "shoot": true,
+         "up": true
       },
       "1359": {
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1360": {
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1361": {
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1362": {
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1363": {
-         "left": true
+         "shoot": true,
+         "up": true
       },
       "1364": {
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1365": {
-         "left": true
+         "shoot": true,
+         "right": true
       },
       "1366": {
          "shoot": true,
-         "left": true
+         "left": true,
+         "right": true
       },
       "1367": {
          "shoot": true,
-         "left": true
+         "left": true,
+         "right": true
       },
       "1368": {
          "shoot": true,
-         "left": true
+         "left": true,
+         "right": true
       },
       "1369": {
          "shoot": true,
@@ -4135,94 +4936,109 @@ export const replay = {
          "shoot": true
       },
       "1375": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1376": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1377": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1378": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1379": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1380": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1381": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1382": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1383": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1384": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1385": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1386": {
-         "shoot": true
-      },
-      "1387": {
-         "shoot": true
-      },
-      "1388": {
-         "shoot": true
-      },
-      "1389": {
-         "shoot": true
-      },
-      "1390": {
-         "shoot": true
-      },
-      "1391": {
-         "shoot": true
-      },
-      "1392": {
-         "shoot": true
-      },
-      "1393": {
-         "shoot": true
-      },
-      "1394": {
-         "shoot": true,
-         "right": true
-      },
-      "1395": {
-         "shoot": true,
-         "right": true
-      },
-      "1396": {
-         "shoot": true,
-         "right": true
-      },
-      "1397": {
-         "shoot": true,
-         "right": true
-      },
-      "1398": {
-         "shoot": true,
-         "right": true
-      },
-      "1399": {
-         "shoot": true,
-         "right": true
-      },
-      "1400": {
          "shoot": true,
          "right": true,
-         "down": true
+         "up": true
+      },
+      "1387": {
+         "shoot": true,
+         "right": true,
+         "up": true
+      },
+      "1388": {
+         "shoot": true,
+         "right": true,
+         "up": true
+      },
+      "1389": {
+         "shoot": true,
+         "right": true,
+         "up": true
+      },
+      "1390": {
+         "shoot": true,
+         "right": true,
+         "up": true
+      },
+      "1391": {
+         "shoot": true,
+         "up": true
+      },
+      "1392": {
+         "shoot": true,
+         "up": true
+      },
+      "1393": {
+         "shoot": true,
+         "up": true
+      },
+      "1394": {
+         "shoot": true
+      },
+      "1395": {
+         "shoot": true
+      },
+      "1396": {
+         "shoot": true
+      },
+      "1397": {
+         "shoot": true
+      },
+      "1398": {
+         "shoot": true
+      },
+      "1399": {
+         "shoot": true
+      },
+      "1400": {
+         "shoot": true
       },
       "1401": {
-         "shoot": true,
-         "down": true
+         "shoot": true
       },
       "1402": {
          "shoot": true,
@@ -4277,46 +5093,49 @@ export const replay = {
          "down": true
       },
       "1415": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1416": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1417": {
          "shoot": true,
-         "right": true
+         "down": true
       },
       "1418": {
          "shoot": true,
-         "right": true
+         "down": true
       },
       "1419": {
          "shoot": true,
-         "right": true
+         "down": true
       },
       "1420": {
          "shoot": true,
-         "right": true
+         "left": true,
+         "down": true
       },
       "1421": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "1422": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "1423": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "1424": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "1425": {
          "shoot": true,
-         "right": true
+         "left": true
       },
       "1426": {
          "shoot": true,
@@ -4335,16 +5154,20 @@ export const replay = {
          "right": true
       },
       "1430": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "1431": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "1432": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "1433": {
-         "shoot": true
+         "shoot": true,
+         "right": true
       },
       "1434": {
          "shoot": true
@@ -4356,19 +5179,24 @@ export const replay = {
          "shoot": true
       },
       "1437": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1438": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1439": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1440": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1441": {
-         "shoot": true
+         "shoot": true,
+         "up": true
       },
       "1442": {
          "shoot": true
@@ -4392,28 +5220,36 @@ export const replay = {
          "shoot": true
       },
       "1449": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1450": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1451": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1452": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1453": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1454": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1455": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1456": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1457": {
          "shoot": true
@@ -4473,50 +5309,54 @@ export const replay = {
          "shoot": true
       },
       "1476": {
-         "shoot": true,
-         "left": true
+         "shoot": true
       },
       "1477": {
-         "shoot": true,
-         "left": true
+         "shoot": true
       },
       "1478": {
          "shoot": true,
-         "left": true
+         "down": true
       },
       "1479": {
          "shoot": true,
-         "left": true
+         "down": true
       },
       "1480": {
          "shoot": true,
-         "left": true
+         "down": true
       },
       "1481": {
          "shoot": true,
-         "left": true
+         "down": true
       },
       "1482": {
          "shoot": true,
-         "left": true
+         "down": true
       },
       "1483": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1484": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1485": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1486": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1487": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1488": {
-         "shoot": true
+         "shoot": true,
+         "down": true
       },
       "1489": {
          "shoot": true
@@ -4528,2073 +5368,377 @@ export const replay = {
          "shoot": true
       },
       "1492": {
-         "shoot": true,
-         "laser": true
+         "shoot": true
       },
       "1493": {
-         "shoot": true,
-         "laser": true
+         "shoot": true
       },
       "1494": {
-         "shoot": true,
-         "laser": true
+         "shoot": true
       },
       "1495": {
-         "shoot": true,
-         "laser": true
+         "shoot": true
       },
       "1496": {
-         "shoot": true,
-         "laser": true
+         "shoot": true
       },
       "1497": {
-         "shoot": true,
-         "laser": true
-      },
-      "1498": {
-         "shoot": true,
-         "laser": true
-      },
-      "1499": {
-         "shoot": true,
-         "laser": true
-      },
-      "1500": {
-         "shoot": true,
-         "laser": true
-      },
-      "1501": {
-         "shoot": true,
-         "laser": true
-      },
-      "1502": {
-         "shoot": true
-      },
-      "1503": {
-         "shoot": true
-      },
-      "1504": {
-         "shoot": true
-      },
-      "1505": {
-         "shoot": true
-      },
-      "1506": {
-         "shoot": true
-      },
-      "1507": {
-         "shoot": true
-      },
-      "1508": {
-         "shoot": true
-      },
-      "1509": {
          "shoot": true
       },
       "1510": {
-         "shoot": true
+         "laser": true
       },
       "1511": {
-         "shoot": true
+         "laser": true
       },
       "1512": {
-         "shoot": true
+         "laser": true
       },
       "1513": {
-         "shoot": true
+         "laser": true
       },
       "1514": {
-         "shoot": true,
          "laser": true
       },
       "1515": {
-         "shoot": true,
          "laser": true
       },
       "1516": {
-         "shoot": true,
          "laser": true
       },
       "1517": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1518": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1519": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1520": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1521": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1522": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1523": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1524": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1525": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1526": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1527": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1528": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1529": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1530": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1531": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1532": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1533": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1534": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1535": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1536": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1537": {
-         "shoot": true
+         "laser": true,
+         "left": true
       },
       "1538": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "left": true
       },
       "1539": {
-         "shoot": true,
          "laser": true
       },
       "1540": {
-         "shoot": true,
          "laser": true
       },
       "1541": {
-         "shoot": true,
          "laser": true
       },
       "1542": {
-         "shoot": true,
          "laser": true
       },
       "1543": {
-         "shoot": true,
          "laser": true
       },
       "1544": {
-         "shoot": true,
          "laser": true
       },
       "1545": {
-         "shoot": true,
          "laser": true
       },
       "1546": {
-         "shoot": true,
          "laser": true
       },
       "1547": {
-         "shoot": true,
          "laser": true
       },
       "1548": {
-         "shoot": true
+         "laser": true,
+         "down": true
       },
       "1549": {
-         "shoot": true
+         "laser": true,
+         "down": true
       },
       "1550": {
-         "shoot": true
+         "laser": true,
+         "down": true
       },
       "1551": {
-         "shoot": true
+         "laser": true,
+         "down": true
       },
       "1552": {
-         "shoot": true
+         "laser": true,
+         "down": true
       },
       "1553": {
-         "shoot": true
+         "laser": true,
+         "down": true
       },
       "1554": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "down": true
       },
       "1555": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "down": true
       },
       "1556": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "down": true
       },
       "1557": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "down": true
       },
       "1558": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "down": true
       },
       "1559": {
-         "shoot": true,
          "laser": true
       },
       "1560": {
-         "shoot": true,
          "laser": true
       },
       "1561": {
-         "shoot": true
+         "laser": true
       },
       "1562": {
-         "shoot": true
+         "laser": true
       },
       "1563": {
-         "shoot": true
+         "laser": true
       },
       "1564": {
-         "shoot": true
+         "laser": true,
+         "right": true
       },
       "1565": {
-         "shoot": true
+         "laser": true,
+         "right": true
       },
       "1566": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "right": true
       },
       "1567": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "right": true
       },
       "1568": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "right": true
       },
       "1569": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "right": true
       },
       "1570": {
-         "shoot": true,
-         "laser": true
+         "laser": true,
+         "right": true
       },
       "1571": {
-         "shoot": true
+         "laser": true,
+         "right": true
       },
       "1572": {
-         "shoot": true
+         "laser": true
       },
       "1573": {
-         "shoot": true
+         "laser": true
       },
       "1574": {
-         "shoot": true
+         "laser": true
       },
       "1575": {
-         "shoot": true
+         "laser": true
       },
       "1576": {
-         "shoot": true
+         "laser": true
       },
       "1577": {
-         "shoot": true
+         "laser": true
       },
       "1578": {
-         "shoot": true
+         "laser": true
       },
       "1579": {
-         "shoot": true
+         "laser": true
       },
       "1580": {
-         "shoot": true
+         "laser": true
       },
       "1581": {
-         "shoot": true
+         "laser": true
       },
       "1582": {
-         "shoot": true
+         "laser": true
       },
       "1583": {
-         "shoot": true
+         "laser": true
       },
       "1584": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1585": {
-         "shoot": true,
-         "left": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1586": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1587": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1588": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1589": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1590": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1591": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1592": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1593": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1594": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1595": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1596": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1597": {
-         "shoot": true,
-         "right": true
+         "laser": true,
+         "left": true
       },
       "1598": {
-         "shoot": true,
+         "laser": true,
          "right": true
       },
       "1599": {
-         "shoot": true,
+         "laser": true,
          "right": true
       },
       "1600": {
-         "shoot": true,
+         "laser": true,
          "right": true
       },
       "1601": {
-         "shoot": true,
+         "laser": true,
          "right": true
       },
       "1602": {
-         "shoot": true,
+         "laser": true,
          "right": true
       },
       "1603": {
-         "shoot": true,
+         "laser": true,
          "right": true
       },
       "1604": {
-         "shoot": true
+         "laser": true,
+         "right": true
       },
       "1605": {
-         "shoot": true
+         "laser": true,
+         "right": true
       },
       "1606": {
-         "shoot": true
-      },
-      "1607": {
-         "shoot": true
-      },
-      "1608": {
-         "shoot": true
-      },
-      "1609": {
-         "shoot": true
-      },
-      "1610": {
-         "shoot": true
-      },
-      "1611": {
-         "shoot": true,
-         "left": true
-      },
-      "1612": {
-         "shoot": true,
-         "left": true
-      },
-      "1613": {
-         "shoot": true,
-         "left": true
-      },
-      "1614": {
-         "shoot": true,
-         "left": true
-      },
-      "1615": {
-         "shoot": true,
-         "left": true
-      },
-      "1616": {
-         "shoot": true,
-         "left": true
-      },
-      "1617": {
-         "shoot": true,
-         "left": true
-      },
-      "1618": {
-         "shoot": true,
-         "left": true
-      },
-      "1619": {
-         "shoot": true,
-         "left": true
-      },
-      "1620": {
-         "shoot": true,
-         "left": true
-      },
-      "1621": {
-         "shoot": true
-      },
-      "1622": {
-         "shoot": true
-      },
-      "1623": {
-         "shoot": true
-      },
-      "1624": {
-         "shoot": true
-      },
-      "1625": {
-         "shoot": true
-      },
-      "1626": {
-         "shoot": true
-      },
-      "1627": {
-         "shoot": true
-      },
-      "1628": {
-         "shoot": true
-      },
-      "1629": {
-         "shoot": true
-      },
-      "1630": {
-         "shoot": true
-      },
-      "1631": {
-         "shoot": true
-      },
-      "1632": {
-         "shoot": true
-      },
-      "1633": {
-         "shoot": true
-      },
-      "1634": {
-         "shoot": true
-      },
-      "1635": {
-         "shoot": true
-      },
-      "1636": {
-         "shoot": true
-      },
-      "1637": {
-         "shoot": true,
-         "right": true
-      },
-      "1638": {
-         "shoot": true,
-         "right": true
-      },
-      "1639": {
-         "shoot": true,
-         "right": true
-      },
-      "1640": {
-         "shoot": true,
-         "right": true
-      },
-      "1641": {
-         "shoot": true,
-         "right": true
-      },
-      "1642": {
-         "shoot": true,
-         "right": true
-      },
-      "1643": {
-         "shoot": true,
-         "right": true
-      },
-      "1644": {
-         "shoot": true,
-         "right": true
-      },
-      "1645": {
-         "shoot": true,
-         "right": true
-      },
-      "1646": {
-         "shoot": true,
-         "right": true
-      },
-      "1647": {
-         "shoot": true,
-         "right": true
-      },
-      "1648": {
-         "shoot": true,
-         "right": true
-      },
-      "1649": {
-         "shoot": true
-      },
-      "1650": {
-         "shoot": true
-      },
-      "1651": {
-         "shoot": true
-      },
-      "1652": {
-         "shoot": true
-      },
-      "1653": {
-         "shoot": true
-      },
-      "1654": {
-         "shoot": true
-      },
-      "1655": {
-         "shoot": true
-      },
-      "1656": {
-         "shoot": true,
-         "up": true
-      },
-      "1657": {
-         "shoot": true,
-         "up": true
-      },
-      "1658": {
-         "shoot": true,
-         "up": true
-      },
-      "1659": {
-         "shoot": true,
-         "up": true
-      },
-      "1660": {
-         "shoot": true,
-         "up": true
-      },
-      "1661": {
-         "shoot": true,
-         "up": true
-      },
-      "1662": {
-         "shoot": true,
-         "up": true
-      },
-      "1663": {
-         "shoot": true,
-         "up": true
-      },
-      "1664": {
-         "shoot": true,
-         "up": true
-      },
-      "1665": {
-         "shoot": true,
-         "up": true
-      },
-      "1666": {
-         "shoot": true
-      },
-      "1667": {
-         "shoot": true
-      },
-      "1668": {
-         "shoot": true
-      },
-      "1669": {
-         "shoot": true
-      },
-      "1670": {
-         "shoot": true
-      },
-      "1671": {
-         "shoot": true
-      },
-      "1672": {
-         "shoot": true
-      },
-      "1673": {
-         "shoot": true
-      },
-      "1674": {
-         "shoot": true
-      },
-      "1675": {
-         "shoot": true
-      },
-      "1676": {
-         "shoot": true
-      },
-      "1677": {
-         "shoot": true
-      },
-      "1678": {
-         "shoot": true
-      },
-      "1679": {
-         "shoot": true,
-         "right": true
-      },
-      "1680": {
-         "shoot": true,
-         "right": true
-      },
-      "1681": {
-         "shoot": true,
-         "right": true
-      },
-      "1682": {
-         "shoot": true,
-         "right": true
-      },
-      "1683": {
-         "shoot": true,
-         "right": true
-      },
-      "1684": {
-         "shoot": true,
-         "right": true
-      },
-      "1685": {
-         "shoot": true,
-         "right": true
-      },
-      "1686": {
-         "shoot": true,
-         "right": true
-      },
-      "1687": {
-         "shoot": true,
-         "right": true
-      },
-      "1688": {
-         "shoot": true,
-         "right": true
-      },
-      "1689": {
-         "shoot": true,
-         "right": true
-      },
-      "1690": {
-         "shoot": true
-      },
-      "1691": {
-         "shoot": true
-      },
-      "1692": {
-         "shoot": true
-      },
-      "1693": {
-         "shoot": true
-      },
-      "1694": {
-         "shoot": true
-      },
-      "1695": {
-         "shoot": true
-      },
-      "1696": {
-         "shoot": true
-      },
-      "1697": {
-         "shoot": true
-      },
-      "1698": {
-         "shoot": true
-      },
-      "1699": {
-         "shoot": true
-      },
-      "1700": {
-         "shoot": true
-      },
-      "1701": {
-         "shoot": true
-      },
-      "1702": {
-         "shoot": true
-      },
-      "1703": {
-         "shoot": true
-      },
-      "1704": {
-         "shoot": true
-      },
-      "1705": {
-         "shoot": true
-      },
-      "1706": {
-         "shoot": true
-      },
-      "1707": {
-         "shoot": true
-      },
-      "1708": {
-         "shoot": true
-      },
-      "1709": {
-         "shoot": true
-      },
-      "1710": {
-         "shoot": true
-      },
-      "1711": {
-         "shoot": true
-      },
-      "1712": {
-         "shoot": true,
-         "up": true
-      },
-      "1713": {
-         "shoot": true,
-         "up": true
-      },
-      "1714": {
-         "shoot": true,
-         "up": true
-      },
-      "1715": {
-         "shoot": true,
-         "up": true
-      },
-      "1716": {
-         "shoot": true,
-         "up": true
-      },
-      "1717": {
-         "shoot": true
-      },
-      "1718": {
-         "shoot": true
-      },
-      "1719": {
-         "shoot": true
-      },
-      "1720": {
-         "shoot": true
-      },
-      "1721": {
-         "shoot": true
-      },
-      "1722": {
-         "shoot": true
-      },
-      "1723": {
-         "shoot": true
-      },
-      "1724": {
-         "shoot": true
-      },
-      "1725": {
-         "shoot": true
-      },
-      "1726": {
-         "shoot": true
-      },
-      "1727": {
-         "shoot": true
-      },
-      "1728": {
-         "shoot": true
-      },
-      "1729": {
-         "shoot": true
-      },
-      "1730": {
-         "shoot": true
-      },
-      "1731": {
-         "shoot": true
-      },
-      "1732": {
-         "shoot": true
-      },
-      "1733": {
-         "shoot": true
-      },
-      "1734": {
-         "shoot": true
-      },
-      "1735": {
-         "shoot": true
-      },
-      "1736": {
-         "shoot": true
-      },
-      "1737": {
-         "shoot": true
-      },
-      "1738": {
-         "shoot": true
-      },
-      "1739": {
-         "shoot": true
-      },
-      "1740": {
-         "shoot": true
-      },
-      "1741": {
-         "shoot": true
-      },
-      "1742": {
-         "shoot": true
-      },
-      "1743": {
-         "shoot": true
-      },
-      "1744": {
-         "shoot": true
-      },
-      "1745": {
-         "shoot": true
-      },
-      "1746": {
-         "shoot": true
-      },
-      "1747": {
-         "shoot": true
-      },
-      "1748": {
-         "shoot": true,
-         "down": true
-      },
-      "1749": {
-         "shoot": true,
-         "down": true
-      },
-      "1750": {
-         "shoot": true,
-         "down": true
-      },
-      "1751": {
-         "shoot": true,
-         "down": true
-      },
-      "1752": {
-         "shoot": true
-      },
-      "1753": {
-         "shoot": true
-      },
-      "1754": {
-         "shoot": true
-      },
-      "1755": {
-         "shoot": true
-      },
-      "1756": {
-         "shoot": true
-      },
-      "1757": {
-         "shoot": true
-      },
-      "1758": {
-         "shoot": true
-      },
-      "1759": {
-         "shoot": true
-      },
-      "1760": {
-         "shoot": true
-      },
-      "1761": {
-         "shoot": true
-      },
-      "1762": {
-         "shoot": true
-      },
-      "1763": {
-         "shoot": true
-      },
-      "1764": {
-         "shoot": true
-      },
-      "1765": {
-         "shoot": true
-      },
-      "1766": {
-         "shoot": true
-      },
-      "1767": {
-         "shoot": true
-      },
-      "1768": {
-         "shoot": true
-      },
-      "1769": {
-         "shoot": true
-      },
-      "1770": {
-         "shoot": true
-      },
-      "1771": {
-         "shoot": true
-      },
-      "1772": {
-         "shoot": true
-      },
-      "1773": {
-         "shoot": true
-      },
-      "1774": {
-         "shoot": true
-      },
-      "1775": {
-         "shoot": true
-      },
-      "1776": {
-         "shoot": true
-      },
-      "1777": {
-         "shoot": true
-      },
-      "1778": {
-         "shoot": true
-      },
-      "1779": {
-         "shoot": true
-      },
-      "1780": {
-         "shoot": true
-      },
-      "1781": {
-         "shoot": true
-      },
-      "1782": {
-         "shoot": true
-      },
-      "1783": {
-         "shoot": true
-      },
-      "1784": {
-         "shoot": true
-      },
-      "1785": {
-         "shoot": true
-      },
-      "1786": {
-         "shoot": true
-      },
-      "1787": {
-         "shoot": true
-      },
-      "1788": {
-         "shoot": true,
-         "down": true
-      },
-      "1789": {
-         "shoot": true,
-         "down": true
-      },
-      "1790": {
-         "shoot": true,
-         "down": true
-      },
-      "1791": {
-         "shoot": true,
-         "down": true
-      },
-      "1792": {
-         "shoot": true,
-         "down": true
-      },
-      "1793": {
-         "shoot": true,
-         "down": true
-      },
-      "1794": {
-         "shoot": true,
-         "down": true
-      },
-      "1795": {
-         "shoot": true,
-         "down": true
-      },
-      "1796": {
-         "shoot": true,
-         "left": true,
-         "down": true
-      },
-      "1797": {
-         "shoot": true,
-         "left": true
-      },
-      "1798": {
-         "shoot": true,
-         "left": true
-      },
-      "1799": {
-         "shoot": true,
-         "left": true
-      },
-      "1800": {
-         "shoot": true,
-         "left": true
-      },
-      "1801": {
-         "shoot": true,
-         "left": true
-      },
-      "1802": {
-         "shoot": true,
-         "left": true
-      },
-      "1803": {
-         "shoot": true,
-         "left": true
-      },
-      "1804": {
-         "shoot": true,
-         "left": true
-      },
-      "1805": {
-         "shoot": true,
-         "left": true
-      },
-      "1806": {
-         "shoot": true,
-         "left": true
-      },
-      "1807": {
-         "shoot": true,
-         "left": true
-      },
-      "1808": {
-         "shoot": true,
-         "left": true
-      },
-      "1809": {
-         "shoot": true,
-         "left": true
-      },
-      "1810": {
-         "shoot": true,
-         "left": true
-      },
-      "1811": {
-         "shoot": true,
-         "left": true
-      },
-      "1812": {
-         "shoot": true,
-         "left": true
-      },
-      "1813": {
-         "shoot": true,
-         "left": true
-      },
-      "1814": {
-         "shoot": true,
-         "left": true
-      },
-      "1815": {
-         "shoot": true,
-         "left": true
-      },
-      "1816": {
-         "shoot": true,
-         "laser": true,
-         "left": true
-      },
-      "1817": {
-         "shoot": true,
-         "laser": true,
-         "left": true
-      },
-      "1818": {
-         "shoot": true,
-         "laser": true
-      },
-      "1819": {
-         "shoot": true,
-         "laser": true
-      },
-      "1820": {
-         "shoot": true,
-         "laser": true
-      },
-      "1821": {
-         "shoot": true,
-         "laser": true
-      },
-      "1822": {
-         "shoot": true,
-         "laser": true
-      },
-      "1823": {
-         "shoot": true,
-         "laser": true
-      },
-      "1824": {
-         "shoot": true,
-         "laser": true
-      },
-      "1825": {
-         "laser": true
-      },
-      "1826": {
-         "laser": true
-      },
-      "1827": {
-         "laser": true
-      },
-      "1828": {
-         "laser": true
-      },
-      "1829": {
-         "laser": true
-      },
-      "1830": {
-         "laser": true
-      },
-      "1831": {
-         "laser": true
-      },
-      "1832": {
-         "laser": true
-      },
-      "1833": {
-         "laser": true
-      },
-      "1834": {
-         "laser": true
-      },
-      "1835": {
-         "laser": true,
-         "right": true
-      },
-      "1836": {
-         "laser": true,
-         "right": true
-      },
-      "1837": {
-         "laser": true,
-         "right": true
-      },
-      "1838": {
-         "laser": true,
-         "right": true
-      },
-      "1839": {
-         "laser": true
-      },
-      "1840": {
-         "laser": true
-      },
-      "1841": {
-         "laser": true
-      },
-      "1842": {
-         "laser": true
-      },
-      "1843": {
-         "laser": true
-      },
-      "1844": {
-         "laser": true
-      },
-      "1845": {
-         "laser": true
-      },
-      "1846": {
-         "laser": true
-      },
-      "1847": {
-         "laser": true
-      },
-      "1848": {
-         "laser": true
-      },
-      "1849": {
-         "laser": true
-      },
-      "1850": {
-         "laser": true
-      },
-      "1851": {
-         "laser": true
-      },
-      "1852": {
-         "laser": true,
-         "right": true
-      },
-      "1853": {
-         "laser": true,
-         "right": true
-      },
-      "1854": {
-         "laser": true,
-         "right": true
-      },
-      "1855": {
-         "laser": true,
-         "right": true
-      },
-      "1856": {
-         "laser": true,
-         "right": true
-      },
-      "1857": {
-         "laser": true,
-         "right": true
-      },
-      "1858": {
-         "laser": true,
-         "right": true
-      },
-      "1859": {
-         "laser": true
-      },
-      "1860": {
-         "laser": true
-      },
-      "1861": {
-         "laser": true
-      },
-      "1862": {
-         "laser": true
-      },
-      "1863": {
-         "laser": true
-      },
-      "1864": {
-         "laser": true
-      },
-      "1865": {
-         "laser": true
-      },
-      "1866": {
-         "laser": true
-      },
-      "1867": {
-         "laser": true
-      },
-      "1868": {
-         "laser": true,
-         "left": true
-      },
-      "1869": {
-         "laser": true,
-         "left": true
-      },
-      "1870": {
-         "laser": true,
-         "left": true
-      },
-      "1871": {
-         "laser": true,
-         "left": true
-      },
-      "1872": {
-         "laser": true,
-         "left": true
-      },
-      "1873": {
-         "laser": true,
-         "left": true
-      },
-      "1874": {
-         "laser": true,
-         "left": true
-      },
-      "1875": {
-         "laser": true,
-         "left": true
-      },
-      "1876": {
-         "laser": true,
-         "left": true
-      },
-      "1877": {
-         "laser": true,
-         "left": true
-      },
-      "1878": {
-         "laser": true,
-         "left": true
-      },
-      "1879": {
-         "laser": true,
-         "left": true
-      },
-      "1880": {
-         "laser": true,
-         "left": true
-      },
-      "1881": {
-         "laser": true,
-         "left": true
-      },
-      "1882": {
-         "laser": true
-      },
-      "1883": {
-         "laser": true
-      },
-      "1884": {
-         "laser": true
-      },
-      "1885": {
-         "laser": true
-      },
-      "1886": {
-         "laser": true
-      },
-      "1887": {
-         "laser": true,
-         "down": true
-      },
-      "1888": {
-         "laser": true,
-         "down": true
-      },
-      "1889": {
-         "laser": true,
-         "down": true
-      },
-      "1890": {
-         "laser": true,
-         "down": true
-      },
-      "1891": {
-         "laser": true,
-         "down": true
-      },
-      "1892": {
-         "laser": true,
-         "down": true
-      },
-      "1893": {
-         "laser": true,
-         "down": true
-      },
-      "1894": {
-         "laser": true,
-         "down": true
-      },
-      "1895": {
-         "laser": true,
-         "down": true
-      },
-      "1896": {
-         "laser": true
-      },
-      "1897": {
-         "laser": true,
-         "left": true
-      },
-      "1898": {
-         "laser": true,
-         "left": true
-      },
-      "1899": {
-         "laser": true,
-         "left": true
-      },
-      "1900": {
-         "laser": true,
-         "left": true
-      },
-      "1901": {
-         "laser": true,
-         "left": true
-      },
-      "1902": {
-         "laser": true,
-         "left": true
-      },
-      "1903": {
-         "laser": true,
-         "left": true
-      },
-      "1904": {
-         "laser": true,
-         "left": true
-      },
-      "1905": {
-         "laser": true
-      },
-      "1906": {
-         "laser": true
-      },
-      "1907": {
-         "laser": true
-      },
-      "1908": {
-         "laser": true
-      },
-      "1909": {
-         "laser": true
-      },
-      "1910": {
-         "laser": true
-      },
-      "1911": {
-         "laser": true
-      },
-      "1912": {
-         "laser": true
-      },
-      "1913": {
-         "laser": true
-      },
-      "1914": {
-         "laser": true
-      },
-      "1915": {
-         "laser": true
-      },
-      "1916": {
-         "laser": true
-      },
-      "1917": {
-         "laser": true
-      },
-      "1918": {
-         "laser": true
-      },
-      "1919": {
-         "laser": true
-      },
-      "1920": {
-         "laser": true
-      },
-      "1921": {
-         "laser": true
-      },
-      "1922": {
-         "laser": true
-      },
-      "1923": {
-         "laser": true
-      },
-      "1924": {
-         "laser": true
-      },
-      "1925": {
-         "laser": true
-      },
-      "1926": {
-         "laser": true
-      },
-      "1927": {
-         "laser": true
-      },
-      "1928": {
-         "laser": true
-      },
-      "1929": {
-         "laser": true
-      },
-      "1930": {
-         "laser": true
-      },
-      "1931": {
-         "laser": true
-      },
-      "1932": {
-         "laser": true
-      },
-      "1933": {
-         "laser": true
-      },
-      "1934": {
-         "laser": true
-      },
-      "1935": {
-         "laser": true
-      },
-      "1936": {
-         "laser": true
-      },
-      "1937": {
-         "laser": true
-      },
-      "1938": {
-         "laser": true
-      },
-      "1939": {
-         "laser": true
-      },
-      "1940": {
-         "laser": true
-      },
-      "1941": {
-         "laser": true
-      },
-      "1942": {
-         "laser": true
-      },
-      "1943": {
-         "laser": true
-      },
-      "1944": {
-         "laser": true
-      },
-      "1945": {
-         "laser": true
-      },
-      "1946": {
-         "laser": true
-      },
-      "1947": {
-         "laser": true
-      },
-      "1948": {
-         "laser": true
-      },
-      "1949": {
-         "laser": true
-      },
-      "1950": {
-         "laser": true
-      },
-      "1951": {
-         "laser": true
-      },
-      "1952": {
-         "laser": true
-      },
-      "1953": {
-         "laser": true
-      },
-      "1954": {
-         "laser": true
-      },
-      "1955": {
-         "laser": true
-      },
-      "1956": {
-         "laser": true
-      },
-      "1957": {
-         "laser": true
-      },
-      "1958": {
-         "laser": true
-      },
-      "1959": {
-         "laser": true
-      },
-      "1960": {
-         "laser": true
-      },
-      "1961": {
-         "laser": true
-      },
-      "1962": {
-         "laser": true
-      },
-      "1963": {
-         "laser": true
-      },
-      "1964": {
-         "laser": true
-      },
-      "1965": {
-         "laser": true,
-         "left": true
-      },
-      "1966": {
-         "laser": true,
-         "left": true
-      },
-      "1967": {
          "laser": true,
-         "left": true
-      },
-      "1968": {
-         "laser": true,
-         "left": true
-      },
-      "1969": {
-         "laser": true,
-         "left": true
-      },
-      "1970": {
-         "laser": true,
-         "left": true
-      },
-      "1971": {
-         "laser": true,
-         "left": true
-      },
-      "1972": {
-         "laser": true,
-         "left": true
-      },
-      "1973": {
-         "laser": true
-      },
-      "1974": {
-         "laser": true
-      },
-      "1975": {
-         "laser": true
-      },
-      "1976": {
-         "laser": true
-      },
-      "1977": {
-         "laser": true
-      },
-      "1978": {
-         "laser": true
-      },
-      "1979": {
-         "laser": true
-      },
-      "1980": {
-         "laser": true
-      },
-      "1981": {
-         "laser": true
-      },
-      "1982": {
-         "laser": true
-      },
-      "1983": {
-         "laser": true,
-         "left": true
-      },
-      "1984": {
-         "laser": true,
-         "left": true
-      },
-      "1985": {
-         "laser": true,
-         "left": true
-      },
-      "1986": {
-         "laser": true,
-         "left": true
-      },
-      "1987": {
-         "laser": true
-      },
-      "1988": {
-         "laser": true
-      },
-      "1989": {
-         "laser": true
-      },
-      "1990": {
-         "laser": true
-      },
-      "1991": {
-         "laser": true
-      },
-      "1992": {
-         "laser": true
-      },
-      "1993": {
-         "laser": true
-      },
-      "1994": {
-         "laser": true
-      },
-      "1995": {
-         "laser": true
-      },
-      "1996": {
-         "laser": true
-      },
-      "1997": {
-         "laser": true
-      },
-      "1998": {
-         "laser": true
-      },
-      "1999": {
-         "laser": true
-      },
-      "2000": {
-         "laser": true
-      },
-      "2001": {
-         "laser": true
-      },
-      "2002": {
-         "laser": true
-      },
-      "2003": {
-         "laser": true
-      },
-      "2004": {
-         "laser": true
-      },
-      "2005": {
-         "laser": true
-      },
-      "2006": {
-         "laser": true
-      },
-      "2007": {
-         "laser": true
-      },
-      "2008": {
-         "laser": true
-      },
-      "2009": {
-         "laser": true
-      },
-      "2010": {
-         "laser": true
-      },
-      "2011": {
-         "laser": true
-      },
-      "2012": {
-         "laser": true
-      },
-      "2013": {
-         "laser": true
-      },
-      "2014": {
-         "laser": true
-      },
-      "2015": {
-         "laser": true
-      },
-      "2016": {
-         "laser": true
-      },
-      "2017": {
-         "laser": true
-      },
-      "2018": {
-         "laser": true
-      },
-      "2019": {
-         "laser": true
-      },
-      "2020": {
-         "laser": true
-      },
-      "2021": {
-         "laser": true
-      },
-      "2022": {
-         "laser": true
-      },
-      "2023": {
-         "laser": true
-      },
-      "2024": {
-         "laser": true
-      },
-      "2025": {
-         "laser": true
-      },
-      "2026": {
-         "laser": true
-      },
-      "2027": {
-         "laser": true
-      },
-      "2028": {
-         "laser": true
-      },
-      "2029": {
-         "laser": true
-      },
-      "2030": {
-         "laser": true
-      },
-      "2031": {
-         "laser": true
-      },
-      "2032": {
-         "laser": true,
-         "left": true
-      },
-      "2033": {
-         "laser": true,
-         "left": true
-      },
-      "2034": {
-         "laser": true,
-         "left": true
-      },
-      "2035": {
-         "laser": true,
-         "left": true
-      },
-      "2036": {
-         "laser": true,
-         "left": true
-      },
-      "2037": {
-         "laser": true,
-         "left": true
-      },
-      "2038": {
-         "laser": true,
-         "left": true
-      },
-      "2039": {
-         "laser": true,
-         "left": true
-      },
-      "2040": {
-         "laser": true,
-         "left": true
-      },
-      "2041": {
-         "laser": true
-      },
-      "2042": {
-         "laser": true
-      },
-      "2043": {
-         "laser": true
-      },
-      "2044": {
-         "laser": true
-      },
-      "2045": {
-         "laser": true
-      },
-      "2046": {
-         "laser": true
-      },
-      "2047": {
-         "laser": true
-      },
-      "2048": {
-         "laser": true
-      },
-      "2049": {
-         "laser": true
-      },
-      "2050": {
-         "laser": true
-      },
-      "2051": {
-         "laser": true
-      },
-      "2052": {
-         "laser": true
-      },
-      "2053": {
-         "laser": true
-      },
-      "2054": {
-         "laser": true
-      },
-      "2055": {
-         "laser": true
-      },
-      "2056": {
-         "laser": true
-      },
-      "2057": {
-         "laser": true
-      },
-      "2058": {
-         "laser": true
-      },
-      "2059": {
-         "laser": true
-      },
-      "2060": {
-         "laser": true
-      },
-      "2061": {
-         "laser": true
-      },
-      "2062": {
-         "laser": true,
-         "right": true
-      },
-      "2063": {
-         "laser": true,
-         "right": true
-      },
-      "2064": {
-         "laser": true,
-         "right": true
-      },
-      "2065": {
-         "laser": true,
-         "right": true
-      },
-      "2066": {
-         "laser": true,
-         "right": true
-      },
-      "2067": {
-         "laser": true,
-         "right": true
-      },
-      "2068": {
-         "laser": true,
-         "right": true
-      },
-      "2069": {
-         "laser": true,
-         "right": true
-      },
-      "2070": {
-         "laser": true,
-         "right": true
-      },
-      "2071": {
-         "laser": true,
-         "right": true
-      },
-      "2072": {
-         "laser": true,
-         "right": true
-      },
-      "2073": {
-         "laser": true,
-         "right": true
-      },
-      "2074": {
-         "laser": true,
-         "right": true
-      },
-      "2075": {
-         "laser": true,
-         "right": true
-      },
-      "2076": {
-         "laser": true,
-         "right": true
-      },
-      "2077": {
-         "laser": true,
-         "right": true
-      },
-      "2078": {
-         "laser": true,
-         "right": true
-      },
-      "2079": {
-         "laser": true,
-         "right": true
-      },
-      "2080": {
-         "laser": true,
-         "right": true
-      },
-      "2081": {
-         "laser": true,
-         "right": true
-      },
-      "2082": {
-         "laser": true,
-         "right": true
-      },
-      "2083": {
-         "laser": true,
-         "right": true
-      },
-      "2084": {
-         "laser": true,
-         "right": true
-      },
-      "2085": {
-         "laser": true,
-         "right": true
-      },
-      "2086": {
-         "laser": true,
-         "right": true
-      },
-      "2087": {
-         "laser": true,
-         "right": true
-      },
-      "2088": {
-         "laser": true,
-         "right": true
-      },
-      "2089": {
-         "laser": true,
-         "right": true
-      },
-      "2090": {
-         "laser": true,
          "right": true
-      },
-      "2091": {
-         "laser": true,
-         "right": true
-      },
-      "2092": {
-         "laser": true
-      },
-      "2093": {
-         "laser": true,
-         "left": true
-      },
-      "2094": {
-         "laser": true,
-         "left": true
-      },
-      "2095": {
-         "laser": true,
-         "left": true
-      },
-      "2096": {
-         "laser": true,
-         "left": true
       }
    },
    "score": 0

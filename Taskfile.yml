@@ -11,7 +11,11 @@ tasks:
     sources: [src/**/*.ts]
     cmds: [deno task e2e]
 
-  eslint:
+  e2e-bun:
+    sources: [src/**/*.ts]
+    cmds: [bun run ./src/main]
+
+  eslint-node:
     sources: [src/**/*.ts]
     cmds:
       - echo "eslint started"
@@ -19,7 +23,15 @@ tasks:
       - npx eslint src
       - echo "eslint finished"
 
-  lint-e2e-watch: task --parallel --watch eslint e2e-deno
+  eslint-bun:
+    sources: [src/**/*.ts]
+    cmds:
+      - echo "eslint started"
+      - bun run tsc
+      - bun run eslint src
+      - echo "eslint finished"
+
+  lint-e2e-watch: task --parallel --watch eslint-bun e2e-bun
 
   serve: npm run dev
 

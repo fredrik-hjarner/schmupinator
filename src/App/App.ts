@@ -75,9 +75,7 @@ import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx.ts";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx/index.ts";
 
-/**
- * Other
- */
+/* Other */
 import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
 /**
@@ -252,7 +250,7 @@ export class App {
    public Init = async () => {
       const {
          attributes,
-         collisions,
+         // collisions,
          enemies,
          events, eventsEndOfFrame, eventsCollisions, eventsPoints, eventsUi,
          gameLoop, gamepad, graphics,
@@ -269,14 +267,14 @@ export class App {
        */
       await gameData.Init();
 
+      // We want this first so that it can subscribe to shit and record last frame ASAP before
+      // the next frame.
+      await this.e2eTest.Init({
+         attributes,
+         events,
+      });
       await this.init.cursorShowGamePos();
       await settings.Init();
-      await this.e2eTest.Init({
-         collisions, // only to be able to write out performance stats.
-         events,
-         eventsCollisions,
-         eventsPoints,
-      });
       await input.Init({
          events
       });
