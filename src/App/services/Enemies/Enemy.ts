@@ -30,6 +30,7 @@ export class Enemy {
    // Keeps track of which collisionTypes this GameObject collided with this frame.
    // This is needed so that it can be checked in the EnemyActionExecutor. must be cleaned/frame.
    public collidedWithCollisionTypesThisFrame: string[] = [];
+   public despawned = false; // set to true when despawned. used to to fully stop all coroutines.
 
    public constructor( enemies: Enemies, position: TVector, json: TGameObject ) {
       this.enemies = enemies;
@@ -94,7 +95,8 @@ export class Enemy {
    public get Radius(){ return this.diameter/2; }
 
    public OnFrameTick = () => {
-      /* const done = */ this.actionExecutor.ProgressOneFrame();
+      const done = this.actionExecutor.ProgressOneFrame();
+      if(done) { return; }
       // if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
@@ -130,6 +132,7 @@ export class Enemy {
    };
 
    private despawn = () => {
+      this.despawned = true;
       delete this.enemies.enemies[this.id]; // remove this enemy.
 
       const points = assertNumber(this.attrs.getAttribute({
@@ -143,11 +146,19 @@ export class Enemy {
          this.gfx.release();
          this.gfx = undefined;
       }
+
+      // remove attributes
+      this.attrs.removeGameObject(this.id);
       
       // TODO: hm should prolly set all generators as finished too. oh this didn't work.
-      // for(const generator of this.actionExecutor.generators) {
-      //    generator.return();
-      // }
+      for(const generator of this.actionExecutor.generators) {
+         // generator.return();
+         // override generator.next to be a next that is finished
+         // This is extremely hacky and may rely on some assumptions such as despawn always
+         // being the last action.
+         generator.next = () => ({ value: undefined, done: true });
+      }
+      this.actionExecutor.generators = [];
    };
 
    /* Essentially maps actions to class methods, that is has very "thin" responsibilities.

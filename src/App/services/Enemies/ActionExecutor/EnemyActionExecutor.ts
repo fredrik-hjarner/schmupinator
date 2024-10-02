@@ -92,6 +92,9 @@ export class EnemyActionExecutor {
       const nexts = this.generators.map(g => {
          return g.next();
       });
+      if(this.enemy.despawned){
+         return true;
+      }
       const generatorsLength = this.generators.length;
       if(prevGeneratorsLength === generatorsLength) {
          /**
