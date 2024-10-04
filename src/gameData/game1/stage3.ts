@@ -9,7 +9,6 @@ export const stage3: TGameObject = createGameObject({
    diameter: 20,
    hp: 9999,
    actions: [
-      // TODO: Should have no collision type.
       { type: AT.gfxSetShape, shape: "none" },
       { type: AT.spawn, enemy: "shapeShifter", x: col[5], y: row[5] },
       { type: AT.spawn, enemy: "healer", x: col[4], y: row[4] },

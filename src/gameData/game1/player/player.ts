@@ -38,13 +38,8 @@ export const player = createGameObject({
    hp: 1,
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: true },
    actions: [
-      fork(forever(
-         { type: AT.waitUntilCollision, collisionTypes: ["enemy", "enemyBullet"] },
-         { type: AT.decr, attribute: "hp" },
-         wait(1),
-      )),
       fork(
-         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.waitUntilCollision, collisionTypes: ["enemy", "enemyBullet"] },
          { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
          { type: AT.despawn },
       ),

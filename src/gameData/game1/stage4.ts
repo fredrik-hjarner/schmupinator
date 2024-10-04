@@ -97,7 +97,6 @@ export const stage4: TGameObject = createGameObject({
    diameter: 20,
    hp: 9999,
    actions: [
-      // TODO: Should have no collision type.
       // - do: *wave1
       // - wait: 240
       // - do: *wave2

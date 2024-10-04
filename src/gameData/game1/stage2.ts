@@ -12,7 +12,6 @@ export const stage2: TGameObject = createGameObject({
    diameter: 20,
    hp: 9999,
    actions: [
-      // TODO: should have no collision.
       { type: AT.spawn, enemy: "cloner", x: col[5], y: -20 },
       wait(270),
       { type: AT.spawn, enemy: "cloner", x: col[2], y: -20 },

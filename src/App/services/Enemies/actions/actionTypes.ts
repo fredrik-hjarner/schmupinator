@@ -229,9 +229,7 @@ export type TFinishLevel = Readonly<{ type: ActionType.finishLevel }>;
 // Action to console.log, so you can debug actions.
 export type TLog = Readonly<{ type: ActionType.log, msg: string }>;
 
-/**
- * TODO: Comment
- */
+// Waits until the GameObject collides with a GameObject with one of the collisionTypes.
 export type TWaitUntilCollision = Readonly<{
    type: ActionType.waitUntilCollision,
    collisionTypes: string[],
