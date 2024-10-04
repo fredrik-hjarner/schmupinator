@@ -77,9 +77,18 @@ export const player = createGameObject({
    name: "player",
    diameter: 17,
    hp: 1,
-   onDeathAction: { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["enemy", "enemyBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
+         { type: AT.despawn },
+      ),
       //set points to 0, otherwise you get points when the player dies since default is 10 currently
       { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "aqua" },

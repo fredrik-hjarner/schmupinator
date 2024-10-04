@@ -8,7 +8,7 @@ import type {
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes.ts";
 import {
-   attr, createGameObject, forever, moveToAbsolute, parallelAll, parallelRace,
+   attr, createGameObject, forever, fork, moveToAbsolute, parallelAll, parallelRace,
    repeat, setShotSpeed, setSpeed, spawn, thrice, twice, wait
 } from "../utils/utils.ts";
 
@@ -65,8 +65,17 @@ export const nonShootingAimer: TGameObject = createGameObject({
    name: "nonShootingAimer",
    hp: 4,
    diameter: 22,
-   onDeathAction: spawn("roundExplosion"),
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         spawn("roundExplosion"),
+         { type: AT.despawn },
+      ),
       setSpeed(1.6),
       parallelAll(
          repeat(26.25, [
@@ -77,7 +86,7 @@ export const nonShootingAimer: TGameObject = createGameObject({
             { type: AT.move_according_to_speed_and_direction },
             { type: AT.waitNextFrame }
          )
-      )
+      ),
    ]
 });
 
@@ -113,8 +122,17 @@ export const sinus: TGameObject = createGameObject({
    name: "sinus",
    hp: 3,
    diameter: 24,
-   onDeathAction: spawn("roundExplosion"),
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         spawn("roundExplosion"),
+         { type: AT.despawn },
+      ),
       setShotSpeed(2),
       attr("right", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
       twice(
@@ -192,6 +210,16 @@ export const firstMiniboss: TGameObject = createGameObject({
    hp: 120,
    diameter: 35,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         spawn("roundExplosion"),
+         { type: AT.despawn },
+      ),
       parallelRace(
          shootingPattern,
          movementPattern

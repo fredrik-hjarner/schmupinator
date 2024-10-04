@@ -18,7 +18,8 @@ export class Attributes implements IAttributes {
    // vars
    public readonly name: string;
    // Observe!! Object types like this should be in Partial<> to signal that keys may not exist.
-   private attributes: TAttributes;
+   // public so it can be grabbed in E2eRecordEvents service or what ever I will call it.
+   public attributes: TAttributes;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
@@ -112,6 +113,11 @@ export class Attributes implements IAttributes {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       (this.attributes.gameObjects[params.gameObjectId]![params.attribute] as number) -=
          params.amount;
+   };
+
+   // ought to be called when enemy dies.
+   public removeGameObject = (gameObjectId: string) => {
+      delete this.attributes.gameObjects[gameObjectId];
    };
 }
 

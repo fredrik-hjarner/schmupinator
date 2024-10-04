@@ -85,11 +85,15 @@ export class EnemyActionExecutor {
    // TODO: Maybe I should clear up generators that have status `done`.
    // Return true when all generators have finished, i.e. no actions left ot execute.
    public ProgressOneFrame(): boolean {
-      // TODO: Die/kill self/explode when done!
       const prevGeneratorsLength = this.generators.length;
+      // Seems that if a generator pushes to this.generators then then map will not be affected,
+      // because map seems to clone the array. Otherwise .slice() would be needed.
       const nexts = this.generators.map(g => {
          return g.next();
       });
+      if(this.enemy.despawned){
+         return true;
+      }
       const generatorsLength = this.generators.length;
       if(prevGeneratorsLength === generatorsLength) {
          /**
@@ -97,6 +101,7 @@ export class EnemyActionExecutor {
           * so only if the number has not been changed can we make assumptions about all generators
           * having finished or not.
           * But... couldn't one generator be added and another one deleted, +1 -1 = 0 ??
+          * hm though can generators even ever be deleted?? I don't think so.
           */
          const allDone = nexts.every(next => next.done);
          return allDone;
@@ -128,9 +133,7 @@ export class EnemyActionExecutor {
    };
    /** Get/extract a hardcoded number or an attribute */
    private getNumber = (param: TNumber): number => {
-      if (typeof param === "number") {
-         return param;
-      }
+      if (typeof param === "number") { return param; }
       return this.attrs.getNumber({
          gameObjectId: param.gameObjectId ?? this.enemy.id,
          attribute: param.attr
@@ -138,9 +141,7 @@ export class EnemyActionExecutor {
    };
    /** Get/extract a hardcoded string or an attribute */
    private getString = (param: TString): string => {
-      if (typeof param === "string") {
-         return param;
-      }
+      if (typeof param === "string") { return param; }
       return this.attrs.getString({
          gameObjectId: param.gameObjectId ?? this.enemy.id,
          attribute: param.attr
@@ -202,24 +203,38 @@ export class EnemyActionExecutor {
                break;
             }
 
+            case AT.waitUntilCollision: {
+               const { collisionTypes } = currAction;
+               // on the enemy collidedWithCollisionTypesThisFrame is stored. should/is(?) removed
+               // after each frame? yes it is.
+               while(!this.enemy.collidedWithCollisionTypesThisFrame.some(collisionType =>
+                  collisionTypes.includes(collisionType)
+               )) {
+                  yield;
+               }
+               break;
+            }
+
             case AT.setAttribute: {
                const { gameObjectId: GOID, attribute, value } = currAction;
                this.attrs.setAttribute({ gameObjectId: GOID ?? this.enemy.id, attribute, value });
                break;
             }
 
+            // See the explanation in comments to the action type definition itself.
             case AT.fork: {
                // Create a new generator for the fork to allow it to execute parallely.
+               // NOTE: If the generator is added to the back or the front makes a big difference!!
                const generator = this.makeGenerator(currAction.actions);
-               this.generators.push(generator);
+               // this.generators.push(generator);
+               // instead of pushing place the new generator next to last in the array, i.e. last of
+               // the forked generators but before the "original" generator (orig. actions array).
+               // This keeps the order of the forks in order but let's the original actions run last
+               this.generators.splice(this.generators.length-1, 0, generator);
                // execute once, otherwise the first forked action would execute next frame.
                generator.next();
                break;
             }
-
-            case AT.do: // flatten essentially.
-               yield* this.makeGenerator(currAction.acns);
-               break;
 
             case AT.parallelRace: {
                const generators = currAction.actionsLists.map(acns => this.makeGenerator(acns));

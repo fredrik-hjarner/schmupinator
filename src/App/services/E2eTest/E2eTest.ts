@@ -1,14 +1,16 @@
 import type {
-   IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent, TPointsEvent
+   IGameEvents, TCollisionsEvent, TGameEvent, TPointsEvent
 } from "../Events/IEvents";
 import type { IE2eTest } from "./IE2eTest";
 import type { TInitParams } from "../IService";
-import type { Collisions } from "../Collisions/Collisions";
+import type { IAttributes } from "../Attributes/IAttributes.ts";
 
 import { BrowserDriver } from "@/drivers/BrowserDriver/index.ts";
 import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
-type THistory = Partial<{ [frame: number]: (TGameEvent | TPointsEvent | TCollisionsEvent)[] }>;
+type THistory = Partial<{
+   [gameObjectId: string]: unknown // hp
+}>[];
 
 type TConstructor = {
    name: string
@@ -16,15 +18,7 @@ type TConstructor = {
 
 export class E2eTest implements IE2eTest {
    public readonly name: string;
-   /**
-    * Keep track of which frame it is "locally" in this object.
-    * the current frame comes with the "frame_tick" event.
-    * Since we want as few dependencies as possible we want to ONLY be dependent on the Events
-    * service and NOT also have to grab FrameCount off the GameLoop service directly.
-    */
-   private frameCount = 0;
-   // local history (what actually happened)
-   private history: THistory = {};
+
    // From file that has been pre-recorded.
    private recordedHistory!: THistory;
    private startTime = 0;
@@ -35,10 +29,8 @@ export class E2eTest implements IE2eTest {
    // private startTime = BrowserDriver.PerformanceNow();
 
    // deps/services
-   private collisions!: Collisions;
+   private attributes!: IAttributes;
    private events!: IGameEvents;
-   private eventsCollisions!: IEventsCollisions;
-   private eventsPoints!: IEventsPoints;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
@@ -50,16 +42,13 @@ export class E2eTest implements IE2eTest {
 
       // TODO: Replace typecast with type guard.
       /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-      this.collisions = deps?.collisions!;
       this.events = deps?.events!;
-      this.eventsCollisions = deps?.eventsCollisions!;
-      this.eventsPoints = deps?.eventsPoints!;
+      this.attributes = deps?.attributes!;
+
       /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       // TODO: These are not unsubscribed to.
       this.events.subscribeToEvent(this.name, this.onEvent);
-      this.eventsCollisions.subscribeToEvent(this.name, this.onEvent);
-      this.eventsPoints.subscribeToEvent(this.name, this.onEvent);
    };
 
    private onEvent = (event: TGameEvent | TPointsEvent | TCollisionsEvent) => {
@@ -68,32 +57,28 @@ export class E2eTest implements IE2eTest {
          console.log("E2eTest: Test succeeded.");
          const millis = (BrowserDriver.PerformanceNow() - this.startTime);
          console.log(`E2eTest: Took ${millis} ms to run test.`);
-         console.log(`E2eTest: Collision detection took ${this.collisions.accumulatedTime} ms.`);
          if (!IsBrowser()) {
             BrowserDriver.ProcessExit(0);
          }
       }
-      if (event.type !== "frame_tick") {
-         // dont record frame_tick because that's excessive.
-         const frame = this.frameCount;
-         if (this.history[frame] === undefined) {
-            this.history[frame] = [];
-         }
-         this.history[frame]?.push(event); // record event in history/
-      }
       if (event.type === "frame_tick") {
+         const lastFrame = event.frameNr - 1;
+
          if(this.startTime === 0) {
             // start counting from the first frame.
             this.startTime = BrowserDriver.PerformanceNow();
          }
-         // Crucial that we keep track of the current frame!!
-         this.frameCount = event.frameNr;
 
-         const lastFrame = event.frameNr - 1;
-         const expected = JSON.stringify(
-            this.recordedHistory[lastFrame] as (TGameEvent | TPointsEvent)[] | undefined
-         );
-         const actual = JSON.stringify(this.history[lastFrame]);
+         const attributes = this.attributes.attributes;
+
+         const _actual: Partial<{ [id: string]: unknown }> = {};
+         for (const [gameObjectId, attribute] of Object.entries(attributes.gameObjects)) {
+            _actual[gameObjectId] = attribute?.hp;
+         }
+         const actual = JSON.stringify(_actual);
+
+         const expected = JSON.stringify(this.recordedHistory[lastFrame]);
+
          if (expected !== actual) {
             BrowserDriver.Alert(
                `Test failed!\nFrame: ${lastFrame}\nExpected: ${expected}\nActual: ${actual}`

@@ -1,5 +1,5 @@
 import type {
-   TAction, TAttrIf, TDo, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
+   TAction, TAttrIf, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll, TparallelRace
 } from "../../App/services/Enemies/actions/actionTypes.ts";
 import type { TGameObject } from "@/gameTypes/TGameObject";
@@ -56,12 +56,6 @@ export function attr(
       no
    };
 }
-
-// first caps because `do` is a reserved word in js.
-export const Do = (...actions: TAction[]): TDo => ({
-   type: AT.do,
-   acns: actions
-});
 
 export function forever(...actions: TAction[]): TRepeat {
    return {
@@ -145,7 +139,15 @@ type TCreateGameObjectParams = {
    * new GameObject and have those actions in that GameObject, I call this concept
    * "spawning a corpse".
    */
-   onDeathAction?: TAction | undefined;
+   // onDeathAction?: TAction | undefined; // TODO: Remove? oOrder of execution was unclear.
+   /**
+    * TODO: Comment.
+    * TODO: Make this required to force me to update code.
+    * TODO: This does not look finished see collisionType further down.
+    */
+   collisionType?: "player" | "playerBullet" | "enemy" | "enemyBullet" | "none";
+
+
    /**
     * Some options.
     * TODO: Move these up to root level and make them mandatory to set. It is convenient to have
@@ -154,8 +156,6 @@ type TCreateGameObjectParams = {
    options?: {
       /** If true then the GameObject will be removed when it moves outside the screen. */
       despawnWhenOutsideScreen?: boolean;
-      /** Set to true disable polling hp every frame for death. */
-      invincible?: boolean;
       /** Despawns the GameObject when it's these many pixels outside of the screen */
       despawnMargin?: number;
       /** setup default (player) directional controls */
@@ -171,9 +171,11 @@ type TCreateGameObjectParams = {
  */
 export function createGameObject(params: TCreateGameObjectParams): TGameObject {
    const despawnWhenOutsideScreen = params.options?.despawnWhenOutsideScreen ?? true;
-   const invincible = params.options?.invincible ?? false;
    const despawnMargin = params.options?.despawnMargin;
    const defaultDirectionalControls = params.options?.defaultDirectionalControls ?? false;
+
+   // TODO: This does not look finished see collisionType above.
+   // const collisionType = params.collisionType ?? "none";
 
    const defaultDirectionalControlsActions: TAction[] = defaultDirectionalControls ? [
       // cardinal
@@ -234,16 +236,6 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
       ]
    }] : [];
 
-   const invincibleAction: TAction[] = invincible ? [] : [fork(
-      /**
-       * TODO: since hp always exists on atributes I should prolly add it to type
-       * so I get auto-completion
-       */
-      { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
-      ...(params.onDeathAction ? [params.onDeathAction] : []),
-      { type: AT.despawn },
-   )];
-
    return {
       name: params.name,
       diameter: params.diameter,
@@ -259,8 +251,6 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
          ...defaultDirectionalControlsActions,
          // Setup despawning when GameObject moves out of the screen.
          ...despawnWhenOutsideScreenAction,
-         // Die when hp is 0. TODO: Actually it should be LTE to 0.
-         ...invincibleAction,
          // "Normal" actions
          ...params.actions
       ]

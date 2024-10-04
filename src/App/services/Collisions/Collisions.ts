@@ -1,22 +1,22 @@
 import type { Enemies } from "../Enemies/Enemies";
 import type { IEventsCollisions, IGameEvents } from "../Events/IEvents";
 import type { IService, TInitParams } from "../IService";
-import type { Enemy } from "../Enemies/Enemy.ts";
 import type { IAttributes } from "../Attributes/IAttributes";
 
 import { BrowserDriver } from "../../../drivers/BrowserDriver/index.ts";
-// import { resolutionHeight, resolutionWidth } from "@/consts.ts";
+import { assertString } from "@/utils/typeAssertions.ts";
+// import { resolutionHeight, resolutionWidth } from "@/consts";
 
 export type PosAndRadiusAndId = {x: number, y: number, Radius: number, id: string };
 
+/**
+ * Object containing all collisions.
+ * Keyed by gameObjectId.
+ * The value is an array of `collisionTypes` that the gameObjects it collided with have.
+ */
 export type TCollisions = {
-   // List of id:s of enemies that were hit.
-   enemiesThatWereHit: string[];
+   [gameObjectId: string]: string[];
 };
-
-type TCalcCollisionsResult =
-   { collided: true, collidedWithId: string } |
-   { collided: false };
 
 type TConstructor = {
    name: string;
@@ -78,112 +78,74 @@ export class Collisions implements IService {
    private update = () => {
       const startTime = BrowserDriver.PerformanceNow();
 
-      const allGameObjectsThatWereHit: TCollisions["enemiesThatWereHit"] = [];
+      // variable in which to store all collisions.
+      const collisions: TCollisions = {};
 
-      const enemies: Enemy[] = [];
-      const enemyBullets: Enemy[] = [];
-      const playerBullets: Enemy[] = [];
-
-      for (const enemy of Object.values(this.enemies.enemies)) {
-         // If a GameObject is outside of the screen we don't bother to do collision detection.
-         // if(isOutsideOfScreen(enemy.x, enemy.y, enemy.Radius)) {
-         //    return;
-         // }
-         const attrValue = this.attributes.getAttribute({
-            gameObjectId: enemy.id,
-            attribute: "collisionType"
+      const enemiesThatCanCollide = Object.values(this.enemies.enemies)
+         .filter((enemy) => {
+            const collisionType = this.attributes.getAttribute({
+               gameObjectId: enemy.id,
+               attribute: "collisionType"
+            });
+            return collisionType !== "none";
          });
-         switch(attrValue){
-            case "enemy":
-               enemies.push(enemy);
-               break;
-            case "enemyBullet":
-               enemyBullets.push(enemy);
-               break;
-            case "playerBullet":
-               playerBullets.push(enemy);
-               break;
-            default:
-               // NOOP
+
+      for (const enemy1 of enemiesThatCanCollide) {
+         collisions[enemy1.id] = [];
+
+         for(const enemy2 of enemiesThatCanCollide) {
+            if(enemy1.id === enemy2.id) {
+               continue; // dont check collision with self.
+            }
+
+            const collided = this.calcCollision({
+               doesThis: enemy1,
+               collideWithThis: enemy2
+            });
+
+            if(collided) {
+               const collisionType = assertString(
+                  this.attributes.getAttribute({
+                     gameObjectId: enemy2.id,
+                     attribute: "collisionType"
+                  })
+               );
+               // seems I only record one of each collision type. so if player collides with two
+               // enemies then only the first one is recorded pretty much.
+               collisions[enemy1.id] = [...new Set(
+                  [...collisions[enemy1.id], collisionType]
+               )];
+            }
          }
+
       }
 
-      const player = this.enemies.player;
-
-      // Observe: by enemy and not by enemy bullets.
-      const playerWasHitByEnemy =
-         this.calcCollisions({
-            doesThis: player,
-            collideWithThese: enemies
-         }).collided;
-
-      if(playerWasHitByEnemy) {
-         allGameObjectsThatWereHit.push(player.id);
-      }
-      
-      const enemiesHitByPlayerBullets: string[] = [];
-      for(const enemy of enemies) {
-         const collision = this.calcCollisions({
-            doesThis: enemy,
-            collideWithThese: playerBullets
-         });
-         // adds both the "enemy" and what it collides with (for example a playerBullet).
-         if(collision.collided) {
-            enemiesHitByPlayerBullets.push(enemy.id, collision.collidedWithId);
-         }
-      }
-
-      const enemyBulletsThatHitPlayer: string[] = [];
-      for(const enemyBullet of enemyBullets) {
-         const collision = this.calcCollisions({
-            doesThis: enemyBullet,
-            collideWithThese: [player]
-         });
-         if(collision.collided) {
-            enemyBulletsThatHitPlayer.push(enemyBullet.id);
-         }
-      }
-
-      if(enemyBulletsThatHitPlayer.length > 0) {
-         // if a bullet hit the player then the player was hit...
-         allGameObjectsThatWereHit.push(player.id);
-      }
-
-      allGameObjectsThatWereHit.push(...enemiesHitByPlayerBullets);
-      
-      allGameObjectsThatWereHit.push(...enemyBulletsThatHitPlayer);
-      
       const endTime = BrowserDriver.PerformanceNow();
       this.accumulatedTime += endTime - startTime;
 
-      if(allGameObjectsThatWereHit.length > 0) {
-         const collisions = {
-            enemiesThatWereHit: [...new Set(allGameObjectsThatWereHit)] // remove duplicates.
-         };
+      // console.log("collisions:", collisions);
+
+      if(Object.keys(collisions).length > 0) {
          this.eventsCollisions.dispatchEvent({ type: "collisions", collisions });
       }
    };
 
-   /**
-    * TODO: cirlce and shots are outdated names.
-    * What is checked is if "circle" collides with any of the "shots", if so the return which "shot"
-    * "circle" collided with.
-    */
-   private calcCollisions = (
-      params: { doesThis: PosAndRadiusAndId, collideWithThese: PosAndRadiusAndId[] }
-   ): TCalcCollisionsResult => {
-      const { doesThis, collideWithThese } = params;
+   private calcCollision = (
+      params: { doesThis: PosAndRadiusAndId, collideWithThis: PosAndRadiusAndId }
+   ): boolean => {
+      const { doesThis, collideWithThis } = params;
       
-      for(const shot of collideWithThese) {
-         // Multiplying minDistance if a hack to cause lower hit "box".
-         const minDistance = doesThis.Radius + shot.Radius * 0.8;
-         const xDist = doesThis.x - shot.x;
-         const yDist = doesThis.y - shot.y;
-         const distance = Math.hypot(xDist, yDist);
-         if(distance <= minDistance) {
-            return { collided: true, collidedWithId: shot.id };
-         }
+      // Subtracting from minDistance if a hack to cause lower hit "box".
+      // TODO: Would be better to use attributes for this, like "hitBoxRadius" or something.
+      // Though to begin with figuring out a good number for the hack.
+      const minDistance = (doesThis.Radius + collideWithThis.Radius) * 0.9;
+      const xDist = doesThis.x - collideWithThis.x;
+      const yDist = doesThis.y - collideWithThis.y;
+      const distance = Math.hypot(xDist, yDist);
+      if(distance <= minDistance) {
+         return true;
       }
-      return { collided: false };
+
+      return false;
    };
 }

@@ -339,9 +339,6 @@ buttons though.
 
 * I must be able to modify acceleration in order to do Asteroids.
 
-* I must make it so that when the player goes outside of the screen it appears on the other side,
-  i.e. screen wrapping.
-
 * Make speed into an attribute.
    * remove setSpeed action since it will no longer be needed.
 * Actually doing it like that is not correct... I need not to be able to set speed as a number,
@@ -368,3 +365,68 @@ of UiThread class or something with functions for manipulating DOM.
 * Gather perf data in ReqAnimFrameGameLoop.ts. stats per frame. when reqamin started, ended, length,
 number of executed frames and diff between excpected frames. store in some kind of object/array,
 save as file then analyze it.
+
+<!-- #region COLLISION_DETECTION -->
+
+So how should the "new" collision detection system work?? Could it work if I had something like this
+```
+player.setAttribute("collisionType", player")
+boss.setAttribute("collisionType", enemy")
+enemyBullet.setAttribute("collisionType", "enemyBullet")
+playerBullet.setAttribute("collisionType", "playerBullet")
+speedUpgrade.setAttribute("collisionType", "speedUpgrade")
+
+// First it removes all with collisionType === "none".
+
+// Collision detection checks everything against everything else.
+// Collision detection accumulate an object keyed by the first gameObjectId
+// (it needs to run x**2 times. every one needs to be checked against every other).
+Map([
+   [gameObjectId, Set([ "enemyBullet", "speedUpgrade" ])],
+])
+
+player.waitUntilCollision({ collisionTypes: ["enemy","enemyBullet"], invincibilityFrames: 1 })
+   -> decr("hp")
+```
+
+<!-- #endregion -->
+
+* I must make e2e tests more robust by recording "state" per frame (probs attributes) instead of
+events.
+
+* If `collidedWithCollisionTypesThisFrame` are unique, then I could prolly change it to an object
+  keyed by `collisionType` i.e. `Record<string, boolean>` or maybe a `Set`.
+
+* 2024-09-27: I am in the process of updating collision detection. I have added ability to the
+  engine to handle waiting until colliding with selected collision types. I need to update the stuff
+  under GameData folder though so that the games start to work correctly again.
+
+* 2024-09-28: Files containing errors only light up red when they are open. I want them to light
+  up red in the VS Code Explorer (left pane file structure).
+
+* 2024-09-29: New collision code seems to make it so that onDeath actions maybe trigger one frame
+  too late. This is most visible with lasers as you can see the lasers explode above where they
+  should explode/die.
+  Oh I think know why this happens. It might happen because the onDeath action happens the next 
+  frame because first hp is reduced to 0, but the code listening to the hp
+  - 2024-09-29: Actually the explosion of the laser happened 2 frames later (2 framedss after
+    collision) than before my recoding of the collision logic.
+    I managed to make it from 2 frames delayed to 1 frame delayed now, but I should really try
+    to make it so that the delay becomes zero.
+  - 2024-09-30: Managed to solve THAT problem by running forks before the main line of actions,
+    though I notice that the Graphics elements gets used up a lot faster for some reason...
+    so there are still problems...
+    Might just be "better" collision detecting or something... any way the lasers explode anim
+    takes way too many frames.
+
+* Idea: I should have all the state managed by redux maybe, so I have ALL the data easily available
+  and the great Redux DevTools to to see deltas. Maybe look into Zustand.
+
+* ~~Remove the Do action because it's not needed?~~
+
+* Find ways to utilize `Bun` macros:
+  - simple conversions
+    - like degrees to radians or creations of Vectors n such maybe. 
+
+* I seem to maybe have an assumption in the code that the last actions always is despawn. Maybe this
+  could create a problem in some weird situation when it is not the last action.

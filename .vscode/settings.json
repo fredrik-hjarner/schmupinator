@@ -6,7 +6,7 @@
   "editor.formatOnSave": true,
   "javascript.format.enable": false, // I think this disables default formatter only.
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": "explicit"
   },
   "eslint.enable": true,
   "eslint.format.enable": true,

@@ -1,7 +1,7 @@
 import type { TGameObject } from "../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "@/App/services/Enemies/actions/actionTypes.ts";
-import { attr, createGameObject, forever, wait } from "../utils/utils.ts";
+import { attr, createGameObject, forever, fork, wait } from "../utils/utils.ts";
 import { col, row } from "./common.ts";
 
 export const stage3: TGameObject = createGameObject({
@@ -20,8 +20,17 @@ export const shapeShifter: TGameObject = createGameObject({
    name: "shapeShifter",
    diameter: 30,
    hp: 100,
-   onDeathAction: { type: AT.spawn, enemy: "shapeShifter", y: -20 },
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.spawn, enemy: "shapeShifter", y: -20 },
+         { type: AT.despawn },
+      ),
       forever(
          { type: AT.gfxSetShape, shape: "circle" },
          wait(60),
@@ -42,6 +51,15 @@ export const healer: TGameObject = createGameObject({
    diameter: 30,
    hp: 50,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.setAttribute, attribute: "hp", value: 25 },
       forever(
          wait(10),
@@ -58,6 +76,15 @@ export const dehealer: TGameObject = createGameObject({
    diameter: 30,
    hp: 50,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       forever(
          wait(10),
          { type: AT.decr, attribute: "hp" }

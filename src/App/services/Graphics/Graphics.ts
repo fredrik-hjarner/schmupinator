@@ -30,7 +30,7 @@ type TConstructor = { name: string };
 export class Graphics implements IGraphics {
    public readonly name: string;
    private elementPool: TGfxPool;
-   private static readonly poolSize = 100;
+   private static readonly poolSize = 120;
 
    public constructor({ name }: TConstructor) {
       this.name = name;

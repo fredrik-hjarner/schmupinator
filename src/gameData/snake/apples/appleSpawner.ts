@@ -14,7 +14,6 @@ export const appleSpawner = createGameObject({
    diameter: 17,
    hp: 1,
    // onDeathAction: { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
-   options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
       { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "red" },

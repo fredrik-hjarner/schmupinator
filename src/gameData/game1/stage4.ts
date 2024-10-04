@@ -2,7 +2,7 @@ import type { TGameObject } from "../../gameTypes/TGameObject";
 import type { TAction } from "../../App/services/Enemies/actions/actionTypes.ts";
 
 import { ActionType as AT } from "../../App/services/Enemies/actions/actionTypes.ts";
-import { createGameObject, forever } from "../utils/utils.ts";
+import { createGameObject, forever, fork, wait } from "../utils/utils.ts";
 import { col, row } from "./common.ts";
 
 const makeEasyFlyer = ({ x = col[1], y = -30}: { x?: number, y?: number}): TAction => ({
@@ -112,6 +112,15 @@ export const easyFlyer: TGameObject = createGameObject({
    diameter: 29,
    hp: 5,
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         { type: AT.despawn },
+      ),
       { type: AT.setSpeed, pixelsPerFrame: 1.17 },
       { type: AT.gfxSetColor, color: "green" },
       forever(

@@ -1,6 +1,6 @@
+import type { LiteralUnion } from "type-fest";
 import type { IService } from "../IService";
 import type { IDestroyable } from "../../../utils/types/IDestroyable";
-import type { LiteralUnion } from "type-fest";
 
 /**
  * End-user should be able to set attributes, they will be like variables,
@@ -41,8 +41,9 @@ export type TAttributes = {
           * Different things can and can't collide with each other.
           * none, enemy, enemyBullet, player, playerBullet.
           * (may add groundEnemy later).
+          * TODO: Update comment!!!!!
           */
-         collisionType: "none" | "enemy" | "enemyBullet" | "player" | "playerBullet";
+         collisionType: LiteralUnion<"none", string>;
          // If should not be allowed to leave the game window. Player should be contrained to window
          boundToWindow: boolean;
          [attribute: string]: TAttrValue;
@@ -56,6 +57,7 @@ export type TSetAttrParams = { gameObjectId: string, attribute: string, value: T
 export type TIncrDecrAttrParams = { gameObjectId: string, attribute: string, amount: number };
 
 export interface IAttributes extends IService, IDestroyable {
+   attributes: TAttributes;
    setAttribute: ({ gameObjectId, attribute, value }: TSetAttrParams) => void;
    getAttribute: (params: TGameObjectIdAndAttrParams) => TAttrValue;
    getNumber: (params: TGameObjectIdAndAttrParams) => number;
@@ -63,4 +65,5 @@ export interface IAttributes extends IService, IDestroyable {
    getBool: (params: TGameObjectIdAndAttrParams) => boolean;
    incr: (params: TIncrDecrAttrParams) => void;
    decr: (params: TIncrDecrAttrParams) => void;
+   removeGameObject: (gameObjectId: string) => void;
 }

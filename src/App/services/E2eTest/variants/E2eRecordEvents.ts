@@ -1,32 +1,32 @@
 import type {
-   IEventsCollisions, IEventsPoints, IGameEvents, TCollisionsEvent, TGameEvent, TPointsEvent
+   IGameEvents, TGameEvent,
 } from "../../Events/IEvents";
 import type { IE2eTest } from "../IE2eTest";
 import type { TInitParams } from "../../IService";
+import type { IAttributes } from "../../Attributes/IAttributes";
 
-type THistory = Partial<{ [frame: number]: (TGameEvent | TPointsEvent | TCollisionsEvent)[] }>;
+type THistory = Partial<{
+   [gameObjectId: string]: unknown // hp
+}>[];
 
 type TConstructor = {
    name: string
 }
 
+/**
+ * Record all attributes. Subscribe as first subscriber to gameLoop. Immediately when next_frame
+ * happens, record all attributes `event.frameNr - 1`.
+ */
 export class E2eRecordEvents implements IE2eTest {
    public readonly name: string;
-   /**
-    * Keep track of which frame it is "locally" in this object.
-    * the current frame comes with the "frame_tick" event.
-    * Since we want as few dependencies as possible we want to ONLY be dependent on the Events
-    * service and NOT also have to grab FrameCount off the GameLoop service directly.
-    */
-   private frameCount = 0;
+
    // local history (what actually happened)
-   private history: THistory = {};
-   // From file that has been pre-recorded.
+   // Store it later in file that has, so to speak, been pre-recorded.
+   private history: THistory = [];
 
    // deps/services
+   private attributes!: IAttributes;
    private events!: IGameEvents;
-   private eventsCollisions!: IEventsCollisions;
-   private eventsPoints!: IEventsPoints;
 
    public constructor({ name }: TConstructor) {
       this.name = name;
@@ -37,32 +37,33 @@ export class E2eRecordEvents implements IE2eTest {
       // TODO: Replace typecast with type guard.
       /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
       this.events = deps?.events!;
-      this.eventsCollisions = deps?.eventsCollisions!;
-      this.eventsPoints = deps?.eventsPoints!;
+      this.attributes = deps?.attributes!;
       /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       // TODO: These are not unsubscribed to.
       this.events.subscribeToEvent(this.name, this.onEvent);
-      this.eventsCollisions.subscribeToEvent(this.name, this.onEvent);
-      this.eventsPoints.subscribeToEvent(this.name, this.onEvent);
    };
 
-   private onEvent = (event: TGameEvent | TPointsEvent | TCollisionsEvent) => {
+   private onEvent = (event: TGameEvent) => {
       if (event.type === "gameOver") {
          console.log("E2eRecordEvents.history:");
          console.log(this.history);
-      }
-      if (event.type !== "frame_tick") {
-         // dont record frame_tick because that's excessive.
-         const frame = this.frameCount;
-         if (this.history[frame] === undefined) {
-            this.history[frame] = [];
-         }
-         this.history[frame]?.push(event); // record event in history/
+         // TODO: Should it destruct itself or something here?
       }
       if (event.type === "frame_tick") {
-         // Crucial that we keep track of the current frame!!
-         this.frameCount = event.frameNr;
+         const lastFrame = event.frameNr - 1;
+         // (first frame is frame nr 1 though)
+         if(lastFrame < 0) {
+            return;
+         }
+         if(!this.history[lastFrame]) { // TODO: really if-case not needed should always be set {}.
+            this.history[lastFrame] = {};
+         }
+         // grab attributes and store them in history.
+         const attributes = this.attributes.attributes;
+         for (const [gameObjectId, attribute] of Object.entries(attributes.gameObjects)) {
+            this.history[lastFrame][gameObjectId] = attribute?.hp;
+         }
       }
    };
 }

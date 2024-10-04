@@ -7,7 +7,7 @@ export const spawner: TGameObject = createGameObject({
    name: "spawner",
    diameter: 20,
    hp: 9999,
-   options: { despawnWhenOutsideScreen: false, invincible: true },
+   options: { despawnWhenOutsideScreen: false },
    actions: [
       fork(
          wait(3200),

@@ -2,7 +2,7 @@ import type { TAction, TMove } from "../../../App/services/Enemies/actions/actio
 import type { TGameObject } from "../../../gameTypes/TGameObject";
 
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
-import { Do, attr, createGameObject, parallelAll, twice, wait } from "../../utils/utils.ts";
+import { attr, createGameObject, fork, parallelAll, twice, wait } from "../../utils/utils.ts";
 
 const moveLeft: TMove = {
    type: AT.move,
@@ -47,11 +47,13 @@ export const sinus: TGameObject = createGameObject({
    name: "sinus",
    hp: 1,
    diameter: 24,
-   onDeathAction: Do(
-      { type: AT.spawn, enemy: "roundExplosion" },
-      { type: AT.spawn, enemy: "kamikazeCorpse" },
-   ),
    actions: [
+      fork(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.spawn, enemy: "roundExplosion" },
+         { type: AT.spawn, enemy: "kamikazeCorpse" },
+         { type: AT.despawn },
+      ),
       { type: AT.gfxSetShape, shape: "octagon" },
       { type: AT.setShotSpeed, pixelsPerFrame: 1.5 },
       attr("right", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),

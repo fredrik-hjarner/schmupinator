@@ -58,6 +58,8 @@ export class Input implements IInput {
 
       this.events.subscribeToEvent(this.name, (event) => {
          switch(event.type) {
+            // TODO: Grabbing the frameNr like this might be retarded instead of grabbing it
+            // directly from GameLoop.
             case "frame_tick":
                this.frameCount = event.frameNr;
                break;
@@ -84,6 +86,9 @@ export class Input implements IInput {
                }
             }
          }
+         // TODO: Hm. If ButtonsPressed is called several times in the same frame, it will be
+         // overwritten. Would be more consistent if I grabbed the input once per frame though
+         // that might risk missing some inputs (probably not as 60fps should be enough).
          this.history.inputs[frame] = buttonsPressed;
       }
       //#endregion

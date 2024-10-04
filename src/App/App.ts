@@ -75,9 +75,7 @@ import { CanvasGfx } from "./services/Graphics/variants/CanvasGfx/CanvasGfx.ts";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { CachedCanvasGfx } from "./services/Graphics/variants/CachedCanvasGfx/index.ts";
 
-/**
- * Other
- */
+/* Other */
 import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
 
 /**
@@ -161,11 +159,13 @@ export class App {
       this.fps = this.construct.fps();
 
       this.enemies = new Enemies({ name: "enemies" });
-
+      
       this.gamepad = new GamePad({ name: "gamePad" });
 
       this.collisions = new Collisions({ name: "collisions" });
 
+      /* The events services are event channels passing events with
+       * `dispatchEvent` and `subscribeToEvent` functions */
       this.events =           new Events<TGameEvent>({ app: this, name: "events" });
       this.eventsCollisions = new Events<TCollisionsEvent>({ app: this, name: "eventsCollisions" });
       this.eventsEndOfFrame = new Events<TEndOfFrameEvent>({ app: this, name: "eventsEndOfFrame" });
@@ -198,14 +198,10 @@ export class App {
       this.pseudoRandom = this.construct.pseudoRandom();
    }
 
-   /**
-    * Contains construction functions keyed by service.
-    * TODO: Force sort this object alphabetically.
-    */
+   /* Contains construction functions keyed by service.
+    * TODO: Force sort this object alphabetically. */
    public construct = {
-      attributes: (): IAttributes => {
-         return new Attributes({ name: "attributes" });
-      },
+      attributes: (): IAttributes => { return new Attributes({ name: "attributes" }); },
       cursorShowGamePos: (): ICursorShowGamePos => {
          return IsBrowser() ?
             (isRelease ?
@@ -239,22 +235,18 @@ export class App {
             (outsideHider ? new OutsideHider({ name: "hider" }) : new NoopService()) :
             new NoopService();
       },
-      pseudoRandom: (): IPseudoRandom => {
-         return new PseudoRandom({ name: "pseudoRandom" });
-      },
+      pseudoRandom: (): IPseudoRandom => { return new PseudoRandom({ name: "pseudoRandom" }); },
    };
 
-   /**
-    * Step 2 of initialization.
+   /* Step 2 of initialization.
     * 
     * The rules are essentially:
     * 1. In constructor you init what you can without using other services (as dependencies).
-    * 2. If you need other services to init, then do that initialization in the Init function.
-    */
+    * 2. If you need other services to init, then do that initialization in the Init function */
    public Init = async () => {
       const {
          attributes,
-         collisions,
+         // collisions,
          enemies,
          events, eventsEndOfFrame, eventsCollisions, eventsPoints, eventsUi,
          gameLoop, gamepad, graphics,
@@ -265,26 +257,36 @@ export class App {
          settings,
       } = this;
 
-      /**
-       * Order of initialization usually don't matter.
+      /* Order of initialization usually don't matter.
        * Unfortunately GamaData has to init early since it needs to, right now, fetch
        * yaml async. Enemies needs to be available at least when Enemies service tries to use them.
        */
       await gameData.Init();
 
+      // We want this first so that it can subscribe to shit and record last frame ASAP before
+      // the next frame.
+      await this.e2eTest.Init({
+         attributes,
+         events,
+      });
       await this.init.cursorShowGamePos();
       await settings.Init();
-      await this.e2eTest.Init({
-         collisions, // only to be able to write out performance stats.
-         events,
-         eventsCollisions,
-         eventsPoints,
-      });
       await input.Init({
          events
       });
       await gameLoop.Init();
       await this.init.fps();
+      // Note order of init: input -> collisions -> enemies -> graphics
+      // Maybe another order would make more sense?
+      // The current order: you move an enemy into a collision group, then you check for collisions
+      // then enemies reponds to the collisions (in Enemies.tick), then all enemies clear their
+      // `collidedWithCollisionTypesThisFrame`.
+      await this.collisions.Init({
+         attributes,
+         enemies,
+         events,
+         eventsCollisions,
+      });
       await enemies.Init({
          attributes,
          events,
@@ -297,12 +299,6 @@ export class App {
          settings,
       });
       await gamepad.Init();
-      await this.collisions.Init({
-         attributes,
-         enemies,
-         events,
-         eventsCollisions,
-      });
       await this.events.Init();
       await this.eventsCollisions.Init();
       await this.eventsPoints.Init();
@@ -331,11 +327,9 @@ export class App {
       await this.init.pseudoRandom();
    };
 
-   /**
-    * Contains init functions keyed by service.
+   /* Contains init functions keyed by service.
     * I think I have this public object here so that the init become exposed to the outside world.
-    * TODO: Force sort this object alphabetically.
-    */
+    * TODO: Force sort this object alphabetically */
    public init = {
       attributes: async (): Promise<void> => { await this.attributes.Init(); },
       cursorShowGamePos: async (): Promise<void> => {

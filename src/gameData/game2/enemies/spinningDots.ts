@@ -8,6 +8,7 @@ import {
    forever,
    fork,
    spawn,
+   wait,
 } from "@/gameData/utils/utils.ts";
 
 const dist = 27;
@@ -23,8 +24,17 @@ export const spinningDots: TGameObject = createGameObject({
    name: "spinningDots",
    hp: 9999,
    diameter: 5,
-   onDeathAction: spawn("roundExplosion"),
    actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         spawn("roundExplosion"),
+         { type: AT.despawn },
+      ),
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "none" },
       { type: AT.gfxSetShape, shape: "stage2/circle.png" },

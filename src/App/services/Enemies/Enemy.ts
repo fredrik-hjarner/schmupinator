@@ -11,7 +11,7 @@ import { Angle } from "../../../math/Angle.ts";
 import { UnitVector } from "../../../math/UnitVector.ts";
 import { uuid } from "../../../utils/uuid.ts";
 import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
-import { assertNumber } from "../../../utils/typeAssertions.ts";
+import { assertNumber /*, assertString */ } from "../../../utils/typeAssertions.ts";
 import { EnemyGfx } from "./EnemyGfx.ts";
 
 export class Enemy {
@@ -26,6 +26,10 @@ export class Enemy {
    private actionExecutor: EnemyActionExecutor;
    private gfx?: EnemyGfx; // handle to GraphicsElement from Graphics service.
    private name: string;
+   // Keeps track of which collisionTypes this GameObject collided with this frame.
+   // This is needed so that it can be checked in the EnemyActionExecutor. must be cleaned/frame.
+   public collidedWithCollisionTypesThisFrame: string[] = [];
+   public despawned = false; // set to true when despawned. used to to fully stop all coroutines.
 
    public constructor( enemies: Enemies, position: TVector, json: TGameObject ) {
       this.enemies = enemies;
@@ -42,6 +46,8 @@ export class Enemy {
          gamepad: this.enemies.gamepad,
       });
       this.attrs
+         .setAttribute({gameObjectId: this.id, attribute: "collisionType", value: "none" });
+      this.attrs
          .setAttribute({gameObjectId: this.id, attribute: "moveDirectionAngle", value: 180 });
       this.speed = 0;
       this.graphics = this.enemies.graphics;
@@ -51,14 +57,13 @@ export class Enemy {
    }
    private get attrs() { return this.enemies.attributes; } // convenience getter to shorten code.
 
-   /**
-    * TODO: Converting from/to angle/vector seems a bit unoptimized.
-    */
+   // TODO: Converting from/to angle/vector seems a bit unoptimized.
    // facing/aim in angle degrees or 2d vector. 0 faces up, 90 = right, 180 = down, 270 = left.
    private get moveDirection(): UnitVector {
       const degrees = assertNumber(
          this.attrs.getAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle" })
       );
+      // TODO: I can probably use Bun macros to speed this up.
       return new UnitVector(new Vector(0, -1)).rotateClockwise(Angle.fromDegrees(degrees));
    }
    private set moveDirection(dir: UnitVector){
@@ -71,13 +76,6 @@ export class Enemy {
    }
    private set speed(value: number){
       this.attrs.setAttribute({ gameObjectId: this.id, attribute: "speed", value });
-   }
-
-   private get hp(): number {
-      return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "hp" }));
-   }
-   private set hp(value: number){
-      this.attrs.setAttribute({ gameObjectId: this.id, attribute: "hp", value });
    }
 
    public get x(): number { // get x from attributes
@@ -97,10 +95,9 @@ export class Enemy {
    public get Radius(){ return this.diameter/2; }
 
    public OnFrameTick = () => {
-      // console.log(`${this.id} OnFrameTick`);
-      /* const done = */ this.actionExecutor.ProgressOneFrame();
+      const done = this.actionExecutor.ProgressOneFrame();
+      if(done) { return; }
       // if(done) { console.log(`${this.name} have no more actions to execute and is fully done`); }
-      // if(done) { this.die(); }
 
       // Safest to do all the required updates n shit here, even if hp etc have not been changed.
       if(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "boundToWindow" })) {
@@ -109,19 +106,13 @@ export class Enemy {
       this.gfx?.setPosition({ x: this.x, y: this.y });
       // TODO: Don't force graphical rotation to sync be synced with move direction!!! See TODO.md
       this.gfx?.setRotation({ degrees: this.moveDirection.toVector().angle.degrees });
-   };
 
-   // When this enemy collided.
-   public OnCollision = () => {
-      // TODO: If points is zero then it should not dispatch a add_points event!
-      const points = assertNumber(this.attrs.getAttribute({
-         gameObjectId: this.id,
-         attribute: "points"
-      }));
-
-      // TODO: add_points is a bad name. Should be names pointsOnHit.
-      this.enemies.eventsPoints.dispatchEvent({ type: "add_points", points, enemy: this.name });
-      this.hp -= 1;
+      // clear collisions. the order how how things happen is important
+      // collisions must be cleared after the enemies have "reacted" to collisions.
+      // it would suck if collisions happened and then removed before enemies had reacted to them.
+      // how this happens is not straight forward but has to do with order services init in.
+      // reacting to collisions is supposed to happen in `this.actionExecutor.ProgressOneFrame()`
+      this.collidedWithCollisionTypesThisFrame = [];
    };
 
    private boundToWindow = () => {
@@ -140,11 +131,9 @@ export class Enemy {
       }
    };
 
-   // unlike die despawn does NOT trigger onDeathAction
    private despawn = () => {
-      // console.log(`${this.id} despawned`);
-      const enemies = this.enemies; // TODO: This line could be remove right?
-      delete enemies.enemies[this.id]; // remove this enemy.
+      this.despawned = true;
+      delete this.enemies.enemies[this.id]; // remove this enemy.
 
       const points = assertNumber(this.attrs.getAttribute({
          gameObjectId: this.id,
@@ -153,18 +142,27 @@ export class Enemy {
       if(points !== 0) {
          this.enemies.eventsPoints.dispatchEvent({type: "add_points", enemy: this.name, points });
       }
-
-      // TODO: Maybe publish a death event or something.
       if(this.gfx) { // Clear up graphics.
          this.gfx.release();
          this.gfx = undefined;
       }
+
+      // remove attributes
+      this.attrs.removeGameObject(this.id);
+      
+      // TODO: hm should prolly set all generators as finished too. oh this didn't work.
+      for(const generator of this.actionExecutor.generators) {
+         // generator.return();
+         // override generator.next to be a next that is finished
+         // This is extremely hacky and may rely on some assumptions such as despawn always
+         // being the last action.
+         generator.next = () => ({ value: undefined, done: true });
+      }
+      this.actionExecutor.generators = [];
    };
 
-   /**
-    * Essentially maps actions to class methods, that is has very "thin" responsibilities.
-    * Actually one-lines are okey to inline here.
-    */
+   /* Essentially maps actions to class methods, that is has very "thin" responsibilities.
+    * Actually one-lines are okey to inline here. */
    private HandleAction = (action: TAction) => {
       switch(action.type /* TODO: as AT */) {
          case AT.shootAccordingToMoveDirection:
@@ -198,7 +196,6 @@ export class Enemy {
             this.moveAccordingToSpeedAndDirection();
             break;
          case AT.spawn: {
-            // console.log(`Enemy: spawning: ${action.enemy}`);
             const { enemy, x=0, y=0, actions } = action;
             this.spawn({ enemy, pos: { x, y }, actions });
             break;
@@ -255,10 +252,8 @@ export class Enemy {
                type: AT.repeat,
                times: 99999,
                actions: [
-                  /**
-                   * TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
-                   * and then in yaml file a `moveAccordingToDirAndSpeed` action.
-                   */
+                  /* TODO: This could instead be made with a `setMoveDir`, `setMoveSpd`,
+                   * and then in yaml file a `moveAccordingToDirAndSpeed` action. */
                   { type: AT.moveDelta, x: dirX * speedUpFactor, y: dirY * speedUpFactor },
                   { type: AT.waitNextFrame }
                ]
@@ -267,10 +262,8 @@ export class Enemy {
       });
    };
 
-   /**
-    * TODO: This should be removed. Instead I should do this somehow with an action or attributes,
-    * so that you can shoot toward any position (or any position of a GameObject).
-    */
+   /* TODO: This should be removed. Instead I should do this somehow with an action or attributes,
+    * so that you can shoot toward any position (or any position of a GameObject). */
    private ShootTowardPlayer = () => {
       const player = this.enemies.player;
       const dirX = player.x - this.x;
@@ -349,10 +342,8 @@ export class Enemy {
    public getPosition = (): TVector => {
       let x = this.x;
       let y = this.y;
-      /**
-       * If mirroring Enemy will lie about it's location.
-       * It's sort of a hack actually, not super beautiful.
-       */
+      /* If mirroring Enemy will lie about it's location.
+       * It's sort of a hack actually, not super beautiful. */
       if(this.mirrorX) { x = resolutionWidth - x; }
       if(this.mirrorY) { y = resolutionHeight - y; }
       return { x, y };

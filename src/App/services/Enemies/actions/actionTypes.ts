@@ -40,6 +40,7 @@ export enum ActionType {
    setMoveDirection = "setMoveDirection", // TODO: remove. deprecated.
    waitForInput = "waitForInput",
    finishLevel = "finishLevel",
+   waitUntilCollision = "waitUntilCollision",
    
    /**
     * Attributes
@@ -161,11 +162,6 @@ export type TDecrement =
 export type TMirrorX = { type: ActionType.mirrorX, value: boolean };
 export type TMirrorY = { type: ActionType.mirrorY, value: boolean };
 /**
- * The only purpose for this is to "flatten" arrays in YAML.
- * The action simple executes the actions sent to it. As simple as that.
- */
-export type TDo = { type: ActionType.do, acns: TAction[] };
-/**
  * Enemy despawns.
  * An example of when this should be used is when an enemy despawns outside of the screen,
  */
@@ -189,9 +185,14 @@ export type TWaitTilInsideScreen = { type: ActionType.waitTilInsideScreen };
  * Usually you can get the same behaviour with `paralllelAll`/`parallelRace` but in some situations
  * the parallel actions aren't really an option (such as when you prepend actions when spawning
  * a new enemy and you want those actions to not delay the enemy's own actions, but rather
- * execute in parallel to them).
+ * execute in parallel to them). I.e. fork delay the actions following it zero frames to,
+ * while parallelAll/parallelRace have to finish before the next action after can be executed.
  */
-export type TFork = { type: ActionType.fork, actions: TAction[] };
+export type TFork = {
+   type: ActionType.fork,
+   // order: "prepend" | "append", // Hm, not sure I need this now.
+   actions: TAction[]
+};
 /**
  * Set only the move direction. Only specific some move actions care about the direction which 
  * gotta be called to move in the direction set with this action.
@@ -228,6 +229,12 @@ export type TFinishLevel = Readonly<{ type: ActionType.finishLevel }>;
 // Action to console.log, so you can debug actions.
 export type TLog = Readonly<{ type: ActionType.log, msg: string }>;
 
+// Waits until the GameObject collides with a GameObject with one of the collisionTypes.
+export type TWaitUntilCollision = Readonly<{
+   type: ActionType.waitUntilCollision,
+   collisionTypes: string[],
+}>;
+
 export type TAction = Readonly<
    /**
     * Utils
@@ -238,7 +245,6 @@ export type TAction = Readonly<
    TRepeat |
    TparallelRace |
    TparallelAll |
-   TDo |
    TFork |
    /**
    * Shooting
@@ -281,6 +287,10 @@ export type TAction = Readonly<
    TDecrement |
    TWaitUntilAttrIs |
    TFinishLevel |
+   /**
+    * Collisions
+    */
+   TWaitUntilCollision |
    /**
     * Mirroring
     */
