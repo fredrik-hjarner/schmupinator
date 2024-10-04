@@ -154,6 +154,8 @@ module.exports = defineConfig({
     "@typescript-eslint/prefer-return-this-type": "error",
     "@typescript-eslint/no-throw-literal": "error",
     "@typescript-eslint/no-extraneous-class": "error",
+    // "@typescript-eslint/prefer-readonly": "error",
+    "@typescript-eslint/no-unsafe-enum-comparison": "error",
     
     /**
      * Unicorn
