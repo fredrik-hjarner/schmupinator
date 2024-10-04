@@ -13,7 +13,6 @@ import { uuid } from "../../../utils/uuid.ts";
 import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
 import { assertNumber /*, assertString */ } from "../../../utils/typeAssertions.ts";
 import { EnemyGfx } from "./EnemyGfx.ts";
-// import { collisionTypeCollidesWith } from "./collisionTypeCollidesWith.ts";
 
 export class Enemy {
    public id: string;
@@ -64,6 +63,7 @@ export class Enemy {
       const degrees = assertNumber(
          this.attrs.getAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle" })
       );
+      // TODO: I can probably use Bun macros to speed this up.
       return new UnitVector(new Vector(0, -1)).rotateClockwise(Angle.fromDegrees(degrees));
    }
    private set moveDirection(dir: UnitVector){

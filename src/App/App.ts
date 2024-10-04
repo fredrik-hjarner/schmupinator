@@ -158,10 +158,6 @@ export class App {
 
       this.fps = this.construct.fps();
 
-      /**
-       * TODO: Move this to after the events. I think it might be needed otherwise collisions might
-       * happen/be recorded/reported one frame later (after my collision re-coding).
-       */
       this.enemies = new Enemies({ name: "enemies" });
       
       this.gamepad = new GamePad({ name: "gamePad" });

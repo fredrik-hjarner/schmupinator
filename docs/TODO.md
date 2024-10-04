@@ -423,3 +423,10 @@ events.
   and the great Redux DevTools to to see deltas. Maybe look into Zustand.
 
 * ~~Remove the Do action because it's not needed?~~
+
+* Find ways to utilize `Bun` macros:
+  - simple conversions
+    - like degrees to radians or creations of Vectors n such maybe. 
+
+* I seem to maybe have an assumption in the code that the last actions always is despawn. Maybe this
+  could create a problem in some weird situation when it is not the last action.

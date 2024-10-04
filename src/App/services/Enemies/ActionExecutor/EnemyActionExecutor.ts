@@ -85,7 +85,6 @@ export class EnemyActionExecutor {
    // TODO: Maybe I should clear up generators that have status `done`.
    // Return true when all generators have finished, i.e. no actions left ot execute.
    public ProgressOneFrame(): boolean {
-      // TODO: Die/kill self/explode when done!
       const prevGeneratorsLength = this.generators.length;
       // Seems that if a generator pushes to this.generators then then map will not be affected,
       // because map seems to clone the array. Otherwise .slice() would be needed.

@@ -162,7 +162,7 @@ export class Enemies implements IService {
             }
             break;
          }
-         case "collisions": // max one collsiion event per frame.
+         case "collisions": // max 1 collision event per frame. Collisions service only emits 1 evt
             for (const [enemyId, collisionTypes] of Object.entries(event.collisions)) {
                const enemy = this.enemies[enemyId];
                if(enemy) {

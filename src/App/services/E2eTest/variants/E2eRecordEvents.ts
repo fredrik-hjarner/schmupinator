@@ -21,8 +21,8 @@ export class E2eRecordEvents implements IE2eTest {
    public readonly name: string;
 
    // local history (what actually happened)
+   // Store it later in file that has, so to speak, been pre-recorded.
    private history: THistory = [];
-   // From file that has been pre-recorded.
 
    // deps/services
    private attributes!: IAttributes;

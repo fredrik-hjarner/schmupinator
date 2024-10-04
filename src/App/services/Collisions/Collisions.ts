@@ -78,7 +78,7 @@ export class Collisions implements IService {
    private update = () => {
       const startTime = BrowserDriver.PerformanceNow();
 
-      // variable in which to store all collisions. TODO: Update comment.
+      // variable in which to store all collisions.
       const collisions: TCollisions = {};
 
       const enemiesThatCanCollide = Object.values(this.enemies.enemies)
@@ -137,7 +137,7 @@ export class Collisions implements IService {
       
       // Subtracting from minDistance if a hack to cause lower hit "box".
       // TODO: Would be better to use attributes for this, like "hitBoxRadius" or something.
-      // Though to begin with figure out a good number for the hack.
+      // Though to begin with figuring out a good number for the hack.
       const minDistance = (doesThis.Radius + collideWithThis.Radius) * 0.9;
       const xDist = doesThis.x - collideWithThis.x;
       const yDist = doesThis.y - collideWithThis.y;
