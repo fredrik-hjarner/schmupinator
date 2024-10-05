@@ -159,6 +159,7 @@ module.exports = defineConfig({
     "@typescript-eslint/no-unsafe-unary-minus": "error",
     "@typescript-eslint/prefer-promise-reject-errors": "error",
     "@typescript-eslint/prefer-find": "error",
+    "@typescript-eslint/prefer-string-starts-ends-with": "error",
     
     /**
      * Unicorn
