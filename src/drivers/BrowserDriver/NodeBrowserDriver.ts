@@ -69,8 +69,7 @@ export class NodeBrowserDriver implements IBrowserDriver {
       try {
          buffer = await readFile(path);
       }
-      // TODO: err is unused so should give tsc or eslint error?!?!?
-      catch(err) {
+      catch(_) {
          /**
           * Adding "." to the url is a hack to get vite-node to find files in the "."
           * folder, instead of /src on root. Problem with v. 16.0.0.

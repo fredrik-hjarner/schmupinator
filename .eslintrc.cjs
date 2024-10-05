@@ -124,6 +124,7 @@ module.exports = defineConfig({
     "@typescript-eslint/no-unused-vars": ["error", {
       argsIgnorePattern: "^_",
       destructuredArrayIgnorePattern: "^_",
+      caughtErrorsIgnorePattern: "^_",
     }],
     "@typescript-eslint/explicit-member-accessibility": ["error"],
     "@typescript-eslint/consistent-type-imports": "error",
@@ -165,6 +166,7 @@ module.exports = defineConfig({
     "@typescript-eslint/array-type": "error",
     "@typescript-eslint/no-unsafe-function-type": "error",
     "@typescript-eslint/no-wrapper-object-types": "error",
+    "@typescript-eslint/no-empty-object-type": "error",
     
     /**
      * Unicorn
