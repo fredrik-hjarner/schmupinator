@@ -158,6 +158,7 @@ module.exports = defineConfig({
     "@typescript-eslint/no-unsafe-enum-comparison": "error",
     "@typescript-eslint/no-unsafe-unary-minus": "error",
     "@typescript-eslint/prefer-promise-reject-errors": "error",
+    "@typescript-eslint/prefer-find": "error",
     
     /**
      * Unicorn
