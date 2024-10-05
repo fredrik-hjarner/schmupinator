@@ -134,11 +134,11 @@ module.exports = defineConfig({
     }],
     "@typescript-eslint/no-duplicate-type-constituents": "error",
     "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/switch-exhaustiveness-check": "error",
+    "@typescript-eslint/switch-exhaustiveness-check": ["error", { requireDefaultForNonUnion: true }],
     "@typescript-eslint/no-import-type-side-effects": "error",
     "@typescript-eslint/no-loop-func": "error",
     "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-unused-expressions": ["error", { allowShortCircuit: true  }],
+    "@typescript-eslint/no-unused-expressions": ["error", { allowShortCircuit: true }],
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/return-await": "error",
     "@typescript-eslint/no-confusing-void-expression": "error",
@@ -156,6 +156,8 @@ module.exports = defineConfig({
     "@typescript-eslint/no-extraneous-class": "error",
     // "@typescript-eslint/prefer-readonly": "error",
     "@typescript-eslint/no-unsafe-enum-comparison": "error",
+    "@typescript-eslint/no-unsafe-unary-minus": "error",
+    "@typescript-eslint/prefer-promise-reject-errors": "error",
     
     /**
      * Unicorn

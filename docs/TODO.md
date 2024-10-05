@@ -430,3 +430,5 @@ events.
 
 * I seem to maybe have an assumption in the code that the last actions always is despawn. Maybe this
   could create a problem in some weird situation when it is not the last action.
+
+* Use eslint flat config format of config file.
