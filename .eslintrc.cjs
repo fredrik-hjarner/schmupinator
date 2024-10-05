@@ -152,7 +152,7 @@ module.exports = defineConfig({
     "@typescript-eslint/prefer-includes": "error",
     "@typescript-eslint/prefer-reduce-type-parameter": "error",
     "@typescript-eslint/prefer-return-this-type": "error",
-    "@typescript-eslint/no-throw-literal": "error",
+    "@typescript-eslint/only-throw-error": "error",
     "@typescript-eslint/no-extraneous-class": "error",
     // "@typescript-eslint/prefer-readonly": "error",
     "@typescript-eslint/no-unsafe-enum-comparison": "error",
