@@ -435,3 +435,5 @@ events.
 
 * use "plugin:@typescript-eslint/strict-type-checked" instead of
   "plugin:@typescript-eslint/recommended-type-checked".
+
+* Upgrading to eslint version 9 seems like hell.
