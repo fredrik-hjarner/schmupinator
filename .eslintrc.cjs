@@ -163,6 +163,8 @@ module.exports = defineConfig({
     "@typescript-eslint/use-unknown-in-catch-callback-variable": "error",
     "@typescript-eslint/prefer-reduce-type-parameter": "error",
     "@typescript-eslint/array-type": "error",
+    "@typescript-eslint/no-unsafe-function-type": "error",
+    "@typescript-eslint/no-wrapper-object-types": "error",
     
     /**
      * Unicorn
