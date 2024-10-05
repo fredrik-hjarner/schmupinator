@@ -432,3 +432,6 @@ events.
   could create a problem in some weird situation when it is not the last action.
 
 * Use eslint flat config format of config file.
+
+* use "plugin:@typescript-eslint/strict-type-checked" instead of
+  "plugin:@typescript-eslint/recommended-type-checked".

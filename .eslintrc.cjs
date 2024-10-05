@@ -160,6 +160,8 @@ module.exports = defineConfig({
     "@typescript-eslint/prefer-promise-reject-errors": "error",
     "@typescript-eslint/prefer-find": "error",
     "@typescript-eslint/prefer-string-starts-ends-with": "error",
+    "@typescript-eslint/use-unknown-in-catch-callback-variable": "error",
+    "@typescript-eslint/prefer-reduce-type-parameter": "error",
     
     /**
      * Unicorn
