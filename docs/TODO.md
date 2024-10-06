@@ -11,16 +11,10 @@ easier to do some kind of RUN AHEAD functionality.
 turns all rotate around point actions into individual set_position actions, or turns all absolute
 moves into relative moves (dunno, can maybe simplify things, maybe.)
 
-* Optimize Events service so you can only subscribe to certain events.
-
-* Add { type: "enemy_died", enemyName: string } event.
-
 * I could do it as css and have position: relative/absolute with relative as default,
 that would make relative/absolute positioning actions more coherent.
 
 * Have private constructors, and use a Construct method instead that can be async.
-
-* Add max number of lines in eslint.
 
 * Rename Enemy to GameObject, and Enemies to GameObjectManager.
 
@@ -49,9 +43,6 @@ in order for that to work though I'd have to reprogram GeneratorUtils.Repeat to 
 generator (now it creates several thus only one would be killed)!
 
 * Use my utils createShade and createText throughout the UI Scenes code.
-
-* Maybe I should have a frameTickEvents service, that only has frame_tick on it. This would allow a
-little bit of increased performance I think.
 
 * This is an abuse ` this.app.gameLoop.FrameCount` could most likely use the `frameNr` in the
 `frame_tick` event instead, that way depenencies on `gameLoop` can be removed in some places.
@@ -206,8 +197,6 @@ in a success way but now I only have one type of "end of game" and that is Game 
 
 * The shooting actions should prolly have to specify which shot to use instead of using the default
 shot, since the default shot is a bit "magical".
-
-* Remove TDo action, it's not needed. It is used but I think all those can be removed/replaced.
 
 * The way I imagine it to work is that users upload a
 js-file to a backend, then the backend runs that js file to generate a json, then the frontend loads
@@ -436,4 +425,7 @@ events.
 * use "plugin:@typescript-eslint/strict-type-checked" instead of
   "plugin:@typescript-eslint/recommended-type-checked".
 
-* Upgrading to eslint version 9 seems like hell.
+* ~~Upgrading to eslint version 9 seems like hell.~~
+
+* Since I have recoded so much shit, i.e. collision logic at the latest, remove/change all
+  references to points and points events.
