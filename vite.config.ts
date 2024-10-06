@@ -1,14 +1,14 @@
 /// <reference types="vitest" />
 
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
-import path from 'path';
+import { resolve } from 'node:path';
 
 export default defineConfig({
   plugins: [splitVendorChunkPlugin()],
   resolve: {
     alias: {
       // This makes it so that imports like `from "@/components"` work.
-      '@': path.resolve(__dirname, './src'),
+      '@': resolve(__dirname, './src'),
     },
   },
   worker: { format: "es" },
