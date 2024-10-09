@@ -19,5 +19,6 @@ export const spawner: TGameObject = createGameObject({
       spawn("parallax"),
       spawn("player", { x: col[5], y: row[5] }),
       spawn("asteroid", { x: col[2], y: row[2] }),
+      spawn("asteroid", { x: col[8], y: row[2] }),
    ],
 });

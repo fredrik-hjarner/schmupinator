@@ -39,8 +39,8 @@ const screenWrapActions: TAction[] = [
 
 export const asteroid = createGameObject({
    name: "asteroid",
-   diameter: 17,
-   hp: 5,
+   diameter: 18,
+   hp: 3,
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
       fork(forever(
@@ -52,18 +52,18 @@ export const asteroid = createGameObject({
          { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
          spawn("smallAsteroid", {
             x: 2,
-            y: -2,
+            y: 0,
             // move outward slownly
             actions: [
-               fork({ type: AT.move, x: 100, y: -100, frames: 800 }),
+               fork({ type: AT.move, x: 1000, y: 0, frames: 8000 }),
             ]
          }),
          spawn("smallAsteroid", {
             x: -2,
-            y: -2,
+            y: 0,
             // move outward slownly
             actions: [
-               fork({ type: AT.move, x: -100, y: -100, frames: 800 }),
+               fork({ type: AT.move, x: -1000, y: 0, frames: 8000 }),
             ]
          }),
          spawn("smallAsteroid", {
@@ -71,7 +71,15 @@ export const asteroid = createGameObject({
             y: 2,
             // move outward slownly
             actions: [
-               fork({ type: AT.move, x: 0, y: 100, frames: 800 }),
+               fork({ type: AT.move, x: 0, y: 1000, frames: 8000 }),
+            ]
+         }),
+         spawn("smallAsteroid", {
+            x: 0,
+            y: -2,
+            // move outward slownly
+            actions: [
+               fork({ type: AT.move, x: 0, y: -1000, frames: 8000 }),
             ]
          }),
          { type: AT.despawn },
@@ -90,7 +98,7 @@ export const asteroid = createGameObject({
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "none" },
       wait(1),
-      { type: AT.gfxSetShape, shape: "diamondShield" },
+      { type: AT.gfxSetShape, shape: "octagon" },
       // setup screen wrapping
       ...screenWrapActions,
    ]
@@ -100,6 +108,73 @@ export const smallAsteroid = createGameObject({
    name: "smallAsteroid",
    diameter: 17,
    hp: 3,
+   options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
+   actions: [
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["playerBullet"] },
+         { type: AT.decr, attribute: "hp" },
+         wait(1),
+      )),
+      fork(
+         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
+         spawn("tinyAsteroid", {
+            x: 2,
+            y: 0,
+            // move outward slownly
+            actions: [
+               fork({ type: AT.move, x: 1000, y: 0, frames: 8000 }),
+            ]
+         }),
+         spawn("tinyAsteroid", {
+            x: -2,
+            y: 0,
+            // move outward slownly
+            actions: [
+               fork({ type: AT.move, x: -1000, y: 0, frames: 8000 }),
+            ]
+         }),
+         spawn("tinyAsteroid", {
+            x: 0,
+            y: 2,
+            // move outward slownly
+            actions: [
+               fork({ type: AT.move, x: 0, y: 1000, frames: 8000 }),
+            ]
+         }),
+         spawn("tinyAsteroid", {
+            x: 0,
+            y: -2,
+            // move outward slownly
+            actions: [
+               fork({ type: AT.move, x: 0, y: -1000, frames: 8000 }),
+            ]
+         }),
+         { type: AT.despawn },
+      ),
+      //set points to 0, otherwise you get points when the player dies since default is 10 currently
+      { type: AT.setAttribute, attribute: "points", value: 0 },
+      { type: AT.gfxSetColor, color: "red" },
+      // TODO: setMoveDirection might be a stupid name for the
+      // action and the way it works might also be stupid.
+      // cuz every tick the gfx rotation is set to moveDirection,
+      // which is contra-intuitive. Should prolly not be set
+      // automaticallt on tick, but need to be set explicitly.
+      { type: AT.setMoveDirection, degrees: 0 },
+      { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
+      { type: AT.setAttribute, attribute: "boundToWindow", value: false },
+      // The following line is just a hack to hide the player initially.
+      { type: AT.gfxSetShape, shape: "none" },
+      wait(1),
+      { type: AT.gfxSetShape, shape: "octagon" },
+      // setup screen wrapping
+      ...screenWrapActions,
+   ]
+});
+
+export const tinyAsteroid = createGameObject({
+   name: "tinyAsteroid",
+   diameter: 13,
+   hp: 4,
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
       fork(forever(
@@ -126,7 +201,7 @@ export const smallAsteroid = createGameObject({
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "none" },
       wait(1),
-      { type: AT.gfxSetShape, shape: "diamondShield" },
+      { type: AT.gfxSetShape, shape: "octagon" },
       // setup screen wrapping
       ...screenWrapActions,
    ]

@@ -18,12 +18,12 @@ const defaultDirectionalControlsActions: TAction[] = [
    // rotation
    fork(forever(
       { type: AT.waitForInput, pressed: ["left"] },
-      { type: AT.decr, attribute: "moveDirectionAngle", amount: 3.5 },
+      { type: AT.decr, attribute: "moveDirectionAngle", amount: 3.0 },
       { type: AT.waitNextFrame },
    )),
    fork(forever(
       { type: AT.waitForInput, pressed: ["right"] },
-      { type: AT.incr, attribute: "moveDirectionAngle", amount: 3.5 },
+      { type: AT.incr, attribute: "moveDirectionAngle", amount: 3.0 },
       { type: AT.waitNextFrame },
    )),
 
