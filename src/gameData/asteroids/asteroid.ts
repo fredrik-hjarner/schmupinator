@@ -40,7 +40,7 @@ const screenWrapActions: TAction[] = [
 export const asteroid = createGameObject({
    name: "asteroid",
    diameter: 17,
-   hp: 1,
+   hp: 5,
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
       fork(forever(
@@ -99,7 +99,7 @@ export const asteroid = createGameObject({
 export const smallAsteroid = createGameObject({
    name: "smallAsteroid",
    diameter: 17,
-   hp: 1,
+   hp: 3,
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
       fork(forever(
