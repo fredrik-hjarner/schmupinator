@@ -112,7 +112,7 @@ export const player = createGameObject({
       // setup screen wrapping
       ...dieWhenTouchScreenBorders,
       fork(forever(
-         wait(30),
+         wait(25),
          spawn("snakeBody"),
       )),
    ]

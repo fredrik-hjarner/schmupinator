@@ -19,7 +19,6 @@ export class Enemy {
    // public because grabbed in EnemyActionExecutor.
    public enemies: Enemies; // enemies service
    private graphics: IGraphics; // Graphics service
-   private diameter: number;
    private shotSpeed = 0.2; // super slow default shot speed, you'll always want to override this.
    private mirrorX = false;
    private mirrorY = false;
@@ -35,7 +34,8 @@ export class Enemy {
       this.enemies = enemies;
       this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;
-      this.diameter = json.diameter;
+      this.attrs
+         .setAttribute({gameObjectId: this.id, attribute: "diameter", value: json.diameter });
       this.x = position.x;
       this.y = position.y;
       this.actionExecutor = new EnemyActionExecutor({
@@ -71,6 +71,9 @@ export class Enemy {
       this.attrs.setAttribute({ gameObjectId: this.id, attribute: "moveDirectionAngle", value });
    }
 
+   private get diameter(): number {
+      return assertNumber(this.attrs.getAttribute({gameObjectId: this.id, attribute: "diameter" }));
+   }
    private get speed(): number {
       return assertNumber(this.attrs.getAttribute({ gameObjectId: this.id, attribute: "speed" }));
    }

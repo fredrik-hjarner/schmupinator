@@ -437,3 +437,5 @@ events.
   - fix highscores: I don't think they are enabled for Asteroids and Snake.
   
 * Upgrade to use deno version when possible. would be too much of an effort today.
+
+* ~~Separate collision diameter nad gfx diameter~~ Done, I think.

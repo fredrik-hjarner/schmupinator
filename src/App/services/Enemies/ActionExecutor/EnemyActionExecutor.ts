@@ -13,6 +13,7 @@ import { GeneratorUtils } from "../../../../utils/GeneratorUtils.ts";
 import { ifAttr } from "./helpers/if.ts";
 import { createIsOutsideScreen } from "./helpers/createIsOutsideScreen.ts";
 
+// TODO: Would be nice with a commment here.
 const rotateAroundPoint = function*(
    currAction: TRotateAroundAbsolutePoint | TRotateAroundRelativePoint,
    pointToPosVector: Vector,

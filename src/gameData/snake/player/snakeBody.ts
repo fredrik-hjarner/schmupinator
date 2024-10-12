@@ -1,8 +1,32 @@
+import type { TAction } from "../../../App/services/Enemies/actions/actionTypes.ts";
+
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import {
    createGameObject,
    wait
 } from "../../utils/utils.ts";
+
+const shrinkDiameter = (diameter: number, waitAmount: number): TAction[] => [
+   { type: AT.setAttribute, attribute: "diameter", value: diameter },
+   { type: AT.gfxSetDiameter, diameter },
+   wait(waitAmount),
+];
+
+const w = 10;
+const shrinkAmount = 0.5;
+
+const shrinkAndDie: TAction[] = [
+   wait(30*3),
+   ...shrinkDiameter(17 - shrinkAmount, w),
+   ...shrinkDiameter(17 - 2*shrinkAmount, w),
+   ...shrinkDiameter(17 - 3*shrinkAmount, w),
+   ...shrinkDiameter(17 - 4*shrinkAmount, w),
+   ...shrinkDiameter(17 - 5*shrinkAmount, w),
+   ...shrinkDiameter(17 - 6*shrinkAmount, w),
+   ...shrinkDiameter(17 - 7*shrinkAmount, w),
+   { type: AT.despawn },
+];
+
 
 export const snakeBody = createGameObject({
    name: "snakeBody",
@@ -27,7 +51,6 @@ export const snakeBody = createGameObject({
       wait(1),
       { type: AT.gfxSetShape, shape: "circle" },
       { type: AT.incr, attribute: "speed", amount: 0 },
-      wait(60 * 3),
-      { type: AT.despawn },
+      ...shrinkAndDie,
    ]
 });
