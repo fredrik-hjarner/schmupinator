@@ -50,6 +50,8 @@ export class Highscore implements IService {
          games: [
             this.defaultHighscore(),
             this.defaultHighscore(),
+            this.defaultHighscore(),
+            this.defaultHighscore(),
          ]
       };
 

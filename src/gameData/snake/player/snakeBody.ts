@@ -37,8 +37,6 @@ export const snakeBody = createGameObject({
    // onDeathAction: { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
-      //set points to 0, otherwise you get points when the player dies since default is 10 currently
-      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "aqua" },
       // TODO: setMoveDirection might be a stupid name for the
       // action and the way it works might also be stupid.

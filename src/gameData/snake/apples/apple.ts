@@ -15,8 +15,6 @@ export const apple = createGameObject({
          { type: AT.waitUntilCollision, collisionTypes: ["player"] },
          { type: AT.despawn }
       ),
-      //set points to 0, otherwise you get points when the player dies since default is 10 currently
-      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "red" },
       { type: AT.setMoveDirection, degrees: 90 },
       { type: AT.setAttribute, attribute: "collisionType", value: "apple" },

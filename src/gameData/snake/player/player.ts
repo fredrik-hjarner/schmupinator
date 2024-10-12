@@ -89,6 +89,7 @@ export const player = createGameObject({
       fork(forever(
          { type: AT.waitUntilCollision, collisionTypes: ["apple"] },
          { type: AT.incr, gameObjectId: "global", attribute: "applesEaten" },
+         { type: AT.addPoints, points: 100 },
          {
             type: AT.attrIf, // TODO: Split into a function `isEndGame` and increase ttl for apples
             condition: "greaterThanOrEqual",
@@ -107,8 +108,6 @@ export const player = createGameObject({
       ),
       { type: AT.setAttribute, gameObjectId: "global", attribute: "ttl", value: 10 },
       { type: AT.setAttribute, gameObjectId: "global", attribute: "applesEaten", value: 0 },
-      //set points to 0, otherwise you get points when the player dies since default is 10 currently
-      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "aqua" },
       // TODO: setMoveDirection might be a stupid name for the
       // action and the way it works might also be stupid.

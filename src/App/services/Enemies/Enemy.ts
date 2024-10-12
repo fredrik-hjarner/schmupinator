@@ -11,7 +11,7 @@ import { Angle } from "../../../math/Angle.ts";
 import { UnitVector } from "../../../math/UnitVector.ts";
 import { uuid } from "../../../utils/uuid.ts";
 import { resolutionHeight, resolutionWidth } from "../../../consts.ts";
-import { assertNumber /*, assertString */ } from "../../../utils/typeAssertions.ts";
+import { assertNumber, /*, assertString */ isRandomIntParam } from "@/utils/typeAssertions.ts";
 import { EnemyGfx } from "./EnemyGfx.ts";
 
 export class Enemy {
@@ -194,18 +194,12 @@ export class Enemy {
             break;
          case AT.spawn: { // TODO: Other actions are one-liners, maybe this should be too?
             const { enemy, actions, x, y } = action;
-            let xx = 0;
-            let yy = 0;
-            if(typeof x === "object" && "min" in x) { // TODO: Code duplication, refactor.
-               xx = this.enemies.pseudoRandom.randomInt(x.min, x.max);
-            } else {
-               xx = x ?? 0;
-            }
-            if(typeof y === "object" && "min" in y) { // TODO: Code duplication, refactor.
-               yy = this.enemies.pseudoRandom.randomInt(y.min, y.max);
-            } else {
-               yy = y ?? 0;
-            }
+            const xx = isRandomIntParam(x)
+               ? this.enemies.pseudoRandom.randomInt(x.min, x.max)
+               : x ?? 0;
+            const yy = isRandomIntParam(y)
+               ? this.enemies.pseudoRandom.randomInt(y.min, y.max)
+               : y ?? 0;
             this.spawn({ enemy, pos: { x: xx, y: yy }, actions });
             break;
          }
@@ -233,6 +227,11 @@ export class Enemy {
          }
          case AT.finishLevel: // TODO: dispatch some new "finishLevel" event instead.
             this.enemies.events.dispatchEvent({ type: "gameOver" }); 
+            break;
+         case AT.addPoints: // TODO: Other actions are one-liners, maybe this should be too?
+            this.enemies.eventsPoints.dispatchEvent({ // TODO: Remove in future. Do points better.
+               type: "add_points", enemy: this.name, points: action.points
+            });
             break;
          default:
             this.gfx?.dispatch(action as TGraphicsActionWithoutHandle);

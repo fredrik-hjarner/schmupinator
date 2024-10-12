@@ -241,7 +241,6 @@ export function createGameObject(params: TCreateGameObjectParams): TGameObject {
       diameter: params.diameter,
       actions: [
          // Set some default attributes.
-         { type: AT.setAttribute, attribute: "points", value: 10 },
          { type: AT.setAttribute, attribute: "pointsOnDeath", value: 0 },
          { type: AT.setAttribute, attribute: "collisionType", value: "enemy" },
          { type: AT.setAttribute, attribute: "boundToWindow", value: false },

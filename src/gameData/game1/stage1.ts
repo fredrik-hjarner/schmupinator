@@ -47,6 +47,7 @@ export const stage1: TGameObject = createGameObject({
    diameter: 20,
    hp: 9999,
    actions: [
+      { type: AT.setAttribute, attribute: "pointsOnDeath", value: 25 },
       { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.gfxSetShape, shape: "none" },
       wait(120),
@@ -76,6 +77,7 @@ export const nonShootingAimer: TGameObject = createGameObject({
          spawn("roundExplosion"),
          { type: AT.despawn },
       ),
+      { type: AT.setAttribute, attribute: "pointsOnDeath", value: 25 },
       setSpeed(1.6),
       parallelAll(
          repeat(26.25, [
@@ -133,6 +135,7 @@ export const sinus: TGameObject = createGameObject({
          spawn("roundExplosion"),
          { type: AT.despawn },
       ),
+      { type: AT.setAttribute, attribute: "pointsOnDeath", value: 25 },
       setShotSpeed(2),
       attr("right", { value: true, yes: [{ type: AT.mirrorX, value: true }] }),
       twice(
@@ -220,6 +223,7 @@ export const firstMiniboss: TGameObject = createGameObject({
          spawn("roundExplosion"),
          { type: AT.despawn },
       ),
+      { type: AT.setAttribute, attribute: "pointsOnDeath", value: 1000 },
       parallelRace(
          shootingPattern,
          movementPattern

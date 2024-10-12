@@ -84,8 +84,6 @@ export const asteroid = createGameObject({
          }),
          { type: AT.despawn },
       ),
-      //set points to 0, otherwise you get points when the player dies since default is 10 currently
-      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "red" },
       // TODO: setMoveDirection might be a stupid name for the
       // action and the way it works might also be stupid.
@@ -151,8 +149,6 @@ export const smallAsteroid = createGameObject({
          }),
          { type: AT.despawn },
       ),
-      //set points to 0, otherwise you get points when the player dies since default is 10 currently
-      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "red" },
       // TODO: setMoveDirection might be a stupid name for the
       // action and the way it works might also be stupid.
@@ -187,8 +183,6 @@ export const tinyAsteroid = createGameObject({
          // spawn even smaller fragments.
          { type: AT.despawn },
       ),
-      //set points to 0, otherwise you get points when the player dies since default is 10 currently
-      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "red" },
       // TODO: setMoveDirection might be a stupid name for the
       // action and the way it works might also be stupid.

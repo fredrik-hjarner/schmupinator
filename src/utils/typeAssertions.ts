@@ -1,3 +1,5 @@
+import type { TRandomInt } from "@/App/services/Enemies/actions/actionTypes.ts";
+
 import { BrowserDriver } from "../drivers/BrowserDriver/index.ts";
 import { IsBrowser } from "../drivers/BrowserDriver/IsBrowser.ts";
 
@@ -13,6 +15,10 @@ export const isString = (value: unknown): value is string => {
 export const isBoolean = (value: unknown): value is boolean => {
    return typeof value === "boolean";
 };
+export const isRandomIntParam = (value: unknown): value is TRandomInt => {
+   return typeof value === "object" && value !== null && "min" in value;
+};
+
 export const assertNumber = (value: unknown): number => {
    if(!isNumber(value)) {
       const error = `assertNumber: ${JSON.stringify(value)} is not of type "number"`;
@@ -21,6 +27,7 @@ export const assertNumber = (value: unknown): number => {
    }
    return value;
 };
+
 export const assertString = (value: unknown): string => {
    if(!isString(value)) {
       const error = `assertString: ${JSON.stringify(value)} is not of type "string"`;

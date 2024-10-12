@@ -9,6 +9,7 @@ import type { TAttrName, TAttrValue } from "../../Attributes/IAttributes";
  * so it forces you to use the enum everywhere which is great!
  */
 export enum ActionType {
+   addPoints = "addPoints", // TODO: Just temporary. I have to figure out how to handle points later
    wait = "wait",
    waitNextFrame = "waitNextFrame",
    waitUntilFrameNr = "wait_util_frame_nr",
@@ -176,7 +177,7 @@ export type TMirrorY = { type: ActionType.mirrorY, value: boolean };
  */
 export type TDespawn = { type: ActionType.despawn };
 /**
- * Attributes can be either some predefined thing by me such as hp, points,
+ * Attributes can be either some predefined thing by me such as hp, collisionType, etc.
  * or it could be  end-user specified variable with any type.
  */
 export type TSetAttribute = {
@@ -248,6 +249,8 @@ export type TWaitUntilCollision = Readonly<{
    collisionTypes: string[],
 }>;
 
+export type TAddPoints = Readonly<{ type: ActionType.addPoints, points: number }>;
+
 export type TAction = Readonly<
    /**
     * Utils
@@ -317,5 +320,9 @@ export type TAction = Readonly<
    /**
     * Log
     */
-   TLog
+   TLog |
+   /**
+    * Temporary. Remove later.
+    */
+   TAddPoints
 >;

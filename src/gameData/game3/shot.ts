@@ -9,7 +9,6 @@ export const shot: TGameObject = createGameObject({
    diameter: 5,
    actions: [
       { type: AT.setAttribute, attribute: "collisionType", value: "enemyBullet" },
-      { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetShape, shape: "circle" }
    ]
 });

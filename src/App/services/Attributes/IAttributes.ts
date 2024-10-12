@@ -14,7 +14,6 @@ export type TAttrValue = string | number | boolean;
  * types that are needed to created a game/stage/level should go.
  */
 export type TAttrName = LiteralUnion<
-   "points" |
    "pointsOnDeath" |
    "parentId" |
    "collisionType" |
@@ -25,8 +24,6 @@ export type TAttrName = LiteralUnion<
 export type TAttributes = {
    gameObjects: Partial<{
       [gameObjectId: string]: Partial<{
-         // how many points you get when this enemy collides.
-         points: number;
          // how many points you get when this dies.
          pointsOnDeath: number;
          // stores the id of the GameObject that is the parent, i.e. the one that created this child
