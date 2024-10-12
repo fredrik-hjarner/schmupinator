@@ -88,7 +88,16 @@ export const player = createGameObject({
    actions: [
       fork(forever(
          { type: AT.waitUntilCollision, collisionTypes: ["apple"] },
-         { type: AT.incr, gameObjectId: "global", attribute: "ttl", amount: 45 },
+         { type: AT.incr, gameObjectId: "global", attribute: "applesEaten" },
+         {
+            type: AT.attrIf, // TODO: Split into a function `isEndGame` and increase ttl for apples
+            condition: "greaterThanOrEqual",
+            gameObjectId: "global",
+            attrName: "applesEaten",
+            value: 10,
+            yes: [{ type: AT.incr, gameObjectId: "global", attribute: "ttl", amount: 60 }],
+            no: [{ type: AT.incr, gameObjectId: "global", attribute: "ttl", amount: 45 }],
+         },
          wait(1),
       )),
       fork(
@@ -97,6 +106,7 @@ export const player = createGameObject({
          { type: AT.despawn },
       ),
       { type: AT.setAttribute, gameObjectId: "global", attribute: "ttl", value: 10 },
+      { type: AT.setAttribute, gameObjectId: "global", attribute: "applesEaten", value: 0 },
       //set points to 0, otherwise you get points when the player dies since default is 10 currently
       { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "aqua" },
