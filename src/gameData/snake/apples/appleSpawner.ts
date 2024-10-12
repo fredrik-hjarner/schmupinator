@@ -1,13 +1,22 @@
+import type {  TAction } from "../../../App/services/Enemies/actions/actionTypes.ts";
+
+import { resolutionHeight, resolutionWidth } from "@/consts.ts";
+
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import {
-   col,
    createGameObject,
    forever,
    fork,
-   row,
    spawn,
    wait
 } from "../../utils/utils.ts";
+
+const spawnApple = (): TAction => spawn(
+   "apple", {
+      x: { min: 0, max: resolutionWidth },
+      y: { min: 0, max: resolutionHeight }
+   },
+);
 
 export const appleSpawner = createGameObject({
    name: "appleSpawner",
@@ -23,16 +32,8 @@ export const appleSpawner = createGameObject({
       { type: AT.gfxSetShape, shape: "none" },
       { type: AT.incr, attribute: "speed", amount: 0 },
       fork(forever(
-         spawn("apple", { x: col[1], y: row[1] }),
-         wait(60 * 1.5),
-         spawn("apple", { x: col[2], y: row[2] }),
-         wait(60 * 1.5),
-         spawn("apple", { x: col[3], y: row[3] }),
-         wait(60 * 1.5),
-         spawn("apple", { x: col[4], y: row[4] }),
-         wait(60 * 1.5),
-         spawn("apple", { x: col[5], y: row[5] }),
-         wait(60 * 1.5),
+         spawnApple(),
+         wait(60 * 4),
       ))
    ]
 });

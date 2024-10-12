@@ -253,6 +253,7 @@ export class App {
          highscore,
          input,
          points,
+         pseudoRandom,
          gameData,
          settings,
       } = this;
@@ -294,8 +295,9 @@ export class App {
          eventsPoints,
          graphics,
          gameData,
-         input,
          gamepad,
+         input,
+         pseudoRandom,
          settings,
       });
       await gamepad.Init();

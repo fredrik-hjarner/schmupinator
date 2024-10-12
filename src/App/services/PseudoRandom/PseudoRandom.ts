@@ -26,6 +26,7 @@ export class PseudoRandom implements IPseudoRandom {
       // NOOP
    };
 
+   // TODO: I think this would be for having separate random number generators keyed by a string.
    // /** hash string to an index in randomNumbers */
    // private hashString = (input: string): number => {
    //    let hash = 0;
@@ -43,6 +44,7 @@ export class PseudoRandom implements IPseudoRandom {
 
       this.currentIndex = (this.currentIndex + 1) % randomNumbers.length;
 
+      // TODO: Why would ceil and floor be needed? Input should be integers I think...
       const min = Math.ceil(_min);
       const max = Math.floor(_max);
 

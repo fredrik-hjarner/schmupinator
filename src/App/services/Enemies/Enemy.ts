@@ -34,8 +34,7 @@ export class Enemy {
       this.enemies = enemies;
       this.id = `${json.name}-${uuid(json.name)}`;
       this.name = json.name;
-      this.attrs
-         .setAttribute({gameObjectId: this.id, attribute: "diameter", value: json.diameter });
+      this.attrs.setAttribute({gameObjectId: this.id, attribute:"diameter", value: json.diameter });
       this.x = position.x;
       this.y = position.y;
       this.actionExecutor = new EnemyActionExecutor({
@@ -149,23 +148,18 @@ export class Enemy {
          this.gfx.release();
          this.gfx = undefined;
       }
-
-      // remove attributes
-      this.attrs.removeGameObject(this.id);
+      this.attrs.removeGameObject(this.id); // remove attributes
       
       // TODO: hm should prolly set all generators as finished too. oh this didn't work.
       for(const generator of this.actionExecutor.generators) {
-         // generator.return();
-         // override generator.next to be a next that is finished
-         // This is extremely hacky and may rely on some assumptions such as despawn always
-         // being the last action.
+         // override generator.next to be a next that is finished. This is extremely hacky and may
+         // rely on some assumptions such as despawn always being the last action.
          generator.next = () => ({ value: undefined, done: true });
       }
       this.actionExecutor.generators = [];
    };
 
-   /* Essentially maps actions to class methods, that is has very "thin" responsibilities.
-    * Actually one-lines are okey to inline here. */
+   /* Essentially maps actions to class methods, that is has very "thin" responsibilities. */
    private HandleAction = (action: TAction) => {
       switch(action.type /* TODO: as AT */) {
          case AT.shootAccordingToMoveDirection:
@@ -198,9 +192,21 @@ export class Enemy {
          case AT.move_according_to_speed_and_direction:
             this.moveAccordingToSpeedAndDirection();
             break;
-         case AT.spawn: {
-            const { enemy, x=0, y=0, actions } = action;
-            this.spawn({ enemy, pos: { x, y }, actions });
+         case AT.spawn: { // TODO: Other actions are one-liners, maybe this should be too?
+            const { enemy, actions, x, y } = action;
+            let xx = 0;
+            let yy = 0;
+            if(typeof x === "object" && "min" in x) { // TODO: Code duplication, refactor.
+               xx = this.enemies.pseudoRandom.randomInt(x.min, x.max);
+            } else {
+               xx = x ?? 0;
+            }
+            if(typeof y === "object" && "min" in y) { // TODO: Code duplication, refactor.
+               yy = this.enemies.pseudoRandom.randomInt(y.min, y.max);
+            } else {
+               yy = y ?? 0;
+            }
+            this.spawn({ enemy, pos: { x: xx, y: yy }, actions });
             break;
          }
          case AT.mirrorX: 

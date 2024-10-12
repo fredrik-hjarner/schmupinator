@@ -5,6 +5,7 @@ import type { IAttributes, TAttrValue } from "../../Attributes/IAttributes";
 import type { IInput } from "../../Input/IInput";
 import type { GamePad } from "../../GamePad/GamePad";
 import type { Enemy } from "../Enemy.ts";
+import type { IPseudoRandom } from "../../PseudoRandom/IPseudoRandom.ts";
 
 import { ActionType as AT } from "../actions/actionTypes.ts";
 import { Vector } from "../../../../math/Vector.ts";
@@ -36,10 +37,8 @@ const rotateAroundPoint = function*(
 type TActionHandler = (action: TAction) => void;
 
 type TEnemyActionExecutorArgs = {
-   /**
-   * The actions to execute. Executes them in sequence.
-   * You can execute things in parallel with special compound actions like parallelRace.
-   */
+   // The actions to execute. Executes them in sequence.
+   // You can execute things in parallel with special compound actions like parallelRace.
    actions: TAction[];
    actionHandler: TActionHandler;
    enemy: Enemy;
@@ -55,10 +54,9 @@ export class EnemyActionExecutor {
    private actionHandler: (action: TAction) => void;
    private enemy: Enemy;
    private attrs: IAttributes; // attribute service for convenience.
-   /**
-    * The only reason I don't have only ONE generator is because of the `fork` action.
-    * `fork` creates/adds a new generator. I think that's the only way it could work really.
-    */
+   private pseudoRandom: IPseudoRandom;
+   // The only reason I don't have only ONE generator is because of the `fork` action.
+   // `fork` creates/adds a new generator. I think that's the only way it could work really.
    public generators: Generator<void, void, void>[];
 
    public constructor(params: TEnemyActionExecutorArgs) {
@@ -66,6 +64,7 @@ export class EnemyActionExecutor {
       this.actionHandler = actionHandler;
       this.enemy = enemy;
       this.attrs = enemy.enemies.attributes; // for convenience.
+      this.pseudoRandom = enemy.enemies.pseudoRandom; // for convenience.
       this.input = input;
       this.gamepad = gamepad;
       this.generators = [this.makeGenerator(actions)];
@@ -133,12 +132,17 @@ export class EnemyActionExecutor {
       });
    };
    /** Get/extract a hardcoded number or an attribute */
+   // TODO: I should also have another one here for PseudoRandom.randomInt.
    private getNumber = (param: TNumber): number => {
       if (typeof param === "number") { return param; }
-      return this.attrs.getNumber({
-         gameObjectId: param.gameObjectId ?? this.enemy.id,
-         attribute: param.attr
-      });
+      if ("attr" in param) {
+         return this.attrs.getNumber({
+            gameObjectId: param.gameObjectId ?? this.enemy.id,
+            attribute: param.attr
+         });
+      }
+      // else is a random number
+      return this.pseudoRandom.randomInt(param.min, param.max);
    };
    /** Get/extract a hardcoded string or an attribute */
    private getString = (param: TString): string => {
@@ -152,27 +156,18 @@ export class EnemyActionExecutor {
    // Util to check if a specfic button is pressed.
    private isButtonPressed = (button: TInputButton): boolean => {
       switch(button) {
-         case "left":
-            return this.leftPressed();
-         case "right":
-            return this.rightPressed();
-         case "up":
-            return this.upPressed();
-         case "down":
-            return this.downPressed();
+         case "left": return this.leftPressed();
+         case "right": return this.rightPressed();
+         case "up": return this.upPressed();
+         case "down": return this.downPressed();
 
-         case "shoot":
-            return this.shootPressed();
-         case "laser":
-            return this.laserPressed();
-         case "start":
-            return this.startPressed();
+         case "shoot": return this.shootPressed();
+         case "laser": return this.laserPressed();
+         case "start": return this.startPressed();
       }
    };
 
-   private *makeGenerator(
-      actions: TAction[] = []
-   ): Generator<void, void, void> {
+   private *makeGenerator(actions: TAction[] = []): Generator<void, void, void> {
       let currIndex = 0;
       const nrActions = actions.length;
 
@@ -218,7 +213,16 @@ export class EnemyActionExecutor {
 
             case AT.setAttribute: {
                const { gameObjectId: GOID, attribute, value } = currAction;
-               this.attrs.setAttribute({ gameObjectId: GOID ?? this.enemy.id, attribute, value });
+               // TODO: Maybe I could use this.getNumber here to reuse code?
+               if(typeof value === "object" && "min" in value) {
+                  this.attrs.setAttribute({
+                     gameObjectId: GOID ?? this.enemy.id,
+                     attribute,
+                     value: this.pseudoRandom.randomInt(value.min, value.max),
+                  });
+               } else {
+                  this.attrs.setAttribute({gameObjectId: GOID ?? this.enemy.id, attribute, value });
+               }
                break;
             }
 

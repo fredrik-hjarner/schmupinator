@@ -19,7 +19,7 @@ export const apple = createGameObject({
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "circle" },
       { type: AT.incr, attribute: "speed", amount: 0 },
-      wait(60 * 5),
+      wait(60 * 10),
       { type: AT.despawn },
    ]
 });

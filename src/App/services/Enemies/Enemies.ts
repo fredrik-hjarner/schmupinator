@@ -11,6 +11,7 @@ import type { IInput } from "../Input/IInput";
 import type { Settings } from "../Settings/Settings";
 import type { TAction } from "./actions/actionTypes.ts";
 import type { IAttributes } from "../Attributes/IAttributes";
+import type { IPseudoRandom } from "../PseudoRandom/IPseudoRandom.ts";
 
 import { ActionType as AT } from "./actions/actionTypes.ts";
 import { Enemy } from "./Enemy.ts";
@@ -31,6 +32,7 @@ export class Enemies implements IService {
    public gamepad!: GamePad;
    public settings!: Settings;
    public attributes!: IAttributes;
+   public pseudoRandom!: IPseudoRandom;
 
    /**
     * Public
@@ -59,6 +61,7 @@ export class Enemies implements IService {
       this.gamepad = deps?.gamepad!;
       this.settings = deps?.settings!;
       this.attributes = deps?.attributes!;
+      this.pseudoRandom = deps?.pseudoRandom!;
       /* eslint-enable @typescript-eslint/no-non-null-asserted-optional-chain */
 
       this.events.subscribeToEvent(this.name, this.handleEvent);

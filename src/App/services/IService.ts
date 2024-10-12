@@ -18,6 +18,7 @@ import type { IUI } from "./UI/IUI";
 import type { IFullscreen } from "./Fullscreen/IFullscreen";
 import type { IOutsideHider } from "./OutsideHider/IOutsideHider";
 import type { IAttributes } from "./Attributes/IAttributes";
+import type { IPseudoRandom } from "./PseudoRandom/IPseudoRandom.ts";
 
 export type TInitParams = Partial<{
   e2eTest: IE2eTest;
@@ -38,6 +39,7 @@ export type TInitParams = Partial<{
   highscore: Highscore;
   gameData: GameData;
   graphics: IGraphics;
+  pseudoRandom: IPseudoRandom;
   ui: IUI;
   fullscreen: IFullscreen;
   outsideHider: IOutsideHider;

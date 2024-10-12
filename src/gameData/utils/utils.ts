@@ -1,5 +1,5 @@
 import type {
-   TAction, TAttrIf, TFork, TMoveToAbsolute, TNumber, TRepeat, TSetShotSpeed, TSetSpeed,
+   TAction, TAttrIf, TFork, TMoveToAbsolute, TNumber, TRandomInt, TRepeat, TSetShotSpeed, TSetSpeed,
    TSpawn, TWait, TparallelAll, TparallelRace
 } from "../../App/services/Enemies/actions/actionTypes.ts";
 import type { TGameObject } from "@/gameTypes/TGameObject";
@@ -103,8 +103,8 @@ export const setSpeed = (pixelsPerFrame: number): TSetSpeed => ({
 });
 
 type TSpawnParams = {
-   x?: number;
-   y?: number;
+   x?: number | TRandomInt;
+   y?: number | TRandomInt;
    actions?: (TAction)[]
 }
 export const spawn = (enemy: string, params?: TSpawnParams): TSpawn => ({

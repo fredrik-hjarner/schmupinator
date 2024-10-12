@@ -82,12 +82,15 @@ export enum ActionType {
  */
 type TAttrGetter = Readonly<{ gameObjectId?: string, attr: TAttrName }>;
 
+// Allows to ranomize a param where the action's param is a number.
+export type TRandomInt = Readonly<{ min: number, max: number }>;
+
 /**
  * Types for primitive values.
  * Instead of using "bool" use TBool (etc) so that an action can either take a hardcoded value
  * or get the value from an attribute.
  */
-export type TNumber = Readonly<number | TAttrGetter>;
+export type TNumber = Readonly<number | TAttrGetter | TRandomInt>;
 export type TString = Readonly<string | TAttrGetter>;
 export type TBool = Readonly<boolean | TAttrGetter>;
 
@@ -116,6 +119,7 @@ export type TMoveDelta =           Readonly<{ type: ActionType.moveDelta, x?: nu
 // Move to an absolute postion on screen.
 export type TMoveToAbsolute =      Readonly<{ type: ActionType.moveToAbsolute,
                                                 moveTo: Partial<Vector>, frames: number }>;
+// TODO: Make it possible to randomize the position maybe
 export type TSetPosition =         Readonly<{ type: ActionType.set_position,
                                                 x: number, y: number }>;
 // TODO: Remove TSetSpeed
@@ -138,8 +142,13 @@ export type TRotateTowardsPlayer = Readonly<{ type: ActionType.rotate_towards_pl
 export type TMoveAccordingToSpeedAndDirection =
                                        { type: ActionType.move_according_to_speed_and_direction };
 // Spawns an enemy. actions are prepended to the actions of the particular enemy.
+// TODO: Maybe I should allow PseudoRandom.randomInt here?
 export type TSpawn = {
-   type: ActionType.spawn, enemy: string, x?: number, y?: number, actions?: TAction[]
+   type: ActionType.spawn,
+   enemy: string,
+   x?: number | TRandomInt,
+   y?: number| TRandomInt,
+   actions?: TAction[]
 };
 // Simple if-equals case. Executes yes if true. Executs no when false.
 export type TAttrIf = {
@@ -170,8 +179,12 @@ export type TDespawn = { type: ActionType.despawn };
  * Attributes can be either some predefined thing by me such as hp, points,
  * or it could be  end-user specified variable with any type.
  */
-export type TSetAttribute =
-   { type: ActionType.setAttribute, gameObjectId?: string, attribute: TAttrName, value: TAttrValue};
+export type TSetAttribute = {
+   type: ActionType.setAttribute,
+   gameObjectId?: string,
+   attribute: TAttrName,
+   value: TAttrValue | TRandomInt
+};
 /**
  * Waits until Enemy is outside the screen/game window.
  * margin is how many pixels the GameObject needs to be outside the screen.
