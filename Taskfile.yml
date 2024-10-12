@@ -23,17 +23,36 @@ tasks:
       - npx eslint src
       - echo "eslint finished"
 
+  eslint-deno:
+    sources: [src/**/*.ts]
+    cmds:
+      - echo "eslint started"
+      - deno run -A npm:typescript@*/tsc
+      - deno run -A npm:eslint src
+      - echo "eslint finished"
+
   eslint-bun:
     sources: [src/**/*.ts]
     cmds:
       - echo "eslint started"
-      - bun run tsc
-      - bun run eslint src
+      - bun x tsc
+      - bun x eslint src
       - echo "eslint finished"
 
   lint-e2e-watch: task --parallel --watch eslint-bun e2e-bun
 
-  serve: npm run dev
+  serve-node: npx vite --port 3000 --open
+
+  serve-deno: deno run -A npm:vite --port 3000 --open
+
+  serve-bun: bun x --bun vite --port 3000 --open
+
+  build-node: npx vite build
+
+  # Terser does not seem to be able to run in Deno / 2024-10-12 
+  build-deno: deno run -A npm:vite build
+
+  build-bun: bun x --bun vite build
 
   start:
-    deps: [serve, lint-e2e-watch]
+    deps: [serve-bun, lint-e2e-watch]

@@ -6,7 +6,8 @@ import { centerHorizontally } from "./utils/centering.ts";
 import { createText } from "./components/atoms/text.ts";
 import { Menu } from "./components/molecules/Menu.ts";
 import { fontSizes } from "./consts/fontSizes.ts";
-import packageJson from "../../../../../package.json" assert { type: "json" };
+// TODO: This will only work once ESLINT supports the new `with` keyword.
+// import packageJson from "../../../../../package.json" with { type: "json" };
 
 type TConstructor = {
    ui: UI;
@@ -56,7 +57,8 @@ export class StartGame implements IScene {
       this.menu.render();
 
       this.version = createText({
-         text: packageJson.version,
+         // text: packageJson.version,
+         text: "0.0.7",
          fontSize: fontSizes.smallest,
          top: 225,
          // top: 0,
