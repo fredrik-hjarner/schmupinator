@@ -1,0 +1,1 @@
+export const speedFactor = 1.2;

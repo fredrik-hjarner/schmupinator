@@ -9,6 +9,7 @@ import {
    spawn,
    wait
 } from "../../utils/utils.ts";
+import { speedFactor } from "./speedFactor.ts";
 
 const snakeSize = 17;
 
@@ -87,7 +88,7 @@ export const player = createGameObject({
    actions: [
       fork(forever(
          { type: AT.waitUntilCollision, collisionTypes: ["apple"] },
-         { type: AT.incr, gameObjectId: "global", attribute: "ttl", amount: 40 },
+         { type: AT.incr, gameObjectId: "global", attribute: "ttl", amount: 45 },
          wait(1),
       )),
       { type: AT.setAttribute, gameObjectId: "global", attribute: "ttl", value: 10 },
@@ -104,13 +105,13 @@ export const player = createGameObject({
       { type: AT.setAttribute, attribute: "boundToWindow", value: false },
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "circle" },
-      { type: AT.incr, attribute: "speed", amount: 0.6 },
+      { type: AT.incr, attribute: "speed", amount: 0.6 * speedFactor },
       // controls
       ...defaultDirectionalControlsActions,
       // setup screen wrapping
       ...dieWhenTouchScreenBorders,
       fork(forever(
-         wait(19),
+         wait(Math.round(19/speedFactor)),
          spawn("snakeBody"),
       )),
    ]

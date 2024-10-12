@@ -439,3 +439,7 @@ events.
 * Upgrade to use deno version when possible. would be too much of an effort today.
 
 * ~~Separate collision diameter nad gfx diameter~~ Done, I think.
+
+* Why did I decide to have enums for the action types? I don't get good code completion that way.
+  Maybe I needed them for something but maybe then typescript improved so that I don't need them?
+  Maybe I should change to either constants or raw strings.

@@ -5,6 +5,7 @@ import {
    createGameObject,
    wait
 } from "../../utils/utils.ts";
+import { speedFactor } from "./speedFactor.ts";
 
 const shrinkDiameter = (diameter: number, waitAmount: number): TAction[] => [
    { type: AT.setAttribute, attribute: "diameter", value: diameter },
@@ -13,7 +14,7 @@ const shrinkDiameter = (diameter: number, waitAmount: number): TAction[] => [
 ];
 
 const size = 15;
-const w = 8;
+const w = Math.round(8 / speedFactor);
 const shrinkAmount = 0.5;
 
 const shrinkAndDie: TAction[] = [
