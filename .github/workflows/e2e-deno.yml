@@ -29,7 +29,7 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           # Targets the latest major, minor and patch version of Deno.
-          deno-version: v1.46.3
+          deno-version: vx.x.x
 
       - name: Run e2e
         run: deno task e2e
