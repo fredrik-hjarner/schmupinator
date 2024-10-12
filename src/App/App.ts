@@ -84,6 +84,7 @@ import { IsBrowser } from "@/drivers/BrowserDriver/IsBrowser.ts";
  * know if I should make this more consistent by, for example, removing this and placing all of
  * these in the Settings service instead.
  * I only care about "release" if this is executed in the browser.
+ * I also may need to get this to work with Bun if I want to use Bun.
  */
 const isRelease = IsBrowser() ? import.meta.env.MODE === "release" : false;
 

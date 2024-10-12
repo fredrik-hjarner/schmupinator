@@ -56,19 +56,23 @@ const dieWhenTouchScreenBorders: TAction[] = [
    fork(forever(
       // horizontal
       attr("x", { condition: "greaterThan", value: 357 - snakeSize/2, yes: [
-         { type: AT.setAttribute, attribute: "hp", value: 0 },
+         { type: AT.finishLevel },
+         { type: AT.despawn },
       ] }),
       attr("x", { condition: "lessThan", value: 0 + snakeSize/2, yes: [
-         { type: AT.setAttribute, attribute: "hp", value: 0 },
+         { type: AT.finishLevel },
+         { type: AT.despawn },
       ] }),
 
       // vertical
       attr("y", { condition: "greaterThan", value: 240 - snakeSize/2, yes: [
-         { type: AT.setAttribute, attribute: "hp", value: 0 },
+         { type: AT.finishLevel },
+         { type: AT.despawn },
       ] }),
 
       attr("y", { condition: "lessThan", value: 0 + snakeSize/2, yes: [
-         { type: AT.setAttribute, attribute: "hp", value: 0 },
+         { type: AT.finishLevel },
+         { type: AT.despawn },
       ] }),
 
       wait(1),
@@ -81,18 +85,12 @@ export const player = createGameObject({
    hp: 1,
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
    actions: [
-      // TODO: There are no enemies or enemyBullets in this game.
-      // Maybe I could have wall enemies though.
-      // fork(forever(
-      //    { type: AT.waitUntilCollision, collisionTypes: ["enemy", "enemyBullet"] },
-      //    { type: AT.decr, attribute: "hp" },
-      //    wait(1),
-      // )),
-      fork(
-         { type: AT.waitUntilAttrIs, attr: "hp", is: 0 },
-         { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
-         { type: AT.despawn },
-      ),
+      fork(forever(
+         { type: AT.waitUntilCollision, collisionTypes: ["apple"] },
+         { type: AT.incr, gameObjectId: "global", attribute: "ttl", amount: 40 },
+         wait(1),
+      )),
+      { type: AT.setAttribute, gameObjectId: "global", attribute: "ttl", value: 10 },
       //set points to 0, otherwise you get points when the player dies since default is 10 currently
       { type: AT.setAttribute, attribute: "points", value: 0 },
       { type: AT.gfxSetColor, color: "aqua" },

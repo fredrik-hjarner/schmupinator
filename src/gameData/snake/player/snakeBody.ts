@@ -17,7 +17,7 @@ const w = 8;
 const shrinkAmount = 0.5;
 
 const shrinkAndDie: TAction[] = [
-   wait(30*3),
+   wait({ gameObjectId: "global", attr: "ttl" }),
    ...shrinkDiameter(size - shrinkAmount, w),
    ...shrinkDiameter(size - 2*shrinkAmount, w),
    ...shrinkDiameter(size - 3*shrinkAmount, w),

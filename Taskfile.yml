@@ -50,5 +50,7 @@ tasks:
   build-deno: deno run -A npm:vite build
   build-bun: bun x --bun vite build
 
+  bun-build: bun build ./src/main.ts --outdir dist --public-path /schmupinator/
+
   start:
     deps: [serve-bun, lint-e2e-watch]
