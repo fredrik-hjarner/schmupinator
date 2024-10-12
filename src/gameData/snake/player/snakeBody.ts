@@ -3,6 +3,7 @@ import type { TAction } from "../../../App/services/Enemies/actions/actionTypes.
 import { ActionType as AT } from "../../../App/services/Enemies/actions/actionTypes.ts";
 import {
    createGameObject,
+   fork,
    wait
 } from "../../utils/utils.ts";
 import { speedFactor } from "./speedFactor.ts";
@@ -49,8 +50,11 @@ export const snakeBody = createGameObject({
       { type: AT.setAttribute, attribute: "boundToWindow", value: false },
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "none" },
-      wait(4),
-      { type: AT.setAttribute, attribute: "collisionType", value: "player" },
+      wait(Math.round(4/speedFactor)),
+      fork(
+         wait(Math.round(30/speedFactor)),
+         { type: AT.setAttribute, attribute: "collisionType", value: "snakeBody" },
+      ),
       { type: AT.gfxSetShape, shape: "circle" },
       { type: AT.incr, attribute: "speed", amount: 0 },
       ...shrinkAndDie,

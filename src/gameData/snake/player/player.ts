@@ -91,6 +91,11 @@ export const player = createGameObject({
          { type: AT.incr, gameObjectId: "global", attribute: "ttl", amount: 45 },
          wait(1),
       )),
+      fork(
+         { type: AT.waitUntilCollision, collisionTypes: ["snakeBody"] },
+         { type: AT.finishLevel },
+         { type: AT.despawn },
+      ),
       { type: AT.setAttribute, gameObjectId: "global", attribute: "ttl", value: 10 },
       //set points to 0, otherwise you get points when the player dies since default is 10 currently
       { type: AT.setAttribute, attribute: "points", value: 0 },
