@@ -106,13 +106,13 @@ export const player = createGameObject({
       { type: AT.setAttribute, attribute: "boundToWindow", value: false },
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "circle" },
-      { type: AT.incr, attribute: "speed", amount: 0.5 },
+      { type: AT.incr, attribute: "speed", amount: 0.6 },
       // controls
       ...defaultDirectionalControlsActions,
       // setup screen wrapping
       ...dieWhenTouchScreenBorders,
       fork(forever(
-         wait(25),
+         wait(19),
          spawn("snakeBody"),
       )),
    ]

@@ -12,25 +12,25 @@ const shrinkDiameter = (diameter: number, waitAmount: number): TAction[] => [
    wait(waitAmount),
 ];
 
-const w = 10;
+const size = 15;
+const w = 8;
 const shrinkAmount = 0.5;
 
 const shrinkAndDie: TAction[] = [
    wait(30*3),
-   ...shrinkDiameter(17 - shrinkAmount, w),
-   ...shrinkDiameter(17 - 2*shrinkAmount, w),
-   ...shrinkDiameter(17 - 3*shrinkAmount, w),
-   ...shrinkDiameter(17 - 4*shrinkAmount, w),
-   ...shrinkDiameter(17 - 5*shrinkAmount, w),
-   ...shrinkDiameter(17 - 6*shrinkAmount, w),
-   ...shrinkDiameter(17 - 7*shrinkAmount, w),
+   ...shrinkDiameter(size - shrinkAmount, w),
+   ...shrinkDiameter(size - 2*shrinkAmount, w),
+   ...shrinkDiameter(size - 3*shrinkAmount, w),
+   ...shrinkDiameter(size - 4*shrinkAmount, w),
+   ...shrinkDiameter(size - 5*shrinkAmount, w),
+   ...shrinkDiameter(size - 6*shrinkAmount, w),
+   ...shrinkDiameter(size - 7*shrinkAmount, w),
    { type: AT.despawn },
 ];
 
-
 export const snakeBody = createGameObject({
    name: "snakeBody",
-   diameter: 17,
+   diameter: size,
    hp: 1,
    // onDeathAction: { type: AT.finishLevel }, // TODO: finishLevel should maybe be called gameOver.
    options: { despawnWhenOutsideScreen: false, defaultDirectionalControls: false },
@@ -44,11 +44,12 @@ export const snakeBody = createGameObject({
       // which is contra-intuitive. Should prolly not be set
       // automaticallt on tick, but need to be set explicitly.
       { type: AT.setMoveDirection, degrees: 90 },
-      { type: AT.setAttribute, attribute: "collisionType", value: "player" },
+      { type: AT.setAttribute, attribute: "collisionType", value: "none" },
       { type: AT.setAttribute, attribute: "boundToWindow", value: false },
       // The following line is just a hack to hide the player initially.
       { type: AT.gfxSetShape, shape: "none" },
-      wait(1),
+      wait(4),
+      { type: AT.setAttribute, attribute: "collisionType", value: "player" },
       { type: AT.gfxSetShape, shape: "circle" },
       { type: AT.incr, attribute: "speed", amount: 0 },
       ...shrinkAndDie,
